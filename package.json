@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^3.0.1",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@studiometa/vue-mapbox-gl": "^2.1.1",
     "@vue/cli-shared-utils": "^5.0.8",
     "firebase": "^10.1.0",
