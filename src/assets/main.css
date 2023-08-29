@@ -1,0 +1,181 @@
+@import './variables.css';
+
+#app {
+  max-width: none;
+  min-width: calc(1024px - 4%);
+  margin: 0 auto;
+  padding: 2%;
+  font-weight: normal;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  font-family: Cambria;
+  font-size: 15px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+}
+
+h3 {
+  font-size: 21px;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+}
+
+label {
+  font-size: 15px;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a:not(.tab-router-link) {
+  color: var(--vt-c-white-mute);
+}
+
+a:not(.tab-router-link):hover {
+  background-color: var(--vt-c-white-mute);
+  color: var(--vt-c-black);
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 17px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+input[type="date"],
+select {
+  font-family: Cambria;
+  font-size: 14px;
+  resize: none;
+}
+
+.vue-notification .notification-title {
+  font-size: 18px;
+}
+
+.vue-notification .notification-content {
+  font-size: 14px;
+}
+
+.site-section {
+  border-radius: 12px;
+  border: 4px solid var(--site-section-border-color);
+  padding: 25px;
+}
+
+.italicized {
+  font-style: italic;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.divider {
+  border-width: 3px;
+  margin-block-start: 15px;
+  margin-block-end: 15px;
+  border-style: solid;
+}
+
+.light-divider {
+  border-width: 1px;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  border-style: solid;
+}
+
+.color-transition:not(:disabled) {
+  transition: linear background-color 0.2s, linear color 0.2s;
+}
+
+button:disabled, input:disabled {
+  pointer-events: none;
+  cursor: default;
+  color: var(--vt-c-text-dark-2);
+}
+
+.login-button {
+  width: 40%;
+  height: 50px;
+  font-weight: bold;
+  border-radius: 12px;
+  border-style: solid;
+  background-color: var(--login-form-buttons-background-color);
+  color: var(--login-form-buttons-text-color);
+}
+
+.login-button.short {
+  width: 200px;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: var(--login-form-buttons-background-color-active);
+  color: var(--login-form-buttons-text-color-active);
+  cursor: pointer;
+}
+
+.custom-button {
+  width: 70px;
+  border-radius: 6px;
+  padding: 5px;
+  background-color: var(--navbar-background-color);
+  border-style: solid;
+  cursor: pointer;
+}
+
+.custom-button.wider {
+  width: 150px;
+  height: 35px;
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 7px;
+}
+
+.custom-button:active {
+  background-color: var(--navbar-tab-background-color-hover);
+}
+
+input.login-input {
+  width: 55%;
+  font-size: 20px;
+  margin-bottom: 21px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.dropdown-info-box {
+  border: 3px solid var(--vt-c-indigo);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.dropdown-info-box > *:first-child {
+  cursor: pointer;
+}
+
+.dropdown-info-box:not(.open):hover {
+  background-color: var(--vt-c-white-mute);
+  color: var(--vt-c-black);
+}
+
+.dropdown-info-box:not(.open) *:not(:first-child) {
+  display: none;
+}
