@@ -28,15 +28,16 @@
             where from.
             Be sure to leave your mark!
         </p>
-        <p class="underlined">
+        <p class="large-text">
             <b>- Ramiro, admin at The Micronational Directory</b>
         </p>
+        <hr class="divider">
         <div class="bottom-container">
             <div class="bottom-side-container">
                 <h3 class="large-margin">
                     Special thanks to
                 </h3>
-                <div class="listing-container">
+                <div class="scrollable-container">
 
                 </div>
             </div>
@@ -44,7 +45,7 @@
                 <h3 class="large-margin">
                     TMD is featured in
                 </h3>
-                <div class="listing-container">
+                <div class="scrollable-container">
                     <div class="listing-entry">
                         <img src="/images/micronaciones.png" alt="Micronaciones.com" width="180px" height="52px">
                         <p><a href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
@@ -82,7 +83,12 @@ export default {
   
 <style scoped>
 .large-margin {
-    margin: 30px 0 20px 0;
+    margin: 20px 0 20px 0;
+}
+
+.large-text {
+    margin: 20px 0 30px 0;
+    font-size: 17px;
 }
 
 .bottom-container {
@@ -93,12 +99,13 @@ export default {
 .bottom-side-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 50%;
 }
 
-.listing-container {
-    display: flex;
-    flex-direction: column;
+.scrollable-container {
+    padding: 0 10px 0 10px;
+    width: 90%;
 }
 
 .listing-entry {

@@ -179,3 +179,16 @@ input.login-input {
 .dropdown-info-box:not(.open) *:not(:first-child) {
   display: none;
 }
+
+.scrollable-container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  border: 3px solid var(--vt-c-indigo);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  min-height: 350px;
+  max-height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

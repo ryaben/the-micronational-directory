@@ -9,7 +9,7 @@ import { auth } from '../firebase/init.js';
         <div class="stats-container">
             <h2>Directory Statistics</h2>
             <p class="stats-entry main">Total micronations: <b>{{ micronationsDirectory.length }}</b></p>
-            <div class="statistics-table directory">
+            <div class="scrollable-container statistics-table directory">
                 <p class="table-header">Type</p>
                 <p class="table-header">Language</p>
                 <p class="table-header">Membership</p>
@@ -35,7 +35,7 @@ import { auth } from '../firebase/init.js';
                 <p class="contributor-contributions">{{ countContributions(micronationsDirectory,
                     "themicronationaldirectory@gmail.com") }}</p>
             </div>
-            <div class="contributors-ranking">
+            <div class="scrollable-container contributors-ranking">
                 <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
                     :class="{ 'current-user': contributor.email === user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
                     <p class="contributor-rank">{{ i + 1 }}.</p>
@@ -163,20 +163,6 @@ export default {
     flex-direction: column;
     align-items: center;
     width: 50%;
-}
-
-.contributors-ranking,
-.statistics-table {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    border: 3px solid var(--vt-c-indigo);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    min-height: 350px;
-    max-height: 350px;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .statistics-table.directory {

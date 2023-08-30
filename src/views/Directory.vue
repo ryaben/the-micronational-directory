@@ -240,7 +240,9 @@ import { notify } from "@kyvg/vue3-notification";
     </section>
   </section>
 
-  <div id="goToTopButton" v-show="!fixedHeight" @click="scrollToTop">⬆️</div>
+  <Transition name="opacity">
+    <div id="goToTopButton" v-show="!fixedHeight" @click="scrollToTop">⬆️</div>
+  </Transition>
 </template>
 
 <script>
@@ -672,7 +674,6 @@ div.new-entry-type {
   font-size: 30px;
   background-color: var(--vt-c-text-dark-2);
   color: var(--vt-c-indigo);
-  opacity: 1;
   cursor: pointer;
 }
 

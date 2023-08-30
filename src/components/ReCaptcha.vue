@@ -1,5 +1,7 @@
 <script setup>
 import { VueRecaptcha } from 'vue-recaptcha';
+
+const siteKey = import.meta.env.VITE_RECAPTCHA_SITEKEY;
 </script>
 
 <template>
@@ -14,7 +16,6 @@ export default {
     },
     data() {
         return {
-            siteKey: "6Lcs9LAnAAAAAD6e4Oqe0K0ZWcI0zgRpnKMfhJq2"
         }
     },
     methods: {

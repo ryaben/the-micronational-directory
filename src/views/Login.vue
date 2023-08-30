@@ -1,6 +1,6 @@
 <script setup>
 import router from '../router/index';
-import { sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail, onAuthStateChanged, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { auth } from '../firebase/init.js';
 import { notify } from "@kyvg/vue3-notification";
 </script>
@@ -17,6 +17,7 @@ import { notify } from "@kyvg/vue3-notification";
                 placeholder="Email address">
             <input class="login-input" type="password" id="loginPassword" v-model="loginPassword" required
                 placeholder="Password">
+            <p id="forgotPassword" class="color-transition" @click="resetPassword">Forgot your password?</p>
             <div id="loginButtonsContainer">
                 <button class="login-button color-transition" @click="signup">Sign up</button>
                 <button class="login-button color-transition" @click="login">Log in</button>
@@ -31,7 +32,13 @@ export default {
         return {
             loginName: '',
             loginEmail: '',
-            loginPassword: ''
+            loginPassword: '',
+            errorMessages: {
+                'auth/email-already-in-use': 'There is an existing account registered with that address.',
+                'auth/invalid-email': 'The entered email is not valid, make sure to use @ and a domain.',
+                'auth/user-not-found': 'There is no account registered with that email address.',
+                'auth/wrong-password': 'The entered password is incorrect, please try again or reset it.'
+            }
         }
     },
     methods: {
@@ -43,7 +50,7 @@ export default {
             });
         },
         async signup() {
-            let that = this;
+            const that = this;
 
             createUserWithEmailAndPassword(auth, this.loginEmail, this.loginPassword)
                 .then((data) => {
@@ -64,32 +71,16 @@ export default {
                         );
                 })
                 .catch(error => {
-                    switch (error.code) {
-                        case 'auth/email-already-in-use':
-                            notify({
-                                title: "Error while signing up",
-                                text: "There is an existing account registered with that address.",
-                                type: "error"
-                            });
-                            break;
-                        case 'auth/invalid-email':
-                            notify({
-                                title: "Error while signing up",
-                                text: "The entered email is not valid, make sure to use @ and a domain.",
-                                type: "error"
-                            });
-                            break;
-                        default:
-                            notify({
-                                title: "Error while signing up",
-                                text: error.code,
-                                type: "error"
-                            });
-                            break;
-                    }
+                    notify({
+                        title: "Error while signing up",
+                        text: that.errorMessages[error.code],
+                        type: "error"
+                    });
                 });
         },
         async login() {
+            const that = this;
+
             setPersistence(auth, browserLocalPersistence)
                 .then(() => {
                     signInWithEmailAndPassword(auth, this.loginEmail, this.loginPassword)
@@ -103,38 +94,40 @@ export default {
                             router.push('/profile');
                         })
                         .catch(error => {
-                            switch (error.code) {
-                                case 'auth/invalid-email':
-                                    notify({
-                                        title: "Error while logging in",
-                                        text: "The entered email is not valid, make sure to use @ and a domain.",
-                                        type: "error"
-                                    });
-                                    break;
-                                case 'auth/user-not-found':
-                                    notify({
-                                        title: "Error while logging in",
-                                        text: "There is no account registered with that email address.",
-                                        type: "error"
-                                    });
-                                    break
-                                case 'auth/wrong-password':
-                                    notify({
-                                        title: "Error while logging in",
-                                        text: "The entered password is incorrect.",
-                                        type: "error"
-                                    });
-                                    break
-                                default:
-                                    alert('Email or password was incorrect.');
-                                    break
-                            }
+                            notify({
+                                title: "Error while logging in",
+                                text: that.errorMessages[error.code],
+                                type: "error"
+                            });
                         });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    alert(`${errorCode}: ${errorMessage}`);
+                    notify({
+                        title: errorCode,
+                        text: errorMessage,
+                        type: "error"
+                    });
+                });
+        },
+        async resetPassword() {
+            const that = this;
+
+            sendPasswordResetEmail(auth, this.loginEmail)
+                .then(() => {
+                    notify({
+                        title: "Reset password",
+                        text: "We've sent an email to reset your password, please check your inbox.",
+                        type: "success"
+                    });
+                })
+                .catch((error) => {
+                    notify({
+                        title: "Error while resetting password",
+                        text: that.errorMessages[error.code],
+                        type: "error"
+                    });
                 });
         }
     },
@@ -174,9 +167,27 @@ export default {
     margin-bottom: 20px;
 }
 
+#loginPassword {
+    margin-bottom: 10px;
+}
+
+#forgotPassword {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 3px 5px 3px 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#forgotPassword:hover {
+    background-color: var(--navbar-tab-background-color-hover);
+    color: var(--navbar-text-color-hover);
+}
+
 #loginButtonsContainer {
     display: flex;
     justify-content: space-evenly;
-    width: 55%;
+    width: 65%;
 }
 </style>

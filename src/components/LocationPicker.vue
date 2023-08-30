@@ -1,9 +1,7 @@
 <script setup>
-import { ref } from 'vue';
 import { MapboxMap, MapboxMarker, MapboxNavigationControl } from '@studiometa/vue-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const map = ref();
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
 defineProps({
@@ -38,7 +36,7 @@ defineProps({
 <template>
     <div class="mapbox-container" :style="visible ? 'display: none;' : 'display: flex;'">
         <MapboxMap :style="{ 'height': height, 'width': width }" :access-token="mapboxToken" ref="mapbox"
-            map-style="mapbox://styles/mapbox/streets-v11" @mb-created="(mapboxInstance) => map = mapboxInstance">
+            map-style="mapbox://styles/ramayaben/clldsj3t701e101mf8buwfsad" @mb-created="(mapboxInstance) => map = mapboxInstance">
             <MapboxMarker v-if="mode === 'picker'" id="mapboxMarker" :lng-lat="markerPosition" popup draggable
                 @mb-dragend="updatePosition">
                 <template v-slot:popup>
@@ -48,7 +46,7 @@ defineProps({
             </MapboxMarker>
 
             <MapboxMarker v-if="mode === 'locationMap'" v-for="(marker, i) in collection" :key="i"
-                class="micronation-marker" :lng-lat="[marker.location.longitude, marker.location.latitude]" popup red>
+                class="micronation-marker" :lng-lat="[marker.location.longitude, marker.location.latitude]" popup>
                 <template v-slot:popup>
                     <p class="custom-marker" style="color: black; font-size: 12px; text-align: center;">{{ marker.name.main
                     }}, {{ marker.name.title }}</p>
