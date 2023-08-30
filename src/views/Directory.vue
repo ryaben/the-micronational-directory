@@ -3,6 +3,11 @@ import DirectoryEntry from '../components/DirectoryEntry.vue';
 import LocationPicker from '../components/LocationPicker.vue';
 import Recaptcha from '../components/ReCaptcha.vue';
 import store from '../store';
+import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
+import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, db } from '../firebase/init.js';
+import { notify } from "@kyvg/vue3-notification";
 </script>
 
 <template>
@@ -139,8 +144,8 @@ import store from '../store';
       </Transition>
 
       <button v-show="!newEntryView" id="newEntryOpener" class="login-button short color-transition"
-        :disabled="!this.user.emailVerified" @click="newEntryView = true" :key="this.componentKey">Add new entry</button>
-      <label v-if="!this.user.emailVerified" :key="this.componentKey">(Available for <a href="/login">registered users
+        :disabled="!user.emailVerified" @click="newEntryView = true" :key="componentKey">Add new entry</button>
+      <label v-if="!user.emailVerified" :key="componentKey">(Available for <a href="/login">registered users
           with verified email</a> only)</label>
     </div>
 
@@ -156,7 +161,7 @@ import store from '../store';
                 <option value="none">No filter</option>
               </optgroup>
               <optgroup class="letters-group">
-                <option :value="letter" v-for="(letter, i) in this.filterLetters" :key="i">{{ letter }}</option>
+                <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
               </optgroup>
             </select>
             <input id="filterInput" ref="filterInput" type="text" @input="filterEntries">
@@ -166,13 +171,13 @@ import store from '../store';
           <label>Sort:</label>
           <div>
             <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
-              @change="sortMicronations(this.micronationsDirectory, 'ascending'); forceRerender()">
+              @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
             <label for="sortA-Z">A-Z</label>
             <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
-              @change="sortMicronations(this.micronationsDirectory, 'descending'); forceRerender()">
+              @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
             <label for="sortZ-A">Z-A</label>
             <input type="radio" id="sortRandom" name="directory-sorting" value="random"
-              @change="sortMicronations(this.micronationsDirectory, 'random'); forceRerender()">
+              @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
             <label for="sortRandom">Random</label>
           </div>
         </div>
@@ -189,7 +194,7 @@ import store from '../store';
           <div>
             <input type="range" min="50" max="350" value="180" class="slider" id="zoomRange" ref="zoomRange"
               @change="updateZoom">
-            <label>{{ this.entryWidth }}px</label>
+            <label>{{ entryWidth }}px</label>
           </div>
         </div>
         <div class="settings-subcontainer">
@@ -202,11 +207,11 @@ import store from '../store';
         <label>Loading Directory...</label>
       </div>
 
-      <div v-show="this.viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="this.componentKey" :class="{ 'fixed-height': this.fixedHeight }">
+      <div v-show="viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
         <TransitionGroup name="opacity">
           <DirectoryEntry
-            v-for="(item, i) in this.micronationsDirectory.filter(element => element.searchDisplay && element.filterDisplay)"
-            :key="i" :width="entryWidth" :flag-height="this.entryWidth * 0.6" :view-mode="this.viewMode" :info="{
+            v-for="(item, i) in micronationsDirectory.filter(element => element.searchDisplay && element.filterDisplay)"
+            :key="i" :width="entryWidth" :flag-height="entryWidth * 0.6" :view-mode="viewMode" :info="{
               id: item.id,
               name: {
                 main: item.name.main,
@@ -230,21 +235,15 @@ import store from '../store';
         </TransitionGroup>
       </div>
 
-      <LocationPicker v-show="this.viewMode === 'map'" ref="micronationsMap" mode="locationMap"
+      <LocationPicker v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
         :collection="physicalMicronationsDirectory" width="90%" height="40vw" />
     </section>
   </section>
 
-  <div id="goToTopButton" v-show="!this.fixedHeight" @click="this.scrollToTop">⬆️</div>
+  <div id="goToTopButton" v-show="!fixedHeight" @click="scrollToTop">⬆️</div>
 </template>
 
 <script>
-import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
-import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../firebase/init.js';
-import { notify } from "@kyvg/vue3-notification";
-
 export default {
   data: () => {
     return {

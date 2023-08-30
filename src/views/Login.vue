@@ -1,5 +1,8 @@
 <script setup>
 import router from '../router/index';
+import { sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { auth } from '../firebase/init.js';
+import { notify } from "@kyvg/vue3-notification";
 </script>
 
 <template>
@@ -23,10 +26,6 @@ import router from '../router/index';
 </template>
 
 <script>
-import { sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, setPersistence, browserLocalPersistence } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
-import { notify } from "@kyvg/vue3-notification";
-
 export default {
     data() {
         return {

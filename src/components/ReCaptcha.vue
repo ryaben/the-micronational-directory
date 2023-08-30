@@ -3,7 +3,7 @@ import { VueRecaptcha } from 'vue-recaptcha';
 </script>
 
 <template>
-    <VueRecaptcha :sitekey="this.siteKey" :load-recaptcha-script="true" @expired="handleExpire" @verify="handleSuccess" @error="handleError" :badge="'inline'" />
+    <VueRecaptcha :sitekey="siteKey" :load-recaptcha-script="true" @expired="handleExpire" @verify="handleSuccess" @error="handleError" :badge="'inline'" />
 </template>
   
 <script>

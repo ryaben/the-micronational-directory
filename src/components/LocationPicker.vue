@@ -36,10 +36,10 @@ defineProps({
 </script>
 
 <template>
-    <div class="mapbox-container" :style="this.visible ? 'display: none;' : 'display: flex;'">
-        <MapboxMap :style="{ 'height': this.height, 'width': this.width }" :access-token="mapboxToken" ref="mapbox"
+    <div class="mapbox-container" :style="visible ? 'display: none;' : 'display: flex;'">
+        <MapboxMap :style="{ 'height': height, 'width': width }" :access-token="mapboxToken" ref="mapbox"
             map-style="mapbox://styles/mapbox/streets-v11" @mb-created="(mapboxInstance) => map = mapboxInstance">
-            <MapboxMarker v-if="this.mode === 'picker'" id="mapboxMarker" :lng-lat="this.markerPosition" popup draggable
+            <MapboxMarker v-if="mode === 'picker'" id="mapboxMarker" :lng-lat="markerPosition" popup draggable
                 @mb-dragend="updatePosition">
                 <template v-slot:popup>
                     <p style="color: black; font-size: 12px; text-align: center;">The micronation (or its founder) are based
@@ -47,7 +47,7 @@ defineProps({
                 </template>
             </MapboxMarker>
 
-            <MapboxMarker v-if="this.mode === 'locationMap'" v-for="(marker, i) in this.collection" :key="i"
+            <MapboxMarker v-if="mode === 'locationMap'" v-for="(marker, i) in collection" :key="i"
                 class="micronation-marker" :lng-lat="[marker.location.longitude, marker.location.latitude]" popup red>
                 <template v-slot:popup>
                     <p class="custom-marker" style="color: black; font-size: 12px; text-align: center;">{{ marker.name.main

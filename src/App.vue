@@ -9,13 +9,7 @@ import store from './store';
     <p id="slogan">The ultimate worldwide directory of micronations from all over history.</p>
   </header>
 
-  <Navbar :buttons="[
-    { text: 'Home', icon: 'home.png', route: 'Home' },
-    { text: 'Directory', icon: 'directory.png', route: 'Directory' },
-    { text: 'Stats', icon: 'stats.png', route: 'Stats' },
-    { text: 'Profile', icon: 'profile.png', route: 'Login' },
-    { text: 'About', icon: 'about.png', route: 'About' }
-  ]" />
+  <Navbar :buttons="navbarButtons" />
 
   <main>
     <router-view />
@@ -34,8 +28,7 @@ import store from './store';
         data-dnt="true" data-show-count="false">Follow @the_micro_direc</a>
       <a class="anchor-button" id="sendEmail"
         href="mailto:themicronationaldirectory@gmail.com">themicronationaldirectory@gmail.com</a>
-      <a class="anchor-button" id="openSourceCode" href="https://github.com/ryaben/the-micronational-directory"
-        target="_blank">Source code in Github</a>
+        <a class="anchor-button" id="openSourceCode" href="https://github.com/ryaben/the-micronational-directory" target="_blank">Source code in Github</a>
     </div>
 
     <div class="settings">
@@ -61,6 +54,13 @@ export default {
   },
   data() {
     return {
+      navbarButtons: [
+        { text: 'Home', icon: 'home.png', route: 'Home' },
+        { text: 'Directory', icon: 'directory.png', route: 'Directory' },
+        { text: 'Stats', icon: 'stats.png', route: 'Stats' },
+        { text: 'Profile', icon: 'profile.png', route: 'Login' },
+        { text: 'About', icon: 'about.png', route: 'About' }
+      ],
     }
   },
   async mounted() {
@@ -103,8 +103,7 @@ footer {
   margin-top: 20px;
 }
 
-footer label[for="darkModeCheckbox"],
-#languageSelect {
+footer label[for="darkModeCheckbox"], #languageSelect {
   font-size: 15px;
   width: 100px;
   padding: 5px;

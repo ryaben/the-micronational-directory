@@ -25,56 +25,56 @@ defineProps({
 
 <template>
     <div class="directory-entry-container"
-        :class="{ 'collage-mode': this.viewMode === 'collage', 'info-displayed': this.infoView }" :style="cssProps"
+        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
         @click="toggleInfo">
 
-        <img :src="this.info.flag" class="entry-flag" :style="{ 'height': this.flagHeight + 'px' }" alt="Flag">
+        <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
         <div v-show="viewMode !== 'collage'">
-            <p class="entry-text entry-name"><b>{{ this.info.name.main }}</b>,<br>{{ this.info.name.title }}</p>
-            <p v-if="this.info.name.mainAlt != '' || this.info.name.titleAlt != ''" class="entry-text entry-alt-name">(<b>{{
-                this.info.name.mainAlt }}</b>, {{ this.info.name.titleAlt }})</p>
+            <p class="entry-text entry-name"><b>{{ info.name.main }}</b>,<br>{{ info.name.title }}</p>
+            <p v-if="info.name.mainAlt != '' || info.name.titleAlt != ''" class="entry-text entry-alt-name">(<b>{{
+                info.name.mainAlt }}</b>, {{ info.name.titleAlt }})</p>
 
             <hr class="light-divider">
 
-            <p v-if="this.info.motto != ''" class="entry-text"><span class="underlined italicized">"{{
-                this.info.motto }}"</span></p>
+            <p v-if="info.motto != ''" class="entry-text"><span class="underlined italicized">"{{
+                info.motto }}"</span></p>
             <p class="entry-text">
-                <span v-for="(type, i) in this.info.type" :key="i">{{ type }}<span
-                        v-if="i !== this.info.type.length - 1">,&nbsp;</span><span
-                        v-if="i === this.info.type.length - 1">.</span></span>
+                <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
+                        v-if="i !== info.type.length - 1">,&nbsp;</span><span
+                        v-if="i === info.type.length - 1">.</span></span>
             </p>
             <p class="entry-text">
-                <span v-for="(language, i) in this.info.languages" :key="i">{{ language }}<span
-                        v-if="i !== this.info.languages.length - 1">,&nbsp;</span><span
-                        v-if="i === this.info.languages.length - 1">.</span></span>
+                <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
+                        v-if="i !== info.languages.length - 1">,&nbsp;</span><span
+                        v-if="i === info.languages.length - 1">.</span></span>
             </p>
 
             <hr class="light-divider">
 
             <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                new Date(this.info.foundationDate.seconds * 1000).toDateString() }}</p>
-            <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="this.info.capital !== ''">{{
-                this.info.capital }}.</span><span v-if="this.info.capital === ''">None.</span></p>
-            <p v-if="this.info.currency != ''" class="entry-text"><span class="underlined">Currency:</span>&nbsp;{{
-                this.info.currency }}.</p>
+                new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
+            <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
+                info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
+            <p v-if="info.currency != ''" class="entry-text"><span class="underlined">Currency:</span>&nbsp;{{
+                info.currency }}.</p>
             <p class="entry-text">
-                <span class="underlined">Memberships:</span>&nbsp;<span v-if="this.info.memberships == ''">None.</span><span
-                    v-if="this.info.memberships != ''" v-for="(membership, i) in this.info.memberships" :key="i">{{
-                        membership }}<span v-if="i !== this.info.memberships.length - 1">,&nbsp;</span><span
-                        v-if="i === this.info.memberships.length - 1">.</span></span>
+                <span class="underlined">Memberships:</span>&nbsp;<span v-if="info.memberships == ''">None.</span><span
+                    v-if="info.memberships != ''" v-for="(membership, i) in info.memberships" :key="i">{{
+                        membership }}<span v-if="i !== info.memberships.length - 1">,&nbsp;</span><span
+                        v-if="i === info.memberships.length - 1">.</span></span>
             </p>
 
             <hr class="light-divider">
 
             <p class="entry-text">
-                <span class="underlined">Contact info:</span><br><span v-for="(contact, i) in this.info.contactInfo"
+                <span class="underlined">Contact info:</span><br><span v-for="(contact, i) in info.contactInfo"
                     :key="i"><span class="contact-email"><a :href="contact">{{ contact }}</a></span><span
-                        v-if="i !== this.info.contactInfo.length - 1"><br></span></span>
+                        v-if="i !== info.contactInfo.length - 1"><br></span></span>
             </p>
             <p class="entry-text">
-                <span class="underlined">Websites:</span><br><span v-for="(website, i) in this.info.websites" :key="i"><span
+                <span class="underlined">Websites:</span><br><span v-for="(website, i) in info.websites" :key="i"><span
                         class="website-link"><a :href="website" target="_blank">{{ website }}</a></span><span
-                        v-if="i !== this.info.websites.length - 1"><br></span></span>
+                        v-if="i !== info.websites.length - 1"><br></span></span>
             </p>
         </div>
 

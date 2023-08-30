@@ -1,38 +1,41 @@
 <script setup>
 import router from '../router/index';
 import store from '../store';
+import { EmailAuthProvider, signOut, onAuthStateChanged, sendEmailVerification, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
+import { auth } from '../firebase/init.js';
+import { notify } from "@kyvg/vue3-notification";
 </script>
 
 <template>
     <section class="site-section paddingless">
         <div class="left-side">
-            <button class="login-button color-transition" :disabled="this.user.emailVerified"
+            <button class="login-button color-transition" :disabled="user.emailVerified"
                 @click="resendVerification">Resend verification email</button>
-            <button class="login-button color-transition" v-show="!this.passwordMenu"
-                @click="this.passwordMenu = true">Update password</button>
-            <button class="login-button color-transition" v-show="this.passwordMenu"
-                @click="this.passwordMenu = false">Return to main menu</button>
+            <button class="login-button color-transition" v-show="!passwordMenu"
+                @click="passwordMenu = true">Update password</button>
+            <button class="login-button color-transition" v-show="passwordMenu"
+                @click="passwordMenu = false">Return to main menu</button>
             <button class="login-button color-transition" @click="signOutCall">Log out</button>
         </div>
         <div class="right-side">
-            <div class="main-menu menu" v-show="!this.passwordMenu">
-                <h3>Hello, {{ this.user.displayName }}!</h3>
+            <div class="main-menu menu" v-show="!passwordMenu">
+                <h3>Hello, {{ user.displayName }}!</h3>
                 <p>
-                    Your email address is: <span class="underlined">{{ this.user.email }}</span>
+                    Your email address is: <span class="underlined">{{ user.email }}</span>
                     <br>
                     and its status is:
-                    <span v-if="this.user.emailVerified" class="verified"><b>Verified</b>.</span>
-                    <span v-if="!this.user.emailVerified"><b class="not-verified">NOT verified</b> (you need to refresh
+                    <span v-if="user.emailVerified" class="verified"><b>Verified</b>.</span>
+                    <span v-if="!user.emailVerified"><b class="not-verified">NOT verified</b> (you need to refresh
                         if performed with open session).</span>
                 </p>
                 <p class="contributions-text">
                     Your contribution:<br>
-                    - <b>{{ this.userContributions }}</b> entries on the Directory ({{
-                        this.percentageContributions }}% of the total).<br>
-                    - <b>{{ this.user.prizesWon || 0 }}</b> prizes won on the platform.
+                    - <b>{{ userContributions }}</b> entries on the Directory ({{
+                        percentageContributions }}% of the total).<br>
+                    - <b>{{ user.prizesWon || 0 }}</b> prizes won on the platform.
                 </p>
             </div>
-            <form class="password-menu menu" v-show="this.passwordMenu" @submit.prevent="changePassword">
+            <form class="password-menu menu" v-show="passwordMenu" @submit.prevent="changePassword">
                 <input class="login-input" type="password" id="oldPassword" v-model="oldPassword" required
                     placeholder="Old password">
                 <input class="login-input" type="password" id="newPassword" v-model="newPassword" required
@@ -47,10 +50,6 @@ import store from '../store';
 </template>
   
 <script>
-import { EmailAuthProvider, signOut, onAuthStateChanged, sendEmailVerification, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
-import { notify } from "@kyvg/vue3-notification";
-
 export default {
     data() {
         return {

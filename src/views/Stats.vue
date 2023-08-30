@@ -1,5 +1,7 @@
 <script setup>
 import store from '../store';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/init.js';
 </script>
 
 <template>
@@ -30,15 +32,15 @@ import store from '../store';
             <h2>All-time Top Contributors</h2>
             <div class="contributor-entry special">
                 <p class="contributor-name">The Micronational Directory Team</p>
-                <p class="contributor-contributions">{{ this.countContributions(micronationsDirectory,
+                <p class="contributor-contributions">{{ countContributions(micronationsDirectory,
                     "themicronationaldirectory@gmail.com") }}</p>
             </div>
             <div class="contributors-ranking">
                 <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
-                    :class="{ 'current-user': contributor.email === this.user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
+                    :class="{ 'current-user': contributor.email === user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
                     <p class="contributor-rank">{{ i + 1 }}.</p>
                     <p class="contributor-name">{{ contributor.name }}<span
-                            v-if="contributor.email === this.user.email">&nbsp;(it's you!)</span></p>
+                            v-if="contributor.email === user.email">&nbsp;(it's you!)</span></p>
                     <p class="contributor-contributions">{{ contributor.contributions }}</p>
                 </div>
             </div>
@@ -47,9 +49,6 @@ import store from '../store';
 </template>
   
 <script>
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
-
 export default {
     data() {
         return {

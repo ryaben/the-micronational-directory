@@ -13,9 +13,9 @@ defineProps({
 <template>
   <nav class="navbar">
     <div class="tabs-container">
-      <router-link :to="{ name: item.route }" v-for="(item, i) in this.buttons" :key="i" class="tab-router-link">
+      <router-link :to="{ name: item.route }" v-for="(item, i) in buttons" :key="i" class="tab-router-link">
         <div class="button-container color-transition" @mouseenter="toggleGreyscale" @mouseleave="toggleGreyscale">
-          <img :src="'src/assets/navbar-icons/' + item.icon" :alt="item.text + ' icon'">
+          <img :src="'/images/navbar-icons/' + item.icon" :alt="item.text + ' icon'">
           <p>{{ item.text }}</p>
         </div>
       </router-link>
