@@ -28,7 +28,8 @@ import store from './store';
         data-dnt="true" data-show-count="false">Follow @the_micro_direc</a>
       <a class="anchor-button" id="sendEmail"
         href="mailto:themicronationaldirectory@gmail.com">themicronationaldirectory@gmail.com</a>
-        <a class="anchor-button" id="openSourceCode" href="" target="_blank">Source code in Github</a>
+      <a class="anchor-button" id="openSourceCode" href="https://github.com/ryaben/the-micronational-directory"
+        target="_blank">Source code in Github</a>
     </div>
 
     <div class="settings">
@@ -103,7 +104,8 @@ footer {
   margin-top: 20px;
 }
 
-footer label[for="darkModeCheckbox"], #languageSelect {
+footer label[for="darkModeCheckbox"],
+#languageSelect {
   font-size: 15px;
   width: 100px;
   padding: 5px;

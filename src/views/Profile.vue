@@ -27,7 +27,7 @@ import store from '../store';
                 </p>
                 <p class="contributions-text">
                     Your contribution:<br>
-                    - <b class="underlined">{{ this.userContributions }}</b> entries on the Directory ({{
+                    - <b>{{ this.userContributions }}</b> entries on the Directory ({{
                         this.percentageContributions }}% of the total).<br>
                     - <b>{{ this.user.prizesWon || 0 }}</b> prizes won on the platform.
                 </p>

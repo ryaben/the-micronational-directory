@@ -25,9 +25,8 @@ import store from '../store';
           micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
             href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
           is not a valid case, while the <a href="https://en.wikipedia.org/wiki/Kingdom_of_Redonda"
-            target="_blank">Kingdom
-            of
-            Redonda</a> indeed is).
+            target="_blank">Kingdom of Redonda</a> or most of the micronations from <a
+            href="https://micras.org/mwiki/Main_Page" target="_blank">Micras</a> indeed are).
         </li>
         <li>
           Micronations submitted should have <b>at least 3 months of proven existence.</b> This way we avoid lightning
@@ -193,14 +192,17 @@ import store from '../store';
             <label>{{ this.entryWidth }}px</label>
           </div>
         </div>
+        <div class="settings-subcontainer">
+          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed height</label>
+        </div>
       </div>
 
-      <div v-show="this.micronationsDirectory.length === 0" class="loading-image-container">
+      <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
         <img src="/images/loading.gif" alt="Loading">
         <label>Loading Directory...</label>
       </div>
 
-      <div v-show="this.viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="this.componentKey">
+      <div v-show="this.viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="this.componentKey" :class="{ 'fixed-height': this.fixedHeight }">
         <TransitionGroup name="opacity">
           <DirectoryEntry
             v-for="(item, i) in this.micronationsDirectory.filter(element => element.searchDisplay && element.filterDisplay)"
@@ -232,6 +234,8 @@ import store from '../store';
         :collection="physicalMicronationsDirectory" width="90%" height="40vw" />
     </section>
   </section>
+
+  <div id="goToTopButton" v-show="!this.fixedHeight" @click="this.scrollToTop">⬆️</div>
 </template>
 
 <script>
@@ -251,6 +255,7 @@ export default {
       viewMode: 'cards',
       physicalType: false,
       locationPickerMarkerPosition: [0, 0],
+      fixedHeight: false,
       flagSource: '',
       flagPreview: '',
       passedRecaptcha: false
@@ -411,7 +416,8 @@ export default {
           array.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
           break;
         case 'descending':
-          array.sort((a, b) => b.name.main - a.name.main);
+          array.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
+          array.reverse();
           break;
         case 'random':
           this.shuffleArray(array);
@@ -501,6 +507,9 @@ export default {
     },
     toggleDropdown(e) {
       e.target.parentNode.classList.toggle('open');
+    },
+    scrollToTop() {
+      window.scrollTo(0,0);
     },
     forceRerender() {
       this.componentKey += 1;
@@ -644,8 +653,28 @@ div.new-entry-type {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  /* max-height: 40vw;
-  overflow-y: scroll; */
+}
+
+.micronations-list.fixed-height {
+  max-height: 40vw;
+  overflow-y: scroll;
+}
+
+#goToTopButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  font-size: 30px;
+  background-color: var(--vt-c-text-dark-2);
+  color: var(--vt-c-indigo);
+  opacity: 1;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 960px) {

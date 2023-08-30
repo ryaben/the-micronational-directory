@@ -11,13 +11,27 @@ import store from '../store';
                 <p class="table-header">Type</p>
                 <p class="table-header">Language</p>
                 <p class="table-header">Membership</p>
+
+                <div class="table-values-container">
+                    <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
+                    }}</b></p>
+                </div>
+                <div class="table-values-container">
+                    <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
+                    }}</b></p>
+                </div>
+                <div class="table-values-container">
+                    <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
+                        entry.amount }}</b></p>
+                </div>
             </div>
         </div>
         <div class="stats-container">
             <h2>All-time Top Contributors</h2>
             <div class="contributor-entry special">
                 <p class="contributor-name">The Micronational Directory Team</p>
-                <p class="contributor-contributions">{{ this.countContributions(micronationsDirectory, "themicronationaldirectory@gmail.com") }}</p>
+                <p class="contributor-contributions">{{ this.countContributions(micronationsDirectory,
+                    "themicronationaldirectory@gmail.com") }}</p>
             </div>
             <div class="contributors-ranking">
                 <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
@@ -48,6 +62,15 @@ export default {
         },
         contributorsList() {
             return this.listContributors(this.micronationsDirectory);
+        },
+        typeValues() {
+            return this.collectDirectoryValues(this.micronationsDirectory, 'type');
+        },
+        languageValues() {
+            return this.collectDirectoryValues(this.micronationsDirectory, 'languages');
+        },
+        membershipValues() {
+            return this.collectDirectoryValues(this.micronationsDirectory, 'memberships');
         }
     },
     methods: {
@@ -57,6 +80,35 @@ export default {
                     this.user = JSON.parse(localStorage.getItem('firebase-auth-user'));
                 }
             });
+        },
+        collectDirectoryValues(array, propertyValue) {
+            let collectedValues = [];
+            let collectedValuesObject = {};
+            let collectedValuesArray = [];
+
+            array.forEach(function (element) {
+                if (element[propertyValue] != false) {
+                    element[propertyValue].forEach(function (property) {
+                        collectedValues.push(property);
+                    });
+                }
+            });
+
+            for (const prop of collectedValues) {
+                collectedValuesObject[prop] = collectedValuesObject[prop] ? collectedValuesObject[prop] + 1 : 1;
+            }
+            for (const [key, value] of Object.entries(collectedValuesObject)) {
+                collectedValuesArray.push({
+                    key: key,
+                    amount: value
+                });
+            }
+
+            collectedValuesArray.sort(function (a, b) {
+                return b.amount - a.amount;
+            });
+
+            return collectedValuesArray;
         },
         listContributors(array) {
             let contributors = [];
@@ -72,7 +124,7 @@ export default {
                 }
             });
 
-            let tmd = contributors.find(function(element) {
+            let tmd = contributors.find(function (element) {
                 return element.email === 'themicronationaldirectory@gmail.com';
             });
             contributors.splice(contributors.indexOf(tmd), 1);
@@ -125,19 +177,58 @@ export default {
     min-height: 350px;
     max-height: 350px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .statistics-table.directory {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 10px;
+    grid-template-rows: min-content;
 }
 
 .table-header {
     font-size: 16px;
     text-align: center;
     font-weight: bold;
+    background-color: var(--vt-c-divider-dark-1);
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+.table-values-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.table-values-container:nth-of-type(even),
+.table-header:nth-of-type(even) {
+    border-right: 2px solid var(--vt-c-white);
+    border-left: 2px solid var(--vt-c-white);
+}
+.table-values-container:first-of-type,
+.table-header:first-of-type {
+    border-left: none;
+}
+.table-values-container:last-of-type,
+.table-header:last-of-type {
+    border-right: none;
+}
+
+
+.table-value {
+    margin: 0;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid var(--vt-c-white);
+}
+
+/* .table-value:last-of-type {
+    border-bottom: none;
+} */
 
 .stats-entry {
     font-size: 18px;
@@ -146,6 +237,10 @@ export default {
 .stats-entry.main {
     text-align: center;
     font-size: 20px;
+    padding: 3px 12px 3px 12px;
+    border-radius: 8px;
+    border: 2px solid white;
+    margin-bottom: 25px;
 }
 
 .contributor-entry {
@@ -161,8 +256,10 @@ export default {
 }
 
 .contributor-entry.special {
+    padding: 5px;
     width: 85%;
     border-bottom: none;
+    margin-bottom: 13px;
 }
 
 .contributor-entry.current-user {
@@ -173,6 +270,7 @@ export default {
 .contributors-ranking .contributor-entry:nth-of-type(1) {
     background: linear-gradient(138deg, var(--gold) 0%, var(--gold-dark) 70%);
 }
+
 .contributors-ranking .contributor-entry:nth-of-type(1) p:nth-child(2)::after {
     content: "🥇";
 }
@@ -180,6 +278,7 @@ export default {
 .contributors-ranking .contributor-entry:nth-of-type(2) {
     background: linear-gradient(138deg, var(--silver) 0%, var(--silver-dark) 70%);
 }
+
 .contributors-ranking .contributor-entry:nth-of-type(2) p:nth-child(2)::after {
     content: "🥈";
 }
@@ -187,6 +286,7 @@ export default {
 .contributors-ranking .contributor-entry:nth-of-type(3) {
     background: linear-gradient(138deg, var(--bronze) 0%, var(--bronze-dark) 70%);
 }
+
 .contributors-ranking .contributor-entry:nth-of-type(3) p:nth-child(2)::after {
     content: "🥉";
 }

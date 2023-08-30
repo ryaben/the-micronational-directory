@@ -14,7 +14,7 @@ export default {
     },
     data() {
         return {
-            siteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            siteKey: "6Lcs9LAnAAAAAD6e4Oqe0K0ZWcI0zgRpnKMfhJq2"
         }
     },
     methods: {
