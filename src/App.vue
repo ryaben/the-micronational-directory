@@ -9,7 +9,13 @@ import store from './store';
     <p id="slogan">The ultimate worldwide directory of micronations from all over history.</p>
   </header>
 
-  <Navbar :buttons="this.navbarButtons" />
+  <Navbar :buttons="[
+    { text: 'Home', icon: 'home.png', route: 'Home' },
+    { text: 'Directory', icon: 'directory.png', route: 'Directory' },
+    { text: 'Stats', icon: 'stats.png', route: 'Stats' },
+    { text: 'Profile', icon: 'profile.png', route: 'Login' },
+    { text: 'About', icon: 'about.png', route: 'About' }
+  ]" />
 
   <main>
     <router-view />
@@ -55,13 +61,6 @@ export default {
   },
   data() {
     return {
-      navbarButtons: [
-        { text: 'Home', icon: 'home.png', route: 'Home' },
-        { text: 'Directory', icon: 'directory.png', route: 'Directory' },
-        { text: 'Stats', icon: 'stats.png', route: 'Stats' },
-        { text: 'Profile', icon: 'profile.png', route: 'Login' },
-        { text: 'About', icon: 'about.png', route: 'About' }
-      ],
     }
   },
   async mounted() {

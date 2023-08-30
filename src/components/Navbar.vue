@@ -25,6 +25,7 @@ defineProps({
 
 <script>
 export default {
+  name: 'Navbar',
   methods: {
     toggleGreyscale(e) {
       e.target.classList.toggle('greyscaled');

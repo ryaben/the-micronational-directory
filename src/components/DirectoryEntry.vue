@@ -83,6 +83,7 @@ defineProps({
 
 <script>
 export default {
+    name: 'DirectoryEntry',
     data: () => {
         return {
             infoView: false

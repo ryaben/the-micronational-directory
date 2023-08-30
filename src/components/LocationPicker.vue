@@ -62,6 +62,7 @@ defineProps({
 
 <script>
 export default {
+    name: 'LocationPicker',
     data: () => {
         return {
             flagList: [],
