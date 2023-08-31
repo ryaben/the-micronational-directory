@@ -373,7 +373,7 @@ export default {
 
             notify({
               title: "Submission successful",
-              text: "The micronation was successfully submitted! Now awaits approval from the admin to become an entry in the Directory.",
+              text: "The micronation was successfully submitted! Now awaits approval from the admin (please allow a maximum of 24 hours).",
               type: "success"
             });
           });
