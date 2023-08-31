@@ -108,10 +108,8 @@ import { notify } from "@kyvg/vue3-notification";
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
             <input type="date" id="newEntryFoundation" ref="newEntryFoundation" name="newEntryFoundation" required>
 
-            <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br><span class="underlined">(leave
-                as
-                is if
-                N/A)</span></label>
+            <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br><span class="underlined">
+                (leave as is if N/A)</span></label>
             <LocationPicker ref="locationPicker" mode="picker" :visible="!physicalType" width="100%" height="200px"
               @dragged-marker="draggedMarker" />
 
@@ -198,7 +196,8 @@ import { notify } from "@kyvg/vue3-notification";
           </div>
         </div>
         <div class="settings-subcontainer">
-          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed height</label>
+          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed
+            height</label>
         </div>
       </div>
 
@@ -207,7 +206,8 @@ import { notify } from "@kyvg/vue3-notification";
         <label>Loading Directory...</label>
       </div>
 
-      <div v-show="viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
+      <div v-show="viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="componentKey"
+        :class="{ 'fixed-height': fixedHeight }">
         <TransitionGroup name="opacity">
           <DirectoryEntry
             v-for="(item, i) in micronationsDirectory.filter(element => element.searchDisplay && element.filterDisplay)"
@@ -510,7 +510,7 @@ export default {
       e.target.parentNode.classList.toggle('open');
     },
     scrollToTop() {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     },
     forceRerender() {
       this.componentKey += 1;
