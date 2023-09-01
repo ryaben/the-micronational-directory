@@ -26,12 +26,11 @@ const store = createStore({
     },
     actions: {
         async getMicronations(context) {
-            const q = query(collection(db, "micronations"), where("approved", "==", true));
+            const q = query(collection(db, "micronations"));
             let micronationsList = [];
 
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
                 micronationsList.push({ id: doc.id, searchDisplay: true, filterDisplay: true, ...doc.data() });
             });
 
