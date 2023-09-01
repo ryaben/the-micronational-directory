@@ -48,9 +48,8 @@ import { notify } from "@kyvg/vue3-notification";
           instead.
         </li>
         <li>
-          All submissions will first <b>require approval from the administrator</b> before they are posted on the
-          definitive
-          public online directory.
+          All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before they are posted on the
+          definitive public online directory.
         </li>
       </ul>
       <p>
@@ -66,7 +65,7 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryTitle" class="new-entry-form-text mandatory">Title*</label>
             <input type="text" id="newEntryTitle" ref="newEntryTitle" required
-              placeholder="E.g. 'Principality of' (the rest of the official name)">
+              placeholder="E.g. 'Principality of' (just the State description)">
 
             <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
             <input type="text" id="newEntryNameAlt" ref="newEntryNameAlt"
@@ -95,7 +94,7 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
             <textarea id="newEntryLanguages" ref="newEntryLanguages" name="newEntryLanguages" cols="50" rows="3" required
-              placeholder="Enter one language per line"></textarea>
+              placeholder="Enter one language per line (press Enter after each value)"></textarea>
 
             <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
             <input type="text" id="newEntryCapital" ref="newEntryCapital"
@@ -115,15 +114,15 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
             <textarea id="newEntryMemberships" ref="newEntryMemberships" name="newEntryMemberships" cols="50" rows="3"
-              placeholder="Enter one organization per line"></textarea>
+              placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
 
             <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
             <textarea id="newEntryEmails" ref="newEntryEmails" name="newEntryEmails" cols="50" rows="3" required
-              placeholder="Enter one email or social media link per line"></textarea>
+              placeholder="Enter one email or social media link per line (press Enter after each value)"></textarea>
 
             <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*</label>
             <textarea id="newEntryWebsites" ref="newEntryWebsites" name="newEntryWebsites" cols="50" rows="3" required
-              placeholder="Enter one website link per line"></textarea>
+              placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
 
             <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*</label>
             <div class="flag-preview-container">
@@ -301,7 +300,7 @@ export default {
       });
 
       return count;
-    }
+    },
   },
   methods: {
     authListener() {

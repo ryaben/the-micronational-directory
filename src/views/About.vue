@@ -82,7 +82,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/dove-archives.png" alt="Dove Archives" width="200px" height="92px" />
+            <img src="/images/dove-archives.png" alt="Dove Archives" width="200px" height="102px" />
             <p>
               <a
                 href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory"

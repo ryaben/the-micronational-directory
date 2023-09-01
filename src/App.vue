@@ -19,7 +19,7 @@ import store from './store';
     <div class="credits">
       <img src="/images/plain-logo1.png" alt="TMD logo" width="56px">
       <p><b>The Micronational Directory © 2023</b></p>
-      <label class="footer-label">Current version: 1.0-beta</label>
+      <label class="footer-label">Current version: 1.0.2-beta</label>
     </div>
 
     <div class="social-media">
@@ -44,7 +44,7 @@ import store from './store';
         alt="Flag Counter" border="0"></a>
   </footer>
 
-  <notifications position="top right" width="350px" speed="500" :pause-on-hover="true" />
+  <notifications position="top right" width="350px" speed="600" :pause-on-hover="true" />
 </template>
 
 <script>

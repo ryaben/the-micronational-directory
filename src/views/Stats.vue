@@ -6,42 +6,50 @@ import { auth } from '../firebase/init.js';
 
 <template>
     <section class="site-section">
-        <div class="stats-container">
-            <h2>Directory Statistics</h2>
-            <p class="stats-entry main">Total micronations: <b>{{ micronationsDirectory.length }}</b></p>
-            <div class="scrollable-container statistics-table directory">
-                <p class="table-header">Type</p>
-                <p class="table-header">Language</p>
-                <p class="table-header">Membership</p>
-
-                <div class="table-values-container">
-                    <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
-                    }}</b></p>
-                </div>
-                <div class="table-values-container">
-                    <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
-                    }}</b></p>
-                </div>
-                <div class="table-values-container">
-                    <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                        entry.amount }}</b></p>
-                </div>
-            </div>
+        <div class="events-bar">
+            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow up the terms and
+                everything related. In them, <b>the users with most contributions will qualify for prizes</b>. Also, <b>contributions provided
+                now will count for the first event</b>, when the time comes. So you are already playing!</p>
         </div>
-        <div class="stats-container">
-            <h2>All-time Top Contributors</h2>
-            <div class="contributor-entry special">
-                <p class="contributor-name">The Micronational Directory Team</p>
-                <p class="contributor-contributions">{{ countContributions(micronationsDirectory,
-                    "themicronationaldirectory@gmail.com") }}</p>
+        <div class="tables-container">
+            <div class="stats-container">
+                <h2>Directory Statistics</h2>
+                <p class="stats-entry main">Total micronations: <b>{{ micronationsDirectory.length }}</b></p>
+                <div class="scrollable-container statistics-table directory">
+                    <p class="table-header">Type</p>
+                    <p class="table-header">Language</p>
+                    <p class="table-header">Membership</p>
+
+                    <div class="table-values-container">
+                        <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
+                        }}</b></p>
+                    </div>
+                    <div class="table-values-container">
+                        <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
+                            entry.amount
+                        }}</b></p>
+                    </div>
+                    <div class="table-values-container">
+                        <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
+                            entry.amount }}</b></p>
+                    </div>
+                </div>
             </div>
-            <div class="scrollable-container contributors-ranking">
-                <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
-                    :class="{ 'current-user': contributor.email === user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
-                    <p class="contributor-rank">{{ i + 1 }}.</p>
-                    <p class="contributor-name">{{ contributor.name }}<span
-                            v-if="contributor.email === user.email">&nbsp;(it's you!)</span></p>
-                    <p class="contributor-contributions">{{ contributor.contributions }}</p>
+            <div class="stats-container">
+                <h2>All-time Top Contributors</h2>
+                <div class="contributor-entry special">
+                    <p class="contributor-name">The Micronational Directory Team</p>
+                    <p class="contributor-contributions">{{ countContributions(micronationsDirectory,
+                        "themicronationaldirectory@gmail.com") }}</p>
+                </div>
+                <div class="scrollable-container contributors-ranking">
+                    <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
+                        :class="{ 'current-user': contributor.email === user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
+                        <p class="contributor-rank">{{ i + 1 }}.</p>
+                        <p class="contributor-name">{{ contributor.name }}<span
+                                v-if="contributor.email === user.email">&nbsp;(it's you!)</span></p>
+                        <p class="contributor-contributions">{{ contributor.contributions }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,7 +163,24 @@ export default {
 <style scoped>
 .site-section {
     display: flex;
-    justify-content: space-between
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-bar {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 25px;
+}
+
+.events-notice {
+    text-align: center;
+}
+
+.tables-container {
+    display: flex;
+    width: 100%;
 }
 
 .stats-container {
@@ -193,10 +218,12 @@ export default {
     border-right: 2px solid var(--vt-c-white);
     border-left: 2px solid var(--vt-c-white);
 }
+
 .table-values-container:first-of-type,
 .table-header:first-of-type {
     border-left: none;
 }
+
 .table-values-container:last-of-type,
 .table-header:last-of-type {
     border-right: none;
