@@ -39,15 +39,23 @@ import { notify } from '@kyvg/vue3-notification';
       </button>
       <button
         class="login-button color-transition"
-        :class="{ 'hidden': moderationMenu && user.role === 'moderator'}"
+        v-show="!moderationMenu"
+        :disabled="user.email !== 'themicronationaldirectory@gmail.com'"
         @click="moderationMenu = true; passwordMenu = false"
       >
         Moderate entries
       </button>
+      <button
+        class="login-button color-transition"
+        v-show="moderationMenu"
+        @click="moderationMenu = false"
+      >
+        Return to main menu
+      </button>
       <button class="login-button color-transition" @click="signOutCall">Log out</button>
     </div>
     <div class="right-side">
-      <div class="main-menu menu" v-show="!passwordMenu">
+      <div class="main-menu menu" v-show="!passwordMenu && !moderationMenu">
         <h3>Hello, {{ user.displayName }}!</h3>
         <p>
           Your email address is: <span class="underlined">{{ user.email }}</span>
@@ -98,6 +106,9 @@ import { notify } from '@kyvg/vue3-notification';
           class="login-button color-transition"
         />
       </form>
+      <div class="moderation-menu menu" v-if="user.email === 'themicronationaldirectory@gmail.com'" v-show="moderationMenu">
+        
+      </div>
     </div>
   </section>
 </template>
@@ -219,7 +230,7 @@ export default {
   padding: 0;
   display: grid;
   grid-template-columns: 35% 65%;
-  height: 268px;
+  height: 315px;
 }
 
 .left-side {
