@@ -1,6 +1,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
 import store from './store';
+import { version } from '../package.json';
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import store from './store';
     <div class="credits">
       <img src="/images/plain-logo1.png" alt="TMD logo" width="56px">
       <p><b>The Micronational Directory © 2023</b></p>
-      <label class="footer-label">Current version: 1.0.2-beta</label>
+      <label class="footer-label">Current version: {{ version }}-beta</label>
     </div>
 
     <div class="social-media">
