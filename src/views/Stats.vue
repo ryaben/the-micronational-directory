@@ -14,7 +14,7 @@ import { auth } from '../firebase/init.js';
         <div class="tables-container">
             <div class="stats-container">
                 <h2>Directory Statistics</h2>
-                <p class="stats-entry main">Total micronations: <b>{{ micronationsDirectory.length }}</b></p>
+                <p class="stats-entry main">Total micronations: <b>{{ micronationsApprovedDirectory.length }}</b></p>
                 <div class="scrollable-container statistics-table directory">
                     <p class="table-header">Type</p>
                     <p class="table-header">Language</p>
@@ -39,7 +39,7 @@ import { auth } from '../firebase/init.js';
                 <h2>All-time Top Contributors</h2>
                 <div class="contributor-entry special">
                     <p class="contributor-name">The Micronational Directory Team</p>
-                    <p class="contributor-contributions">{{ countContributions(micronationsDirectory,
+                    <p class="contributor-contributions">{{ countContributions(micronationsApprovedDirectory,
                         "themicronationaldirectory@gmail.com") }}</p>
                 </div>
                 <div class="scrollable-container contributors-ranking">
@@ -64,20 +64,20 @@ export default {
         }
     },
     computed: {
-        micronationsDirectory() {
-            return store.getters.directory;
+        micronationsApprovedDirectory() {
+            return store.getters.directory.filter(element => element.approved);
         },
         contributorsList() {
-            return this.listContributors(this.micronationsDirectory);
+            return this.listContributors(this.micronationsApprovedDirectory);
         },
         typeValues() {
-            return this.collectDirectoryValues(this.micronationsDirectory, 'type');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'type');
         },
         languageValues() {
-            return this.collectDirectoryValues(this.micronationsDirectory, 'languages');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'languages');
         },
         membershipValues() {
-            return this.collectDirectoryValues(this.micronationsDirectory, 'memberships');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships');
         }
     },
     methods: {

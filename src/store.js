@@ -6,7 +6,9 @@ const store = createStore({
     state: {
         directory: [],
         physicalDirectory: [],
-        contributions: 0
+        moderators: [
+            "themicronationaldirectory@gmail.com"
+        ]
     },
     getters: {
         directory(state) {
@@ -14,6 +16,9 @@ const store = createStore({
         },
         physicalDirectory(state) {
             return state.physicalDirectory;
+        },
+        moderators(state) {
+            return state.moderators;
         }
     },
     mutations: {

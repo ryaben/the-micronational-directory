@@ -9,8 +9,12 @@ import {
   reauthenticateWithCredential,
   updatePassword
 } from 'firebase/auth'
-import { auth } from '../firebase/init.js';
-import { notify } from '@kyvg/vue3-notification';
+import DirectoryEntry from '../components/DirectoryEntry.vue';
+import { auth, db, storage } from '../firebase/init.js'
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { ref, deleteObject } from "firebase/storage";
+import { notify } from '@kyvg/vue3-notification'
+import emailjs from 'emailjs-com';
 </script>
 
 <template>
@@ -26,7 +30,10 @@ import { notify } from '@kyvg/vue3-notification';
       <button
         class="login-button color-transition"
         v-show="!passwordMenu"
-        @click="passwordMenu = true; moderationMenu = false"
+        @click="
+          passwordMenu = true;
+          moderationMenu = false;
+        "
       >
         Update password
       </button>
@@ -40,8 +47,11 @@ import { notify } from '@kyvg/vue3-notification';
       <button
         class="login-button color-transition"
         v-show="!moderationMenu"
-        :disabled="user.email !== 'themicronationaldirectory@gmail.com'"
-        @click="moderationMenu = true; passwordMenu = false"
+        :disabled="!moderatorsList.includes(user.email)"
+        @click="
+          moderationMenu = true;
+          passwordMenu = false;
+        "
       >
         Moderate entries
       </button>
@@ -106,8 +116,54 @@ import { notify } from '@kyvg/vue3-notification';
           class="login-button color-transition"
         />
       </form>
-      <div class="moderation-menu menu" v-if="user.email === 'themicronationaldirectory@gmail.com'" v-show="moderationMenu">
-        
+      <div
+        class="moderation-menu"
+        v-if="moderatorsList.includes(user.email)"
+        v-show="moderationMenu"
+      >
+        <div class="moderation-entries" :key="componentKey">
+          <DirectoryEntry
+            v-for="(item, i) in micronationsModerationDirectory"
+            :key="i" width="350" :flag-height="350 * 0.6" view-mode="cards" :info="{
+              id: item.id,
+              name: {
+                main: item.name.main,
+                mainAlt: item.name.mainAlt,
+                title: item.name.title,
+                titleAlt: item.name.titleAlt
+              },
+              flag: item.flag,
+              motto: item.motto,
+              type: item.type,
+              languages: item.languages,
+              capital: item.capital,
+              currency: item.currency,
+              foundationDate: item.foundationDate,
+              location: item.location,
+              memberships: item.memberships,
+              contactInfo: item.contactInfo,
+              websites: item.websites,
+              author: item.author,
+              approved: item.approved
+            }" @click="this.selectedEntry = i"/>
+        </div>
+        <div class="moderation-buttons">
+          <input
+              class="login-input"
+              type="text"
+              v-model="rejectionReason"
+              placeholder="Reason for rejection"
+            />
+          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryReject(selectedEntry, false)">
+            Reject
+          </button>
+          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryReject(selectedEntry, true)">
+            Reject and delete
+          </button>
+          <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryApprove(selectedEntry)">
+            Approve
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -117,23 +173,35 @@ import { notify } from '@kyvg/vue3-notification';
 export default {
   data() {
     return {
+      componentKey: 0,
       user: {},
       passwordMenu: false,
       moderationMenu: false,
       oldPassword: '',
       newPassword: '',
-      repeatNewPassword: ''
+      repeatNewPassword: '',
+      selectedEntry: undefined,
+      rejectionReason: ""
     }
+  },
+  components: {
+    DirectoryEntry
   },
   computed: {
     micronationsDirectory() {
-      return store.getters.directory
+      return store.getters.directory;
+    },
+    micronationsModerationDirectory() {
+      return this.micronationsDirectory.filter((element) => !element.approved);
     },
     userContributions() {
-      return this.countContributions(this.micronationsDirectory, this.user.email)
+      return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
     },
     percentageContributions() {
-      return ((this.userContributions * 100) / this.micronationsDirectory.length).toFixed(2)
+      return ((this.userContributions * 100) / this.micronationsDirectory.length).toFixed(2);
+    },
+    moderatorsList() {
+      return store.getters.moderators;
     }
   },
   methods: {
@@ -175,7 +243,7 @@ export default {
                 this.repeatNewPassword = ''
                 return notify({
                   title: 'Password update',
-                  text: 'Your password was successfully updated. Use it next time you log in.',
+                  text: 'Your password was successfully updated. Use it the next time you log in.',
                   type: 'success'
                 })
               })
@@ -217,6 +285,89 @@ export default {
       })
 
       return count
+    },
+    forceRerender() {
+      this.componentKey += 1;
+    },
+    async entryReject(entryIndex, deletionRequest) {
+      const that = this;
+
+      try {
+        emailjs.send("service_gd9nz5x", "template_5500uwl", {
+          to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+          to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+          entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
+          rejection_reason: that.rejectionReason
+        },
+        "P8-p_r-gTZedo_h84");
+
+        if (deletionRequest === true) {
+          await deleteDoc(doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main));
+
+          const flagRef = ref(storage, "images/flags/" + that.micronationsModerationDirectory[entryIndex].name.main + ".png");
+          deleteObject(flagRef).then(() => {
+            that.micronationsModerationDirectory.splice(entryIndex, 1);
+
+            notify({
+              title: 'Entry moderation',
+              text: 'The rejected entry was successfully deleted from the database.',
+              type: 'success'
+            })
+          }).catch((error) => {
+            notify({
+              title: 'Entry moderation',
+              text: error,
+              type: 'error'
+            })
+          });
+        }
+
+        this.forceRerender();
+
+        notify({
+          title: 'Entry moderation',
+          text: 'The author was notified that their entry was rejected.',
+          type: 'warning'
+        })
+      } catch(error) {
+        notify({
+          title: 'Error while moderating entry',
+          text: error,
+          type: 'error'
+        })
+      }
+    },
+    async entryApprove(entryIndex) {
+      const that = this;
+
+      try {
+        emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+          to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+          to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+          entry_name: that.micronationsModerationDirectory[entryIndex].name.main
+        },
+        "P8-p_r-gTZedo_h84");
+
+        const entryRef = doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main);
+        await updateDoc(entryRef, {
+          approved: true
+        });
+
+        this.micronationsModerationDirectory[entryIndex].approved = false;
+        this.forceRerender();
+
+        notify({
+          title: 'Entry moderation',
+          text: 'The entry was successfully approved, the author was notified and it will now be available in the Directory.',
+          type: 'success'
+        })
+      } catch(error) {
+        notify({
+          title: 'Error while moderating entry',
+          text: error,
+          type: 'error'
+        })
+      }
     }
   },
   async mounted() {
@@ -233,7 +384,8 @@ export default {
   height: 315px;
 }
 
-.left-side {
+.left-side,
+.moderation-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,6 +393,8 @@ export default {
   padding: 20px;
   background-color: var(--profile-left-side-background-color);
   border-right: 4px solid var(--site-section-border-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .left-side .login-button {
@@ -248,17 +402,19 @@ export default {
   margin-bottom: 25px;
 }
 
-.left-side .login-button:last-child {
+.left-side .login-button:last-child,
+.moderation-buttons .login-button:last-child {
   margin-bottom: 0;
 }
 
 .right-side {
-  padding: 20px;
+  padding: 0px;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
+  margin: 20px;
 }
 
 .menu .login-input {
@@ -276,5 +432,48 @@ export default {
 
 .contributions-text {
   font-size: 18px;
+}
+
+.moderation-menu {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+}
+
+.moderation-entries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 20px;
+  width: 100%;
+  max-height: 295px;
+  overflow: scroll;
+}
+
+.moderation-buttons {
+  border-right: none;
+  border-left: 4px solid var(--site-section-border-color);
+  border-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 275px;
+}
+
+.moderation-buttons .login-button {
+  width: 200px;
+  margin-bottom: 25px;
+}
+
+.moderation-buttons .login-input {
+  width: 100%;
+}
+
+#entryReject {
+  background-color: var(--intense-tone);
+}
+
+#entryApprove {
+  background-color: var(--success-tone);
 }
 </style>

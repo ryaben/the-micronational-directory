@@ -109,8 +109,11 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br><span class="underlined">
                 (leave as is if N/A)</span></label>
-            <LocationPicker ref="locationPicker" mode="picker" :visible="!physicalType" width="100%" height="200px"
+            <div v-show="physicalType">
+              <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
+              <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="200px"
               @dragged-marker="draggedMarker" />
+            </div>
 
             <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
             <textarea id="newEntryMemberships" ref="newEntryMemberships" name="newEntryMemberships" cols="50" rows="3"
@@ -229,7 +232,8 @@ import { notify } from "@kyvg/vue3-notification";
               memberships: item.memberships,
               contactInfo: item.contactInfo,
               websites: item.websites,
-              author: item.author
+              author: item.author,
+              approved: item.approved
             }" />
         </TransitionGroup>
       </div>
