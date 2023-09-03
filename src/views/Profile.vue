@@ -145,7 +145,7 @@ import emailjs from 'emailjs-com';
               websites: item.websites,
               author: item.author,
               approved: item.approved
-            }" @click="this.selectedEntry = i"/>
+            }" @click="selectedEntry = i"/>
         </div>
         <div class="moderation-buttons">
           <input

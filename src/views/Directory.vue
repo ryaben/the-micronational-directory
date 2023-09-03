@@ -77,7 +77,7 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
             <input type="text" id="newEntryMotto" ref="newEntryMotto"
-              placeholder="E.g. 'In God we trust', motto from the micronation (no need to add quotes)">
+              placeholder="E.g. 'In God we trust' (no need to add quotes)">
 
             <label class="new-entry-form-text mandatory">Type*</label>
             <div class="new-entry-type">
