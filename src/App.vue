@@ -18,7 +18,7 @@ import { version } from '../package.json';
 
   <footer class="site-section">
     <div class="credits">
-      <img src="/images/plain-logo1.png" alt="TMD logo" width="56px">
+      <img src="/images/plain-logo1.png" alt="TMD logo">
       <p><b>The Micronational Directory © 2023</b></p>
       <label class="footer-label">Current version: {{ version }}-beta</label>
     </div>
@@ -139,6 +139,10 @@ footer label[for="darkModeCheckbox"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.credits img {
+  width: 56px;
 }
 
 .anchor-button {
