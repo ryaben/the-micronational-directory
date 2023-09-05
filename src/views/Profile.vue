@@ -198,7 +198,7 @@ export default {
       return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
     },
     percentageContributions() {
-      return ((this.userContributions * 100) / this.micronationsDirectory.length).toFixed(2);
+      return ((this.userContributions * 100) / this.micronationsDirectory.filter((element) => element.approved).length).toFixed(2);
     },
     moderatorsList() {
       return store.getters.moderators;
@@ -267,7 +267,6 @@ export default {
     async signOutCall() {
       localStorage.removeItem('firebase-auth-user')
       await signOut(auth).then(function () {
-        store.getters.contributions = 0
         notify({
           title: 'Session status',
           text: 'You have logged out from your account.',
@@ -293,13 +292,15 @@ export default {
       const that = this;
 
       try {
-        emailjs.send("service_gd9nz5x", "template_5500uwl", {
-          to_name: that.micronationsModerationDirectory[entryIndex].author.name,
-          to_email: that.micronationsModerationDirectory[entryIndex].author.email,
-          entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
-          rejection_reason: that.rejectionReason
-        },
-        "P8-p_r-gTZedo_h84");
+        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
+          emailjs.send("service_gd9nz5x", "template_5500uwl", {
+            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
+            rejection_reason: that.rejectionReason
+          },
+          "P8-p_r-gTZedo_h84");
+        }
 
         if (deletionRequest === true) {
           await deleteDoc(doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main));
@@ -341,19 +342,21 @@ export default {
       const that = this;
 
       try {
-        emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-          to_name: that.micronationsModerationDirectory[entryIndex].author.name,
-          to_email: that.micronationsModerationDirectory[entryIndex].author.email,
-          entry_name: that.micronationsModerationDirectory[entryIndex].name.main
-        },
-        "P8-p_r-gTZedo_h84");
+        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
+          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+            entry_name: that.micronationsModerationDirectory[entryIndex].name.main
+          },
+          "P8-p_r-gTZedo_h84");
+        }
 
         const entryRef = doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main);
         await updateDoc(entryRef, {
           approved: true
         });
 
-        this.micronationsModerationDirectory[entryIndex].approved = false;
+        this.micronationsModerationDirectory[entryIndex].approved = true;
         this.forceRerender();
 
         notify({
