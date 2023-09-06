@@ -124,7 +124,7 @@ import emailjs from 'emailjs-com';
         <div class="moderation-entries" :key="componentKey">
           <DirectoryEntry
             v-for="(item, i) in micronationsModerationDirectory"
-            :key="i" width="350" :flag-height="350 * 0.6" view-mode="cards" :info="{
+            :key="i" width="160" :flag-height="160 * 0.6" view-mode="cards" :info="{
               id: item.id,
               name: {
                 main: item.name.main,
@@ -145,9 +145,10 @@ import emailjs from 'emailjs-com';
               websites: item.websites,
               author: item.author,
               approved: item.approved
-            }" @click="selectedEntry = i"/>
+            }" @click="selectedEntry = i; selectedEntryName = item.name.main;"/>
         </div>
         <div class="moderation-buttons">
+          <label>{{ selectedEntryName }}</label>
           <input
               class="login-input"
               type="text"
@@ -181,6 +182,7 @@ export default {
       newPassword: '',
       repeatNewPassword: '',
       selectedEntry: undefined,
+      selectedEntryName: 'None selected',
       rejectionReason: ""
     }
   },
@@ -445,8 +447,8 @@ export default {
 
 .moderation-entries {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: left;
   padding-top: 20px;
   padding-left: 20px;
   width: 100%;

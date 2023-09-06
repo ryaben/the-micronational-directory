@@ -123,7 +123,7 @@ import { notify } from "@kyvg/vue3-notification";
             <textarea id="newEntryEmails" ref="newEntryEmails" name="newEntryEmails" cols="50" rows="3" required
               placeholder="Enter one email or social media link per line (press Enter after each value)"></textarea>
 
-            <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*</label>
+            <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki article)</label>
             <textarea id="newEntryWebsites" ref="newEntryWebsites" name="newEntryWebsites" cols="50" rows="3" required
               placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
 
@@ -239,7 +239,7 @@ import { notify } from "@kyvg/vue3-notification";
       </div>
 
       <LocationPicker v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
-        :collection="physicalMicronationsDirectory" width="90%" height="40vw" />
+        :collection="physicalMicronationsDirectory.filter(element => element.approved)" width="90%" height="40vw" />
     </section>
   </section>
 

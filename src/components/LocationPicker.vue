@@ -63,7 +63,6 @@ export default {
     name: 'LocationPicker',
     data: () => {
         return {
-            flagList: [],
             layerOptions: {},
             markerPosition: [0, 0]
         };
