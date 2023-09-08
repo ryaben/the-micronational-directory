@@ -63,8 +63,8 @@ import { notify } from "@kyvg/vue3-notification";
             <input type="text" id="newEntryName" ref="newEntryName" required
               placeholder="E.g. 'Sealand' (just the main name)">
 
-            <label for="newEntryTitle" class="new-entry-form-text mandatory">Title*</label>
-            <input type="text" id="newEntryTitle" ref="newEntryTitle" required
+            <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
+            <input type="text" id="newEntryTitle" ref="newEntryTitle"
               placeholder="E.g. 'Principality of' (just the State description)">
 
             <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
@@ -185,6 +185,7 @@ import { notify } from "@kyvg/vue3-notification";
           <label>Views:</label>
           <div>
             <button class="custom-button" @click="changeViewMode('cards')">Cards</button>
+            <button class="custom-button" @click="changeViewMode('table')">Table</button>
             <button class="custom-button" @click="changeViewMode('collage')">Flags</button>
             <button class="custom-button" @click="changeViewMode('map')">Map</button>
           </div>

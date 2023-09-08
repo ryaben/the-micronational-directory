@@ -29,25 +29,28 @@
     <hr class="divider" />
     <div class="bottom-container">
       <div class="bottom-side-container">
-        <h3 class="large-margin">Special thanks to</h3>
-        <div class="scrollable-container"></div>
+        <h3 class="large-margin">Special thanks</h3>
+        <div class="scrollable-container">
+          <div class="listing-entry">
+            <img src="/images/microflag.png" alt="MicroFlag" width="200px" height="110px" />
+            <p>
+              To
+              <a href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
+                target="_blank">MicroFlag</a>,
+              for cooperating and setting up a partnership with us in order to offer prizes for our users during events
+              and contests.
+            </p>
+          </div>
+        </div>
       </div>
       <div class="bottom-side-container">
         <h3 class="large-margin">TMD is featured in</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
-            <img
-              src="/images/micronaciones.png"
-              alt="Micronaciones.com"
-              width="180px"
-              height="52px"
-            />
+            <img src="/images/micronaciones.png" alt="Micronaciones.com" width="180px" height="52px" />
             <p>
-              <a
-                href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
-                target="_blank"
-                >News article</a
-              >
+              <a href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
+                target="_blank">News article</a>
               informing the upcoming launch of the platform and composed by
               <a href="https://micronaciones.com/" target="_blank">Micronaciones.com</a>, one of the
               most renowned Spanish-speaking news portal on micronations.
@@ -56,26 +59,18 @@
           <div class="listing-entry">
             <img src="/images/daily-star.png" alt="The Daily Star" width="120px" height="62px" />
             <p>
-              <a
-                href="https://coiningoverment.blogspot.com/2023/08/your-go-to-micronational-news-source_25.html"
-                target="_blank"
-                >News article</a
-              >
+              <a href="https://coiningoverment.blogspot.com/2023/08/your-go-to-micronational-news-source_25.html"
+                target="_blank">News article</a>
               informing the upcoming launch of the platform and composed by The Daily Star, which is
               the
-              <a href="https://coiningoverment.blogspot.com/" target="_blank"
-                >Coinin Free State News Service</a
-              >.
+              <a href="https://coiningoverment.blogspot.com/" target="_blank">Coinin Free State News Service</a>.
             </p>
           </div>
           <div class="listing-entry">
             <img src="/images/moriel-prensa.png" alt="Moriel Prensa" width="120px" height="72px" />
             <p>
-              <a
-                href="http://morielpress.blogspot.com/2023/08/avanza-el-desarrollo-del-proyecto.html"
-                target="_blank"
-                >News article</a
-              >
+              <a href="http://morielpress.blogspot.com/2023/08/avanza-el-desarrollo-del-proyecto.html"
+                target="_blank">News article</a>
               informing the upcoming launch of the platform and composed by Moriel Prensa, which is
               the State journal from
               <a href="https://gobierno-nacional-moriel.blogspot.com/" target="_blank">Moriel</a>.
@@ -84,10 +79,8 @@
           <div class="listing-entry">
             <img src="/images/dove-archives.png" alt="Dove Archives" width="200px" height="102px" />
             <p>
-              <a
-                href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory"
-                target="_blank"
-                >Encyclopedic article</a>
+              <a href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory" target="_blank">Encyclopedic
+                article</a>
               describing general aspects about The Micronational Directory, created by Malus and
               hosted in <a href="https://www.dovearchives.wiki" target="_blank">Dove Archives</a>.
             </p>
@@ -127,8 +120,8 @@ export default {
 }
 
 .scrollable-container {
-  padding: 0 10px 0 10px;
-  width: 90%;
+  padding: 15px;
+  width: 87%;
 }
 
 .listing-entry {

@@ -24,20 +24,25 @@ defineProps({
 </script>
 
 <template>
-    <div class="directory-entry-container"
-        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
-        @click="toggleInfo">
+    <div class="directory-entry-container" :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }"
+        :style="cssProps" @click="toggleInfo">
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
-        <div v-show="viewMode !== 'collage'">
-            <p class="entry-text entry-name"><b>{{ info.name.main }}</b>,<br>{{ info.name.title }}</p>
-            <p v-if="info.name.mainAlt != '' || info.name.titleAlt != ''" class="entry-text entry-alt-name">(<b>{{
-                info.name.mainAlt }}</b>, {{ info.name.titleAlt }})</p>
+        <div v-show="viewMode !== 'collage'" class="entry-info">
+            <div>
+                <p class="entry-text entry-name"><b>{{ info.name.main }}</b><span
+                        v-if="info.name.title !== ''">,</span><br>
+                        <br v-if="info.name.title === ''" v-show="!infoView">
+                        {{ info.name.title }}</p>
+                <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
+                    info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
+                </p>
+            </div>
 
             <hr class="light-divider">
 
-            <p v-if="info.motto != ''" class="entry-text"><span class="underlined italicized">"{{
-                info.motto }}"</span></p>
+            <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
+                info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
             <p class="entry-text">
                 <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
                         v-if="i !== info.type.length - 1">,&nbsp;</span><span
@@ -55,8 +60,8 @@ defineProps({
                 new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
             <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
                 info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
-            <p v-if="info.currency != ''" class="entry-text"><span class="underlined">Currency:</span>&nbsp;{{
-                info.currency }}.</p>
+            <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span v-if="info.currency !== ''">{{
+                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
             <p class="entry-text">
                 <span class="underlined">Memberships:</span>&nbsp;<span v-if="info.memberships == ''">None.</span><span
                     v-if="info.memberships != ''" v-for="(membership, i) in info.memberships" :key="i">{{

@@ -39,8 +39,7 @@ import { auth } from '../firebase/init.js';
                 <h2>All-time Top Contributors</h2>
                 <div class="contributor-entry special">
                     <p class="contributor-name">The Micronational Directory Team</p>
-                    <p class="contributor-contributions">{{ countContributions(micronationsApprovedDirectory,
-                        "themicronationaldirectory@gmail.com") }}</p>
+                    <p class="contributor-contributions">{{ TMDContributions }}&nbsp;({{ TMDContributionsPercentage }}%)</p>
                 </div>
                 <div class="scrollable-container contributors-ranking">
                     <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
@@ -78,6 +77,12 @@ export default {
         },
         membershipValues() {
             return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships');
+        },
+        TMDContributions() {
+            return this.countContributions(this.micronationsApprovedDirectory, "themicronationaldirectory@gmail.com");
+        },
+        TMDContributionsPercentage() {
+            return ((this.TMDContributions * 100) / this.micronationsApprovedDirectory.length).toFixed(2);
         }
     },
     methods: {

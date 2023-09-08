@@ -124,7 +124,7 @@ import emailjs from 'emailjs-com';
         <div class="moderation-entries" :key="componentKey">
           <DirectoryEntry
             v-for="(item, i) in micronationsModerationDirectory"
-            :key="i" width="160" :flag-height="160 * 0.6" view-mode="cards" :info="{
+            :key="i" :width="160" :flag-height="160 * 0.6" view-mode="cards" :info="{
               id: item.id,
               name: {
                 main: item.name.main,
@@ -326,6 +326,8 @@ export default {
         }
 
         this.forceRerender();
+        this.selectedEntry = undefined;
+        this.selectedEntryName = 'None selected';
 
         notify({
           title: 'Entry moderation',
@@ -360,6 +362,8 @@ export default {
 
         this.micronationsModerationDirectory[entryIndex].approved = true;
         this.forceRerender();
+        this.selectedEntry = undefined;
+        this.selectedEntryName = 'None selected';
 
         notify({
           title: 'Entry moderation',

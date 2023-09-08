@@ -39,6 +39,8 @@ const store = createStore({
                 micronationsList.push({ id: doc.id, searchDisplay: true, filterDisplay: true, ...doc.data() });
             });
 
+            micronationsList.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
+
             context.commit('SET_ENTRIES', micronationsList);
         },
         filterPhysicalMicronations(context) {
