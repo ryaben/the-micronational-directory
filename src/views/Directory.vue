@@ -13,16 +13,27 @@ import { notify } from "@kyvg/vue3-notification";
 <template>
   <section class="site-section">
     <div class="dropdown-info-box color-transition">
-      <h3 @click="toggleDropdown">⚠️ Important notes on new entries (click to open/close):</h3>
+      <h3 @click="toggleDropdown">⚠️ Important notes on new entries and add your own (click to open/close):</h3>
       <p>
         We invite the community to contribute to the directory and add micronations to it.
         <b>It's important to highlight that:</b>
       </p>
       <ul class="notes-list">
         <li>
-          Please provide <b>truthful, appropriate and precise information</b>. Entries without a basis on veridical proof
-          like an official website or article will be surely rejected. Also, cases of micronations that promote Nazi
-          symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected as well.
+          Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations that
+          promote Nazi
+          symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
+        </li>
+        <li>
+          Micronations submitted should have <b>at least 3 months of proven existence.</b> This way we avoid lightning
+          entries that may only be games or premature/fake experiments.
+        </li>
+        <li>
+          It's <b>mandatory</b> that all entries have an official website (<b>NOT</b> a social media account) of the
+          micronation and/or (preferably
+          <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is specified,
+          and we can avoid
+          entries that could be jokes, games, fake, misleading or cheating for contests.
         </li>
         <li>
           Physical and digital micronations
@@ -32,10 +43,6 @@ import { notify } from "@kyvg/vue3-notification";
           is not a valid case, while the <a href="https://en.wikipedia.org/wiki/Kingdom_of_Redonda"
             target="_blank">Kingdom of Redonda</a> or most of the micronations from <a
             href="https://micras.org/mwiki/Main_Page" target="_blank">Micras</a> indeed are).
-        </li>
-        <li>
-          Micronations submitted should have <b>at least 3 months of proven existence.</b> This way we avoid lightning
-          entries that may only be games or premature/fake experiments.
         </li>
         <li>
           Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's main
@@ -48,7 +55,8 @@ import { notify } from "@kyvg/vue3-notification";
           instead.
         </li>
         <li>
-          All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before they are posted on the
+          All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before they
+          are posted on the
           definitive public online directory.
         </li>
       </ul>
@@ -58,6 +66,7 @@ import { notify } from "@kyvg/vue3-notification";
 
       <Transition name="opacity">
         <form class="listing-new-entry" v-show="newEntryView" @submit.prevent="addEntry">
+          <p>Please, carefully read instructions for all fields. Help us save moderation efforts!</p>
           <div class="new-entry-form">
             <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
             <input type="text" id="newEntryName" ref="newEntryName" required
@@ -77,7 +86,7 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
             <input type="text" id="newEntryMotto" ref="newEntryMotto"
-              placeholder="E.g. 'In God we trust' (no need to add quotes)">
+              placeholder="E.g. 'In God we trust' (don't add quotes)">
 
             <label class="new-entry-form-text mandatory">Type*</label>
             <div class="new-entry-type">
@@ -102,17 +111,17 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
             <input type="text" id="newEntryCurrency" ref="newEntryCurrency"
-              placeholder="E.g. 'Sealandic dollar', official currency of the micronation">
+              placeholder="E.g. 'Sealand dollar', official currency of the micronation">
 
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
             <input type="date" id="newEntryFoundation" ref="newEntryFoundation" name="newEntryFoundation" required>
 
-            <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br><span class="underlined">
-                (leave as is if N/A)</span></label>
+            <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
+              (leave as is if N/A)</label>
             <div v-show="physicalType">
               <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
               <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="200px"
-              @dragged-marker="draggedMarker" />
+                @dragged-marker="draggedMarker" />
             </div>
 
             <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
@@ -121,9 +130,10 @@ import { notify } from "@kyvg/vue3-notification";
 
             <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
             <textarea id="newEntryEmails" ref="newEntryEmails" name="newEntryEmails" cols="50" rows="3" required
-              placeholder="Enter one email or social media link per line (press Enter after each value)"></textarea>
+              placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
 
-            <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki article)</label>
+            <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
+              article)</label>
             <textarea id="newEntryWebsites" ref="newEntryWebsites" name="newEntryWebsites" cols="50" rows="3" required
               placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
 
@@ -185,7 +195,6 @@ import { notify } from "@kyvg/vue3-notification";
           <label>Views:</label>
           <div>
             <button class="custom-button" @click="changeViewMode('cards')">Cards</button>
-            <button class="custom-button" @click="changeViewMode('table')">Table</button>
             <button class="custom-button" @click="changeViewMode('collage')">Flags</button>
             <button class="custom-button" @click="changeViewMode('map')">Map</button>
           </div>
@@ -418,10 +427,10 @@ export default {
     sortMicronations(array, sorting) {
       switch (sorting) {
         case 'ascending':
-          array.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
+          array.sort((a, b) => (this.normalizeString(a.name.main) > this.normalizeString(b.name.main)) ? 1 : -1);
           break;
         case 'descending':
-          array.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
+          array.sort((a, b) => (this.normalizeString(a.name.main) > this.normalizeString(b.name.main)) ? 1 : -1);
           array.reverse();
           break;
         case 'random':
@@ -433,10 +442,11 @@ export default {
     },
     addFilterLetters(array) {
       let letters = [];
+      let that = this;
 
       array.forEach(function (element) {
-        if (!letters.includes(element.name.main.charAt(0))) {
-          letters.push(element.name.main.charAt(0));
+        if (!letters.includes(that.normalizeString(element.name.main.charAt(0)))) {
+          letters.push(that.normalizeString(element.name.main.charAt(0)));
         }
       });
 
@@ -454,14 +464,16 @@ export default {
       });
     },
     filterEntries(e) {
+      const that = this;
+
       if (e.target.value == '') {
         this.micronationsDirectory.forEach(function (element) {
           element.searchDisplay = true;
         });
       } else {
         this.micronationsDirectory.forEach(function (element) {
-          let entryCurated = element.name.main.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-          let searchCurated = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          let entryCurated = that.normalizeString(element.name.main.toLowerCase());
+          let searchCurated = that.normalizeString(e.target.value.toLowerCase());
 
           if (!entryCurated.includes(searchCurated)) {
             element.searchDisplay = false;
@@ -472,13 +484,15 @@ export default {
       }
     },
     filterEntriesByLetter(e) {
+      const that = this;
+
       if (e.target.value === 'none') {
         this.micronationsDirectory.forEach(function (element) {
           element.filterDisplay = true;
         });
       } else {
         this.micronationsDirectory.forEach(function (element) {
-          if (element.name.main.charAt(0) === e.target.value) {
+          if (that.normalizeString(element.name.main.charAt(0)) === e.target.value) {
             element.filterDisplay = true;
           } else {
             element.filterDisplay = false;
@@ -506,6 +520,9 @@ export default {
       } else {
         return '';
       }
+    },
+    normalizeString(string) {
+      return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
     draggedMarker(newPosition) {
       this.locationPickerMarkerPosition = newPosition;
@@ -690,17 +707,4 @@ div.new-entry-type {
   .directory-settings>div:not(div:last-of-type) {
     margin-bottom: 15px;
   }
-}
-
-/* Vue transitions */
-
-.opacity-enter-active,
-.opacity-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.opacity-enter-from,
-.opacity-fast-enter-from {
-  opacity: 0;
-}
-</style>
+}</style>

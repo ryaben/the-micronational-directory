@@ -81,7 +81,7 @@ import emailjs from 'emailjs-com';
           Your contribution:<br />
           - <b>{{ userContributions }}</b> entries on the Directory ({{ percentageContributions }}%
           of the total).<br />
-          - <b>{{ user.prizesWon || 0 }}</b> prizes won on the platform.
+          - <b>{{ user.contestsWon || 0 }}</b> contest(s) won on the platform.
         </p>
       </div>
       <form class="password-menu menu" v-show="passwordMenu" @submit.prevent="changePassword">
@@ -328,6 +328,7 @@ export default {
         this.forceRerender();
         this.selectedEntry = undefined;
         this.selectedEntryName = 'None selected';
+        this.rejectionReason = '';
 
         notify({
           title: 'Entry moderation',

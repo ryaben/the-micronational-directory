@@ -192,3 +192,15 @@ input.login-input {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+/* Vue transitions */
+
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.opacity-enter-from,
+.opacity-fast-enter-from {
+  opacity: 0;
+}

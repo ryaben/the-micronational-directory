@@ -28,12 +28,13 @@ defineProps({
         :style="cssProps" @click="toggleInfo">
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
+
         <div v-show="viewMode !== 'collage'" class="entry-info">
             <div>
-                <p class="entry-text entry-name"><b>{{ info.name.main }}</b><span
-                        v-if="info.name.title !== ''">,</span><br>
-                        <br v-if="info.name.title === ''" v-show="!infoView">
-                        {{ info.name.title }}</p>
+                <p class="entry-text entry-name"><b>{{ info.name.main }}</b><span v-if="info.name.title !== ''">,</span><br>
+                    <br v-if="info.name.title === ''" v-show="!infoView">
+                    {{ info.name.title }}
+                </p>
                 <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
                     info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
                 </p>
@@ -82,7 +83,6 @@ defineProps({
                         v-if="i !== info.websites.length - 1"><br></span></span>
             </p>
         </div>
-
     </div>
 </template>
 

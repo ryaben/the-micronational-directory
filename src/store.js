@@ -31,6 +31,10 @@ const store = createStore({
     },
     actions: {
         async getMicronations(context) {
+            const normalize = function(string) {
+                return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+
             const q = query(collection(db, "micronations"));
             let micronationsList = [];
 
@@ -39,7 +43,7 @@ const store = createStore({
                 micronationsList.push({ id: doc.id, searchDisplay: true, filterDisplay: true, ...doc.data() });
             });
 
-            micronationsList.sort((a, b) => (a.name.main > b.name.main) ? 1 : -1);
+            micronationsList.sort((a, b) => (normalize(a.name.main) > normalize(b.name.main)) ? 1 : -1);
 
             context.commit('SET_ENTRIES', micronationsList);
         },
