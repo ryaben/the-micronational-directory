@@ -74,7 +74,7 @@ defineProps({
 
             <p class="entry-text">
                 <span class="underlined">Contact info:</span><br><span v-for="(contact, i) in info.contactInfo"
-                    :key="i"><span class="contact-email"><a :href="contact">{{ contact }}</a></span><span
+                    :key="i"><span class="contact-email"><a :href="contact" target="_blank">{{ contact }}</a></span><span
                         v-if="i !== info.contactInfo.length - 1"><br></span></span>
             </p>
             <p class="entry-text">

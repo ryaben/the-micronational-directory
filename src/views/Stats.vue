@@ -1,5 +1,7 @@
 <script setup>
 import store from '../store';
+import EntriesRanking from '../components/EntriesRanking.vue';
+import ContestOverview from '../components/ContestOverview.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase/init.js';
 </script>
@@ -7,10 +9,25 @@ import { auth } from '../firebase/init.js';
 <template>
     <section class="site-section">
         <div class="events-bar">
-            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow up the terms and
-                everything related. In them, <b>the users with most contributions will qualify for prizes</b>. Also, <b>contributions provided
-                now will count for the first event</b>, when the time comes. So you are already playing!</p>
+            <!-- <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow
+                up the terms and
+                everything related. In them, <b>the users with most contributions will qualify for prizes</b>. Also,
+                <b>contributions provided
+                    now will count for the first event</b>, when the time comes. So you are already playing!<br>
+                    Carefully read the <a href="/terms-of-contests">terms and conditions</a> to know all the details.
+            </p> -->
         </div>
+        <div class="tables-container">
+            <ContestOverview :contest-info="activeContest" />
+            <!-- <EntriesRanking title="Ongoing Ranking" :tmd-entry="false" /> -->
+            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
+                :start-timestamp="1703518332" :end-timestamp="1703518332" />
+            <!-- <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
+                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" /> -->
+        </div>
+
+        <hr class="divider" />
+
         <div class="tables-container">
             <div class="stats-container">
                 <h2>Directory Statistics</h2>
@@ -35,28 +52,21 @@ import { auth } from '../firebase/init.js';
                     </div>
                 </div>
             </div>
-            <div class="stats-container">
-                <h2>All-time Top Contributors</h2>
-                <div class="contributor-entry special">
-                    <p class="contributor-name">The Micronational Directory Team</p>
-                    <p class="contributor-contributions">{{ TMDContributions }}&nbsp;({{ TMDContributionsPercentage }}%)</p>
-                </div>
-                <div class="scrollable-container contributors-ranking">
-                    <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
-                        :class="{ 'current-user': contributor.email === user.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
-                        <p class="contributor-rank">{{ i + 1 }}.</p>
-                        <p class="contributor-name">{{ contributor.name }}<span
-                                v-if="contributor.email === user.email">&nbsp;(it's you!)</span></p>
-                        <p class="contributor-contributions">{{ contributor.contributions }}</p>
-                    </div>
-                </div>
-            </div>
+            <EntriesRanking title="All-time Top Contributors" :tmd-entry="true" />
+        </div>
+
+        <div class="tables-container">
+
         </div>
     </section>
 </template>
   
 <script>
 export default {
+    components: {
+        EntriesRanking,
+        ContestOverview
+    },
     data() {
         return {
             user: {}
@@ -66,8 +76,8 @@ export default {
         micronationsApprovedDirectory() {
             return store.getters.directory.filter(element => element.approved);
         },
-        contributorsList() {
-            return this.listContributors(this.micronationsApprovedDirectory);
+        contestsList() {
+            return store.getters.contests;
         },
         typeValues() {
             return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'type');
@@ -78,11 +88,8 @@ export default {
         membershipValues() {
             return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships');
         },
-        TMDContributions() {
-            return this.countContributions(this.micronationsApprovedDirectory, "themicronationaldirectory@gmail.com");
-        },
-        TMDContributionsPercentage() {
-            return ((this.TMDContributions * 100) / this.micronationsApprovedDirectory.length).toFixed(2);
+        activeContest() {
+            return this.findContest('BJdYq4eegJuYLwz3lfvd');
         }
     },
     methods: {
@@ -122,41 +129,10 @@ export default {
 
             return collectedValuesArray;
         },
-        listContributors(array) {
-            let contributors = [];
-            const that = this;
-
-            array.forEach(function (element) {
-                if (!contributors.some(el => el.email === element.author.email)) {
-                    contributors.push({
-                        name: element.author.name,
-                        email: element.author.email,
-                        contributions: that.countContributions(array, element.author.email)
-                    });
-                }
+        findContest(contestId) {
+            return this.contestsList.find(function (element) {
+                return element.id === contestId;
             });
-
-            let tmd = contributors.find(function (element) {
-                return element.email === 'themicronationaldirectory@gmail.com';
-            });
-            contributors.splice(contributors.indexOf(tmd), 1);
-
-            contributors.sort(function (a, b) {
-                return b.contributions - a.contributions;
-            });
-
-            return contributors;
-        },
-        countContributions(array, value) {
-            let count = 0;
-
-            array.forEach(element => {
-                if (element.author.email === value) {
-                    count += 1;
-                }
-            });
-
-            return count;
         }
     },
     async mounted() {
@@ -166,6 +142,11 @@ export default {
 </script>
   
 <style scoped>
+hr.divider {
+    width: 95%;
+    margin: 30px 0 30px 0;
+}
+
 .site-section {
     display: flex;
     flex-direction: column;
@@ -174,9 +155,10 @@ export default {
 
 .events-bar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
-    margin-bottom: 25px;
 }
 
 .events-notice {
@@ -186,13 +168,6 @@ export default {
 .tables-container {
     display: flex;
     width: 100%;
-}
-
-.stats-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
 }
 
 .statistics-table.directory {
@@ -243,10 +218,6 @@ export default {
     border-bottom: 2px solid var(--vt-c-white);
 }
 
-/* .table-value:last-of-type {
-    border-bottom: none;
-} */
-
 .stats-entry {
     font-size: 18px;
 }
@@ -258,81 +229,6 @@ export default {
     border-radius: 8px;
     border: 2px solid white;
     margin-bottom: 25px;
-}
-
-.contributor-entry {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 3px solid var(--vt-c-indigo);
-    padding: 0 10px 0 10px;
-}
-
-.contributor-entry.hidden {
-    display: none;
-}
-
-.contributor-entry.special {
-    padding: 5px;
-    width: 85%;
-    border-bottom: none;
-    margin-bottom: 13px;
-}
-
-.contributor-entry.current-user {
-    background-color: var(--vt-c-white);
-    color: var(--vt-c-black);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) {
-    background: linear-gradient(138deg, var(--gold) 0%, var(--gold-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) p:nth-child(2)::after {
-    content: "🥇";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(2) {
-    background: linear-gradient(138deg, var(--silver) 0%, var(--silver-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(2) p:nth-child(2)::after {
-    content: "🥈";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(3) {
-    background: linear-gradient(138deg, var(--bronze) 0%, var(--bronze-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(3) p:nth-child(2)::after {
-    content: "🥉";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) p,
-.contributors-ranking .contributor-entry:nth-of-type(2) p,
-.contributors-ranking .contributor-entry:nth-of-type(3) p {
-    color: var(--vt-c-black);
-}
-
-.contributors-ranking .contributor-entry:last-of-type {
-    border-bottom: none;
-}
-
-.contributor-rank {
-    font-size: 17px;
-    margin-right: 5px;
-    font-weight: bold;
-}
-
-.contributor-name {
-    font-size: 17px;
-    width: 100%;
-    font-weight: bold;
-}
-
-.contributor-contributions {
-    font-size: 20px;
-    font-weight: bold;
 }
 </style>
   

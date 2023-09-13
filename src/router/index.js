@@ -7,38 +7,44 @@ import Stats from "@/views/Stats.vue";
 import Login from "@/views/Login.vue";
 import Profile from "@/views/Profile.vue";
 import About from "@/views/About.vue";
+import TermsOfContests from "@/views/TermsOfContests.vue";
 
 //Rutas
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/directory",
     name: "Directory",
-    component: Directory,
+    component: Directory
   },
   {
     path: "/stats",
     name: "Stats",
-    component: Stats,
+    component: Stats
   },
   {
     path: "/login",
     name: "Login",
-    component: Login,
+    component: Login
   },
   {
     path: "/profile",
     name: "Profile",
-    component: Profile,
+    component: Profile
   },
   {
     path: "/about",
     name: "About",
-    component: About,
+    component: About
+  },
+  {
+    path: "/terms-of-contests",
+    name: "TermsOfContests",
+    component: TermsOfContests
   }
 ];
 

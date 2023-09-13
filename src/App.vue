@@ -60,12 +60,13 @@ export default {
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
         { text: 'About', icon: 'about.png', route: 'About' }
-      ],
+      ]
     }
   },
   async mounted() {
     await store.dispatch('getMicronations');
     await store.dispatch('filterPhysicalMicronations');
+    await store.dispatch('getContests');
   }
 }
 </script>

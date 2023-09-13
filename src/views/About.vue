@@ -35,8 +35,7 @@
             <img src="/images/microflag.png" alt="MicroFlag" width="200px" height="110px" />
             <p>
               To
-              <a href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
-                target="_blank">MicroFlag</a>,
+              <a href="https://microflag.net/" target="_blank">MicroFlag</a>,
               for cooperating and setting up a partnership with us in order to offer prizes for our users during events
               and contests.
             </p>

@@ -8,12 +8,19 @@ import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase/init.js';
 import { notify } from "@kyvg/vue3-notification";
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css';
 </script>
 
 <template>
   <section class="site-section">
     <div class="dropdown-info-box color-transition">
       <h3 @click="toggleDropdown">⚠️ Important notes on new entries and add your own (click to open/close):</h3>
+      <p>
+        Don't know what micronations to add? <a
+          href="https://docs.google.com/spreadsheets/d/1jwekLc1EpbVfznTbMrqiM8KUJW_ra3vywcMpiLTJrEs/edit?usp=sharing"
+          target="_blank">Check out this list with many sources that we've composed</a>.
+      </p>
       <p>
         We invite the community to contribute to the directory and add micronations to it.
         <b>It's important to highlight that:</b>
@@ -114,13 +121,15 @@ import { notify } from "@kyvg/vue3-notification";
               placeholder="E.g. 'Sealand dollar', official currency of the micronation">
 
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
-            <input type="date" id="newEntryFoundation" ref="newEntryFoundation" name="newEntryFoundation" required>
+            <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
+              :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :auto-apply="true"
+              :max-date="new Date()" />
 
             <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
               (leave as is if N/A)</label>
             <div v-show="physicalType">
               <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
-              <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="200px"
+              <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="300px"
                 @dragged-marker="draggedMarker" />
             </div>
 
@@ -243,7 +252,8 @@ import { notify } from "@kyvg/vue3-notification";
               contactInfo: item.contactInfo,
               websites: item.websites,
               author: item.author,
-              approved: item.approved
+              approved: item.approved,
+              creationDate: item.creationDate
             }" />
         </TransitionGroup>
       </div>
@@ -268,6 +278,7 @@ export default {
       newEntryView: false,
       viewMode: 'cards',
       physicalType: false,
+      foundationDate: null,
       locationPickerMarkerPosition: [0, 0],
       fixedHeight: false,
       flagSource: '',
@@ -278,7 +289,8 @@ export default {
   components: {
     DirectoryEntry,
     LocationPicker,
-    Recaptcha
+    Recaptcha,
+    VueDatePicker
   },
   computed: {
     checkUser() {
@@ -375,13 +387,14 @@ export default {
               languages: that.readTextarea('newEntryLanguages'),
               capital: that.$refs.newEntryCapital.value,
               currency: that.$refs.newEntryCurrency.value,
-              foundationDate: Timestamp.fromDate(new Date(that.$refs.newEntryFoundation.value)),
+              foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
               location: physicalLocation,
               memberships: that.readTextarea('newEntryMemberships'),
               contactInfo: that.readTextarea('newEntryEmails'),
               websites: that.readTextarea('newEntryWebsites'),
               author: { name: that.checkUser.displayName, email: that.checkUser.email },
-              approved: false
+              approved: false,
+              creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
             });
 
             notify({
@@ -524,6 +537,9 @@ export default {
     normalizeString(string) {
       return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
+    convertTZ(date, tzString) {
+      return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+    },
     draggedMarker(newPosition) {
       this.locationPickerMarkerPosition = newPosition;
     },
@@ -547,7 +563,7 @@ export default {
 .listing-new-entry {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   border-radius: 6px;
@@ -698,6 +714,12 @@ div.new-entry-type {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 1100px) {
+  .listing-new-entry {
+    width: auto;
+  }
+}
+
 @media only screen and (max-width: 960px) {
   .directory-settings {
     flex-direction: column;
@@ -707,4 +729,5 @@ div.new-entry-type {
   .directory-settings>div:not(div:last-of-type) {
     margin-bottom: 15px;
   }
-}</style>
+}
+</style>

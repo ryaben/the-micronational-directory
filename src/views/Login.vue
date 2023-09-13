@@ -8,7 +8,7 @@ import { notify } from "@kyvg/vue3-notification";
 <template>
     <section class="site-section login">
         <div id="loginForm">
-            <h3 id="loginTitle">Log in</h3>
+            <h1 id="loginTitle">Log in</h1>
             <p id="loginSubtitle">Add new entries in the Directory, participate in events and leave your mark on the stats
                 and the credits!</p>
             <input class="login-input" type="text" id="loginName" v-model="loginName"
@@ -157,7 +157,6 @@ export default {
 }
 
 #loginTitle {
-    font-size: 24px;
     margin: 0;
 }
 

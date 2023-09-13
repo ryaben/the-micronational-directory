@@ -6,6 +6,7 @@ const store = createStore({
     state: {
         directory: [],
         physicalDirectory: [],
+        contests: [],
         moderators: [
             "themicronationaldirectory@gmail.com"
         ]
@@ -17,6 +18,9 @@ const store = createStore({
         physicalDirectory(state) {
             return state.physicalDirectory;
         },
+        contests(state) {
+            return state.contests;
+        },
         moderators(state) {
             return state.moderators;
         }
@@ -24,6 +28,9 @@ const store = createStore({
     mutations: {
         SET_ENTRIES(state, value) {
             state.directory = value;
+        },
+        SET_CONTESTS(state, value) {
+            state.contests = value;
         },
         SET_PHYSICAL_ENTRIES(state, value) {
             state.physicalDirectory = value;
@@ -46,6 +53,17 @@ const store = createStore({
             micronationsList.sort((a, b) => (normalize(a.name.main) > normalize(b.name.main)) ? 1 : -1);
 
             context.commit('SET_ENTRIES', micronationsList);
+        },
+        async getContests(context) {
+            const q = query(collection(db, "contests"));
+            let contestsList = [];
+
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+                contestsList.push({ id: doc.id, ...doc.data() });
+            });
+
+            context.commit('SET_CONTESTS', contestsList);
         },
         filterPhysicalMicronations(context) {
             let filteredDirectory = [];
