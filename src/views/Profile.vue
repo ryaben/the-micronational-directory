@@ -295,7 +295,8 @@ export default {
 
       try {
         if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
-          emailjs.send("service_gd9nz5x", "template_5500uwl", {
+          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+            entry_decision: 'reject',
             to_name: that.micronationsModerationDirectory[entryIndex].author.name,
             to_email: that.micronationsModerationDirectory[entryIndex].author.email,
             entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
@@ -349,9 +350,11 @@ export default {
       try {
         if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
           emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+            entry_decision: 'approve',
             to_name: that.micronationsModerationDirectory[entryIndex].author.name,
             to_email: that.micronationsModerationDirectory[entryIndex].author.email,
-            entry_name: that.micronationsModerationDirectory[entryIndex].name.main
+            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
+            rejection_reason: that.rejectionReason
           },
           "P8-p_r-gTZedo_h84");
         }
