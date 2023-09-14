@@ -122,8 +122,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
 
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
             <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
-              :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :auto-apply="true"
-              :max-date="new Date()" />
+              :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
 
             <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
               (leave as is if N/A)</label>

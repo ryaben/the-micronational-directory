@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         updateTimer(countDownDate) {
-            let now = new Date().getTime();
+            let now = this.convertTZ(new Date(), 'Etc/UTC');
             let distance = countDownDate - now;
 
             let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -51,7 +51,10 @@ export default {
                 this.display = this.finishMessage;
                 this.$emit('startCountdownEnded');
             }
-        }
+        },
+        convertTZ(date, tzString) {
+            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+        },
     },
     mounted() {
         const that = this;

@@ -33,7 +33,7 @@
         <p>
             A starting date and time and a finishing date and time are set for the contest, for it to occur during this
             inverval. This information will be publicly disclosed in our website beforehand, so users will have enough time
-            to prepare for the occasion. We use the <b>GMT-3 timezone for all dates and times</b> stated at Contests. From
+            to prepare for the occasion. We use the <b>UTC timezone for all dates and times</b> stated at Contests. From
             the moment
             that the finishing time is reached, any entry submitted after it will not be
             considered for the contest and won't grant an entry point to the player. The same situation happens with the
