@@ -40,7 +40,7 @@ import { version } from '../package.json';
     </div>
 
     <a href="https://s01.flagcounter.com/more/n91V/" class="tab-router-link" target="_blank"><img
-        src="https://s01.flagcounter.com/count2/n91V/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_15/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
+        src="https://s01.flagcounter.com/count2/n91V/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_20/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
         alt="Flag Counter" border="0"></a>
   </footer>
 

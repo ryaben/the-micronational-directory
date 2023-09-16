@@ -76,6 +76,15 @@
             </p>
           </div>
           <div class="listing-entry">
+            <img src="/images/la-gaceta-eldorado.png" alt="La Gaceta El Dorado" width="120px" height="72px" />
+            <p>
+              <a href="https://lagaceta-eldorado.blogspot.com/2023/09/el-dorado-comienza-participacion-activa.html"
+                target="_blank">News article</a>
+              informing the participation of El Dorado in TMD, from
+              <a href="https://lagaceta-eldorado.blogspot.com/" target="_blank">La Gaceta</a>.
+            </p>
+          </div>
+          <div class="listing-entry">
             <img src="/images/dove-archives.png" alt="Dove Archives" width="200px" height="102px" />
             <p>
               <a href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory" target="_blank">Encyclopedic

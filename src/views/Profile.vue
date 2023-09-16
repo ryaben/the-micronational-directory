@@ -297,6 +297,7 @@ export default {
         if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
           emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
             entry_decision: 'reject',
+            entry_decisiond: 'rejected',
             to_name: that.micronationsModerationDirectory[entryIndex].author.name,
             to_email: that.micronationsModerationDirectory[entryIndex].author.email,
             entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
@@ -351,6 +352,7 @@ export default {
         if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
           emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
             entry_decision: 'approve',
+            entry_decisiond: 'approved',
             to_name: that.micronationsModerationDirectory[entryIndex].author.name,
             to_email: that.micronationsModerationDirectory[entryIndex].author.email,
             entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
@@ -368,6 +370,7 @@ export default {
         this.forceRerender();
         this.selectedEntry = undefined;
         this.selectedEntryName = 'None selected';
+        this.rejectionReason = '';
 
         notify({
           title: 'Entry moderation',
