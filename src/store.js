@@ -44,15 +44,21 @@ const store = createStore({
 
             const q = query(collection(db, "micronations"));
             let micronationsList = [];
+            let physicalMicronationsList = [];
 
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 micronationsList.push({ id: doc.id, searchDisplay: true, filterDisplay: true, ...doc.data() });
+
+                if (doc.data().location._lat !== 0 && doc.data().location._long) {
+                    physicalMicronationsList.push({ id: doc.id, searchDisplay: true, filterDisplay: true, ...doc.data() });
+                }
             });
 
             micronationsList.sort((a, b) => (normalize(a.name.main) > normalize(b.name.main)) ? 1 : -1);
 
             context.commit('SET_ENTRIES', micronationsList);
+            context.commit('SET_PHYSICAL_ENTRIES', physicalMicronationsList);
         },
         async getContests(context) {
             const q = query(collection(db, "contests"));
@@ -64,18 +70,7 @@ const store = createStore({
             });
 
             context.commit('SET_CONTESTS', contestsList);
-        },
-        filterPhysicalMicronations(context) {
-            let filteredDirectory = [];
-
-            context.getters.directory.forEach(function (element) {
-                if (element.location._lat !== 0 && element.location._lng !== 0) {
-                    filteredDirectory.push(element);
-                }
-            });
-
-            context.commit('SET_PHYSICAL_ENTRIES', filteredDirectory);
-        },
+        }
     }
 });
 

@@ -29,12 +29,11 @@
     <hr class="divider" />
     <div class="bottom-container">
       <div class="bottom-side-container">
-        <h3 class="large-margin">Special thanks</h3>
+        <h3 class="large-margin">Special thanks to</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
             <img src="/images/microflag.png" alt="MicroFlag" width="200px" height="110px" />
             <p>
-              To
               <a href="https://microflag.net/" target="_blank">MicroFlag</a>,
               for cooperating and setting up a partnership with us in order to offer prizes for our users during events
               and contests.

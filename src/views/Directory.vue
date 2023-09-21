@@ -73,7 +73,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
 
       <Transition name="opacity">
         <form class="listing-new-entry" v-show="newEntryView" @submit.prevent="addEntry">
-          <p>Please, carefully read instructions for all fields. Help us save moderation efforts!</p>
+          <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
           <div class="new-entry-form">
             <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
             <input type="text" id="newEntryName" ref="newEntryName" required
@@ -145,7 +145,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
             <textarea id="newEntryWebsites" ref="newEntryWebsites" name="newEntryWebsites" cols="50" rows="3" required
               placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
 
-            <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*</label>
+            <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
             <div class="flag-preview-container">
               <input type="file" @change="previewImage" accept="image/png" required>
               <img v-show="flagSource != ''" class="flag-preview" :src="flagPreview">
@@ -580,6 +580,7 @@ export default {
   row-gap: 5px;
   grid-template-columns: 40% 60%;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .new-entry-form-text {

@@ -27,7 +27,7 @@ defineProps({
             <img v-if="contestInfo.partnerInfo" :src="'/images/' + contestInfo.partnerInfo.image"
                 :alt="contestInfo.partnerInfo.name" width="100" />
             <p>
-                We are giving
+                We are awarding
                 <span v-if="contestInfo.partnerInfo">
                     alongside our partner
                     <a :href="contestInfo.partnerInfo.website" target="_blank">{{ contestInfo.partnerInfo.name }}</a>
