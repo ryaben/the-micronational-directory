@@ -19,9 +19,7 @@ import { auth } from '../firebase/init.js';
         </div>
         <div class="tables-container">
             <ContestOverview :contest-info="activeContest" />
-            <!-- <EntriesRanking title="Ongoing Ranking" :tmd-entry="false" /> -->
-            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
-                :start-timestamp="1703518332" :end-timestamp="1703518332" />
+            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false" />
             <!-- <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
                 :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" /> -->
         </div>
