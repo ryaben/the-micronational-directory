@@ -14,9 +14,9 @@ defineProps({
     <div class="stats-container compact">
         <h1 class="underlined">{{ contestInfo.name }}</h1>
         <h3>{{ startingDate }} - {{ endingDate }}</h3>
-        <CountdownTimer v-show="alreadyStarted" :expiration-date="contestInfo.startDate.seconds * 1000"
+        <CountdownTimer v-show="!alreadyStarted" :expiration-date="contestInfo.startDate.seconds * 1000"
             finish-message="The event has started!" pre-message="Begins in: " />
-        <CountdownTimer v-show="!alreadyStarted" :expiration-date="contestInfo.endDate.seconds * 1000"
+        <CountdownTimer v-show="alreadyStarted" :expiration-date="contestInfo.endDate.seconds * 1000"
             finish-message="The event has finished!" pre-message="Ends in: " />
         <p style="margin-top: 10px;">
             You are invited to <a href="/login">create an account</a> at our website (if you don't have one yet) and
@@ -72,11 +72,6 @@ export default {
         alreadyStarted() {
             return (this.contestInfo.startDate.seconds * 1000) < new Date().getTime();
         }
-    },
-    mounted() {
-        console.log('contest start', (this.contestInfo.startDate.seconds * 1000))
-        console.log('now', new Date().getTime())
-        console.log(this.alreadyStarted)
     }
 }
 </script>
