@@ -73,51 +73,58 @@ import '@vuepic/vue-datepicker/dist/main.css';
 
       <Transition name="opacity">
         <form class="listing-new-entry" v-show="newEntryView" @submit.prevent="addEntry">
-          <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
+          <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
+              href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
           <div class="new-entry-form">
+            <label class="new-entry-form-text">Full name preview</label>
+            <label><b>{{ newEntryForm.newEntryName }}</b><span v-show="newEntryForm.newEntryTitle">,</span> {{
+              newEntryForm.newEntryTitle }} <span v-show="newEntryForm.newEntryNameAlt">
+                (<b>{{ newEntryForm.newEntryNameAlt }}</b><span v-show="newEntryForm.newEntryTitleAlt">,</span>
+              {{ newEntryForm.newEntryTitleAlt }})</span></label>
+              
             <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
-            <input type="text" id="newEntryName" ref="newEntryName" required
-              placeholder="E.g. 'Sealand' (just the main name)">
+            <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
+              placeholder="E.g. 'Sealand' (just the short, main name)">
 
             <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
-            <input type="text" id="newEntryTitle" ref="newEntryTitle"
-              placeholder="E.g. 'Principality of' (just the State description)">
+            <input type="text" id="newEntryTitle" v-model="newEntryForm.newEntryTitle"
+              placeholder="E.g. 'Principality of' (just the full State description only)">
 
             <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
-            <input type="text" id="newEntryNameAlt" ref="newEntryNameAlt"
+            <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
               placeholder="Second option for name, like in another language">
 
             <label for="newEntryTitleAlt" class="new-entry-form-text">Alternative title</label>
-            <input type="text" id="newEntryTitleAlt" ref="newEntryTitleAlt"
+            <input type="text" id="newEntryTitleAlt" v-model="newEntryForm.newEntryTitleAlt"
               placeholder="Second option for title, like in another language">
 
             <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
-            <input type="text" id="newEntryMotto" ref="newEntryMotto"
+            <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
               placeholder="E.g. 'In God we trust' (don't add quotes)">
 
             <label class="new-entry-form-text mandatory">Type*</label>
             <div class="new-entry-type">
-              <input type="checkbox" id="typePhysical" ref="newEntryTypePhysical" name="new-entry-type" value="physical"
-                @change="updatePhysicalType">
+              <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical" name="new-entry-type"
+                value="physical" @change="updatePhysicalType">
               <label for="typePhysical">Physical</label>
-              <input type="checkbox" id="typeDigital" ref="newEntryTypeDigital" name="new-entry-type" value="digital"
-                checked>
+              <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
+                value="digital" checked>
               <label for="typeDigital">Digital</label>
-              <input type="checkbox" id="typeFictional" ref="newEntryTypeFictional" name="new-entry-type"
+              <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional" name="new-entry-type"
                 value="fictional">
               <label for="typeFictional">Fictional</label>
             </div>
 
             <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
-            <textarea id="newEntryLanguages" ref="newEntryLanguages" name="newEntryLanguages" cols="50" rows="3" required
-              placeholder="Enter one language per line (press Enter after each value)"></textarea>
+            <textarea id="newEntryLanguages" v-model="newEntryForm.newEntryLanguages" name="newEntryLanguages" cols="50"
+              rows="3" required placeholder="Enter one language per line (press Enter after each value)"></textarea>
 
             <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
-            <input type="text" id="newEntryCapital" ref="newEntryCapital"
+            <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
               placeholder="City, place or building officiating as capital">
 
             <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
-            <input type="text" id="newEntryCurrency" ref="newEntryCurrency"
+            <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
               placeholder="E.g. 'Sealand dollar', official currency of the micronation">
 
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
@@ -133,19 +140,23 @@ import '@vuepic/vue-datepicker/dist/main.css';
             </div>
 
             <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
-            <textarea id="newEntryMemberships" ref="newEntryMemberships" name="newEntryMemberships" cols="50" rows="3"
+            <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
+              cols="50" rows="3"
               placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
 
             <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
-            <textarea id="newEntryEmails" ref="newEntryEmails" name="newEntryEmails" cols="50" rows="3" required
+            <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50" rows="3"
+              required
               placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
 
             <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
               article)</label>
-            <textarea id="newEntryWebsites" ref="newEntryWebsites" name="newEntryWebsites" cols="50" rows="3" required
+            <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites" cols="50"
+              rows="3" required
               placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
 
-            <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
+            <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a
+                href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
             <div class="flag-preview-container">
               <input type="file" @change="previewImage" accept="image/png" required>
               <img v-show="flagSource != ''" class="flag-preview" :src="flagPreview">
@@ -272,6 +283,22 @@ export default {
   data: () => {
     return {
       user: {},
+      newEntryForm: {
+        newEntryName: '',
+        newEntryNameAlt: '',
+        newEntryTitle: '',
+        newEntryTitleAlt: '',
+        newEntryTypePhysical: false,
+        newEntryTypeDigital: true,
+        newEntryTypeFictional: false,
+        newEntryMotto: '',
+        newEntryCapital: '',
+        newEntryCurrency: '',
+        newEntryLanguages: '',
+        newEntryMemberships: '',
+        newEntryEmails: '',
+        newEntryWebsites: ''
+      },
       componentKey: 0,
       entryWidth: 180,
       newEntryView: false,
@@ -345,16 +372,16 @@ export default {
     async addEntry() {
       let that = this;
 
-      if (this.searchMicronation(this.$refs.newEntryName.value) === undefined) {
+      if (this.searchMicronation(this.newEntryForm.newEntryName) === undefined) {
         // data to send
         let typesArray = [];
-        if (this.$refs.newEntryTypePhysical.checked) {
+        if (this.newEntryForm.newEntryTypePhysical) {
           typesArray.push('Physical');
         }
-        if (this.$refs.newEntryTypeDigital.checked) {
+        if (this.newEntryForm.newEntryTypeDigital) {
           typesArray.push('Digital');
         }
-        if (this.$refs.newEntryTypeFictional.checked) {
+        if (this.newEntryForm.newEntryTypeFictional) {
           typesArray.push('Fictional');
         }
 
@@ -371,21 +398,21 @@ export default {
             break;
         }
 
-        this.uploadFlag(this.$refs.newEntryName.value, function (fileName) {
+        this.uploadFlag(this.newEntryForm.newEntryName, function (fileName) {
           that.generateFlagReference(fileName, async function (flagReference) {
-            await setDoc(doc(db, "micronations", that.$refs.newEntryName.value), {
+            await setDoc(doc(db, "micronations", that.newEntryForm.newEntryName), {
               name: {
-                main: that.$refs.newEntryName.value,
-                mainAlt: that.$refs.newEntryNameAlt.value,
-                title: that.$refs.newEntryTitle.value,
-                titleAlt: that.$refs.newEntryTitleAlt.value
+                main: that.newEntryForm.newEntryName,
+                mainAlt: that.newEntryForm.newEntryNameAlt,
+                title: that.newEntryForm.newEntryTitle,
+                titleAlt: that.newEntryForm.newEntryTitleAlt
               },
               flag: flagReference,
-              motto: that.$refs.newEntryMotto.value,
+              motto: that.newEntryForm.newEntryMotto,
               type: typesArray,
               languages: that.readTextarea('newEntryLanguages'),
-              capital: that.$refs.newEntryCapital.value,
-              currency: that.$refs.newEntryCurrency.value,
+              capital: that.newEntryForm.newEntryCapital,
+              currency: that.newEntryForm.newEntryCurrency,
               foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
               location: physicalLocation,
               memberships: that.readTextarea('newEntryMemberships'),
@@ -406,7 +433,7 @@ export default {
       } else {
         notify({
           title: "Error when submitting",
-          text: "This micronation is already present in the directory!",
+          text: "This micronation is already present in the directory! If not, then an entry for it was recently submitted and is under review.",
           type: "error"
         });
       }
@@ -526,8 +553,8 @@ export default {
       this.flagPreview = URL.createObjectURL(this.flagSource);
     },
     readTextarea(elementRef) {
-      if (this.$refs[elementRef].value) {
-        var arrayOfLines = this.$refs[elementRef].value.split("\n");
+      if (this.newEntryForm[elementRef]) {
+        var arrayOfLines = this.newEntryForm[elementRef].split("\n");
         return arrayOfLines;
       } else {
         return '';
