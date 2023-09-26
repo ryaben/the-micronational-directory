@@ -72,104 +72,123 @@ import '@vuepic/vue-datepicker/dist/main.css';
       </p>
 
       <Transition name="opacity">
-        <form class="listing-new-entry" v-show="newEntryView" @submit.prevent="addEntry">
-          <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
-              href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
-          <div class="new-entry-form">
-            <label class="new-entry-form-text">Full name preview</label>
-            <label><b>{{ newEntryForm.newEntryName }}</b><span v-show="newEntryForm.newEntryTitle">,</span> {{
-              newEntryForm.newEntryTitle }} <span v-show="newEntryForm.newEntryNameAlt">
-                (<b>{{ newEntryForm.newEntryNameAlt }}</b><span v-show="newEntryForm.newEntryTitleAlt">,</span>
-              {{ newEntryForm.newEntryTitleAlt }})</span></label>
-              
-            <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
-            <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
-              placeholder="E.g. 'Sealand' (just the short, main name)">
+        <div class="new-entry-container" v-show="newEntryView">
+          <form class="listing-new-entry" @submit.prevent="addEntry">
+            <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
+                href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
+            <div class="new-entry-form">
+              <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
+              <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
+                placeholder="E.g. 'Sealand' (just the short, main name)">
 
-            <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
-            <input type="text" id="newEntryTitle" v-model="newEntryForm.newEntryTitle"
-              placeholder="E.g. 'Principality of' (just the full State description only)">
+              <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
+              <input type="text" id="newEntryTitle" v-model="newEntryForm.newEntryTitle"
+                placeholder="E.g. 'Principality of' (just the full State description only)">
 
-            <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
-            <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
-              placeholder="Second option for name, like in another language">
+              <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
+              <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
+                placeholder="Second option for name, like in another language">
 
-            <label for="newEntryTitleAlt" class="new-entry-form-text">Alternative title</label>
-            <input type="text" id="newEntryTitleAlt" v-model="newEntryForm.newEntryTitleAlt"
-              placeholder="Second option for title, like in another language">
+              <label for="newEntryTitleAlt" class="new-entry-form-text">Alternative title</label>
+              <input type="text" id="newEntryTitleAlt" v-model="newEntryForm.newEntryTitleAlt"
+                placeholder="Second option for title, like in another language">
 
-            <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
-            <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
-              placeholder="E.g. 'In God we trust' (don't add quotes)">
+              <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
+              <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
+                placeholder="E.g. 'In God we trust' (don't add quotes)">
 
-            <label class="new-entry-form-text mandatory">Type*</label>
-            <div class="new-entry-type">
-              <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical" name="new-entry-type"
-                value="physical" @change="updatePhysicalType">
-              <label for="typePhysical">Physical</label>
-              <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
-                value="digital" checked>
-              <label for="typeDigital">Digital</label>
-              <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional" name="new-entry-type"
-                value="fictional">
-              <label for="typeFictional">Fictional</label>
+              <label class="new-entry-form-text mandatory">Type*</label>
+              <div class="new-entry-type">
+                <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical" name="new-entry-type"
+                  value="physical" @change="updatePhysicalType">
+                <label for="typePhysical">Physical</label>
+                <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
+                  value="digital" checked>
+                <label for="typeDigital">Digital</label>
+                <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional"
+                  name="new-entry-type" value="fictional">
+                <label for="typeFictional">Fictional</label>
+              </div>
+
+              <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
+              <textarea id="newEntryLanguages" v-model="newEntryForm.newEntryLanguages" name="newEntryLanguages" cols="50"
+                rows="3" required placeholder="Enter one language per line (press Enter after each value)"></textarea>
+
+              <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
+              <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
+                placeholder="City, place or building officiating as capital">
+
+              <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
+              <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
+                placeholder="E.g. 'Sealand dollar', official currency of the micronation">
+
+              <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
+              <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
+                :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
+
+              <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
+                (leave as is if N/A)</label>
+              <div v-show="physicalType">
+                <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
+                <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="300px"
+                  @dragged-marker="draggedMarker" />
+              </div>
+
+              <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
+              <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
+                cols="50" rows="3"
+                placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
+
+              <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
+              <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50" rows="3"
+                required
+                placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
+
+              <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
+                article)</label>
+              <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites" cols="50"
+                rows="3" required
+                placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
+
+              <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a
+                  href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
+              <div class="flag-preview-container">
+                <input type="file" @change="previewImage" accept="image/png" required>
+              </div>
+
+              <div class="wide-row">
+                <Recaptcha @checkbox="checkRecaptcha" />
+                <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
+                  class="login-button short color-transition">
+                <label>(wait a few seconds for notification)</label>
+              </div>
             </div>
-
-            <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
-            <textarea id="newEntryLanguages" v-model="newEntryForm.newEntryLanguages" name="newEntryLanguages" cols="50"
-              rows="3" required placeholder="Enter one language per line (press Enter after each value)"></textarea>
-
-            <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
-            <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
-              placeholder="City, place or building officiating as capital">
-
-            <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
-            <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
-              placeholder="E.g. 'Sealand dollar', official currency of the micronation">
-
-            <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
-            <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
-              :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
-
-            <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
-              (leave as is if N/A)</label>
-            <div v-show="physicalType">
-              <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
-              <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="300px"
-                @dragged-marker="draggedMarker" />
-            </div>
-
-            <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
-            <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
-              cols="50" rows="3"
-              placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
-
-            <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
-            <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50" rows="3"
-              required
-              placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
-
-            <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
-              article)</label>
-            <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites" cols="50"
-              rows="3" required
-              placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
-
-            <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a
-                href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
-            <div class="flag-preview-container">
-              <input type="file" @change="previewImage" accept="image/png" required>
-              <img v-show="flagSource != ''" class="flag-preview" :src="flagPreview">
-            </div>
-
-            <div class="wide-row">
-              <Recaptcha @checkbox="checkRecaptcha" />
-              <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
-                class="login-button short color-transition">
-              <label>(wait a few seconds for notification)</label>
-            </div>
+          </form>
+          <div class="new-entry-preview">
+            <h2 id="previewTitle">Entry preview</h2>
+            <p>(Click on the card to toggle the display)</p>
+            <DirectoryEntry id="entryPreview" ref="entryPreview" :initial-info-view="true" :width="180"
+              :flag-height="180 * 0.6" view-mode="cards" :info="{
+                name: {
+                  main: newEntryForm.newEntryName,
+                  mainAlt: newEntryForm.newEntryNameAlt,
+                  title: newEntryForm.newEntryTitle,
+                  titleAlt: newEntryForm.newEntryTitleAlt
+                },
+                flag: flagPreview,
+                motto: newEntryForm.newEntryMotto,
+                type: checkTypes,
+                languages: newEntryForm.newEntryLanguages.split('\n'),
+                capital: newEntryForm.newEntryCapital,
+                currency: newEntryForm.newEntryCurrency,
+                foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                memberships: newEntryForm.newEntryMemberships.split('\n'),
+                contactInfo: newEntryForm.newEntryEmails.split('\n'),
+                websites: newEntryForm.newEntryWebsites.split('\n'),
+                approved: true
+              }" />
           </div>
-        </form>
+        </div>
       </Transition>
 
       <button v-show="!newEntryView" id="newEntryOpener" class="login-button short color-transition"
@@ -331,6 +350,36 @@ export default {
     filterLetters() {
       return this.addFilterLetters(this.micronationsDirectory);
     },
+    checkTypes() {
+      let typesArray = [];
+      if (this.newEntryForm.newEntryTypePhysical) {
+        typesArray.push('Physical');
+      }
+      if (this.newEntryForm.newEntryTypeDigital) {
+        typesArray.push('Digital');
+      }
+      if (this.newEntryForm.newEntryTypeFictional) {
+        typesArray.push('Fictional');
+      }
+
+      return typesArray;
+    },
+    returnLanguagesValues() {
+      try {
+        return this.newEntryForm.newMembershipsLanguages.split('\n');
+      } catch {
+        return this.newEntryForm.newMembershipsLanguages;
+      }
+    },
+    returnMembershipsValues() {
+      return this.readTextarea(this.newEntryForm.newEntryMemberships);
+    },
+    returnEmailsValues() {
+      return this.readTextarea(this.newEntryForm.newEntryEmails);
+    },
+    returnWebsitesValues() {
+      return this.readTextarea(this.newEntryForm.newEntryWebsites);
+    },
     countSearchedEntries() {
       let count = 0;
 
@@ -370,21 +419,10 @@ export default {
       this.passedRecaptcha = value;
     },
     async addEntry() {
-      let that = this;
+      const that = this;
 
       if (this.searchMicronation(this.newEntryForm.newEntryName) === undefined) {
         // data to send
-        let typesArray = [];
-        if (this.newEntryForm.newEntryTypePhysical) {
-          typesArray.push('Physical');
-        }
-        if (this.newEntryForm.newEntryTypeDigital) {
-          typesArray.push('Digital');
-        }
-        if (this.newEntryForm.newEntryTypeFictional) {
-          typesArray.push('Fictional');
-        }
-
         let physicalLocation;
         switch (this.physicalType) {
           case true:
@@ -409,7 +447,7 @@ export default {
               },
               flag: flagReference,
               motto: that.newEntryForm.newEntryMotto,
-              type: typesArray,
+              type: that.checkTypes,
               languages: that.readTextarea('newEntryLanguages'),
               capital: that.newEntryForm.newEntryCapital,
               currency: that.newEntryForm.newEntryCurrency,
@@ -481,7 +519,7 @@ export default {
     },
     addFilterLetters(array) {
       let letters = [];
-      let that = this;
+      const that = this;
 
       array.forEach(function (element) {
         if (!letters.includes(that.normalizeString(element.name.main.charAt(0)))) {
@@ -586,15 +624,20 @@ export default {
 </script>
 
 <style scoped>
-.listing-new-entry {
+.new-entry-container {
   display: flex;
-  flex-direction: column;
-  width: 60%;
+  justify-content: space-between;
   background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   border-radius: 6px;
   border: 2px solid var(--navbar-tab-border-color);
   padding: 12px;
+}
+
+.listing-new-entry {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
 }
 
 #newEntryOpener {
@@ -637,11 +680,19 @@ div.new-entry-type {
   margin-top: 20px;
 }
 
-.success-message {
-  margin-bottom: 10px;
-  background-color: var(--success-tone);
-  border-radius: 18px;
-  padding: 8px;
+.new-entry-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28%;
+}
+
+.new-entry-preview p {
+  text-align: center;
+}
+
+#previewTitle {
+  margin-block-end: 0px;
 }
 
 .directory-settings {
@@ -739,12 +790,6 @@ div.new-entry-type {
   background-color: var(--vt-c-text-dark-2);
   color: var(--vt-c-indigo);
   cursor: pointer;
-}
-
-@media only screen and (max-width: 1100px) {
-  .listing-new-entry {
-    width: auto;
-  }
 }
 
 @media only screen and (max-width: 960px) {
