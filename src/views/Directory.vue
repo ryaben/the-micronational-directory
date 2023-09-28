@@ -2,6 +2,7 @@
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import LocationPicker from '../components/LocationPicker.vue';
 import Recaptcha from '../components/ReCaptcha.vue';
+import SelectedLanguage from '../components/SelectedLanguage.vue';
 import store from '../store';
 import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -10,6 +11,7 @@ import { auth, db } from '../firebase/init.js';
 import { notify } from "@kyvg/vue3-notification";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
+import languages from 'language-list';
 </script>
 
 <template>
@@ -111,8 +113,25 @@ import '@vuepic/vue-datepicker/dist/main.css';
               </div>
 
               <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
-              <textarea id="newEntryLanguages" v-model="newEntryForm.newEntryLanguages" name="newEntryLanguages" cols="50"
-                rows="3" required placeholder="Enter one language per line (press Enter after each value)"></textarea>
+              <div style="display: flex; flex-direction: column; margin-bottom: 3px;">
+                <div style="display: flex;">
+                  <select name="newEntryLanguages" id="newEntryLanguagesSelect" @change="addLanguage" required>
+                    <optgroup>
+                      <option value="custom">Other (custom)</option>
+                    </optgroup>
+                    <optgroup>
+                      <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
+                        {{ language.name }}
+                      </option>
+                    </optgroup>
+                  </select>
+                  <input type="text" placeholder="Custom language name" v-model="customLanguage">
+                </div>
+                <div class="selected-languages-container">
+                  <SelectedLanguage v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i" :lang-text="language"
+                    @remove-language="removeLanguage" />
+                </div>
+              </div>
 
               <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
               <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
@@ -120,21 +139,21 @@ import '@vuepic/vue-datepicker/dist/main.css';
 
               <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
               <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
-                placeholder="E.g. 'Sealand dollar', official currency of the micronation">
+                placeholder="Official currency of the micronation, just name and not symbol">
 
               <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
               <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
                 :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
 
               <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
-                (leave as is if N/A)</label>
+                (leave as is if unknown or N/A)</label>
               <div v-show="physicalType">
                 <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
                 <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="300px"
                   @dragged-marker="draggedMarker" />
               </div>
 
-              <label for="newEntryMemberships" class="new-entry-form-text">Memberships</label>
+              <label for="newEntryMemberships" class="new-entry-form-text">Memberships<br>(capitals, not full name)</label>
               <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
                 cols="50" rows="3"
                 placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
@@ -178,7 +197,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
                 flag: flagPreview,
                 motto: newEntryForm.newEntryMotto,
                 type: checkTypes,
-                languages: newEntryForm.newEntryLanguages.split('\n'),
+                languages: newEntryForm.newEntryLanguages,
                 capital: newEntryForm.newEntryCapital,
                 currency: newEntryForm.newEntryCurrency,
                 foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
@@ -313,7 +332,7 @@ export default {
         newEntryMotto: '',
         newEntryCapital: '',
         newEntryCurrency: '',
-        newEntryLanguages: '',
+        newEntryLanguages: [],
         newEntryMemberships: '',
         newEntryEmails: '',
         newEntryWebsites: ''
@@ -324,6 +343,7 @@ export default {
       viewMode: 'cards',
       physicalType: false,
       foundationDate: null,
+      customLanguage: '',
       locationPickerMarkerPosition: [0, 0],
       fixedHeight: false,
       flagSource: '',
@@ -335,7 +355,8 @@ export default {
     DirectoryEntry,
     LocationPicker,
     Recaptcha,
-    VueDatePicker
+    VueDatePicker,
+    SelectedLanguage
   },
   computed: {
     checkUser() {
@@ -379,6 +400,19 @@ export default {
     },
     returnWebsitesValues() {
       return this.readTextarea(this.newEntryForm.newEntryWebsites);
+    },
+    listLanguages() {
+      let languagesArray = [];
+      const sortedLanguageCodes = languages().getLanguageCodes().sort();
+
+      sortedLanguageCodes.forEach(function (element) {
+        languagesArray.push({
+          code: element,
+          name: languages().getLanguageName(element)
+        });
+      });
+
+      return languagesArray;
     },
     countSearchedEntries() {
       let count = 0;
@@ -448,7 +482,7 @@ export default {
               flag: flagReference,
               motto: that.newEntryForm.newEntryMotto,
               type: that.checkTypes,
-              languages: that.readTextarea('newEntryLanguages'),
+              languages: that.newEntryForm.newEntryLanguages,
               capital: that.newEntryForm.newEntryCapital,
               currency: that.newEntryForm.newEntryCurrency,
               foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
@@ -517,6 +551,20 @@ export default {
           break;
       }
     },
+    addLanguage(event) {
+      const lang = event.target.value;
+
+      if (this.newEntryForm.newEntryLanguages.find(e => e === lang || (lang === 'custom' && e === this.customLanguage)) === undefined) {
+        if (lang === 'custom') {
+          this.newEntryForm.newEntryLanguages.push(this.customLanguage);
+        } else {
+          this.newEntryForm.newEntryLanguages.push(lang);
+        }
+      }
+    },
+    removeLanguage(value) {
+      this.newEntryForm.newEntryLanguages.splice(this.newEntryForm.newEntryLanguages.indexOf(value), 1);
+    },
     addFilterLetters(array) {
       let letters = [];
       const that = this;
@@ -549,10 +597,11 @@ export default {
         });
       } else {
         this.micronationsDirectory.forEach(function (element) {
-          let entryCurated = that.normalizeString(element.name.main.toLowerCase());
-          let searchCurated = that.normalizeString(e.target.value.toLowerCase());
+          const entryCurated = that.normalizeString(element.name.main.toLowerCase());
+          const entryAltCurated = that.normalizeString(element.name.mainAlt.toLowerCase());
+          const searchCurated = that.normalizeString(e.target.value.toLowerCase());
 
-          if (!entryCurated.includes(searchCurated)) {
+          if (!entryCurated.includes(searchCurated) && !entryAltCurated.includes(searchCurated)) {
             element.searchDisplay = false;
           } else {
             element.searchDisplay = true;
@@ -651,6 +700,15 @@ export default {
   grid-template-columns: 40% 60%;
   margin-bottom: 15px;
   margin-top: 15px;
+}
+
+#newEntryLanguagesSelect {
+  width: 70%;
+}
+
+.selected-languages-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .new-entry-form-text {
