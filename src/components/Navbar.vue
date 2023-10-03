@@ -53,16 +53,16 @@ export default {
 
 .tab-router-link {
   text-decoration: none;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .tab-router-link:first-of-type {
-  margin-left: 20px;
+  margin-left: 12px;
 }
 
 .tab-router-link:last-of-type {
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 .button-container {

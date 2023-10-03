@@ -159,7 +159,8 @@ button:disabled, input:disabled {
   background-color: var(--navbar-tab-background-color-hover);
 }
 
-input.login-input {
+input.login-input,
+textarea.login-input {
   width: 55%;
   font-size: 20px;
   margin-bottom: 21px;
@@ -171,19 +172,6 @@ input.login-input {
   border: 3px solid var(--vt-c-indigo);
   border-radius: 10px;
   padding: 10px;
-}
-
-.dropdown-info-box > *:first-child {
-  cursor: pointer;
-}
-
-.dropdown-info-box:not(.open):hover {
-  background-color: var(--vt-c-white-mute);
-  color: var(--vt-c-black);
-}
-
-.dropdown-info-box:not(.open) *:not(:first-child) {
-  display: none;
 }
 
 .stats-container {

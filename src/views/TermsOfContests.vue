@@ -1,7 +1,7 @@
 <template>
     <section class="site-section">
         <p>
-            <span class="underlined">Last update</span>: <b>13/09/2023</b>, subject to edition whenever required.
+            <span class="underlined">Last update</span>: <b>03/10/2023</b>, subject to edition whenever required.
         </p>
         <hr class="divider">
         <h1 class="underlined">What are Contests</h1>
@@ -76,7 +76,7 @@
             beneficiaries will simply need to initiate a purchase process in MicroFlag using the same email to which the
             discount was awarded, and it will be applied. After that, the purchasing process will continue as standard on
             the store. The discount applies only for one (1) purchase at MicroFlag, and it's indifferent if the user has
-            previously bought on the store or not.
+            previously bought on the store or not. This discount cannot be combined with other benefits from MicroFlag.
         </p>
         <p>
             - <span class="underlined">Fixed amounts in USD or USDC</span>: this prize is awarded by TMD, and the amount

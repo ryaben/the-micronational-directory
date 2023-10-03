@@ -59,6 +59,7 @@ export default {
         { text: 'Directory', icon: 'directory.png', route: 'Directory' },
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
+        { text: 'Donate', icon: 'donate.png', route: 'Donate' },
         { text: 'About', icon: 'about.png', route: 'About' }
       ]
     }

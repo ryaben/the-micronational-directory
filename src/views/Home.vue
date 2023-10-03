@@ -12,7 +12,7 @@
       <br><br>
       These small political entities are scattered all around the world. That means not only Earth, but also the digital realm and some even
       have territorial pretensions over other planets and the space itself. But also within a vast range of time: there are cases that can fall
-      within this category that were founded in the 19th century, and up to this day, when nowadays social media provide home to a plethora of digital
+      within this category that were founded in the 19th century, and up to this day, when nowadays social media provide home to a plethora of virtual
       micronations.
       <br><br>
       It's not the intention of this website to dive deeper in the micronational debate or description, nor to gather an exhaustive amount of information

@@ -10,11 +10,8 @@ import {
   updatePassword
 } from 'firebase/auth'
 import DirectoryEntry from '../components/DirectoryEntry.vue';
-import { auth, db, storage } from '../firebase/init.js'
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { ref, deleteObject } from "firebase/storage";
+import { auth } from '../firebase/init.js'
 import { notify } from '@kyvg/vue3-notification'
-import emailjs from 'emailjs-com';
 </script>
 
 <template>
@@ -41,24 +38,6 @@ import emailjs from 'emailjs-com';
         class="login-button color-transition"
         v-show="passwordMenu"
         @click="passwordMenu = false"
-      >
-        Return to main menu
-      </button>
-      <button
-        class="login-button color-transition"
-        v-show="!moderationMenu"
-        :disabled="!moderatorsList.includes(user.email)"
-        @click="
-          moderationMenu = true;
-          passwordMenu = false;
-        "
-      >
-        Moderate entries
-      </button>
-      <button
-        class="login-button color-transition"
-        v-show="moderationMenu"
-        @click="moderationMenu = false"
       >
         Return to main menu
       </button>
@@ -116,56 +95,6 @@ import emailjs from 'emailjs-com';
           class="login-button color-transition"
         />
       </form>
-      <div
-        class="moderation-menu"
-        v-if="moderatorsList.includes(user.email)"
-        v-show="moderationMenu"
-      >
-        <div class="moderation-entries" :key="componentKey">
-          <DirectoryEntry
-            v-for="(item, i) in micronationsModerationDirectory"
-            :key="i" :width="160" :flag-height="160 * 0.6" view-mode="cards" :info="{
-              id: item.id,
-              name: {
-                main: item.name.main,
-                mainAlt: item.name.mainAlt,
-                title: item.name.title,
-                titleAlt: item.name.titleAlt
-              },
-              flag: item.flag,
-              motto: item.motto,
-              type: item.type,
-              languages: item.languages,
-              capital: item.capital,
-              currency: item.currency,
-              foundationDate: item.foundationDate,
-              location: item.location,
-              memberships: item.memberships,
-              contactInfo: item.contactInfo,
-              websites: item.websites,
-              author: item.author,
-              approved: item.approved
-            }" @click="selectedEntry = i; selectedEntryName = item.name.main;"/>
-        </div>
-        <div class="moderation-buttons">
-          <label>{{ selectedEntryName }}</label>
-          <input
-              class="login-input"
-              type="text"
-              v-model="rejectionReason"
-              placeholder="Reason for rejection"
-            />
-          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryReject(selectedEntry, false)">
-            Reject
-          </button>
-          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryReject(selectedEntry, true)">
-            Reject and delete
-          </button>
-          <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined" @click="entryApprove(selectedEntry)">
-            Approve
-          </button>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -180,10 +109,7 @@ export default {
       moderationMenu: false,
       oldPassword: '',
       newPassword: '',
-      repeatNewPassword: '',
-      selectedEntry: undefined,
-      selectedEntryName: 'None selected',
-      rejectionReason: ""
+      repeatNewPassword: ''
     }
   },
   components: {
@@ -192,9 +118,6 @@ export default {
   computed: {
     micronationsDirectory() {
       return store.getters.directory;
-    },
-    micronationsModerationDirectory() {
-      return this.micronationsDirectory.filter((element) => !element.approved);
     },
     userContributions() {
       return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
@@ -289,101 +212,6 @@ export default {
     },
     forceRerender() {
       this.componentKey += 1;
-    },
-    async entryReject(entryIndex, deletionRequest) {
-      const that = this;
-
-      try {
-        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
-          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-            entry_decision: 'reject',
-            entry_decisiond: 'rejected',
-            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
-            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
-            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
-            rejection_reason: that.rejectionReason
-          },
-          "P8-p_r-gTZedo_h84");
-        }
-
-        if (deletionRequest === true) {
-          await deleteDoc(doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main));
-
-          const flagRef = ref(storage, "images/flags/" + that.micronationsModerationDirectory[entryIndex].name.main + ".png");
-          deleteObject(flagRef).then(() => {
-            that.micronationsModerationDirectory.splice(entryIndex, 1);
-
-            notify({
-              title: 'Entry moderation',
-              text: 'The rejected entry was successfully deleted from the database.',
-              type: 'success'
-            })
-          }).catch((error) => {
-            notify({
-              title: 'Entry moderation',
-              text: error,
-              type: 'error'
-            })
-          });
-        }
-
-        this.forceRerender();
-        this.selectedEntry = undefined;
-        this.selectedEntryName = 'None selected';
-        this.rejectionReason = '';
-
-        notify({
-          title: 'Entry moderation',
-          text: 'The author was notified that their entry was rejected.',
-          type: 'warning'
-        })
-      } catch(error) {
-        notify({
-          title: 'Error while moderating entry',
-          text: error,
-          type: 'error'
-        })
-      }
-    },
-    async entryApprove(entryIndex) {
-      const that = this;
-
-      try {
-        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
-          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-            entry_decision: 'approve',
-            entry_decisiond: 'approved',
-            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
-            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
-            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
-            rejection_reason: that.rejectionReason
-          },
-          "P8-p_r-gTZedo_h84");
-        }
-
-        const entryRef = doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].name.main);
-        await updateDoc(entryRef, {
-          approved: true
-        });
-
-        this.micronationsModerationDirectory[entryIndex].approved = true;
-        this.forceRerender();
-        this.selectedEntry = undefined;
-        this.selectedEntryName = 'None selected';
-        this.rejectionReason = '';
-
-        notify({
-          title: 'Entry moderation',
-          text: 'The entry was successfully approved, the author was notified and it will now be available in the Directory.',
-          type: 'success'
-        })
-      } catch(error) {
-        notify({
-          title: 'Error while moderating entry',
-          text: error,
-          type: 'error'
-        })
-      }
     }
   },
   async mounted() {
@@ -448,48 +276,5 @@ export default {
 
 .contributions-text {
   font-size: 18px;
-}
-
-.moderation-menu {
-  display: flex;
-  justify-content: space-between;
-  width: auto;
-}
-
-.moderation-entries {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  padding-top: 20px;
-  padding-left: 20px;
-  width: 100%;
-  max-height: 295px;
-  overflow: scroll;
-}
-
-.moderation-buttons {
-  border-right: none;
-  border-left: 4px solid var(--site-section-border-color);
-  border-radius: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  height: 275px;
-}
-
-.moderation-buttons .login-button {
-  width: 200px;
-  margin-bottom: 25px;
-}
-
-.moderation-buttons .login-input {
-  width: 100%;
-}
-
-#entryReject {
-  background-color: var(--intense-tone);
-}
-
-#entryApprove {
-  background-color: var(--success-tone);
 }
 </style>

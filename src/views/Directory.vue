@@ -2,22 +2,170 @@
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import LocationPicker from '../components/LocationPicker.vue';
 import Recaptcha from '../components/ReCaptcha.vue';
+import Sectionbar from '../components/Sectionbar.vue';
 import SelectedLanguage from '../components/SelectedLanguage.vue';
 import store from '../store';
-import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
-import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { auth, db, storage } from '../firebase/init.js';
+import { doc, setDoc, Timestamp, GeoPoint, updateDoc, deleteDoc } from "firebase/firestore";
+import { getStorage, getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../firebase/init.js';
 import { notify } from "@kyvg/vue3-notification";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import languages from 'language-list';
+import emailjs from 'emailjs-com';
+// import html2canvas from 'html2canvas';
+// import { saveAs } from 'file-saver';
 </script>
 
 <template>
   <section class="site-section">
-    <div class="dropdown-info-box color-transition">
-      <h3 @click="toggleDropdown">⚠️ Important notes on new entries and add your own (click to open/close):</h3>
+    <Sectionbar :sections="sectionbarTabs" @show-target-tab="changeViewMode" :initial-selected-tab="'cardsTab0'"
+      @click="renderMapbox" />
+
+    <section v-show="viewMode === 'cards' || viewMode === 'collage' || viewMode === 'moderation'"
+      class="directory-container">
+      <div class="directory-settings">
+        <div class="settings-subcontainer">
+          <label>Initial letter and search:</label>
+          <div>
+            <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
+              <optgroup>
+                <option value="none">No filter</option>
+              </optgroup>
+              <optgroup class="letters-group">
+                <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
+              </optgroup>
+            </select>
+            <input id="filterInput" ref="filterInput" type="text" @input="filterEntries">
+          </div>
+        </div>
+        <div class="settings-subcontainer">
+          <label>Sort:</label>
+          <div>
+            <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
+              @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
+            <label for="sortA-Z">A-Z</label>
+            <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
+              @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
+            <label for="sortZ-A">Z-A</label>
+            <input type="radio" id="sortRandom" name="directory-sorting" value="random"
+              @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
+            <label for="sortRandom">Random</label>
+          </div>
+        </div>
+        <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
+          <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
+            collage</button>
+        </div> -->
+        <div class="settings-subcontainer">
+          <label>Card size:</label>
+          <div>
+            <input type="range" min="50" max="350" value="180" class="slider" id="zoomRange" ref="zoomRange"
+              @change="updateZoom">
+            <label>{{ entryWidth }}px</label>
+          </div>
+        </div>
+        <div class="settings-subcontainer">
+          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed
+            height</label>
+        </div>
+      </div>
+
+      <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
+        <img src="/images/loading.gif" alt="Loading">
+        <label>Loading Directory...</label>
+      </div>
+
+      <div id="micronationsList" class="micronations-list" v-show="viewMode === 'cards' || viewMode === 'collage'"
+        ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
+        <TransitionGroup name="opacity">
+          <DirectoryEntry v-for="(item, i) in approvedMicronations" :key="i" :width="entryWidth"
+            :flag-height="entryWidth * 0.6" :view-mode="viewMode" :info="{
+              id: item.id,
+              name: {
+                main: item.name.main,
+                mainAlt: item.name.mainAlt,
+                title: item.name.title,
+                titleAlt: item.name.titleAlt
+              },
+              flag: item.flag,
+              motto: item.motto,
+              type: item.type,
+              languages: item.languages,
+              capital: item.capital,
+              currency: item.currency,
+              foundationDate: item.foundationDate,
+              location: item.location,
+              memberships: item.memberships,
+              contactInfo: item.contactInfo,
+              websites: item.websites,
+              author: item.author,
+              approved: item.approved,
+              creationDate: item.creationDate
+            }" />
+        </TransitionGroup>
+      </div>
+      <div class="moderation-menu" v-if="userIsModerator" v-show="viewMode === 'moderation'">
+        <div class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
+          :class="{ 'fixed-height': fixedHeight }">
+          <TransitionGroup name="opacity">
+            <DirectoryEntry v-for="(item, i) in micronationsModerationDirectory" :key="i" :width="entryWidth"
+              :flag-height="entryWidth * 0.6" :view-mode="'cards'" :info="{
+                id: item.id,
+                name: {
+                  main: item.name.main,
+                  mainAlt: item.name.mainAlt,
+                  title: item.name.title,
+                  titleAlt: item.name.titleAlt
+                },
+                flag: item.flag,
+                motto: item.motto,
+                type: item.type,
+                languages: item.languages,
+                capital: item.capital,
+                currency: item.currency,
+                foundationDate: item.foundationDate,
+                location: item.location,
+                memberships: item.memberships,
+                contactInfo: item.contactInfo,
+                websites: item.websites,
+                author: item.author,
+                approved: item.approved,
+                creationDate: item.creationDate
+              }"
+              @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email" />
+          </TransitionGroup>
+        </div>
+        <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
+          <label class="selected-entry-name">{{ selectedEntryName }}</label>
+          <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
+          <textarea class="login-input" v-model="rejectionReason" rows="6"
+            placeholder="Additional message for rejection/approval"></textarea>
+          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+            @click="entryReject(selectedEntry, false)">
+            Reject
+          </button>
+          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+            @click="entryReject(selectedEntry, true)">
+            Reject and delete
+          </button>
+          <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
+            @click="entryApprove(selectedEntry)">
+            Approve
+          </button>
+        </div>
+      </div>
+      <div v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
+        You don't have sufficient privileges in order to moderate pending submissions.
+      </div>
+    </section>
+
+    <LocationPicker v-if="renderedMapbox" v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
+      :collection="physicalMicronationsDirectory.filter(element => element.approved)" width="100%" height="40vw" />
+
+    <div v-show="viewMode === 'addEntry'" class="dropdown-info-box color-transition">
+      <h3 @click="toggleDropdown">⚠️ Important notes on new entries and to add your own:</h3>
       <p>
         Don't know what micronations to add? <a
           href="https://docs.google.com/spreadsheets/d/1jwekLc1EpbVfznTbMrqiM8KUJW_ra3vywcMpiLTJrEs/edit?usp=sharing"
@@ -102,7 +250,7 @@ import languages from 'language-list';
               <label class="new-entry-form-text mandatory">Type*</label>
               <div class="new-entry-type">
                 <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical" name="new-entry-type"
-                  value="physical" @change="updatePhysicalType">
+                  value="physical" @change="updatePhysicalType" @click="renderedMapboxNewEntry = true">
                 <label for="typePhysical">Physical</label>
                 <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
                   value="digital" checked>
@@ -149,11 +297,12 @@ import languages from 'language-list';
                 (leave as is if unknown or N/A)</label>
               <div v-show="physicalType">
                 <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
-                <LocationPicker :visible="!physicalType" ref="locationPicker" mode="picker" width="100%" height="300px"
-                  @dragged-marker="draggedMarker" />
+                <LocationPicker v-if="renderedMapboxNewEntry" :visible="!physicalType" ref="locationPicker" mode="picker"
+                  width="100%" height="300px" @dragged-marker="draggedMarker" />
               </div>
 
-              <label for="newEntryMemberships" class="new-entry-form-text">Memberships<br>(capitals, not full name)</label>
+              <label for="newEntryMemberships" class="new-entry-form-text">Memberships<br>(capitals, not full
+                name)</label>
               <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
                 cols="50" rows="3"
                 placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
@@ -215,100 +364,6 @@ import languages from 'language-list';
       <label v-if="!user.emailVerified" :key="componentKey">(Available for <a href="/login">registered users
           with verified email</a> only)</label>
     </div>
-
-    <hr class="divider" id="mainDivider">
-
-    <section class="directory-container">
-      <div class="directory-settings">
-        <div class="settings-subcontainer">
-          <label>Initial letter and search:</label>
-          <div>
-            <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
-              <optgroup>
-                <option value="none">No filter</option>
-              </optgroup>
-              <optgroup class="letters-group">
-                <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
-              </optgroup>
-            </select>
-            <input id="filterInput" ref="filterInput" type="text" @input="filterEntries">
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <label>Sort:</label>
-          <div>
-            <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
-              @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
-            <label for="sortA-Z">A-Z</label>
-            <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
-              @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
-            <label for="sortZ-A">Z-A</label>
-            <input type="radio" id="sortRandom" name="directory-sorting" value="random"
-              @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
-            <label for="sortRandom">Random</label>
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <label>Views:</label>
-          <div>
-            <button class="custom-button" @click="changeViewMode('cards')">Cards</button>
-            <button class="custom-button" @click="changeViewMode('collage')">Flags</button>
-            <button class="custom-button" @click="changeViewMode('map')">Map</button>
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <label>Card size:</label>
-          <div>
-            <input type="range" min="50" max="350" value="180" class="slider" id="zoomRange" ref="zoomRange"
-              @change="updateZoom">
-            <label>{{ entryWidth }}px</label>
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed
-            height</label>
-        </div>
-      </div>
-
-      <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
-        <img src="/images/loading.gif" alt="Loading">
-        <label>Loading Directory...</label>
-      </div>
-
-      <div v-show="viewMode !== 'map'" class="micronations-list" ref="micronationsList" :key="componentKey"
-        :class="{ 'fixed-height': fixedHeight }">
-        <TransitionGroup name="opacity">
-          <DirectoryEntry
-            v-for="(item, i) in micronationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay)"
-            :key="i" :width="entryWidth" :flag-height="entryWidth * 0.6" :view-mode="viewMode" :info="{
-              id: item.id,
-              name: {
-                main: item.name.main,
-                mainAlt: item.name.mainAlt,
-                title: item.name.title,
-                titleAlt: item.name.titleAlt
-              },
-              flag: item.flag,
-              motto: item.motto,
-              type: item.type,
-              languages: item.languages,
-              capital: item.capital,
-              currency: item.currency,
-              foundationDate: item.foundationDate,
-              location: item.location,
-              memberships: item.memberships,
-              contactInfo: item.contactInfo,
-              websites: item.websites,
-              author: item.author,
-              approved: item.approved,
-              creationDate: item.creationDate
-            }" />
-        </TransitionGroup>
-      </div>
-
-      <LocationPicker v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
-        :collection="physicalMicronationsDirectory.filter(element => element.approved)" width="90%" height="40vw" />
-    </section>
   </section>
 
   <Transition name="opacity">
@@ -321,6 +376,13 @@ export default {
   data: () => {
     return {
       user: {},
+      sectionbarTabs: [
+        { text: 'Info cards', target: 'cards', display: true },
+        { text: 'Flags', target: 'collage', display: true },
+        { text: 'Map', target: 'map', display: true },
+        { text: 'Add entry', target: 'addEntry', display: true },
+        { text: 'Moderate entries', target: 'moderation', display: true }
+      ],
       newEntryForm: {
         newEntryName: '',
         newEntryNameAlt: '',
@@ -348,7 +410,13 @@ export default {
       fixedHeight: false,
       flagSource: '',
       flagPreview: '',
-      passedRecaptcha: false
+      passedRecaptcha: false,
+      selectedEntry: undefined,
+      selectedEntryName: 'None selected',
+      selectedEntryAuthor: '',
+      rejectionReason: "",
+      renderedMapbox: false,
+      renderedMapboxNewEntry: false
     };
   },
   components: {
@@ -356,17 +424,30 @@ export default {
     LocationPicker,
     Recaptcha,
     VueDatePicker,
+    Sectionbar,
     SelectedLanguage
   },
   computed: {
     checkUser() {
       return auth.currentUser;
     },
+    moderatorsList() {
+      return store.getters.moderators;
+    },
+    userIsModerator() {
+      return this.moderatorsList.includes(this.user.email);
+    },
     micronationsDirectory() {
       return store.getters.directory;
     },
     physicalMicronationsDirectory() {
       return store.getters.physicalDirectory;
+    },
+    approvedMicronations() {
+      return this.micronationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    micronationsModerationDirectory() {
+      return this.micronationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
     },
     filterLetters() {
       return this.addFilterLetters(this.micronationsDirectory);
@@ -570,7 +651,7 @@ export default {
       const that = this;
 
       array.forEach(function (element) {
-        if (!letters.includes(that.normalizeString(element.name.main.charAt(0)))) {
+        if (element.approved && !letters.includes(that.normalizeString(element.name.main.charAt(0)))) {
           letters.push(that.normalizeString(element.name.main.charAt(0)));
         }
       });
@@ -647,6 +728,107 @@ export default {
         return '';
       }
     },
+    async entryReject(entryIndex, deletionRequest) {
+      const that = this;
+
+      try {
+        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
+          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+            entry_decision: 'reject',
+            entry_decisiond: 'rejected',
+            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
+            rejection_reason: that.rejectionReason
+          },
+            "P8-p_r-gTZedo_h84");
+        }
+
+        if (deletionRequest === true) {
+          await deleteDoc(doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].id));
+
+          const flagRef = ref(storage, "images/flags/" + that.micronationsModerationDirectory[entryIndex].name.main + ".png");
+          deleteObject(flagRef).then(() => {
+            that.micronationsModerationDirectory.splice(entryIndex, 1);
+
+            notify({
+              title: 'Entry moderation',
+              text: 'The rejected entry was successfully deleted from the database.',
+              type: 'success'
+            })
+          }).catch((error) => {
+            notify({
+              title: 'Entry moderation',
+              text: error,
+              type: 'error'
+            })
+          });
+        }
+
+        this.forceRerender();
+        this.selectedEntry = undefined;
+        this.selectedEntryName = 'None selected';
+        this.rejectionReason = '';
+
+        notify({
+          title: 'Entry moderation',
+          text: 'The author was notified that their entry was rejected.',
+          type: 'warning'
+        })
+      } catch (error) {
+        notify({
+          title: 'Error while moderating entry',
+          text: error,
+          type: 'error'
+        })
+      }
+    },
+    async entryApprove(entryIndex) {
+      const that = this;
+
+      try {
+        if (!this.moderatorsList.includes(that.micronationsModerationDirectory[entryIndex].author.email)) {
+          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+            entry_decision: 'approve',
+            entry_decisiond: 'approved',
+            to_name: that.micronationsModerationDirectory[entryIndex].author.name,
+            to_email: that.micronationsModerationDirectory[entryIndex].author.email,
+            entry_name: that.micronationsModerationDirectory[entryIndex].name.main,
+            rejection_reason: that.rejectionReason
+          },
+            "P8-p_r-gTZedo_h84");
+        }
+
+        const entryRef = doc(db, "micronations", that.micronationsModerationDirectory[entryIndex].id);
+        await updateDoc(entryRef, {
+          approved: true
+        });
+
+        this.micronationsModerationDirectory[entryIndex].approved = true;
+        this.forceRerender();
+        this.selectedEntry = undefined;
+        this.selectedEntryName = 'None selected';
+        this.rejectionReason = '';
+
+        notify({
+          title: 'Entry moderation',
+          text: 'The entry was successfully approved, the author was notified and it will now be available in the Directory.',
+          type: 'success'
+        })
+      } catch (error) {
+        notify({
+          title: 'Error while moderating entry',
+          text: error,
+          type: 'error'
+        })
+      }
+    },
+    // async generateCollage() {
+    //   const canvas = await html2canvas(document.getElementById("micronationsList"), { useCORS: true })
+    //   canvas.toBlob(async function (blob) {
+    //     await saveAs(blob, 'flag-collage.png');
+    //   });
+    // },
     normalizeString(string) {
       return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
@@ -661,6 +843,11 @@ export default {
     },
     scrollToTop() {
       window.scrollTo(0, 0);
+    },
+    renderMapbox(event) {
+      if (event.target.id === 'mapTab2') {
+        this.renderedMapbox = true;
+      }
     },
     forceRerender() {
       this.componentKey += 1;
@@ -759,13 +946,10 @@ div.new-entry-type {
   background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   width: auto;
-  border-radius: 8px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   padding: 12px;
   margin-bottom: 25px;
-}
-
-#mainDivider {
-  margin-block-start: 25px;
 }
 
 .settings-subcontainer,
@@ -799,6 +983,10 @@ div.new-entry-type {
   width: 90px;
 }
 
+#generateCollage {
+  width: fit-content;
+}
+
 #zoomRange {
   width: 90px;
 }
@@ -829,9 +1017,71 @@ div.new-entry-type {
   flex-wrap: wrap;
 }
 
+.moderation-menu {
+  display: flex;
+}
+
+#moderationMicronations {
+  width: 80%;
+}
+
 .micronations-list.fixed-height {
   max-height: 40vw;
   overflow-y: scroll;
+}
+
+.dropdown-info-box {
+  border-top: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.moderation-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: var(--profile-left-side-background-color);
+  border-right: none;
+  border-left: 4px solid var(--site-section-border-color);
+  border-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  min-height: fit-content;
+  height: auto;
+  width: 30%;
+}
+
+.moderation-buttons .selected-entry-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.moderation-buttons .selected-entry-author {
+  font-size: 14px;
+}
+
+.moderation-buttons .login-button {
+  width: 70%;
+  margin-bottom: 25px;
+}
+
+.moderation-buttons .login-button:last-child {
+  margin-bottom: 0;
+}
+
+.moderation-buttons .login-input {
+  margin-top: 15px;
+  width: 100%;
+}
+
+#entryReject {
+  background-color: var(--intense-tone);
+}
+
+#entryApprove {
+  background-color: var(--success-tone);
 }
 
 #goToTopButton {
