@@ -62,7 +62,7 @@ export default {
             return this.listContributors(this.micronationsApprovedDirectory);
         },
         TMDContributions() {
-            return this.countContributions(this.micronationsApprovedDirectory, "themicronationaldirectory@gmail.com");
+            return this.countContributions(this.micronationsApprovedDirectory, "themicronationaldirectory@gmail.com", new Date(this.startTimestamp * 1000), new Date(this.endTimestamp * 1000));
         },
         TMDContributionsPercentage() {
             return ((this.TMDContributions * 100) / this.micronationsApprovedDirectory.length).toFixed(2);
@@ -72,22 +72,18 @@ export default {
     methods: {
         listContributors(array) {
             let contributors = [];
+            const startDate = new Date(this.startTimestamp * 1000);
+            const endDate = new Date(this.endTimestamp * 1000);
             const that = this;
 
             array.forEach(function (element) {
                 if (!contributors.some(el => el.email === element.author.email)) {
                     if (element.author.email !== 'themicronationaldirectory@gmail.com') {
-                        const creationDate = new Date(element.creationDate.seconds * 1000);
-                        const startDate = new Date(that.startTimestamp * 1000);
-                        const endDate = new Date(that.endTimestamp * 1000);
-
-                        if (creationDate >= startDate && creationDate <= endDate) {
-                            contributors.push({
-                                name: element.author.name,
-                                email: element.author.email,
-                                contributions: that.countContributions(array, element.author.email)
-                            });
-                        }
+                        contributors.push({
+                            name: element.author.name,
+                            email: element.author.email,
+                            contributions: that.countContributions(array, element.author.email, startDate, endDate)
+                        });
                     }
                 }
             });
@@ -98,12 +94,16 @@ export default {
 
             return contributors;
         },
-        countContributions(array, value) {
+        countContributions(array, value, startDate, endDate) {
             let count = 0;
 
             array.forEach(element => {
+                const creationDate = new Date(element.creationDate.seconds * 1000);
+
                 if (element.author.email === value) {
-                    count += 1;
+                    if (creationDate >= startDate && creationDate <= endDate) {
+                        count += 1;
+                    }
                 }
             });
 

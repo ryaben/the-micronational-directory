@@ -9,20 +9,17 @@ import { auth } from '../firebase/init.js';
 <template>
     <section class="site-section">
         <div class="events-bar">
-            <!-- <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow
+            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow
                 up the terms and
-                everything related. In them, <b>the users with most contributions will qualify for prizes</b>. Also,
-                <b>contributions provided
-                    now will count for the first event</b>, when the time comes. So you are already playing!<br>
-                    Carefully read the <a href="/terms-of-contests">terms and conditions</a> to know all the details.
-            </p> -->
+                everything related. In them, <b>users with most contributions will qualify for prizes</b>.
+                Carefully read the <a href="/terms-of-contests">terms and conditions</a> to know all the details. To check past contests, go right below on this page.
+            </p>
         </div>
-        <div class="tables-container">
+        <!-- <div class="tables-container">
             <ContestOverview :contest-info="activeContest" />
-            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false" />
-            <!-- <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
-                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" /> -->
-        </div>
+            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
+                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" />
+        </div> -->
 
         <hr class="divider" />
 
@@ -53,8 +50,33 @@ import { auth } from '../firebase/init.js';
             <EntriesRanking title="All-time Top Contributors" :tmd-entry="true" />
         </div>
 
-        <div class="tables-container">
+        <hr class="divider" />
 
+        <div class="tables-container">
+            <div class="stats-container">
+                <h2>Contests History</h2>
+                <div class="scrollable-container statistics-table directory">
+                    <p class="table-header">Event</p>
+                    <p class="table-header">Start date</p>
+                    <p class="table-header">End date</p>
+
+                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable first"
+                        @click="selectedContest = contest">
+                        <p class="table-value">{{ contest.name }}</p>
+                    </div>
+                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable second"
+                        @click="selectedContest = contest">
+                        <p class="table-value">{{ new Date(contest.startDate.seconds * 1000).toDateString() }}</p>
+                    </div>
+                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable third"
+                        @click="selectedContest = contest">
+                        <p class="table-value">{{ new Date(contest.endDate.seconds * 1000).toDateString() }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
+                :start-timestamp="selectedContest.startDate.seconds" :end-timestamp="selectedContest.endDate.seconds" />
         </div>
     </section>
 </template>
@@ -67,7 +89,8 @@ export default {
     },
     data() {
         return {
-            user: {}
+            user: {},
+            selectedContest: ''
         }
     },
     computed: {
@@ -189,6 +212,7 @@ hr.divider {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    height: fit-content;
 }
 
 .table-values-container:nth-of-type(even),
@@ -207,6 +231,9 @@ hr.divider {
     border-right: none;
 }
 
+.table-values-container.clickable {
+    cursor: pointer;
+}
 
 .table-value {
     margin: 0;
@@ -227,6 +254,5 @@ hr.divider {
     border-radius: 8px;
     border: 2px solid white;
     margin-bottom: 25px;
-}
-</style>
+}</style>
   

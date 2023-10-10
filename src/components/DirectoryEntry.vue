@@ -141,6 +141,7 @@ export default {
     margin: 0;
     border: none;
     border-radius: 0px;
+    cursor: default;
 }
 
 .directory-entry-container:hover {

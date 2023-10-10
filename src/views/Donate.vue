@@ -15,7 +15,7 @@
             </li>
             <li>
                 <a href="https://nic.ar/" target="_blank">Nic.ar</a>: This is the official Argentinean domain registrar for
-                websites. We have acquired a custom domain for our webapp, which is the probably the one you have accessed
+                websites. We have acquired a custom domain for our webapp, which is probably the one you have accessed
                 through your address bar. This plan demands us a cost of approximately <b>1 USD per year</b>.
             </li>
             <li>
@@ -41,7 +41,7 @@
         <p>
             Thank you for taking the time to read more about about our project and the operation behind it. If you like
             our work, and have the opportunity and interest in retributing this platform's usage with a donation, then that
-            would be much appreciated! These are currently the methods we can handle:
+            would be much appreciated! Any amount will be very welcome!<br>These are currently the methods we can handle:
         </p>
         <div class="donation-methods">
             <img class="crypto-address" src="/images/ETHaddressfordonations.png" alt="ETH address">

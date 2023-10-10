@@ -32,11 +32,19 @@
         <h3 class="large-margin">Special thanks to</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
-            <img src="/images/microflag.png" alt="MicroFlag" width="200px" height="110px" />
+            <img src="/images/microflag.png" alt="MicroFlag" height="110px" />
             <p>
               <a href="https://microflag.net/" target="_blank">MicroFlag</a>,
               for cooperating and setting up a partnership with us in order to offer prizes for our users during events
               and contests.
+            </p>
+          </div>
+          <div class="listing-entry">
+            <img src="/images/lflugo.jpg" alt="lflugo" width="110px" />
+            <p>
+              <span class="underlined">Luis Felipe Lugo</span> (<b>lflugo</b>),
+              for contributing 50+ entries in our Directory, focusing mainly in Spanish-speaking and OMU micronations.
+              Contact via <a href="mailto:eldoradogov@hotmail.com">email</a> or <a href="https://twitter.com/luisfelugo" target="_blank">X (former Twitter)</a>.
             </p>
           </div>
         </div>

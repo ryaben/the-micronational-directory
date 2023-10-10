@@ -765,6 +765,7 @@ export default {
           });
         }
 
+        this.micronationsModerationDirectory.splice(entryIndex, 1)
         this.forceRerender();
         this.selectedEntry = undefined;
         this.selectedEntryName = 'None selected';
