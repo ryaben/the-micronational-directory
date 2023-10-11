@@ -27,49 +27,87 @@ import emailjs from 'emailjs-com';
       class="directory-container">
       <div class="directory-settings">
         <div class="settings-subcontainer">
-          <label>Initial letter and search:</label>
-          <div>
+          <div class="subcontainer-title">
+            <label>Filter</label>
+          </div>
+          <div class="setting-parameter-subcontainer centered">
+            <label>Search</label>
+            <input id="filterInput" ref="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
+          </div>
+          <div class="setting-parameter-subcontainer centered">
+            <label>Initial</label>
             <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
               <optgroup>
-                <option value="none">No filter</option>
+                <option value="none">No initial filter</option>
               </optgroup>
               <optgroup class="letters-group">
                 <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
               </optgroup>
             </select>
-            <input id="filterInput" ref="filterInput" type="text" @input="filterEntries">
+          </div>
+          <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
+            <label>Matches</label>
+            <label class="matching-entries">{{ approvedMicronations.length }}</label>
           </div>
         </div>
         <div class="settings-subcontainer">
-          <label>Sort:</label>
-          <div>
-            <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
-              @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
-            <label for="sortA-Z">A-Z</label>
-            <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
-              @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
-            <label for="sortZ-A">Z-A</label>
-            <input type="radio" id="sortRandom" name="directory-sorting" value="random"
-              @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
-            <label for="sortRandom">Random</label>
+          <div class="subcontainer-title">
+            <label>Sort</label>
+          </div>
+          <div class="setting-parameter-subcontainer">
+            <div>
+              <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
+                @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
+              <label for="sortA-Z">Name (A-Z)</label>
+            </div>
+            <div>
+              <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
+                @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
+              <label for="sortZ-A">Name (Z-A)</label>
+            </div>
+          </div>
+          <div class="setting-parameter-subcontainer">
+            <div>
+              <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
+                @change="sortMicronations(micronationsDirectory, 'latestAdded'); forceRerender()">
+              <label for="sortLatestAdded">Latest added</label>
+            </div>
+            <div>
+              <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
+                @change="sortMicronations(micronationsDirectory, 'oldestAdded'); forceRerender()">
+              <label for="sortOldestAdded">Oldest added</label>
+            </div>
+          </div>
+          <div class="setting-parameter-subcontainer extra-margin-end">
+            <div>
+              <input type="radio" id="sortRandom" name="directory-sorting" value="random"
+                @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
+              <label for="sortRandom">Random</label>
+            </div>
+          </div>
+        </div>
+        <div class="settings-subcontainer">
+          <div class="subcontainer-title">
+            <label>Display</label>
+          </div>
+          <div class="setting-parameter-subcontainer centered">
+            <label ref="cardSizeLabel">Card size</label>
+            <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
+              @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
+          </div>
+          <div class="setting-parameter-subcontainer centered">
+            <div style="display: flex;">
+              <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
+              <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
+            </div>
+            <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
+              @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
           </div>
         </div>
         <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
           <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
             collage</button>
         </div> -->
-        <div class="settings-subcontainer">
-          <label>Card size:</label>
-          <div>
-            <input type="range" min="50" max="350" value="180" class="slider" id="zoomRange" ref="zoomRange"
-              @change="updateZoom">
-            <label>{{ entryWidth }}px</label>
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <label for="fixedHeightCheckbox"><input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">Fixed
-            height</label>
-        </div>
       </div>
 
       <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
@@ -408,6 +446,7 @@ export default {
       customLanguage: '',
       locationPickerMarkerPosition: [0, 0],
       fixedHeight: false,
+      fixedHeightValue: 400,
       flagSource: '',
       flagPreview: '',
       passedRecaptcha: false,
@@ -625,6 +664,13 @@ export default {
           array.sort((a, b) => (this.normalizeString(a.name.main) > this.normalizeString(b.name.main)) ? 1 : -1);
           array.reverse();
           break;
+        case 'latestAdded':
+          array.sort((a, b) => (a.creationDate.seconds > b.creationDate.seconds) ? 1 : -1);
+          array.reverse();
+          break;
+        case 'oldestAdded':
+          array.sort((a, b) => (a.creationDate.seconds > b.creationDate.seconds) ? 1 : -1);
+          break;
         case 'random':
           this.shuffleArray(array);
           break;
@@ -656,7 +702,7 @@ export default {
         }
       });
 
-      return letters;
+      return letters.sort((a, b) => (a > b) ? 1 : -1);
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -707,8 +753,17 @@ export default {
         });
       }
     },
-    updateZoom(e) {
-      return this.entryWidth = parseInt(e.target.value);
+    updateZoom() {
+      this.$refs.cardSizeLabel.innerHTML = this.entryWidth + 'px';
+    },
+    finishedUpdatingZoom() {
+      this.$refs.cardSizeLabel.innerHTML = 'Card size';
+    },
+    updateHeight() {
+      this.$refs.fixedHeightLabel.innerHTML = this.fixedHeightValue + 'px';
+    },
+    finishedUpdatingHeight() {
+      this.$refs.fixedHeightLabel.innerHTML = 'Fixed height';
     },
     changeViewMode(newValue) {
       this.viewMode = newValue;
@@ -943,7 +998,6 @@ div.new-entry-type {
 
 .directory-settings {
   display: flex;
-  justify-content: space-between;
   background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   width: auto;
@@ -961,15 +1015,70 @@ div.new-entry-type {
 }
 
 .settings-subcontainer {
-  flex-direction: column;
+  border: 2px solid var(--vt-c-white);
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+.settings-subcontainer:hover .subcontainer-title:not(.right-side) {
+  background-color: var(--vt-c-white);
 }
 
 .settings-subcontainer div {
   display: flex;
 }
 
-.settings-subcontainer>label {
+.settings-subcontainer .subcontainer-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
   font-weight: bold;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-right: 2px solid var(--vt-c-white);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: var(--vt-c-text-dark-2);
+  color: var(--vt-c-black);
+  height: 100%;
+}
+
+.settings-subcontainer .subcontainer-title.right-side {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-right: none;
+  border-left: 2px solid var(--vt-c-white);
+  background-color: var(--pale-tone);
+}
+
+.matching-entries {
+  /* border-left: 2px dashed var(--vt-c-white); */
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.setting-parameter-subcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  margin: 3px;
+}
+
+.setting-parameter-subcontainer.extra-margin-end {
+  margin-right: 6px;
+}
+
+.setting-parameter-subcontainer.border-left {
+  padding-left: 6px;
+  border-left: 2px solid var(--vt-c-white);
+}
+
+.setting-parameter-subcontainer.centered {
+  align-items: center;
 }
 
 #filterInput {
@@ -981,15 +1090,15 @@ div.new-entry-type {
 }
 
 #initialLetter {
-  width: 90px;
+  width: 80px;
 }
 
 #generateCollage {
   width: fit-content;
 }
 
-#zoomRange {
-  width: 90px;
+.settings-slider {
+  width: 100px;
 }
 
 .loading-image-container {
@@ -1027,7 +1136,7 @@ div.new-entry-type {
 }
 
 .micronations-list.fixed-height {
-  max-height: 40vw;
+  max-height: calc(v-bind('fixedHeightValue') * 1px);
   overflow-y: scroll;
 }
 
