@@ -15,11 +15,13 @@
       within this category that were founded in the 19th century, and up to this day, when nowadays social media provide home to a plethora of virtual
       micronations.
       <br><br>
-      It's not the intention of this website to dive deeper in the micronational debate or description, nor to gather an exhaustive amount of information
-      in order to compose an article for each micronation, because there are other well-renowned previously-existing great websites for this purpose, such as
-      <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a>. Also micronational organizations and other small encyclopedias have info.
-      Therefore, the goal of <b>The Micronational Directory</b> team of micronationalists and developers is instead to gather and build the most complete list
-      of unified entries as possible, in order to have a common, massive database for listing everything in one place, inspite of characteristics and criteria. Let's
+      It's not the intention of this website to dive deeper in the micronational debate or description, nor to collect an exhaustive amount of information
+      in order to compose a case study for each micronation, because there are other well-renowned previously-existing great websites for this purpose, such as
+      <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a> (a wiki-encyclopaedia that is based on detailed articles on micronations and related content)
+      and <a href="https://sites.google.com/view/micro-flag-archive" target="_blank">Micro Flag Archive</a> (an Obscurian initiative that gathers vexillological info about micronations).
+      Also micronational organizations and other small wikis have extra info.
+      Therefore, the goal of <b>The Micronational Directory</b> team of micronationalists and developers is instead to build the most complete and unified list
+      of entries as possible, in order to have a common, massive database for listing everything in one place, inspite of characteristics and criteria. Let's
       accomplish this together, leave your mark and create the place that our community deserves!
     </p>
   </section>

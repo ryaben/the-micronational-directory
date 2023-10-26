@@ -178,20 +178,29 @@ import emailjs from 'emailjs-com';
         <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
           <label class="selected-entry-name">{{ selectedEntryName }}</label>
           <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
-          <textarea class="login-input" v-model="rejectionReason" rows="6"
-            placeholder="Additional message for rejection/approval"></textarea>
-          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
-            @click="entryReject(selectedEntry, false)">
-            Reject
-          </button>
-          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
-            @click="entryReject(selectedEntry, true)">
-            Reject and delete
-          </button>
-          <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
-            @click="entryApprove(selectedEntry)">
-            Approve
-          </button>
+
+          <Sectionbar id="moderationBar" :sections="moderationbarTabs" @show-target-tab="changeModerationViewMode"
+            :initial-selected-tab="'moderateTab0'" />
+
+          <div v-show="moderationViewMode === 'moderate'" class="moderation-tab">
+            <textarea class="login-input" v-model="rejectionReason" rows="6"
+              placeholder="Additional message for rejection/approval"></textarea>
+            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+              @click="entryReject(selectedEntry, false)">
+              Reject
+            </button>
+            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+              @click="entryReject(selectedEntry, true)">
+              Reject and delete
+            </button>
+            <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
+              @click="entryApprove(selectedEntry)">
+              Approve
+            </button>
+          </div>
+          <div v-show="moderationViewMode === 'edit'" class="moderation-tab">
+            <p>Work in progress.</p>
+          </div>
         </div>
       </div>
       <div v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
@@ -421,6 +430,10 @@ export default {
         { text: 'Add entry', target: 'addEntry', display: true },
         { text: 'Moderate entries', target: 'moderation', display: true }
       ],
+      moderationbarTabs: [
+        { text: 'Moderate', target: 'moderate', display: true },
+        { text: 'Edit', target: 'edit', display: true },
+      ],
       newEntryForm: {
         newEntryName: '',
         newEntryNameAlt: '',
@@ -441,6 +454,7 @@ export default {
       entryWidth: 180,
       newEntryView: false,
       viewMode: 'cards',
+      moderationViewMode: 'moderate',
       physicalType: false,
       foundationDate: null,
       customLanguage: '',
@@ -767,6 +781,9 @@ export default {
     },
     changeViewMode(newValue) {
       this.viewMode = newValue;
+    },
+    changeModerationViewMode(newValue) {
+      this.moderationViewMode = newValue;
     },
     updatePhysicalType() {
       this.physicalType = !this.physicalType;
@@ -1161,6 +1178,19 @@ div.new-entry-type {
   min-height: fit-content;
   height: auto;
   width: 30%;
+}
+
+#moderationBar {
+  width: 100%;
+  justify-content: center;
+  border-radius: 0px;
+}
+
+.moderation-buttons .moderation-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .moderation-buttons .selected-entry-name {

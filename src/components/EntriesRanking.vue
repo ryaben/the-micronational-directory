@@ -34,7 +34,7 @@ defineProps({
             <p class="contributor-contributions">{{ TMDContributions }}&nbsp;({{ TMDContributionsPercentage }}%)</p>
         </div>
         <div class="scrollable-container contributors-ranking">
-            <div v-for="(contributor, i) in contributorsList" :key="i" class="contributor-entry"
+            <div v-for="(contributor, i) in contributorsList.filter(contrib => contrib.contributions > 0)" :key="i" class="contributor-entry"
                 :class="{ 'current-user': contributor.email === auth.currentUser.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
                 <p class="contributor-rank">{{ i + 1 }}.</p>
                 <p class="contributor-name">{{ contributor.name }}<span

@@ -50,6 +50,31 @@
         </div>
       </div>
       <div class="bottom-side-container">
+        <h3 class="large-margin">Other projects we recommend</h3>
+        <div class="scrollable-container">
+          <div class="listing-entry">
+            <img src="/images/microwiki.png" alt="MicroWiki" height="110px" />
+            <p>
+              <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a>,
+              the largest online encyclopædia about micronations, small and often rather eccentric
+              nations that are unrecognised by the wider international community. This legendary website
+              was founded on May 2005 and has over 10 available languages.
+            </p>
+          </div>
+          <div class="listing-entry">
+            <img src="/images/microflagarchive.png" alt="Micro Flag Archive" height="110px" />
+            <p>
+              <a href="https://sites.google.com/view/micro-flag-archive" target="_blank">Micro Flag Archive</a>,
+              an Obscurian initiative that provides an online archive for all micronational state symbols. It's
+              a wonderful vexillological library that serves a unique purpose within this community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="bottom-container">
+      <div class="bottom-side-container">
         <h3 class="large-margin">TMD is featured in</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
