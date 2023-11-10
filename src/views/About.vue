@@ -117,6 +117,17 @@
             </p>
           </div>
           <div class="listing-entry">
+            <img src="/images/batyrtimes.png" alt="Batyr Times" width="245px" height="72px" />
+            <p>
+              <a href="https://www.hasanistan.world/2023/11/batyr-times-interviews-micronational.html"
+                target="_blank">Interview article</a>
+              discussing TMD's mission, vision, goals and achievements, conducted by
+              <a href="https://www.hasanistan.world/" target="_blank">Batyr Times</a>, the official digital
+              newspaper from Hasanistan.
+            </p>
+          </div>
+          <hr class="divider">
+          <div class="listing-entry">
             <img src="/images/dove-archives.png" alt="Dove Archives" width="200px" height="102px" />
             <p>
               <a href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory" target="_blank">Encyclopedic
@@ -171,5 +182,9 @@ export default {
 
 .listing-entry img {
   margin-right: 15px;
+}
+
+.divider {
+  width: 100%;
 }
 </style>
