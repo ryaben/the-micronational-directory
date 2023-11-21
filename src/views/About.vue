@@ -1,5 +1,12 @@
 <template>
   <section class="site-section">
+    <div style="display: flex; justify-content: center; width: auto; margin-bottom: 20px;">
+      <iframe src="https://www.youtube-nocookie.com/embed/EC1C1eSGmpk?si=EHoLRW50t3uHbt3l" title="YouTube video player"
+        frameborder="0" style="width: 50%; height: 315px;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
     <p>
       It's hard to tell when the actual concept of <b>The Micronational Directory</b> was conceived,
       because we can say it existed as a fantasy prior to its proper development. Although, the
@@ -44,7 +51,8 @@
             <p>
               <span class="underlined">Luis Felipe Lugo</span> (<b>lflugo</b>),
               for contributing 50+ entries in our Directory, focusing mainly in Spanish-speaking and OMU micronations.
-              Contact via <a href="mailto:eldoradogov@hotmail.com">email</a> or <a href="https://twitter.com/luisfelugo" target="_blank">X (former Twitter)</a>.
+              Contact via <a href="mailto:eldoradogov@hotmail.com">email</a> or <a href="https://twitter.com/luisfelugo"
+                target="_blank">X (former Twitter)</a>.
             </p>
           </div>
         </div>
@@ -67,6 +75,14 @@
               <a href="https://sites.google.com/view/micro-flag-archive" target="_blank">Micro Flag Archive</a>,
               an Obscurian initiative that provides an online archive for all micronational state symbols. It's
               a wonderful vexillological library that serves a unique purpose within this community.
+            </p>
+          </div>
+          <div class="listing-entry">
+            <img src="/images/TAM.png" alt="Tutmonda Alianco de Mikronacioj" height="110px" />
+            <p>
+              <a href="http://mikronacioj.org/" target="_blank">Tutmonda Alianco de Mikronacioj</a>,
+              an institution that aims to recognize serious micronational projects based on a qualification system
+              created and regulated by themselves, and the publication of a ranking in that matter.
             </p>
           </div>
         </div>
