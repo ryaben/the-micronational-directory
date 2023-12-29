@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="bottom-side-container">
-        <h3 class="large-margin">Other projects we recommend</h3>
+        <h3 class="large-margin">Similar projects we recommend</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
             <img src="/images/microwiki.png" alt="MicroWiki" height="110px" />

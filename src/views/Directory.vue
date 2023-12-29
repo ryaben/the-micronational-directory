@@ -229,7 +229,7 @@ import emailjs from 'emailjs-com';
           symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
         </li>
         <li>
-          Micronations submitted should have <b>at least 3 months of proven existence.</b> This way we avoid lightning
+          Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid lightning
           entries that may only be games or premature/fake experiments.
         </li>
         <li>
