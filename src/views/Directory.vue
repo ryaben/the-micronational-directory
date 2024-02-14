@@ -229,7 +229,8 @@ import emailjs from 'emailjs-com';
           symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
         </li>
         <li>
-          Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid lightning
+          Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
+          lightning
           entries that may only be games or premature/fake experiments.
         </li>
         <li>
@@ -628,6 +629,14 @@ export default {
               approved: false,
               creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
             });
+
+            if (that.checkUser.email !== 'themicronationaldirectory@gmail.com') {
+              emailjs.send("service_gd9nz5x", "template_wnd0ghn", {
+                user: that.checkUser.email,
+                micronation: that.newEntryForm.newEntryName,
+              },
+                "P8-p_r-gTZedo_h84");
+            }
 
             notify({
               title: "Submission successful",
