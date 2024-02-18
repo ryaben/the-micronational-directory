@@ -61,7 +61,7 @@
         <h3 class="large-margin">Similar projects we recommend</h3>
         <div class="scrollable-container">
           <div class="listing-entry">
-            <img src="/images/microwiki.png" alt="MicroWiki" height="110px" />
+            <img src="/images/microwiki-full.png" alt="MicroWiki" height="110px" />
             <p>
               <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a>,
               the largest online encyclopædia about micronations, small and often rather eccentric

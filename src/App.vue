@@ -13,7 +13,11 @@ import { version } from '../package.json';
   <Navbar :buttons="navbarButtons" />
 
   <main>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
   </main>
 
   <footer class="site-section">
@@ -104,7 +108,8 @@ footer {
   margin-top: 20px;
 }
 
-footer label[for="darkModeCheckbox"], #languageSelect {
+footer label[for="darkModeCheckbox"],
+#languageSelect {
   font-size: 15px;
   width: 100px;
   padding: 5px;
@@ -170,5 +175,15 @@ footer label[for="darkModeCheckbox"] {
   font-size: 15px;
   width: 177px;
   height: 27px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

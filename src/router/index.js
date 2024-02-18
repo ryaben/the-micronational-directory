@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 //Views importadas
 import Home from "@/views/Home.vue";
 import Directory from "@/views/Directory.vue";
+import DirectoryProfile from "@/views/DirectoryProfile.vue";
 import Stats from "@/views/Stats.vue";
 import Login from "@/views/Login.vue";
 import Profile from "@/views/Profile.vue";
@@ -21,6 +22,11 @@ const routes = [
     path: "/directory",
     name: "Directory",
     component: Directory
+  },
+  {
+    path: "/directory/:micronationName",
+    name: "DirectoryProfile",
+    component: DirectoryProfile
   },
   {
     path: "/stats",

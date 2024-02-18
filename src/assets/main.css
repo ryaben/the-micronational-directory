@@ -66,7 +66,8 @@ input[type="email"],
 input[type="password"],
 textarea,
 input[type="date"],
-select {
+select,
+button {
   font-family: Cambria;
   font-size: 14px;
   resize: none;
@@ -196,6 +197,26 @@ textarea.login-input {
   max-height: 350px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.loading-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  width: auto;
+  padding-bottom: 55px;
+}
+
+.loading-image-container img {
+  filter: invert(100);
+  width: 300px;
+}
+
+.loading-image-container label {
+  color: white;
+  float: bottom;
+  font-size: 20px;
 }
 
 /* Vue transitions */

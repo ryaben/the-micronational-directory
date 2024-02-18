@@ -19,105 +19,105 @@ import emailjs from 'emailjs-com';
 </script>
 
 <template>
-  <section class="site-section">
-    <Sectionbar :sections="sectionbarTabs" @show-target-tab="changeViewMode" :initial-selected-tab="'cardsTab0'"
-      @click="renderMapbox" />
+  <div class="animation-error-avoider">
+    <section class="site-section">
+      <Sectionbar :sections="sectionbarTabs" @show-target-tab="changeViewMode" :initial-selected-tab="'cardsTab0'"
+        @click="renderMapbox" />
 
-    <section v-show="viewMode === 'cards' || viewMode === 'collage' || viewMode === 'moderation'"
-      class="directory-container">
-      <div class="directory-settings">
-        <div class="settings-subcontainer">
-          <div class="subcontainer-title">
-            <label>Filter</label>
-          </div>
-          <div class="setting-parameter-subcontainer centered">
-            <label>Search</label>
-            <input id="filterInput" ref="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
-          </div>
-          <div class="setting-parameter-subcontainer centered">
-            <label>Initial</label>
-            <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
-              <optgroup>
-                <option value="none">No initial filter</option>
-              </optgroup>
-              <optgroup class="letters-group">
-                <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
-            <label>Matches</label>
-            <label class="matching-entries">{{ approvedMicronations.length }}</label>
-          </div>
-        </div>
-        <div class="settings-subcontainer">
-          <div class="subcontainer-title">
-            <label>Sort</label>
-          </div>
-          <div class="setting-parameter-subcontainer">
-            <div>
-              <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
-                @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
-              <label for="sortA-Z">Name (A-Z)</label>
+      <section v-show="viewMode === 'cards' || viewMode === 'collage' || viewMode === 'moderation'"
+        class="directory-container">
+        <div class="directory-settings">
+          <div class="settings-subcontainer">
+            <div class="subcontainer-title">
+              <label>Filter</label>
             </div>
-            <div>
-              <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
-                @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
-              <label for="sortZ-A">Name (Z-A)</label>
+            <div class="setting-parameter-subcontainer centered">
+              <label>Search</label>
+              <input id="filterInput" ref="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
+            </div>
+            <div class="setting-parameter-subcontainer centered">
+              <label>Initial</label>
+              <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
+                <optgroup>
+                  <option value="none">No initial filter</option>
+                </optgroup>
+                <optgroup class="letters-group">
+                  <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
+              <label>Matches</label>
+              <label class="matching-entries">{{ approvedMicronations.length }}</label>
             </div>
           </div>
-          <div class="setting-parameter-subcontainer">
-            <div>
-              <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
-                @change="sortMicronations(micronationsDirectory, 'latestAdded'); forceRerender()">
-              <label for="sortLatestAdded">Latest added</label>
+          <div class="settings-subcontainer">
+            <div class="subcontainer-title">
+              <label>Sort</label>
             </div>
-            <div>
-              <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
-                @change="sortMicronations(micronationsDirectory, 'oldestAdded'); forceRerender()">
-              <label for="sortOldestAdded">Oldest added</label>
+            <div class="setting-parameter-subcontainer">
+              <div>
+                <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
+                  @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
+                <label for="sortA-Z">Name (A-Z)</label>
+              </div>
+              <div>
+                <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
+                  @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
+                <label for="sortZ-A">Name (Z-A)</label>
+              </div>
+            </div>
+            <div class="setting-parameter-subcontainer">
+              <div>
+                <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
+                  @change="sortMicronations(micronationsDirectory, 'latestAdded'); forceRerender()">
+                <label for="sortLatestAdded">Latest added</label>
+              </div>
+              <div>
+                <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
+                  @change="sortMicronations(micronationsDirectory, 'oldestAdded'); forceRerender()">
+                <label for="sortOldestAdded">Oldest added</label>
+              </div>
+            </div>
+            <div class="setting-parameter-subcontainer extra-margin-end">
+              <div>
+                <input type="radio" id="sortRandom" name="directory-sorting" value="random"
+                  @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
+                <label for="sortRandom">Random</label>
+              </div>
             </div>
           </div>
-          <div class="setting-parameter-subcontainer extra-margin-end">
-            <div>
-              <input type="radio" id="sortRandom" name="directory-sorting" value="random"
-                @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
-              <label for="sortRandom">Random</label>
+          <div class="settings-subcontainer">
+            <div class="subcontainer-title">
+              <label>Display</label>
+            </div>
+            <div class="setting-parameter-subcontainer centered">
+              <label ref="cardSizeLabel">Card size</label>
+              <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
+                @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
+            </div>
+            <div class="setting-parameter-subcontainer centered">
+              <div style="display: flex;">
+                <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
+                <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
+              </div>
+              <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
+                @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
             </div>
           </div>
-        </div>
-        <div class="settings-subcontainer">
-          <div class="subcontainer-title">
-            <label>Display</label>
-          </div>
-          <div class="setting-parameter-subcontainer centered">
-            <label ref="cardSizeLabel">Card size</label>
-            <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
-              @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
-          </div>
-          <div class="setting-parameter-subcontainer centered">
-            <div style="display: flex;">
-              <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
-              <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
-            </div>
-            <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
-              @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
-          </div>
-        </div>
-        <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
+          <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
           <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
             collage</button>
         </div> -->
-      </div>
+        </div>
 
-      <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
-        <img src="/images/loading.gif" alt="Loading">
-        <label>Loading Directory...</label>
-      </div>
+        <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
+          <img src="/images/loading.gif" alt="Loading">
+          <label>Loading Directory...</label>
+        </div>
 
-      <div id="micronationsList" class="micronations-list" v-show="viewMode === 'cards' || viewMode === 'collage'"
-        ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
-        <TransitionGroup name="opacity">
+        <div id="micronationsList" class="micronations-list" v-show="viewMode === 'cards' || viewMode === 'collage'"
+          ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
           <DirectoryEntry v-for="(item, i) in approvedMicronations" :key="i" :width="entryWidth"
             :flag-height="entryWidth * 0.6" :view-mode="viewMode" :info="{
               id: item.id,
@@ -142,12 +142,10 @@ import emailjs from 'emailjs-com';
               approved: item.approved,
               creationDate: item.creationDate
             }" />
-        </TransitionGroup>
-      </div>
-      <div class="moderation-menu" v-if="userIsModerator" v-show="viewMode === 'moderation'">
-        <div class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
-          :class="{ 'fixed-height': fixedHeight }">
-          <TransitionGroup name="opacity">
+        </div>
+        <div class="moderation-menu" v-if="userIsModerator" v-show="viewMode === 'moderation'">
+          <div class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
+            :class="{ 'fixed-height': fixedHeight }">
             <DirectoryEntry v-for="(item, i) in micronationsModerationDirectory" :key="i" :width="entryWidth"
               :flag-height="entryWidth * 0.6" :view-mode="'cards'" :info="{
                 id: item.id,
@@ -173,250 +171,254 @@ import emailjs from 'emailjs-com';
                 creationDate: item.creationDate
               }"
               @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email" />
-          </TransitionGroup>
-        </div>
-        <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
-          <label class="selected-entry-name">{{ selectedEntryName }}</label>
-          <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
-
-          <Sectionbar id="moderationBar" :sections="moderationbarTabs" @show-target-tab="changeModerationViewMode"
-            :initial-selected-tab="'moderateTab0'" />
-
-          <div v-show="moderationViewMode === 'moderate'" class="moderation-tab">
-            <textarea class="login-input" v-model="rejectionReason" rows="6"
-              placeholder="Additional message for rejection/approval"></textarea>
-            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
-              @click="entryReject(selectedEntry, false)">
-              Reject
-            </button>
-            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
-              @click="entryReject(selectedEntry, true)">
-              Reject and delete
-            </button>
-            <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
-              @click="entryApprove(selectedEntry)">
-              Approve
-            </button>
           </div>
-          <div v-show="moderationViewMode === 'edit'" class="moderation-tab">
-            <p>Work in progress.</p>
+          <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
+            <label class="selected-entry-name">{{ selectedEntryName }}</label>
+            <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
+
+            <Sectionbar id="moderationBar" :sections="moderationbarTabs" @show-target-tab="changeModerationViewMode"
+              :initial-selected-tab="'moderateTab0'" />
+
+            <div v-show="moderationViewMode === 'moderate'" class="moderation-tab">
+              <textarea class="login-input" v-model="rejectionReason" rows="6"
+                placeholder="Additional message for rejection/approval"></textarea>
+              <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+                @click="entryReject(selectedEntry, false)">
+                Reject
+              </button>
+              <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
+                @click="entryReject(selectedEntry, true)">
+                Reject and delete
+              </button>
+              <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
+                @click="entryApprove(selectedEntry)">
+                Approve
+              </button>
+            </div>
+            <div v-show="moderationViewMode === 'edit'" class="moderation-tab">
+              <p>Work in progress.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
-        You don't have sufficient privileges in order to moderate pending submissions.
+        <div v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
+          You don't have sufficient privileges in order to moderate pending submissions.
+        </div>
+      </section>
+
+      <LocationPicker v-if="renderedMapbox" v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
+        :collection="physicalMicronationsDirectory.filter(element => element.approved)" width="100%" height="40vw" />
+
+      <div v-show="viewMode === 'addEntry'" class="dropdown-info-box color-transition">
+        <h3 @click="toggleDropdown">⚠️ Important notes on new entries and to add your own:</h3>
+        <p>
+          Don't know what micronations to add? <a
+            href="https://docs.google.com/spreadsheets/d/1jwekLc1EpbVfznTbMrqiM8KUJW_ra3vywcMpiLTJrEs/edit?usp=sharing"
+            target="_blank">Check out this list with many sources that we've composed</a>.
+        </p>
+        <p>
+          We invite the community to contribute to the directory and add micronations to it.
+          <b>It's important to highlight that:</b>
+        </p>
+        <ul class="notes-list">
+          <li>
+            Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations that
+            promote Nazi
+            symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
+          </li>
+          <li>
+            Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
+            lightning
+            entries that may only be games or premature/fake experiments.
+          </li>
+          <li>
+            It's <b>mandatory</b> that all entries have an official website (<b>NOT</b> a social media account) of the
+            micronation and/or (preferably
+            <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is
+            specified,
+            and we can avoid
+            entries that could be jokes, games, fake, misleading or cheating for contests.
+          </li>
+          <li>
+            Physical and digital micronations
+            can be included alike, as well as fictional countries as long as they also demonstrate activity as a proper
+            micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
+              href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
+            is not a valid case, while the <a href="https://en.wikipedia.org/wiki/Kingdom_of_Redonda"
+              target="_blank">Kingdom of Redonda</a> or most of the micronations from <a
+              href="https://micras.org/mwiki/Main_Page" target="_blank">Micras</a> indeed are).
+          </li>
+          <li>
+            Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's main
+            official language.
+          </li>
+          <li>
+            If a micronation's website is closed or inactive, you can check it on the <b><a
+                href="http://web.archive.org/">Wayback
+                Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service
+            generates
+            instead.
+          </li>
+          <li>
+            All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before
+            they
+            are posted on the
+            definitive public online directory.
+          </li>
+        </ul>
+        <p>
+          Thanks for understanding and for helping to create this digital database museum!
+        </p>
+
+        <Transition name="opacity">
+          <div class="new-entry-container" v-show="newEntryView">
+            <form class="listing-new-entry" @submit.prevent="addEntry">
+              <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
+                  href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
+              <div class="new-entry-form">
+                <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
+                <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
+                  placeholder="E.g. 'Sealand' (just the short, main name)">
+
+                <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
+                <input type="text" id="newEntryTitle" v-model="newEntryForm.newEntryTitle"
+                  placeholder="E.g. 'Principality of' (just the full State description only)">
+
+                <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
+                <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
+                  placeholder="Second option for name, like in another language">
+
+                <label for="newEntryTitleAlt" class="new-entry-form-text">Alternative title</label>
+                <input type="text" id="newEntryTitleAlt" v-model="newEntryForm.newEntryTitleAlt"
+                  placeholder="Second option for title, like in another language">
+
+                <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
+                <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
+                  placeholder="E.g. 'In God we trust' (don't add quotes)">
+
+                <label class="new-entry-form-text mandatory">Type*</label>
+                <div class="new-entry-type">
+                  <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical"
+                    name="new-entry-type" value="physical" @change="updatePhysicalType"
+                    @click="renderedMapboxNewEntry = true">
+                  <label for="typePhysical">Physical</label>
+                  <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
+                    value="digital" checked>
+                  <label for="typeDigital">Digital</label>
+                  <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional"
+                    name="new-entry-type" value="fictional">
+                  <label for="typeFictional">Fictional</label>
+                </div>
+
+                <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
+                <div style="display: flex; flex-direction: column; margin-bottom: 3px;">
+                  <div style="display: flex;">
+                    <select name="newEntryLanguages" id="newEntryLanguagesSelect" @change="addLanguage" required>
+                      <optgroup>
+                        <option value="custom">Other (custom)</option>
+                      </optgroup>
+                      <optgroup>
+                        <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
+                          {{ language.name }}
+                        </option>
+                      </optgroup>
+                    </select>
+                    <input type="text" placeholder="Custom language name" v-model="customLanguage">
+                  </div>
+                  <div class="selected-languages-container">
+                    <SelectedLanguage v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i"
+                      :lang-text="language" @remove-language="removeLanguage" />
+                  </div>
+                </div>
+
+                <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
+                <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
+                  placeholder="City, place or building officiating as capital">
+
+                <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
+                <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
+                  placeholder="Official currency of the micronation, just name and not symbol">
+
+                <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
+                <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
+                  :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
+
+                <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
+                  (leave as is if unknown or N/A)</label>
+                <div v-show="physicalType">
+                  <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
+                  <LocationPicker v-if="renderedMapboxNewEntry" :visible="!physicalType" ref="locationPicker"
+                    mode="picker" width="100%" height="300px" @dragged-marker="draggedMarker" />
+                </div>
+
+                <label for="newEntryMemberships" class="new-entry-form-text">Memberships<br>(capitals, not full
+                  name)</label>
+                <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
+                  cols="50" rows="3"
+                  placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
+
+                <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
+                <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50"
+                  rows="3" required
+                  placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
+
+                <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
+                  article)</label>
+                <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites" cols="50"
+                  rows="3" required
+                  placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
+
+                <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a
+                    href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
+                <div class="flag-preview-container">
+                  <input type="file" @change="previewImage" accept="image/png" required>
+                </div>
+
+                <div class="wide-row">
+                  <Recaptcha @checkbox="checkRecaptcha" />
+                  <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
+                    class="login-button short color-transition">
+                  <label>(wait a few seconds for notification)</label>
+                </div>
+              </div>
+            </form>
+            <div class="new-entry-preview">
+              <h2 id="previewTitle">Entry preview</h2>
+              <p>(Click on the card to toggle the display)</p>
+              <DirectoryEntry id="entryPreview" ref="entryPreview" :initial-info-view="true" :width="180"
+                :flag-height="180 * 0.6" view-mode="cards" :info="{
+                  name: {
+                    main: newEntryForm.newEntryName,
+                    mainAlt: newEntryForm.newEntryNameAlt,
+                    title: newEntryForm.newEntryTitle,
+                    titleAlt: newEntryForm.newEntryTitleAlt
+                  },
+                  flag: flagPreview,
+                  motto: newEntryForm.newEntryMotto,
+                  type: checkTypes,
+                  languages: newEntryForm.newEntryLanguages,
+                  capital: newEntryForm.newEntryCapital,
+                  currency: newEntryForm.newEntryCurrency,
+                  foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                  memberships: newEntryForm.newEntryMemberships.split('\n'),
+                  contactInfo: newEntryForm.newEntryEmails.split('\n'),
+                  websites: newEntryForm.newEntryWebsites.split('\n'),
+                  approved: true
+                }" />
+            </div>
+          </div>
+        </Transition>
+
+        <button v-show="!newEntryView" id="newEntryOpener" class="login-button short color-transition"
+          :disabled="!user.emailVerified" @click="newEntryView = true" :key="componentKey">Add new entry</button>
+        <label v-if="!user.emailVerified" :key="componentKey">(Available for <a href="/login">registered users
+            with verified email</a> only)</label>
       </div>
     </section>
 
-    <LocationPicker v-if="renderedMapbox" v-show="viewMode === 'map'" ref="micronationsMap" mode="locationMap"
-      :collection="physicalMicronationsDirectory.filter(element => element.approved)" width="100%" height="40vw" />
-
-    <div v-show="viewMode === 'addEntry'" class="dropdown-info-box color-transition">
-      <h3 @click="toggleDropdown">⚠️ Important notes on new entries and to add your own:</h3>
-      <p>
-        Don't know what micronations to add? <a
-          href="https://docs.google.com/spreadsheets/d/1jwekLc1EpbVfznTbMrqiM8KUJW_ra3vywcMpiLTJrEs/edit?usp=sharing"
-          target="_blank">Check out this list with many sources that we've composed</a>.
-      </p>
-      <p>
-        We invite the community to contribute to the directory and add micronations to it.
-        <b>It's important to highlight that:</b>
-      </p>
-      <ul class="notes-list">
-        <li>
-          Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations that
-          promote Nazi
-          symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
-        </li>
-        <li>
-          Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
-          lightning
-          entries that may only be games or premature/fake experiments.
-        </li>
-        <li>
-          It's <b>mandatory</b> that all entries have an official website (<b>NOT</b> a social media account) of the
-          micronation and/or (preferably
-          <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is specified,
-          and we can avoid
-          entries that could be jokes, games, fake, misleading or cheating for contests.
-        </li>
-        <li>
-          Physical and digital micronations
-          can be included alike, as well as fictional countries as long as they also demonstrate activity as a proper
-          micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
-            href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
-          is not a valid case, while the <a href="https://en.wikipedia.org/wiki/Kingdom_of_Redonda"
-            target="_blank">Kingdom of Redonda</a> or most of the micronations from <a
-            href="https://micras.org/mwiki/Main_Page" target="_blank">Micras</a> indeed are).
-        </li>
-        <li>
-          Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's main
-          official language.
-        </li>
-        <li>
-          If a micronation's website is closed or inactive, you can check it on the <b><a
-              href="http://web.archive.org/">Wayback
-              Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service generates
-          instead.
-        </li>
-        <li>
-          All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before they
-          are posted on the
-          definitive public online directory.
-        </li>
-      </ul>
-      <p>
-        Thanks for understanding and for helping to create this digital database museum!
-      </p>
-
-      <Transition name="opacity">
-        <div class="new-entry-container" v-show="newEntryView">
-          <form class="listing-new-entry" @submit.prevent="addEntry">
-            <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
-                href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
-            <div class="new-entry-form">
-              <label for="newEntryName" class="new-entry-form-text mandatory">Name*</label>
-              <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
-                placeholder="E.g. 'Sealand' (just the short, main name)">
-
-              <label for="newEntryTitle" class="new-entry-form-text mandatory">Title</label>
-              <input type="text" id="newEntryTitle" v-model="newEntryForm.newEntryTitle"
-                placeholder="E.g. 'Principality of' (just the full State description only)">
-
-              <label for="newEntryNameAlt" class="new-entry-form-text">Alternative name</label>
-              <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
-                placeholder="Second option for name, like in another language">
-
-              <label for="newEntryTitleAlt" class="new-entry-form-text">Alternative title</label>
-              <input type="text" id="newEntryTitleAlt" v-model="newEntryForm.newEntryTitleAlt"
-                placeholder="Second option for title, like in another language">
-
-              <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
-              <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
-                placeholder="E.g. 'In God we trust' (don't add quotes)">
-
-              <label class="new-entry-form-text mandatory">Type*</label>
-              <div class="new-entry-type">
-                <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical" name="new-entry-type"
-                  value="physical" @change="updatePhysicalType" @click="renderedMapboxNewEntry = true">
-                <label for="typePhysical">Physical</label>
-                <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital" name="new-entry-type"
-                  value="digital" checked>
-                <label for="typeDigital">Digital</label>
-                <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional"
-                  name="new-entry-type" value="fictional">
-                <label for="typeFictional">Fictional</label>
-              </div>
-
-              <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
-              <div style="display: flex; flex-direction: column; margin-bottom: 3px;">
-                <div style="display: flex;">
-                  <select name="newEntryLanguages" id="newEntryLanguagesSelect" @change="addLanguage" required>
-                    <optgroup>
-                      <option value="custom">Other (custom)</option>
-                    </optgroup>
-                    <optgroup>
-                      <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
-                        {{ language.name }}
-                      </option>
-                    </optgroup>
-                  </select>
-                  <input type="text" placeholder="Custom language name" v-model="customLanguage">
-                </div>
-                <div class="selected-languages-container">
-                  <SelectedLanguage v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i" :lang-text="language"
-                    @remove-language="removeLanguage" />
-                </div>
-              </div>
-
-              <label for="newEntryCapital" class="new-entry-form-text">Capital</label>
-              <input type="text" id="newEntryCapital" v-model="newEntryForm.newEntryCapital"
-                placeholder="City, place or building officiating as capital">
-
-              <label for="newEntryCurrency" class="new-entry-form-text">Currency</label>
-              <input type="text" id="newEntryCurrency" v-model="newEntryForm.newEntryCurrency"
-                placeholder="Official currency of the micronation, just name and not symbol">
-
-              <label for="newEntryFoundation" class="new-entry-form-text mandatory">Foundation*</label>
-              <VueDatePicker v-model="foundationDate" month-name-format="long" :flow="['year', 'month', 'calendar']"
-                :utc="'preserve'" :timezone="'UTC'" now-button-label="Today" :required="true" :max-date="new Date()" />
-
-              <label v-show="physicalType" class="new-entry-form-text mandatory">Location<br>
-                (leave as is if unknown or N/A)</label>
-              <div v-show="physicalType">
-                <label v-show="physicalType">Drag and drop the blue pin to the location of the micronation:</label>
-                <LocationPicker v-if="renderedMapboxNewEntry" :visible="!physicalType" ref="locationPicker" mode="picker"
-                  width="100%" height="300px" @dragged-marker="draggedMarker" />
-              </div>
-
-              <label for="newEntryMemberships" class="new-entry-form-text">Memberships<br>(capitals, not full
-                name)</label>
-              <textarea id="newEntryMemberships" v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships"
-                cols="50" rows="3"
-                placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
-
-              <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
-              <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50" rows="3"
-                required
-                placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
-
-              <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally wiki
-                article)</label>
-              <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites" cols="50"
-                rows="3" required
-                placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
-
-              <label for="newEntryFlag" class="new-entry-form-text mandatory">Flag*<br>(if N/A or unobtainable:<br><a
-                  href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
-              <div class="flag-preview-container">
-                <input type="file" @change="previewImage" accept="image/png" required>
-              </div>
-
-              <div class="wide-row">
-                <Recaptcha @checkbox="checkRecaptcha" />
-                <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
-                  class="login-button short color-transition">
-                <label>(wait a few seconds for notification)</label>
-              </div>
-            </div>
-          </form>
-          <div class="new-entry-preview">
-            <h2 id="previewTitle">Entry preview</h2>
-            <p>(Click on the card to toggle the display)</p>
-            <DirectoryEntry id="entryPreview" ref="entryPreview" :initial-info-view="true" :width="180"
-              :flag-height="180 * 0.6" view-mode="cards" :info="{
-                name: {
-                  main: newEntryForm.newEntryName,
-                  mainAlt: newEntryForm.newEntryNameAlt,
-                  title: newEntryForm.newEntryTitle,
-                  titleAlt: newEntryForm.newEntryTitleAlt
-                },
-                flag: flagPreview,
-                motto: newEntryForm.newEntryMotto,
-                type: checkTypes,
-                languages: newEntryForm.newEntryLanguages,
-                capital: newEntryForm.newEntryCapital,
-                currency: newEntryForm.newEntryCurrency,
-                foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
-                memberships: newEntryForm.newEntryMemberships.split('\n'),
-                contactInfo: newEntryForm.newEntryEmails.split('\n'),
-                websites: newEntryForm.newEntryWebsites.split('\n'),
-                approved: true
-              }" />
-          </div>
-        </div>
-      </Transition>
-
-      <button v-show="!newEntryView" id="newEntryOpener" class="login-button short color-transition"
-        :disabled="!user.emailVerified" @click="newEntryView = true" :key="componentKey">Add new entry</button>
-      <label v-if="!user.emailVerified" :key="componentKey">(Available for <a href="/login">registered users
-          with verified email</a> only)</label>
-    </div>
-  </section>
-
-  <Transition name="opacity">
-    <div id="goToTopButton" v-show="!fixedHeight" @click="scrollToTop">⬆️</div>
-  </Transition>
+    <Transition name="opacity">
+      <div id="goToTopButton" v-show="!fixedHeight" @click="scrollToTop">⬆️</div>
+    </Transition>
+  </div>
 </template>
 
 <script>
@@ -1127,26 +1129,6 @@ div.new-entry-type {
   width: 100px;
 }
 
-.loading-image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: black;
-  width: auto;
-  padding-bottom: 55px;
-}
-
-.loading-image-container img {
-  filter: invert(100);
-  width: 300px;
-}
-
-.loading-image-container label {
-  color: white;
-  float: bottom;
-  font-size: 20px;
-}
-
 .micronations-list {
   display: flex;
   justify-content: left;
@@ -1258,5 +1240,4 @@ div.new-entry-type {
   .directory-settings>div:not(div:last-of-type) {
     margin-bottom: 15px;
   }
-}
-</style>
+}</style>

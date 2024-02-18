@@ -1,4 +1,8 @@
 <script setup>
+import { checkHref, checkIcon, cleanString } from '../assets/EntrySourceFunctions';
+import EntrySource from '../components/EntrySource.vue';
+import AnimateHeight from 'vue-animate-height';
+
 defineProps({
     width: {
         type: Number,
@@ -25,63 +29,79 @@ defineProps({
 
 <template>
     <div class="directory-entry-container" :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }"
-        :style="cssProps" @click="toggleInfo">
+        :style="cssProps">
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
 
         <div v-show="viewMode !== 'collage'" class="entry-info">
-            <div>
-                <p class="entry-text entry-name"><b>{{ info.name.main }}</b><span v-if="info.name.title !== ''">,</span><br>
-                    <br v-if="info.name.title === ''" v-show="!infoView">
-                    {{ info.name.title }}
-                </p>
-                <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
-                    info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
-                </p>
-            </div>
-
-            <hr class="light-divider">
-
-            <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
-                info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
-            <p class="entry-text">
-                <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
-                        v-if="i !== info.type.length - 1">,&nbsp;</span><span
-                        v-if="i === info.type.length - 1">.</span></span>
-            </p>
-            <p class="entry-text">
-                <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
-                        v-if="i !== info.languages.length - 1">,&nbsp;</span><span
-                        v-if="i === info.languages.length - 1">.</span></span>
+            <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><span v-if="info.name.title !== ''">,</span><br>
+                <br v-if="info.name.title === ''" v-show="!infoView">
+                {{ info.name.title }}
             </p>
 
-            <hr class="light-divider">
+            <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
+                <div class="animated-info">
+                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
+                        info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
+                    </p>
 
-            <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
-            <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
-                info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
-            <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span v-if="info.currency !== ''">{{
-                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
-            <p class="entry-text">
-                <span class="underlined">Memberships:</span>&nbsp;<span v-if="info.memberships == ''">None.</span><span
-                    v-if="info.memberships != ''" v-for="(membership, i) in info.memberships" :key="i">{{
-                        membership }}<span v-if="i !== info.memberships.length - 1">,&nbsp;</span><span
-                        v-if="i === info.memberships.length - 1">.</span></span>
-            </p>
+                    <hr class="light-divider">
 
-            <hr class="light-divider">
+                    <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
+                        info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
+                    <p class="entry-text">
+                        <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
+                                v-if="i !== info.type.length - 1">,&nbsp;</span><span
+                                v-if="i === info.type.length - 1">.</span></span>
+                    </p>
+                    <p class="entry-text">
+                        <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
+                                v-if="i !== info.languages.length - 1">,&nbsp;</span><span
+                                v-if="i === info.languages.length - 1">.</span></span>
+                    </p>
 
-            <p class="entry-text">
-                <span class="underlined">Contact info:</span><br><span v-for="(contact, i) in info.contactInfo"
-                    :key="i"><span class="contact-email"><a :href="contact" target="_blank">{{ contact }}</a></span><span
-                        v-if="i !== info.contactInfo.length - 1"><br></span></span>
-            </p>
-            <p class="entry-text">
-                <span class="underlined">Websites:</span><br><span v-for="(website, i) in info.websites" :key="i"><span
-                        class="website-link"><a :href="website" target="_blank">{{ website }}</a></span><span
-                        v-if="i !== info.websites.length - 1"><br></span></span>
-            </p>
+                    <hr class="light-divider">
+
+                    <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
+                        new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
+                    <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
+                        info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
+                    <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span
+                            v-if="info.currency !== ''">{{
+                                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
+                    <p class="entry-text">
+                        <span class="underlined">Memberships:</span>&nbsp;<span
+                            v-if="info.memberships == ''">None.</span><span v-if="info.memberships != ''"
+                            v-for="(membership, i) in info.memberships" :key="i">{{
+                                membership }}<span v-if="i !== info.memberships.length - 1">,&nbsp;</span><span
+                                v-if="i === info.memberships.length - 1">.</span></span>
+                    </p>
+
+                    <hr class="light-divider">
+
+                    <div class="entry-group">
+                        <p class="entry-text">Contact info:</p>
+                        <div class="sources-container">
+                            <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
+                                :href="contact" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                                :icon="checkIcon(contact, info.name.main)" />
+                        </div>
+                    </div>
+                    <div class="entry-group">
+                        <p class="entry-text">Websites:</p>
+                        <div class="sources-container">
+                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
+                                :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                                :icon="checkIcon(website, info.name.main)" />
+                        </div>
+                    </div>
+                </div>
+            </AnimateHeight>
+        </div>
+
+        <div v-show="viewMode !== 'collage'" class="info-buttons-container">
+            <button class="info-button" @click="toggleInfo">{{ infoView ? 'Collapse' : 'Expand' }}</button>
+            <router-link :to="'/directory/' + info.name.main" class="info-button">Full profile</router-link>
         </div>
     </div>
 </template>
@@ -89,9 +109,14 @@ defineProps({
 <script>
 export default {
     name: 'DirectoryEntry',
+    components: {
+        EntrySource,
+        AnimateHeight
+    },
     data: () => {
         return {
-            infoView: false
+            infoView: false,
+            height: 0
         };
     },
     computed: {
@@ -106,6 +131,10 @@ export default {
             if (this.viewMode !== 'collage') {
                 this.infoView = !this.infoView;
             }
+            this.updateHeight();
+        },
+        updateHeight() {
+            return this.height = this.height === 0 ? 'auto' : 0;
         }
     }
 }
@@ -123,17 +152,9 @@ export default {
     color: var(--directory-entry-text-color);
     border-radius: 8px;
     border: 2px solid var(--site-section-border-color);
-    padding: 15px;
+    padding: 15px 15px 0 15px;
     margin: 0 3px 6px 3px;
-    transition: linear background-color 0.2s, linear color 0.2s;
-    cursor: pointer;
-}
-
-.directory-entry-container.info-displayed .entry-text,
-.directory-entry-container.info-displayed .entry-text.entry-name,
-.directory-entry-container.info-displayed .light-divider {
-    display: block;
-    max-height: none;
+    transition: linear background-color 0.3s, linear color 0.3s;
 }
 
 .directory-entry-container.collage-mode {
@@ -155,7 +176,6 @@ export default {
 }
 
 .entry-text {
-    display: none;
     font-size: 13px;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -174,6 +194,11 @@ export default {
     -webkit-box-orient: vertical;
 }
 
+.entry-text.entry-name.expanded {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+}
+
 .entry-text.entry-alt-name {
     font-size: 11px;
     font-style: italic;
@@ -182,15 +207,71 @@ export default {
 }
 
 .light-divider {
-    display: none;
     width: 100%;
 }
 
-.contact-email a {
-    color: var(--directory-contact-email-color);
+.contact-email a,
+.entry-text.entry-name a.website-link {
+    color: var(--triggerable);
 }
 
 .website-link a {
     color: var(--directory-website-link-color);
+}
+
+.sources-container {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.entry-group:not(:last-of-type) .sources-container a.source-container {
+    margin-bottom: 4px;
+}
+
+.entry-group:not(:last-of-type) .sources-container {
+    margin-bottom: 2px;
+}
+
+.entry-source {
+    margin-right: 4px;
+}
+
+.entry-source:last-of-type {
+    margin-right: 0;
+}
+
+.info-buttons-container {
+    display: flex;
+    margin-top: 12px;
+    width: calc(100% + 28px);
+}
+
+.info-button {
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+    background: var(--vt-c-indigo);
+    border: 1px solid var(--vt-c-black);
+    border-bottom: none;
+    color: var(--vt-c-white-soft);
+    cursor: pointer;
+}
+
+.info-buttons-container .info-button:first-child {
+    border-bottom-left-radius: 8px;
+    border-left: none;
+}
+
+.info-buttons-container .info-button:last-child {
+    border-bottom-right-radius: 8px;
+    border-right: none;
+}
+
+.info-button:hover {
+    background: var(--soft-beige);
+    color: var(--vt-c-indigo-dark);
 }
 </style>
