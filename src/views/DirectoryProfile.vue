@@ -4,12 +4,13 @@ import store from '../store';
 </script>
 
 <template>
-    <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
-        <img src="/images/loading.gif" alt="Loading">
-        <label>Loading Directory...</label>
-    </div>
+    <div class="animation-error-avoider">
+        <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
+            <img src="/images/loading.gif" alt="Loading">
+            <label>Loading Directory...</label>
+        </div>
 
-    <DirectoryArticle v-if="requestedMicronation.info.length" id="entryPreview" class="info-displayed" :info="{
+        <DirectoryArticle v-if="requestedMicronation.info.length" id="entryPreview" class="info-displayed" :info="{
             name: {
                 main: requestedMicronation.info[0].name.main,
                 mainAlt: requestedMicronation.info[0].name.mainAlt,
@@ -34,14 +35,16 @@ import store from '../store';
             next: nextMicronation
         }" />
 
-    <p class="no-entries" v-if="micronationsDirectory.length && requestedMicronation.info.length === 0">There is no entry for a micronation with that name.</p>
+        <p class="no-entries" v-if="micronationsDirectory.length && requestedMicronation.info.length === 0">There is no
+            entry for a micronation with that name.</p>
+    </div>
 </template>
   
 <script>
 export default {
     data() {
         return {
-      
+
         }
     },
     computed: {
