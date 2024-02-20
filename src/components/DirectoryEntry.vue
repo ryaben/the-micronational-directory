@@ -175,6 +175,10 @@ export default {
     height: auto;
 }
 
+.entry-info {
+    width: 100%;
+}
+
 .entry-text {
     font-size: 13px;
     margin-block-start: 0;

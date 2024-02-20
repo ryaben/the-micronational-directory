@@ -36,7 +36,7 @@ defineProps({
             </p>
         </div>
         <p>
-            Carefully read the <a href="/terms-of-contests">terms and conditions</a> to know all the details.
+            Carefully read the <router-link :to="'/terms-of-contests'">terms and conditions</router-link> to know all the details.
             <span v-if="contestInfo.name === 'Inaugural Contest 2023'">
                 <br>
                 <b>ONLY</b> in the case of this initial event, <b>all entries submitted since the launching of TMD (August

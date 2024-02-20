@@ -14,8 +14,8 @@ import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import languages from 'language-list';
 import emailjs from 'emailjs-com';
-// import html2canvas from 'html2canvas';
-// import { saveAs } from 'file-saver';
+import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 </script>
 
 <template>
@@ -33,7 +33,7 @@ import emailjs from 'emailjs-com';
             </div>
             <div class="setting-parameter-subcontainer centered">
               <label>Search</label>
-              <input id="filterInput" ref="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
+              <input id="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
             </div>
             <div class="setting-parameter-subcontainer centered">
               <label>Initial</label>
@@ -57,32 +57,32 @@ import emailjs from 'emailjs-com';
             </div>
             <div class="setting-parameter-subcontainer">
               <div>
-                <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" checked
-                  @change="sortMicronations(micronationsDirectory, 'ascending'); forceRerender()">
+                <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" v-model="entrySorting"
+                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortA-Z">Name (A-Z)</label>
               </div>
               <div>
-                <input type="radio" id="sortZ-A" name="directory-sorting" value="descending"
-                  @change="sortMicronations(micronationsDirectory, 'descending'); forceRerender()">
+                <input type="radio" id="sortZ-A" name="directory-sorting" value="descending" v-model="entrySorting"
+                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortZ-A">Name (Z-A)</label>
               </div>
             </div>
             <div class="setting-parameter-subcontainer">
               <div>
                 <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
-                  @change="sortMicronations(micronationsDirectory, 'latestAdded'); forceRerender()">
+                  v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortLatestAdded">Latest added</label>
               </div>
               <div>
                 <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
-                  @change="sortMicronations(micronationsDirectory, 'oldestAdded'); forceRerender()">
+                  v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortOldestAdded">Oldest added</label>
               </div>
             </div>
             <div class="setting-parameter-subcontainer extra-margin-end">
               <div>
-                <input type="radio" id="sortRandom" name="directory-sorting" value="random"
-                  @change="sortMicronations(micronationsDirectory, 'random'); forceRerender()">
+                <input type="radio" id="sortRandom" name="directory-sorting" value="random" v-model="entrySorting"
+                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortRandom">Random</label>
               </div>
             </div>
@@ -105,10 +105,28 @@ import emailjs from 'emailjs-com';
                 @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
             </div>
           </div>
+          <div class="settings-subcontainer">
+            <div class="subcontainer-title">
+              <label>Pages</label>
+            </div>
+            <div class="setting-parameter-subcontainer centered">
+              <label>Entries/page</label>
+              <input id="entriesPerPageInput" placeholder="Input an amount" type="number" value="50" @input="">
+            </div>
+            <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
+              <label>Page control</label>
+              <div>
+                <button class="page-button">&lt;&lt;</button>
+                <button class="page-button">&lt;</button>
+                <button class="page-button">></button>
+                <button class="page-button">>></button>
+              </div>
+            </div>
+          </div>
           <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
-          <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
-            collage</button>
-        </div> -->
+            <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
+              collage</button>
+          </div> -->
         </div>
 
         <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
@@ -410,8 +428,8 @@ import emailjs from 'emailjs-com';
 
         <button v-show="!newEntryView" id="newEntryOpener" class="login-button short color-transition"
           :disabled="!user.emailVerified" @click="newEntryView = true" :key="componentKey">Add new entry</button>
-        <label v-if="!user.emailVerified" :key="componentKey">(Available for <a href="/login">registered users
-            with verified email</a> only)</label>
+        <label v-if="!user.emailVerified" :key="componentKey">(Available for <router-link :to="'/login'">registered users
+            with verified email</router-link> only)</label>
       </div>
     </section>
 
@@ -472,7 +490,8 @@ export default {
       selectedEntryAuthor: '',
       rejectionReason: "",
       renderedMapbox: false,
-      renderedMapboxNewEntry: false
+      renderedMapboxNewEntry: false,
+      entrySorting: 'ascending'
     };
   },
   components: {
@@ -907,12 +926,12 @@ export default {
         })
       }
     },
-    // async generateCollage() {
-    //   const canvas = await html2canvas(document.getElementById("micronationsList"), { useCORS: true })
-    //   canvas.toBlob(async function (blob) {
-    //     await saveAs(blob, 'flag-collage.png');
-    //   });
-    // },
+    async generateCollage() {
+      const canvas = await html2canvas(document.getElementById("micronationsList"), { useCORS: true })
+      canvas.toBlob(async function (blob) {
+        await saveAs(blob, 'flag-collage.png');
+      });
+    },
     normalizeString(string) {
       return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     },
@@ -1026,12 +1045,13 @@ div.new-entry-type {
 
 .directory-settings {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   width: auto;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-  padding: 12px;
+  padding: 12px 12px 4px 12px;
   margin-bottom: 25px;
 }
 
@@ -1046,6 +1066,8 @@ div.new-entry-type {
   border: 2px solid var(--vt-c-white);
   border-radius: 8px;
   margin-right: 8px;
+  margin-bottom: 8px;
+  height: 62px;
 }
 
 .settings-subcontainer:hover .subcontainer-title:not(.right-side) {
@@ -1093,7 +1115,7 @@ div.new-entry-type {
   align-items: flex-start;
   justify-content: center;
   height: 100%;
-  margin: 3px;
+  margin: 5px;
 }
 
 .setting-parameter-subcontainer.extra-margin-end {
@@ -1102,6 +1124,7 @@ div.new-entry-type {
 
 .setting-parameter-subcontainer.border-left {
   padding-left: 6px;
+  margin-left: 0px;
   border-left: 2px solid var(--vt-c-white);
 }
 
@@ -1111,6 +1134,10 @@ div.new-entry-type {
 
 #filterInput {
   width: 150px;
+}
+
+#entriesPerPageInput {
+  width: 70px;
 }
 
 .tools-container {
@@ -1232,12 +1259,9 @@ div.new-entry-type {
 }
 
 @media only screen and (max-width: 960px) {
-  .directory-settings {
-    flex-direction: column;
-    align-items: center;
-  }
 
   .directory-settings>div:not(div:last-of-type) {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
-}</style>
+}
+</style>

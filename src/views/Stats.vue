@@ -12,7 +12,7 @@ import { auth } from '../firebase/init.js';
             <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow
                 up the terms and
                 everything related. In them, <b>users with most contributions will qualify for prizes</b>.
-                Carefully read the <a href="/terms-of-contests">terms and conditions</a> to know all the details. To check past contests, go right below on this page.
+                Carefully read the <router-link :to="'/terms-of-contests'">terms and conditions</router-link> to know all the details. To check past contests, go right below on this page.
             </p>
         </div>
         <!-- <div class="tables-container">
