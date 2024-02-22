@@ -4,6 +4,9 @@ import LocationPicker from '../components/LocationPicker.vue';
 import Recaptcha from '../components/ReCaptcha.vue';
 import Sectionbar from '../components/Sectionbar.vue';
 import SelectedLanguage from '../components/SelectedLanguage.vue';
+import SettingsSubcontainer from '../components/SettingsSubcontainer.vue';
+import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue';
+import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
 import store from '../store';
 import { auth, db, storage } from '../firebase/init.js';
 import { doc, setDoc, Timestamp, GeoPoint, updateDoc, deleteDoc } from "firebase/firestore";
@@ -26,16 +29,37 @@ import { saveAs } from 'file-saver';
 
       <section v-show="viewMode === 'cards' || viewMode === 'collage' || viewMode === 'moderation'"
         class="directory-container">
-        <div class="directory-settings">
-          <div class="settings-subcontainer">
-            <div class="subcontainer-title">
-              <label>Filter</label>
-            </div>
-            <div class="setting-parameter-subcontainer centered">
+        <div class="directory-settings" :class="{ 'floating': viewMode === 'cards' && scrollPosition > 500 }">
+          <SettingsSubcontainer text="Pages">
+            <SettingsSubcontainerParameter :centered="true">
+              <label>Entries/page</label>
+              <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="1000" type="number"
+                v-model="entriesPerPage" @input="pageMicronations">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
+              <label>Page control</label>
+              <div style="display: flex; align-items: center;">
+                <button class="page-button login-button color-transition" :disabled="currentPage === 1"
+                  @click="setPage(1)">&lt;&lt;</button>
+                <button class="page-button login-button color-transition" :disabled="currentPage === 1"
+                  @click="setPage(currentPage - 1)">&lt;</button>
+                <input id="currentPage" placeholder="Page" min="1" :max="totalPages" type="number" v-model="currentPage"
+                  @input="pageMicronations">
+                <label id="totalPages" class="matching-entries">&nbsp;/ {{ totalPages }}</label>
+                <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
+                  @click="setPage(currentPage + 1)">></button>
+                <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
+                  @click="setPage(totalPages)">>></button>
+              </div>
+            </SettingsSubcontainerParameter>
+          </SettingsSubcontainer>
+
+          <SettingsSubcontainer text="Filter">
+            <SettingsSubcontainerParameter :centered="true">
               <label>Search</label>
               <input id="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
-            </div>
-            <div class="setting-parameter-subcontainer centered">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter :centered="true">
               <label>Initial</label>
               <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
                 <optgroup>
@@ -45,17 +69,15 @@ import { saveAs } from 'file-saver';
                   <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
                 </optgroup>
               </select>
-            </div>
-            <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
               <label>Matches</label>
-              <label class="matching-entries">{{ approvedMicronations.length }}</label>
-            </div>
-          </div>
-          <div class="settings-subcontainer">
-            <div class="subcontainer-title">
-              <label>Sort</label>
-            </div>
-            <div class="setting-parameter-subcontainer">
+              <label class="matching-entries">{{ visibleMicronations.length }}</label>
+            </SettingsSubcontainerParameter>
+          </SettingsSubcontainer>
+
+          <SettingsSubcontainer text="Sort">
+            <SettingsSubcontainerParameter>
               <div>
                 <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" v-model="entrySorting"
                   @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
@@ -66,8 +88,8 @@ import { saveAs } from 'file-saver';
                   @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortZ-A">Name (Z-A)</label>
               </div>
-            </div>
-            <div class="setting-parameter-subcontainer">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter>
               <div>
                 <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
                   v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
@@ -78,51 +100,32 @@ import { saveAs } from 'file-saver';
                   v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortOldestAdded">Oldest added</label>
               </div>
-            </div>
-            <div class="setting-parameter-subcontainer extra-margin-end">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter>
               <div>
                 <input type="radio" id="sortRandom" name="directory-sorting" value="random" v-model="entrySorting"
                   @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
                 <label for="sortRandom">Random</label>
               </div>
-            </div>
-          </div>
-          <div class="settings-subcontainer">
-            <div class="subcontainer-title">
-              <label>Display</label>
-            </div>
-            <div class="setting-parameter-subcontainer centered">
+            </SettingsSubcontainerParameter>
+          </SettingsSubcontainer>
+
+          <SettingsSubcontainer text="Display">
+            <SettingsSubcontainerParameter :centered="true">
               <label ref="cardSizeLabel">Card size</label>
               <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
                 @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
-            </div>
-            <div class="setting-parameter-subcontainer centered">
+            </SettingsSubcontainerParameter>
+            <SettingsSubcontainerParameter :centered="true">
               <div style="display: flex;">
                 <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
                 <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
               </div>
               <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
                 @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
-            </div>
-          </div>
-          <div class="settings-subcontainer">
-            <div class="subcontainer-title">
-              <label>Pages</label>
-            </div>
-            <div class="setting-parameter-subcontainer centered">
-              <label>Entries/page</label>
-              <input id="entriesPerPageInput" placeholder="Input an amount" type="number" value="50" @input="">
-            </div>
-            <div class="setting-parameter-subcontainer centered border-left extra-margin-end">
-              <label>Page control</label>
-              <div>
-                <button class="page-button">&lt;&lt;</button>
-                <button class="page-button">&lt;</button>
-                <button class="page-button">></button>
-                <button class="page-button">>></button>
-              </div>
-            </div>
-          </div>
+            </SettingsSubcontainerParameter>
+          </SettingsSubcontainer>
+
           <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
             <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
               collage</button>
@@ -136,7 +139,7 @@ import { saveAs } from 'file-saver';
 
         <div id="micronationsList" class="micronations-list" v-show="viewMode === 'cards' || viewMode === 'collage'"
           ref="micronationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
-          <DirectoryEntry v-for="(item, i) in approvedMicronations" :key="i" :width="entryWidth"
+          <DirectoryEntry v-for="(item, i) in pagedMicronations" :key="i" :width="entryWidth"
             :flag-height="entryWidth * 0.6" :view-mode="viewMode" :info="{
               id: item.id,
               name: {
@@ -190,6 +193,7 @@ import { saveAs } from 'file-saver';
               }"
               @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email" />
           </div>
+
           <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
             <label class="selected-entry-name">{{ selectedEntryName }}</label>
             <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
@@ -444,6 +448,7 @@ export default {
   data: () => {
     return {
       user: {},
+      directoryLoaded: false,
       sectionbarTabs: [
         { text: 'Info cards', target: 'cards', display: true },
         { text: 'Flags', target: 'collage', display: true },
@@ -491,7 +496,10 @@ export default {
       rejectionReason: "",
       renderedMapbox: false,
       renderedMapboxNewEntry: false,
-      entrySorting: 'ascending'
+      entrySorting: 'latestAdded',
+      entriesPerPage: 50,
+      currentPage: 1,
+      scrollPosition: 0
     };
   },
   components: {
@@ -500,7 +508,19 @@ export default {
     Recaptcha,
     VueDatePicker,
     Sectionbar,
-    SelectedLanguage
+    SelectedLanguage,
+    SettingsSubcontainer,
+    SettingsSubcontainerTitle,
+    SettingsSubcontainerParameter
+  },
+  watch: {
+    directoryLoaded(newValue) {
+      if (newValue === true) {
+        this.sortMicronations(this.micronationsDirectory, this.entrySorting)
+        this.pageMicronations();
+        this.forceRerender();
+      }
+    }
   },
   computed: {
     checkUser() {
@@ -518,11 +538,20 @@ export default {
     physicalMicronationsDirectory() {
       return store.getters.physicalDirectory;
     },
-    approvedMicronations() {
+    visibleMicronations() {
       return this.micronationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    pagedMicronations() {
+      if (this.micronationsDirectory.length) {
+        this.directoryLoaded = true;
+      }
+      return this.micronationsDirectory.filter(element => element.approved && element.pageDisplay && element.searchDisplay && element.filterDisplay);
     },
     micronationsModerationDirectory() {
       return this.micronationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    totalPages() {
+      return Math.ceil(this.visibleMicronations.length / this.entriesPerPage);
     },
     filterLetters() {
       return this.addFilterLetters(this.micronationsDirectory);
@@ -592,6 +621,11 @@ export default {
 
       return count;
     },
+    cssStyles() {
+      return {
+        "--micronations-list-width": this.$refs.micronationsList.offsetWidth + "px"
+      }
+    }
   },
   methods: {
     authListener() {
@@ -661,7 +695,7 @@ export default {
 
             notify({
               title: "Submission successful",
-              text: "The micronation was successfully submitted! Now awaits approval from the admin (please allow a maximum of 24 hours).",
+              text: "The micronation was successfully submitted! Now awaits approval from the admin (please allow up to 72 hours).",
               type: "success"
             });
           });
@@ -721,6 +755,8 @@ export default {
         default:
           break;
       }
+
+      this.pageMicronations();
     },
     addLanguage(event) {
       const lang = event.target.value;
@@ -779,6 +815,8 @@ export default {
           }
         });
       }
+
+      this.pageMicronations();
     },
     filterEntriesByLetter(e) {
       const that = this;
@@ -796,6 +834,8 @@ export default {
           }
         });
       }
+
+      this.pageMicronations();
     },
     updateZoom() {
       this.$refs.cardSizeLabel.innerHTML = this.entryWidth + 'px';
@@ -938,6 +978,30 @@ export default {
     convertTZ(date, tzString) {
       return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
     },
+    setPage(result) {
+      this.currentPage = result;
+      this.pageMicronations();
+    },
+    pageMicronations() {
+      const that = this;
+
+      this.visibleMicronations.forEach(function (entry, index) {
+        if ((that.entriesPerPage * that.currentPage - 1) >= index && index >= (that.entriesPerPage * (that.currentPage - 1))) {
+          entry.pageDisplay = true;
+        } else {
+          entry.pageDisplay = false;
+        }
+      });
+
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages;
+      }
+      if (this.entriesPerPage < 1) {
+        this.entriesPerPage = 1;
+      } else if (this.entriesPerPage > 1000) {
+        this.entriesPerPage = 1000;
+      }
+    },
     draggedMarker(newPosition) {
       this.locationPickerMarkerPosition = newPosition;
     },
@@ -957,7 +1021,12 @@ export default {
     }
   },
   mounted() {
+    const that = this;
+
     this.authListener();
+    window.addEventListener("scroll", (event) => {
+      that.scrollPosition = window.scrollY;
+    });
   }
 }
 </script>
@@ -1055,52 +1124,15 @@ div.new-entry-type {
   margin-bottom: 25px;
 }
 
-.settings-subcontainer,
-.new-entry-type {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.settings-subcontainer {
-  border: 2px solid var(--vt-c-white);
-  border-radius: 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  height: 62px;
-}
-
-.settings-subcontainer:hover .subcontainer-title:not(.right-side) {
-  background-color: var(--vt-c-white);
+.directory-settings.floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
 }
 
 .settings-subcontainer div {
   display: flex;
-}
-
-.settings-subcontainer .subcontainer-title {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-weight: bold;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-right: 2px solid var(--vt-c-white);
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  background-color: var(--vt-c-text-dark-2);
-  color: var(--vt-c-black);
-  height: 100%;
-}
-
-.settings-subcontainer .subcontainer-title.right-side {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-right: none;
-  border-left: 2px solid var(--vt-c-white);
-  background-color: var(--pale-tone);
 }
 
 .matching-entries {
@@ -1109,35 +1141,28 @@ div.new-entry-type {
   font-weight: bold;
 }
 
-.setting-parameter-subcontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100%;
-  margin: 5px;
-}
-
-.setting-parameter-subcontainer.extra-margin-end {
-  margin-right: 6px;
-}
-
-.setting-parameter-subcontainer.border-left {
-  padding-left: 6px;
-  margin-left: 0px;
-  border-left: 2px solid var(--vt-c-white);
-}
-
-.setting-parameter-subcontainer.centered {
-  align-items: center;
-}
-
 #filterInput {
-  width: 150px;
+  width: 120px;
 }
 
 #entriesPerPageInput {
-  width: 70px;
+  width: 60px;
+}
+
+#currentPage {
+  width: 30px;
+  margin-left: 5px;
+}
+
+#totalPages {
+  margin-right: 5px;
+}
+
+.page-button {
+  border-radius: 0px;
+  height: auto;
+  width: 30px;
+  font-weight: bold;
 }
 
 .tools-container {
@@ -1259,7 +1284,6 @@ div.new-entry-type {
 }
 
 @media only screen and (max-width: 960px) {
-
   .directory-settings>div:not(div:last-of-type) {
     margin-bottom: 12px;
   }
