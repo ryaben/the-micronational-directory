@@ -15,7 +15,9 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <component :is="Component" />
+        <KeepAlive :include="'Directory'">
+          <component :is="Component" />
+        </KeepAlive>
       </Transition>
     </router-view>
   </main>
