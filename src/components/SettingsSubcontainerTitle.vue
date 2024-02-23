@@ -4,12 +4,17 @@ defineProps({
     type: String,
     required: true,
     default: "Title"
+  },
+  open: {
+    type: Boolean,
+    required: true,
+    default: false
   }
 });
 </script>
 
 <template>
-  <div class="subcontainer-title" @click="emitVisualToggle">
+  <div class="subcontainer-title" :class="{'bordered': open}">
     <label>{{ text }}</label>
   </div>
 </template>
@@ -38,15 +43,16 @@ export default {
   align-items: center;
   text-align: center;
   font-weight: bold;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-right: 2px solid var(--vt-c-white);
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  background-color: var(--vt-c-text-dark-2);
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 2px;
+  background-color: var(--silver);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   color: var(--vt-c-black);
+  border: 2px solid transparent;
   height: 100%;
-  width: 55px;
+  width: 75px;
   cursor: pointer;
 }
 
@@ -60,11 +66,16 @@ export default {
   background-color: var(--pale-tone);
 }
 
-.settings-subcontainer:hover .subcontainer-title:not(.right-side) {
+.subcontainer-title.bordered {
+  border: 2px solid var(--vt-c-white);
+  background: var(--vt-c-white);
+}
+
+.subcontainer-title:not(.right-side):hover {
   background-color: var(--vt-c-white);
 }
 
-.settings-subcontainer .subcontainer-title.right-side {
+.subcontainer-title.right-side {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 6px;
@@ -75,8 +86,10 @@ export default {
 }
 
 .subcontainer-title label {
+  display: block;
   cursor: pointer;
   text-align: center;
+  font-size: 18px;
   width: 100%;
 }
 </style>

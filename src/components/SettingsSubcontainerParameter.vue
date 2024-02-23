@@ -41,8 +41,8 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: 100%;
-  margin: 5px;
+  height: auto;
+  margin: 0 5px 0 5px;
 }
 
 .setting-parameter-subcontainer.extra-margin-end {

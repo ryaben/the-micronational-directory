@@ -1,19 +1,18 @@
 <script setup>
-import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue';
-
 defineProps({
-  text: {
-    type: String,
+  open: {
+    type: Boolean,
     required: true,
-    default: "Title"
+    default: false
   }
 });
 </script>
 
 <template>
-  <div class="settings-subcontainer">
-    <SettingsSubcontainerTitle :class="{'borderless': !open}" :text="text" @display-toggled="toggleDisplay" />
-    <slot v-if="open"></slot>
+  <div v-if="open" class="settings-subcontainer">
+    <div class="slot-container">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -24,9 +23,6 @@ export default {
     return {
       open: false
     };
-  },
-  components: {
-    SettingsSubcontainerTitle
   },
   methods: {
     toggleDisplay() {
@@ -41,18 +37,19 @@ export default {
 .new-entry-type {
   display: flex;
   align-items: center;
-  justify-content: center;
+  width: 100%;
+  background-color: var(--directory-settings-background-color);
+  border: 2px solid white;
+  border-bottom-left-radius: 12px;
 }
 
 .settings-subcontainer {
-  border: 2px solid var(--vt-c-white);
-  border-radius: 8px;
   margin-right: 8px;
-  margin-bottom: 8px;
-  height: 62px;
+  height: max-content;
 }
 
-.settings-subcontainer .subcontainer-title.borderless {
-  border-right: none;
+.slot-container {
+  display: flex;
+  height: 65px;
 }
 </style>

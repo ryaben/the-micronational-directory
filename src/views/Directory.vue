@@ -30,101 +30,114 @@ import { saveAs } from 'file-saver';
       <section v-show="viewMode === 'cards' || viewMode === 'collage' || viewMode === 'moderation'"
         class="directory-container">
         <div class="directory-settings" :class="{ 'floating': viewMode === 'cards' && scrollPosition > 500 }">
-          <SettingsSubcontainer text="Pages">
-            <SettingsSubcontainerParameter :centered="true">
-              <label>Entries/page</label>
-              <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="1000" type="number"
-                v-model="entriesPerPage" @input="pageMicronations">
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
-              <label>Page control</label>
-              <div style="display: flex; align-items: center;">
-                <button class="page-button login-button color-transition" :disabled="currentPage === 1"
-                  @click="setPage(1)">&lt;&lt;</button>
-                <button class="page-button login-button color-transition" :disabled="currentPage === 1"
-                  @click="setPage(currentPage - 1)">&lt;</button>
-                <input id="currentPage" placeholder="Page" min="1" :max="totalPages" type="number" v-model="currentPage"
-                  @input="pageMicronations">
-                <label id="totalPages" class="matching-entries">&nbsp;/ {{ totalPages }}</label>
-                <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
-                  @click="setPage(currentPage + 1)">></button>
-                <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
-                  @click="setPage(totalPages)">>></button>
-              </div>
-            </SettingsSubcontainerParameter>
-          </SettingsSubcontainer>
+          <div style="display: flex;">
+            <SettingsSubcontainerTitle text="Pages" :open="tabPagesOpen" @click="openTab('Pages')" />
+            <SettingsSubcontainerTitle text="Filter" :open="tabFilterOpen" @click="openTab('Filter')" />
+            <SettingsSubcontainerTitle text="Sort" :open="tabSortOpen" @click="openTab('Sort')" />
+            <SettingsSubcontainerTitle text="Display" :open="tabDisplayOpen" @click="openTab('Display')" />
+          </div>
+          <div style="display: flex;">
+            <SettingsSubcontainer :open="tabPagesOpen">
+              <SettingsSubcontainerParameter :centered="true">
+                <label>Entries/page</label>
+                <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="1000" type="number"
+                  v-model="entriesPerPage" @input="pageMicronations">
+              </SettingsSubcontainerParameter>
+              <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
+                <label>Page control</label>
+                <div style="display: flex; align-items: center;">
+                  <button class="page-button login-button color-transition" :disabled="currentPage === 1"
+                    @click="setPage(1)">&lt;&lt;</button>
+                  <button class="page-button login-button color-transition" :disabled="currentPage === 1"
+                    @click="setPage(currentPage - 1)">&lt;</button>
+                  <input id="currentPage" placeholder="Page" min="1" :max="totalPages" type="number" v-model="currentPage"
+                    @input="pageMicronations">
+                  <label id="totalPages" class="matching-entries">&nbsp;/ {{ totalPages }}</label>
+                  <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
+                    @click="setPage(currentPage + 1)">></button>
+                  <button class="page-button login-button color-transition" :disabled="currentPage === totalPages"
+                    @click="setPage(totalPages)">>></button>
+                </div>
+              </SettingsSubcontainerParameter>
+            </SettingsSubcontainer>
 
-          <SettingsSubcontainer text="Filter">
-            <SettingsSubcontainerParameter :centered="true">
-              <label>Search</label>
-              <input id="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter :centered="true">
-              <label>Initial</label>
-              <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
-                <optgroup>
-                  <option value="none">No initial filter</option>
-                </optgroup>
-                <optgroup class="letters-group">
-                  <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
-                </optgroup>
-              </select>
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
-              <label>Matches</label>
-              <label class="matching-entries">{{ visibleMicronations.length }}</label>
-            </SettingsSubcontainerParameter>
-          </SettingsSubcontainer>
+            <SettingsSubcontainer :open="tabFilterOpen">
+              <SettingsSubcontainerParameter :centered="true">
+                <label>Search</label>
+                <input id="filterInput" type="text" placeholder="Search name..." @input="filterEntries">
+              </SettingsSubcontainerParameter>
+              <SettingsSubcontainerParameter :centered="true">
+                <label>Initial letter</label>
+                <select name="initialLetter" id="initialLetter" @change="filterEntriesByLetter">
+                  <optgroup>
+                    <option value="none">No initial filter</option>
+                  </optgroup>
+                  <optgroup class="letters-group">
+                    <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">{{ letter }}</option>
+                  </optgroup>
+                </select>
+              </SettingsSubcontainerParameter>
+            </SettingsSubcontainer>
 
-          <SettingsSubcontainer text="Sort">
-            <SettingsSubcontainerParameter>
-              <div>
-                <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" v-model="entrySorting"
-                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
-                <label for="sortA-Z">Name (A-Z)</label>
-              </div>
-              <div>
-                <input type="radio" id="sortZ-A" name="directory-sorting" value="descending" v-model="entrySorting"
-                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
-                <label for="sortZ-A">Name (Z-A)</label>
-              </div>
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter>
-              <div>
-                <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
-                  v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
-                <label for="sortLatestAdded">Latest added</label>
-              </div>
-              <div>
-                <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
-                  v-model="entrySorting" @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
-                <label for="sortOldestAdded">Oldest added</label>
-              </div>
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter>
-              <div>
-                <input type="radio" id="sortRandom" name="directory-sorting" value="random" v-model="entrySorting"
-                  @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
-                <label for="sortRandom">Random</label>
-              </div>
-            </SettingsSubcontainerParameter>
-          </SettingsSubcontainer>
+            <SettingsSubcontainer :open="tabSortOpen">
+              <SettingsSubcontainerParameter>
+                <div>
+                  <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" v-model="entrySorting"
+                    @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
+                  <label for="sortA-Z">Name (A-Z)</label>
+                </div>
+                <div>
+                  <input type="radio" id="sortZ-A" name="directory-sorting" value="descending" v-model="entrySorting"
+                    @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
+                  <label for="sortZ-A">Name (Z-A)</label>
+                </div>
+              </SettingsSubcontainerParameter>
+              <SettingsSubcontainerParameter>
+                <div>
+                  <input type="radio" id="sortLatestAdded" name="directory-sorting" value="latestAdded"
+                    v-model="entrySorting"
+                    @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
+                  <label for="sortLatestAdded">Latest added</label>
+                </div>
+                <div>
+                  <input type="radio" id="sortOldestAdded" name="directory-sorting" value="oldestAdded"
+                    v-model="entrySorting"
+                    @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
+                  <label for="sortOldestAdded">Oldest added</label>
+                </div>
+              </SettingsSubcontainerParameter>
+              <SettingsSubcontainerParameter>
+                <div>
+                  <input type="radio" id="sortRandom" name="directory-sorting" value="random" v-model="entrySorting"
+                    @change="sortMicronations(micronationsDirectory, entrySorting); forceRerender()">
+                  <label for="sortRandom">Random</label>
+                </div>
+              </SettingsSubcontainerParameter>
+            </SettingsSubcontainer>
 
-          <SettingsSubcontainer text="Display">
-            <SettingsSubcontainerParameter :centered="true">
-              <label ref="cardSizeLabel">Card size</label>
-              <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
-                @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
-            </SettingsSubcontainerParameter>
-            <SettingsSubcontainerParameter :centered="true">
-              <div style="display: flex;">
-                <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
-                <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
-              </div>
-              <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
-                @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
-            </SettingsSubcontainerParameter>
-          </SettingsSubcontainer>
+            <SettingsSubcontainer :open="tabDisplayOpen">
+              <SettingsSubcontainerParameter :centered="true">
+                <label ref="cardSizeLabel">Card size</label>
+                <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
+                  @input="updateZoom" @change="finishedUpdatingZoom" v-model="entryWidth">
+              </SettingsSubcontainerParameter>
+              <SettingsSubcontainerParameter :centered="true">
+                <div style="display: flex;">
+                  <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight">
+                  <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
+                </div>
+                <input type="range" min="200" max="1500" class="settings-slider" id="heightRange" ref="heightRange"
+                  @input="updateHeight" @change="finishedUpdatingHeight" v-model="fixedHeightValue">
+              </SettingsSubcontainerParameter>
+            </SettingsSubcontainer>
+
+            <SettingsSubcontainer v-if="tabPagesOpen || tabFilterOpen || tabSortOpen || tabDisplayOpen" class="matching-entries-container" :open="true">
+              <SettingsSubcontainerParameter :centered="true">
+                <label class="matching-entries-title">Matched<br>entries</label>
+                <label class="matching-entries" style="height: 20px;">{{ visibleMicronations.length }}</label>
+              </SettingsSubcontainerParameter>
+            </SettingsSubcontainer>
+          </div>
 
           <!-- <div class="settings-subcontainer" v-show="viewMode === 'collage'">
             <button id="generateCollage" class="login-button color-transition" @click="generateCollage">Generate flag
@@ -499,7 +512,11 @@ export default {
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
-      scrollPosition: 0
+      scrollPosition: 0,
+      tabPagesOpen: false,
+      tabFilterOpen: false,
+      tabSortOpen: false,
+      tabDisplayOpen: false
     };
   },
   components: {
@@ -1002,6 +1019,13 @@ export default {
         this.entriesPerPage = 1000;
       }
     },
+    openTab(tab) {
+      this.tabDisplayOpen = false;
+      this.tabFilterOpen = false;
+      this.tabPagesOpen = false;
+      this.tabSortOpen = false;
+      this[`tab${tab}Open`] = true;
+    },
     draggedMarker(newPosition) {
       this.locationPickerMarkerPosition = newPosition;
     },
@@ -1114,14 +1138,11 @@ div.new-entry-type {
 
 .directory-settings {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  background-color: var(--directory-settings-background-color);
   color: var(--vt-c-text-dark-2);
   width: auto;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  padding: 12px 12px 4px 12px;
-  margin-bottom: 25px;
+  margin: 10px 0 20px 0;
 }
 
 .directory-settings.floating {
@@ -1129,10 +1150,25 @@ div.new-entry-type {
   top: 0;
   left: 0;
   width: auto;
+  margin: 3px 0 0 0;
 }
 
 .settings-subcontainer div {
   display: flex;
+}
+
+.matching-entries-container {
+  width: min-content;
+  margin-right: 0;
+  margin-left: -10px;
+  padding: 0 4px 0 4px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 0px;
+}
+
+.matching-entries-title {
+  text-align: center;
+  line-height: 15px;
 }
 
 .matching-entries {
@@ -1142,7 +1178,7 @@ div.new-entry-type {
 }
 
 #filterInput {
-  width: 120px;
+  width: 200px;
 }
 
 #entriesPerPageInput {
@@ -1170,7 +1206,7 @@ div.new-entry-type {
 }
 
 #initialLetter {
-  width: 80px;
+  width: 110px;
 }
 
 #generateCollage {
