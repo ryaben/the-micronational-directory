@@ -4,17 +4,12 @@ defineProps({
     type: String,
     required: true,
     default: "Title"
-  },
-  open: {
-    type: Boolean,
-    required: true,
-    default: false
   }
 });
 </script>
 
 <template>
-  <div class="subcontainer-title" :class="{'bordered': open}">
+  <div class="subcontainer-title">
     <label>{{ text }}</label>
   </div>
 </template>
@@ -51,9 +46,8 @@ export default {
   border-top-right-radius: 12px;
   color: var(--vt-c-black);
   border: 2px solid transparent;
-  height: 100%;
+  height: 25px;
   width: 75px;
-  cursor: pointer;
 }
 
 .subcontainer-title.right-side {
@@ -71,10 +65,6 @@ export default {
   background: var(--vt-c-white);
 }
 
-.subcontainer-title:not(.right-side):hover {
-  background-color: var(--vt-c-white);
-}
-
 .subcontainer-title.right-side {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -87,7 +77,6 @@ export default {
 
 .subcontainer-title label {
   display: block;
-  cursor: pointer;
   text-align: center;
   font-size: 18px;
   width: 100%;

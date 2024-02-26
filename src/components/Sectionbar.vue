@@ -17,8 +17,8 @@ defineProps({
 
 <template>
     <div class="section-bar">
-        <div v-for="(tab, i) in sections" :key="i" v-show="tab.display" class="section-tab">
-            <label class="section-text" :id="`${tab.target}Tab${i}`" :class="{ 'selected': selectedTab === `${tab.target}Tab${i}` }"
+        <div v-for="(tab, i) in sections" :key="i" v-show="tab.display" class="section-tab" :class="tab.classes">
+            <label class="section-text" :id="`${tab.target}Tab${i}`" :class="{'selected': selectedTab === `${tab.target}Tab${i}`}"
                 @click="showTarget(tab.target); selectTab($event)">{{ tab.text }}</label>
         </div>
     </div>
@@ -56,6 +56,12 @@ export default {
 .section-tab {
     padding-left: 12px;
     padding-right: 12px;
+}
+
+.section-tab.border-left {
+    border-left: 3px solid var(--vt-c-white-soft);
+    padding-left: 24px;
+    margin-left: 12px;
 }
 
 .section-text {
