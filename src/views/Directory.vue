@@ -184,53 +184,44 @@ import emailjs from 'emailjs-com';
             target="_blank">Check out this list with many sources that we've composed</a>.
         </p>
         <p>
-          We invite the community to contribute to the directory and add micronations to it.
+          We invite the community to contribute to the directory and add entries to it.
           <b>It's important to highlight that:</b>
         </p>
         <ul class="notes-list">
           <li>
-            Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations that
-            promote Nazi
-            symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
+            Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations/organizations that
+            promote Nazi symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
           </li>
           <li>
-            Micronations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
-            lightning
-            entries that may only be games or premature/fake experiments.
+            Micronations/organizations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
+            lightning entries that may only be games or premature/fake experiments.
           </li>
           <li>
-            It's <b>mandatory</b> that all entries have an official website (<b>NOT</b> a social media account) of the
-            micronation and/or (preferably
+            It's <b>mandatory</b> that all entries have a website source (<b>NOT</b> a social media account) of the
+            micronation/organization and/or (preferably
             <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is
-            specified,
-            and we can avoid
-            entries that could be jokes, games, fake, misleading or cheating for contests.
+            specified, and we can avoid entries that could be jokes, games, fake, misleading or cheating for contests.
           </li>
           <li>
-            Physical and digital micronations
-            can be included alike, as well as fictional countries as long as they also demonstrate activity as a proper
+            Physical and digital micronations can be included alike, as well as fictional countries as long as they also demonstrate activity as a proper
             micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
               href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
             is not a valid case, while the <router-link :to="'/directory/Redonda'">Kingdom of Redonda</router-link>
-            or most of the micronations from <router-link
-              :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed are).
+            or most of the micronations from <router-link :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed are).
           </li>
           <li>
-            Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's main
+            Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's/organization's main
             official language.
           </li>
           <li>
-            If a micronation's website is closed or inactive, you can check it on the <b><a
+            If website is closed or inactive, you can check it on the <b><a
                 href="http://web.archive.org/">Wayback
                 Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service
-            generates
-            instead.
+            generates instead.
           </li>
           <li>
-            All submissions will first <b>require approval from the administrator</b> (can take up to 24 hours) before
-            they
-            are posted on the
-            definitive public online directory.
+            All submissions will first <b>require approval from the administrator</b> (can take up to 72 hours) before
+            they are posted on the definitive public online directory.
           </li>
         </ul>
         <p>
