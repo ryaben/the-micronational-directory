@@ -26,7 +26,10 @@ import { auth } from '../firebase/init.js';
         <div class="tables-container">
             <div class="stats-container">
                 <h2>Directory Statistics</h2>
-                <p class="stats-entry main">Total micronations: <b>{{ micronationsApprovedDirectory.length }}</b></p>
+                <div style="display: flex;">
+                    <p class="stats-entry main">Total micronations: <b>{{ micronationsApprovedDirectory.length }}</b></p>
+                    <p class="stats-entry main">Total organizations: <b>{{ organizationsApprovedDirectory.length }}</b></p>
+                </div>
                 <div class="scrollable-container statistics-table directory">
                     <p class="table-header">Type</p>
                     <p class="table-header">Language</p>
@@ -47,7 +50,7 @@ import { auth } from '../firebase/init.js';
                     </div>
                 </div>
             </div>
-            <EntriesRanking title="All-time Top Contributors" :tmd-entry="true" />
+            <EntriesRanking title="All-time Top Micronations Contributors" :tmd-entry="true" />
         </div>
 
         <hr class="divider" />
@@ -95,7 +98,10 @@ export default {
     },
     computed: {
         micronationsApprovedDirectory() {
-            return store.getters.directory.filter(element => element.approved);
+            return store.getters.micronations.filter(element => element.approved);
+        },
+        organizationsApprovedDirectory() {
+            return store.getters.organizations.filter(element => element.approved);
         },
         contestsList() {
             return store.getters.contests;
@@ -254,5 +260,11 @@ hr.divider {
     border-radius: 8px;
     border: 2px solid white;
     margin-bottom: 25px;
-}</style>
+    margin-right: 8px;
+}
+
+.stats-entry.main:last-of-type {
+    margin-right: 0;
+}
+</style>
   

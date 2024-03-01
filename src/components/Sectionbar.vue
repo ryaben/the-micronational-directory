@@ -47,8 +47,8 @@ export default {
 .section-bar {
     display: flex;
     padding: 15px;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
     border-bottom: 4px solid var(--vt-c-white-soft);
     background-color: var(--directory-settings-background-color);
 }

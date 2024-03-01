@@ -16,12 +16,7 @@ defineProps({
         required: true,
         default: {}
     },
-    viewMode: {
-        type: String,
-        required: false,
-        default: 'micronations'
-    },
-    flagHeight: {
+    logoHeight: {
         type: Number,
         required: false,
         default: 120
@@ -31,52 +26,27 @@ defineProps({
         required: false,
         default: store.getters.micronations
     },
-    organizationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations
-    },
-    visibleOrganizations: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-    },
-    supranationalMicronations: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations.filter(element => element.supranational)
-    }
 })
 </script>
 
 <template>
-    <div class="directory-entry-container" :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }"
-        :style="cssProps">
+    <div class="directory-entry-container" :class="{ 'info-displayed': infoView }" :style="cssProps">
 
-        <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
+        <img :src="info.logo" class="entry-logo" :style="{ 'height': logoHeight + 'px' }" alt="Logo">
 
-        <div v-show="viewMode !== 'collage'" class="entry-info">
-            <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><span
-                    v-if="info.name.title !== ''">,</span><br>
-                <br v-if="info.name.title === ''" v-show="!infoView">
-                {{ info.name.title }}
-            </p>
+        <div class="entry-info">
+            <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><br><br v-show="!infoView"></p>
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
                 <div class="animated-info">
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
-                        info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt
-    }})
+                    <p class="entry-text entry-alt-name">
+                        (<b>{{ info.name.mainAlt }}</b>)
                     </p>
 
                     <hr class="light-divider">
 
                     <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
-                        info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
-                    <p class="entry-text">
-                        <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
-                                v-if="i !== info.type.length - 1">,&nbsp;</span><span
-                                v-if="i === info.type.length - 1">.</span></span>
+                        info.motto }}"</span><span v-if="info.motto === ''">No motto.</span>
                     </p>
                     <p class="entry-text">
                         <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
@@ -84,26 +54,18 @@ defineProps({
                                 v-if="i === info.languages.length - 1">.</span></span>
                     </p>
 
-                    <hr class="light-divider">
-
                     <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                        new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
-                    <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
-                        info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
-                    <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span
-                            v-if="info.currency !== ''">{{
-                                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
+                        new Date(info.foundationDate.seconds * 1000).toDateString() }}
+                    </p>
 
                     <hr class="light-divider">
 
                     <div class="entry-group extended">
-                        <p class="entry-text"><span class="underlined">Memberships:</span>
-                            <span v-if="info.memberships == ''">&nbsp;None.</span>
-                        </p>
-                        <div v-if="info.memberships.length" class="sources-container">
-                            <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
-                                :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="56" :height="40"
-                                :micronation-name="member" :icon="'flag'" />
+                        <p class="entry-text">Historical members:</p>
+                        <div class="sources-container members">
+                            <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
+                                :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="49" :height="28"
+                                :micronation-name="member.name.main" :icon="'flag'" />
                         </div>
                     </div>
 
@@ -113,7 +75,7 @@ defineProps({
                         <p class="entry-text">Contact info:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
-                                :href="contact" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                                :href="contact" :flag-source="info.logo" :size="32" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
                     </div>
@@ -121,7 +83,7 @@ defineProps({
                         <p class="entry-text">Websites:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                                :flag-source="info.logo" :size="32" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
                     </div>
@@ -129,9 +91,9 @@ defineProps({
             </AnimateHeight>
         </div>
 
-        <div v-show="viewMode !== 'collage'" class="info-buttons-container">
+        <div class="info-buttons-container">
             <button class="info-button" @click="toggleInfo">{{ infoView ? 'Collapse' : 'Expand' }}</button>
-            <router-link :to="'/directory/' + info.name.main" class="info-button">Full profile</router-link>
+            <router-link :to="'/organizations/' + info.name.main" class="info-button">Full profile</router-link>
         </div>
     </div>
 </template>
@@ -150,6 +112,10 @@ export default {
         };
     },
     computed: {
+        getMembers() {
+            const that = this;
+            return this.micronationsDirectory.filter(element => element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt));
+        },
         cssProps() {
             return {
                 '--container-width': (this.width) + "px"
@@ -165,37 +131,7 @@ export default {
         },
         updateHeight() {
             return this.height = this.height === 0 ? 'auto' : 0;
-        },
-        findOrg(name) {
-            const orgQuery = this.visibleOrganizations.find(org => org.name.main === name || org.name.mainAlt === name);
-            const supranationalQuery = this.supranationalMicronations.find(org => org.name.main === name || org.name.mainAlt === name);
-
-            if (orgQuery === undefined) {
-                if (supranationalQuery === undefined) {
-                    return {
-                        href: `/organizations/${name}`,
-                        logo: '/images/missing-flag.png',
-                        name: {
-                            main: name,
-                            mainAlt: name
-                        }
-                    }
-                } else {
-                    return {
-                        href: `/directory/${supranationalQuery.name.main}`,
-                        logo: supranationalQuery.flag,
-                        name: { main: supranationalQuery.name.main }
-                    }
-                }
-
-            } else {
-                return {
-                    href: `/organizations/${orgQuery.name.main}`,
-                    logo: orgQuery.logo,
-                    name: { main: orgQuery.name.main }
-                }
-            }
-        },
+        }
     }
 }
 </script>
@@ -230,7 +166,7 @@ export default {
     color: var(--navbar-text-color-hover);
 }
 
-.entry-flag {
+.entry-logo {
     width: 100%;
     height: auto;
 }
@@ -288,6 +224,12 @@ export default {
     width: auto;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.sources-container.members {
+    overflow-y: scroll;
+    max-height: 150px;
+    padding-top: 2px;
 }
 
 .entry-group:not(:last-of-type) .sources-container a.source-container {

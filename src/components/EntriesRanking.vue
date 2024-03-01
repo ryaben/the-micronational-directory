@@ -56,7 +56,7 @@ export default {
     },
     computed: {
         micronationsApprovedDirectory() {
-            return store.getters.directory.filter(element => element.approved);
+            return store.getters.micronations.filter(element => element.approved);
         },
         contributorsList() {
             return this.listContributors(this.micronationsApprovedDirectory);

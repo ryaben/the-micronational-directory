@@ -9,16 +9,6 @@ defineProps({
         type: Object,
         required: true,
         default: {}
-    },
-    visibleOrganizations: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-    },
-    supranationalMicronations: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations.filter(element => element.supranational)
     }
 })
 </script>
@@ -28,46 +18,31 @@ defineProps({
         <div class="directory-article-container" :key="componentKey">
             <div class="article-title">
                 <div class="article-full-name">
-                    <EntrySource class="entry-source gmaps" v-if="info.location._lat && info.location._long"
-                        :flag-source="info.flag" :size="36" :micronation-name="info.name.main" :icon="'googlemaps'"
-                        :href="'https://maps.google.com/?q=' + info.location._lat + ',' + info.location._long" />
-                    <p class="article-text article-name"><b>{{ info.name.main }}</b><span
-                            v-if="info.name.title !== ''">,</span>
-                        {{ info.name.title }}
-                    </p>
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="article-text article-alt-name">
-                        (<b>{{ info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">,&nbsp;</span>{{
-                            info.name.titleAlt }})
+                    <p class="article-text article-name">
+                        <b>{{ info.name.main }}</b>&nbsp;({{ info.name.mainAlt }})
                     </p>
                 </div>
                 <div class="article-full-name">
                     <span class="article-text">Try more info at:</span>
                     <div class="external-container">
-                        <EntrySource class="entry-source" :flag-source="info.flag" :size="46"
-                            :micronation-name="info.name.main" :icon="'mfa'"
-                            :href="'https://sites.google.com/view/micro-flag-archive/micronational-flags-and-emblems/' + generateMFALink(info.name.main)" />
-                        <EntrySource class="entry-source" :flag-source="info.flag" :size="46"
+                        <EntrySource class="entry-source" :flag-source="info.logo" :size="46"
                             :micronation-name="info.name.main" :icon="'microwiki'"
-                            :href="'https://micronations.wiki/wiki/' + info.name.main" />
+                            :href="'https://micronations.wiki/wiki/' + info.name.mainAlt" />
                     </div>
                 </div>
             </div>
 
             <div class="article-content">
-                <div class="article-column flag">
-                    <img :src="info.flag" class="article-flag" alt="Flag">
+                <div class="article-column logo">
+                    <img :src="info.logo" class="article-logo" alt="Logo">
                 </div>
 
                 <div class="article-column">
-                    <p class="article-text"><span class="underlined">National motto:</span><br><span
+                    <p class="article-text"><span class="underlined">Organization motto:</span><br><span
                             v-if="info.motto !== ''" class="italicized">"{{
                                 info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
-                    <p class="article-text">
-                        <span class="underlined">Micronation type:</span><br>
-                        <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
-                                v-if="i !== info.type.length - 1">,&nbsp;</span><span
-                                v-if="i === info.type.length - 1">.</span></span>
-                    </p>
+                    <p class="article-text"><span class="underlined">Foundation:</span><br>{{
+                        cleanTimestamp(info.foundationDate) }}</p>
                     <p class="article-text">
                         <span class="underlined">Languages:</span><br>
                         <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
@@ -77,31 +52,22 @@ defineProps({
                 </div>
 
                 <div class="article-column">
-                    <p class="article-text"><span class="underlined">Foundation:</span><br>{{
-                        cleanTimestamp(info.foundationDate) }}</p>
-                    <p class="article-text"><span class="underlined">Capital:</span><br><span v-if="info.capital !== ''">{{
-                        info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
-                    <p class="article-text"><span class="underlined">Currency:</span><br><span
-                            v-if="info.currency !== ''">{{
-                                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
+                    <div class="entry-group extended">
+                        <p class="article-text"><span class="underlined">Historical members:</span></p>
+                        <div class="sources-container members">
+                            <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
+                                :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="60" :height="40"
+                                :micronation-name="member.name.main" :icon="'flag'" />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="article-column">
                     <div>
-                        <p class="article-text breakable"><span class="underlined">Memberships:</span><span
-                                v-if="!info.memberships.length"><br>None.</span></p>
-                        <div v-if="info.memberships.length" class="sources-container">
-                            <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
-                                :href="findOrg(member).href" :flag-source="findOrg(member).logo"
-                                :width="60" :height="40" :micronation-name="member" :icon="'flag'" />
-                        </div>
-                    </div>
-
-                    <div>
                         <p class="article-text breakable underlined">Contact info:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
-                                :href="contact" :flag-source="info.flag" :size="46" :micronation-name="info.name.main"
+                                :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
                     </div>
@@ -110,7 +76,7 @@ defineProps({
                         <p class="article-text breakable underlined">Websites:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.flag" :size="46" :micronation-name="info.name.main"
+                                :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
                     </div>
@@ -119,13 +85,13 @@ defineProps({
 
             <div class="article-profiles-control">
                 <span v-if="!info.previous">This is the first entry.</span>
-                <router-link v-if="info.previous" :to="'/directory/' + info.previous" @click="incrementKey"
+                <router-link v-if="info.previous" :to="'/organizations/' + info.previous" @click="incrementKey"
                     class="profile-option login-button color-transition">
                     ⬅️ Previous<br>{{ info.previous }}
                 </router-link>
                 <span class="article-text contribution-info">Submitted by <b>{{ info.author }}</b> on {{
                     cleanTimestamp(info.creationDate) }}.</span>
-                <router-link v-if="info.next" :to="'/directory/' + info.next" @click="incrementKey"
+                <router-link v-if="info.next" :to="'/organizations/' + info.next" @click="incrementKey"
                     class="profile-option login-button color-transition">
                     Next ➡️<br>{{ info.next }}
                 </router-link>
@@ -137,7 +103,7 @@ defineProps({
 
 <script>
 export default {
-    name: 'DirectoryArticle',
+    name: 'OrganizationArticle',
     data() {
         return {
             componentKey: 0
@@ -146,43 +112,22 @@ export default {
     components: {
         EntrySource, MemberSource
     },
+    computed: {
+        micronationsDirectory() {
+            return store.getters.micronations;
+        },
+        getMembers() {
+            const that = this;
+            return this.micronationsDirectory.filter(element => element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt));
+        }
+    },
     methods: {
-        generateMFALink(micronation) {
-            const cleanString = micronation.replace(/\s+/g, '-').toLowerCase();
+        generateMFALink(organization) {
+            const cleanString = organization.replace(/\s+/g, '-').toLowerCase();
             return cleanString;
         },
         cleanTimestamp(timestamp) {
             return new Date(timestamp.seconds * 1000).toDateString();
-        },
-        findOrg(name) {
-            const orgQuery = this.visibleOrganizations.find(org => org.name.main === name || org.name.mainAlt === name);
-            const supranationalQuery = this.supranationalMicronations.find(org => org.name.main === name || org.name.mainAlt === name);
-
-            if (orgQuery === undefined) {
-                if (supranationalQuery === undefined) {
-                    return {
-                        href: '/organizations/' + name,
-                        logo: '/images/missing-flag.png',
-                        name: {
-                            main: name,
-                            mainAlt: name
-                        }
-                    }
-                } else {
-                    return {
-                        href: '/directory/' + supranationalQuery.name.main,
-                        logo: supranationalQuery.flag,
-                        name: { main: supranationalQuery.name.main }
-                    }
-                }
-
-            } else {
-                return {
-                    href: '/organizations/' + orgQuery.name.main,
-                    logo: orgQuery.logo,
-                    name: { main: orgQuery.name.main }
-                }
-            }
         },
         incrementKey() {
             this.componentKey++;
@@ -238,11 +183,11 @@ export default {
     border-right: none;
 }
 
-.article-column.flag {
+.article-column.logo {
     align-items: center;
 }
 
-.article-flag {
+.article-logo {
     width: 100%;
     height: auto;
 }
@@ -300,19 +245,29 @@ export default {
 .sources-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.sources-container.members {
+    margin-top: 4px;
+    padding: 2px 0 2px 0;
+    height: 180px;
+    width: auto;
+    overflow-y: scroll;
+    align-content: start;
+}
+
+.member-source {
+    margin-bottom: 4px;
 }
 
 .entry-source {
     margin-right: 4px;
 }
 
-.sources-container .entry-source:last-of-type {
+.entry-source:last-of-type {
     margin-right: 0;
 }
-
-/* .sources-container .source-container.member-source:first-of-type {
-    margin-left: 0;
-} */
 
 .contact-email,
 .website-link,
@@ -349,10 +304,6 @@ export default {
 
 #MFALink {
     margin: 10px 0 0 0;
-}
-
-.member-source {
-    margin-bottom: 2px;
 }
 
 .v-enter-active,

@@ -10,30 +10,32 @@ import store from '../store';
             <label>Loading Directory...</label>
         </div>
 
-        <DirectoryArticle v-if="requestedMicronation.info.length" id="entryPreview" class="info-displayed" :info="{
-            name: {
-                main: requestedMicronation.info[0].name.main,
-                mainAlt: requestedMicronation.info[0].name.mainAlt,
-                title: requestedMicronation.info[0].name.title,
-                titleAlt: requestedMicronation.info[0].name.titleAlt
-            },
-            flag: requestedMicronation.info[0].flag,
-            motto: requestedMicronation.info[0].motto,
-            type: requestedMicronation.info[0].type,
-            languages: requestedMicronation.info[0].languages,
-            capital: requestedMicronation.info[0].capital,
-            currency: requestedMicronation.info[0].currency,
-            location: requestedMicronation.info[0].location,
-            foundationDate: requestedMicronation.info[0].foundationDate,
-            memberships: requestedMicronation.info[0].memberships,
-            contactInfo: requestedMicronation.info[0].contactInfo,
-            websites: requestedMicronation.info[0].websites,
-            approved: true,
-            author: requestedMicronation.info[0].author.name,
-            creationDate: requestedMicronation.info[0].creationDate,
-            previous: previousMicronation,
-            next: nextMicronation
-        }" />
+        <DirectoryArticle v-if="requestedMicronation.info.length" id="entryPreview" class="info-displayed"
+            :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
+            :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
+                name: {
+                    main: requestedMicronation.info[0].name.main,
+                    mainAlt: requestedMicronation.info[0].name.mainAlt,
+                    title: requestedMicronation.info[0].name.title,
+                    titleAlt: requestedMicronation.info[0].name.titleAlt
+                },
+                flag: requestedMicronation.info[0].flag,
+                motto: requestedMicronation.info[0].motto,
+                type: requestedMicronation.info[0].type,
+                languages: requestedMicronation.info[0].languages,
+                capital: requestedMicronation.info[0].capital,
+                currency: requestedMicronation.info[0].currency,
+                location: requestedMicronation.info[0].location,
+                foundationDate: requestedMicronation.info[0].foundationDate,
+                memberships: requestedMicronation.info[0].memberships,
+                contactInfo: requestedMicronation.info[0].contactInfo,
+                websites: requestedMicronation.info[0].websites,
+                approved: true,
+                author: requestedMicronation.info[0].author.name,
+                creationDate: requestedMicronation.info[0].creationDate,
+                previous: previousMicronation,
+                next: nextMicronation
+            }" />
 
         <p class="no-entries" v-if="micronationsDirectory.length && requestedMicronation.info.length === 0">There is no
             entry for a micronation with that name.</p>
@@ -49,10 +51,19 @@ export default {
     },
     computed: {
         micronationsDirectory() {
-            return store.getters.directory;
+            return store.getters.micronations;
         },
         approvedMicronations() {
             return this.micronationsDirectory.filter(element => element.approved);
+        },
+        supranationalMicronations() {
+            return this.micronationsDirectory.filter(element => element.supranational);
+        },
+        organizationsDirectory() {
+            return store.getters.organizations;
+        },
+        visibleOrganizations() {
+            return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
         },
         requestedMicronation() {
             const that = this;

@@ -9,7 +9,6 @@ import {
   reauthenticateWithCredential,
   updatePassword
 } from 'firebase/auth'
-import DirectoryEntry from '../components/DirectoryEntry.vue';
 import { auth } from '../firebase/init.js'
 import { notify } from '@kyvg/vue3-notification'
 </script>
@@ -112,12 +111,9 @@ export default {
       repeatNewPassword: ''
     }
   },
-  components: {
-    DirectoryEntry
-  },
   computed: {
     micronationsDirectory() {
-      return store.getters.directory;
+      return store.getters.micronations;
     },
     userContributions() {
       return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);

@@ -25,7 +25,7 @@ import { version } from '../package.json';
   <footer class="site-section">
     <div class="credits">
       <img src="/images/plain-logo1.png" alt="TMD logo">
-      <p><b>The Micronational Directory © 2023</b></p>
+      <p><b>The Micronational Directory © 2023-{{ new Date().getFullYear() }}</b></p>
       <label class="footer-label">Current version: {{ version }}-beta</label>
     </div>
 
@@ -72,6 +72,7 @@ export default {
   },
   async mounted() {
     await store.dispatch('getMicronations');
+    await store.dispatch('getOrganizations');
     await store.dispatch('getContests');
   }
 }
