@@ -98,7 +98,7 @@ defineProps({
                     </div>
 
                     <div>
-                        <p class="article-text breakable underlined">Contact info:</p>
+                        <p class="article-text breakable underlined">Contact media:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                 :href="contact" :flag-source="info.flag" :size="46" :micronation-name="info.name.main"
@@ -107,7 +107,7 @@ defineProps({
                     </div>
 
                     <div>
-                        <p class="article-text breakable underlined">Websites:</p>
+                        <p class="article-text breakable underlined">Info sources:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
                                 :flag-source="info.flag" :size="46" :micronation-name="info.name.main"

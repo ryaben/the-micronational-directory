@@ -77,11 +77,11 @@ defineProps({
                             class="new-entry-form-text">Alternative title</label>
                         <input v-if="entryType === 'micronation'" type="text" id="newEntryTitleAlt"
                             v-model="newEntryForm.newEntryTitleAlt"
-                            placeholder="Second option for title, like in another language">
+                            placeholder="Second option for title, e.g. in another language">
 
                         <label for="newEntryMotto" class="new-entry-form-text mandatory">Motto</label>
                         <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
-                            placeholder="E.g. 'In God we trust' (without quotes)">
+                            placeholder="E.g. 'In God we trust' (add without quotes)">
 
                         <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory">Type*</label>
                         <div v-if="entryType === 'micronation'" class="new-entry-type">
@@ -152,12 +152,12 @@ defineProps({
                             v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships" cols="50" rows="3"
                             placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
 
-                        <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact info*</label>
+                        <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact media*</label>
                         <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50"
                             rows="3" required
                             placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
 
-                        <label for="newEntryWebsites" class="new-entry-form-text mandatory">Websites*<br>(official + ideally
+                        <label for="newEntryWebsites" class="new-entry-form-text mandatory">Info sources*<br>(official + ideally
                             wiki article)</label>
                         <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites"
                             cols="50" rows="3" required

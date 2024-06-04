@@ -110,7 +110,7 @@ defineProps({
                     <hr class="light-divider">
 
                     <div class="entry-group">
-                        <p class="entry-text">Contact info:</p>
+                        <p class="entry-text">Contact media:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                 :href="contact" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
@@ -118,7 +118,7 @@ defineProps({
                         </div>
                     </div>
                     <div class="entry-group">
-                        <p class="entry-text">Websites:</p>
+                        <p class="entry-text">Info sources:</p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
                                 :flag-source="info.flag" :size="32" :micronation-name="info.name.main"

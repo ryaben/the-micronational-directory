@@ -149,6 +149,8 @@ defineProps({
       <img src="/images/loading.gif" alt="Loading">
       <label>Loading Directory...</label>
     </div>
+
+    <p class="no-results" v-if="directoryLoaded && !pagedElements.length">There are no matching results for this filter.</p>
   </div>
 </template>
 
@@ -443,5 +445,9 @@ export default {
 
 .settings-slider {
   width: 100px;
+}
+
+.no-results {
+  margin-left: 15px;
 }
 </style>

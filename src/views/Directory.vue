@@ -21,8 +21,8 @@ import emailjs from 'emailjs-com';
 <template>
   <div class="animation-error-avoider">
     <section class="site-section">
-      <Sectionbar :sections="sectionbarTabs" @show-target-tab="changeViewMode" :initial-selected-tab="'micronationsTab0'"
-        @click="renderMapbox" />
+      <Sectionbar :sections="sectionbarTabs" @show-target-tab="changeViewMode"
+        :initial-selected-tab="'micronationsTab0'" @click="renderMapbox" />
 
       <section
         v-show="viewMode === 'micronations' || viewMode === 'collage' || viewMode === 'moderation' || viewMode === 'organizations'"
@@ -39,28 +39,28 @@ import emailjs from 'emailjs-com';
               :flag-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations" :info="{
-                id: item.id,
-                name: {
-                  main: item.name.main,
-                  mainAlt: item.name.mainAlt,
-                  title: item.name.title,
-                  titleAlt: item.name.titleAlt
-                },
-                flag: item.flag,
-                motto: item.motto,
-                type: item.type,
-                languages: item.languages,
-                capital: item.capital,
-                currency: item.currency,
-                foundationDate: item.foundationDate,
-                location: item.location,
-                memberships: item.memberships,
-                contactInfo: item.contactInfo,
-                websites: item.websites,
-                author: item.author,
-                approved: item.approved,
-                creationDate: item.creationDate
-              }" />
+        id: item.id,
+        name: {
+          main: item.name.main,
+          mainAlt: item.name.mainAlt,
+          title: item.name.title,
+          titleAlt: item.name.titleAlt
+        },
+        flag: item.flag,
+        motto: item.motto,
+        type: item.type,
+        languages: item.languages,
+        capital: item.capital,
+        currency: item.currency,
+        foundationDate: item.foundationDate,
+        location: item.location,
+        memberships: item.memberships,
+        contactInfo: item.contactInfo,
+        websites: item.websites,
+        author: item.author,
+        approved: item.approved,
+        creationDate: item.creationDate
+      }" />
           </TransitionGroup>
         </div>
 
@@ -70,73 +70,73 @@ import emailjs from 'emailjs-com';
           ref="organizationsList" :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
           <TransitionGroup>
             <OrganizationEntry v-for="(item, i) in pagedOrganizationsDirectory" :key="i" :width="entryWidth"
-              :logo-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory" :info="{
-                id: item.id,
-                name: {
-                  main: item.name.main,
-                  mainAlt: item.name.mainAlt,
-                },
-                logo: item.logo,
-                motto: item.motto,
-                languages: item.languages,
-                foundationDate: item.foundationDate,
-                contactInfo: item.contactInfo,
-                websites: item.websites,
-                author: item.author,
-                approved: item.approved,
-                creationDate: item.creationDate
-              }" />
+              :logo-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
+              :info="{
+        id: item.id,
+        name: {
+          main: item.name.main,
+          mainAlt: item.name.mainAlt,
+        },
+        logo: item.logo,
+        motto: item.motto,
+        languages: item.languages,
+        foundationDate: item.foundationDate,
+        contactInfo: item.contactInfo,
+        websites: item.websites,
+        author: item.author,
+        approved: item.approved,
+        creationDate: item.creationDate
+      }" />
           </TransitionGroup>
         </div>
 
         <div class="moderation-menu" v-if="userIsModerator" v-show="viewMode === 'moderation'">
-          <div class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
-            :class="{ 'fixed-height': fixedHeight }">
+          <div class="micronations-list" id="moderationMicronations" ref="micronationsListModeration"
+            :key="componentKey" :class="{ 'fixed-height': fixedHeight }">
             <DirectoryEntry v-for="(item, i) in micronationsModerationDirectory" :key="i" :width="entryWidth"
-              :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
-              :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-              :supranational-micronations="supranationalMicronations" :info="{
-                id: item.id,
-                name: {
-                  main: item.name.main,
-                  mainAlt: item.name.mainAlt,
-                  title: item.name.title,
-                  titleAlt: item.name.titleAlt
-                },
-                flag: item.flag,
-                motto: item.motto,
-                type: item.type,
-                languages: item.languages,
-                capital: item.capital,
-                currency: item.currency,
-                foundationDate: item.foundationDate,
-                location: item.location,
-                memberships: item.memberships,
-                contactInfo: item.contactInfo,
-                websites: item.websites,
-                author: item.author,
-                approved: item.approved,
-                creationDate: item.creationDate
-              }"
-              @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email; selectedEntryType = 'Micronation'" />
+              :flag-height="entryWidth * 0.6" :view-mode="'micronations'"
+              :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
+              :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations"
+              :info="{
+        id: item.id,
+        name: {
+          main: item.name.main,
+          mainAlt: item.name.mainAlt,
+          title: item.name.title,
+          titleAlt: item.name.titleAlt
+        },
+        flag: item.flag,
+        motto: item.motto,
+        type: item.type,
+        languages: item.languages,
+        capital: item.capital,
+        currency: item.currency,
+        foundationDate: item.foundationDate,
+        location: item.location,
+        memberships: item.memberships,
+        contactInfo: item.contactInfo,
+        websites: item.websites,
+        author: item.author,
+        approved: item.approved,
+        creationDate: item.creationDate
+      }" @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email; selectedEntryType = 'Micronation'" />
             <OrganizationEntry v-for="(item, i) in organizationsModerationDirectory" :key="i" :width="entryWidth"
               :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :info="{
-                id: item.id,
-                name: {
-                  main: item.name.main,
-                  mainAlt: item.name.mainAlt
-                },
-                logo: item.logo,
-                motto: item.motto,
-                languages: item.languages,
-                foundationDate: item.foundationDate,
-                contactInfo: item.contactInfo,
-                websites: item.websites,
-                author: item.author,
-                approved: item.approved,
-                creationDate: item.creationDate
-              }"
-              @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email; selectedEntryType = 'Organization'" />
+        id: item.id,
+        name: {
+          main: item.name.main,
+          mainAlt: item.name.mainAlt
+        },
+        logo: item.logo,
+        motto: item.motto,
+        languages: item.languages,
+        foundationDate: item.foundationDate,
+        contactInfo: item.contactInfo,
+        websites: item.websites,
+        author: item.author,
+        approved: item.approved,
+        creationDate: item.creationDate
+      }" @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email; selectedEntryType = 'Organization'" />
           </div>
 
           <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
@@ -189,11 +189,13 @@ import emailjs from 'emailjs-com';
         </p>
         <ul class="notes-list">
           <li>
-            Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of micronations/organizations that
+            Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of
+            micronations/organizations that
             promote Nazi symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
           </li>
           <li>
-            Micronations/organizations submitted should have <b>at least one (1) month of proven existence.</b> This way we avoid
+            Micronations/organizations submitted should have <b>at least one (1) month of proven existence.</b> This way
+            we avoid
             lightning entries that may only be games or premature/fake experiments.
           </li>
           <li>
@@ -203,19 +205,21 @@ import emailjs from 'emailjs-com';
             specified, and we can avoid entries that could be jokes, games, fake, misleading or cheating for contests.
           </li>
           <li>
-            Physical and digital micronations can be included alike, as well as fictional countries as long as they also demonstrate activity as a proper
+            Physical and digital micronations can be included alike, as well as fictional countries as long as they also
+            demonstrate activity as a proper
             micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
               href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
             is not a valid case, while the <router-link :to="'/directory/Redonda'">Kingdom of Redonda</router-link>
-            or most of the micronations from <router-link :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed are).
+            or most of the micronations from <router-link
+              :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed are).
           </li>
           <li>
-            Ideally and whenever possible, please input the entry data in English. If not, then in the micronation's/organization's main
+            Ideally and whenever possible, please input the entry data in English. If not, then in the
+            micronation's/organization's main
             official language.
           </li>
           <li>
-            If website is closed or inactive, you can check it on the <b><a
-                href="http://web.archive.org/">Wayback
+            If website is closed or inactive, you can check it on the <b><a href="http://web.archive.org/">Wayback
                 Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service
             generates instead.
           </li>
@@ -241,7 +245,8 @@ import emailjs from 'emailjs-com';
         <button v-show="!newOrganizationView && !newMicronationView" class="login-button short color-transition"
           :disabled="!user.emailVerified" @click="newOrganizationView = true" :key="componentKey">Add new
           organization</button>
-        <label v-if="!user.emailVerified" :key="componentKey">(Available for <router-link :to="'/login'">registered users
+        <label v-if="!user.emailVerified" :key="componentKey">(Available for <router-link :to="'/login'">registered
+            users
             with verified email</router-link> only)</label>
       </div>
     </section>
@@ -362,9 +367,9 @@ export default {
           emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
             entry_decision: 'reject',
             entry_decisiond: 'rejected',
-            to_name: that.selectedEntryName,
+            to_name: remoteDirectory[entryIndex].author.name,
             to_email: that.selectedEntryAuthor,
-            entry_name: remoteDirectory[entryIndex].main.name,
+            entry_name: that.selectedEntryName,
             rejection_reason: that.rejectionReason
           },
             "P8-p_r-gTZedo_h84");
@@ -389,14 +394,14 @@ export default {
               type: 'error'
             })
           });
-        }
 
-        remoteDirectory.splice(entryIndex, 1)
-        this.forceRerender();
-        this.selectedEntry = undefined;
-        this.selectedEntryName = 'None selected';
-        this.selectedEntryType = undefined;
-        this.rejectionReason = '';
+          that.remoteDirectory.splice(entryIndex, 1);
+          that.forceRerender();
+          that.selectedEntry = undefined;
+          that.selectedEntryName = 'None selected';
+          that.selectedEntryType = undefined;
+          that.rejectionReason = '';
+        }
 
         notify({
           title: 'Entry moderation',
@@ -421,9 +426,9 @@ export default {
           emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
             entry_decision: 'approve',
             entry_decisiond: 'approved',
-            to_name: that.selectedEntryName,
+            to_name: remoteDirectory[entryIndex].author.name,
             to_email: that.selectedEntryAuthor,
-            entry_name: remoteDirectory[entryIndex].name.main,
+            entry_name: that.selectedEntryName,
             rejection_reason: that.rejectionReason
           },
             "P8-p_r-gTZedo_h84");
