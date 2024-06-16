@@ -66,7 +66,7 @@ export function checkIcon(url, micronationName) {
     if (url.includes('reddit.com')) {
         return 'reddit';
     }
-    if (url.includes('twitter.com')) {
+    if (url.includes('twitter.com') || url.includes('//x.com')) {
         return 'twitter';
     }
     if (url.includes('facebook.com')) {

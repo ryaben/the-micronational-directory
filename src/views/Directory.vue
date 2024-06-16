@@ -168,7 +168,7 @@ import emailjs from 'emailjs-com';
             </div>
           </div>
         </div>
-        <div v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
+        <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
           You don't have sufficient privileges in order to moderate pending submissions.
         </div>
       </section>
@@ -568,6 +568,10 @@ export default {
 
 .login-button.short {
   margin-right: 4px;
+}
+
+#notEnoughPrivileges {
+  margin: 20px;
 }
 
 .moderation-buttons .login-button {
