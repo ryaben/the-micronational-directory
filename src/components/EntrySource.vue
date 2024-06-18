@@ -5,7 +5,7 @@ defineProps({
     icon: {
         type: String,
         required: false,
-        default: 'questionmark'
+        default: 'www'
     },
     flagSource: {
         type: String,

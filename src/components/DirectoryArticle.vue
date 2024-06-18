@@ -35,9 +35,10 @@ defineProps({
                             v-if="info.name.title !== ''">,</span>
                         {{ info.name.title }}
                     </p>
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="article-text article-alt-name">
+                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''"
+                        class="article-text article-alt-name">
                         (<b>{{ info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">,&nbsp;</span>{{
-                            info.name.titleAlt }})
+            info.name.titleAlt }})
                     </p>
                 </div>
                 <div class="article-full-name">
@@ -61,7 +62,7 @@ defineProps({
                 <div class="article-column">
                     <p class="article-text"><span class="underlined">National motto:</span><br><span
                             v-if="info.motto !== ''" class="italicized">"{{
-                                info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
+            info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
                     <p class="article-text">
                         <span class="underlined">Micronation type:</span><br>
                         <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
@@ -78,12 +79,13 @@ defineProps({
 
                 <div class="article-column">
                     <p class="article-text"><span class="underlined">Foundation:</span><br>{{
-                        cleanTimestamp(info.foundationDate) }}</p>
-                    <p class="article-text"><span class="underlined">Capital:</span><br><span v-if="info.capital !== ''">{{
-                        info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
+            cleanTimestamp(info.foundationDate) }}</p>
+                    <p class="article-text"><span class="underlined">Capital:</span><br><span
+                            v-if="info.capital !== ''">{{
+            info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
                     <p class="article-text"><span class="underlined">Currency:</span><br><span
                             v-if="info.currency !== ''">{{
-                                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
+            info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
                 </div>
 
                 <div class="article-column">
@@ -92,8 +94,8 @@ defineProps({
                                 v-if="!info.memberships.length"><br>None.</span></p>
                         <div v-if="info.memberships.length" class="sources-container">
                             <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
-                                :href="findOrg(member).href" :flag-source="findOrg(member).logo"
-                                :width="60" :height="40" :micronation-name="member" :icon="'flag'" />
+                                :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="60"
+                                :height="40" :micronation-name="member" :icon="'flag'" />
                         </div>
                     </div>
 
@@ -109,8 +111,8 @@ defineProps({
                     <div>
                         <p class="article-text breakable underlined">Info sources:</p>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.flag" :size="46" :micronation-name="info.name.main"
+                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
+                                :href="website" :flag-source="info.flag" :size="46" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
                     </div>
@@ -124,7 +126,7 @@ defineProps({
                     ⬅️ Previous<br>{{ info.previous }}
                 </router-link>
                 <span class="article-text contribution-info">Submitted by <b>{{ info.author }}</b> on {{
-                    cleanTimestamp(info.creationDate) }}.</span>
+            cleanTimestamp(info.creationDate) }}.</span>
                 <router-link v-if="info.next" :to="'/directory/' + info.next" @click="incrementKey"
                     class="profile-option login-button color-transition">
                     Next ➡️<br>{{ info.next }}

@@ -90,13 +90,16 @@ export function checkIcon(url, micronationName) {
     if (url.includes('maps.google.com')) {
         return 'googlemaps';
     }
+    if (url.includes('themicronationaldirectory')) {
+        return 'tmd';
+    }
     if (url.includes('@') && !url.includes('http')) {
         return 'email';
     }
     if (url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, '-')) || url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, ''))) {
         return 'flag';
     } 
-    return 'questionmark';
+    return 'www';
 }
 
 export function cleanString(string) {
