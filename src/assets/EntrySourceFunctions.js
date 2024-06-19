@@ -96,9 +96,9 @@ export function checkIcon(url, micronationName) {
     if (url.includes('@') && !url.includes('http')) {
         return 'email';
     }
-    if (url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, '-')) || url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, ''))) {
-        return 'flag';
-    } 
+    // if (url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, '-')) || url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, ''))) {
+    //     return 'flag';
+    // } 
     return 'www';
 }
 

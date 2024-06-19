@@ -15,7 +15,7 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <KeepAlive :include="'Directory'">
+        <KeepAlive :include="['Directory', 'News']">
           <component :is="Component" />
         </KeepAlive>
       </Transition>
@@ -66,6 +66,7 @@ export default {
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
         { text: 'Donate', icon: 'donate.png', route: 'Donate' },
+        { text: 'News', icon: 'news.png', route: 'News' },
         { text: 'About', icon: 'about.png', route: 'About' }
       ]
     }

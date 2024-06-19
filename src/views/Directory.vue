@@ -199,7 +199,7 @@ import emailjs from 'emailjs-com';
             lightning entries that may only be games or premature/fake experiments.
           </li>
           <li>
-            It's <b>mandatory</b> that all entries have a website source (<b>NOT</b> a social media account) of the
+            It's <b>mandatory</b> that all entries have a website source of the
             micronation/organization and/or (preferably
             <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is
             specified, and we can avoid entries that could be jokes, games, fake, misleading or cheating for contests.
@@ -219,7 +219,7 @@ import emailjs from 'emailjs-com';
             official language.
           </li>
           <li>
-            If website is closed or inactive, you can check it on the <b><a href="http://web.archive.org/">Wayback
+            If a micronation's/organization's website is down or inactive, you can check it on the <b><a href="http://web.archive.org/">Wayback
                 Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service
             generates instead.
           </li>

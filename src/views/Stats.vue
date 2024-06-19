@@ -9,10 +9,12 @@ import { auth } from '../firebase/init.js';
 <template>
     <section class="site-section">
         <div class="events-bar">
-            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to follow
+            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to
+                follow
                 up the terms and
                 everything related. In them, <b>users with most contributions will qualify for prizes</b>.
-                Carefully read the <router-link :to="'/terms-of-contests'">terms and conditions</router-link> to know all the details. To check past contests, go right below on this page.
+                Carefully read the <router-link :to="'/terms-of-contests'">terms and conditions</router-link> to know
+                all the details. To check past contests, go right below on this page.
             </p>
         </div>
         <!-- <div class="tables-container">
@@ -27,30 +29,40 @@ import { auth } from '../firebase/init.js';
             <div class="stats-container">
                 <h2>Directory Statistics</h2>
                 <div style="display: flex;">
-                    <p class="stats-entry main">Total micronations: <b>{{ micronationsApprovedDirectory.length }}</b></p>
-                    <p class="stats-entry main">Total organizations: <b>{{ organizationsApprovedDirectory.length }}</b></p>
+                    <p class="stats-entry main" :class="{ 'selected': selectedDirectory === 'micronations' }"
+                        @click="selectDirectory('micronations')">Total micronations: <b>{{
+                    micronationsApprovedDirectory.length }}</b></p>
+                    <p class="stats-entry main" :class="{ 'selected': selectedDirectory === 'organizations' }"
+                        @click="selectDirectory('organizations')">Total organizations: <b>{{
+                    organizationsApprovedDirectory.length }}</b></p>
                 </div>
+
                 <div class="scrollable-container statistics-table directory">
                     <p class="table-header">Type</p>
                     <p class="table-header">Language</p>
-                    <p class="table-header">Membership</p>
+                    <p class="table-header">Memberships</p>
 
                     <div class="table-values-container">
-                        <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{ entry.amount
-                        }}</b></p>
+                        <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
+                    entry.amount
+                }}</b></p>
                     </div>
                     <div class="table-values-container">
                         <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                            entry.amount
-                        }}</b></p>
+                    entry.amount
+                }}</b></p>
                     </div>
                     <div class="table-values-container">
                         <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                            entry.amount }}</b></p>
+                    entry.amount }}</b></p>
                     </div>
                 </div>
             </div>
-            <EntriesRanking title="All-time Top Micronations Contributors" :tmd-entry="true" />
+
+            <EntriesRanking v-if="selectedDirectory === 'micronations'" title="All-time Top Micronations Contributors"
+                :tmd-entry="true" directory="micronations" :current-user-email="user.email" />
+            <EntriesRanking v-if="selectedDirectory === 'organizations'" title="All-time Top Organizations Contributors"
+                :tmd-entry="true" directory="organizations" :current-user-email="user.email" />
         </div>
 
         <hr class="divider" />
@@ -77,13 +89,14 @@ import { auth } from '../firebase/init.js';
                     </div>
                 </div>
             </div>
-            
+
             <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
-                :start-timestamp="selectedContest.startDate.seconds" :end-timestamp="selectedContest.endDate.seconds" />
+                :directory="selectedContest.directory" :start-timestamp="selectedContest.startDate.seconds"
+                :end-timestamp="selectedContest.endDate.seconds" :current-user-email="user.email" />
         </div>
     </section>
 </template>
-  
+
 <script>
 export default {
     components: {
@@ -93,7 +106,8 @@ export default {
     data() {
         return {
             user: {},
-            selectedContest: ''
+            selectedContest: '',
+            selectedDirectory: 'micronations'
         }
     },
     computed: {
@@ -160,6 +174,9 @@ export default {
             return this.contestsList.find(function (element) {
                 return element.id === contestId;
             });
+        },
+        selectDirectory(name) {
+            this.selectedDirectory = name;
         }
     },
     async mounted() {
@@ -167,7 +184,7 @@ export default {
     }
 }
 </script>
-  
+
 <style scoped>
 hr.divider {
     width: 95%;
@@ -258,13 +275,19 @@ hr.divider {
     font-size: 20px;
     padding: 3px 12px 3px 12px;
     border-radius: 8px;
-    border: 2px solid white;
+    border: 2px solid var(--vt-c-white);
     margin-bottom: 25px;
     margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .stats-entry.main:last-of-type {
     margin-right: 0;
 }
+
+.stats-entry.main.selected {
+    background-color: var(--vt-c-white);
+    color: var(--vt-c-black-soft);
+}
 </style>
-  

@@ -9,6 +9,7 @@ import Stats from "@/views/Stats.vue";
 import Login from "@/views/Login.vue";
 import Profile from "@/views/Profile.vue";
 import Donate from "@/views/Donate.vue";
+import News from "@/views/News.vue";
 import About from "@/views/About.vue";
 import TermsOfContests from "@/views/TermsOfContests.vue";
 
@@ -53,6 +54,11 @@ const routes = [
     path: "/donate",
     name: "Donate",
     component: Donate
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News
   },
   {
     path: "/about",

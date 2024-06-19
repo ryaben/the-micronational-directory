@@ -9,7 +9,7 @@ import { notify } from "@kyvg/vue3-notification";
     <section class="site-section login">
         <div id="loginForm">
             <h1 id="loginTitle">Log in</h1>
-            <p id="loginSubtitle">Add new entries in the Directory, participate in events and leave your mark on the stats
+            <p id="loginSubtitle">Add new entries on the Directory, participate in events and leave your mark on the stats
                 and the credits!</p>
             <input class="login-input" type="text" id="loginName" v-model="loginName"
                 placeholder="Name (only for signing up)">

@@ -1,12 +1,21 @@
 <script setup>
 import store from '../store';
-import { auth } from '../firebase/init.js';
 
 defineProps({
     title: {
         type: String,
         required: false,
         default: "Entries ranking"
+    },
+    directory: {
+        type: String,
+        required: false,
+        default: "micronations"
+    },
+    currentUserEmail: {
+        type: String,
+        required: false,
+        default: ""
     },
     tmdEntry: {
         type: Boolean,
@@ -35,10 +44,10 @@ defineProps({
         </div>
         <div class="scrollable-container contributors-ranking">
             <div v-for="(contributor, i) in contributorsList.filter(contrib => contrib.contributions > 0)" :key="i" class="contributor-entry"
-                :class="{ 'current-user': contributor.email === auth.currentUser.email, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
+                :class="{ 'current-user': contributor.email === currentUserEmail, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
                 <p class="contributor-rank">{{ i + 1 }}.</p>
                 <p class="contributor-name">{{ contributor.name }}<span
-                        v-if="contributor.email === auth.currentUser.email">&nbsp;(it's
+                        v-if="contributor.email === currentUserEmail">&nbsp;(it's
                         you!)</span></p>
                 <p class="contributor-contributions">{{ contributor.contributions }}</p>
             </div>
@@ -58,14 +67,17 @@ export default {
         micronationsApprovedDirectory() {
             return store.getters.micronations.filter(element => element.approved);
         },
+        organizationsApprovedDirectory() {
+            return store.getters.organizations.filter(element => element.approved);
+        },
         contributorsList() {
-            return this.listContributors(this.micronationsApprovedDirectory);
+            return this.listContributors(this[`${this.directory}ApprovedDirectory`]);
         },
         TMDContributions() {
-            return this.countContributions(this.micronationsApprovedDirectory, "themicronationaldirectory@gmail.com", new Date(this.startTimestamp * 1000), new Date(this.endTimestamp * 1000));
+            return this.countContributions(this[`${this.directory}ApprovedDirectory`], "themicronationaldirectory@gmail.com", new Date(this.startTimestamp * 1000), new Date(this.endTimestamp * 1000));
         },
         TMDContributionsPercentage() {
-            return ((this.TMDContributions * 100) / this.micronationsApprovedDirectory.length).toFixed(2);
+            return ((this.TMDContributions * 100) / this[`${this.directory}ApprovedDirectory`].length).toFixed(2);
         },
 
     },

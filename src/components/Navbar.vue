@@ -70,7 +70,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 110px;
+  width: 105px;
   height: auto;
   padding: 10px;
   border: 2px solid var(--navbar-tab-border-color);
