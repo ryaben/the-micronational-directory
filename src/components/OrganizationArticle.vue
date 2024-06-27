@@ -26,7 +26,7 @@ defineProps({
                     <span class="article-text">Try more info at:</span>
                     <div class="external-container">
                         <EntrySource class="entry-source" :flag-source="info.logo" :size="46"
-                            :micronation-name="info.name.main" :icon="'microwiki'"
+                            :micronation-name="info.name.main" :icon="'MicroWiki'"
                             :href="'https://micronations.wiki/wiki/' + info.name.mainAlt" />
                     </div>
                 </div>

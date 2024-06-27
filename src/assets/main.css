@@ -137,10 +137,17 @@ button:disabled, input:disabled {
   width: 200px;
 }
 
-.login-button:hover:not(:disabled) {
+.login-button:hover:not(:disabled),
+.login-button.active:not(:disabled) {
   background-color: var(--login-form-buttons-background-color-active);
   color: var(--login-form-buttons-text-color-active);
   cursor: pointer;
+}
+
+.squared-button {
+  width: fit-content;
+  height: 25px;
+  border-radius: 0px;
 }
 
 .custom-button {
@@ -217,6 +224,22 @@ textarea.login-input {
   color: white;
   float: bottom;
   font-size: 20px;
+}
+
+.go-to-top-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  font-size: 30px;
+  background-color: var(--vt-c-text-dark-2);
+  color: var(--vt-c-indigo);
+  cursor: pointer;
 }
 
 /* Vue transitions */

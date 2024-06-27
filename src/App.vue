@@ -6,7 +6,7 @@ import { version } from '../package.json';
 
 <template>
   <header>
-    <img id="logo" src="/images/logo.png" alt="Logo">
+    <a href="/" class="logo-link"><img id="logo" src="/images/logo.png" alt="Logo"></a>
     <p id="slogan">The ultimate worldwide directory of micronations from all over history.</p>
   </header>
 
@@ -15,7 +15,7 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <KeepAlive :include="['Directory', 'News']">
+        <KeepAlive :include="['Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation', 'News']">
           <component :is="Component" />
         </KeepAlive>
       </Transition>
@@ -62,12 +62,10 @@ export default {
     return {
       navbarButtons: [
         { text: 'Home', icon: 'home.png', route: 'Home' },
-        { text: 'Directory', icon: 'directory.png', route: 'Directory' },
+        { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{text: 'Micronations', route: 'Directory'}, {text: 'Organizations', route: 'Organizations'}, {text: 'World map', route: 'GlobalMap'}, {text: 'New entry', route: 'NewEntry'}, {text: 'Moderation', route: 'Moderation'}] },
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
-        { text: 'Donate', icon: 'donate.png', route: 'Donate' },
-        { text: 'News', icon: 'news.png', route: 'News' },
-        { text: 'About', icon: 'about.png', route: 'About' }
+        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'News', route: 'News'}, {text: 'Donate', route: 'Donate'}] }
       ]
     }
   },
@@ -86,6 +84,10 @@ header {
   flex-direction: column;
   align-items: center;
   line-height: 1.5;
+}
+
+.logo-link:hover {
+  background: none;
 }
 
 #logo {

@@ -2,7 +2,6 @@
 import { MapboxMap, MapboxMarker, MapboxNavigationControl } from '@studiometa/vue-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MemberSource from './MemberSource.vue';
-import store from '../store';
 
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -44,8 +43,8 @@ defineProps({
                 @mb-dragend="updatePosition">
                 <template v-slot:popup>
                     <p style="color: black; font-size: 12px; text-align: center;">The micronation (or its founder) are
-                        based
-                        here.</p>
+                        based here.
+                    </p>
                 </template>
             </MapboxMarker>
 
@@ -57,7 +56,7 @@ defineProps({
                     </p>
                     <MemberSource class="member-source" style="margin: 0 auto 0 auto; border: 1px solid black;"
                         :href="`/directory/${marker.name.main}`" :flag-source="marker.flag" :width="60" :height="40"
-                        :micronation-name="member" :icon="'flag'" />
+                        :icon="'flag'" />
                 </template>
             </MapboxMarker>
 

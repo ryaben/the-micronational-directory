@@ -10,91 +10,91 @@ export function checkHref(href) {
 
 export function checkIcon(url, micronationName) {
     if (url.includes('mn-wiki.de')) {
-        return 'mn-wiki';
+        return 'MN-wiki';
     }
     if (url.includes('micronations.wiki')) {
-        return 'microwiki';
+        return 'MicroWiki';
     }
     if (url.includes('wiki.micronaciones.com')) {
-        return 'wiki-micronaciones';
+        return 'Wiki Micronaciones';
     }
     if (url.includes('enciclopedia-de-las-micronaciones.fandom') || url.includes('enciclopedia-de-las-micronaciones.wikia')) {
-        return 'enciclopediamicronaciones';
+        return 'Enciclopedia Micronaciones';
     }
     if (url.includes('micronaciones.fandom') || url.includes('micronaciones.wikia')) {
-        return 'wikimicronacional';
+        return 'Wiki Micronacional';
     }
     if (url.includes('omu.fandom') || url.includes('omu.wikia')) {
-        return 'wikiomu';
+        return 'Wiki OMU';
     }
     if (url.includes('micropedia.com.br')) {
-        return 'micropedia';
+        return 'Micropedia';
     }
     if (url.includes('wiki.mikronacje.info')) {
-        return 'micropedia-pol';
+        return 'Micropedia POL';
     }
     if (url.includes('dovearchives.wiki')) {
-        return 'dovearchives';
+        return 'DoveArchives';
     }
     if (url.includes('wikipedia.org')) {
-        return 'wikipedia';
+        return 'Wikipedia';
     }
     if (url.includes('web.archive.org') || url.includes('archive.is')) {
-        return 'archive';
+        return 'Archive';
     }
     if (url.includes('shireroth.org/shirewiki')) {
-        return 'shireroth';
+        return 'Shireroth Wiki';
     }
     if (url.includes('scanthel.net/wiki')) {
-        return 'scanthel';
+        return 'Scanthel Wiki';
     }
     if (url.includes('westarctica.wiki')) {
-        return 'encyclopedia-westarctica';
+        return 'Encyclopedia Westarctica';
     }
     if (url.includes('liberistant.fandom')) {
-        return 'liberistant';
+        return 'Liberistant Wiki';
     }
     if (url.includes('micras.org')) {
-        return 'micras';
+        return 'Micras Wiki';
     }
     if (url.includes('micro-flag-archive')) {
-        return 'mfa';
+        return 'Micro Flag Archive';
     }
     if (url.includes('mstdn.social') || url.includes('mastodon.social')) {
-        return 'mastodon';
+        return 'Mastodon';
     }
     if (url.includes('reddit.com')) {
-        return 'reddit';
+        return 'Reddit';
     }
     if (url.includes('twitter.com') || url.includes('//x.com')) {
-        return 'twitter';
+        return 'Twitter';
     }
     if (url.includes('facebook.com')) {
-        return 'facebook';
+        return 'Facebook';
     }
     if (url.includes('instagram.com')) {
-        return 'instagram';
+        return 'Instagram';
     }
     if (url.includes('whatsapp.com') || (!url.includes('@') && !url.includes('http'))) {
-        return 'whatsapp';
+        return 'WhatsApp';
     }
     if (url.includes('telegram.me') || url.includes('telegram.com') || url.includes('t.me/')) {
-        return 'telegram';
+        return 'Telegram';
     }
     if (url.includes('youtube.com')) {
-        return 'youtube';
+        return 'YouTube';
     }
     if (url.includes('discord.com') || url.includes('discord.gg')) {
-        return 'discord';
+        return 'Discord';
     }
     if (url.includes('maps.google.com')) {
-        return 'googlemaps';
+        return 'Google Maps';
     }
     if (url.includes('themicronationaldirectory')) {
-        return 'tmd';
+        return 'TMD';
     }
     if (url.includes('@') && !url.includes('http')) {
-        return 'email';
+        return 'Email';
     }
     // if (url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, '-')) || url.toLowerCase().includes(cleanString(micronationName).replace(/\s+/g, ''))) {
     //     return 'flag';

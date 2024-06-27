@@ -1,11 +1,9 @@
 <script setup>
-
-
 defineProps({
     icon: {
         type: String,
         required: false,
-        default: 'questionmark'
+        default: 'www'
     },
     flagSource: {
         type: String,
@@ -26,11 +24,6 @@ defineProps({
         type: Number,
         required: false,
         default: 28
-    },
-    micronationName: {
-        type: String,
-        required: true,
-        default: ''
     }
 })
 </script>

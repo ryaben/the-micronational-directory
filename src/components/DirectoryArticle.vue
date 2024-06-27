@@ -29,7 +29,7 @@ defineProps({
             <div class="article-title">
                 <div class="article-full-name">
                     <EntrySource class="entry-source gmaps" v-if="info.location._lat && info.location._long"
-                        :flag-source="info.flag" :size="36" :micronation-name="info.name.main" :icon="'googlemaps'"
+                        :flag-source="info.flag" :size="36" :micronation-name="info.name.main" :icon="'Google Maps'"
                         :href="'https://maps.google.com/?q=' + info.location._lat + ',' + info.location._long" />
                     <p class="article-text article-name"><b>{{ info.name.main }}</b><span
                             v-if="info.name.title !== ''">,</span>
@@ -45,10 +45,10 @@ defineProps({
                     <span class="article-text">Try more info at:</span>
                     <div class="external-container">
                         <EntrySource class="entry-source" :flag-source="info.flag" :size="46"
-                            :micronation-name="info.name.main" :icon="'mfa'"
+                            :micronation-name="info.name.main" :icon="'Micro Flag Archive'"
                             :href="'https://sites.google.com/view/micro-flag-archive/micronational-flags-and-emblems/' + generateMFALink(info.name.main)" />
                         <EntrySource class="entry-source" :flag-source="info.flag" :size="46"
-                            :micronation-name="info.name.main" :icon="'microwiki'"
+                            :micronation-name="info.name.main" :icon="'MicroWiki'"
                             :href="'https://micronations.wiki/wiki/' + info.name.main" />
                     </div>
                 </div>

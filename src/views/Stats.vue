@@ -27,7 +27,6 @@ import { auth } from '../firebase/init.js';
 
         <div class="tables-container">
             <div class="stats-container">
-                <h2>Directory Statistics</h2>
                 <div style="display: flex;">
                     <p class="stats-entry main" :class="{ 'selected': selectedDirectory === 'micronations' }"
                         @click="selectDirectory('micronations')">Total micronations: <b>{{
@@ -36,6 +35,7 @@ import { auth } from '../firebase/init.js';
                         @click="selectDirectory('organizations')">Total organizations: <b>{{
                     organizationsApprovedDirectory.length }}</b></p>
                 </div>
+                <h2>{{ selectedDirectory === 'micronations' ? 'Micronations' : 'Organizations' }} Directory Statistics</h2>
 
                 <div class="scrollable-container statistics-table directory">
                     <p class="table-header">Type</p>

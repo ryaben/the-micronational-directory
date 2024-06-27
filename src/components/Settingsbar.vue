@@ -433,12 +433,6 @@ export default {
   width: 100px;
 }
 
-.squared-button {
-  width: fit-content;
-  height: 25px;
-  border-radius: 0px;
-}
-
 #applyFilters {
   height: 42px;
 }

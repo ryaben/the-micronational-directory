@@ -3,6 +3,7 @@ import { auth, db } from '../firebase/init.js';
 import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { notify } from "@kyvg/vue3-notification";
+import { checkHref, checkIcon, cleanString } from '../assets/EntrySourceFunctions';
 import store from '../store';
 import emailjs from 'emailjs-com';
 import languages from 'language-list';
@@ -54,7 +55,7 @@ defineProps({
         <div class="new-entry-container">
             <div style="display: flex; flex-direction: column; width: 70%;">
                 <p>Please, carefully read instructions for all fields. Help us save moderation efforts! <a
-                        href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed.</p>
+                        href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and check the preview on the right.</p>
 
                 <form class="listing-new-entry" @submit.prevent="addEntry">
                     <div class="new-entry-form">
@@ -69,7 +70,7 @@ defineProps({
                             placeholder="E.g. 'Principality of' (just the descriptive name only)">
 
                         <label for="newEntryNameAlt" class="new-entry-form-text">{{ entryType === 'micronation' ?
-                            'Alternative name' : 'Acronym*' }}</label>
+                    'Alternative name' : 'Acronym*' }}</label>
                         <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
                             :placeholder="entryType === 'micronation' ? 'Second option for name, e.g. in another language' : 'Acronym of the organization, e.g. LoM'">
 
@@ -98,9 +99,9 @@ defineProps({
                         </div>
 
                         <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
-                        <div style="display: flex; flex-direction: column; margin-bottom: 3px;">
+                        <div class="new-entry-option-container">
                             <div style="display: flex;">
-                                <select name="newEntryLanguages" id="newEntryLanguagesSelect" @change="addLanguage"
+                                <select name="newEntryLanguages" class="new-entry-option-select" @change="addLanguage"
                                     required>
                                     <optgroup>
                                         <option value="custom">Other (custom)</option>
@@ -114,7 +115,7 @@ defineProps({
                                 <input type="text" placeholder="Custom language name" v-model="customLanguage">
                             </div>
                             <div class="selected-languages-container">
-                                <SelectedLanguage v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i"
+                                <SelectedLanguage class="selection margin-top" v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i"
                                     :lang-text="language" @remove-language="removeLanguage" />
                             </div>
                         </div>
@@ -147,27 +148,68 @@ defineProps({
                         </div>
 
                         <label v-if="entryType === 'micronation'" for="newEntryMemberships"
-                            class="new-entry-form-text">Memberships<br>(capitals, not full name)</label>
-                        <textarea v-if="entryType === 'micronation'" id="newEntryMemberships"
-                            v-model="newEntryForm.newEntryMemberships" name="newEntryMemberships" cols="50" rows="3"
-                            placeholder="Enter one organization or institution per line (press Enter after each value)"></textarea>
+                            class="new-entry-form-text">Memberships</label>
+                        <div v-if="entryType === 'micronation'"
+                            class="new-entry-option-container">
+                            <div style="display: flex;">
+                                <select name="newEntryMemberships" class="new-entry-option-select"
+                                    @change="addMembership">
+                                    <optgroup>
+                                        <option value="custom">Other (manual input)</option>
+                                    </optgroup>
+                                    <optgroup>
+                                        <option
+                                            v-for="(membership, i) in organizationsDirectory.filter(element => element.approved)"
+                                            :key="i" :value="membership.name.main">
+                                            {{ membership.name.main }} ({{ membership.name.mainAlt }})
+                                        </option>
+                                    </optgroup>
+                                </select>
+                                <input type="text" placeholder="Other (full name, no acronym)"
+                                    v-model="customMembership">
+                            </div>
+                            <div class="selected-languages-container">
+                                <SelectedLanguage class="selection margin-top" v-for="(membership, i) in newEntryForm.newEntryMemberships" :key="i"
+                                    :lang-text="membership" @remove-language="removeMembership" />
+                            </div>
+                        </div>
 
                         <label for="newEntryEmails" class="new-entry-form-text mandatory">Contact media*</label>
-                        <textarea id="newEntryEmails" v-model="newEntryForm.newEntryEmails" name="newEntryEmails" cols="50"
-                            rows="3" required
-                            placeholder="Enter one email or social media link per line (don't add usernames, insert full link to profile please) (press Enter after each value)"></textarea>
+                        <div class="new-entry-option-container">
+                            <div style="display: flex;">
+                                <input type="text" id="newEntryEmail" class="new-entry-option-select"
+                                    v-model="currentEmail" placeholder="Email, forum or social media (full URL!)">
+                                <button @click="addEmail(currentEmail)" type="button"
+                                    class="login-button squared-button color-transition new-entry-option-button">Add</button>
+                            </div>
+                            <div class="selected-languages-container">
+                                <SelectedLanguage class="selection margin-top" v-for="(contact, i) in newEntryForm.newEntryEmails" :key="i"
+                                    :lang-text="checkIcon(contact)" @remove-language="removeEmail" />
+                            </div>
+                        </div>
 
-                        <label for="newEntryWebsites" class="new-entry-form-text mandatory">Info sources*<br>(official + ideally
-                            wiki article)</label>
-                        <textarea id="newEntryWebsites" v-model="newEntryForm.newEntryWebsites" name="newEntryWebsites"
-                            cols="50" rows="3" required
-                            placeholder="Enter one website or article link per line (press Enter after each value)"></textarea>
+                        <label for="newEntryWebsites" class="new-entry-form-text mandatory">Info sources*</label>
+                        <div class="new-entry-option-container">
+                            <div style="display: flex;">
+                                <input type="text" id="newEntryWebsite" class="new-entry-option-select"
+                                    v-model="currentWebsite" placeholder="URL to website (include HTTP or HTTPS)">
+                                <button @click="addWebsite(currentWebsite)" type="button"
+                                    class="login-button squared-button color-transition new-entry-option-button">Add</button>
+                            </div>
+                            <div class="selected-languages-container">
+                                <SelectedLanguage class="selection margin-top" v-for="(website, i) in newEntryForm.newEntryWebsites" :key="i"
+                                    :lang-text="checkIcon(website)" @remove-language="removeWebsite" />
+                            </div>
+                        </div>
 
                         <label for="newEntryFlag" class="new-entry-form-text mandatory">
-                            {{ entryType === 'micronation' ? 'Flag*' : 'Logo*' }}<br>(if N/A or unobtainable:
-                            <br><a href="/images/missing-flag.png" target="_blank">use this template</a>)</label>
+                            {{ entryType === 'micronation' ? 'Flag*' : 'Logo*' }}</label>
                         <div class="flag-preview-container">
                             <input type="file" @change="previewImage" accept="image/png" required>
+                            <br>
+                            <label for="">(if N/A or unobtainable: <a href="/images/missing-flag.png"
+                                target="_blank">use this template</a>)
+                            </label>
                         </div>
 
                         <div class="wide-row">
@@ -188,38 +230,39 @@ defineProps({
                     :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory"
                     :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
                     :supranational-micronations="supranationalMicronations" :info="{
-                        name: {
-                            main: newEntryForm.newEntryName,
-                            mainAlt: newEntryForm.newEntryNameAlt,
-                            title: newEntryForm.newEntryTitle,
-                            titleAlt: newEntryForm.newEntryTitleAlt
-                        },
-                        flag: flagPreview,
-                        motto: newEntryForm.newEntryMotto,
-                        type: checkTypes,
-                        languages: newEntryForm.newEntryLanguages,
-                        capital: newEntryForm.newEntryCapital,
-                        currency: newEntryForm.newEntryCurrency,
-                        foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
-                        memberships: newEntryForm.newEntryMemberships.split('\n'),
-                        contactInfo: newEntryForm.newEntryEmails.split('\n'),
-                        websites: newEntryForm.newEntryWebsites.split('\n'),
-                        approved: true
-                    }" />
+                    name: {
+                        main: newEntryForm.newEntryName,
+                        mainAlt: newEntryForm.newEntryNameAlt,
+                        title: newEntryForm.newEntryTitle,
+                        titleAlt: newEntryForm.newEntryTitleAlt
+                    },
+                    flag: flagPreview,
+                    motto: newEntryForm.newEntryMotto,
+                    type: checkTypes,
+                    languages: newEntryForm.newEntryLanguages,
+                    capital: newEntryForm.newEntryCapital,
+                    currency: newEntryForm.newEntryCurrency,
+                    foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                    memberships: newEntryForm.newEntryMemberships,
+                    contactInfo: newEntryForm.newEntryEmails,
+                    websites: newEntryForm.newEntryWebsites,
+                    approved: true
+                }" />
                 <OrganizationEntry v-if="entryType === 'organization'" :initial-info-view="true" :width="180"
-                    :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory" :info="{
-                        name: {
-                            main: newEntryForm.newEntryName,
-                            mainAlt: newEntryForm.newEntryNameAlt
-                        },
-                        logo: flagPreview,
-                        motto: newEntryForm.newEntryMotto,
-                        languages: newEntryForm.newEntryLanguages,
-                        foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
-                        contactInfo: newEntryForm.newEntryEmails.split('\n'),
-                        websites: newEntryForm.newEntryWebsites.split('\n'),
-                        approved: true
-                    }" />
+                    :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory"
+                    :info="{
+                    name: {
+                        main: newEntryForm.newEntryName,
+                        mainAlt: newEntryForm.newEntryNameAlt
+                    },
+                    logo: flagPreview,
+                    motto: newEntryForm.newEntryMotto,
+                    languages: newEntryForm.newEntryLanguages,
+                    foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                    contactInfo: newEntryForm.newEntryEmails,
+                    websites: newEntryForm.newEntryWebsites,
+                    approved: true
+                }" />
             </div>
         </div>
     </Transition>
@@ -250,30 +293,24 @@ export default {
                 newEntryCapital: '',
                 newEntryCurrency: '',
                 newEntryLanguages: [],
-                newEntryMemberships: '',
-                newEntryEmails: '',
-                newEntryWebsites: ''
+                newEntryMemberships: [],
+                newEntryEmails: [],
+                newEntryWebsites: []
             },
             foundationDate: null,
             flagSource: '',
             flagPreview: '',
             passedRecaptcha: false,
             customLanguage: '',
+            customMembership: '',
+            currentEmail: '',
+            currentWebsite: '',
             locationPickerMarkerPosition: [0, 0],
             renderedMapboxNewEntry: false,
             physicalType: false
         };
     },
     computed: {
-        returnMembershipsValues() {
-            return this.readTextarea(this.newEntryForm.newEntryMemberships);
-        },
-        returnEmailsValues() {
-            return this.readTextarea(this.newEntryForm.newEntryEmails);
-        },
-        returnWebsitesValues() {
-            return this.readTextarea(this.newEntryForm.newEntryWebsites);
-        },
         listLanguages() {
             let languagesArray = [];
             const sortedLanguageCodes = languages().getLanguageCodes().sort();
@@ -346,9 +383,9 @@ export default {
                                     currency: that.newEntryForm.newEntryCurrency,
                                     foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
                                     location: physicalLocation,
-                                    memberships: that.readTextarea('newEntryMemberships'),
-                                    contactInfo: that.readTextarea('newEntryEmails'),
-                                    websites: that.readTextarea('newEntryWebsites'),
+                                    memberships: that.newEntryForm.newEntryMemberships,
+                                    contactInfo: that.newEntryForm.newEntryEmails,
+                                    websites: that.newEntryForm.newEntryWebsites,
                                     author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
                                     approved: false,
                                     creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
@@ -371,8 +408,8 @@ export default {
                                     motto: that.newEntryForm.newEntryMotto,
                                     languages: that.newEntryForm.newEntryLanguages,
                                     foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
-                                    contactInfo: that.readTextarea('newEntryEmails'),
-                                    websites: that.readTextarea('newEntryWebsites'),
+                                    contactInfo: that.newEntryForm.newEntryEmails,
+                                    websites: that.newEntryForm.newEntryWebsites,
                                     author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
                                     approved: false,
                                     creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
@@ -438,12 +475,15 @@ export default {
                 }
             }
         },
-        readTextarea(elementRef) {
-            if (this.newEntryForm[elementRef]) {
-                var arrayOfLines = this.newEntryForm[elementRef].split("\n");
-                return arrayOfLines;
-            } else {
-                return '';
+        addMembership(event) {
+            const lang = event.target.value;
+
+            if (this.newEntryForm.newEntryMemberships.find(e => e === lang || (lang === 'custom' && e === this.customMembership)) === undefined) {
+                if (lang === 'custom') {
+                    this.newEntryForm.newEntryMemberships.push(this.customMembership);
+                } else {
+                    this.newEntryForm.newEntryMemberships.push(lang);
+                }
             }
         },
         emailNotice() {
@@ -465,6 +505,23 @@ export default {
         },
         removeLanguage(value) {
             this.newEntryForm.newEntryLanguages.splice(this.newEntryForm.newEntryLanguages.indexOf(value), 1);
+        },
+        removeMembership(value) {
+            this.newEntryForm.newEntryMemberships.splice(this.newEntryForm.newEntryMemberships.indexOf(value), 1);
+        },
+        removeEmail(value) {
+            this.newEntryForm.newEntryEmails.splice(this.newEntryForm.newEntryEmails.indexOf(value), 1);
+        },
+        removeWebsite(value) {
+            this.newEntryForm.newEntryWebsites.splice(this.newEntryForm.newEntryWebsites.indexOf(value), 1);
+        },
+        addEmail(value) {
+            this.newEntryForm.newEntryEmails.push(value);
+            this.currentEmail = "";
+        },
+        addWebsite(value) {
+            this.newEntryForm.newEntryWebsites.push(value);
+            this.currentWebsite = "";
         },
         draggedMarker(newPosition) {
             this.locationPickerMarkerPosition = newPosition;
@@ -506,14 +563,29 @@ export default {
 
 .new-entry-form {
     display: grid;
-    row-gap: 5px;
-    grid-template-columns: 40% 60%;
+    row-gap: 8px;
+    grid-template-columns: 30% 60%;
     margin-bottom: 15px;
     margin-top: 15px;
+    /* border-right: 3px solid var(--vt-c-white-soft); */
 }
 
-#newEntryLanguagesSelect {
-    width: 70%;
+.new-entry-option-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: var(--vt-c-divider-dark-1);
+}
+
+.new-entry-option-select {
+    width: 100%;
+    margin-right: 3px;
+}
+
+.new-entry-option-button {
+    width: 20%;
 }
 
 .selected-languages-container {
@@ -552,7 +624,7 @@ div.new-entry-type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 28%;
+    width: 30%;
 }
 
 .new-entry-preview p {

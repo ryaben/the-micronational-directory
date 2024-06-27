@@ -3,6 +3,10 @@ import { createWebHistory, createRouter } from "vue-router";
 //Views importadas
 import Home from "@/views/Home.vue";
 import Directory from "@/views/Directory.vue";
+import Organizations from "@/views/Organizations.vue";
+import GlobalMap from "@/views/GlobalMap.vue";
+import NewEntry from "@/views/NewEntry.vue";
+import Moderation from "@/views/Moderation.vue";
 import DirectoryProfile from "@/views/DirectoryProfile.vue";
 import OrganizationProfile from "@/views/OrganizationProfile.vue";
 import Stats from "@/views/Stats.vue";
@@ -24,6 +28,26 @@ const routes = [
     path: "/directory",
     name: "Directory",
     component: Directory
+  },
+  {
+    path: "/organizations",
+    name: "Organizations",
+    component: Organizations
+  },
+  {
+    path: "/map",
+    name: "GlobalMap",
+    component: GlobalMap
+  },
+  {
+    path: "/new-entry",
+    name: "NewEntry",
+    component: NewEntry
+  },
+  {
+    path: "/moderation",
+    name: "Moderation",
+    component: Moderation
   },
   {
     path: "/directory/:micronationName",

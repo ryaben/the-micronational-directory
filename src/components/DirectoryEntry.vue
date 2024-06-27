@@ -65,8 +65,7 @@ defineProps({
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
                 <div class="animated-info">
                     <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
-                        info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt
-    }})
+                        info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
                     </p>
 
                     <hr class="light-divider">
