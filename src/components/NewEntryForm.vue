@@ -116,7 +116,7 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top" v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i"
-                                    :lang-text="language" @remove-language="removeLanguage" />
+                                    :lang-text="language" @remove-language="removeLanguage(language)" />
                             </div>
                         </div>
 
@@ -184,7 +184,7 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top" v-for="(contact, i) in newEntryForm.newEntryEmails" :key="i"
-                                    :lang-text="checkIcon(contact)" @remove-language="removeEmail" />
+                                    :lang-text="checkIcon(contact)" @remove-language="removeEmail(contact)" />
                             </div>
                         </div>
 
@@ -198,7 +198,7 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top" v-for="(website, i) in newEntryForm.newEntryWebsites" :key="i"
-                                    :lang-text="checkIcon(website)" @remove-language="removeWebsite" />
+                                    :lang-text="checkIcon(website)" @remove-language="removeWebsite(website)" />
                             </div>
                         </div>
 

@@ -118,7 +118,7 @@ export default {
         },
         getMembers() {
             const that = this;
-            return this.micronationsDirectory.filter(element => element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt));
+            return this.micronationsDirectory.filter(element => element.approved && (element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt)));
         }
     },
     methods: {
@@ -190,6 +190,7 @@ export default {
 .article-logo {
     width: 100%;
     height: auto;
+    max-height: 250px;
 }
 
 .article-title {

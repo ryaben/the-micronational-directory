@@ -90,6 +90,9 @@ export function checkIcon(url, micronationName) {
     if (url.includes('maps.google.com')) {
         return 'Google Maps';
     }
+    if (url.includes('forms.gle') || url.includes('docs.google.com/forms')) {
+        return 'Google Forms';
+    }
     if (url.includes('themicronationaldirectory')) {
         return 'TMD';
     }

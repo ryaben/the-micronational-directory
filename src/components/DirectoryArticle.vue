@@ -247,6 +247,7 @@ export default {
 .article-flag {
     width: 100%;
     height: auto;
+    max-height: 250px;
 }
 
 .article-title {
@@ -354,7 +355,7 @@ export default {
 }
 
 .member-source {
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .v-enter-active,
