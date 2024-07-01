@@ -96,7 +96,7 @@ defineProps({
                     <hr class="light-divider">
 
                     <div class="entry-group extended">
-                        <p class="entry-text"><span class="underlined">Memberships:</span>
+                        <p class="entry-text"><span class="underlined">Historical memberships:</span>
                             <span v-if="info.memberships == ''">&nbsp;None.</span>
                         </p>
                         <div v-if="info.memberships.length" class="sources-container">
@@ -109,7 +109,9 @@ defineProps({
                     <hr class="light-divider">
 
                     <div class="entry-group">
-                        <p class="entry-text">Contact media:</p>
+                        <p class="entry-text">Contact media:
+                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
+                        </p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                 :href="contact" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"

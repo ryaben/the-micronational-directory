@@ -65,7 +65,7 @@ export default {
         { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{text: 'Micronations', route: 'Directory'}, {text: 'Organizations', route: 'Organizations'}, {text: 'World map', route: 'GlobalMap'}, {text: 'New entry', route: 'NewEntry'}, {text: 'Moderation', route: 'Moderation'}] },
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
-        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'News', route: 'News'}, {text: 'Donate', route: 'Donate'}] }
+        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'News', route: 'News'}, {text: 'Donate', route: 'Donate'}, {text: 'Contests T&C', route: 'TermsOfContests'}] }
       ]
     }
   },

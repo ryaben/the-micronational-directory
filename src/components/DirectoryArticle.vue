@@ -90,7 +90,7 @@ defineProps({
 
                 <div class="article-column">
                     <div>
-                        <p class="article-text breakable"><span class="underlined">Memberships:</span><span
+                        <p class="article-text breakable"><span class="underlined">Historical memberships:</span><span
                                 v-if="!info.memberships.length"><br>None.</span></p>
                         <div v-if="info.memberships.length" class="sources-container">
                             <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
@@ -100,7 +100,10 @@ defineProps({
                     </div>
 
                     <div>
-                        <p class="article-text breakable underlined">Contact media:</p>
+                        <p class="article-text breakable">
+                            <span class="underlined">Contact media:</span>
+                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
+                        </p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                 :href="contact" :flag-source="info.flag" :size="46" :micronation-name="info.name.main"

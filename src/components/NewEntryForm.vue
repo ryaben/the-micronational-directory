@@ -208,7 +208,7 @@ defineProps({
                             <input type="file" @change="previewImage" accept="image/png" required>
                             <br>
                             <label for="">(if N/A or unobtainable: <a href="/images/missing-flag.png"
-                                target="_blank">use this template</a>)
+                                target="_blank">download and apply this template</a>)
                             </label>
                         </div>
 
@@ -349,6 +349,14 @@ export default {
     methods: {
         async addEntry() {
             const that = this;
+
+            if (this.newEntryForm.newEntryWebsites.length === 0) {
+                return notify({
+                    title: "Error when submitting",
+                    text: "No info source link was provided. It's mandatory to include at least one to validate all the info that was input.",
+                    type: "error"
+                });
+            }
 
             if (this.searchElement(this.newEntryForm.newEntryName) === undefined) {
                 switch (this.entryType) {
