@@ -98,7 +98,7 @@ defineProps({
                             <label for="typeFictional">Fictional</label>
                         </div>
 
-                        <label for="newEntryLanguages" class="new-entry-form-text mandatory">Languages*</label>
+                        <label for="newEntryLanguages" class="new-entry-form-text mandatory">Official languages*</label>
                         <div class="new-entry-option-container">
                             <div style="display: flex;">
                                 <select name="newEntryLanguages" class="new-entry-option-select" @change="addLanguage"
