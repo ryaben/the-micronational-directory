@@ -17,6 +17,8 @@ import News from "@/views/News.vue";
 import About from "@/views/About.vue";
 import TermsOfContests from "@/views/TermsOfContests.vue";
 
+import MicroWikiReader from "@/views/MicroWikiReader.vue";
+
 //Rutas
 const routes = [
   {
@@ -93,6 +95,12 @@ const routes = [
     path: "/terms-of-contests",
     name: "TermsOfContests",
     component: TermsOfContests
+  },
+
+  {
+    path: "/microwiki-reader",
+    name: "MicroWikiReader",
+    component: MicroWikiReader
   }
 ];
 
