@@ -138,11 +138,10 @@ defineProps({
                             now-button-label="Today" :required="true" :max-date="new Date()" />
 
                         <label v-if="entryType === 'micronation'" v-show="physicalType"
-                            class="new-entry-form-text mandatory">Location<br>
-                            (leave as is if unknown or N/A)</label>
+                            class="new-entry-form-text mandatory">Location</label>
                         <div v-if="entryType === 'micronation'" v-show="physicalType">
                             <label v-show="physicalType">Drag and drop the blue pin to the location of the
-                                micronation:</label>
+                                micronation (leave as is if unknown or not applicable, for large territories you can mark the capital):</label>
                             <LocationPicker v-if="renderedMapboxNewEntry" :visible="!physicalType" ref="locationPicker"
                                 mode="picker" width="100%" height="300px" @dragged-marker="draggedMarker" />
                         </div>
@@ -354,6 +353,14 @@ export default {
                 return notify({
                     title: "Error when submitting",
                     text: "No info source link was provided. It's mandatory to include at least one to validate all the info that was input.",
+                    type: "error"
+                });
+            }
+
+            if (this.newEntryForm.newEntryLanguages.length === 0) {
+                return notify({
+                    title: "Error when submitting",
+                    text: "No official languages were added. If there aren't any, add the main one used within the micronation.",
                     type: "error"
                 });
             }
