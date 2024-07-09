@@ -1,34 +1,51 @@
 <script setup>
 import store from '../store';
+import DirectoryEntry from '../components/DirectoryEntry.vue';
 </script>
 
 <template>
   <div id="responseText">
     <p class="micronations-stats">
-      There are <span class="underlined">{{ microWikiMicronations.length }}</span> articles within category
+      There are <span class="underlined">{{ microWikiMicronations.length }}</span> (filtered) articles within category
       'Micronations' in MicroWiki (that doesn't mean strictly micronations):<br>
-      - Out of them, <span class="underlined">{{ micronationsStub }}</span> are marked as stubs, so probably don't have
+      - Out of them, <span class="underlined">{{ micronationsStub }}</span> are marked as <b style="color: indianred">stubs</b>, so probably don't have
       enough info to create an entry.<br>
-      - Out of them, <span class="underlined">{{ micronationsPoor }}</span> are marked as poor, so probably don't have
+      - Out of them, <span class="underlined">{{ micronationsPoor }}</span> are marked as <b style="color: red">poor</b>, so probably don't have
       enough info to create an entry.<br>
-      - At least <span class="underlined">{{ micronationsInBothSources }}</span> may be present on TMD.
+      - At least <span class="underlined">{{ micronationsInBothSources }}</span> may be <b style="color: green">present</b> on TMD.
     </p>
-    <div v-for="(micronation, i) in microWikiMicronations" :key="i"
-      :id="'container-' + micronation.title.replace(/ /g, '_')">
-      <p class='micronation-title'><a :href="'https://micronations.wiki/wiki/' + micronation.title.replace(/ /g, '_')"
-          target='_blank'>{{ micronation.title.replace(/ /g, '_') }}</a>
-        <span v-if="micronationsDirectory.find(mic => micronation.title.includes(mic.name.main))">&nbsp;(<b>Seems like
-            exists on TMD</b>)</span>
-        <span v-if="micronation.stub">&nbsp;(<b>Marked as stub!</b>)</span>
-        <span v-if="micronation.poor">&nbsp;(<b>Marked as poor!</b>)</span>
-      </p>
+
+    <div id="micronationsList" class="micronations-list" ref="micronationsList">
+      <DirectoryEntry v-for="(item, i) in microWikiMicronations" :key="i"
+      :class="{ 'stub': item.stub, 'poor': item.poor, 'present': micronationsDirectory.find(mic => item.title.includes(mic.name.main)) }" :info="{
+        id: '',
+        name: {
+          main: item.title.search(/ of /i) !== -1 ? item.title.slice(item.title.search(/ of /i) + 4) : item.title,
+          mainAlt: '',
+          title: item.title.search(/ of /i) !== -1 ? item.title.slice(0, item.title.search(/ of /i) + 3) : '',
+          titleAlt: ''
+        },
+        flag: '',
+        motto: '',
+        type: '',
+        languages: '',
+        capital: '',
+        currency: '',
+        foundationDate: '',
+        location: '',
+        memberships: '',
+        contactInfo: '',
+        websites: ['https://micronations.wiki/wiki/' + item.title.replace(/ /g, '_')],
+        author: 'themicronationaldirectory@gmail.com',
+        approved: false,
+        creationDate: ''
+      }" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
   data() {
     return {
       microWikiMicronations: [
@@ -6961,14 +6978,14 @@ export default {
       return micronationCounter;
     },
     micronationsStub() {
-      length = this.microWikiMicronations.filter(function(item) {
+      length = this.microWikiMicronations.filter(function (item) {
         return item.stub;
       }).length;
 
       return length;
     },
     micronationsPoor() {
-      length = this.microWikiMicronations.filter(function(item) {
+      length = this.microWikiMicronations.filter(function (item) {
         return item.poor;
       }).length;
 
@@ -6978,4 +6995,23 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.micronations-list {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  padding: 0 12px 9px 12px;
+}
+
+.directory-entry-container.stub {
+  background-color: indianred;
+}
+
+.directory-entry-container.poor {
+  background-color: red;
+}
+
+.directory-entry-container.present {
+  background-color: green;
+}
+</style>

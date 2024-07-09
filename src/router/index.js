@@ -18,6 +18,7 @@ import About from "@/views/About.vue";
 import TermsOfContests from "@/views/TermsOfContests.vue";
 
 import MicroWikiReader from "@/views/MicroWikiReader.vue";
+import MicronationalMapReader from "@/views/MicronationalMapReader.vue";
 
 //Rutas
 const routes = [
@@ -101,6 +102,11 @@ const routes = [
     path: "/microwiki-reader",
     name: "MicroWikiReader",
     component: MicroWikiReader
+  },
+  {
+    path: "/micronationalmap-reader",
+    name: "MicronationalMapReader",
+    component: MicronationalMapReader
   }
 ];
 
