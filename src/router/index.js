@@ -104,7 +104,7 @@ const routes = [
     component: MicroWikiReader
   },
   {
-    path: "/micronationalmap-reader",
+    path: "/googlemymaps-reader",
     name: "MicronationalMapReader",
     component: MicronationalMapReader
   }

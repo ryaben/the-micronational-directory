@@ -19,6 +19,7 @@
     "file-saver": "^2.0.5",
     "firebase": "^10.1.0",
     "html2canvas": "^1.4.1",
+    "jquery": "^3.7.1",
     "language-list": "^0.0.3",
     "mapbox-gl": "^2.15.0",
     "vue": "^3.3.4",
