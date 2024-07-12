@@ -146,7 +146,7 @@ defineProps({
     </div>
 
     <div v-if="!directoryLoaded" class="loading-image-container">
-      <img src="/images/loading.gif" alt="Loading">
+      <img class="loading-image" src="/images/loading.gif" alt="Loading">
       <label>Loading Directory...</label>
     </div>
 
