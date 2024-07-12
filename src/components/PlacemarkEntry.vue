@@ -25,7 +25,8 @@ defineProps({
             <EntrySource class="entry-source gmaps" v-if="placemarkInfo.micronationalMap.location.applicable"
                 :flag-source="''" :size="36" :micronation-name="''" :icon="'Google Maps'"
                 :href="'https://maps.google.com/?q=' + placemarkInfo.micronationalMap.location.lat + ',' + placemarkInfo.micronationalMap.location.long" />
-            <span>({{ Math.floor(placemarkInfo.micronationalMap.location.lat * 100) / 100 }},{{ Math.floor(placemarkInfo.micronationalMap.location.long * 100) / 100 }})</span>
+            <span>({{ Math.floor(placemarkInfo.micronationalMap.location.lat * 100) / 100 }},{{
+        Math.floor(placemarkInfo.micronationalMap.location.long * 100) / 100 }})</span>
         </div>
 
         <h3>{{ placemarkInfo.micronationalMap.name }}</h3>
@@ -33,8 +34,8 @@ defineProps({
 
         <hr class="light-divider">
 
-        <p>{{ placemarkInfo.micronationalMap.description }}<span v-if="!placemarkInfo.micronationalMap.description">No
-                description.</span></p>
+        <p class="micronation-description">{{ placemarkInfo.micronationalMap.description }}<span
+            v-if="!placemarkInfo.micronationalMap.description">No description.</span></p>
 
         <hr class="light-divider">
 
@@ -117,7 +118,7 @@ export default {
     padding: 8px;
     margin-bottom: 4px;
     margin-right: 4px;
-    width: 250px;
+    width: auto;
     overflow: hidden;
 }
 
@@ -133,6 +134,12 @@ export default {
 .map-micronation-container p,
 .map-micronation-container h3 {
     text-align: center;
+}
+
+.micronation-description {
+    word-break: break-word;
+    text-align: justify;
+    text-justify: auto;
 }
 
 .source-origin {
