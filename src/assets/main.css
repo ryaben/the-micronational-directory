@@ -216,7 +216,7 @@ textarea.login-input {
   padding-bottom: 55px;
 }
 
-.loading-image-container img {
+img.loading-image {
   filter: invert(100);
   width: 300px;
 }

@@ -6,7 +6,7 @@ import store from '../store';
 <template>
     <div class="animation-error-avoider">
         <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
-            <img src="/images/loading.gif" alt="Loading">
+            <img class="loading-image" src="/images/loading.gif" alt="Loading">
             <label>Loading Directory...</label>
         </div>
 
