@@ -25,6 +25,7 @@ import Tweet from "vue-tweet";
         <Tweet tweet-id="1702059403506004428" theme="dark" />
         <Tweet tweet-id="1699201531675840814" theme="dark" />
         <Tweet tweet-id="1697325411447742682" theme="dark" />
+        <Tweet tweet-id="1692292135146394097" theme="dark" />
       </div>
       <div class="grid-column">
         <p style="margin: 0; text-align: justify; text-justify: auto;">
