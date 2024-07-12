@@ -15,7 +15,7 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <KeepAlive :include="['Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation', 'News']">
+        <KeepAlive :include="['Home', 'Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation', 'News']">
           <component :is="Component" />
         </KeepAlive>
       </Transition>
@@ -65,7 +65,7 @@ export default {
         { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{text: 'Micronations', route: 'Directory'}, {text: 'Organizations', route: 'Organizations'}, {text: 'World map', route: 'GlobalMap'}, {text: 'New entry', route: 'NewEntry'}, {text: 'Moderation', route: 'Moderation'}] },
         { text: 'Stats', icon: 'stats.png', route: 'Stats' },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
-        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'News', route: 'News'}, {text: 'Donate', route: 'Donate'}, {text: 'Contests T&C', route: 'TermsOfContests'}] }
+        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'Donate', route: 'Donate'}, {text: 'Contests T&C', route: 'TermsOfContests'}] }
       ]
     }
   },
