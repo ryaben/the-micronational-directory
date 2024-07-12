@@ -64,7 +64,9 @@ defineProps({
 
                 <div class="article-column">
                     <div>
-                        <p class="article-text breakable underlined">Contact media:</p>
+                        <p class="article-text breakable underlined">Contact media:
+                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
+                        </p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                 :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
