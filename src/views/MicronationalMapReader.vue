@@ -9,75 +9,78 @@ import $ from 'jquery';
 </script>
 
 <template>
-  <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="placemarksDirectory.length !== 0">
-    You don't have sufficient privileges in order to work with stored placemarks.
-  </div>
+  <section class="site-section">
+    <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="placemarksDirectory.length !== 0">
+      You don't have sufficient privileges in order to work with stored placemarks.
+    </div>
 
-  <div v-if="userIsModerator" id="responseText">
-    <div id="actionPanel" class="site-section">
-      <div class="panel-section">
-        <p class="micronations-stats">
-          <span class="underlined larger">{{ placemarksDirectory.filter(mic => mic.location.applicable).length }}</span>
-          placemarks for micronations on Google My Maps instances with an <span class="underlined">applicable
-            location</span>.
+    <div v-if="userIsModerator" id="responseText">
+      <div id="actionPanel" class="page-area">
+        <div class="panel-section">
+          <p class="micronations-stats">
+            <span class="underlined larger">{{ placemarksDirectory.filter(mic => mic.location.applicable).length
+              }}</span>
+            placemarks for micronations on Google My Maps instances with an <span class="underlined">applicable
+              location</span>.
+          </p>
+          <div id="addedSources">
+            <p>Source maps already added to this tool:</p>
+            <p v-for="(source, i) in placemarkSources" :key="i"><a :href="source.url">{{ source.name }}</a></p>
+          </div>
+        </div>
+        <form class="panel-section" @submit.prevent>
+          <input v-model="KMLlink" id="KMLlink" type="url" placeholder="Paste the map's URL here">
+          <textarea v-model="KMLfile" id="KMLfile" name="KMLfile" cols="30" rows="10"
+            placeholder="Paste the entire content of the KML file here."></textarea>
+          <button class="login-button color-transition short" @click="processKML">Process KML file</button>
+        </form>
+      </div>
+
+      <br>
+
+      <div class="page-area">
+        <p class="list-description">
+          The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
+      micro.micronationalMap.location.applicable && micro.location._lat === 0).length }}</span> micronations from
+          the map seem to be <b style="color: green;">present</b> with an entry on TMD that <b style="color: red;">DOES
+            NOT</b> have location info:
         </p>
-        <div id="addedSources">
-          <p>Source maps already added to this tool:</p>
-          <p v-for="(source, i) in placemarkSources" :key="i"><a :href="source.url">{{ source.name }}</a></p>
+        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+          <PlacemarkEntry
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat === 0)"
+            :key="i" :present="true" :placemark-info="item" />
+        </div>
+
+        <br>
+
+        <p class="list-description">
+          The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
+      micro.micronationalMap.location.applicable && micro.location._lat !== 0).length }}</span> micronations from
+          the map seem to be <b style="color: green;">present</b> with an entry on TMD that already has preexisting
+          location
+          info:
+        </p>
+        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+          <PlacemarkEntry
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat !== 0)"
+            :key="i" :present="true" :placemark-info="item" />
+        </div>
+
+        <br>
+
+        <p class="list-description">
+          The following <span class="underlined">{{ micronationsCompareSources.missing.filter(micro =>
+      micro.micronationalMap.location.applicable).length }}</span> micronations from the map most likely don't yet
+          have an entry on TMD:
+        </p>
+        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+          <PlacemarkEntry
+            v-for="(item, i) in micronationsCompareSources.missing.filter(micro => micro.micronationalMap.location.applicable)"
+            :key="i" :present="false" :placemark-info="item" />
         </div>
       </div>
-      <form class="panel-section" @submit.prevent>
-        <input v-model="KMLlink" id="KMLlink" type="url" placeholder="Paste the map's URL here">
-        <textarea v-model="KMLfile" id="KMLfile" name="KMLfile" cols="30" rows="10"
-          placeholder="Paste the entire content of the KML file here."></textarea>
-        <button class="login-button color-transition short" @click="processKML">Process KML file</button>
-      </form>
     </div>
-
-    <br>
-
-    <div class="site-section">
-      <p class="list-description">
-        The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-    micro.micronationalMap.location.applicable && micro.location._lat === 0).length }}</span> micronations from
-        the map seem to be <b style="color: green;">present</b> with an entry on TMD that <b style="color: red;">DOES
-          NOT</b> have location info:
-      </p>
-      <div id="micronationsList" class="micronations-list" ref="micronationsList">
-        <PlacemarkEntry
-          v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat === 0)"
-          :key="i" :present="true" :placemark-info="item" />
-      </div>
-
-      <br>
-
-      <p class="list-description">
-        The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-    micro.micronationalMap.location.applicable && micro.location._lat !== 0).length }}</span> micronations from
-        the map seem to be <b style="color: green;">present</b> with an entry on TMD that already has preexisting
-        location
-        info:
-      </p>
-      <div id="micronationsList" class="micronations-list" ref="micronationsList">
-        <PlacemarkEntry
-          v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat !== 0)"
-          :key="i" :present="true" :placemark-info="item" />
-      </div>
-
-      <br>
-
-      <p class="list-description">
-        The following <span class="underlined">{{ micronationsCompareSources.missing.filter(micro =>
-    micro.micronationalMap.location.applicable).length }}</span> micronations from the map most likely don't yet
-        have an entry on TMD:
-      </p>
-      <div id="micronationsList" class="micronations-list" ref="micronationsList">
-        <PlacemarkEntry
-          v-for="(item, i) in micronationsCompareSources.missing.filter(micro => micro.micronationalMap.location.applicable)"
-          :key="i" :present="false" :placemark-info="item" />
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -200,6 +203,12 @@ export default {
 </script>
 
 <style scoped>
+.page-area {
+  background-color: var(--directory-settings-background-color);
+  padding: 12px;
+  border-radius: 8px;
+}
+
 #actionPanel {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -225,12 +234,18 @@ export default {
 }
 
 .micronations-list {
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
 .list-description {
   font-size: 18px;
+}
+
+@media (max-width: 1250px) {
+  .micronations-list {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
 }
 </style>
