@@ -15,7 +15,7 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <KeepAlive :include="['Home', 'Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation', 'News']">
+        <KeepAlive :include="['Home', 'Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation']">
           <component :is="Component" />
         </KeepAlive>
       </Transition>
@@ -43,6 +43,7 @@ import { version } from '../package.json';
         <option value="english">English</option>
       </select>
       <label for="darkModeCheckbox"><input id="darkModeCheckbox" type="checkbox" disabled checked>Dark mode</label>
+      <!-- <label class="footer-label margin-top">Cookie-free<br>website! ✅</label> -->
     </div>
 
     <a href="https://s01.flagcounter.com/more/n91V/" class="tab-router-link" target="_blank"><img
@@ -63,7 +64,7 @@ export default {
       navbarButtons: [
         { text: 'Home', icon: 'home.png', route: 'Home' },
         { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{text: 'Micronations', route: 'Directory'}, {text: 'Organizations', route: 'Organizations'}, {text: 'World map', route: 'GlobalMap'}, {text: 'New entry', route: 'NewEntry'}, {text: 'Moderation', route: 'Moderation'}] },
-        { text: 'Stats', icon: 'stats.png', route: 'Stats' },
+        { text: 'Stats', icon: 'stats.png', route: 'Stats', subButtons: [{text: 'Rankings and\ncontests', route: 'Stats'}] },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
         { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'Donate', route: 'Donate'}, {text: 'Contests T&C', route: 'TermsOfContests'}] }
       ]
@@ -143,6 +144,10 @@ footer label[for="darkModeCheckbox"] {
   font-weight: bold;
 }
 
+.footer-label.margin-top {
+  margin-top: 8px;
+}
+
 .social-media,
 .credits,
 .settings {
@@ -181,15 +186,5 @@ footer label[for="darkModeCheckbox"] {
   font-size: 15px;
   width: 177px;
   height: 27px;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

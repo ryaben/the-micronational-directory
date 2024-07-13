@@ -1,5 +1,24 @@
 @import './variables.css';
 
+/* Browser components styles */
+*::-webkit-scrollbar {
+  width: 11px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--vt-c-white);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--vt-c-indigo-dark);
+  border-radius: 20px;
+  border: 2px solid var(--vt-c-white);
+}
+
+/* Webapp styles */
+
 #app {
   max-width: none;
   min-width: calc(1024px - 4%);
@@ -9,6 +28,7 @@
 }
 
 body {
+  position: relative;
   color: var(--color-text);
   background: var(--color-background);
   line-height: 1.6;
@@ -191,16 +211,14 @@ textarea.login-input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
 }
 
 .scrollable-container {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: auto;
   border: 3px solid var(--vt-c-indigo);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 8px;
   min-height: 350px;
   max-height: 350px;
   overflow-y: scroll;
@@ -244,6 +262,16 @@ img.loading-image {
 }
 
 /* Vue transitions */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .opacity-enter-active,
 .opacity-leave-active {
