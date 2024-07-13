@@ -15,7 +15,7 @@ defineProps({
 
 <template>
   <router-link class="subbutton-router-link color-transition" :to="{ name: route }">
-    <p>{{ text }}</p>
+    <p class="subbutton-text">{{ text }}</p>
   </router-link>
 </template>
 
@@ -35,7 +35,7 @@ export default {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  height: 28px;
+  height: fit-content;
   background-color: var(--navbar-tab-background-color);
   border: 2px solid var(--navbar-tab-border-color);
   z-index: 100;
@@ -44,5 +44,10 @@ export default {
 .subbutton-router-link.router-link-active {
   background-color: var(--navbar-tab-background-color-hover);
   color: var(--navbar-text-color-hover);
+}
+
+.subbutton-text {
+  text-align: center;
+  margin: 4px auto 4px auto;
 }
 </style>
