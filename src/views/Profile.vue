@@ -57,9 +57,10 @@ import { notify } from '@kyvg/vue3-notification'
         </p>
         <p class="contributions-text">
           Your contribution:<br />
-          - <b>{{ userContributions }}</b> entries on the Directory ({{ percentageContributions }}%
+          - <b>{{ userContributions }}</b> micronation entries on the Directory ({{ percentageContributions }}%
           of the total).<br />
-          - <b>{{ user.contestsWon || 0 }}</b> contest(s) won on the platform.
+          - <b>{{ userOrganizationContributions }}</b> organization entries on the Directory ({{ percentageOrganizationContributions }}%
+          of the total).
         </p>
       </div>
       <form class="password-menu menu" v-show="passwordMenu" @submit.prevent="changePassword">
@@ -115,11 +116,20 @@ export default {
     micronationsDirectory() {
       return store.getters.micronations;
     },
+    organizationsDirectory() {
+      return store.getters.organizations;
+    },
     userContributions() {
       return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
     },
+    userOrganizationContributions() {
+      return this.countContributions(this.organizationsDirectory.filter((element) => element.approved), this.user.email);
+    },
     percentageContributions() {
       return ((this.userContributions * 100) / this.micronationsDirectory.filter((element) => element.approved).length).toFixed(2);
+    },
+    percentageOrganizationContributions() {
+      return ((this.userOrganizationContributions * 100) / this.organizationsDirectory.filter((element) => element.approved).length).toFixed(2);
     },
     moderatorsList() {
       return store.getters.moderators;
