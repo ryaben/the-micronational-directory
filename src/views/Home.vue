@@ -14,7 +14,6 @@ import Tweet from "vue-tweet";
       <div class="grid-column no-padding fixed">
         <Tweet tweet-id="1806869757930430633" theme="dark"><template v-slot:loading>Loading tweets...</template></Tweet>
         <Tweet tweet-id="1810669133278978511" theme="dark" />
-        <Tweet tweet-id="1806387092844380160" theme="dark" />
         <Tweet tweet-id="1798143137354842583" theme="dark" />
         <Tweet tweet-id="1763676546244423681" theme="dark" />
         <Tweet tweet-id="1759267756489199847" theme="dark" />
@@ -24,7 +23,6 @@ import Tweet from "vue-tweet";
         <Tweet tweet-id="1709033903229460701" theme="dark" />
         <Tweet tweet-id="1702059403506004428" theme="dark" />
         <Tweet tweet-id="1699201531675840814" theme="dark" />
-        <Tweet tweet-id="1697325411447742682" theme="dark" />
         <Tweet tweet-id="1692292135146394097" theme="dark" />
       </div>
       <div class="grid-column">
@@ -39,9 +37,7 @@ import Tweet from "vue-tweet";
           the human imagination or ambition, and some are even basically jokes. No matter the origin, they all share
           a common root: their founders and citizens <span class="italicized">
             "[...] claim that they belong to an independent nation or sovereign state, but which lacks legal
-            recognition
-            by world governments or major international
-            organizations [...]"</span>, as described by Wikipedia.
+            recognition by world governments or major international organizations [...]"</span>, as described by Wikipedia.
           <br><br>
           These small political entities are scattered all around the world. That means not only Earth, but also the
           digital realm and some even
@@ -63,7 +59,7 @@ import Tweet from "vue-tweet";
           Let's accomplish this together, leave your mark and create the place that our community deserves!
         </p>
       </div>
-      <div class="grid-column centered colored">
+      <div class="grid-column centered colored fixed">
         <p class="larger">Random featured entry:</p>
         <img v-if="randomEntry === undefined" class="loading-image" src="/images/loading.gif" alt="Loading">
         <DirectoryEntry id="randomEntry" v-if="randomEntry !== undefined" :info="{
@@ -168,5 +164,18 @@ export default {
 
 p.larger {
   font-size: 18px;
+}
+
+.grid-column:deep(div:first-of-type .twitter-tweet-rendered) {
+  margin-top: 0 !important;
+}
+
+.grid-column:deep(div:last-of-type .twitter-tweet-rendered) {
+  margin-bottom: 0 !important;
+}
+
+.grid-column:deep(div .twitter-tweet-rendered) {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
 }
 </style>
