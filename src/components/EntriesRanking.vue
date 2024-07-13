@@ -37,7 +37,7 @@ defineProps({
 
 <template>
     <div class="stats-container">
-        <h2>{{ title }}</h2>
+        <h2 class="container-title">{{ title }}</h2>
         <div v-if="tmdEntry" class="contributor-entry special">
             <p class="contributor-name">The Micronational Directory Team</p>
             <p class="contributor-contributions">{{ TMDContributions }}&nbsp;({{ TMDContributionsPercentage }}%)</p>
@@ -130,7 +130,11 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: auto;
+}
+
+.container-title {
+    text-align: center;
 }
 
 .contributor-entry {

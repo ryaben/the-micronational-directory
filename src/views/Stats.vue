@@ -9,90 +9,100 @@ import { auth } from '../firebase/init.js';
 <template>
     <section class="site-section">
         <div class="events-bar">
-            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able to
-                follow
-                up the terms and
-                everything related. In them, <b>users with most contributions will qualify for prizes</b>.
-                Carefully read the <router-link :to="'/terms-of-contests'">terms and conditions</router-link> to know
-                all the details. To check past contests, go right below on this page.
+            <p class="events-notice">
+                These are the rankings for most entries submitted, on both micronations and organizations directories.
+                We thank a lot all these users who participated on our platform by adding a piece of micronational
+                legacy
+                and history. Remember that anybody can participate on TMD! You just need to <router-link :to="'/login'">
+                    register and verify you account</router-link> and then head to our <router-link :to="'/new-entry'">
+                    new entry form</router-link>. Contributors that reach 50+ entries on The Micronational Directory are
+                featured on the <router-link :to="'/about'">'Special thanks'</router-link> section of our website!
             </p>
         </div>
-        <!-- <div class="tables-container">
-            <ContestOverview :contest-info="activeContest" />
-            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
-                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" />
-        </div> -->
-
-        <hr class="divider" />
-
         <div class="tables-container">
-            <div class="stats-container">
-                <div style="display: flex;">
-                    <p class="stats-entry main" :class="{ 'selected': selectedDirectory === 'micronations' }"
-                        @click="selectDirectory('micronations')">Total micronations: <b>{{
+            <div class="ranking-container">
+                <p class="stats-entry main">Total micronations: <b>{{
                     micronationsApprovedDirectory.length }}</b></p>
-                    <p class="stats-entry main" :class="{ 'selected': selectedDirectory === 'organizations' }"
-                        @click="selectDirectory('organizations')">Total organizations: <b>{{
-                    organizationsApprovedDirectory.length }}</b></p>
-                </div>
-                <h2>{{ selectedDirectory === 'micronations' ? 'Micronations' : 'Organizations' }} Directory Statistics</h2>
+                <EntriesRanking title="All-time Top Micronations Contributors" :tmd-entry="true"
+                    directory="micronations" :current-user-email="user.email" />
+            </div>
 
-                <div class="scrollable-container statistics-table directory">
+            <div class="ranking-container">
+                <p class="stats-entry main">Total organizations: <b>{{
+                    organizationsApprovedDirectory.length }}</b></p>
+                <EntriesRanking title="All-time Top Organizations Contributors" :tmd-entry="true"
+                    directory="organizations" :current-user-email="user.email" />
+            </div>
+
+            <!-- <div class="scrollable-container statistics-table directory">
                     <p class="table-header">Type</p>
                     <p class="table-header">Language</p>
                     <p class="table-header">Memberships</p>
 
                     <div class="table-values-container">
                         <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                    entry.amount
-                }}</b></p>
+                        entry.amount
+                    }}</b></p>
                     </div>
                     <div class="table-values-container">
                         <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                    entry.amount
-                }}</b></p>
+                        entry.amount
+                    }}</b></p>
                     </div>
                     <div class="table-values-container">
                         <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                    entry.amount }}</b></p>
+                        entry.amount }}</b></p>
                     </div>
-                </div>
-            </div>
-
-            <EntriesRanking v-if="selectedDirectory === 'micronations'" title="All-time Top Micronations Contributors"
-                :tmd-entry="true" directory="micronations" :current-user-email="user.email" />
-            <EntriesRanking v-if="selectedDirectory === 'organizations'" title="All-time Top Organizations Contributors"
-                :tmd-entry="true" directory="organizations" :current-user-email="user.email" />
+                </div> -->
         </div>
 
         <hr class="divider" />
 
+        <div class="events-bar">
+            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able
+                to follow up the terms and everything related. In them, <b>users with most contributions will qualify
+                    for prizes</b>. Carefully read the <router-link :to="'/terms-of-contests'">terms and
+                    conditions</router-link> to know all the details. To check past contests, check the table below
+                and click on any desired row.
+            </p>
+        </div>
+        <!-- <div class="tables-container">
+            <ContestOverview :contest-info="activeContest" />
+            <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
+                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" />
+            </div> -->
         <div class="tables-container">
-            <div class="stats-container">
-                <h2>Contests History</h2>
-                <div class="scrollable-container statistics-table directory">
-                    <p class="table-header">Event</p>
-                    <p class="table-header">Start date</p>
-                    <p class="table-header">End date</p>
+            <div class="ranking-container">
+                <div class="stats-container">
+                    <h2>Contests History</h2>
+                    <div class="scrollable-container statistics-table directory">
+                        <p class="table-header">Event</p>
+                        <p class="table-header">Start date</p>
+                        <p class="table-header">End date</p>
 
-                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable first"
-                        @click="selectedContest = contest">
-                        <p class="table-value">{{ contest.name }}</p>
-                    </div>
-                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable second"
-                        @click="selectedContest = contest">
-                        <p class="table-value">{{ new Date(contest.startDate.seconds * 1000).toDateString() }}</p>
-                    </div>
-                    <div v-for="(contest, i) in contestsList" :key="i" class="table-values-container clickable third"
-                        @click="selectedContest = contest">
-                        <p class="table-value">{{ new Date(contest.endDate.seconds * 1000).toDateString() }}</p>
+                        <div v-for="(contest, i) in contestsList" :key="i"
+                            class="table-values-container clickable first" @click="selectedContest = contest">
+                            <p class="table-value">{{ contest.name }}</p>
+                        </div>
+                        <div v-for="(contest, i) in contestsList" :key="i"
+                            class="table-values-container clickable second" @click="selectedContest = contest">
+                            <p class="table-value">{{ new Date(contest.startDate.seconds * 1000).toDateString() }}</p>
+                        </div>
+                        <div v-for="(contest, i) in contestsList" :key="i"
+                            class="table-values-container clickable third" @click="selectedContest = contest">
+                            <p class="table-value">{{ new Date(contest.endDate.seconds * 1000).toDateString() }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
-                :directory="selectedContest.directory" :start-timestamp="selectedContest.startDate.seconds"
-                :end-timestamp="selectedContest.endDate.seconds" :current-user-email="user.email" />
+            <div class="ranking-container">
+                <Transition name="fade">
+                    <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
+                        :directory="selectedContest.directory" :start-timestamp="selectedContest.startDate.seconds"
+                        :end-timestamp="selectedContest.endDate.seconds" :current-user-email="user.email" />
+                </Transition>
+            </div>
         </div>
     </section>
 </template>
@@ -106,8 +116,7 @@ export default {
     data() {
         return {
             user: {},
-            selectedContest: '',
-            selectedDirectory: 'micronations'
+            selectedContest: ''
         }
     },
     computed: {
@@ -121,13 +130,13 @@ export default {
             return store.getters.contests;
         },
         typeValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'type');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'type', 'descending');
         },
         languageValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'languages');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'languages', 'descending');
         },
         membershipValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships');
+            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships', 'descending');
         },
         activeContest() {
             return this.findContest('BJdYq4eegJuYLwz3lfvd');
@@ -141,7 +150,7 @@ export default {
                 }
             });
         },
-        collectDirectoryValues(array, propertyValue) {
+        collectDirectoryValues(array, propertyValue, sorting) {
             let collectedValues = [];
             let collectedValuesObject = {};
             let collectedValuesArray = [];
@@ -164,9 +173,16 @@ export default {
                 });
             }
 
-            collectedValuesArray.sort(function (a, b) {
-                return b.amount - a.amount;
-            });
+            switch (sorting) {
+                case 'ascending':
+                    collectedValuesArray.sort((a, b) => a.amount - b.amount);
+                    break;
+                case 'descending':
+                    collectedValuesArray.sort((a, b) => b.amount - a.amount);
+                    break;
+                default:
+                    break;
+            }
 
             return collectedValuesArray;
         },
@@ -174,9 +190,6 @@ export default {
             return this.contestsList.find(function (element) {
                 return element.id === contestId;
             });
-        },
-        selectDirectory(name) {
-            this.selectedDirectory = name;
         }
     },
     async mounted() {
@@ -203,6 +216,7 @@ hr.divider {
     justify-content: center;
     align-items: center;
     width: 80%;
+    margin-bottom: 25px;
 }
 
 .events-notice {
@@ -211,6 +225,19 @@ hr.divider {
 
 .tables-container {
     display: flex;
+    width: 100%;
+}
+
+#rankingsContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
@@ -266,6 +293,15 @@ hr.divider {
     border-bottom: 2px solid var(--vt-c-white);
 }
 
+.stats-container {
+    width: 80%;
+}
+
+.stats-container:deep(.contributors-ranking),
+.stats-container:deep(.statistics-table) {
+    width: 100%;
+}
+
 .stats-entry {
     font-size: 18px;
 }
@@ -276,18 +312,16 @@ hr.divider {
     padding: 3px 12px 3px 12px;
     border-radius: 8px;
     border: 2px solid var(--vt-c-white);
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     margin-right: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
+    width: fit-content;
 }
 
 .stats-entry.main:last-of-type {
     margin-right: 0;
 }
 
-.stats-entry.main.selected {
-    background-color: var(--vt-c-white);
-    color: var(--vt-c-black-soft);
+.half-sized {
+    width: 50%;
 }
 </style>
