@@ -40,7 +40,7 @@ defineProps({
       <SettingsSubcontainer text="Pages">
         <SettingsSubcontainerParameter :centered="true">
           <label>Entries/page</label>
-          <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="1000" type="number"
+          <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="10000" type="number"
             v-model="entriesPerPage" @input="pageElements()">
         </SettingsSubcontainerParameter>
         <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
