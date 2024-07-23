@@ -22,6 +22,16 @@ defineProps({
     required: false,
     default: store.getters.micronations
   },
+  subPropForFilter: {
+    type: Boolean,
+    required: false,
+    default: true
+  },
+  hiddenSubcontainers: {
+    type: Array,
+    required: false,
+    default: ['']
+  },
 });
 </script>
 
@@ -30,17 +40,17 @@ defineProps({
     <div class="directory-settings"
       :class="{ 'floating': (viewMode === 'micronations' || viewMode === 'collage' || viewMode === 'organizations') && scrollPosition > 500 }">
 
-      <SettingsSubcontainer class="matching-entries-container no-title no-min-width" text="Total">
+      <SettingsSubcontainer v-if="!hiddenSubcontainers.includes('Total')" class="matching-entries-container no-title no-min-width" text="Total">
         <SettingsSubcontainerParameter :centered="true">
           <label class="matching-entries-title">Matched<br>entries</label>
           <label class="matching-entries" style="height: 20px;">{{ visibleElements.length }}</label>
         </SettingsSubcontainerParameter>
       </SettingsSubcontainer>
 
-      <SettingsSubcontainer text="Pages">
+      <SettingsSubcontainer v-if="!hiddenSubcontainers.includes('Pages')" text="Pages">
         <SettingsSubcontainerParameter :centered="true">
           <label>Entries/page</label>
-          <input id="entriesPerPageInput" placeholder="Input an amount" min="1" max="10000" type="number"
+          <input id="entriesPerPageInput" placeholder="Input an amount" min="1" :max="maxTotalLoad" type="number"
             v-model="entriesPerPage" @input="pageElements()">
         </SettingsSubcontainerParameter>
         <SettingsSubcontainerParameter :centered="true" :border-left="true" :extra-margin-end="true">
@@ -61,7 +71,7 @@ defineProps({
         </SettingsSubcontainerParameter>
       </SettingsSubcontainer>
 
-      <SettingsSubcontainer text="Filter">
+      <SettingsSubcontainer v-if="!hiddenSubcontainers.includes('Filter')" text="Filter">
         <SettingsSubcontainerParameter>
           <label>Search</label>
           <label>Initial</label>
@@ -83,7 +93,7 @@ defineProps({
         </SettingsSubcontainerParameter>
       </SettingsSubcontainer>
 
-      <SettingsSubcontainer text="Sort">
+      <SettingsSubcontainer v-if="!hiddenSubcontainers.includes('Sort')" text="Sort">
         <SettingsSubcontainerParameter>
           <div>
             <input type="radio" id="sortA-Z" name="directory-sorting" value="ascending" v-model="entrySorting"
@@ -117,7 +127,7 @@ defineProps({
         </SettingsSubcontainerParameter>
       </SettingsSubcontainer>
 
-      <SettingsSubcontainer text="Display">
+      <SettingsSubcontainer v-if="!hiddenSubcontainers.includes('Display')" text="Display">
         <SettingsSubcontainerParameter :centered="true">
           <label ref="cardSizeLabel">Card size</label>
           <input type="range" min="50" max="350" class="settings-slider" id="zoomRange" ref="zoomRange"
@@ -133,7 +143,7 @@ defineProps({
         </SettingsSubcontainerParameter>
       </SettingsSubcontainer>
 
-      <SettingsSubcontainer text="Flags" v-if="viewMode === 'micronations' || viewMode === 'collage'">
+      <SettingsSubcontainer text="Flags" v-if="!hiddenSubcontainers.includes('Flags') && (viewMode === 'micronations' || viewMode === 'collage')">
         <SettingsSubcontainerParameter :centered="true">
           <div style="display: flex;">
             <input id="flagViewCheckbox" type="checkbox" v-model="flagView" @input="checkFlagView">
@@ -150,7 +160,8 @@ defineProps({
       <label>Loading Directory...</label>
     </div>
 
-    <p class="no-results" v-if="directoryLoaded && !pagedElements.length">There are no matching results for this filter.</p>
+    <p class="no-results" v-if="directoryLoaded && !pagedElements.length">There are no matching results for this filter.
+    </p>
   </div>
 </template>
 
@@ -174,6 +185,7 @@ export default {
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
+      maxTotalLoad: 10000,
       fixedHeight: false,
       fixedHeightValue: 400,
       entryWidth: 180,
@@ -226,8 +238,8 @@ export default {
       }
       if (this.entriesPerPage < 1) {
         this.entriesPerPage = 1;
-      } else if (this.entriesPerPage > 1000) {
-        this.entriesPerPage = 1000;
+      } else if (this.entriesPerPage > this.maxTotalLoad) {
+        this.entriesPerPage = this.maxTotalLoad;
       }
 
       this.emitDirectory();
@@ -262,8 +274,14 @@ export default {
       const that = this;
 
       array.forEach(function (element) {
-        if (element.approved && !letters.includes(that.normalizeString(element.name[propName].charAt(0)))) {
-          letters.push(that.normalizeString(element.name[propName].charAt(0)));
+        if (that.subPropForFilter) {
+          if (element.approved && !letters.includes(that.normalizeString(element.name[propName].charAt(0)))) {
+            letters.push(that.normalizeString(element.name[propName].charAt(0)));
+          }
+        } else {
+          if (element.approved && !letters.includes(that.normalizeString(element.name.charAt(0)))) {
+            letters.push(that.normalizeString(element.name.charAt(0)));
+          }
         }
       });
 

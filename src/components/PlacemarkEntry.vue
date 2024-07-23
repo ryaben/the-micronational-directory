@@ -113,17 +113,13 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--directory-entry-background-color);
+    background-color: var(--directory-entry-background-color);
     border-radius: 10px;
     padding: 8px;
     margin-bottom: 4px;
     margin-right: 4px;
     width: auto;
     overflow: hidden;
-}
-
-.map-micronation-container.present {
-    background-color: green;
 }
 
 .map-micronation-container div {

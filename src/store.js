@@ -8,7 +8,6 @@ const store = createStore({
         physicalMicronations: [],
         contests: [],
         organizations: [],
-        placemarks: [],
         moderators: [
             "themicronationaldirectory@gmail.com"
         ]
@@ -28,10 +27,7 @@ const store = createStore({
         },
         organizations(state) {
             return state.organizations;
-        },
-        placemarks(state) {
-            return state.placemarks;
-        },
+        }
     },
     mutations: {
         SET_MICRONATIONS(state, value) {
@@ -45,10 +41,7 @@ const store = createStore({
         },
         SET_ORGANIZATIONS(state, value) {
             state.organizations = value;
-        },
-        SET_PLACEMARKS(state, value) {
-            state.placemarks = value;
-        },
+        }
     },
     actions: {
         async getMicronations(context) {
@@ -78,17 +71,6 @@ const store = createStore({
             });
 
             context.commit('SET_ORGANIZATIONS', organizationsList);
-        },
-        async getPlacemarks(context) {
-            const q = query(collection(db, "placemarks"));
-            let placemarksList = [];
-
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                placemarksList.push({ id: doc.id, ...doc.data() });
-            });
-
-            context.commit('SET_PLACEMARKS', placemarksList);
         },
         async getContests(context) {
             const q = query(collection(db, "contests"));

@@ -368,7 +368,7 @@ export default {
 }
 
 #entryReject {
-  background-color: var(--intense-tone);
+  background-color: var(--failure-tone);
 }
 
 #entryApprove {

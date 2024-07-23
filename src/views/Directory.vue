@@ -22,28 +22,28 @@ import store from '../store';
               :flag-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations" :info="{
-          id: item.id,
-          name: {
-            main: item.name.main,
-            mainAlt: item.name.mainAlt,
-            title: item.name.title,
-            titleAlt: item.name.titleAlt
-          },
-          flag: item.flag,
-          motto: item.motto,
-          type: item.type,
-          languages: item.languages,
-          capital: item.capital,
-          currency: item.currency,
-          foundationDate: item.foundationDate,
-          location: item.location,
-          memberships: item.memberships,
-          contactInfo: item.contactInfo,
-          websites: item.websites,
-          author: item.author,
-          approved: item.approved,
-          creationDate: item.creationDate
-        }" />
+                id: item.id,
+                name: {
+                  main: item.name.main,
+                  mainAlt: item.name.mainAlt,
+                  title: item.name.title,
+                  titleAlt: item.name.titleAlt
+                },
+                flag: item.flag,
+                motto: item.motto,
+                type: item.type,
+                languages: item.languages,
+                capital: item.capital,
+                currency: item.currency,
+                foundationDate: item.foundationDate,
+                location: item.location,
+                memberships: item.memberships,
+                contactInfo: item.contactInfo,
+                websites: item.websites,
+                author: item.author,
+                approved: item.approved,
+                creationDate: item.creationDate
+              }" />
           </TransitionGroup>
         </div>
       </div>
@@ -109,9 +109,6 @@ export default {
     },
     updateEntryWidth(payload) {
       this.entryWidth = payload;
-    },
-    toggleDropdown(e) {
-      e.target.parentNode.classList.toggle('open');
     },
     scrollToTop() {
       window.scrollTo(0, 0);

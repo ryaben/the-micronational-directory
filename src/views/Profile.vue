@@ -55,6 +55,9 @@ import { notify } from '@kyvg/vue3-notification'
             session).</span
           >
         </p>
+        <p v-if="userIsModerator">
+          <span>You <b class="verified">are a moderator</b> and have moderation privileges.</span>
+        </p>
         <p class="contributions-text">
           Your contribution:<br />
           - <b>{{ userContributions }}</b> micronation entries on the Directory ({{ percentageContributions }}%
@@ -133,6 +136,9 @@ export default {
     },
     moderatorsList() {
       return store.getters.moderators;
+    },
+    userIsModerator() {
+      return this.moderatorsList.includes(this.user.email);
     }
   },
   methods: {
@@ -277,7 +283,7 @@ export default {
 }
 
 .not-verified {
-  color: var(--intense-tone);
+  color: var(--failure-tone);
 }
 
 .contributions-text {

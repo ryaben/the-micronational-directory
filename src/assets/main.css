@@ -150,6 +150,8 @@ button:disabled, input:disabled {
   font-weight: bold;
   border-radius: 12px;
   border-style: solid;
+  border-color: var(--vt-c-black);
+  border-width: 2px;
   background-color: var(--login-form-buttons-background-color);
   color: var(--login-form-buttons-text-color);
 }
@@ -259,6 +261,34 @@ img.loading-image {
   background-color: var(--vt-c-text-dark-2);
   color: var(--vt-c-indigo);
   cursor: pointer;
+}
+
+.page-area {
+  background-color: var(--directory-settings-background-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.page-area:last-of-type {
+  margin-bottom: 0;
+}
+
+div.directory-entry-container.stub {
+  background-color: var(--stub-tone);
+}
+
+div.directory-entry-container.poor {
+  background-color: var(--failure-tone);
+}
+
+div.directory-entry-container.present,
+div.map-micronation-container.present {
+  background-color: var(--success-tone);
+}
+
+div.directory-entry-container.selected {
+  outline: 5px solid var(--failure-tone);
 }
 
 /* Vue transitions */

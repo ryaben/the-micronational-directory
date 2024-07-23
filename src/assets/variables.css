@@ -18,9 +18,10 @@
 
   --triggerable: indianred;
 
-  --intense-tone: red;
+  --failure-tone: red;
   --success-tone: #356643;
   --star-color: #FC0;
+  --stub-tone: indianred;
 
   --gold: rgb(237, 207, 39);
   --gold-dark: rgb(162, 143, 32);
@@ -66,8 +67,8 @@
   --directory-entry-text-color: var(--vt-c-white-soft);
   --directory-entry-background-color: var(--vt-c-divider-dark-1);
 
-  --directory-contact-email-color: var(--intense-tone);
-  --directory-website-link-color: var(--intense-tone);
+  --directory-contact-email-color: var(--failure-tone);
+  --directory-website-link-color: var(--failure-tone);
 
   --login-form-background-color1: var(--vt-c-divider-dark-1);
   --login-form-background-color2: var(--vt-c-text-light-2);

@@ -286,9 +286,13 @@ hr.divider {
 }
 
 .table-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 10px 0 10px 0;
     width: 100%;
+    height: 45px;
     text-align: center;
     border-bottom: 2px solid var(--vt-c-white);
 }

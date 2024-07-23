@@ -1,16 +1,16 @@
 <script setup>
 import store from '../store';
-import { auth, db } from '../firebase/init.js';
-import { addDoc, collection } from "firebase/firestore";
+import { auth } from '../firebase/init.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import PlacemarkEntry from '../components/PlacemarkEntry.vue';
+import { placemarksDirectory } from '../assets/googleMyMapsSources';
 import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
 </script>
 
 <template>
   <section class="site-section">
-    <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="placemarksDirectory.length !== 0">
+    <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
       You don't have sufficient privileges in order to work with stored placemarks.
     </div>
 
@@ -36,13 +36,11 @@ import $ from 'jquery';
         </form>
       </div>
 
-      <br>
-
       <div class="page-area">
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
       micro.micronationalMap.location.applicable && micro.location._lat === 0).length }}</span> micronations from
-          the map seem to be <b style="color: green;">present</b> with an entry on TMD that <b style="color: red;">DOES
+          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b style="color: red;">DOES
             NOT</b> have location info:
         </p>
         <div id="micronationsList" class="micronations-list" ref="micronationsList">
@@ -56,9 +54,8 @@ import $ from 'jquery';
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
       micro.micronationalMap.location.applicable && micro.location._lat !== 0).length }}</span> micronations from
-          the map seem to be <b style="color: green;">present</b> with an entry on TMD that already has preexisting
-          location
-          info:
+          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has preexisting
+          location info:
         </p>
         <div id="micronationsList" class="micronations-list" ref="micronationsList">
           <PlacemarkEntry
@@ -99,9 +96,6 @@ export default {
     micronationsDirectory() {
       return store.getters.micronations;
     },
-    placemarksDirectory() {
-      return store.getters.placemarks;
-    },
     moderatorsList() {
       return store.getters.moderators;
     },
@@ -113,7 +107,7 @@ export default {
       let presentArray = [];
       let missingArray = []
 
-      this.placemarksDirectory.forEach(function (element) {
+      placemarksDirectory.forEach(function (element) {
         const check = that.micronationsDirectory.find(mic => that.normalizeString(element.name).includes(that.normalizeString(mic.name.main)));
 
         if (check !== undefined) {
@@ -134,7 +128,7 @@ export default {
     placemarkSources() {
       let sources = [{ url: 'url', name: 'name' }];
 
-      this.placemarksDirectory.forEach(function (element) {
+      placemarksDirectory.forEach(function (element) {
         if (sources.find(el => el.name === element.source.name) === undefined) {
           sources.push({ url: element.source.url, name: element.source.name })
         }
@@ -151,14 +145,15 @@ export default {
         name: $(cleanKML).find('Document name:eq(0)').text(),
         url: this.KMLlink
       }
+      let placemarksArray = [];
 
-      $(cleanKML).find('Placemark').each(async function (i, obj) {
+      $(cleanKML).find('Placemark').each(function (i, obj) {
         const checkName = $(this).find('name').text().replace(/>/g, '');
         const checkLong = $(this).find('Point coordinates').text().split(',')[0].trim();
         const checkLat = $(this).find('Point coordinates').text().split(',')[1];
         const checkFlag = $(this).find('description img').prop('src');
 
-        await addDoc(collection(db, "placemarks"), {
+        placemarksArray.push({
           source: {
             url: documentData.url,
             name: documentData.name
@@ -172,12 +167,13 @@ export default {
           description: $(this).find('description').text().replace(/>/g, ''),
           flag: checkFlag !== undefined ? checkFlag : '',
         });
-      }).promise().done(function () {
-        notify({
-          title: "Processing complete",
-          text: `All the placemarks from the KML file were added to TMD's database.`,
-          type: "success"
-        });
+      });
+
+      console.log(placemarksArray);
+      notify({
+        title: "Processing complete",
+        text: `All placemarks from the KML file have been processed. Check the console to download the array and add the elements to googleMyMapsSources.js.`,
+        type: "success"
       });
     },
     authListener() {
@@ -197,18 +193,11 @@ export default {
   },
   async mounted() {
     this.authListener();
-    await store.dispatch('getPlacemarks');
   }
 }
 </script>
 
 <style scoped>
-.page-area {
-  background-color: var(--directory-settings-background-color);
-  padding: 12px;
-  border-radius: 8px;
-}
-
 #actionPanel {
   display: grid;
   grid-template-columns: 1fr 1fr;

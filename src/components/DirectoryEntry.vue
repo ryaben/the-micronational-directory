@@ -310,7 +310,7 @@ export default {
 .info-buttons-container {
     display: flex;
     margin-top: 12px;
-    width: calc(100% + 28px);
+    width: calc(100% + 30px);
 }
 
 .info-button {

@@ -34,7 +34,7 @@ export default {
     width: fit-content;
     background-color: var(--vt-c-text-dark-2);
     padding: 3px;
-    margin: 3px 3px 0 0;
+    margin: 6px 3px 0 0;
 }
 
 .language-text {
@@ -44,7 +44,7 @@ export default {
 
 .remove-language {
     margin-left: 3px;
-    color: var(--intense-tone);
+    color: var(--failure-tone);
     cursor: pointer;
 }
 </style>

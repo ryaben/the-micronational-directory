@@ -78,12 +78,14 @@ import '@vuepic/vue-datepicker/dist/main.css';
       </label>
 
       <!-- los containers de new entry van acá con v-show="newEntryView" -->
-      <NewEntryForm class="new-entry-container" :entry-type="'micronation'" v-if="user.emailVerified && newMicronationView"
-        :directory-data="micronationsDirectory" :micronations-directory="micronationsDirectory"
-        :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-        :supranational-micronations="supranationalMicronations" />
-      <NewEntryForm class="new-entry-container" :entry-type="'organization'" v-if="user.emailVerified && newOrganizationView"
-        :micronations-directory="micronationsDirectory" :directory-data="organizationsDirectory" />
+      <NewEntryForm class="new-entry-container" :entry-type="'micronation'"
+        v-if="user.emailVerified && newMicronationView" :directory-data="micronationsDirectory"
+        :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
+        :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations"
+        :form-placeholders="formPlaceholder" />
+      <NewEntryForm class="new-entry-container" :entry-type="'organization'"
+        v-if="user.emailVerified && newOrganizationView" :micronations-directory="micronationsDirectory"
+        :directory-data="organizationsDirectory" />
     </div>
   </section>
 </template>
@@ -98,7 +100,23 @@ export default {
       user: {},
       newMicronationView: false,
       newOrganizationView: false,
-      componentKey: 0
+      componentKey: 0,
+      formPlaceholder: {
+        newEntryName: '',
+        newEntryNameAlt: '',
+        newEntryTitle: '',
+        newEntryTitleAlt: '',
+        newEntryTypePhysical: false,
+        newEntryTypeDigital: true,
+        newEntryTypeFictional: false,
+        newEntryMotto: '',
+        newEntryCapital: '',
+        newEntryCurrency: '',
+        newEntryLanguages: [],
+        newEntryMemberships: [],
+        newEntryEmails: [],
+        newEntryWebsites: []
+      }
     };
   },
   computed: {

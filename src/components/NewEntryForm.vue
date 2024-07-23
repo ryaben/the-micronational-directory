@@ -25,8 +25,29 @@ defineProps({
         type: Array,
         required: true,
         default: [
-            {}
+
         ]
+    },
+    formPlaceholders: {
+        type: Object,
+        required: false,
+        default: {
+            newEntryFlag: '',
+            newEntryName: '',
+            newEntryNameAlt: '',
+            newEntryTitle: '',
+            newEntryTitleAlt: '',
+            newEntryTypePhysical: false,
+            newEntryTypeDigital: true,
+            newEntryTypeFictional: false,
+            newEntryMotto: '',
+            newEntryCapital: '',
+            newEntryCurrency: '',
+            newEntryLanguages: [],
+            newEntryMemberships: [],
+            newEntryEmails: [],
+            newEntryWebsites: []
+        },
     },
     micronationsDirectory: {
         type: Array,
@@ -55,11 +76,13 @@ defineProps({
     <Transition name="opacity">
         <div class="new-entry-container">
             <div style="display: flex; flex-direction: column; width: 70%;">
-                <p>Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to fill,
+                <p>Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to
+                    fill,
                     the others can be blank.
-                    <br>Help us save moderation efforts! <a
-                        href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and check the
-                    preview on the right.</p>
+                    <br>Help us save moderation efforts! <a href="mailto:themicronationaldirectory@gmail.com">Ask any
+                        question</a> if needed, and check the
+                    preview on the right.
+                </p>
 
                 <form class="listing-new-entry" @submit.prevent="addEntry">
                     <div class="new-entry-form">
@@ -70,58 +93,64 @@ defineProps({
                         </Transition>
 
                         <label for="newEntryName" class="new-entry-form-text mandatory">
-                            Name* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 0 ? '' : activateTooltip(0, 'Name', $event)">
+                            Name* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 0 ? '' : activateTooltip(0, 'Name', $event)">
                         </label>
-                        <input type="text" id="newEntryName" v-model="newEntryForm.newEntryName" required
+                        <input type="text" id="newEntryName" v-model="formPlaceholders.newEntryName" required
                             :placeholder="entryType === 'micronation' ? `E.g. 'Sealand' (just the short form)` : `E.g. League of Micronations (full name)`">
 
                         <label v-if="entryType === 'micronation'" for="newEntryTitle"
                             class="new-entry-form-text mandatory">
-                            Title <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 1 ? '' : activateTooltip(1, 'Title', $event)">
+                            Title <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 1 ? '' : activateTooltip(1, 'Title', $event)">
                         </label>
                         <input v-if="entryType === 'micronation'" type="text" id="newEntryTitle"
-                            v-model="newEntryForm.newEntryTitle"
+                            v-model="formPlaceholders.newEntryTitle"
                             placeholder="E.g. 'Principality of' (just the descriptive name only)">
 
                         <label for="newEntryNameAlt" class="new-entry-form-text">
                             {{ entryType === 'micronation' ? 'Alternative name' : 'Acronym*' }}
-                            <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Alternative name', $event)">
+                            <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Alternative name', $event)">
                         </label>
-                        <input type="text" id="newEntryNameAlt" v-model="newEntryForm.newEntryNameAlt"
+                        <input type="text" id="newEntryNameAlt" v-model="formPlaceholders.newEntryNameAlt"
                             :placeholder="entryType === 'micronation' ? 'Second option for name, e.g. in another language' : 'Acronym of the organization, e.g. LoM'">
 
-                        <label v-if="entryType === 'micronation'" for="newEntryTitleAlt"
-                            class="new-entry-form-text">
-                            Alternative title <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 3 ? '' : activateTooltip(3, 'Alternative title', $event)">
+                        <label v-if="entryType === 'micronation'" for="newEntryTitleAlt" class="new-entry-form-text">
+                            Alternative title <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 3 ? '' : activateTooltip(3, 'Alternative title', $event)">
                         </label>
                         <input v-if="entryType === 'micronation'" type="text" id="newEntryTitleAlt"
-                            v-model="newEntryForm.newEntryTitleAlt"
+                            v-model="formPlaceholders.newEntryTitleAlt"
                             placeholder="Second option for title, e.g. in another language">
 
                         <label for="newEntryMotto" class="new-entry-form-text mandatory">
-                            Motto <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 4 ? '' : activateTooltip(4, 'Motto', $event)">
+                            Motto <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 4 ? '' : activateTooltip(4, 'Motto', $event)">
                         </label>
-                        <input type="text" id="newEntryMotto" v-model="newEntryForm.newEntryMotto"
+                        <input type="text" id="newEntryMotto" v-model="formPlaceholders.newEntryMotto"
                             placeholder="E.g. 'In God we trust' (add without quotes)">
 
                         <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory">
-                            Type* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 5 ? '' : activateTooltip(5, 'Type', $event)">
+                            Type* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 5 ? '' : activateTooltip(5, 'Type', $event)">
                         </label>
                         <div v-if="entryType === 'micronation'" class="new-entry-type">
-                            <input type="checkbox" id="typePhysical" v-model="newEntryForm.newEntryTypePhysical"
+                            <input type="checkbox" id="typePhysical" v-model="formPlaceholders.newEntryTypePhysical"
                                 name="new-entry-type" value="physical" @change="updatePhysicalType"
                                 @click="renderedMapboxNewEntry = true">
                             <label for="typePhysical">Physical</label>
-                            <input type="checkbox" id="typeDigital" v-model="newEntryForm.newEntryTypeDigital"
+                            <input type="checkbox" id="typeDigital" v-model="formPlaceholders.newEntryTypeDigital"
                                 name="new-entry-type" value="digital" checked>
                             <label for="typeDigital">Digital</label>
-                            <input type="checkbox" id="typeFictional" v-model="newEntryForm.newEntryTypeFictional"
+                            <input type="checkbox" id="typeFictional" v-model="formPlaceholders.newEntryTypeFictional"
                                 name="new-entry-type" value="fictional">
                             <label for="typeFictional">Fictional</label>
                         </div>
 
                         <label for="newEntryLanguages" class="new-entry-form-text mandatory">
-                            Official languages* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 6 ? '' : activateTooltip(6, 'Official languages', $event)">
+                            Official languages* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 6 ? '' : activateTooltip(6, 'Official languages', $event)">
                         </label>
                         <div class="new-entry-option-container">
                             <div style="display: flex;">
@@ -140,29 +169,30 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top"
-                                    v-for="(language, i) in newEntryForm.newEntryLanguages" :key="i"
+                                    v-for="(language, i) in formPlaceholders.newEntryLanguages" :key="i"
                                     :lang-text="language" @remove-language="removeLanguage(language)" />
                             </div>
                         </div>
 
-                        <label v-if="entryType === 'micronation'" for="newEntryCapital"
-                            class="new-entry-form-text">
-                            Capital <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 7 ? '' : activateTooltip(7, 'Capital', $event)">
+                        <label v-if="entryType === 'micronation'" for="newEntryCapital" class="new-entry-form-text">
+                            Capital <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 7 ? '' : activateTooltip(7, 'Capital', $event)">
                         </label>
                         <input v-if="entryType === 'micronation'" type="text" id="newEntryCapital"
-                            v-model="newEntryForm.newEntryCapital"
+                            v-model="formPlaceholders.newEntryCapital"
                             placeholder="City, place or building officiating as capital">
 
-                        <label v-if="entryType === 'micronation'" for="newEntryCurrency"
-                            class="new-entry-form-text">
-                            Currency <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 8 ? '' : activateTooltip(8, 'Currency', $event)">
+                        <label v-if="entryType === 'micronation'" for="newEntryCurrency" class="new-entry-form-text">
+                            Currency <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 8 ? '' : activateTooltip(8, 'Currency', $event)">
                         </label>
                         <input v-if="entryType === 'micronation'" type="text" id="newEntryCurrency"
-                            v-model="newEntryForm.newEntryCurrency"
+                            v-model="formPlaceholders.newEntryCurrency"
                             placeholder="Official currency of the micronation, just name and not symbol">
 
                         <label for="newEntryFoundation" class="new-entry-form-text mandatory">
-                            Foundation* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 9 ? '' : activateTooltip(9, 'Foundation', $event)">
+                            Foundation* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 9 ? '' : activateTooltip(9, 'Foundation', $event)">
                         </label>
                         <VueDatePicker v-model="foundationDate" month-name-format="long"
                             :flow="['year', 'month', 'calendar']" :utc="'preserve'" :timezone="'UTC'"
@@ -170,7 +200,8 @@ defineProps({
 
                         <label v-if="entryType === 'micronation'" v-show="physicalType"
                             class="new-entry-form-text mandatory">
-                            Location <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)">
+                            Location <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)">
                         </label>
                         <div v-if="entryType === 'micronation'" v-show="physicalType">
                             <label v-show="physicalType">Drag and drop the blue pin to the location of the
@@ -180,9 +211,9 @@ defineProps({
                                 mode="picker" width="100%" height="300px" @dragged-marker="draggedMarker" />
                         </div>
 
-                        <label v-if="entryType === 'micronation'" for="newEntryMemberships"
-                            class="new-entry-form-text">
-                            Memberships <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)">
+                        <label v-if="entryType === 'micronation'" for="newEntryMemberships" class="new-entry-form-text">
+                            Memberships <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)">
                         </label>
                         <div v-if="entryType === 'micronation'" class="new-entry-option-container">
                             <div style="display: flex;">
@@ -204,13 +235,14 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top"
-                                    v-for="(membership, i) in newEntryForm.newEntryMemberships" :key="i"
+                                    v-for="(membership, i) in formPlaceholders.newEntryMemberships" :key="i"
                                     :lang-text="membership" @remove-language="removeMembership" />
                             </div>
                         </div>
 
                         <label for="newEntryEmails" class="new-entry-form-text mandatory">
-                            Contact media* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 12 ? '' : activateTooltip(12, 'Contact media', $event)">
+                            Contact media* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 12 ? '' : activateTooltip(12, 'Contact media', $event)">
                         </label>
                         <div class="new-entry-option-container">
                             <div style="display: flex;">
@@ -221,13 +253,14 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top"
-                                    v-for="(contact, i) in newEntryForm.newEntryEmails" :key="i"
+                                    v-for="(contact, i) in formPlaceholders.newEntryEmails" :key="i"
                                     :lang-text="checkIcon(contact)" @remove-language="removeEmail(contact)" />
                             </div>
                         </div>
 
                         <label for="newEntryWebsites" class="new-entry-form-text mandatory">
-                            Info sources* <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 13 ? '' : activateTooltip(13, 'Info sources', $event)">
+                            Info sources* <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 13 ? '' : activateTooltip(13, 'Info sources', $event)">
                         </label>
                         <div class="new-entry-option-container">
                             <div style="display: flex;">
@@ -238,20 +271,34 @@ defineProps({
                             </div>
                             <div class="selected-languages-container">
                                 <SelectedLanguage class="selection margin-top"
-                                    v-for="(website, i) in newEntryForm.newEntryWebsites" :key="i"
+                                    v-for="(website, i) in formPlaceholders.newEntryWebsites" :key="i"
                                     :lang-text="checkIcon(website)" @remove-language="removeWebsite(website)" />
                             </div>
                         </div>
 
                         <label for="newEntryFlag" class="new-entry-form-text mandatory">
                             {{ entryType === 'micronation' ? 'Flag*' : 'Logo*' }}
-                            <img src="/images/info.png" alt='info' class="tooltip-activator" @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)">
+                            <img src="/images/info.png" alt='info' class="tooltip-activator"
+                                @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)">
                         </label>
                         <div class="flag-preview-container">
-                            <input type="file" @change="previewImage" accept="image/png" required>
-                            <br>
+                            <div style="display: flex; margin-bottom: 5px;">
+                                <label class="flag-radio">
+                                    <input v-model="flagRadio" type="radio" name="flagRadio" value="file">
+                                    <span>Local file</span>
+                                </label>
+                                <label class="flag-radio">
+                                    <input v-model="flagRadio" type="radio" name="flagRadio" value="url">
+                                    <span>External URL</span>
+                                </label>
+                            </div>
+                            <input v-model="formPlaceholders.newEntryFlag" v-if="flagRadio === 'url'"
+                                name="flagImage" type="url" ref="flagURLInput" @input="displayImage($event.target.value)"
+                                placeholder="Input a direct link to an external image" required>
+                            <input v-if="flagRadio === 'file'" type="file" @input="previewImage" accept="image/png"
+                                required>
                             <label for="">(if N/A or unobtainable: <a href="/images/missing-flag.png"
-                                    target="_blank">download and apply this template</a>)
+                                    target="_blank">download or use the URL to this template</a>)
                             </label>
                         </div>
 
@@ -274,36 +321,36 @@ defineProps({
                     :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
                     :supranational-micronations="supranationalMicronations" :info="{
                     name: {
-                        main: newEntryForm.newEntryName,
-                        mainAlt: newEntryForm.newEntryNameAlt,
-                        title: newEntryForm.newEntryTitle,
-                        titleAlt: newEntryForm.newEntryTitleAlt
+                        main: formPlaceholders.newEntryName,
+                        mainAlt: formPlaceholders.newEntryNameAlt,
+                        title: formPlaceholders.newEntryTitle,
+                        titleAlt: formPlaceholders.newEntryTitleAlt
                     },
                     flag: flagPreview,
-                    motto: newEntryForm.newEntryMotto,
+                    motto: formPlaceholders.newEntryMotto,
                     type: checkTypes,
-                    languages: newEntryForm.newEntryLanguages,
-                    capital: newEntryForm.newEntryCapital,
-                    currency: newEntryForm.newEntryCurrency,
+                    languages: formPlaceholders.newEntryLanguages,
+                    capital: formPlaceholders.newEntryCapital,
+                    currency: formPlaceholders.newEntryCurrency,
                     foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
-                    memberships: newEntryForm.newEntryMemberships,
-                    contactInfo: newEntryForm.newEntryEmails,
-                    websites: newEntryForm.newEntryWebsites,
+                    memberships: formPlaceholders.newEntryMemberships,
+                    contactInfo: formPlaceholders.newEntryEmails,
+                    websites: formPlaceholders.newEntryWebsites,
                     approved: true
                 }" />
                 <OrganizationEntry v-if="entryType === 'organization'" :initial-info-view="true" :width="180"
                     :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory"
                     :info="{
                     name: {
-                        main: newEntryForm.newEntryName,
-                        mainAlt: newEntryForm.newEntryNameAlt
+                        main: formPlaceholders.newEntryName,
+                        mainAlt: formPlaceholders.newEntryNameAlt
                     },
                     logo: flagPreview,
-                    motto: newEntryForm.newEntryMotto,
-                    languages: newEntryForm.newEntryLanguages,
+                    motto: formPlaceholders.newEntryMotto,
+                    languages: formPlaceholders.newEntryLanguages,
                     foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
-                    contactInfo: newEntryForm.newEntryEmails,
-                    websites: newEntryForm.newEntryWebsites,
+                    contactInfo: formPlaceholders.newEntryEmails,
+                    websites: formPlaceholders.newEntryWebsites,
                     approved: true
                 }" />
             </div>
@@ -325,25 +372,10 @@ export default {
     },
     data: () => {
         return {
-            newEntryForm: {
-                newEntryName: '',
-                newEntryNameAlt: '',
-                newEntryTitle: '',
-                newEntryTitleAlt: '',
-                newEntryTypePhysical: false,
-                newEntryTypeDigital: true,
-                newEntryTypeFictional: false,
-                newEntryMotto: '',
-                newEntryCapital: '',
-                newEntryCurrency: '',
-                newEntryLanguages: [],
-                newEntryMemberships: [],
-                newEntryEmails: [],
-                newEntryWebsites: []
-            },
             foundationDate: null,
             flagSource: '',
             flagPreview: '',
+            flagRadio: 'file',
             passedRecaptcha: false,
             customLanguage: '',
             customMembership: '',
@@ -360,14 +392,14 @@ export default {
             tooltipTitle: '',
             tooltipTexts: [
                 "This should be the most common, shortest variant of the name, barely the proper name itself. Take 'Sealand', 'Hutt River' or 'Denmark' as examples. Ideally, use the main official language version or an English one if available.",
-                "Here, the descriptive rest of the full name's composition should be added, excluding the main name added above. Barely 'Principality of' or 'Republic of' are some examples of proper cases. There may be some cases, like 'Athenian Republic', in which this field remains blank and only 'Name' is filled.",
+                "Here, the descriptive rest of the full name's composition should be added, excluding the main name added above. Barely 'Principality of' or 'Republic of' are some examples of proper cases. There may be some cases, like 'Athenian Republic', in which this field remains blank and only 'Name' is filled. Avoid adding 'The' and words that serve the same meaning at the beginning.",
                 "An additional, secondary version of the main name. This field is useful when a micronation has several official names in different languages. A clear example would be 'Insulo de la Rozoj' (while 'Rose Island' goes on 'Name')",
                 "Same as 'Title', but input it in another language. To follow above's example, 'Respubliko de la' could be placed here.",
                 "Official, national motto. Be sure to NOT add quotes of any kind. The proper way to populate the field is placing the motto in whatever language it is, and then adding the English translation between parenthesis if available. For instance, a valid input is: Vivat Rex (Long Live the King).",
                 "The 'Type' of the micronation applies in regard of its kind of (non) territorial claim. Micronations that claim territory on Earth or other real-world elements are 'Physical', the ones that exist solely on the Internet and don't have actual land pretensions are 'Digital', while cases that live on simulated or fantasy worlds are 'Fictional'. More than one type can be checked, for sure.",
                 "Official languages spoken. Can be also extended to other national and/or recognized languages. If there isn't any, place the de facto language or the one used by representatives on websites and social media.",
                 "Physical, digital or fictional city or any kind of place officiating as the micronation's capital. If there's more than one, then add all of them separated by commas.",
-                "Currency (or currencies) legally adopted and accepted, they could be purported as well, either physical and digital. Some micronations even include macronational fiat currencies, and they are applicable as well. If there's more than one, then add all of them separated by commas.",
+                "Currency (or currencies) legally adopted and accepted, they could be purported as well, either physical and digital. Some micronations even include macronational fiat currencies, and they are applicable as well. If there's more than one, then add all of them separated by commas. DO NOT include their symbols between parenthesis, e.g. (K$).",
                 "The full founding date. If there's not enough information to input a full date, select the first day of the available timespan data. For instance, if it's only known that it was founded on 1997, input January 1, 1997. If a foundation is stated on August, 2004, select August 1, 2004.",
                 "The micronation's location of its territorial claims. There is no possibility for selecting polygonal ranges, only geopoint pins. So, for large territorial claims, you can mark the capital or even the leader's approximate location. In any case not applicable, just leave the blue pin as is.",
                 "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinction cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
@@ -377,6 +409,11 @@ export default {
             ],
             activeTooltipText: 0
         };
+    },
+    watch: {
+        formPlaceholders(newValue) {
+            this.displayImage(newValue.newEntryFlag);
+        }
     },
     computed: {
         listLanguages() {
@@ -394,31 +431,24 @@ export default {
         },
         checkTypes() {
             let typesArray = [];
-            if (this.newEntryForm.newEntryTypePhysical) {
+            if (this.formPlaceholders.newEntryTypePhysical) {
                 typesArray.push('Physical');
             }
-            if (this.newEntryForm.newEntryTypeDigital) {
+            if (this.formPlaceholders.newEntryTypeDigital) {
                 typesArray.push('Digital');
             }
-            if (this.newEntryForm.newEntryTypeFictional) {
+            if (this.formPlaceholders.newEntryTypeFictional) {
                 typesArray.push('Fictional');
             }
 
             return typesArray;
-        },
-        returnLanguagesValues() {
-            try {
-                return this.newEntryForm.newMembershipsLanguages.split('\n');
-            } catch {
-                return this.newEntryForm.newMembershipsLanguages;
-            }
-        },
+        }
     },
     methods: {
         async addEntry() {
             const that = this;
 
-            if (this.newEntryForm.newEntryWebsites.length === 0) {
+            if (this.formPlaceholders.newEntryWebsites.length === 0) {
                 return notify({
                     title: "Error when submitting",
                     text: "No info source link was provided. It's mandatory to include at least one to validate all the info that was input.",
@@ -426,7 +456,7 @@ export default {
                 });
             }
 
-            if (this.newEntryForm.newEntryLanguages.length === 0) {
+            if (this.formPlaceholders.newEntryLanguages.length === 0) {
                 return notify({
                     title: "Error when submitting",
                     text: "No official languages were added. If there aren't any, add the main one used within the micronation.",
@@ -434,7 +464,7 @@ export default {
                 });
             }
 
-            if (this.searchElement(this.newEntryForm.newEntryName) === undefined) {
+            if (this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
                 switch (this.entryType) {
                     case 'micronation':
                         let physicalLocation;
@@ -450,26 +480,26 @@ export default {
                                 break;
                         }
 
-                        this.uploadFlag(this.newEntryForm.newEntryName, 'flags', function (fileName) {
+                        this.uploadFlag(this.formPlaceholders.newEntryName, 'flags', function (fileName) {
                             that.generateFlagReference(fileName, 'flags', async function (flagReference) {
-                                await setDoc(doc(db, "micronations", that.newEntryForm.newEntryName), {
+                                await setDoc(doc(db, "micronations", that.formPlaceholders.newEntryName), {
                                     name: {
-                                        main: that.newEntryForm.newEntryName,
-                                        mainAlt: that.newEntryForm.newEntryNameAlt,
-                                        title: that.newEntryForm.newEntryTitle,
-                                        titleAlt: that.newEntryForm.newEntryTitleAlt
+                                        main: that.formPlaceholders.newEntryName,
+                                        mainAlt: that.formPlaceholders.newEntryNameAlt,
+                                        title: that.formPlaceholders.newEntryTitle,
+                                        titleAlt: that.formPlaceholders.newEntryTitleAlt
                                     },
                                     flag: flagReference,
-                                    motto: that.newEntryForm.newEntryMotto,
+                                    motto: that.formPlaceholders.newEntryMotto,
                                     type: that.checkTypes,
-                                    languages: that.newEntryForm.newEntryLanguages,
-                                    capital: that.newEntryForm.newEntryCapital,
-                                    currency: that.newEntryForm.newEntryCurrency,
+                                    languages: that.formPlaceholders.newEntryLanguages,
+                                    capital: that.formPlaceholders.newEntryCapital,
+                                    currency: that.formPlaceholders.newEntryCurrency,
                                     foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
                                     location: physicalLocation,
-                                    memberships: that.newEntryForm.newEntryMemberships,
-                                    contactInfo: that.newEntryForm.newEntryEmails,
-                                    websites: that.newEntryForm.newEntryWebsites,
+                                    memberships: that.formPlaceholders.newEntryMemberships,
+                                    contactInfo: that.formPlaceholders.newEntryEmails,
+                                    websites: that.formPlaceholders.newEntryWebsites,
                                     author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
                                     approved: false,
                                     creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
@@ -481,19 +511,19 @@ export default {
                         });
                         break;
                     case 'organization':
-                        this.uploadFlag(this.newEntryForm.newEntryName, 'organizations', function (fileName) {
+                        this.uploadFlag(this.formPlaceholders.newEntryName, 'organizations', function (fileName) {
                             that.generateFlagReference(fileName, 'organizations', async function (flagReference) {
-                                await setDoc(doc(db, "organizations", that.newEntryForm.newEntryName), {
+                                await setDoc(doc(db, "organizations", that.formPlaceholders.newEntryName), {
                                     name: {
-                                        main: that.newEntryForm.newEntryName,
-                                        mainAlt: that.newEntryForm.newEntryNameAlt
+                                        main: that.formPlaceholders.newEntryName,
+                                        mainAlt: that.formPlaceholders.newEntryNameAlt
                                     },
                                     logo: flagReference,
-                                    motto: that.newEntryForm.newEntryMotto,
-                                    languages: that.newEntryForm.newEntryLanguages,
+                                    motto: that.formPlaceholders.newEntryMotto,
+                                    languages: that.formPlaceholders.newEntryLanguages,
                                     foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
-                                    contactInfo: that.newEntryForm.newEntryEmails,
-                                    websites: that.newEntryForm.newEntryWebsites,
+                                    contactInfo: that.formPlaceholders.newEntryEmails,
+                                    websites: that.formPlaceholders.newEntryWebsites,
                                     author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
                                     approved: false,
                                     creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
@@ -551,22 +581,22 @@ export default {
         addLanguage(event) {
             const lang = event.target.value;
 
-            if (this.newEntryForm.newEntryLanguages.find(e => e === lang || (lang === 'custom' && e === this.customLanguage)) === undefined) {
+            if (this.formPlaceholders.newEntryLanguages.find(e => e === lang || (lang === 'custom' && e === this.customLanguage)) === undefined) {
                 if (lang === 'custom') {
-                    this.newEntryForm.newEntryLanguages.push(this.customLanguage);
+                    this.formPlaceholders.newEntryLanguages.push(this.customLanguage);
                 } else {
-                    this.newEntryForm.newEntryLanguages.push(lang);
+                    this.formPlaceholders.newEntryLanguages.push(lang);
                 }
             }
         },
         addMembership(event) {
             const lang = event.target.value;
 
-            if (this.newEntryForm.newEntryMemberships.find(e => e === lang || (lang === 'custom' && e === this.customMembership)) === undefined) {
+            if (this.formPlaceholders.newEntryMemberships.find(e => e === lang || (lang === 'custom' && e === this.customMembership)) === undefined) {
                 if (lang === 'custom') {
-                    this.newEntryForm.newEntryMemberships.push(this.customMembership);
+                    this.formPlaceholders.newEntryMemberships.push(this.customMembership);
                 } else {
-                    this.newEntryForm.newEntryMemberships.push(lang);
+                    this.formPlaceholders.newEntryMemberships.push(lang);
                 }
             }
         },
@@ -575,7 +605,7 @@ export default {
             if (auth.currentUser.email !== 'themicronationaldirectory@gmail.com') {
                 emailjs.send("service_gd9nz5x", "template_wnd0ghn", {
                     user: auth.currentUser.email,
-                    micronation: that.newEntryForm.newEntryName,
+                    micronation: that.formPlaceholders.newEntryName,
                 },
                     "P8-p_r-gTZedo_h84");
             }
@@ -604,23 +634,23 @@ export default {
             });
         },
         removeLanguage(value) {
-            this.newEntryForm.newEntryLanguages.splice(this.newEntryForm.newEntryLanguages.indexOf(value), 1);
+            this.formPlaceholders.newEntryLanguages.splice(this.formPlaceholders.newEntryLanguages.indexOf(value), 1);
         },
         removeMembership(value) {
-            this.newEntryForm.newEntryMemberships.splice(this.newEntryForm.newEntryMemberships.indexOf(value), 1);
+            this.formPlaceholders.newEntryMemberships.splice(this.formPlaceholders.newEntryMemberships.indexOf(value), 1);
         },
         removeEmail(value) {
-            this.newEntryForm.newEntryEmails.splice(this.newEntryForm.newEntryEmails.indexOf(value), 1);
+            this.formPlaceholders.newEntryEmails.splice(this.formPlaceholders.newEntryEmails.indexOf(value), 1);
         },
         removeWebsite(value) {
-            this.newEntryForm.newEntryWebsites.splice(this.newEntryForm.newEntryWebsites.indexOf(value), 1);
+            this.formPlaceholders.newEntryWebsites.splice(this.formPlaceholders.newEntryWebsites.indexOf(value), 1);
         },
         addEmail(value) {
-            this.newEntryForm.newEntryEmails.push(value);
+            this.formPlaceholders.newEntryEmails.push(value);
             this.currentEmail = "";
         },
         addWebsite(value) {
-            this.newEntryForm.newEntryWebsites.push(value);
+            this.formPlaceholders.newEntryWebsites.push(value);
             this.currentWebsite = "";
         },
         draggedMarker(newPosition) {
@@ -632,6 +662,15 @@ export default {
         previewImage(event) {
             this.flagSource = event.target.files[0];
             this.flagPreview = URL.createObjectURL(this.flagSource);
+        },
+        displayImage(value) {
+            fetch(value)
+                .then(response => response.blob())
+                .then(blob => {
+                    const blobURL = URL.createObjectURL(blob);
+                    this.flagPreview = blobURL;
+                    this.flagSource = new File([blob], 'image.png', { type: blob.type });
+                });
         },
         convertTZ(date, tzString) {
             return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
@@ -741,5 +780,16 @@ div.new-entry-type {
     margin-left: 4px;
     width: 16px;
     cursor: pointer;
+}
+
+.flag-preview-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flag-radio {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
 }
 </style>

@@ -17,14 +17,14 @@
         </p>
         <h2>How to participate in Contests</h2>
         <p>
-            In order to be part of this kind of events, participants will require to <b>have a registered account in TMD,
+            In order to be part of this kind of events, participants will require to <b>have a registered account on TMD,
                 with
                 verified email address, and be logged in</b> when submitting entries. After performing this action and only
             if the entry is approved by the staff, the user
             will
             add one (1) entry point to their personal count. Entries submitted before the closure of a contest but approved
             after it will still qualify for the count, as TMD destines a period of time for this precise situation. Counts
-            for each player can be tracked in the Stats section of
+            for each player can be tracked in the <router-link :to="'/stats'">Stats section</router-link> of
             our website. This count applies only for the ongoing contest, and will reset after it's over and a new one
             starts, eventually. Additionally, there is also an all-time ranking that counts every entry submitted without
             considering any period of time or contest, and serves a mere statistical reason.
