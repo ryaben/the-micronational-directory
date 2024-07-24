@@ -85,7 +85,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
         :form-placeholders="formPlaceholder" />
       <NewEntryForm class="new-entry-container" :entry-type="'organization'"
         v-if="user.emailVerified && newOrganizationView" :micronations-directory="micronationsDirectory"
-        :directory-data="organizationsDirectory" />
+        :directory-data="organizationsDirectory" :form-placeholders="formPlaceholder" />
     </div>
   </section>
 </template>
