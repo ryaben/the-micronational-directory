@@ -31,8 +31,18 @@ defineProps({
         type: Number,
         required: false,
         default: 7280033532
+    },
+    micronationsApprovedDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.micronations.filter(element => element.approved)
+    },
+    organizationsApprovedDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.organizations.filter(element => element.approved)
     }
-})
+});
 </script>
 
 <template>
@@ -64,12 +74,6 @@ export default {
         }
     },
     computed: {
-        micronationsApprovedDirectory() {
-            return store.getters.micronations.filter(element => element.approved);
-        },
-        organizationsApprovedDirectory() {
-            return store.getters.organizations.filter(element => element.approved);
-        },
         contributorsList() {
             return this.listContributors(this[`${this.directory}ApprovedDirectory`]);
         },

@@ -1,11 +1,32 @@
 <script setup>
 import store from '../store';
-import { auth } from '../firebase/init.js';
-import { onAuthStateChanged } from 'firebase/auth';
 import PlacemarkEntry from '../components/PlacemarkEntry.vue';
 import { placemarksDirectory } from '../assets/googleMyMapsSources';
 import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  moderatorsList: {
+    type: Array,
+    required: true,
+    default: store.getters.moderators
+  },
+  userIsModerator: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  user: {
+    type: Object,
+    required: true,
+    default: {}
+  },
+});
 </script>
 
 <template>
@@ -40,10 +61,11 @@ import $ from 'jquery';
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
       micro.micronationalMap.location.applicable && micro.location._lat === 0).length }}</span> micronations from
-          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b style="color: red;">DOES
+          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b
+            style="color: red;">DOES
             NOT</b> have location info:
         </p>
-        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+        <div class="micronations-list">
           <PlacemarkEntry
             v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat === 0)"
             :key="i" :present="true" :placemark-info="item" />
@@ -54,10 +76,11 @@ import $ from 'jquery';
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
       micro.micronationalMap.location.applicable && micro.location._lat !== 0).length }}</span> micronations from
-          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has preexisting
+          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has
+          preexisting
           location info:
         </p>
-        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+        <div class="micronations-list">
           <PlacemarkEntry
             v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat !== 0)"
             :key="i" :present="true" :placemark-info="item" />
@@ -70,7 +93,7 @@ import $ from 'jquery';
       micro.micronationalMap.location.applicable).length }}</span> micronations from the map most likely don't yet
           have an entry on TMD:
         </p>
-        <div id="micronationsList" class="micronations-list" ref="micronationsList">
+        <div class="micronations-list">
           <PlacemarkEntry
             v-for="(item, i) in micronationsCompareSources.missing.filter(micro => micro.micronationalMap.location.applicable)"
             :key="i" :present="false" :placemark-info="item" />
@@ -87,21 +110,11 @@ export default {
   },
   data() {
     return {
-      user: {},
       KMLfile: '',
       KMLlink: ''
     }
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    moderatorsList() {
-      return store.getters.moderators;
-    },
-    userIsModerator() {
-      return this.moderatorsList.includes(this.user.email);
-    },
     micronationsCompareSources() {
       const that = this;
       let presentArray = [];
@@ -176,23 +189,9 @@ export default {
         type: "success"
       });
     },
-    authListener() {
-      onAuthStateChanged(auth, user => {
-        if (user) {
-          this.user = user;
-        } else {
-          this.user = {
-            emailVerified: false
-          }
-        }
-      });
-    },
     normalizeString(string) {
       return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
-  },
-  async mounted() {
-    this.authListener();
   }
 }
 </script>
@@ -208,6 +207,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.micronations-list {
+  height: 640px;
+  overflow-y: scroll;
 }
 
 .micronations-stats {

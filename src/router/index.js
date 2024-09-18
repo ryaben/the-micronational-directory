@@ -60,12 +60,14 @@ const routes = [
   {
     path: "/directory/:micronationName",
     name: "DirectoryProfile",
-    component: DirectoryProfile
+    component: DirectoryProfile,
+    props: true
   },
   {
     path: "/organizations/:organizationName",
     name: "OrganizationProfile",
-    component: OrganizationProfile
+    component: OrganizationProfile,
+    props: true
   },
   {
     path: "/stats",

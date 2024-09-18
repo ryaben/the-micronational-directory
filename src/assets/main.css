@@ -287,6 +287,11 @@ div.map-micronation-container.present {
   background-color: var(--success-tone);
 }
 
+div.directory-entry-container.assigned {
+  border-color: var(--assignation);
+  outline: 3px solid var(--assignation);
+}
+
 div.directory-entry-container.selected {
   outline: 5px solid var(--failure-tone);
 }

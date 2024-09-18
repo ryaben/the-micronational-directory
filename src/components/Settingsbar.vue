@@ -196,7 +196,6 @@ export default {
     directoryLoaded(newValue) {
       if (newValue === true) {
         this.sortMicronations();
-        this.forceRerender();
       }
     },
   },
@@ -370,9 +369,6 @@ export default {
       canvas.toBlob(async function (blob) {
         await saveAs(blob, 'flag-collage.png');
       });
-    },
-    forceRerender() {
-      this.componentKey += 1;
     }
   },
   mounted() {

@@ -26,6 +26,11 @@ defineProps({
         required: false,
         default: 120
     },
+    disableFullProfileButton: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
     micronationsDirectory: {
         type: Array,
         required: false,
@@ -50,8 +55,8 @@ defineProps({
 </script>
 
 <template>
-    <div class="directory-entry-container" :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }"
-        :style="cssProps">
+    <div class="directory-entry-container"
+        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps">
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
 
@@ -64,14 +69,16 @@ defineProps({
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
                 <div class="animated-info">
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">(<b>{{
-                        info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{ info.name.titleAlt }})
+                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">
+                        (<b>{{
+            info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{
+            info.name.titleAlt }})
                     </p>
 
                     <hr class="light-divider">
 
                     <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
-                        info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
+            info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
                     <p class="entry-text">
                         <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
                                 v-if="i !== info.type.length - 1">,&nbsp;</span><span
@@ -86,12 +93,13 @@ defineProps({
                     <hr class="light-divider">
 
                     <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                        new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
-                    <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span v-if="info.capital !== ''">{{
-                        info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
+            new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
+                    <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span
+                            v-if="info.capital !== ''">{{
+            info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
                     <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span
                             v-if="info.currency !== ''">{{
-                                info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
+            info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
 
                     <hr class="light-divider">
 
@@ -101,8 +109,8 @@ defineProps({
                         </p>
                         <div v-if="info.memberships.length" class="sources-container">
                             <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
-                                :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="56" :height="40"
-                                :micronation-name="member" :icon="'flag'" />
+                                :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="56"
+                                :height="40" :micronation-name="member" :icon="'flag'" />
                         </div>
                     </div>
 
@@ -121,8 +129,8 @@ defineProps({
                     <div class="entry-group">
                         <p class="entry-text">Info sources:</p>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
+                                :href="website" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
                     </div>
@@ -132,7 +140,8 @@ defineProps({
 
         <div v-show="viewMode !== 'collage'" class="info-buttons-container">
             <button class="info-button" @click="toggleInfo">{{ infoView ? 'Collapse' : 'Expand' }}</button>
-            <router-link :to="'/directory/' + info.name.main" class="info-button">Full profile</router-link>
+            <router-link :class="{ 'disabled': disableFullProfileButton }" :to="'/directory/' + info.name.main"
+                class="info-button">Full profile</router-link>
         </div>
     </div>
 </template>
@@ -338,5 +347,10 @@ export default {
 .info-button:hover {
     background: var(--soft-beige);
     color: var(--vt-c-indigo-dark);
+}
+
+.info-button.disabled {
+    opacity: 0.6;
+    pointer-events: none;
 }
 </style>

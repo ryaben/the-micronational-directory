@@ -1,6 +1,27 @@
 <script setup>
 import OrganizationArticle from '../components/OrganizationArticle.vue';
 import store from '../store';
+
+defineProps({
+    organizationName: {
+        id: String
+    },
+    micronationsDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.micronations
+    },
+    organizationsDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.organizations
+    },
+    organizationsApprovedDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.organizations.filter(element => element.approved)
+    }
+});
 </script>
 
 <template>
@@ -10,29 +31,31 @@ import store from '../store';
             <label>Loading Directory...</label>
         </div>
 
-        <OrganizationArticle v-if="requestedOrganization.info.length" id="entryPreview" class="info-displayed" :info="{
+        <OrganizationArticle v-if="requestedOrganization.info !== undefined" id="entryPreview" class="info-displayed"
+            :micronations-directory="micronationsDirectory" :info="{
             name: {
-                main: requestedOrganization.info[0].name.main,
-                mainAlt: requestedOrganization.info[0].name.mainAlt
+                main: requestedOrganization.info.name.main,
+                mainAlt: requestedOrganization.info.name.mainAlt
             },
-            logo: requestedOrganization.info[0].logo,
-            motto: requestedOrganization.info[0].motto,
-            languages: requestedOrganization.info[0].languages,
-            foundationDate: requestedOrganization.info[0].foundationDate,
-            contactInfo: requestedOrganization.info[0].contactInfo,
-            websites: requestedOrganization.info[0].websites,
+            logo: requestedOrganization.info.logo,
+            motto: requestedOrganization.info.motto,
+            languages: requestedOrganization.info.languages,
+            foundationDate: requestedOrganization.info.foundationDate,
+            contactInfo: requestedOrganization.info.contactInfo,
+            websites: requestedOrganization.info.websites,
             approved: true,
-            author: requestedOrganization.info[0].author.name,
-            creationDate: requestedOrganization.info[0].creationDate,
+            author: requestedOrganization.info.author.name,
+            creationDate: requestedOrganization.info.creationDate,
             previous: previousOrganization,
             next: nextOrganization
         }" />
 
-        <p class="no-entries" v-if="organizationsDirectory.length && requestedOrganization.info.length === 0">There is no
+        <p class="no-entries" v-if="organizationsDirectory.length && requestedOrganization.info === undefined">There is
+            no
             entry for an organization with that name.</p>
     </div>
 </template>
-  
+
 <script>
 export default {
     components: {
@@ -44,29 +67,23 @@ export default {
         }
     },
     computed: {
-        organizationsDirectory() {
-            return store.getters.organizations;
-        },
-        approvedOrganizations() {
-            return this.organizationsDirectory.filter(element => element.approved);
-        },
         requestedOrganization() {
             const that = this;
             return {
-                info: this.approvedOrganizations.filter(element => element.name.main === that.$route.params.organizationName),
-                index: this.approvedOrganizations.findIndex(element => element.name.main === that.$route.params.organizationName)
+                info: this.organizationsApprovedDirectory.find(element => element.name.main === that.organizationName),
+                index: this.organizationsApprovedDirectory.findIndex(element => element.name.main === that.organizationName)
             }
         },
         previousOrganization() {
             try {
-                return this.approvedOrganizations[this.requestedOrganization.index - 1].name.main;
+                return this.organizationsApprovedDirectory[this.requestedOrganization.index - 1].name.main;
             } catch {
                 return false;
             }
         },
         nextOrganization() {
             try {
-                return this.approvedOrganizations[this.requestedOrganization.index + 1].name.main;
+                return this.organizationsApprovedDirectory[this.requestedOrganization.index + 1].name.main;
             } catch {
                 return false;
             }
@@ -74,7 +91,7 @@ export default {
     }
 }
 </script>
-  
+
 <style scoped>
 .no-entries {
     width: auto;
@@ -82,4 +99,3 @@ export default {
     text-align: center;
 }
 </style>
-  

@@ -9,7 +9,12 @@ defineProps({
         type: Object,
         required: true,
         default: {}
-    }
+    },
+    micronationsDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.micronations
+    },
 })
 </script>
 
@@ -40,9 +45,9 @@ defineProps({
                 <div class="article-column">
                     <p class="article-text"><span class="underlined">Organization motto:</span><br><span
                             v-if="info.motto !== ''" class="italicized">"{{
-                                info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
+            info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
                     <p class="article-text"><span class="underlined">Foundation:</span><br>{{
-                        cleanTimestamp(info.foundationDate) }}</p>
+            cleanTimestamp(info.foundationDate) }}</p>
                     <p class="article-text">
                         <span class="underlined">Languages:</span><br>
                         <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
@@ -56,8 +61,8 @@ defineProps({
                         <p class="article-text"><span class="underlined">Historical members:</span></p>
                         <div class="sources-container members">
                             <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
-                                :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="60" :height="40"
-                                :micronation-name="member.name.main" :icon="'flag'" />
+                                :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="60"
+                                :height="40" :micronation-name="member.name.main" :icon="'flag'" />
                         </div>
                     </div>
                 </div>
@@ -77,8 +82,8 @@ defineProps({
                     <div>
                         <p class="article-text breakable underlined">Info sources:</p>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
+                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
+                                :href="website" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
                     </div>
@@ -92,7 +97,7 @@ defineProps({
                     ⬅️ Previous<br>{{ info.previous }}
                 </router-link>
                 <span class="article-text contribution-info">Submitted by <b>{{ info.author }}</b> on {{
-                    cleanTimestamp(info.creationDate) }}.</span>
+            cleanTimestamp(info.creationDate) }}.</span>
                 <router-link v-if="info.next" :to="'/organizations/' + info.next" @click="incrementKey"
                     class="profile-option login-button color-transition">
                     Next ➡️<br>{{ info.next }}
@@ -115,9 +120,6 @@ export default {
         EntrySource, MemberSource
     },
     computed: {
-        micronationsDirectory() {
-            return store.getters.micronations;
-        },
         getMembers() {
             const that = this;
             return this.micronationsDirectory.filter(element => element.approved && (element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt)));

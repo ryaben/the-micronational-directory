@@ -1,6 +1,8 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
 import store from './store';
+import { auth } from './firebase/init.js';
+import { onAuthStateChanged } from 'firebase/auth';
 import { version } from '../package.json';
 </script>
 
@@ -15,8 +17,23 @@ import { version } from '../package.json';
   <main>
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
-        <KeepAlive :include="['Home', 'Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'Moderation', 'MediaWikiReader', 'MicronationalMapReader']">
-          <component :is="Component" />
+        <KeepAlive
+          :include="['Home', 'Directory', 'Organizations', 'GlobalMap', 'NewEntry', 'MediaWikiReader', 'MicronationalMapReader']">
+          <component
+            :is="Component"
+            :micronations-directory="micronationsDirectory"
+            :visible-micronations="visibleMicronations"
+            :supranational-micronations="supranationalMicronations"
+            :physical-micronations-directory="physicalMicronationsDirectory"
+            :micronations-approved-directory="micronationsApprovedDirectory"
+            :organizations-directory="organizationsDirectory"
+            :visible-organizations="visibleOrganizations"
+            :organizations-moderation-directory="organizationsModerationDirectory"
+            :organizations-approved-directory="organizationsApprovedDirectory"
+            :moderators-list="moderatorsList"
+            :user-is-moderator="userIsModerator"
+            :user="currentLoggedUser"
+          />
         </KeepAlive>
       </Transition>
     </router-view>
@@ -61,16 +78,69 @@ export default {
   },
   data() {
     return {
+      user: {},
       navbarButtons: [
         { text: 'Home', icon: 'home.png', route: 'Home' },
-        { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{text: 'Micronations', route: 'Directory'}, {text: 'Organizations', route: 'Organizations'}, {text: 'World map', route: 'GlobalMap'}, {text: 'New entry', route: 'NewEntry'}, {text: 'Moderation', route: 'ModerationPanel'}] },
-        { text: 'Stats', icon: 'stats.png', route: 'Stats', subButtons: [{text: 'Rankings and\ncontests', route: 'Stats'}] },
+        { text: 'Directory', icon: 'directory.png', route: 'Directory', subButtons: [{ text: 'Micronations', route: 'Directory' }, { text: 'Organizations', route: 'Organizations' }, { text: 'World map', route: 'GlobalMap' }, { text: 'New entry', route: 'NewEntry' }, { text: 'Moderation', route: 'ModerationPanel' }] },
+        { text: 'Stats', icon: 'stats.png', route: 'Stats', subButtons: [{ text: 'Rankings and\ncontests', route: 'Stats' }] },
         { text: 'Profile', icon: 'profile.png', route: 'Login' },
-        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{text: 'About us', route: 'About'}, {text: 'Donate', route: 'Donate'}, {text: 'Contests T&C', route: 'TermsOfContests'}] }
+        { text: 'Info', icon: 'about.png', route: 'About', subButtons: [{ text: 'About us', route: 'About' }, { text: 'Donate', route: 'Donate' }, { text: 'Contests T&C', route: 'TermsOfContests' }] }
       ]
     }
   },
+  computed: {
+    micronationsDirectory() {
+      return store.getters.micronations;
+    },
+    visibleMicronations() {
+      return this.micronationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    supranationalMicronations() {
+      return this.micronationsDirectory.filter(element => element.supranational);
+    },
+    physicalMicronationsDirectory() {
+      return store.getters.physicalMicronations;
+    },
+    organizationsDirectory() {
+      return store.getters.organizations;
+    },
+    visibleOrganizations() {
+      return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    organizationsModerationDirectory() {
+      return this.organizationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
+    },
+    micronationsApprovedDirectory() {
+      return store.getters.micronations.filter(element => element.approved);
+    },
+    organizationsApprovedDirectory() {
+      return store.getters.organizations.filter(element => element.approved);
+    },
+    moderatorsList() {
+      return store.getters.moderators;
+    },
+    userIsModerator() {
+      return this.moderatorsList.includes(this.user.email);
+    },
+    currentLoggedUser() {
+      return this.user;
+    }
+  },
+  methods: {
+    authListener() {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          this.user = user;
+        } else {
+          this.user = {
+            emailVerified: false
+          }
+        }
+      });
+    }
+  },
   async mounted() {
+    this.authListener();
     await store.dispatch('getMicronations');
     await store.dispatch('getOrganizations');
     await store.dispatch('getContests');

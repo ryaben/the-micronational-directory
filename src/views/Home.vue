@@ -2,6 +2,34 @@
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import store from '../store';
 import Tweet from "vue-tweet";
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  micronationsApprovedDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations.filter(element => element.approved)
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  visibleOrganizations: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  },
+  supranationalMicronations: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations.filter(element => element.supranational)
+  }
+});
 </script>
 
 <template>
@@ -12,7 +40,9 @@ import Tweet from "vue-tweet";
     </div>
     <div class="grid-area">
       <div class="grid-column no-padding fixed">
-        <Tweet tweet-id="1806869757930430633" theme="dark"><template v-slot:loading>Loading tweets...</template></Tweet>
+        <Tweet tweet-id="1829912548499734802" theme="dark"><template v-slot:loading>Loading tweets...</template>
+        </Tweet>
+        <Tweet tweet-id="1806869757930430633" theme="dark"></Tweet>
         <Tweet tweet-id="1810669133278978511" theme="dark" />
         <Tweet tweet-id="1798143137354842583" theme="dark" />
         <Tweet tweet-id="1763676546244423681" theme="dark" />
@@ -37,7 +67,8 @@ import Tweet from "vue-tweet";
           the human imagination or ambition, and some are even basically jokes. No matter the origin, they all share
           a common root: their founders and citizens <span class="italicized">
             "[...] claim that they belong to an independent nation or sovereign state, but which lacks legal
-            recognition by world governments or major international organizations [...]"</span>, as described by Wikipedia.
+            recognition by world governments or major international organizations [...]"</span>, as described by
+          Wikipedia.
           <br><br>
           These small political entities are scattered all around the world. That means not only Earth, but also the
           digital realm and some even
@@ -62,7 +93,9 @@ import Tweet from "vue-tweet";
       <div class="grid-column centered colored fixed">
         <p class="larger">Random featured entry:</p>
         <img v-if="randomEntry === undefined" class="loading-image" src="/images/loading.gif" alt="Loading">
-        <DirectoryEntry id="randomEntry" v-if="randomEntry !== undefined" :info="{
+        <DirectoryEntry id="randomEntry" v-if="randomEntry !== undefined"
+          :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
+          :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
             id: randomEntry.id,
             name: {
               main: randomEntry.name.main,
@@ -98,20 +131,11 @@ export default {
     };
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    approvedMicronations() {
-      return this.micronationsDirectory.filter(element => element.approved);
-    },
     randomEntry() {
-      const randomInteger = Math.floor(Math.random() * (this.approvedMicronations.length - 0 + 1) + 0);
-      return this.approvedMicronations[randomInteger];
+      const randomInteger = Math.floor(Math.random() * (this.micronationsApprovedDirectory.length - 0 + 1) + 0);
+      return this.micronationsApprovedDirectory[randomInteger];
     }
-  },
-  methods: {
-
-  },
+  }
 }
 </script>
 

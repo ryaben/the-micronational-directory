@@ -1,43 +1,54 @@
 <script setup>
-import router from '../router/index'
-import store from '../store'
+import router from '../router/index';
+import store from '../store';
 import {
   EmailAuthProvider,
   signOut,
-  onAuthStateChanged,
   sendEmailVerification,
   reauthenticateWithCredential,
-  updatePassword
-} from 'firebase/auth'
-import { auth } from '../firebase/init.js'
-import { notify } from '@kyvg/vue3-notification'
+  updatePassword,
+  onAuthStateChanged
+} from 'firebase/auth';
+import { auth } from '../firebase/init.js';
+import { notify } from '@kyvg/vue3-notification';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  moderatorsList: {
+    type: Array,
+    required: true,
+    default: store.getters.moderators
+  },
+  userIsModerator: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
+});
 </script>
 
 <template>
   <section class="site-section paddingless">
     <div class="left-side">
-      <button
-        class="login-button color-transition"
-        :disabled="user.emailVerified"
-        @click="resendVerification"
-      >
+      <button class="login-button color-transition" :disabled="user.emailVerified" @click="resendVerification">
         Resend verification email
       </button>
-      <button
-        class="login-button color-transition"
-        v-show="!passwordMenu"
-        @click="
-          passwordMenu = true;
-          moderationMenu = false;
-        "
-      >
+      <button class="login-button color-transition" v-show="!passwordMenu" @click="
+        passwordMenu = true;
+      moderationMenu = false;
+      ">
         Update password
       </button>
-      <button
-        class="login-button color-transition"
-        v-show="passwordMenu"
-        @click="passwordMenu = false"
-      >
+      <button class="login-button color-transition" v-show="passwordMenu" @click="passwordMenu = false">
         Return to main menu
       </button>
       <button class="login-button color-transition" @click="signOutCall">Log out</button>
@@ -50,10 +61,8 @@ import { notify } from '@kyvg/vue3-notification'
           <br />
           and its status is:
           <span v-if="user.emailVerified" class="verified"><b>Verified</b>.</span>
-          <span v-if="!user.emailVerified"
-            ><b class="not-verified">NOT verified</b> (you need to refresh if performed with open
-            session).</span
-          >
+          <span v-if="!user.emailVerified"><b class="not-verified">NOT verified</b> (you need to refresh if performed
+            with open session).</span>
         </p>
         <p v-if="userIsModerator">
           <span>You <b class="verified">are a moderator</b> and have moderation privileges.</span>
@@ -62,41 +71,19 @@ import { notify } from '@kyvg/vue3-notification'
           Your contribution:<br />
           - <b>{{ userContributions }}</b> micronation entries on the Directory ({{ percentageContributions }}%
           of the total).<br />
-          - <b>{{ userOrganizationContributions }}</b> organization entries on the Directory ({{ percentageOrganizationContributions }}%
+          - <b>{{ userOrganizationContributions }}</b> organization entries on the Directory ({{
+        percentageOrganizationContributions }}%
           of the total).
         </p>
       </div>
       <form class="password-menu menu" v-show="passwordMenu" @submit.prevent="changePassword">
-        <input
-          class="login-input"
-          type="password"
-          id="oldPassword"
-          v-model="oldPassword"
-          required
-          placeholder="Old password"
-        />
-        <input
-          class="login-input"
-          type="password"
-          id="newPassword"
-          v-model="newPassword"
-          required
-          placeholder="New password"
-        />
-        <input
-          class="login-input"
-          type="password"
-          id="repeatNewPassword"
-          v-model="repeatNewPassword"
-          required
-          placeholder="Repeat new password"
-        />
-        <input
-          id="changePasswordButton"
-          type="submit"
-          value="Update password"
-          class="login-button color-transition"
-        />
+        <input class="login-input" type="password" id="oldPassword" v-model="oldPassword" required
+          placeholder="Old password" />
+        <input class="login-input" type="password" id="newPassword" v-model="newPassword" required
+          placeholder="New password" />
+        <input class="login-input" type="password" id="repeatNewPassword" v-model="repeatNewPassword" required
+          placeholder="Repeat new password" />
+        <input id="changePasswordButton" type="submit" value="Update password" class="login-button color-transition" />
       </form>
     </div>
   </section>
@@ -106,8 +93,8 @@ import { notify } from '@kyvg/vue3-notification'
 export default {
   data() {
     return {
-      componentKey: 0,
       user: {},
+      componentKey: 0,
       passwordMenu: false,
       moderationMenu: false,
       oldPassword: '',
@@ -116,12 +103,6 @@ export default {
     }
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    organizationsDirectory() {
-      return store.getters.organizations;
-    },
     userContributions() {
       return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
     },
@@ -133,26 +114,9 @@ export default {
     },
     percentageOrganizationContributions() {
       return ((this.userOrganizationContributions * 100) / this.organizationsDirectory.filter((element) => element.approved).length).toFixed(2);
-    },
-    moderatorsList() {
-      return store.getters.moderators;
-    },
-    userIsModerator() {
-      return this.moderatorsList.includes(this.user.email);
     }
   },
   methods: {
-    authListener() {
-      onAuthStateChanged(auth, (user) => {
-        if (!user) {
-          if (localStorage.getItem('firebase-auth-user') === null) {
-            router.push('/login')
-          }
-        } else {
-          this.user = JSON.parse(localStorage.getItem('firebase-auth-user'))
-        }
-      })
-    },
     async resendVerification() {
       sendEmailVerification(auth.currentUser).then(function () {
         notify({
@@ -202,32 +166,43 @@ export default {
       }
     },
     async signOutCall() {
-      localStorage.removeItem('firebase-auth-user')
+      localStorage.removeItem('firebase-auth-user');
       await signOut(auth).then(function () {
         notify({
           title: 'Session status',
           text: 'You have logged out from your account.',
           type: 'warning'
         })
-      })
+      });
     },
     countContributions(array, value) {
-      let count = 0
+      let count = 0;
 
       array.forEach((element) => {
         if (element.author.email === value) {
-          count += 1
+          count += 1;
         }
       })
 
-      return count
+      return count;
     },
     forceRerender() {
       this.componentKey += 1;
+    },
+    authListener() {
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          if (localStorage.getItem('firebase-auth-user') === null) {
+            router.push('/login');
+          }
+        } else {
+          this.user = JSON.parse(localStorage.getItem('firebase-auth-user'));
+        }
+      });
     }
   },
   async mounted() {
-    this.authListener()
+    this.authListener();
   }
 }
 </script>

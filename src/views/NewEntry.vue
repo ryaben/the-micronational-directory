@@ -1,9 +1,35 @@
 <script setup>
 import NewEntryForm from '../components/NewEntryForm.vue';
 import store from '../store';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
 import '@vuepic/vue-datepicker/dist/main.css';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  supranationalMicronations: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations.filter(element => element.supranational)
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  visibleOrganizations: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  },
+  user: {
+    type: Object,
+    required: true,
+    default: {}
+  }
+});
 </script>
 
 <template>
@@ -80,12 +106,10 @@ import '@vuepic/vue-datepicker/dist/main.css';
       <!-- los containers de new entry van acá con v-show="newEntryView" -->
       <NewEntryForm class="new-entry-container" :entry-type="'micronation'"
         v-if="user.emailVerified && newMicronationView" :directory-data="micronationsDirectory"
-        :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
-        :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations"
         :form-placeholders="formPlaceholder" />
       <NewEntryForm class="new-entry-container" :entry-type="'organization'"
-        v-if="user.emailVerified && newOrganizationView" :micronations-directory="micronationsDirectory"
-        :directory-data="organizationsDirectory" :form-placeholders="formPlaceholder" />
+        v-if="user.emailVerified && newOrganizationView" :directory-data="organizationsDirectory"
+        :form-placeholders="formPlaceholder" />
     </div>
   </section>
 </template>
@@ -97,7 +121,6 @@ export default {
   },
   data: () => {
     return {
-      user: {},
       newMicronationView: false,
       newOrganizationView: false,
       componentKey: 0,
@@ -118,37 +141,7 @@ export default {
         newEntryWebsites: []
       }
     };
-  },
-  computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    supranationalMicronations() {
-      return this.micronationsDirectory.filter(element => element.supranational);
-    },
-    organizationsDirectory() {
-      return store.getters.organizations;
-    },
-    visibleOrganizations() {
-      return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
-    }
-  },
-  methods: {
-    authListener() {
-      onAuthStateChanged(auth, user => {
-        if (user) {
-          this.user = user;
-        } else {
-          this.user = {
-            emailVerified: false
-          }
-        }
-      });
-    },
-  },
-  mounted() {
-    this.authListener();
-  },
+  }
 }
 </script>
 

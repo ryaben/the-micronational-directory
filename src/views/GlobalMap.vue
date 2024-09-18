@@ -1,6 +1,14 @@
 <script setup>
 import LocationPicker from '../components/LocationPicker.vue';
 import store from '../store';
+
+defineProps({
+  physicalMicronationsDirectory: {
+    type: Array,
+    required: true,
+    default: store.getters.physicalMicronations
+  }
+});
 </script>
 
 <template>
@@ -14,14 +22,6 @@ import store from '../store';
 export default {
   components: {
     LocationPicker
-  },
-  computed: {
-    physicalMicronationsDirectory() {
-      return store.getters.physicalMicronations;
-    },
-  },
-  methods: {
-
   },
 }
 </script>

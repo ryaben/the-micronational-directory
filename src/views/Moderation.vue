@@ -3,12 +3,49 @@ import Sectionbar from '../components/Sectionbar.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
 import store from '../store';
-import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db, storage } from '../firebase/init.js';
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import { notify } from "@kyvg/vue3-notification";
 import emailjs from 'emailjs-com';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  supranationalMicronations: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations.filter(element => element.supranational)
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  visibleOrganizations: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  },
+  moderatorsList: {
+    type: Array,
+    required: true,
+    default: store.getters.moderators
+  },
+  userIsModerator: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  user: {
+    type: Object,
+    required: true,
+    default: {}
+  }
+});
 </script>
 
 <template>
@@ -21,7 +58,7 @@ import emailjs from 'emailjs-com';
           <DirectoryEntry v-for="(item, i) in micronationsModerationDirectory" :key="i" :width="entryWidth"
             :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
             :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-            :supranational-micronations="supranationalMicronations" :info="{
+            :supranational-micronations="supranationalMicronations" :disable-full-profile-button="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -45,7 +82,7 @@ import emailjs from 'emailjs-com';
       creationDate: item.creationDate
     }" @click="selectedEntry = i; selectedEntryName = item.name.main; selectedEntryAuthor = item.author.email; selectedEntryType = 'Micronation'" />
           <OrganizationEntry v-for="(item, i) in organizationsModerationDirectory" :key="i" :width="entryWidth"
-            :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :info="{
+            :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :disable-full-profile-button="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -111,7 +148,6 @@ export default {
       componentKey: 0,
       entryWidth: 180,
       fixedHeight: false,
-      user: {},
       moderationViewMode: 'moderate',
       moderationbarTabs: [
         { text: 'Moderate', target: 'moderate', display: true },
@@ -125,30 +161,12 @@ export default {
     }
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    supranationalMicronations() {
-      return this.micronationsDirectory.filter(element => element.supranational);
-    },
-    organizationsDirectory() {
-      return store.getters.organizations;
-    },
     micronationsModerationDirectory() {
       return this.micronationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
     },
     organizationsModerationDirectory() {
       return this.organizationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
     },
-    visibleOrganizations() {
-      return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
-    },
-    moderatorsList() {
-      return store.getters.moderators;
-    },
-    userIsModerator() {
-      return this.moderatorsList.includes(this.user.email);
-    }
   },
   methods: {
     async entryReject(entryIndex, deletionRequest) {
@@ -256,26 +274,12 @@ export default {
     changeModerationViewMode(newValue) {
       this.moderationViewMode = newValue;
     },
-    authListener() {
-      onAuthStateChanged(auth, user => {
-        if (user) {
-          this.user = user;
-        } else {
-          this.user = {
-            emailVerified: false
-          }
-        }
-      });
-    },
     forceRerender() {
       this.componentKey += 1;
     },
     scrollToTop() {
       window.scrollTo(0, 0);
     }
-  },
-  mounted() {
-    this.authListener();
   }
 }
 </script>

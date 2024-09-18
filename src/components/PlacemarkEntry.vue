@@ -87,9 +87,6 @@ export default {
 
         };
     },
-    computed: {
-
-    },
     methods: {
         async saveLocation(micronation) {
             const refId = doc(db, "micronations", micronation.id);
@@ -111,7 +108,7 @@ export default {
 .map-micronation-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: var(--directory-entry-background-color);
     border-radius: 10px;
@@ -119,6 +116,7 @@ export default {
     margin-bottom: 4px;
     margin-right: 4px;
     width: auto;
+    height: min-content;
     overflow: hidden;
 }
 

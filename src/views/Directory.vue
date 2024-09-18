@@ -6,6 +6,34 @@ import SettingsSubcontainerParameter from '../components/SettingsSubcontainerPar
 import Settingsbar from '../components/Settingsbar.vue';
 import NewEntryForm from '../components/NewEntryForm.vue';
 import store from '../store';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  visibleMicronations: {
+    type: Array,
+    required: true,
+    default: store.getters.micronations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  },
+  supranationalMicronations: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations.filter(element => element.supranational)
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  visibleOrganizations: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  },
+});
 </script>
 
 <template>
@@ -22,28 +50,28 @@ import store from '../store';
               :flag-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations" :info="{
-                id: item.id,
-                name: {
-                  main: item.name.main,
-                  mainAlt: item.name.mainAlt,
-                  title: item.name.title,
-                  titleAlt: item.name.titleAlt
-                },
-                flag: item.flag,
-                motto: item.motto,
-                type: item.type,
-                languages: item.languages,
-                capital: item.capital,
-                currency: item.currency,
-                foundationDate: item.foundationDate,
-                location: item.location,
-                memberships: item.memberships,
-                contactInfo: item.contactInfo,
-                websites: item.websites,
-                author: item.author,
-                approved: item.approved,
-                creationDate: item.creationDate
-              }" />
+          id: item.id,
+          name: {
+            main: item.name.main,
+            mainAlt: item.name.mainAlt,
+            title: item.name.title,
+            titleAlt: item.name.titleAlt
+          },
+          flag: item.flag,
+          motto: item.motto,
+          type: item.type,
+          languages: item.languages,
+          capital: item.capital,
+          currency: item.currency,
+          foundationDate: item.foundationDate,
+          location: item.location,
+          memberships: item.memberships,
+          contactInfo: item.contactInfo,
+          websites: item.websites,
+          author: item.author,
+          approved: item.approved,
+          creationDate: item.creationDate
+        }" />
           </TransitionGroup>
         </div>
       </div>
@@ -59,7 +87,6 @@ import store from '../store';
 export default {
   data: () => {
     return {
-      user: {},
       pagedMicronationsDirectory: [],
       entryWidth: 180,
       viewMode: 'micronations',
@@ -76,21 +103,6 @@ export default {
     NewEntryForm
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    visibleMicronations() {
-      return this.micronationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
-    },
-    supranationalMicronations() {
-      return this.micronationsDirectory.filter(element => element.supranational);
-    },
-    organizationsDirectory() {
-      return store.getters.organizations;
-    },
-    visibleOrganizations() {
-      return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
-    },
     cssStyles() {
       return {
         "--micronations-list-width": this.$refs.micronationsList.offsetWidth + "px"

@@ -2,8 +2,24 @@
 import store from '../store';
 import EntriesRanking from '../components/EntriesRanking.vue';
 import ContestOverview from '../components/ContestOverview.vue';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
+
+defineProps({
+    micronationsApprovedDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.micronations.filter(element => element.approved)
+    },
+    organizationsApprovedDirectory: {
+        type: Array,
+        required: false,
+        default: store.getters.organizations.filter(element => element.approved)
+    },
+    user: {
+        type: Object,
+        required: true,
+        default: {}
+    },
+});
 </script>
 
 <template>
@@ -24,14 +40,18 @@ import { auth } from '../firebase/init.js';
                 <p class="stats-entry main">Total micronations: <b>{{
                     micronationsApprovedDirectory.length }}</b></p>
                 <EntriesRanking title="All-time Top Micronations Contributors" :tmd-entry="true"
-                    directory="micronations" :current-user-email="user.email" />
+                    directory="micronations" :micronations-approved-directory="micronationsApprovedDirectory"
+                    :organizations-approved-directory="organizationsApprovedDirectory"
+                    :current-user-email="user.email" />
             </div>
 
             <div class="ranking-container">
                 <p class="stats-entry main">Total organizations: <b>{{
                     organizationsApprovedDirectory.length }}</b></p>
                 <EntriesRanking title="All-time Top Organizations Contributors" :tmd-entry="true"
-                    directory="organizations" :current-user-email="user.email" />
+                    directory="organizations" :micronations-approved-directory="micronationsApprovedDirectory"
+                    :organizations-approved-directory="organizationsApprovedDirectory"
+                    :current-user-email="user.email" />
             </div>
 
             <!-- <div class="scrollable-container statistics-table directory">
@@ -100,7 +120,10 @@ import { auth } from '../firebase/init.js';
                 <Transition name="fade">
                     <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
                         :directory="selectedContest.directory" :start-timestamp="selectedContest.startDate.seconds"
-                        :end-timestamp="selectedContest.endDate.seconds" :current-user-email="user.email" />
+                        :end-timestamp="selectedContest.endDate.seconds"
+                        :micronations-approved-directory="micronationsApprovedDirectory"
+                        :organizations-approved-directory="organizationsApprovedDirectory"
+                        :current-user-email="user.email" />
                 </Transition>
             </div>
         </div>
@@ -115,17 +138,10 @@ export default {
     },
     data() {
         return {
-            user: {},
             selectedContest: ''
         }
     },
     computed: {
-        micronationsApprovedDirectory() {
-            return store.getters.micronations.filter(element => element.approved);
-        },
-        organizationsApprovedDirectory() {
-            return store.getters.organizations.filter(element => element.approved);
-        },
         contestsList() {
             return store.getters.contests;
         },
@@ -143,13 +159,6 @@ export default {
         }
     },
     methods: {
-        authListener() {
-            onAuthStateChanged(auth, user => {
-                if (user) {
-                    this.user = JSON.parse(localStorage.getItem('firebase-auth-user'));
-                }
-            });
-        },
         collectDirectoryValues(array, propertyValue, sorting) {
             let collectedValues = [];
             let collectedValuesObject = {};
@@ -191,9 +200,6 @@ export default {
                 return element.id === contestId;
             });
         }
-    },
-    async mounted() {
-        this.authListener();
     }
 }
 </script>

@@ -2979,8 +2979,8 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/Afrikaana"
         ],
-        "name": " Afrikaana",
-        "flag": "https://micras.org/mwiki/File:Afrikaana%20flag.png",
+        "name": "Afrikaana",
+        "flag": "https://micras.org/wiki/images/5/53/Afrikaana_flag.png",
         "languages": [
             "DakaÏuru",
             "English"
@@ -2988,7 +2988,7 @@ export const micrasWikiMicronations = [
         "foundation": "1 April 2013"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Paris",
         "currency": "Akhidian Zendert",
         "motto": "either freedom or freedom",
@@ -3020,7 +3020,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 23rd 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Federal capital: Cárdenas<br>Temporary capitals:<br>\n*Executive and administrative: Parap\n*Legislative and judicial: Punta Santiago",
         "currency": "Alduro-Wechua écu (€; WAE)",
         "motto": "Noqan hamuni kausanayquichispaq (Wechua)",
@@ -3036,7 +3036,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1685}} <small>(June 29, 2020)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ardashirshahr",
         "currency": "Benacian sovereign",
         "motto": "Xāk-e daštat behtar az zarast <small>(Babkhi \"The soil of your valleys are better than gold\")</small>",
@@ -3054,7 +3054,7 @@ export const micrasWikiMicronations = [
         "foundation": "1671 [[AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Geneva",
         "currency": "Imperial Ecu, IE (€)",
         "motto": "Non Sine Sole Iris",
@@ -3075,7 +3075,7 @@ export const micrasWikiMicronations = [
         "foundation": "7 May 2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "wikipedia:İzmir|İzmír",
         "currency": "Alperenic Póфimi|Póфimi (ALO)",
         "motto": "The country where the sun rises from the sea horizons",
@@ -3083,7 +3083,7 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/User:Alperen/sandbox"
         ],
-        "name": "Republic of Alperenistan (wikipedia:English language|en)",
+        "name": "Republic of Alperenistan",
         "flag": "https://micras.org/mwiki/|flag%20=File:Alperenistan%20flag.png",
         "languages": [
             "language|en)<br>Alperenistan Cumhuriyeti (wikipedia:Turkish language|tr)<br>Oyórtoq Álperensțana (Alperenic language|ap)"
@@ -3091,7 +3091,7 @@ export const micrasWikiMicronations = [
         "foundation": "9 Sentember 2009 (de facto)<br> 4 February 2014 (de jure)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -3108,7 +3108,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "-",
         "currency": "Poli (P), Liev (Li)",
         "motto": "Hed Osence del hed Sunsana \n",
@@ -3128,7 +3128,7 @@ export const micrasWikiMicronations = [
         "foundation": "39.43 [[PSSC]] (5/10/19)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Driftwood",
         "currency": "Jingdaoese Kala",
         "motto": "",
@@ -3144,7 +3144,7 @@ export const micrasWikiMicronations = [
         "foundation": "1656"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Alrodria",
         "currency": "",
         "motto": "Noblis Est Ira Leonis",
@@ -3160,7 +3160,7 @@ export const micrasWikiMicronations = [
         "foundation": "2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "TBA",
         "currency": "Faznamä",
         "motto": "\"Jed Eä I Nanä\" (The Far Are Near)\n",
@@ -3176,7 +3176,7 @@ export const micrasWikiMicronations = [
         "foundation": "37.62 [[PSSC]] (6/13/18)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Southport",
         "currency": "Alterian Dollar (AD$)",
         "motto": "",
@@ -3192,7 +3192,7 @@ export const micrasWikiMicronations = [
         "foundation": "28 December, 1998 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Currency",
         "motto": "Motto: TBA<br />National Anthem: TBA </small>",
@@ -3211,7 +3211,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Norvind",
         "currency": "Altusian Écu",
         "motto": "In victoria virtus",
@@ -3227,7 +3227,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|13&ndash;24.XIV.{{AN|1655}}|28 December 2017}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Johannsessbuurg",
         "currency": "Scilling",
         "motto": "",
@@ -3243,7 +3243,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Helion",
         "currency": "unknown",
         "motto": "",
@@ -3259,7 +3259,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 July 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ciudad de Anahuaco",
         "currency": "Peso Anahuacano",
         "motto": "Independencia, Religión, Unión",
@@ -3270,13 +3270,13 @@ export const micrasWikiMicronations = [
         "name": "Imperio Anahuacano",
         "flag": "https://micras.org/mwiki/|flag%20=File:Flag%20of%20Anahuaco%20png.png%20%20",
         "languages": [
-            "|lang =Martino language|Martino",
+            "Martino",
             "Britannic Istvanistani"
         ],
         "foundation": "1706 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Apollantis",
         "currency": "Ana",
         "motto": "The power of the sun!",
@@ -3292,7 +3292,7 @@ export const micrasWikiMicronations = [
         "foundation": "25 July 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\"",
         "currency": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\"",
         "motto": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\"",
@@ -3311,7 +3311,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Aqaba",
         "currency": "Stater | Imperial Stater",
         "motto": "",
@@ -3329,7 +3329,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|6.III.1656|January 5 2018}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Arevacía",
         "currency": "Transitional EURO",
         "motto": "Best of traditions",
@@ -3346,7 +3346,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital:|| Ariel",
         "currency": "{| class=\"toccolours\" style=\"float:right; margin: 0 0 1em 1em; font-size: 85%; width: 30em;background-color:#FFEFEF;border:1px solid #B82C20;\"\n",
         "motto": "{| class=\"toccolours\" style=\"float:right; margin: 0 0 1em 1em; font-size: 85%; width: 30em;background-color:#FFEFEF;border:1px solid #B82C20;\"\n",
@@ -3365,7 +3365,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| class=\"toccolours\" style=\"float:right; margin: 0 0 1em 1em; font-size: 85%; width: 30em;background-color:#FFEFEF;border:1px solid #B82C20;\"\n"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kolmenitzkiy",
         "currency": "Ashkenatzi Shekl (ש)",
         "motto": "The Eternal Maroon Republic",
@@ -3384,7 +3384,7 @@ export const micrasWikiMicronations = [
         "foundation": "4th August 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Arcadia (city)|Arcadia",
         "currency": "Gold Pieces",
         "motto": "",
@@ -3400,7 +3400,7 @@ export const micrasWikiMicronations = [
         "foundation": "May 15,2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "QAttera, Kreutzberg (also Argaath Perez)",
         "currency": "",
         "motto": "",
@@ -3417,7 +3417,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 31st 1999 (as an internet micronation) <br> circa 1980 (as a seccessionist micronation)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Munaycha",
         "currency": "Ayllu Qori (Ø)",
         "motto": "",
@@ -3434,7 +3434,7 @@ export const micrasWikiMicronations = [
         "foundation": "2003 (exact date unknown)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Airosamente",
         "currency": "Audente (@)",
         "motto": "{{feature|September, 2009}}\n{{Nation",
@@ -3450,7 +3450,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 6th 1999"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Modrava",
         "currency": "Balkanian Mira",
         "motto": "The Democratic Republic of Balkania (short form: Balkania) was a Micras-based micronation founded in March 2005. \n\n{{Nation",
@@ -3469,7 +3469,7 @@ export const micrasWikiMicronations = [
         "foundation": "March 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kamalshahr (de jure)<br>Raspur (de facto)",
         "currency": "Babkhan rial (primary)<br>Camel (secondary)",
         "motto": "Babkhâ zindabad",
@@ -3486,7 +3486,7 @@ export const micrasWikiMicronations = [
         "foundation": "13.VI.{{AN|1449}} "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bandera (Ciudad de Howard)",
         "currency": "Baracãoan Peso",
         "motto": "",
@@ -3502,7 +3502,7 @@ export const micrasWikiMicronations = [
         "foundation": "May 2002 ({{AN|1471}})"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliriashahr",
         "currency": "{{Infobox Nation2 Comprehensive",
         "motto": "–",
@@ -3520,7 +3520,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation2 Comprehensive\nBarony of Elwynn\n|commonname = Elwynn\n [[File:Elwynn_flag_old_2.png\n|nation1=[[Duchy of Elwynn (1452–1488)|Duchy of Elwynn]]\n|years=1488–1500\n|flag2= [[File:Elwynn_flag_old_2.png\n|nation2=[[County of Elwynn]]\n|flag = File:Elwynn flag old 2.png \n|coa = –\n–\n|anthem = –\n|map = –\n|mapversions = –\n[[Eliriashahr]]\n|largecity = [[Ardashirshahr]], [[Habrichtsburg]], [[Caligae]]\nElw, Raikothin, Babkhi\n|religion = Babkhan Orthodoxy, Treesian Unorthodox, Hyperborean\n|govtype = Babkhi feudal\n|headofstatetitle = Baron (Baroness)\n|headofstate = [[Mari Greenwood]] (''first'') <br> [[Ardashir Khan]] (''last'')\n|headofgovernmenttitle = Steward\n|legislature = None\n"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "s Koningenwaarde <small>Statutory</small>",
         "currency": "Batavian Kruys<br>Golden Kruys<br>Heldermark",
         "motto": "Eenheid in Verscheidenheid",
@@ -3534,7 +3534,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lazarholt",
         "currency": "",
         "motto": "",
@@ -3550,7 +3550,7 @@ export const micrasWikiMicronations = [
         "foundation": "2484 ASC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Blackstone",
         "currency": "Blackstone Florint",
         "motto": "Patientia Vincit Omnia",
@@ -3566,7 +3566,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Blackrock Nua City",
         "currency": "Blackrock Credit (©)",
         "motto": "",
@@ -3583,7 +3583,7 @@ export const micrasWikiMicronations = [
         "foundation": "Early 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nídobhá",
         "currency": "Blepian Líomóid <tt>(BLL)</tt>",
         "motto": "Blep leis na réaltaí",
@@ -3594,12 +3594,12 @@ export const micrasWikiMicronations = [
         "name": "Duinacht na mBlepe (Blepian language|bl)",
         "flag": "https://micras.org/wiki/images/3/35/Blepia_flag.png",
         "languages": [
-            "language|bl)<br>Humanship of Blepia (wikipedia:English language|en)"
+            "language|bl)<br>Humanship of Blepia"
         ],
         "foundation": "5 May 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zijincheng",
         "currency": "Mondomark",
         "motto": "",
@@ -3615,7 +3615,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 [[Norton calendar|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Light City",
         "currency": "Bluemark",
         "motto": "To shine light unto the darkness",
@@ -3629,7 +3629,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 January 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Shrewsbury",
         "currency": "Rosen (R)",
         "motto": "",
@@ -3647,7 +3647,7 @@ export const micrasWikiMicronations = [
         "foundation": "February 25, 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{subdivision |\nsubdivision = Bretalyon |\nimage_flag = Flag_bretalyon.gif|\ncoat of arms = Coat_bretalyon.png|\nstatus = Chivalric Order |\n",
         "currency": "",
         "motto": "",
@@ -3663,7 +3663,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Willow",
         "currency": "Fons",
         "motto": "",
@@ -3679,7 +3679,7 @@ export const micrasWikiMicronations = [
         "foundation": "09/08/05"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Pentyre",
         "currency": "Arian (α)",
         "motto": "Cyfiawnder a Chryfder",
@@ -3698,7 +3698,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Calbion article}}{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dergova",
         "currency": "Castrigian Crown",
         "motto": "Pro Regis, Pro Populis",
@@ -3714,7 +3714,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Relacul",
         "currency": "Zaikir (Ƶ)",
         "motto": "Bound Together in Blood",
@@ -3732,7 +3732,7 @@ export const micrasWikiMicronations = [
         "foundation": "819 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zalae",
         "currency": "Caputian Laurel (₺)",
         "motto": "Fier Et Combattant",
@@ -3748,7 +3748,7 @@ export const micrasWikiMicronations = [
         "foundation": "25 October 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Krlsgorod",
         "currency": "Rubl",
         "motto": "Workers of Micras, Unite!",
@@ -3764,7 +3764,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Saigon",
         "currency": "Chi Dong (₫)",
         "motto": "",
@@ -3781,7 +3781,7 @@ export const micrasWikiMicronations = [
         "foundation": "February 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Iñigo",
         "currency": "CC",
         "motto": "",
@@ -3798,7 +3798,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 23, 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "(Itinerant chieftain)",
         "currency": "Barrtip",
         "motto": "",
@@ -3814,7 +3814,7 @@ export const micrasWikiMicronations = [
         "foundation": "11 February 2013"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Séagúna",
         "currency": "",
         "motto": "",
@@ -3833,7 +3833,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 July 2014"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Union City",
         "currency": "CIS Credits",
         "motto": "",
@@ -3849,7 +3849,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Kirrie",
         "currency": "Hammish Obol (Ø)",
         "motto": "Inprobus ut nemo",
@@ -3865,7 +3865,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 12th 2006 (Hamland), August 19th 2013 (Commonwealth)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northcliff",
         "currency": "Florian Dollar ($)",
         "motto": "",
@@ -3880,7 +3880,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MTO Article}}\n{{FlorianArticle}}\n{{Infobox  Nation Comprehensive"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rusjar",
         "currency": "Zeedic ruble|Ruble",
         "motto": "For the unity of the people!",
@@ -3896,7 +3896,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1716}} "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Negara Awan, Kuala Forajasaki",
         "currency": "Phinbellan florin<br>Forajasakian ringgit",
         "motto": "",
@@ -3911,7 +3911,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{CTP article}} {{Phinbellan article|link to Phinbella only}} {{Forajasakian article}} \n{{Infobox Nation Jack2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lene (Nowal)",
         "currency": "",
         "motto": "{{Cleanup}}\n\n{{Nation",
@@ -3927,7 +3927,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Cherry Trees",
         "currency": "Craitish Cräite|Cräite (CRC)",
         "motto": "Vycasio yhn honór",
@@ -3943,7 +3943,7 @@ export const micrasWikiMicronations = [
         "foundation": "12.XII.{{AN|12|2002}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{Batavia Article}}\n{{MCS-NEVONatie| \n|Natie= Davignonrepublic<br>\ndavinjonrépublík\n|voor1=First Kingdom of Batavia\n|vlag voor1=File:Bataafse vlag.jpg|25px\n|Periode=1523 AN\n|na1=Second Kingdom of Batavia\n|vlag na1=File:Batavia flag.png|25px\n|vlag= File:vlag Dietsland.gif|125px\n|vlagartikel= Flag of Batavia\n|wapen= File:Bataafse coa old.gif|100px\n|wapenartikel= Coat of arms of Batavia\n|locatie= File:Map Batavia old.gif\n|taal= Batavian\n|hoofdstad= Davignon\n|overheid= Revolutionary anarchy\n|staatshoofd= Arkadius I des Vinandy as King (de jure)\n|regeringsleider= Jonas Windsor (de jure) as Batavian Prime Minister\n \n|grotestad= s Koningenwaarde, Davignon, Ingelburg \n|munteenheid= Kruys\n|populatie = 17,367,210 \n|map= \n}}\n\nThe Davignonrepubliek or Davignonrepublic was a shortlived period of chaos and anarchy in Batavia during 1523 AN. It saw the take-over of many government buildings in several large cities throughout the nation. Under the leadership of Johannes Stalin and Ivan Jermak a series of strikes escalated in open war between police forces and labour unions, while the strikes brought any economic growth to squeaking halt.\n\nWhile seen as a period of chaos, its direct impact on the daily life of the population was limited to certain regions, but nonetheless viewed as vital for the nations transformation to a true constitutional monarchy. The departure of Arkadius I, the withdrawal of Regent Jodocus van Haltna from active politics and the rise of Arkadius II to power, would all eventually influence public opinion and avoid a full-blown revolution. Order was restored, the first parliamentary elections held and crisis laws enacted which improved the life of the citizenry. \n\n==Background==\nFile:Defence of the Davignon bridge.png|thumb|left|450px|The defence of the Geeraertsbrug (Geeraerts Bridge) of Davignon in 1523: the troops are soon to be overrun by the rioters and forced to retreat.\nThe civil unrest, which had begun early in 1523 AN, in Davignon, was a direct result of political tensions in the aftermath of the van Haltna Crisis: the Hollander cabinet (1522) had fallen in less than a month, while the Cabinet Windsor I|First Windsor cabinet failed to boost trust in the political and economical institutions. With the crash of 1518 still fresh in mind, many land owners started a run on the bank, while others decided to cut in wages.\n\nA work incident in a factory in Davignon, with the death of a child as a result, led to protests. The Duke of Davignon, at that moment in s Koningenwaarde (acting as prime minister), was unable to assist and the police commissar - under heavy pressure of the bourgeoisie - decided to send in the troops. The bloody fights were condemned by all political parties, but it was the Communistische Partij|Communist Party which started supporting the strikers and rioters with food and funds. \n\nIn a matter of weeks, the protests spread throughout the country. Anger about their work situation became a demand of total political reform. The upper class, now alarmed by how the movement was becoming increasingly radical, called upon the government to act swift. As population centres came under control of soviet councils, Davignon became its de facto",
         "currency": "{{Batavia Article}}\n{{MCS-NEVONatie|",
         "motto": "",
@@ -3962,7 +3962,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Batavia Article}}\n{{MCS-NEVONatie| "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Devicta",
         "currency": "Hou",
         "motto": "",
@@ -3978,7 +3978,7 @@ export const micrasWikiMicronations = [
         "foundation": "22 July 2011"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Deremezea",
         "currency": "",
         "motto": "{| class=\"toccolours\" style=\"float:right; margin: 0 0 1em 1em; font-size: 85%; width: 27em;\"",
@@ -3997,7 +3997,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| class=\"toccolours\" style=\"float:right; margin: 0 0 1em 1em; font-size: 85%; width: 27em;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vokinhsalk",
         "currency": "Trumv",
         "motto": "Latra vens yime Ojin!",
@@ -4009,17 +4009,17 @@ export const micrasWikiMicronations = [
             "Another"
         ],
         "name": "The Nation of Durkadurkagradstania",
-        "flag": "https://micras.org/mwiki/File:|image_flag=%20Durkadurkagradstania_Flag.jpg",
+        "flag": "https://micras.org/wiki/images/a/aa/Durkadurkagradstania_Flag.jpg",
         "languages": [
             "English",
             "Russian",
             "German",
             "Mikoli"
         ],
-        "foundation": "|date_founded= January 26, 2006"
+        "foundation": "January 26, 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fort Jericho",
         "currency": "^ Durntkinstan Yen",
         "motto": "",
@@ -4035,7 +4035,7 @@ export const micrasWikiMicronations = [
         "foundation": "February 25th 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eblis",
         "currency": "unknown",
         "motto": "",
@@ -4053,7 +4053,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Javadabad",
         "currency": "Imperial Stater",
         "motto": "Peace and Unity",
@@ -4064,12 +4064,12 @@ export const micrasWikiMicronations = [
         "name": "Ecclesiastical Mountain Republic",
         "flag": "https://micras.org/mwiki/|flag%20=File:Constancian%20EMR.png%20",
         "languages": [
-            "|lang =wikipedia:Georgian language|Georgian"
+            "Georgian"
         ],
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zugashvili",
         "currency": "Eklesian shilling",
         "motto": "By Gods Will",
@@ -4077,15 +4077,15 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/Eklesia"
         ],
-        "name": "Our Holy Mountain Dominion of Eklesia (wikipedia:English language|en)",
+        "name": "Our Holy Mountain Dominion of Eklesia",
         "flag": "https://micras.org/mwiki/|flag%20=File:Flag%20of%20Eklesia.png",
         "languages": [
-            "language|en)<br>ჩვენი წმინდა სამთო სამღვდელო ეკლესია (wikipedia:Georgian language|ge)"
+            "language|en)<br>ჩვენი წმინდა სამთო სამღვდელო ეკლესია (ge)"
         ],
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Shirerithian erb",
         "motto": "",
@@ -4100,10 +4100,10 @@ export const micrasWikiMicronations = [
             "Babkhi",
             "Norse (official)"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria (legislative), Anun (judicial), Huyenkula (executive)",
         "currency": "Florin",
         "motto": "–",
@@ -4123,7 +4123,7 @@ export const micrasWikiMicronations = [
         "foundation": "1582"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "San Clemeta (executive and legislative) <br> Yugo  (constitutional and judicial)",
         "currency": "Espinarion Peso (EOP)",
         "motto": "Unity and order",
@@ -4132,14 +4132,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Espinario"
         ],
         "name": "Republic of Espinario",
-        "flag": "https://micras.org/mwiki/File:Espinario%20flag.png|100px]]",
+        "flag": "https://micras.org/wiki/images/1/1a/Espinario_flag.png",
         "languages": [
-            "Martino language|Martino "
+            "Martino"
         ],
         "foundation": "{{AN|1689}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Technograd",
         "currency": "",
         "motto": "",
@@ -4155,7 +4155,7 @@ export const micrasWikiMicronations = [
         "foundation": "1200 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "St Edwins",
         "currency": "Florian Dollar",
         "motto": "",
@@ -4174,7 +4174,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kobol",
         "currency": "Guilder (£)",
         "motto": "Forged in Fire",
@@ -4190,7 +4190,7 @@ export const micrasWikiMicronations = [
         "foundation": "1680 [[shire:AN|AN]] (as part of Ralgon)<br>1685 (as part of the Hexarchy)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Feianova City",
         "currency": "none",
         "motto": "",
@@ -4207,7 +4207,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 December 2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fergustein",
         "currency": "Fergustinian Pound (FRP)",
         "motto": "",
@@ -4224,7 +4224,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 2004 (as a seccessionist micronation)<br>December 2005 (became a simulationist micronation)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{MCS-NEVONatie|",
         "currency": "{{MCS-NEVONatie|",
         "motto": "motto</small>",
@@ -4243,7 +4243,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MCS-NEVONatie| "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bruswerpen",
         "currency": "Flemish Ducat (VDK)",
         "motto": "",
@@ -4262,7 +4262,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 29, 1997<br>1997—2003 (''1st Republic'')<br>2004—2014 (''2nd Republic'')<br>2014— (''3rd Republic'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "{{feature|August, 2009}}\n{{Nation",
@@ -4278,7 +4278,7 @@ export const micrasWikiMicronations = [
         "foundation": "February 19th, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Port Willian",
         "currency": "???",
         "motto": "",
@@ -4294,7 +4294,7 @@ export const micrasWikiMicronations = [
         "foundation": "???"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Viktorovo",
         "currency": "Viktorianski Zloty (Victorovian Zloty)",
         "motto": "\"Bog, Honor i Ojczyzna\"",
@@ -4310,7 +4310,7 @@ export const micrasWikiMicronations = [
         "foundation": "1628 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Jefferson",
         "currency": "Wayne Dollar",
         "motto": "\"Give me liberty or give me death\"",
@@ -4326,7 +4326,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 3rd, 2014"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Abeis",
         "currency": "Lliev",
         "motto": ":This article is for the former independent nation and Hamland|Hammish dependency of Haifa. For the current region administered by the Maritime Markets of the Strait of Haifa, see Haifa.\n{{Nation",
@@ -4335,14 +4335,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Free State of Haifa"
         ],
         "name": " Haifa",
-        "flag": "https://micras.org/mwiki/File:Haifa%20Flag.png|150px",
+        "flag": "https://micras.org/wiki/images/d/d4/Flag_of_Haifa.png",
         "languages": [
             "English"
         ],
         "foundation": "July 11,2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fiorecittà",
         "currency": "Gaian Lira",
         "motto": "",
@@ -4361,7 +4361,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nevaya (city)|Nevaya",
         "currency": "Sorona (GSR)",
         "motto": "Everything starts in the mind",
@@ -4369,7 +4369,7 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/Gerenia"
         ],
-        "name": "Republic of Gerenia (wikipedia:English language|en)",
+        "name": "Republic of Gerenia",
         "flag": "https://micras.org/mwiki/|flag%20=File:Gerenia_flag_2015.png",
         "languages": [
             "language|en)<br>Resuy Gherenies (Gerenian language|gr)"
@@ -4377,7 +4377,7 @@ export const micrasWikiMicronations = [
         "foundation": "8 July 2012 ([[Micras]])<br>5 December 2011 ([[wikipedia:Earth|Earth]])"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "enu Kalirioon",
         "currency": "Benacian sovereign",
         "motto": "TBD",
@@ -4395,7 +4395,7 @@ export const micrasWikiMicronations = [
         "foundation": "1672 as Elwynnese bailiwick"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Valarion <small>(administrative capital)</small>",
         "currency": "Cruz",
         "motto": "\"Libertas\"",
@@ -4412,7 +4412,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Verionian Article}}\n{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Shelsa",
         "currency": "GELT",
         "motto": "",
@@ -4429,7 +4429,7 @@ export const micrasWikiMicronations = [
         "foundation": "15th April 2009"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ceremonial capital: Apollonium<br>Summer capital: Agra<br>Winter capital: Daocheng",
         "currency": "Golden Kala (GK or {{GK}})",
         "motto": "Pax Apollonica – Pax Mundi",
@@ -4447,7 +4447,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1698 AN|26/07/2021}} - {{tooltip|1704 AN|27/01/2022}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Konungsheim",
         "currency": "Norse Crown",
         "motto": "For Fedrelandet og Gudene",
@@ -4465,7 +4465,7 @@ export const micrasWikiMicronations = [
         "foundation": "1 APR 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "TBA",
         "currency": "The Docket",
         "motto": " \"Free From Tyranny\"\n",
@@ -4482,7 +4482,7 @@ export const micrasWikiMicronations = [
         "foundation": "37.65 [[PSSC]] (6/18/18)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gatonia",
         "currency": "",
         "motto": "tzohet ïusamn<br /><small>pull together</small>",
@@ -4498,7 +4498,7 @@ export const micrasWikiMicronations = [
         "foundation": "2.XII.1671 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Amalia Town",
         "currency": "The Federal Republic of Havnesgade-Amager is a former country on the west coast of Keltia, its government was sovereign from 1586 to 1591.\n\n{{Infobox Nation Comprehensive",
         "motto": "",
@@ -4518,7 +4518,7 @@ export const micrasWikiMicronations = [
         "foundation": "The '''Federal Republic of Havnesgade-Amager''' is a former country on the west coast of [[Keltia]], its government was sovereign from 1586 to 1591.\n\n{{Infobox Nation Comprehensive\nFederal Republic of Havnesgade-Amager <br> Federal Commonwealth of Havnesgade-Amager\n|commonname = Havnesgade-Amager\n|flag = File:Havnesgade-Amager_flag.png\n|coa=\n\n|anthem =\n|map = File:Havnesgade-amager.png\n|mapversions = 14.7.7–14.8.9\n[[Amalia Town]]\n"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{unbulleted list|Agripinilla (spring)|Lucien|Lucíusu (summer)|Zidado West|Zidü Wéazde (winter)|Eastern Eura Trade Association#Réi|Réi (honorary)}}",
         "currency": "Poli (P), Liev (Li)",
         "motto": "Opocíog hed Vï fói Gunspaz",
@@ -4534,7 +4534,7 @@ export const micrasWikiMicronations = [
         "foundation": "36.81 [[PSSC]] (2018-01-15)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Kirrie",
         "currency": "Hammish Obol (Ø)",
         "motto": "Inprobus ut nemo",
@@ -4550,7 +4550,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 12th"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Hauoli Ena Kala (¤)",
         "motto": "",
@@ -4566,7 +4566,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 1st, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Iskanderun",
         "currency": "Hatay Riyal",
         "motto": "",
@@ -4584,7 +4584,7 @@ export const micrasWikiMicronations = [
         "foundation": "May 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Landon",
         "currency": "Rijkmark",
         "motto": "",
@@ -4600,7 +4600,7 @@ export const micrasWikiMicronations = [
         "foundation": "2nd February 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Modbury",
         "currency": "",
         "motto": "",
@@ -4616,7 +4616,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kaupang",
         "currency": "Craitish Cräite (CRC)",
         "motto": "Brida|Toj mar be-Hurmu (We are Hurmu)",
@@ -4632,7 +4632,7 @@ export const micrasWikiMicronations = [
         "foundation": "1689–1690 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Crécy",
         "currency": "unknown",
         "motto": "",
@@ -4651,7 +4651,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 9th 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{unbulleted list|Astérapolis <small>(Ceremonial)</small>|Petropolis <small>(Administrative)</small>}}",
         "currency": "Imperial stater",
         "motto": "",
@@ -4670,7 +4670,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1667 AN}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Incontinentia City",
         "currency": "Incontinentian Talar|Talar (§)",
         "motto": "Мардлик в Цзести",
@@ -4681,14 +4681,14 @@ export const micrasWikiMicronations = [
         "name": "Dominion of Incontinentia",
         "flag": "https://micras.org/wiki/images/d/d1/Incontinentia_flag.png",
         "languages": [
-            "wikipedia:English language|English",
+            "English",
             "Craitish language|Craitish",
             "Incontinentian language|Incontinentian"
         ],
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "|capital          = {{{capital}}}",
         "currency": "|currency         = {{{currency}}}\n\n<!-- Titles and names of the first and last leaders an their deputies -->",
         "motto": "motto   = {{{national_motto}}}",
@@ -4700,14 +4700,14 @@ export const micrasWikiMicronations = [
             "{{documentation"
         ],
         "name": "country",
-        "flag": "https://micras.org/mwiki/File:|image_flag%20%20%20=%20Flag%20of%20None.svg",
+        "flag": "https://micras.org/mwiki/File:Flag%20of%20None.svg",
         "languages": [
             "languages = {{{common_languages}}}"
         ],
         "foundation": "{{documentation subpage}}\n<!--PLEASE ADD METADATA TO THE <includeonly> SECTION AT THE BOTTOM OF THIS PAGE.-->\n{{intricate template}}\n{{Infobox former country"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gaudium",
         "currency": "Seces",
         "motto": "{{Infobox Nation Comprehensive",
@@ -4724,7 +4724,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Comprehensive"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Normaria",
         "currency": "Poli (/)",
         "motto": "TBD",
@@ -4740,7 +4740,7 @@ export const micrasWikiMicronations = [
         "foundation": "36.81 [[PSSC]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brussels",
         "currency": "dinar",
         "motto": "Vrede, Vrijheid, Verdraagzaamheid",
@@ -4756,7 +4756,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 14, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Jezeraah",
         "currency": "Dinar",
         "motto": "",
@@ -4772,7 +4772,7 @@ export const micrasWikiMicronations = [
         "foundation": "2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hellistelli",
         "currency": "Florian Dollar",
         "motto": "",
@@ -4791,7 +4791,7 @@ export const micrasWikiMicronations = [
         "foundation": "1678"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chinang",
         "currency": "Kampongese Riel",
         "motto": "",
@@ -4810,7 +4810,7 @@ export const micrasWikiMicronations = [
         "foundation": "13th March 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Viridian",
         "currency": "Kantonese dollar",
         "motto": "",
@@ -4819,14 +4819,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Kanto"
         ],
         "name": "Federation of Kanto",
-        "flag": "https://micras.org/mwiki/File:|image_flag%20%20%20=%20Flag%20of%20Kanto.png",
+        "flag": "https://micras.org/wiki/images/2/27/Flag_of_Kanto.png",
         "languages": [
             "English"
         ],
         "foundation": "17 February 2009"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Oktavyan",
         "currency": "Kalgarrand",
         "motto": "Hortus Manet",
@@ -4837,12 +4837,12 @@ export const micrasWikiMicronations = [
         "name": "Garden of Kalgachia",
         "flag": "https://micras.org/wiki/images/6/68/Kalgachia_flag.png",
         "languages": [
-            "wikipedia:English language|Common Tongue (official)<br> Ashkenatza|Benacian Yiddish<br> Laqi<br> Deep Singers|Nezeni"
+            "English (official)<br> Ashkenatza|Benacian Yiddish<br> Laqi<br> Deep Singers|Nezeni"
         ],
         "foundation": "143 ''Anno Libertatis'' <br> ({{AN|1649}})"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kaligandaki",
         "currency": "Karnal (क)",
         "motto": "",
@@ -4859,7 +4859,7 @@ export const micrasWikiMicronations = [
         "foundation": "28th February 2003"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Arzhav",
         "currency": "Kazari Aksha",
         "motto": "",
@@ -4875,7 +4875,7 @@ export const micrasWikiMicronations = [
         "foundation": "30th March 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kasterburg",
         "currency": "Thaler",
         "motto": " Heft op een Baniere, op eene Hoogen Berch",
@@ -4893,7 +4893,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dinas Celebarad",
         "currency": "Crown",
         "motto": "Bidi Sêr Arian in Arwaïn en Lobir",
@@ -4912,7 +4912,7 @@ export const micrasWikiMicronations = [
         "foundation": ":''\"Celebarad\" redirects here. For the eponymous capital city, see [[Dinas Celebarad]].''\n{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital city|Capital<br><small>and largest city</small>",
         "currency": "Currency|Currency",
         "motto": "",
@@ -4928,7 +4928,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Doyle",
         "currency": "Sovereign",
         "motto": "Fiat Justitia, Ruat Caelum",
@@ -4938,14 +4938,14 @@ export const micrasWikiMicronations = [
             "site"
         ],
         "name": "Kingdom of Holmes",
-        "flag": "https://micras.org/mwiki/File:Holmes%20flag.jpg|200px",
+        "flag": "https://micras.org/wiki/images/7/73/Holmes_flag.jpg",
         "languages": [
             "English"
         ],
         "foundation": "December 28, 2015"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Pyrus",
         "currency": "Genoves",
         "motto": "\"Verus et fictus\"",
@@ -4961,7 +4961,7 @@ export const micrasWikiMicronations = [
         "foundation": "13.05.1637 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital",
         "currency": "{|cellpadding=\"4\" border=\"1\" class=\"toccolours\" style=\"float: right; width: 250px; margin: 0 0 1em 1em; border-collapse: collapse; font-size: 95%;\"",
         "motto": "Motto: The Lion Protects<br />",
@@ -4980,7 +4980,7 @@ export const micrasWikiMicronations = [
         "foundation": "{|cellpadding=\"4\" border=\"1\" class=\"toccolours\" style=\"float: right; width: 250px; margin: 0 0 1em 1em; border-collapse: collapse; font-size: 95%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Monoviaville",
         "currency": "Monovian Euro (M€)",
         "motto": ":\"Monovia\" redirects here. For other uses, see Monovia (disambiguation).\n{{Nation",
@@ -4997,7 +4997,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 15th 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nya Skellefte",
         "currency": "Norrlandic Crown",
         "motto": "",
@@ -5013,7 +5013,7 @@ export const micrasWikiMicronations = [
         "foundation": "December 12, 2018"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Belaov",
         "currency": "Krasno Shinc",
         "motto": "Krasnortian Hjuz Iternal",
@@ -5029,7 +5029,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 February 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Monte Glacei",
         "currency": "Glaceian Blanc (LGB)",
         "motto": "Cest la vie",
@@ -5045,7 +5045,7 @@ export const micrasWikiMicronations = [
         "foundation": "12 ASC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Asheriana",
         "currency": "",
         "motto": "",
@@ -5061,7 +5061,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "The Sixty-Fourth Stratum",
         "currency": "Economy of Kalgachia#Currency|Kalgarrand",
         "motto": "Qui Scit Comburere Aqua Et Lavare Igne Facit De Micra Cælum Et De Cælo Micra Pretiosam",
@@ -5072,14 +5072,14 @@ export const micrasWikiMicronations = [
         "name": "Depths of Lapivril",
         "flag": "https://micras.org/wiki/images/a/a4/Lapivrilflag.png",
         "languages": [
-            "wikipedia:English Language|Common Tongue",
+            "English",
             "Latin",
             "Hebrew"
         ],
         "foundation": "165 ''[[Kalgachia#Calendar|Anno Libertatis]]''"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Maksim-Xala (Brookshire Hamlet)",
         "currency": "Shirereithan Erb",
         "motto": "{{Feature|September, 2023}}\n{{Nation\nLaqi Free Republic",
@@ -5095,7 +5095,7 @@ export const micrasWikiMicronations = [
         "foundation": "4th August 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Valencia",
         "currency": "Leon and Venezia Lire",
         "motto": "",
@@ -5115,7 +5115,7 @@ export const micrasWikiMicronations = [
         "foundation": "26th May 2005 (joined [[Micras]] March 2007)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lemuria Capital",
         "currency": "unknown",
         "motto": "{{feature|November, 2011}}\n{{Nation",
@@ -5132,7 +5132,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 16th 2004<br>refounded February 6th 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lepidopterum",
         "currency": "Economy of Kalgachia#Currency|Kalgarrand",
         "motto": "Sub umbrā terrae flōrēmus",
@@ -5148,7 +5148,7 @@ export const micrasWikiMicronations = [
         "foundation": "202 ''[[Kalgachia#Calendar|Anno Libertatis]]'' <br> (1668 [[Norton calendar|AN]], Jan 21st, 2019)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Liberta",
         "currency": "Li",
         "motto": "",
@@ -5164,7 +5164,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 11, 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lighthouse",
         "currency": "None",
         "motto": "None",
@@ -5180,7 +5180,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital |Capital-width=200\n",
         "currency": "The following is a list of nations on Micras. Dependent territories are italicised and listed in alphabetical order below their parent country.\n{{LoN",
         "motto": "The following is a list of nations on Micras. Dependent territories are italicised and listed in alphabetical order below their parent country.\n{{LoN",
@@ -5199,7 +5199,7 @@ export const micrasWikiMicronations = [
         "foundation": "The following is a list of nations on [[Micras]]. Dependent territories are ''italicised'' and listed in alphabetical order below their parent country.\n{{LoN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Laman",
         "currency": "Thraci Manat",
         "motto": "",
@@ -5215,7 +5215,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "The following is a list of nations in Micras by area, ranked by land area.\n\nThis list includes only land area (the aggregate of all surfaces delimited by international boundaries and/or coastlines, excluding inland water bodies), and wikipedia:Dependent territory|dependent territories are not listed separately.\n\n==Nations by land area==\n{| class=\"wikitable sortable\" style=\"text-align: center\"",
         "currency": "The following is a list of nations in Micras by area, ranked by land area.\n\nThis list includes only land area (the aggregate of all surfaces delimited by international boundaries and/or coastlines, excluding inland water bodies), and wikipedia:Dependent territory|dependent territories are not listed separately.\n\n==Nations by land area==\n{| class=\"wikitable sortable\" style=\"text-align: center\"",
         "motto": "The following is a list of nations in Micras by area, ranked by land area.\n\nThis list includes only land area (the aggregate of all surfaces delimited by international boundaries and/or coastlines, excluding inland water bodies), and wikipedia:Dependent territory|dependent territories are not listed separately.\n\n==Nations by land area==\n{| class=\"wikitable sortable\" style=\"text-align: center\"",
@@ -5237,7 +5237,7 @@ export const micrasWikiMicronations = [
         "foundation": "The following is a list of nations in [[Micras]] by area, ranked by land area.\n\nThis list includes only land area (the aggregate of all surfaces delimited by international boundaries and/or coastlines, excluding inland water bodies), and [[wikipedia:Dependent territory|dependent territories]] are not listed separately.\n\n==Nations by land area==\n{| class=\"wikitable sortable\" style=\"text-align: center\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital City\n! style=\"text-align: center; font-weight:bold;\" | Links",
         "currency": "This is a list of all the nations that currently have an officially recognized claim on the map of Micras, as maintained by the Micronational Cartography Society.\n\nSee: Micronational Cartography Society.\n\n==Claiming on Micras==\nSee: https://hub.mn/forum/viewtopic.php?f=4&t=9504 How to claim on Micras.\n\n==List of nations==\n{| class=\"wikitable sortable\"\n! style=\"text-align: center; font-weight:bold;\" | Nation\n! style=\"text-align: center; font-weight:bold;\" | Color in\nMicras map\n! style=\"text-align: center; font-weight:bold;\" | Location\n! style=\"text-align: center; font-weight:bold;\" | Join Date\n! style=\"text-align: center; font-weight:bold;\" | Capital City\n! style=\"text-align: center; font-weight:bold;\" | Links",
         "motto": "This is a list of all the nations that currently have an officially recognized claim on the map of Micras, as maintained by the Micronational Cartography Society.\n\nSee: Micronational Cartography Society.\n\n==Claiming on Micras==\nSee: https://hub.mn/forum/viewtopic.php?f=4&t=9504 How to claim on Micras.\n\n==List of nations==\n{| class=\"wikitable sortable\"\n! style=\"text-align: center; font-weight:bold;\" | Nation\n! style=\"text-align: center; font-weight:bold;\" | Color in\nMicras map\n! style=\"text-align: center; font-weight:bold;\" | Location\n! style=\"text-align: center; font-weight:bold;\" | Join Date\n! style=\"text-align: center; font-weight:bold;\" | Capital City\n! style=\"text-align: center; font-weight:bold;\" | Links",
@@ -5257,7 +5257,7 @@ export const micrasWikiMicronations = [
         "foundation": "This is a '''list of all the nations that currently have an officially recognized claim on the map of [[Micras]]''', as maintained by the [[Micronational Cartography Society]].\n\n''See: [[Micronational Cartography Society]].''\n\n==Claiming on Micras==\n''See: [https://hub.mn/forum/viewtopic.php?f=4&t=9504 How to claim on Micras].''\n\n==List of nations==\n{| class=\"wikitable sortable\"\n! style=\"text-align: center; font-weight:bold;\" | Nation\n! style=\"text-align: center; font-weight:bold;\" | Color in\nMicras map\n! style=\"text-align: center; font-weight:bold;\" | Location\n! style=\"text-align: center; font-weight:bold;\" | Join Date\n! style=\"text-align: center; font-weight:bold;\" | Capital City\n! style=\"text-align: center; font-weight:bold;\" | Links"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Puerto Arcadio",
         "currency": "Liberadosan Cruz (₵)",
         "motto": "\"Oro y Gloria\"",
@@ -5274,7 +5274,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Los Liberados Article}}\n{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lyrica City",
         "currency": "unknown",
         "motto": "",
@@ -5290,7 +5290,7 @@ export const micrasWikiMicronations = [
         "foundation": "2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Port Nevermore",
         "currency": "",
         "motto": "",
@@ -5306,7 +5306,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Home",
         "currency": "Victorian Pound",
         "motto": "Die dulci freure (Have a Nice Day)",
@@ -5322,7 +5322,7 @@ export const micrasWikiMicronations = [
         "foundation": "Unknown"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Luxor City",
         "currency": "Lurkish Delta (δ for short)",
         "motto": "Aurora Nova, Nova Victoria",
@@ -5341,7 +5341,7 @@ export const micrasWikiMicronations = [
         "foundation": "2nd of May 2012 (Micras), 25th June of 2011(Physical)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sardis",
         "currency": "Hosamian Dollar (H$)",
         "motto": "For our homeland and our nation",
@@ -5357,7 +5357,7 @@ export const micrasWikiMicronations = [
         "foundation": "1676 (September 2019)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -5371,7 +5371,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Geneva",
         "currency": "Madlandian Real (MR)",
         "motto": "Non Sine Sole Iris (There is no rainbow without the sun)",
@@ -5391,7 +5391,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Måta",
         "currency": "Palesmenian Córa (₭)",
         "motto": "Lö Cópansas å Nonsés (The Sun of the West)",
@@ -5408,7 +5408,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 22, 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Angel (Tianshi)",
         "currency": "Mailong Wen",
         "motto": "",
@@ -5426,7 +5426,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Koaka",
         "currency": "Malan dollar (MLD)",
         "motto": "Mua a ke Mao",
@@ -5442,7 +5442,7 @@ export const micrasWikiMicronations = [
         "foundation": "-583 ASC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "{{Nation\nMania\n|image_flag = Mania-flag.jpg\nEnglsih\n\n|largecity =\n|website = www.mannyneira.com/mania\n|forum =\n|population =\n|active =\n3rd of February 200\n|government =\n|leader =\n\n|animal =\n|fruit =\n|drink =\n|image_map = Mania.png\n|maps = 9.4b - 13.4.6\n|spcoords =\n|pacoords =\n}}\n\nThe Republic of Mania (Respubliko Mania) was declared independent by its only citizen, Manny Neira, on the 3rd of February 2006.\n\nIts territory is defined as that part of the earths surface closer to me than to anybody else at any given time, Neira claiming sovereignty over this region on the grounds of being its majority population, and in line with the principle recognised by such diverse authorities as F D Roosevelt, the UN Charter, and V I Lenin of \"the right of peoples to self-determination\".\n\n==Manias politics==\n\nimage:mania-poster.jpg|left|200pxIts official language is Esperanto, though as the founder doesnt speak this language only the most important phrases have been translated into it, such as the countrys name (Respubliko Mania) and",
@@ -5458,7 +5458,7 @@ export const micrasWikiMicronations = [
         "foundation": "3rd of February 200"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Blore Heath",
         "currency": "Liev (Lv)",
         "motto": "\"Strength in Commerce\"",
@@ -5477,7 +5477,7 @@ export const micrasWikiMicronations = [
         "foundation": "33.73 [[PSSC]] (6/29/16)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Matbaa (city)|Matbaa City",
         "currency": "Matbaic Salar",
         "motto": "{{feature|August, 2019}}\n:Not to be confused with Mataba.\n{{Nation\nZatriarchate of Matbaa",
@@ -5494,7 +5494,7 @@ export const micrasWikiMicronations = [
         "foundation": "December 2nd 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital|Capital</br>and largest city||align=left | Alexandretta (Meckelnburgh)|Alexandretta",
         "currency": "Currency|Currency ||align=left | Meckelnburgh rixdollar (Ʀ) (MBD)",
         "motto": "Motto: \"Aŭguro de pli bonega tempaĝo\" <small>(Aspiranto language|ao)</small>",
@@ -5513,7 +5513,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MTO Article}}\n{{XC nation}}\n:''\"MCK\" redirects here. For the sovereign nation with a similar name, see [[Kingdom of Meckelnburgh|United Kingdom of Meckelnburgh]].''\n{| class=\"infobox vcard geography\" style=\"width:300px; font-size:90%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Iban",
         "currency": "Mayoo (Mj)",
         "motto": "{{feature|November, 2010}}\n{{Nation",
@@ -5530,7 +5530,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 23rd 2004 (as a province of Charlotta)<br>August 6th 2004 (as an independent state)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Osgiliath (of Menelmacariva)<br> Menelmacar City (of Menelmacar)",
         "currency": "Menelmacari Credit",
         "motto": "",
@@ -5549,7 +5549,7 @@ export const micrasWikiMicronations = [
         "foundation": "2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Internetz, Lulz, Meh",
         "motto": "",
@@ -5565,7 +5565,7 @@ export const micrasWikiMicronations = [
         "foundation": "24th July 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mercury (city)|Mercury",
         "currency": "Mercurian Crown",
         "motto": "Et ipsa scientia potestas",
@@ -5581,7 +5581,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1545}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hansai",
         "currency": "Middle Korean Yin (¥)",
         "motto": "",
@@ -5598,7 +5598,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 30th 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sansabury",
         "currency": "Nominally non-monetary<br><br>(lich cookies prevalent in barter; foreign trade currency reserve held by Sangun Ginko bank)",
         "motto": "Pro Virgulto Omnia",
@@ -5618,7 +5618,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|800 ''Anno Fruticis''|mid-1628 AN}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital:",
         "currency": "Currency:",
         "motto": "Motto: \"Power, Pride, Passion!\"",
@@ -5637,7 +5637,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| style=\"margin: 0px 0px 1em 1em; width: 300px; border-collapse: collapse; float: right; font-size: 85%\" class=\"toccolours\" border=\"1\" cellpadding=\"4\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "San Severus",
         "currency": "Minorcan Peso",
         "motto": "",
@@ -5653,7 +5653,7 @@ export const micrasWikiMicronations = [
         "foundation": "May 2002 ({{AN|1471}})"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nelagsara",
         "currency": "",
         "motto": "{{feature|August, 2010}}\n{{Nation",
@@ -5670,7 +5670,7 @@ export const micrasWikiMicronations = [
         "foundation": "Dec 23, 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brussels",
         "currency": "florijn",
         "motto": "Vrede, Vrijheid, Verdraagzaamheid",
@@ -5686,7 +5686,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 14, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Bundeshauptstadt",
         "currency": "New Burklandi state credit",
         "motto": "For New Burkland!",
@@ -5702,7 +5702,7 @@ export const micrasWikiMicronations = [
         "foundation": "December 1, 2023"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Wirraram",
         "currency": "Macadam Dollars (M$)",
         "motto": "",
@@ -5720,7 +5720,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kingston",
         "currency": "New Victorian Pounds",
         "motto": "{{Nation\n New Victoria\n|Demonym = New Victorian\n|image_flag =NewVictoriaFlag.png \nEnglish\nKingston\n|largecity = Kingston, York\n|website = http://newvictoria.org\n|forum = http://newvictoria.org\n|population = 13\n|active = 13\n17 July 2012\n|government = Monarchy\n|leader = Charles I of New Victoria|Charles I\nNew Victorian Pounds\n|animal = Lion\n|fruit = Green Apple \n|drink = Sparkling Water\n|map_image = \n|maps =\n|spcoords =\n|pacoords =\n}}\n\nThe Kingdom of New Victoria is a micronational community that is based in part on Tudor-Era England. New Victoria is governed by a Constitutional Monarchy, which is headed by a King whose powers are limited by a written constitution, as well as by an elected parliament. The nation was founded on July 15, 2012 and was accepted into the Micronational Cartography Society on November 30, 2012. \n\nNew Victorias capital is the City of Kingdom, which is where The King resides. Kingston is located in the center of the country, for optimum military security. The six other provinces of New Victoria include the Provinces of: Cambridge, Canterbury, Greenwich, Leicester, Portsmouth, and York. \n\n==Religion==\nThe Established Church of New Victoria is the only legal religion in the country. All subjects are required to show allegiance to this common faith. The Church of New Victoria is extremely similar to the macro-national Church of England. The King is considered to be the Supreme Governor of the New Victorian Church and has absolute authority on all spiritual matters. \n\nAlthough The King is the acting Head of the Church, the day-to-day matters are managed by the Archbishop of Canterbury, who is the top-ranking clergy member in the nation. The Archbishop of Canterbury is also responsible for saying mass in Canterbury Cathedral every Sunday.\n\n==Language==\nEnglish is the only recognized language in the Kingdom of New Victoria. Despite the countries British inspiration however, the Government excepts both American and British spellings as valid and lawful. In fact, The King himself has been known to use American English. \n\nThere has been talk recently of including Parisian French as a national language. Many citizens feel that this would be a natural step, since British and French history is so intertwined. The New Victorian Parliament has denied this motion however, due to a lack of majority support for such a motion.\n\nCertain phrases and terms used in the Government are written in other languages. For example, The Kings personal",
@@ -5729,14 +5729,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/New Victoria"
         ],
         "name": " New Victoria",
-        "flag": "https://micras.org/mwiki/File:NewVictoriaFlag.png%20",
+        "flag": "https://micras.org/wiki/images/1/1f/New_Victoria_flag.png",
         "languages": [
             "English"
         ],
         "foundation": "17 July 2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nivardom",
         "currency": "Imperial Stater",
         "motto": "",
@@ -5754,7 +5754,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1667|December 2018}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Naisos",
         "currency": "Flamx, Florian Dollar",
         "motto": "{{WIP}}\n\n{{Nation",
@@ -5770,7 +5770,7 @@ export const micrasWikiMicronations = [
         "foundation": "14.12.2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gwyned",
         "currency": "unknown",
         "motto": "",
@@ -5786,7 +5786,7 @@ export const micrasWikiMicronations = [
         "foundation": "21st January 2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ermingander Village",
         "currency": "Economy of Kalgachia#Currency|Kalgarrand, Mondomark",
         "motto": "Caput mea mortuum est",
@@ -5802,7 +5802,7 @@ export const micrasWikiMicronations = [
         "foundation": "1660 [[Norton calendar|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Novatica",
         "currency": "|currency=NCU",
         "motto": "",
@@ -5811,14 +5811,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Novatainia"
         ],
         "name": "Novatainia",
-        "flag": "https://micras.org/mwiki/File:|image_flag=NovatainiaFlag.JPG",
+        "flag": "https://micras.org/wiki/images/a/af/NovatainiaFlag.JPG",
         "languages": [
             "English"
         ],
         "foundation": "|date_founded=October 25th, 2006 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Newcastle-Upon-Eastmoor",
         "currency": "National Redoubt Denarii NRD£",
         "motto": "{{USSO article}}\n:For the former territory now governed by Mercury and Nova England as the condominium of New Sussex, see Mercurian Nova England.\n{{Nation",
@@ -5834,7 +5834,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|13.XIV.1506|28th July 2005}} [[AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Noviykraznograd",
         "currency": "unknown",
         "motto": "{{feature|March, 2011}}\n{{Nation",
@@ -5851,7 +5851,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 6th 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Yastrebsk",
         "currency": "BoV (Bottle of Vodka)",
         "motto": "",
@@ -5868,7 +5868,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 8th, 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Luna",
         "currency": "Olesian Dollar",
         "motto": "",
@@ -5877,14 +5877,14 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Olesia"
         ],
         "name": "Olesia",
-        "flag": "https://micras.org/mwiki/File:Olesia.png|250px",
+        "flag": "https://micras.org/wiki/images/c/c4/Olesia.png",
         "languages": [
             "Italian", "English"
         ],
         "foundation": "5th March 2018"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Directus",
         "currency": "Ocian Tolar",
         "motto": "Domovina Naša je Svobodna",
@@ -5900,7 +5900,7 @@ export const micrasWikiMicronations = [
         "foundation": "10 July 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Reichsborg",
         "currency": "Mark",
         "motto": "Reinheit uber Alles",
@@ -5916,7 +5916,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Comprehensive"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ábbad",
         "currency": "Palesmenian Córa",
         "motto": "Erípi Marnú e-Marnú (Every Man a Man)",
@@ -5934,7 +5934,7 @@ export const micrasWikiMicronations = [
         "foundation": "1665 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northman",
         "currency": "Poli (P)",
         "motto": "Del hed Sanáos aji Ämóntáinos (Of the Seas and Mountains)",
@@ -5951,7 +5951,7 @@ export const micrasWikiMicronations = [
         "foundation": "Simia 29, 364 WG (7/29/06)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Paderborn (formerly Grøßenburg)",
         "currency": "unknown",
         "motto": "",
@@ -5969,7 +5969,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dagora",
         "currency": "Hellbucks",
         "motto": "",
@@ -5985,7 +5985,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 21, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Colgrad",
         "currency": "Patrova Rouble",
         "motto": "",
@@ -6004,7 +6004,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2009"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital|Capital city ||align=left | The Promenade",
         "currency": "Currency|Currency ||align=left | Florian dollar ($) (FLD)",
         "motto": "Motto: \"In posterum cum felicitas\" <small>(Wikipedia:Latin|la)</small><br/><small>\"Into the future with good fortune\"</small>",
@@ -6023,7 +6023,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| class=\"infobox vcard geography\" style=\"width:310px; font-size:85%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Batu Balik",
         "currency": "Hurmu crown",
         "motto": "Cahaya Langit Panduan Kami",
@@ -6039,7 +6039,7 @@ export const micrasWikiMicronations = [
         "foundation": "26 September {{RP|2023}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kitchengrad",
         "currency": "none",
         "motto": "",
@@ -6055,7 +6055,7 @@ export const micrasWikiMicronations = [
         "foundation": "1999-2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Walstadt",
         "currency": "",
         "motto": "",
@@ -6072,7 +6072,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Qeltaseaga",
         "currency": "",
         "motto": "",
@@ -6088,7 +6088,7 @@ export const micrasWikiMicronations = [
         "foundation": "1602 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Raspur (city)|Raspur",
         "currency": "Dinar",
         "motto": "Blood Calls Out for Blood",
@@ -6104,7 +6104,7 @@ export const micrasWikiMicronations = [
         "foundation": "10 Bahman (IV) 1637"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Marxgrad",
         "currency": "",
         "motto": "",
@@ -6120,7 +6120,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 4, 2004 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Port Arenas",
         "currency": "Ore",
         "motto": "",
@@ -6128,15 +6128,15 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/Republic of Coria"
         ],
-        "name": " Republic of Coria",
-        "flag": "https://micras.org/mwiki/File:FlagR.png|250px",
+        "name": "Republic of Coria",
+        "flag": "https://micras.org/wiki/images/2/22/Republic_of_Coria_flag.png",
         "languages": [
             "none official"
         ],
         "foundation": "December 23,2014 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vladagrad",
         "currency": "Istvanistani §",
         "motto": "",
@@ -6153,7 +6153,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Enhasa",
         "currency": "Maraguan Dollar / Batavian Kruys",
         "motto": "\"Staan Vas, Maraguo\"",
@@ -6171,7 +6171,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 16, 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mortis Mercatoria",
         "currency": "Natopian natopo (₦)",
         "motto": "Freedom, Order, Unity",
@@ -6187,7 +6187,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|9.II.1679|3 December, 2019}} Declaration of Republic<br>{{Tooltip|5.VII.1679|13 December, 2019}} First constitution <br> {{Tooltip|7.I.1683|1 April, 2020}} [[Trilateral Treaty on Shimmerspring]], annexation by Sanama and Drak-Modan"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bissau",
         "currency": "None",
         "motto": ":For other similarly-named entities, see Victoria (disambiguation).\n{{Nation",
@@ -6203,7 +6203,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2004 (est.)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Loredo",
         "currency": "Rio Grande Peso",
         "motto": "",
@@ -6222,7 +6222,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rilloneous",
         "currency": "N/A",
         "motto": "|motto=",
@@ -6234,14 +6234,14 @@ export const micrasWikiMicronations = [
             "website"
         ],
         "name": "Free Republic of Rocentia",
-        "flag": "https://micras.org/mwiki/File:|image_flag=%20Rocflag_sm.jpg",
+        "flag": "https://micras.org/wiki/images/f/f7/Rocflag_sm.jpg",
         "languages": [
             "English "
         ],
-        "foundation": "|date_founded= 11 December 2000 "
+        "foundation": "11 December 2000 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mahūti (Jingbuzu)",
         "currency": "",
         "motto": "",
@@ -6257,7 +6257,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Neurossheim",
         "currency": "Rossmark",
         "motto": "Belua tibi veniat",
@@ -6274,7 +6274,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 September 2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital|Capital city|| align=\"left\" | Saint Salvation (city-state)",
         "currency": "Currency|Currency|| align=\"left\" |Amnis (Ⱥ) (SVA)\n",
         "motto": "Motto: \"Aqua mortem vincit\" <small>(mv)</small>",
@@ -6288,12 +6288,12 @@ export const micrasWikiMicronations = [
         "name": "Country|Unitary parliamentary republic with an executive presidency",
         "flag": "https://micras.org/mwiki/File:{|%20class=\"infobox%20vcard%20geography\"%20style=\"width:300px;%20font-size:90%;\"",
         "languages": [
-            "Language|Official language<nowiki/>s|| align=\"left\" |Istvanistani · Martino language|Martino"
+            "Language|Official language<nowiki/>s|| align=\"left\" |Istvanistani · Martino"
         ],
         "foundation": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:90%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Saint-Denis",
         "currency": "Cifra ($)",
         "motto": "",
@@ -6309,7 +6309,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 28, 1997"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Commenda ",
         "currency": "Vegnese Rino|Rino",
         "motto": "",
@@ -6320,7 +6320,7 @@ export const micrasWikiMicronations = [
         "name": "Overseas Autonomous Territory of San Lucido and the Eastern Regions",
         "flag": "https://micras.org/mwiki/|flag%20=File:San%20Lucido%20flag.png%20",
         "languages": [
-            "|lang =Vegnian (related to Gaian language)",
+            "Vegnian (related to Gaian language)",
             "Istvanistani",
             "Lucidian",
             "Norse "
@@ -6328,7 +6328,7 @@ export const micrasWikiMicronations = [
         "foundation": "1719 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital|Capital ||align=left | Semisa City",
         "currency": "Currency ||align=left | Sanaman rilha (R$)",
         "motto": "Motto: Unity, Liberty, Prosperity",
@@ -6347,7 +6347,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Sanama Article}}{{SANE article}}{{MTO Article}}\n\n{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{unbulleted list|Niyi (temporary)|Semisa City}}",
         "currency": "currency = Sanaman rilha (R$)",
         "motto": "motto =",
@@ -6367,7 +6367,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MTO Article}}\n{{Sanama Article}}\n{{Infobox Nation Sanama"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Forburgh",
         "currency": "Scotannian Pound (sp£)",
         "motto": "",
@@ -6383,7 +6383,7 @@ export const micrasWikiMicronations = [
         "foundation": "18 September 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sennarstan",
         "currency": "Sennari Rial",
         "motto": "",
@@ -6401,7 +6401,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Svorgas",
         "currency": "Senyan Vontar|Vontar (DSV)",
         "motto": "For Senya",
@@ -6411,7 +6411,7 @@ export const micrasWikiMicronations = [
         "websites": [
             "https://micras.org/mwiki/Senya"
         ],
-        "name": "Democratic Environmental Society of Senya (wikipedia:English language|en)",
+        "name": "Democratic Environmental Society of Senya",
         "flag": "https://micras.org/mwiki/|flag%20=File:Flag%20of%20Senya.png",
         "languages": [
             "language|en)<br>Demokratik Etƨerƨkv Sosëa bɏer Sanya (Senyan language|ds)"
@@ -6419,7 +6419,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 March 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nankad",
         "currency": "Sevetian ren (Ɍ)",
         "motto": "",
@@ -6437,7 +6437,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 December 2018"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nackolom",
         "currency": "-",
         "motto": "Shrubdom over Schlubdom",
@@ -6453,7 +6453,7 @@ export const micrasWikiMicronations = [
         "foundation": "-"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "capital:",
         "currency": "{|cellpadding=\"4\" border=\"1\" style=\"float: right; width: 300px; margin: 0 0 1em 1em; border-collapse: collapse; font-size: 95%;\" class=\"toccolours\"",
         "motto": "{|cellpadding=\"4\" border=\"1\" style=\"float: right; width: 300px; margin: 0 0 1em 1em; border-collapse: collapse; font-size: 95%;\" class=\"toccolours\"",
@@ -6472,7 +6472,7 @@ export const micrasWikiMicronations = [
         "foundation": "{|cellpadding=\"4\" border=\"1\" style=\"float: right; width: 300px; margin: 0 0 1em 1em; border-collapse: collapse; font-size: 95%;\" class=\"toccolours\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sivastead",
         "currency": "Dollar ($), Poli (P)",
         "motto": "",
@@ -6489,7 +6489,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Joseph Town",
         "currency": "South Sea Denarii SS£",
         "motto": "We hath founded it upon the sea",
@@ -6505,7 +6505,7 @@ export const micrasWikiMicronations = [
         "foundation": "1501 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Valencia, Tossa de Mar",
         "currency": "Skarland Lira (L) 1L=100cent",
         "motto": "",
@@ -6522,7 +6522,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 March 2008"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital city|Capital<br><small>and largest city</small>",
         "currency": "Currency|Currency",
         "motto": "{{WIP}}\n\n{{Infobox",
@@ -6541,7 +6541,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{WIP}}\n\n{{Infobox"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Srbograd",
         "currency": "Florian Pound",
         "motto": "",
@@ -6557,7 +6557,7 @@ export const micrasWikiMicronations = [
         "foundation": "30.09.2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Underwall",
         "currency": "Benacian Sovereign",
         "motto": "Wield Power Without Abuse",
@@ -6573,7 +6573,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1671|April 13, 2019}} [[AN]] Independence \n{{AN|1681}} Admission into Elwynn \n\n{{AN|1703}} [[The Document of Governance for the Realm of the Sovereign Confederation of Governorates|Reorganized]] within the [[Benacian Union]]\n\n{{AN|1734}} Document of Governance is amended through the Omnibus Reforms "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lenin City",
         "currency": "Storejian state credit",
         "motto": "Arise o people of Storej!",
@@ -6582,18 +6582,18 @@ export const micrasWikiMicronations = [
             "https://micras.org/mwiki/Storej"
         ],
         "name": "Independent Sovereign State of Storej",
-        "flag": "https://micras.org/mwiki/File:Flag%20of%20Storej.png",
+        "flag": "https://micras.org/wiki/images/6/68/Storej_flag.png",
         "languages": [
-            "wikipedia:Bashkir language|Bashkir",
-            "wikipedia:English language|English",
-            "wikipedia:German language|German",
+            "Bashkir",
+            "English",
+            "German",
             "wikipedia:Proto-Human language|Proto-Human",
             "Quenij language|Quenij"
         ],
         "foundation": "1337829705"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vrakstad",
         "currency": "unknown",
         "motto": "",
@@ -6610,7 +6610,7 @@ export const micrasWikiMicronations = [
         "foundation": "23rd April 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Haraldsborg",
         "currency": "Storish króna",
         "motto": "Fra havet, hæder",
@@ -6627,7 +6627,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox former country"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Seongchen (formerly Daegon)",
         "currency": "Taesongean Won (₩)",
         "motto": "",
@@ -6644,7 +6644,7 @@ export const micrasWikiMicronations = [
         "foundation": "February 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Baile na hÁlainn",
         "currency": "Tománn Punt (TP£)",
         "motto": "",
@@ -6661,7 +6661,7 @@ export const micrasWikiMicronations = [
         "foundation": "11th June 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ersoy",
         "currency": "Hammish Obol",
         "motto": "",
@@ -6679,7 +6679,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 28th 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{unbulleted list|Angora (spring)|Sura (summer)|Kadim (winter)|Arda (honorary)}}",
         "currency": "",
         "motto": "Trak ile yaşa!",
@@ -6696,7 +6696,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{CSA article}}\n{{MTO Article}}\n{{Thracistan article}} \n{{Antakia article}} \n{{Hazar article}} \n{{Batır article}} \n{{Yenihazar article}} \n{{Tiginsky article}} \n{{Infobox Nation Jack2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vancona",
         "currency": "Senyan Vontar",
         "motto": "Jure et Gladio",
@@ -6714,7 +6714,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Santa Rosa dAodh",
         "currency": "unknown",
         "motto": "",
@@ -6730,7 +6730,7 @@ export const micrasWikiMicronations = [
         "foundation": "September 2003"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Garrak",
         "currency": "Obol",
         "motto": "",
@@ -6749,7 +6749,7 @@ export const micrasWikiMicronations = [
         "foundation": "October 12th 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Corthas",
         "currency": "Medran",
         "motto": "",
@@ -6765,7 +6765,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Failte, later Halberd Lighthouse",
         "currency": "unknown",
         "motto": "{{feature|September, 2010}}\n{{Nation",
@@ -6781,7 +6781,7 @@ export const micrasWikiMicronations = [
         "foundation": "October 11, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": ":This article is for the former territory. For the city previously named Tyrenia, see Tiě Gǎng.\n\n{{City2",
         "currency": "Kala",
         "motto": "Lasciate ogni speranza, voi chentrate",
@@ -6799,7 +6799,7 @@ export const micrasWikiMicronations = [
         "foundation": ":''This article is for the former territory. For the city previously named Tyrenia, see [[Tiě Gǎng]].''\n\n{{City2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tulsa",
         "currency": "N/A",
         "motto": "",
@@ -6811,7 +6811,7 @@ export const micrasWikiMicronations = [
             ""
         ],
         "name": "Kingdom of Tulsa",
-        "flag": "https://micras.org/mwiki/File:|image_flag=%20Tul%20flag.gif",
+        "flag": "https://micras.org/mwiki/File:Tul%20flag.gif",
         "languages": [
             "English",
             "French"
@@ -6819,7 +6819,7 @@ export const micrasWikiMicronations = [
         "foundation": "1998"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Kirriemuir",
         "currency": "Various",
         "motto": "",
@@ -6841,7 +6841,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 November 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chryse",
         "currency": "Crisis credit",
         "motto": "TBA",
@@ -6857,7 +6857,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1685|June, 2020}} [[AN]] "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "capita || align=\"left\" | ₢58,630",
         "currency": "Currency|Currencies ||align=left | Meckelnburgh rixdollar (Ʀ) (MBD) · Branniboria rixdollar · Salem rixdollar · Iselande rixdollar",
         "motto": "{{MTO Article}}\n\n:This article is about the sovereign state. For the constituent country with the same name, see Meckelnburgh.\n\n{| class=\"infobox vcard geography\" style=\"width:320px; font-size:95%;\"",
@@ -6876,7 +6876,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MTO Article}}\n\n:''This article is about the sovereign state. For the constituent country with the same name, see [[Meckelnburgh]].''\n\n{| class=\"infobox vcard geography\" style=\"width:320px; font-size:95%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eltonhampton",
         "currency": "Hamptonic Pound",
         "motto": "\"The eye of the beholder\"",
@@ -6887,12 +6887,12 @@ export const micrasWikiMicronations = [
         "name": "United Kingdom of the Hamptons",
         "flag": "https://micras.org/wiki/images/d/d7/Hamptons5.png",
         "languages": [
-            "Official languages: <br>Hamptonic language|Hamptonic<br>wikipedia:English language|English<br>"
+            "Official languages: <br>Hamptonic language|Hamptonic<br>English<br>"
         ],
         "foundation": "1364 A.D."
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "St Anna",
         "currency": "Apollonian Dollar",
         "motto": "Peace, equality, unity.",
@@ -6908,7 +6908,7 @@ export const micrasWikiMicronations = [
         "foundation": "TBC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Aristarchus",
         "currency": "Universalis Credit",
         "motto": "motto =",
@@ -6924,7 +6924,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 10, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "-",
         "currency": "Benacian sovereign, occasionally Economy of Kalgachia#Currency|Kalgarrand or Natopian natopo|natopo",
         "motto": "Došman Došmanarijbijŋaŋ, Bjezneŋ Duslarijbijz",
@@ -6940,7 +6940,7 @@ export const micrasWikiMicronations = [
         "foundation": "214 ''[[Kalgachia#Calendar|Anno Libertatis]]''"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Benkerngrad",
         "currency": "",
         "motto": "",
@@ -6956,7 +6956,7 @@ export const micrasWikiMicronations = [
         "foundation": "2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chambéry",
         "currency": "{{Nouvelle Alexandrie region",
         "motto": "Scientia Et Misericordia",
@@ -6975,7 +6975,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Nouvelle Alexandrie region"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tempestad",
         "currency": "",
         "motto": "Aut Inveniam Aut Faciam",
@@ -6991,7 +6991,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital<small>\n! <small>2nd City<small>\n! <small>Abbreviation<small>\n! <small>Flag<small>\n! <small>Founded<small>",
         "currency": ":For other similarly-named entities, see Victoria (disambiguation).\n{{Victoria article}}\n{{Template:Info box victoria}}\n\nVictoria (wikipedia:Scots language|Victs: Viktoria) is a constituent country of the Craitland|Kingdom of Craitland. Occupying the most north-western part of mainland Apollonia, it shares a border with Natopian Arboria to the south and is bounded by the Floyd Strait to the north and Bruges Bay to the west.\n\nBetween {{AN|1606}} and {{AN|1685}}, Victoria was a constituent country of the Gotzborg|Kingdom of Gotzborg, with Stormark being in her custody between {{AN|1656}} and 1685. After the signing of the Declaration of Buthminster in {{AN|1702}}, Victoria came under the flag of Craitland through the restoration of the lineage of Princess Anika, wife of the former King of Craitland, the rightful heir to the throne after the death of Victoria II.\n\n==Administrative divisions==\n===Duchies===\n\n{| class=\"vatop\" style=\"border: solid 1px #808080; background-color:#EFEFEF;\" cellspacing=\"2\" cellpadding=\"2\"  width=\"450px\"",
         "motto": ":For other similarly-named entities, see Victoria (disambiguation).\n{{Victoria article}}\n{{Template:Info box victoria}}\n\nVictoria (wikipedia:Scots language|Victs: Viktoria) is a constituent country of the Craitland|Kingdom of Craitland. Occupying the most north-western part of mainland Apollonia, it shares a border with Natopian Arboria to the south and is bounded by the Floyd Strait to the north and Bruges Bay to the west.\n\nBetween {{AN|1606}} and {{AN|1685}}, Victoria was a constituent country of the Gotzborg|Kingdom of Gotzborg, with Stormark being in her custody between {{AN|1656}} and 1685. After the signing of the Declaration of Buthminster in {{AN|1702}}, Victoria came under the flag of Craitland through the restoration of the lineage of Princess Anika, wife of the former King of Craitland, the rightful heir to the throne after the death of Victoria II.\n\n==Administrative divisions==\n===Duchies===\n\n{| class=\"vatop\" style=\"border: solid 1px #808080; background-color:#EFEFEF;\" cellspacing=\"2\" cellpadding=\"2\"  width=\"450px\"",
@@ -7016,7 +7016,7 @@ export const micrasWikiMicronations = [
         "foundation": ":''For other similarly-named entities, see [[Victoria (disambiguation)]].''\n{{Victoria article}}\n{{Template:Info box victoria}}\n\n'''Victoria''' ([[wikipedia:Scots language|Victs]]: ''Viktoria'') is a constituent country of the [[Craitland|Kingdom of Craitland]]. Occupying the most north-western part of mainland [[Apollonia]], it shares a border with [[Natopia]]n [[Arboria]] to the south and is bounded by the [[Floyd Strait]] to the north and [[Bruges Bay]] to the west.\n\nBetween {{AN|1606}} and {{AN|1685}}, Victoria was a constituent country of the [[Gotzborg|Kingdom of Gotzborg]], with [[Stormark]] being in her custody between {{AN|1656}} and 1685. After the signing of the [[Declaration of Buthminster]] in {{AN|1702}}, Victoria came under the flag of Craitland through the restoration of the lineage of [[Princess Anika]], wife of the former King of Craitland, the rightful heir to the throne after the death of [[Victoria II]].\n\n==Administrative divisions==\n===Duchies===\n\n{| class=\"vatop\" style=\"border: solid 1px #808080; background-color:#EFEFEF;\" cellspacing=\"2\" cellpadding=\"2\"  width=\"450px\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Cossa ({{get parameter|dataCossa|VEGcityPOP|Template:VEGcityPOP/doc}} ab. /{{VEGcensus}}) ",
         "currency": "Vegnese Rino",
         "motto": "",
@@ -7033,7 +7033,7 @@ export const micrasWikiMicronations = [
         "foundation": "1705 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital<small>\n! <small>2nd City<small>\n! <small>Abbreviation<small>\n! <small>Flag<small>\n! <small>Founded<small>",
         "currency": "",
         "motto": "",
@@ -7055,7 +7055,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Info box victoria current}}\n:''For other similarly-named entities, see [[Victoria (disambiguation)]].''\n\nThe '''Victorian Empire''', previously the '''Kingdom of Victoria''' ('''Gaelic''': ''Rìoghachd na h-Bhioctoria'', '''Victs''': ''Kinrick o Viktoria'') was a sovereign state in [[Apollonia|North West Apollonia]] traditionally said to have been founded in 1450, which defuncted after joining the [[Gotzborg|Kingdom of Gotzborg]] and becoming a [[Constituent Country|constituent country]] of that realm in {{AN|1606}}.\n\n== History ==\n\n\n==Government and politics==\n\n\n===Local Government===\n===Victorian overseas territories===\n===International Organisations===\n\n==Administrative Divisions==\n===Duchies===\n\n{| class=\"vatop\" style=\"border: solid 1px #808080; background-color:#EFEFEF;\" cellspacing=\"2\" cellpadding=\"2\"  width=\"450px\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Cyberia may also refer to the Federal Republic of Cyberia.\nThis material is dated. The VCC was resident on Micras, as shown on the map below.\n\n{{NationVirtual Commonwealth of Cyberia|image_flag=vccflag150x100.gifEnglish",
         "currency": "Cyberia may also refer to the Federal Republic of Cyberia.\nThis material is dated. The VCC was resident on Micras, as shown on the map below.\n\n{{NationVirtual Commonwealth of Cyberia|image_flag=vccflag150x100.gifEnglishKernsopolis, FDC|date_founded=July 19, 1997|population=N/A |active=8 as of last census",
         "motto": "Cyberia may also refer to the Federal Republic of Cyberia.\nThis material is dated. The VCC was resident on Micras, as shown on the map below.\n\n{{NationVirtual Commonwealth of Cyberia|image_flag=vccflag150x100.gif",
@@ -7073,7 +7073,7 @@ export const micrasWikiMicronations = [
         "foundation": "Cyberia may also refer to the [[Federal Republic of Cyberia]].\n''This material is dated. The VCC was resident on Micras, as shown on the map below.''\n\n{{NationVirtual Commonwealth of Cyberia|image_flag=vccflag150x100.gifEnglish[[Kernsopolis]], [[FDC]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vroanshampul Station",
         "currency": "Vroanshampul i goukrit",
         "motto": "elchyq masit Vroanshampul",
@@ -7090,7 +7090,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 February 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Parap",
         "currency": "Sol",
         "motto": "Huñusqa Nasyunkuna (United Always)",
@@ -7109,7 +7109,7 @@ export const micrasWikiMicronations = [
         "foundation": "7 January 2018"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Artursburg",
         "currency": "Wachensburg Rotmark",
         "motto": "",
@@ -7126,7 +7126,7 @@ export const micrasWikiMicronations = [
         "foundation": "26th March 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brandenburg",
         "currency": "Reichsmark",
         "motto": "In Freiheit vereint",
@@ -7143,7 +7143,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1504 AN|12/05/2005}} as Amokolia <br> {{tooltip|1678 AN|18/11/2019}} as Francia"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zhongjing",
         "currency": "Xinguo Yuan (元)",
         "motto": "",
@@ -7162,7 +7162,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 20th 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gorod Moroza",
         "currency": "N/A, Bartering",
         "motto": "",
@@ -7179,7 +7179,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 7, 2011"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "TBD",
         "currency": "",
         "motto": "",
@@ -7195,7 +7195,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 September 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gondolin",
         "currency": "Guilder (£)",
         "motto": "Strength and Honor",
@@ -7211,7 +7211,7 @@ export const micrasWikiMicronations = [
         "foundation": "Wolf Moon, 1674 [[shire:AN|AN]]<br>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bandar Bharu",
         "currency": "Zyrkis Ringgit",
         "motto": "Onward and Progress",
@@ -7227,7 +7227,7 @@ export const micrasWikiMicronations = [
         "foundation": "12 September 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Noursala",
         "currency": "Aerlan Felt|Felt",
         "motto": "Super Cetera",
@@ -7243,7 +7243,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1709}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gultaj",
         "currency": "Barter economy",
         "motto": "Not agreed",
@@ -7259,7 +7259,7 @@ export const micrasWikiMicronations = [
         "foundation": "6881 [[ASC]] (fictional)<br>August 25, 2018 (real)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Khanabad",
         "currency": "Craitish Cräite (CRC)",
         "motto": "",
@@ -7276,7 +7276,7 @@ export const micrasWikiMicronations = [
         "foundation": "24.X.1704 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brussels",
         "currency": "florijn",
         "motto": "Vrede, Vrijheid, Verdraagzaamheid",
@@ -7292,7 +7292,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 14, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mighi",
         "currency": "Mondomark",
         "motto": "",
@@ -7308,7 +7308,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1716}} "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Khanabad",
         "currency": "Hurmu crown (HUK)",
         "motto": "Nature is our Nourisher",
@@ -7326,7 +7326,7 @@ export const micrasWikiMicronations = [
         "foundation": "1.X.1708 AN <small>(became emirate on 1.I.1722)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ald-Arbora (City)|Ald-Arbora",
         "currency": "Pölsung (Ᵽ)",
         "motto": "Reiž ka Dran",
@@ -7342,7 +7342,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|2.IX.1679|17 December, 2019}} "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -7358,7 +7358,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Driftwood",
         "currency": "Jingdaoese Kala",
         "motto": "",
@@ -7374,7 +7374,7 @@ export const micrasWikiMicronations = [
         "foundation": "1685"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Driftwood",
         "currency": "Jingdaoese Kala",
         "motto": "",
@@ -7390,7 +7390,7 @@ export const micrasWikiMicronations = [
         "foundation": "1656"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hafnagaarð",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -7406,7 +7406,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1707}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Natopian natopo (₦)",
         "motto": "TBA",
@@ -7425,7 +7425,7 @@ export const micrasWikiMicronations = [
         "foundation": "1504 (as an independent country) <br> 1684 (AN) (as an autonomous republic)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Andilar",
         "currency": "currency = Calbain Arian",
         "motto": "motto =",
@@ -7444,7 +7444,7 @@ export const micrasWikiMicronations = [
         "foundation": "estdate = "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northworthy",
         "currency": "Angsax Scilling",
         "motto": "{{feature|September, 2010}}\n{{Nation",
@@ -7461,7 +7461,7 @@ export const micrasWikiMicronations = [
         "foundation": "2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nafticon",
         "currency": "Pecunia",
         "motto": "",
@@ -7477,7 +7477,7 @@ export const micrasWikiMicronations = [
         "foundation": "June 17, 2003"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Xiacheng",
         "currency": "Kala",
         "motto": "Sensible and Ruthless",
@@ -7493,7 +7493,7 @@ export const micrasWikiMicronations = [
         "foundation": "''Conquest of Kildare by Kaiser [[Gaelen I]]: 1451 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Apollo City",
         "currency": "Kala",
         "motto": "Birthplace of Modern Civilisation",
@@ -7512,7 +7512,7 @@ export const micrasWikiMicronations = [
         "foundation": "'''Annexed as part of Shireroth:''' <br>513 ASC (30th December 2000)<br>\n'''Independent from Shireroth:''' <br>5555 ASC (21th October 2014)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Yadya",
         "currency": "Zuz",
         "motto": "לשוב לארץ אבותינו",
@@ -7528,7 +7528,7 @@ export const micrasWikiMicronations = [
         "foundation": "Sivan 19, 5774 / June 17, 2014"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{nihongo|Ganran City|甘蘭市|Kanran-shi}}",
         "currency": "",
         "motto": "",
@@ -7544,7 +7544,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1578|11th July 2011}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Apollo City",
         "currency": "Kala",
         "motto": "Birthplace of Modern Civilisation",
@@ -7563,7 +7563,7 @@ export const micrasWikiMicronations = [
         "foundation": "'''Annexed as part of Shireroth:''' <br>513 ASC (30th December 2000)<br>\n'''Independent from Shireroth:''' <br>5555 ASC (21th October 2014)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Koningsrots",
         "currency": "Golden Kruys",
         "motto": "Justitiae et Fides",
@@ -7579,7 +7579,7 @@ export const micrasWikiMicronations = [
         "foundation": "1663 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Madinat al-Fath",
         "currency": "Gold dinar (Arboric: ﺩﻳﻨﺎﺭ ذهبي‎)",
         "motto": "حدة ، حرية ، اشتراكية",
@@ -7595,7 +7595,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1504 AN|12/05/2005}} as Amokolia <br> {{tooltip|1678 AN|18/11/2019}} as Francia <br> {{tooltip|1685 AN|25/06/2020}} as Emirate of Arbor <br> {{tooltip|1702 AN|29/11/2021}} as Arboric Republic of Barikalus"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Marble Palace",
         "currency": "Thalmark",
         "motto": "From the ashes we rise again",
@@ -7611,7 +7611,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Arevacía",
         "currency": "",
         "motto": "Best of traditions",
@@ -7628,7 +7628,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mahapur",
         "currency": "Erb",
         "motto": "",
@@ -7646,7 +7646,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 10, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Baathshahr",
         "currency": "None",
         "motto": "al-Zia al-Sahra (The Light of the Desert)",
@@ -7663,7 +7663,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|13.V.1448 [[AN]]|10 September 2000}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Arvidsudde",
         "currency": "Jingdaoese Kala",
         "motto": "Pay the toll or drink the salty water",
@@ -7679,7 +7679,7 @@ export const micrasWikiMicronations = [
         "foundation": "1685"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mashiro",
         "currency": "Guilder (£)",
         "motto": "The Gods Light Is Our Strength",
@@ -7695,7 +7695,7 @@ export const micrasWikiMicronations = [
         "foundation": "Winter, 228 [[shire:AN|AN]] (as part of Stormhold)<br>1675 (independent province)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Barnum City",
         "currency": "Barnumian Dollar",
         "motto": "{{Infobox Nation Comprehensive",
@@ -7711,7 +7711,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dien Noi",
         "currency": "Banhnamese Dong<br>(BND)",
         "motto": "Freedom and Independence",
@@ -7727,7 +7727,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 July 2023"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Reykjavik",
         "currency": "Nieuwe Bataafse Kruys (NBK)",
         "motto": "Syndicalisten aller landen, verenigt U!",
@@ -7745,7 +7745,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -7763,7 +7763,7 @@ export const micrasWikiMicronations = [
         "foundation": "1504"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "TBA",
         "currency": "Poli",
         "motto": "\n",
@@ -7780,7 +7780,7 @@ export const micrasWikiMicronations = [
         "foundation": "47.58 [[PSSC]] (6/9/2023)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "s Koningenwaarde",
         "currency": "Kruys (BAK)",
         "motto": "Batavia erit in orbe ultima",
@@ -7796,7 +7796,7 @@ export const micrasWikiMicronations = [
         "foundation": "09 Sprokkelmaand 1513 AN (''09.02.2006'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Madness",
         "currency": "B.I.O.U",
         "motto": "",
@@ -7812,7 +7812,7 @@ export const micrasWikiMicronations = [
         "foundation": "2nd January 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kabyk",
         "currency": "{{Batır article}}{{Thraci Confederation article}}\n{{Infobox settlement\n<!-- See Template:Infobox settlement for additional fields and descriptions -->",
         "motto": "motto --->",
@@ -7824,12 +7824,12 @@ export const micrasWikiMicronations = [
             "website,"
         ],
         "name": "country/region containing the coordinates -->",
-        "flag": "https://micras.org/mwiki/File:image_flag%20%20%20%20%20%20%20%20%20%20%20%20%20%20=%20Batır%20flag.png",
+        "flag": "https://micras.org/wiki/images/e/e6/Bat%C4%B1r_flag.png",
         "languages": [],
         "foundation": "{{Batır article}}{{Thraci Confederation article}}\n{{Infobox settlement\n<!-- See Template:Infobox settlement for additional fields and descriptions -->"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chryse",
         "currency": "Benacian sovereign (ß)",
         "motto": "",
@@ -7845,7 +7845,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{unbulleted list|Founded {{AN|1698}}|United under [[Charter of the Benacian Union|Charter]] {{AN|1703}}}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Babajevo",
         "currency": "Bodži Ranka",
         "motto": "Sadnzate i lojalnost",
@@ -7861,7 +7861,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 December 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sanaboko",
         "currency": "Gold",
         "motto": "From the Desert, We Rise",
@@ -7879,7 +7879,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Karenja",
         "currency": "Borealian Pound (£)",
         "motto": "Ave Eros",
@@ -7895,7 +7895,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1702}} <small>(November 20, 2021)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Babajevo",
         "currency": "Podiza",
         "motto": "Sadnzate vi loijalnostluk",
@@ -7911,7 +7911,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 December 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Baskerville",
         "currency": "Calbain Arian",
         "motto": "\"Steel True, Blade Straight\"",
@@ -7928,7 +7928,7 @@ export const micrasWikiMicronations = [
         "foundation": "5190 ASC (October 21, 2013)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Byalgorod<br><small>and largest city</small>",
         "currency": "Zolotnik",
         "motto": "С Господом занавек (With God forever)",
@@ -7947,7 +7947,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1690}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Deeprift",
         "currency": "Zaikir (Ƶ)",
         "motto": "{{tooltip|Dar Reim iss dar Weig|The Realm is the Way}}",
@@ -7958,13 +7958,13 @@ export const micrasWikiMicronations = [
         "name": "The Realm of Bryconia",
         "flag": "https://micras.org/wiki/images/6/61/Bryconia_flag.png",
         "languages": [
-            "wikipedia:English language|Common tongue",
+            "English",
             "Bryconian"
         ],
         "foundation": "1472 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Castrum Nazarene",
         "currency": "Shekel",
         "motto": "",
@@ -7981,7 +7981,7 @@ export const micrasWikiMicronations = [
         "foundation": "7th January 2011"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kittsburgh",
         "currency": "",
         "motto": "Meow",
@@ -7995,7 +7995,7 @@ export const micrasWikiMicronations = [
         "foundation": "1605 AN (Oct 08, 2013)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mswengo",
         "currency": "Central Euran denier (CED)",
         "motto": "&ndash;",
@@ -8012,7 +8012,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Negara Awan, Kuala Forajasaki",
         "currency": "Phinbellan florin<br>Forajasakian ringgit",
         "motto": "",
@@ -8028,7 +8028,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": " Wolfraven",
         "currency": "Benacian sovereign",
         "motto": "",
@@ -8045,7 +8045,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1705}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mourn",
         "currency": "Zaikir (Ƶ)",
         "motto": "Praeterita Obliviscentes. Memento Posterum (Forget the Past. Remember the Future)",
@@ -8056,14 +8056,14 @@ export const micrasWikiMicronations = [
         "name": "The Ciric Confederation of Wrighthaven, Hemsford, Paroka, and Minh-Cong",
         "flag": "https://micras.org/wiki/images/f/fd/Cira_flag.png",
         "languages": [
-            "wikipedia:English language|Common tongue",
+            "English",
             "Parokan",
             "wikipedia:Vietnamese language|Minh"
         ],
         "foundation": "1455 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chryse",
         "currency": "{{unbulleted list|Benacian sovereign}}",
         "motto": "None",
@@ -8080,7 +8080,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{unbulleted list|{{AN|512}}}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ittoqqortoormiit",
         "currency": "Pacarian krone (ᙧ)",
         "motto": "Our Nation, Our Lands, Our People!",
@@ -8097,7 +8097,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1704|26th January 2022}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rusjar",
         "currency": "Zeedic ruble|Ruble",
         "motto": "For the unity of the people!",
@@ -8113,7 +8113,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|23 Rokhpin 1688|16th of September 2020}} "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Leylstadt",
         "currency": "Local currencies, but plans to establish the Confederation Credit",
         "motto": "No motto",
@@ -8135,7 +8135,7 @@ export const micrasWikiMicronations = [
         "foundation": "'''Treaty of Confederation''': 7 Blumuar 1683 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Stadt Taktwinkel|Taktwinkel",
         "currency": "various",
         "motto": "Senatus et populus, fidelissimae reginae",
@@ -8151,7 +8151,7 @@ export const micrasWikiMicronations = [
         "foundation": "XIII.1722 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Johannsessbuurg",
         "currency": "Mark",
         "motto": "",
@@ -8169,7 +8169,7 @@ export const micrasWikiMicronations = [
         "foundation": "2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Seragaan",
         "currency": "Daau Ruppiah",
         "motto": "\"Onwards Daau\"",
@@ -8185,7 +8185,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 February 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mountainview Bay",
         "currency": "",
         "motto": "Peace and prosperity",
@@ -8198,10 +8198,10 @@ export const micrasWikiMicronations = [
         "languages": [
             "lands article}}\n{{Infobox Nation Comprehensive"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tuan",
         "currency": "Davinson Islands dollar (DID)",
         "motto": "\"Freedom and beyond\"",
@@ -8217,7 +8217,7 @@ export const micrasWikiMicronations = [
         "foundation": "4th October 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Urbia Delvenus",
         "currency": "ICEO",
         "motto": "\n{{Nation",
@@ -8233,7 +8233,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 10, 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Daocheng",
         "currency": "Golden Kala",
         "motto": "Sensible and Ruthless",
@@ -8252,7 +8252,7 @@ export const micrasWikiMicronations = [
         "foundation": "<small>1704 AN</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{Batavia Article}}\n{{MCS-NEVONatie|",
         "currency": "{{Batavia Article}}\n{{MCS-NEVONatie|",
         "motto": "",
@@ -8271,7 +8271,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Batavia Article}}\n{{MCS-NEVONatie| "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Union Territory",
         "currency": "",
         "motto": "",
@@ -8287,7 +8287,7 @@ export const micrasWikiMicronations = [
         "foundation": "2 February 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "seonche",
         "currency": "Chronus",
         "motto": "",
@@ -8303,7 +8303,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 November 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Downtown Desaremix",
         "currency": "Hurmu crown (official tender)<br>Desaremixer dollar (provisional)",
         "motto": "",
@@ -8319,7 +8319,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|2|2024}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Todzou",
         "currency": "wikipedia:United States dollar|United States dollar",
         "motto": "Dont tread on anyone",
@@ -8330,12 +8330,12 @@ export const micrasWikiMicronations = [
         "name": "Peoples Republic of Domolica",
         "flag": "https://micras.org/wiki/images/d/d7/Domolica_flag.png",
         "languages": [
-            "wikipedia:English language|English<br />wikipedia:Spanish language|Spanish"
+            "English<br />wikipedia:Spanish language|Spanish"
         ],
         "foundation": "27 July 2013"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Grootburg",
         "currency": "/",
         "motto": "",
@@ -8351,7 +8351,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 5, 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "San Draconis",
         "currency": "Real (R)",
         "motto": "Strength of the Dragon",
@@ -8362,13 +8362,13 @@ export const micrasWikiMicronations = [
         "name": "The Imperial Dominion of Dragonera",
         "flag": "https://micras.org/wiki/images/f/f6/Dragonera_flag.png",
         "languages": [
-            "wikipedia:English language|Common tongue",
+            "English",
             "wikipedia:Spanish language|Minorcan"
         ],
         "foundation": "1455 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Newhaven (Moorland)|Newhaven",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -8385,7 +8385,7 @@ export const micrasWikiMicronations = [
         "foundation": "1715 (''de facto''); 10.III.1716 (''de jure'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Drakorda",
         "currency": "Natopian natopo|Natopo (₦)",
         "motto": "Pralipe Opre!",
@@ -8401,7 +8401,7 @@ export const micrasWikiMicronations = [
         "foundation": "23 Friedeber 1671 AN (''April 15, 2019'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Leylstadt (city)",
         "currency": "Aldurian Écu (€), Batavian Kruys (†)",
         "motto": "Voor Hertog, Natie en Eenheid!",
@@ -8419,7 +8419,7 @@ export const micrasWikiMicronations = [
         "foundation": "1675 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northcliff",
         "currency": "Florian Dollar",
         "motto": "As long as there is heart, there will be Floria",
@@ -8435,7 +8435,7 @@ export const micrasWikiMicronations = [
         "foundation": "17th April 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lindström",
         "currency": "Natopian natopo (₦)",
         "motto": "Peace Through Silent Oppression",
@@ -8451,7 +8451,7 @@ export const micrasWikiMicronations = [
         "foundation": "1709 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Southman",
         "currency": "Mon (文) (GSM)",
         "motto": "Two Regions Under One Union",
@@ -8467,7 +8467,7 @@ export const micrasWikiMicronations = [
         "foundation": "1.VII.1720 [[Norton calendar|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ardashirshahr",
         "currency": "{{unbulleted list|Benacian sovereign|Mark (EWM)}}",
         "motto": "Elwynn prevails!",
@@ -8488,7 +8488,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1452|January, 2001}} [[AN]] (as a Shirerithian duchy) <br> {{Tooltip|1567|August, 2010}} (first independence, lasted till {{Tooltip|1600|May, 2013}}) <br> {{Tooltip|1671|April, 2019}} (second independence)  <br> {{Tooltip|1703|December, 2021}} (sovereignty ceded to the Benacian Union)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chuán Ké",
         "currency": "Hondonese Kala",
         "motto": "Loyal and Pure",
@@ -8504,7 +8504,7 @@ export const micrasWikiMicronations = [
         "foundation": "1650 AN (14 July 2017 / 296 EGA) as autonomous region\n1653 AN (17 November 2017 / 315 EGA) as Hondon"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Al-Hamra",
         "currency": "Gold dinar (Arboric: ﺩﻳﻨﺎﺭ ذهبي‎)",
         "motto": "Justice and Faith",
@@ -8520,7 +8520,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1504 AN|12/05/2005}} as Amokolia <br> {{tooltip|1678 AN|18/11/2019}} as Francia <br> {{tooltip|1685 AN|25/06/2020}} as Emirate of Arbor"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zijincheng",
         "currency": "Jingdaoese Kala",
         "motto": "",
@@ -8536,7 +8536,7 @@ export const micrasWikiMicronations = [
         "foundation": "1685"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Engliriace",
         "currency": "",
         "motto": "",
@@ -8552,7 +8552,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nebelstadt",
         "currency": "Precious metals and precious stones",
         "motto": "",
@@ -8568,7 +8568,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vulcania",
         "currency": "USE Credit (¢) <br>Imperial Federation|Imperial Guilder (£)<small>for foreign trade</small>",
         "motto": "Find the Light",
@@ -8584,7 +8584,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1715}} <br>{{AN|1718}} (application to MCS)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Neurossheim",
         "currency": "Mondomark",
         "motto": "Mondo Macht Mondosachen",
@@ -8600,7 +8600,7 @@ export const micrasWikiMicronations = [
         "foundation": "10.III.1702 [[Norton calendar|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Edwinstown",
         "currency": "Farrar Dollar",
         "motto": "",
@@ -8615,7 +8615,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Examplegrad",
         "currency": "exampledollar",
         "motto": "{{Feature|August, 2007}}\n{{Nation",
@@ -8631,7 +8631,7 @@ export const micrasWikiMicronations = [
         "foundation": "July 4, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mola Ram ruins",
         "currency": "",
         "motto": "",
@@ -8647,7 +8647,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Finch",
         "currency": "Mondomark",
         "motto": "",
@@ -8663,7 +8663,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Azulan",
         "currency": "Guilder (£)",
         "motto": "Forged in Fire",
@@ -8679,7 +8679,7 @@ export const micrasWikiMicronations = [
         "foundation": "1680 [[shire:AN|AN]] (as part of Ralgon)<br>1685 (as part of the Hexarchy)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Aňira",
         "currency": "Ari (₳)",
         "motto": "Libitina (unofficial) {{smaller|(Classical Âirumâli language|Classical Âirumâli)",
@@ -8695,7 +8695,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 2010 (OOC)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Flandrum",
         "currency": "none",
         "motto": "",
@@ -8711,7 +8711,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1583|27th December 2011}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kuala Forajasaki",
         "currency": "Forajasakian ringgit, Hurmu crown",
         "motto": "Keadilan, Ketakwaan, Kesetiaan (Justice, Piety, Loyalty)",
@@ -8731,7 +8731,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{MCS-NEVONatie|",
         "currency": "currencies",
         "motto": "motto</small>",
@@ -8750,7 +8750,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{MCS-NEVONatie| "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brandenburg",
         "currency": "Reichsmark",
         "motto": "In Freiheit vereint",
@@ -8767,7 +8767,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1504 AN|12/05/2005}} as Amokolia <br> {{tooltip|1678 AN|18/11/2019}} as Francia"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fern Cove",
         "currency": "currency =",
         "motto": "{{Infobox Nation Comprehensive",
@@ -8783,7 +8783,7 @@ export const micrasWikiMicronations = [
         "foundation": "estdate = "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brenna",
         "currency": "Glaceian blanc (LGB)",
         "motto": "",
@@ -8800,7 +8800,7 @@ export const micrasWikiMicronations = [
         "foundation": "24.X.1704 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vanaheim (de facto)",
         "currency": "Free Elwynn erb (FEE)",
         "motto": "United we stand, divided we fall",
@@ -8818,7 +8818,7 @@ export const micrasWikiMicronations = [
         "foundation": "1692 (AN)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "In the field",
         "currency": "Stater | Imperial Stater",
         "motto": "",
@@ -8837,7 +8837,7 @@ export const micrasWikiMicronations = [
         "foundation": "5.V.1684"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vey",
         "currency": "Stater",
         "motto": "Small, Ancient and Noble",
@@ -8856,7 +8856,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|08|2015}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zeeburg (City)|Zeeburg",
         "currency": "Batavian Kruys",
         "motto": "Motto ===\nThe motto of the city and the nation of Zeeburg is:\n{{quote",
@@ -8873,7 +8873,7 @@ export const micrasWikiMicronations = [
         "foundation": "4 April 2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Viten",
         "currency": "Freeland Zloty|Zloty",
         "motto": "",
@@ -8889,7 +8889,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1653|29th October 2017}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Seeburg",
         "currency": " Hirohitostuiver",
         "motto": "",
@@ -8905,7 +8905,7 @@ export const micrasWikiMicronations = [
         "foundation": "3rd of August, 2014"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northcliff",
         "currency": "Jingdaoese Military Kala",
         "motto": "For the State!",
@@ -8923,7 +8923,7 @@ export const micrasWikiMicronations = [
         "foundation": "26th December 2017 (320 EGA)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Łuwichtz",
         "currency": "Ghelghian Zendert",
         "motto": "liberty, freedom and king",
@@ -8939,7 +8939,7 @@ export const micrasWikiMicronations = [
         "foundation": "1700 AN (official) "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Pua",
         "currency": "Kala",
         "motto": "",
@@ -8955,7 +8955,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{Unbulleted list|Nackholm (de jure)|Litkov (de facto)}}",
         "currency": "Benacian sovereign",
         "motto": "Besser tsu shtarben shtai’endik aider tsu leben oif di kni.",
@@ -8966,12 +8966,12 @@ export const micrasWikiMicronations = [
         "name": "{{PAGENAME}}",
         "flag": "https://micras.org/wiki/images/e/e2/Governorate_of_Siyachia_flag.png",
         "languages": [
-            "|lang =Yehudi"
+            "Yehudi"
         ],
         "foundation": "1660"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sansabury",
         "currency": "Natopo (₦)",
         "motto": "\"Fidelity & Obedience\"",
@@ -8987,7 +8987,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1652|September 2017}} [[AN]] "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gathering Place",
         "currency": "None <small>(barter system)</small><br>Natopian natopo <small>(international trade)</small>",
         "motto": "Allow Yourself to be Yourself",
@@ -9003,7 +9003,7 @@ export const micrasWikiMicronations = [
         "foundation": "6886 ASC/1661 AN (14 June, 2018)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Villa Real",
         "currency": "Pesetilla",
         "motto": "Union, Labour, Splendour",
@@ -9020,7 +9020,7 @@ export const micrasWikiMicronations = [
         "foundation": "19 June 2016"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Scottsland",
         "currency": "Green Grass Pound (¬GGP)",
         "motto": "",
@@ -9036,7 +9036,7 @@ export const micrasWikiMicronations = [
         "foundation": "1st November 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Shahanshai Tara",
         "currency": "",
         "motto": "",
@@ -9052,7 +9052,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1.XV.1503|April 29th, 2005}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Yasutomi",
         "currency": "Mon (文) (GSM)",
         "motto": "",
@@ -9068,7 +9068,7 @@ export const micrasWikiMicronations = [
         "foundation": "XIV.{{AN|1501}} (duchy)<br>VIII.{{AN|1502}} (kingdom)<br>VIII.{{AN|1586}} (empire)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tikahameh",
         "currency": "",
         "motto": "",
@@ -9083,7 +9083,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Santa Paula",
         "currency": "Gold",
         "motto": "A Través del Río de la Muerte",
@@ -9100,7 +9100,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Verionian Article}}\n{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hanaapui Island",
         "currency": "Thraci Manat",
         "motto": "",
@@ -9116,7 +9116,7 @@ export const micrasWikiMicronations = [
         "foundation": "16 April 2020"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Evergrande",
         "currency": "Hoennese zeni (HNZ)",
         "motto": "",
@@ -9132,7 +9132,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 2016"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Helderbourgh Stadt",
         "currency": "Heldermark",
         "motto": "Prospice Hellebergh",
@@ -9143,13 +9143,13 @@ export const micrasWikiMicronations = [
         "name": "Grand Duchy of Helderbourgh",
         "flag": "https://micras.org/wiki/images/b/be/640px-Flag_of_Helderbourgh.png",
         "languages": [
-            "wikipedia:English language|English",
+            "English",
             "wikipedia:Dutch language|Dutch<br><small>The latter is primarily ceremonial</small>"
         ],
         "foundation": "12 Winter month 1667 AN<br>(12 December 2018)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kongriver, Leifgrad",
         "currency": "Holzermark",
         "motto": "",
@@ -9166,7 +9166,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 19, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Huyenkula (Vesüha)",
         "currency": "Hurmu crown|Crown <small>(Hurmu crown|HUK)</small>",
         "motto": "Brida|Toj mar be-Hurmu <small>(We are Hurmu)</small>",
@@ -9182,7 +9182,7 @@ export const micrasWikiMicronations = [
         "foundation": "1476 AN <small>(as an independent state)</small> <br> 1690 AN <small>(re-establishment)</small> <br> 1720 <small>(re-organized)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rhodondra",
         "currency": "currency = Highpassian hoor",
         "motto": "motto = Work Gets Done Quicker if an Intimidating Weapon is at Hand",
@@ -9202,7 +9202,7 @@ export const micrasWikiMicronations = [
         "foundation": "estdate = 7.VII {{AN|1703}} (County)<br>13.XIV {{AN|1699}} (One-Party Humanist Corporate State)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nerdland",
         "currency": "",
         "motto": "",
@@ -9218,7 +9218,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gondolin (executive, administrative)<br>Glacier City (religious, legislative)",
         "currency": "Imperial Guilder (£)",
         "motto": "For God and Empire",
@@ -9234,7 +9234,7 @@ export const micrasWikiMicronations = [
         "foundation": "Winter, {{AN|228}} (traditional) <br>October 23rd, {{AN year|1665}} (as [[Ralgon]] on MCS map)<br>May, {{AN|1706}} (as the Imperial Federation)<br>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Emden",
         "currency": "Florijn",
         "motto": "Maar hun Verlosser is sterk, HEERE der heirscharen is Zijn Naam; Hij zal hun twist zekerlijk twisten, opdat Hij het land in rust brenge (Jer. 50:34)",
@@ -9250,7 +9250,7 @@ export const micrasWikiMicronations = [
         "foundation": "1696"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tiegang",
         "currency": "New Alexandrian écu (€), Batavian Kruys (†), Krasnocorian credit (still circulating despite having lost value), Golden Kala ({{GK}}), Blackfriars trinkgeld (bt)",
         "motto": "No debt goes unpaid. No wrong goes unforgotten.\nMotto of the Man trying to desperately sell T-shirts at the pub: https://cdn-1.debijenkorf.be/web_detail/in-gold-we-trust-basic-t-shirt-met-logoprint-in-3-pack/?reference=050/980/13_0509809000698002_pro_mod_frt_01_1108_1528_4246719.jpg In Gold we Trust",
@@ -9270,7 +9270,7 @@ export const micrasWikiMicronations = [
         "foundation": "1687 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Men-Nefer",
         "currency": "Silver Talent <small>(2,000 deben)</small><br/>\nDeben of Silver <small>(13.6 grams)</small>",
         "motto": "",
@@ -9286,7 +9286,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bandar-e Kreyak",
         "currency": "",
         "motto": "",
@@ -9300,7 +9300,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1722}} <small>(''defacto independence from the Khan of Shahpéo'')</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "shire:Shirekeep|Shirekeep",
         "currency": "Erb (€)",
         "motto": "Shireroth sumus. Tempus in parte nostrum est.",
@@ -9317,7 +9317,7 @@ export const micrasWikiMicronations = [
         "foundation": "1443 [[shire:AN|AN]] (24 April 2000); Regency established 1671 (April 2019)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lucerne (city)|Lucerne",
         "currency": "",
         "motto": "Vrede, Vrijheid, Verdraagzaamheid",
@@ -9333,7 +9333,7 @@ export const micrasWikiMicronations = [
         "foundation": "January 14, 2007"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Daocheng",
         "currency": "Golden Kala",
         "motto": "Sensible and Ruthless",
@@ -9352,7 +9352,7 @@ export const micrasWikiMicronations = [
         "foundation": "<small>As Community within the Great Apollonian Empire: 1700 AN</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kalinia (City)",
         "currency": "",
         "motto": "",
@@ -9363,12 +9363,12 @@ export const micrasWikiMicronations = [
         "name": "The Grand Lodge and Realms of Kalinia",
         "flag": "https://micras.org/wiki/images/9/99/Kalinia_flag.png",
         "languages": [
-            "|lang ="
+            ""
         ],
         "foundation": "1714.12"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ny-Zanzibar",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -9387,7 +9387,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Weststel City",
         "currency": "Weststel Mark",
         "motto": "{{WIP}}\n{{Nation",
@@ -9405,7 +9405,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 November 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Nerik",
         "currency": "Karumic Shekel",
         "motto": "TBD",
@@ -9421,7 +9421,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1726}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Babyl",
         "currency": "Babils",
         "motto": "Babylonia Invictare",
@@ -9438,7 +9438,7 @@ export const micrasWikiMicronations = [
         "foundation": "8312 ASC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vryheidstaat",
         "currency": "Phinbellan Florin<br>Forajasakian ringgit",
         "motto": "TBD",
@@ -9454,7 +9454,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Grandbay",
         "currency": "Krasnocorian Credit",
         "motto": "",
@@ -9470,7 +9470,7 @@ export const micrasWikiMicronations = [
         "foundation": "24 June 2018"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital city|Capital<br><small>and largest city</small>",
         "currency": "Currency|Currency",
         "motto": "",
@@ -9486,7 +9486,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kunapura",
         "currency": "Kunapurani Dollar",
         "motto": "Kunapura again!",
@@ -9497,12 +9497,12 @@ export const micrasWikiMicronations = [
         "name": "Kingdom of Kunapura",
         "flag": "https://micras.org/wiki/images/c/cc/Kunapura_flag.png",
         "languages": [
-            "wikipedia:English language|Common Tongue<br>wikipedia:Malay language|Phinbellan wikipedia:Tamil language|Eeshan wikipedia:Japanese language|Sangunese wikipedia:Chinese language|Jingdaoese"
+            "English<br>wikipedia:Malay language|Phinbellan wikipedia:Tamil language|Eeshan wikipedia:Japanese language|Sangunese wikipedia:Chinese language|Jingdaoese"
         ],
         "foundation": "10 January 2021"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vrijplaats",
         "currency": "dinar",
         "motto": "Is not Allah sufficient for His Servant?",
@@ -9519,7 +9519,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1699}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vesüha",
         "currency": "",
         "motto": ": For the nation, see Lakkvian people\n\n{{Nation",
@@ -9536,7 +9536,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Huyenkula",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "Toj bar be-Hurmu",
@@ -9556,7 +9556,7 @@ export const micrasWikiMicronations = [
         "foundation": "1690 (restoration)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Witzenbourg",
         "currency": "Zaikir (Ƶ)",
         "motto": "{{tooltip|Am Interetze vän Allen|In the Interests of All}}",
@@ -9567,14 +9567,14 @@ export const micrasWikiMicronations = [
         "name": "The Kingdom of Lumis",
         "flag": "https://micras.org/wiki/images/5/51/Lumis_flag.png",
         "languages": [
-            "wikipedia:English language|Common tongue",
+            "English",
             "Lumisian",
             "wikipedia:French language|Corcois"
         ],
         "foundation": "1229 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ghawlama",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -9590,7 +9590,7 @@ export const micrasWikiMicronations = [
         "foundation": "1689 (restoration)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Liberty",
         "currency": "",
         "motto": "",
@@ -9606,7 +9606,7 @@ export const micrasWikiMicronations = [
         "foundation": "1676 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mataba",
         "currency": "Matabese Ruppiah",
         "motto": "\"Faith, Unity, Discipline\"",
@@ -9625,7 +9625,7 @@ export const micrasWikiMicronations = [
         "foundation": "22 September 2022"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mamehblinij",
         "currency": "Tellian Real (Telreal)",
         "motto": "",
@@ -9641,7 +9641,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|21st December 2013|1607 AN}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -9660,7 +9660,7 @@ export const micrasWikiMicronations = [
         "foundation": "31 March 2020"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Newcastle-Upon-Eastmoor",
         "currency": "Redoubt Crown (RDC)",
         "motto": "Thou shall not trample thee",
@@ -9676,7 +9676,7 @@ export const micrasWikiMicronations = [
         "foundation": "1718"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{unbulleted list|Federal: Lindström|Second Capital: Dos Gardenias (city)|Dos Gardenias|Special City: Geneva}}",
         "currency": "Natopian natopo (₦)",
         "motto": "Peace Through Silent Oppression",
@@ -9693,7 +9693,7 @@ export const micrasWikiMicronations = [
         "foundation": "23 August 2002 ({{AN|1471}})"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vesunda",
         "currency": "",
         "motto": "",
@@ -9708,7 +9708,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Neu Ludwigshafen",
         "currency": "Neupfennig",
         "motto": "By Grace alone shall we prosper",
@@ -9724,7 +9724,7 @@ export const micrasWikiMicronations = [
         "foundation": "1696"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "West Grinstead",
         "currency": "",
         "motto": "",
@@ -9740,7 +9740,7 @@ export const micrasWikiMicronations = [
         "foundation": "25th April 2018 / 24.08.994[[Eastmoorland Calendar|''AJ'']]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Albury",
         "currency": "Riv (₹)",
         "motto": "\"For The Glory Of The People\"",
@@ -9756,7 +9756,7 @@ export const micrasWikiMicronations = [
         "foundation": "22 June 2019 (1673 AN)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Vaduz (city)|New Vaduz",
         "currency": "",
         "motto": "",
@@ -9766,13 +9766,13 @@ export const micrasWikiMicronations = [
         "name": "New Vaduz",
         "flag": "https://micras.org/wiki/images/8/8a/New_Vaduz_flag.png",
         "languages": [
-            "wikipedia:German language|German",
+            "German",
             "Craitish language|Craitish"
         ],
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Küfara",
         "currency": "Dörlep",
         "motto": "",
@@ -9788,7 +9788,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1690 AN|02/11/2020}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dronningsleve",
         "currency": "",
         "motto": "",
@@ -9804,7 +9804,7 @@ export const micrasWikiMicronations = [
         "foundation": "1509 <small>(destroyed by Stormark, 1555)</small><br>1723 <small>(re-established)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Elijahs Rest",
         "currency": "Norse krone",
         "motto": "For Fedrelandet og Gudene (\"For the Fatherland and the Gods\")",
@@ -9820,7 +9820,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1563|1 April, 2010}} [[AN]] (as the [[Grand Kingdom of Normark]]) <br> {{Tooltip|1656|August, 2010}} (as a Natopian demesne)) <br> {{Tooltip|1678|18 November 2019}} (as an Elwynnese autonomous republic)) <br> {{Tooltip|13.XIII.1703|26 December 2021}} as an independent kingdom"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Livingston",
         "currency": "Napian Dollar",
         "motto": "{{Cleanup}}\n{{Nation",
@@ -9837,7 +9837,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 17, 2011"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mitrovska",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -9854,7 +9854,7 @@ export const micrasWikiMicronations = [
         "foundation": "16.I.1696"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Federal capital: Cárdenas",
         "currency": "New Alexandrian écu (NAX€)",
         "motto": "“Je renais des mes cendres”",
@@ -9870,7 +9870,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1685}} <small>(June 29, 2020)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rorfast",
         "currency": "Nova Caradian cupru|Cupru (Ͼ)",
         "motto": "\"Să se Rupă Aceste Lanțuri\"",
@@ -9889,7 +9889,7 @@ export const micrasWikiMicronations = [
         "foundation": "1690 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vanie",
         "currency": "Oportian Mérite|Mérite",
         "motto": "Official: Liberté avant tout",
@@ -9905,7 +9905,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1706}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Požun",
         "currency": "Mercury Credit (Cr)",
         "motto": "Osktrava is a territory of Mercury located within the Vychodný mountain ranges.\n\n{{Nation",
@@ -9917,12 +9917,12 @@ export const micrasWikiMicronations = [
         "flag": "https://micras.org/wiki/images/c/c0/Osktrava_flag.png",
         "languages": [
             "wikipedia:Slovak language|Osktravan",
-            "wikipedia:English language|English"
+            "English"
         ],
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Lucien|Lucíusu",
         "currency": "Poli (P)",
         "motto": "Fói äe del hed sanáos",
@@ -9938,7 +9938,7 @@ export const micrasWikiMicronations = [
         "foundation": "28.80 [[PSSC]] (1/14/14)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Salonigrad",
         "currency": "Graecian drachma (GRD)",
         "motto": "Workers of the World, Unite!",
@@ -9956,7 +9956,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1686}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "N/A",
         "currency": "N/A",
         "motto": "-",
@@ -9972,7 +9972,7 @@ export const micrasWikiMicronations = [
         "foundation": "36.48 [[PSSC]] (11/16/17)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Viktorovo",
         "currency": "Polonianski Zloty (Polonian Zloty)",
         "motto": "Nihil de nobis, sine nobis",
@@ -9988,7 +9988,7 @@ export const micrasWikiMicronations = [
         "foundation": "1728 AN  (''January 17, 2024'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Thalassapolis",
         "currency": "Pontus Dollar ($)",
         "motto": "",
@@ -10005,7 +10005,7 @@ export const micrasWikiMicronations = [
         "foundation": "November 2010"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Negara Awan",
         "currency": "Phinbellan florin (ðƒ), Hurmu crown",
         "motto": "",
@@ -10021,7 +10021,7 @@ export const micrasWikiMicronations = [
         "foundation": "6th January {{RP|2019}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -10033,13 +10033,13 @@ export const micrasWikiMicronations = [
         "flag": "https://micras.org/wiki/images/f/f7/Ports_of_Newhaven_flag.png",
         "languages": [
             "Istvanistani",
-            "Martino language|Martino",
+            "Martino",
             "Norse language|Hurmu Norse"
         ],
         "foundation": "1720"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "xxxx",
         "currency": "Stater | Imperial Stater",
         "motto": "",
@@ -10057,7 +10057,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Tooltip|1667|December 2018}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Aleksandrów",
         "currency": "",
         "motto": "",
@@ -10073,7 +10073,7 @@ export const micrasWikiMicronations = [
         "foundation": "8216 ASC/1705 AN (2 February 2019)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gürbançybaq",
         "currency": ":\"Qyzylqaystan\" redirects here. For the former Jingdaoese protectorate, see Qyzylqaystan Republic.\n{{Nation\nQyzyl Peoples Republic\n|image_flag = Flag of Qyzyl Peoples Republic.png\nQyzylqay language|Qyzylqay\nGürbançybaq\n1704 AN\n|government = Syndicalist republic\n|leader = Tseren Jobandooh\n",
         "motto": ":\"Qyzylqaystan\" redirects here. For the former Jingdaoese protectorate, see Qyzylqaystan Republic.\n{{Nation",
@@ -10092,7 +10092,7 @@ export const micrasWikiMicronations = [
         "foundation": "1704 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Gürbançybaq",
         "currency": ":For the successor state, also known as Qyzylqaystan, see Qyzyl Peoples Republic.\n{{Nation\nQyzylqaystan Republic\n|image_flag = Flag of Qyzylqaystan.png\nQyzylqay language|Qyzylqay\nGürbançybaq\n|website = http://qyzylqaystan.wordpress.com/ Official website\n27 July 2014\n|government = wikipedia:Presidential republic|Presidential republic\n|leader = Mühamadgürbançyev\n",
         "motto": ":For the successor state, also known as Qyzylqaystan, see Qyzyl Peoples Republic.\n{{Nation",
@@ -10110,7 +10110,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 July 2014"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kyustendil",
         "currency": "Aerlan Felt",
         "motto": "Sǎedinenieto Pravi Silata",
@@ -10126,7 +10126,7 @@ export const micrasWikiMicronations = [
         "foundation": "1709 AN (as autonomous region)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kyustendil",
         "currency": "Lev",
         "motto": "",
@@ -10143,7 +10143,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Goldfield",
         "currency": "{{unbulleted list|Benacian sovereign|Ransenari Erb}}",
         "motto": "Ar scáth a chéile a mhaireann na daoine.",
@@ -10159,7 +10159,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1673}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rusjar",
         "currency": "Zeedic ruble|Ruble, Imperial Stater, Natopian Natopo",
         "motto": "",
@@ -10175,10 +10175,10 @@ export const micrasWikiMicronations = [
         "foundation": "25.IX.{{AN|1701}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Oudorp",
         "currency": "Ludwigspfennig",
-        "motto": "Met de hulp van de Here, en door samen op te trekken houden wij stand.",
+        "motto": "Met de hulp van de Here, en door samen op te trekken houden wij stand",
         "contactInfo": [],
         "websites": [
             "https://micras.org/mwiki/Realm of the Sovereign Lanzerwald"
@@ -10186,14 +10186,12 @@ export const micrasWikiMicronations = [
         "name": "Realm of the Sovereign Lanzerwald",
         "flag": "https://micras.org/wiki/images/5/54/Lanzerwald_flag.png",
         "languages": [
-            "Lanzerwald\" redirects here. For the historical forested region",
-            "see The Lanzerwald. For the predecessor state",
-            "see Republic of the United Cities in the Lanzerwald. For the successor state see Republic of the Sovereign Lanzerwald\n{{Infobox Nation Comprehensive"
+            
         ],
         "foundation": "1715"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Navania",
         "currency": "Refliasian Dollar (R$)",
         "motto": "\"Noli timere ignotum\"",
@@ -10204,12 +10202,12 @@ export const micrasWikiMicronations = [
         "name": "Duchy of Refliasia",
         "flag": "https://micras.org/wiki/images/2/2b/Refliasia_flag.png",
         "languages": [
-            "Istvanistani language|Istvanistani (official)<br>Martino language|Martino<br>Phoklandian language|Phoklandian (regional)"
+            "Istvanistani language|Istvanistani (official)<br>Martino<br>Phoklandian language|Phoklandian (regional)"
         ],
         "foundation": "6 April 2020 (1683 AN) <br>''Reformed from [[Graustark]]''"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ersoy (Administrative), Godfriedplatz (Financial)",
         "currency": "Hammish Obol (ø)",
         "motto": "Reget Nos in Maribus",
@@ -10225,7 +10223,7 @@ export const micrasWikiMicronations = [
         "foundation": "28th August 2013"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Elkheim",
         "currency": "",
         "motto": "",
@@ -10243,7 +10241,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1 December 2007|1535 AN}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Currency abolished",
         "motto": "–",
@@ -10262,7 +10260,7 @@ export const micrasWikiMicronations = [
         "foundation": "1601"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10280,7 +10278,7 @@ export const micrasWikiMicronations = [
         "foundation": "1500"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10298,7 +10296,7 @@ export const micrasWikiMicronations = [
         "foundation": "1452"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Shirerithian erb",
         "motto": "",
@@ -10314,7 +10312,7 @@ export const micrasWikiMicronations = [
         "foundation": "1612–1618"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10327,10 +10325,10 @@ export const micrasWikiMicronations = [
         "languages": [
             "lan"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10343,10 +10341,10 @@ export const micrasWikiMicronations = [
         "languages": [
             "lan"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria, Avaldsnes",
         "currency": "",
         "motto": "–",
@@ -10361,10 +10359,10 @@ export const micrasWikiMicronations = [
             "Raikothin",
             "Elfinshi"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10382,7 +10380,7 @@ export const micrasWikiMicronations = [
         "foundation": "1567"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10397,10 +10395,10 @@ export const micrasWikiMicronations = [
             "Babkhi",
             "Norse"
         ],
-        "foundation": "|estdate ="
+        "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Florin",
         "motto": "–",
@@ -10420,7 +10418,7 @@ export const micrasWikiMicronations = [
         "foundation": "1590"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Florin, Erb (interchangeable)",
         "motto": "–",
@@ -10440,7 +10438,7 @@ export const micrasWikiMicronations = [
         "foundation": "1601"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Shirerithian erb",
         "motto": "Elwynn prevails!",
@@ -10456,7 +10454,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Florin, Erb (interchangeable)",
         "motto": "–",
@@ -10476,7 +10474,7 @@ export const micrasWikiMicronations = [
         "foundation": "1600"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "",
         "motto": "–",
@@ -10495,7 +10493,7 @@ export const micrasWikiMicronations = [
         "foundation": "1573"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Eliria",
         "currency": "Shirerithian erb",
         "motto": "Elwynn prevails!",
@@ -10511,7 +10509,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Saint Gabriels <small>(executive)</small><br>Sri Luthore <small>(legislative)</small>",
         "currency": "Skerry dollar S$",
         "motto": "Our past need not determine our future",
@@ -10522,12 +10520,12 @@ export const micrasWikiMicronations = [
         "name": "Federation of {{PAGENAME}}",
         "flag": "https://micras.org/mwiki/|flag%20=File:Flag%20of%20{{PAGENAME}}.png",
         "languages": [
-            "|lang =wikipedia:English language|Istvanistani (administrative)"
+            "wikipedia:English language|Istvanistani (administrative)"
         ],
         "foundation": "{{AN|1684}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bagegeniśort (Stonetree)",
         "currency": "Sovereign Avak",
         "motto": "Eyner far Ale, Ale far Eyn",
@@ -10538,7 +10536,7 @@ export const micrasWikiMicronations = [
         "name": "Refublik fun Iner Benasia<br />Benašhek° G°yzeg°ym Ẑ°yġehek°<br /><small>({{PAGENAME}})</small>",
         "flag": "https://micras.org/wiki/images/b/b2/Inner_Benacia_flag.png",
         "languages": [
-            "|lang =Yehudi",
+            "Yehudi",
             "Mishalanski",
             "Tellian",
             "Laqi"
@@ -10546,7 +10544,7 @@ export const micrasWikiMicronations = [
         "foundation": "1659"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Riskai (city)|Riskai",
         "currency": "Riskaian krona",
         "motto": "",
@@ -10562,7 +10560,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1539}} (establishment) <br> {{AN|1685}} (de facto independence) <br> {{AN|1702}} (de jure independence)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Ripon",
         "currency": "Supra",
         "motto": "{{Feature|April, 2022}}\n{{Nation",
@@ -10578,7 +10576,7 @@ export const micrasWikiMicronations = [
         "foundation": "28 July 2005 (previously offline)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rocheport",
         "currency": "Rochevais Morceaux (RVM)",
         "motto": "",
@@ -10595,7 +10593,7 @@ export const micrasWikiMicronations = [
         "foundation": "1737<br>reformed June 19, 2016"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Khimtsang",
         "currency": "Rupya",
         "motto": "{{tooltip|Peace, Humility, Compassion}}",
@@ -10606,13 +10604,13 @@ export const micrasWikiMicronations = [
         "name": "The Free State of Rulak",
         "flag": "https://micras.org/wiki/images/d/d3/Rulak_flag.png",
         "languages": [
-            "wikipedia:English language|Common tongue",
+            "English",
             "wikipedia:Tibetan language|Rulakan"
         ],
         "foundation": "1455 [[shire:AN|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Marbonne",
         "currency": "Lune",
         "motto": "La force réside dans lunité",
@@ -10628,7 +10626,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1660}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10642,7 +10640,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "The Kingdom of Breuddwyd was a micronation founded and ruled by self proclaimed mad king, Emyr Ciaron Broeck. It was active in 2005 and early 2006 before being dissolved by an act of law. \n\n==History==\n==Foundation and Structure==\nBreuddwyd was founded on the April 24, 2005, as an absolute feudal monarchy. With the adoption of a Grand Charter and the establishment of a legislature, the system became more democratic. \n\nExecutive power was wielded by an elective monarch titled \"King\". Upon the death or abdication of a King, a new one is appointed by the Casglaid, Breuddwyds legislature. The King has extensive executive powers. \nLegislative power was vested in the Casglaid, a body that consisted of all citizens not serving in the judiciary, serving a criminal sentence or who had not been a citizen for at least thirty days. Votes in the Casglaid were apportioned according to a weighted voting system, with citizens who participate more wielding more influence. \nJudicial Power was vested in the high court. Judges were appointed by the King, subject to approval by the Casglaid, for a term of sixty days. \n\n==Economy==\nBreuddwyd was notable for its unique monetary economy. The",
         "motto": "",
@@ -10659,7 +10657,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10673,7 +10671,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10687,7 +10685,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10701,7 +10699,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10715,7 +10713,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10729,7 +10727,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10746,7 +10744,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10760,7 +10758,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Free City",
         "currency": "unknown",
         "motto": "",
@@ -10776,9 +10774,9 @@ export const micrasWikiMicronations = [
         "foundation": "2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{GotzborgArticle}}\n{{Info box gotzborg}}\nSee the :MicrasWiki:Gotzborg Archive|MicrasWiki Gotzborg Archive for historical material relating to this micronation.\n\nThe Royal Kingdom of Gotzborg is an Anglophone Internet micronation that was brought online by its founder, August Charles II in 2004. It quickly rose to prominence throughout the simulationist community, known particularly for its fair-handed diplomacy and extensive system of honours and heraldry. After a three-year long hiatus that began in April 2007, the micronation returned to activity in 2010. On November 25, 2017, the micronation re-entered a state of hiatus.\n\n== History ==\nThe Kingdom of Gotzborg was proclaimed in 1670 of a union between the Archduchy of Reichlau, the Grand Duchies of Kerinberg, Salm, Markham, Alhemia, Lonenberg and the Duchy of Montin. The Archduke, as the senior noble of the Union of Seven Nations was proclaimed King of Gotzborg in Dundam. In commemoration of the new Kingdom, the",
-        "currency": "{{GotzborgArticle}}\n{{Info box gotzborg}}\nSee the :MicrasWiki:Gotzborg Archive|MicrasWiki Gotzborg Archive for historical material relating to this micronation.\n\nThe Royal Kingdom of Gotzborg is an Anglophone Internet micronation that was brought online by its founder, August Charles II in 2004. It quickly rose to prominence throughout the simulationist community, known particularly for its fair-handed diplomacy and extensive system of honours and heraldry. After a three-year long hiatus that began in April 2007, the micronation returned to activity in 2010. On November 25, 2017, the micronation re-entered a state of hiatus.\n\n== History ==\nThe Kingdom of Gotzborg was proclaimed in 1670 of a union between the Archduchy of Reichlau, the Grand Duchies of Kerinberg, Salm, Markham, Alhemia, Lonenberg and the Duchy of Montin. The Archduke, as the senior noble of the Union of Seven Nations was proclaimed King of Gotzborg in Dundam. In commemoration of the new Kingdom, the capital of the Archduchy was changed from Dundam to Reichstadt.\n\nThe union of the seven nations arose from the predations and incursions by the larger nations surrounding them. In the 100 years prior to 1670, the seven nations had suffered through over thirty-two different conflicts. Tired of being a battleground, the leaders of the seven nations met in Dundam in 1657 to form what became known as the Union of Seven Nations. While the efforts were admirable, the pride and conflicting agendas of each of the Duchies limited the union to a trade cooperative instead of a unified military and diplomatic effort.\n\nIn 1664, the Seven Nations became once again the battleground in a war between 3 of their surrounding nations. In the ensuing 30 years of war, battles raged back and forth, with the larger nations provisioning their armies with resources and manpower against the wishes of the Duchies. The ongoing depletion of the resources of the duchies began to provide for dissent within the nobility and population. Grand Dukes and other nobles allied themselves at one point or another with the larger nations and in turn were deposed, replaced or switched allegiances numerous times, some doing so to try and establish a higher status level within the seven nations, others still to try and force the great powers out, and others still only for a desire to conquer and gain a little more land.\n\nBy 1700 the ongoing wars which had plagued the seven nations slowly died out. It was with a welcome sigh that peace slowly regained its foothold and nobles and citizens alike solidified the desire to not again be the playground of the great powers. The Heads of State of the Union met again in Dundam in 1703 where it was decided that the seven nations would not again be the chessboard on which the great powers played. The result was the Dundam Agreement which outlined a unified military and domestic agenda. War and its deprivations is soon forgotten with any lasting peace and like the original union, personal agendas and power plays once again began to crack the union from the inside as well as drawing the interests and intentions of the great powers again. It looked like the events of the late 1600s were coming again.\n\nWar began in earnest between the four great nations and again the lands of the seven nations became their focal point. Alhemia and Montin soon degraded into complete revolt and disarray, the causes lost to history but most likely due to subversion and general discontent with the inability of the Dukes to keep them from war. Grand Duke Lucas IV of Salm was the first of the seven to begin actively fighting against the agression of the great nations. The Grand Ducal Army won small engagements but this lasted only until the attention of the great nations began to focus upon Salm, defeat soon became the word of the day. As the Salmese army collapsed, Lonenberg and Markham joined their besieged bretheren and quickly the tides were turned again. This however only served to attract the attention of the other great powers who didnt want to see their playground overrrun by upstart little nations. Lucas sent a request to Archduke Charles to honor the Dundam Agreement and fight together. Charles committed Reichlau and was soon followed by Kerinberg. The first order of business was putting down the rebellion in Alhemia and Montin. While both revolting nations were not able to provide a coherent field army their regiments joined with the Reichlau Army to fight the great powers.\n\nBy 1706 the Seven Nations were all fielding a seasoned field force against the great powers but were slowly suffering from the attrition and slow girnding down that they could not afford. It was in the fields outside of the City of Juin in Markham that the Union Army of the Seven Nations was finally brought together and faced the Grand Imperial Army. Both armies suffered horrendous losses, but the Union Army of the Seven was successful in finally driving the Grand Army off on day 3. June 15th, 1705 was a day bathed in blood and won by the courage and perseverance of men who all realized that something common had been formed beyondt he borders of their small nations. A nation of power and strength existed above all else.\n\nWhile the battle was won, the war spent another year dying out as the great powers realized they had lost their chessboard. The old balance had changed, and it was not in their favour. July 24th, 1706 at Lonenberg Palace in the Grand Duchy of Lonenberg, Archduke Charles of Reichlau was crowned King Charles I of Gotzborg.\n\nThe Seven Nations (The Original Seven)\n\nArchduchy of Reichlau Grand Duchy of Kerinberg Grand Duchy of Salm Grand Duchy of Alhemia Grand Duchy of Markham Grand Duchy of Lonenberg Duchy of Montin\n\nWhilst the seven nations retained certain controls and autonomy, time lessened the control and today, Gotzborg is a modern democratic nation ruled by a strong monarchy with a long history and tradition of leadership and direction through the good times and bad.\n\nOf the original seven nations which first composed the Kingdom, over time, through wars, revolts other lands have come into the Kingdom as listed below:\n\nArchduchy of Aremberg Grand Duchy of Lucerne Duchy of Altamore Duchy of Abrantes\n\nAnd finally, the following peerages have been created and added over the years:\n\nArchduchy of Courland Duchy of Montefeltro Duchy of Stathearn\n\n===Micronational History===\n\nAs with most micronations, Gotzborg was borne of imagination. The Kingdom first developed into its initial form on paper in 1989 between the King, his brother and two close friends. As the participants grew, so to did the Kingdom, its history, its conflicts, its successes and its failures. The most tangible success of the Kingdom was the fact that it had developed between 1989 and 1995 with a good amount of history and interaction behind it. This helped really gel the entire effort into something that was more than just a paper nation or game. Between the King and those friends who had participated in it over the years, a stronger bond of friendship had developed, a common history and a shared identity. It was this realization that had made everyone so close and caused the King to better appreciate the importance of those relationships which bring us together to help each other, support each other and direct each other towards creativity and community.\n\nIn 1996 with the King having finished High School and attending University, it became most difficult to continue. While the friends remained, the focus changed. Ladies, alcohol and all the other important parts of higher education precluded any ability to continue.\n\nHaving made such an impression on him though, the King often thought about how rewarding and exciting it was to share the creation of community and nation with others who in their own way would bring ideas, feelings and emotions to help continue Gotzborg. Alas however, while the King made many attempts to look for ways to get things up and running, the moment never seemed to be opportune and the avenues to proceed to do such a thing were few if any.\n\nIt was not until the quaint hobby known as micronationalism became known to the King, who had stumbled upon it whilst scowering the internet. Micronationalism seemed to be the perfect avenue, albeit backwater in its very nature. The King has participated in other micronations since early 2003 and it was not until the early part of 2004 that transcribing everything necessary from the old paper copies to the internet began in earnest.\n\nIt was not until late March, 2004 that the bulk of the main work on the webpage had been completed. The Kingdom has already begun to initiate relationships with other micronational entities and recognizes the vital struggle which all micronations go through, the attraction of new people.\n\nGotzborg celebrated its first anniversary online in March of 2005.\n\nOn 31 May 2005, disaster struck the micronation due to the hacker attack on the Ezboard network system, leaving all of Gotzborgs national forums erased. Despite the best efforts of Ezboard Inc. http://www.ezboard.com personnel to restore all lost information to the affected servers, Gotzborg was one of several micronations to not have its historical records recorded. The attack caused the lost of all historical information on the forums for the first fifteen months of Gotzborgs online period.\n\n==Government and politics==\nIndependence: Joined to form the Kingdom on 24 July 1706.\n\nNational Holiday: Unity Day - 24 July\n\nConstitution: 16 March 2004 - Known as the Reichlau Constitution\n\nSuffrage: Universal \n\nPolitical parties and leaders: none\n\nPolitical pressure groups and leaders: none\n\n===Executive Branch===\nHead of State: His Royal Majesty, King August Charles II (since 14 August 1989); no Heir Apparent\n\nHead of Government: Royal Chancellor His Grace Liam Sinclair| Liam, Duke of Montin\n\nElections: none; the monarchy is hereditary; the monarch chooses the Royal Chancellor\n\nCabinet... (10024 total length)",
+        "currency": "",
         "motto": "",
         "contactInfo": [
             "{{GotzborgArticle}}\n{{Info"
@@ -10793,7 +10791,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10807,7 +10805,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Jaris (pronounced CHAIR-us) is an island on Micras off the coast of Apollonia, and has been known as the the Republic of Jaris, the Kingdom of Jaris, and as the Grand Duchy of Jaris as well as by other names. For most of its history it has been ruled by Shireroth but in more recent years was controlled by Antica and Alexandria.\n\n== History ==\nFounded by Regis Philban, a/k/a Joe Whit, a/k/a Joe Whittaberg. At first a republic, later a Kingdom. Great respect was always shown to the Founder, who ruled during Jaris entire independant exisitance with one short hiatus. Famous for its military, originally of mounted hordes, later modernized with pink dirigibles. \n\nPossesion of Jaris was disputed between Shireroth and Emperor Jacobus until Jacobus signed over his rights to the Kaiser of Shireroth in late 2005.\n\nNot long after the signing over, Babkha and its Grand Commonwealth felt endangered by the Shirerethian power so close to the terre De Riches. Thusly Babkha instigated the Jaris War.\n\n== Description ==\n(courtest of Scott siskind)\nCentrally located between the Imperium of Cognito and Lac Glacei and Lyrica, Jaris is of extreme strategic importance. After a Cognitan emperor of the Jacobin dynasty launched a failed attack on Lyrica in the first century ASC, the two nations were extremely hostile, although there was a weak pro-Cognitan faction in Lyrica which gained power from time to time, decreasing the intensity of the conflict. But by the fifth century, animosity had extended to the point where the Cognitans were building an armada to take Lyrica by the sea. As part of this plan, the outlying island of Jaris, which was formerly unpopulated, was colonized by a number of Cognitan sailors and military men as an important supply base. As the invasion fleet grew, two more outposts were set up. Yet the invasion failed, miserably, and led to a Lyrican counterattack in which Jaris was taken completely and Lyrican troops pushed all the way to the gates of Ergosum, the Imperial",
         "currency": "",
         "motto": "",
@@ -10821,7 +10819,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Heimat is a Marxist-Leninist micronation located on the geographical island of Cibola, that is controlled by the Republic of Wadonstol, a non-fictional micronation. Heimat has a population of 157,688,302 people, which is thought to be one of the highest population densities on Micras. Heimat is a fairly new Micronation, being formed on the 9/7/12, and being accepted into the micras community on the 13/7/12. The",
         "currency": "",
         "motto": "",
@@ -10846,7 +10844,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10863,7 +10861,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10877,7 +10875,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10893,7 +10891,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10907,7 +10905,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10922,7 +10920,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10938,7 +10936,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10952,7 +10950,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10966,7 +10964,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10980,7 +10978,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -10995,7 +10993,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11011,7 +11009,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11025,7 +11023,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Dunluce",
         "currency": "unknown",
         "motto": "",
@@ -11041,7 +11039,7 @@ export const micrasWikiMicronations = [
         "foundation": "2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11062,7 +11060,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Crestfalia",
         "currency": "unknown",
         "motto": "",
@@ -11078,7 +11076,7 @@ export const micrasWikiMicronations = [
         "foundation": "2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bernington",
         "currency": "unknown",
         "motto": "",
@@ -11095,7 +11093,7 @@ export const micrasWikiMicronations = [
         "foundation": "10th December 2001"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Northcliff",
         "currency": "Florian Dollar",
         "motto": "The 2017 Apollonian Rugby League Tests is a group of rugby league test matches that will be played on the 24th February 2018 at Northcliff Arena,Florian Republic and The Hornets Nest,Craitland. The Florian Republic national rugby league team|Florian Republic will play Senya national rugby league team|Senya and Craitland national rugby league team|Craitland will play Etourney national rugby league team|Etourney. The series will be sponsored by UBuild.\n\n==List of football clubs in Florian==\n{| class=\"wikitable sortable\" style=\"text-align:center; font-size:97;\"",
@@ -11114,7 +11112,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11128,7 +11126,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "So-called \"travelling nations\" are nations that have been situated in different places on the MCS claimsmap during their existence.\n\nThese nations homelands may have \"travelled\" through numerous means, though such examples generally fit one of three criteria and often span multiple continents:\n#Nations which relocated their entire claim in one go,\n#Nations which expanded their land before abandoning their original claim and retaining only newer-claimed land,\n#Nations which claimed in one location before being removed from Micras and subsequently returning in another.\n\n== List ==\n{{WIP}}\n* {{team flag|Alexandria}} and its predecessor Madland:\n** 6.7.2 - 6.7.8: middle of Apollonia\n** 6.7.9 - 6.8.0: north of Apollonia\n** 6.8.6 - 15.9.8: Cibola\n* {{team flag|Arbor}}:\n** 16.9.1 - 17.1.8: Keltia\n** 17.1.9 - 17.6.0: Apollonia\n* {{team flag|Beaugium}}:\n**\n* {{team flag|Bobalania}}:\n**\n* {{team flag|Confederacy of Independent States}}:\n** \n* {{team flag|Craitland}} (by moving its",
         "currency": "",
         "motto": "",
@@ -11142,7 +11140,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "The United Imperium at its height consisted of Cognito, Lac Glacei and Free Cyberia. The Imperium also at various times held protectorates over Jaris, Rulczentia, Absentia, Cocoanut Grove and assorted unpopulated islands.\n\nRulers:\n*Jacobus I\n*Mikel Tzion (regency)\n*Jacobus I (restored)\n*Grand Duke Theo (regency)\n*JacobusI (restored)\n*Joseph I (Joe Whitt - named Shireroth to be his heir and abdicated)\n*Jacobus II (exile)\n*Jacobus  I  (exile)\n\n",
         "currency": "",
         "motto": "",
@@ -11156,7 +11154,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11170,7 +11168,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": ": For the city of Tymaria, see Tymaria (city).\nImage:Tymaria.png|thumb|right|The Tymaria flag.\n\nThe United Republic of Tymaria was founded on October 31, 2001 as an attempt to merge the largest micronational powers of the time into a monolithic union. It enjoyed about six months of life before its fracture, during much of which it was the leading micronation in the world.\n==Foundation==\nThe foundation of Tymaria dates from an attempt to merge Interland and the http://mnn.mncentre.net/wiki/index.php?title=Free_Republic Free Republic. Other nations of the time, such as the Hegemony of Alexandros and the Rasinate of Qattera-Macusiaa soon joined in, and, realizing the magnitude of the project, called a constitutional convention directed by Scott Alexander. A number of proposals were discussed including a dual monarchy of Diga Makonnen and the Emperor of Pacifica were considered before settling on a broadly republican form of government developed mostly by Jason Rhode. The other question settled was the name. Tymaria was chosen above such proposals as Micronia and Mergistan.\n\n==Government==\nThe leading position in Tymaria was the Prime Executive, who appointed the Ministries and served a general executive type role. The legislature was bicameral, with a House of Peoples working on a direct democracy principle and a House of Nations in which each state was represented by senators. Of these states there were originally seven - Yardistan, Hyperborea, Machiavellia, the Free Republic, Interland, Attera, and Argaal - the states of Akerbjorn and Jaris later brought the number up to nine.\n\n==History==\nAusti Scot was chosen as the first Prime Executive, and Knight Magistrate as the first Speaker of the House of Nations. The starting government was rather heavy on Atterans, more because they were known for their competence than for any particularly sinister reason. The first threat to the government was the Yardistani Rebellion, in which Yardistan took over Shireroth (thus Yardistan replaced Shireroth as a state), the national government demanded that states hand over their weaponry to the military and Yardistan refused to do so. Eventually the national government retracted its demand and Yardistan fell back into line. There were then a number of random squabbles between states. Edward Conway of Machiavellia tried to impeach Austi Scot over violation of a military technicality, but failed. Hyperborea dissolved itself (blew itself up, actually). The largest and most influential micronation that had refused to merge into Tymaria, Babkha, had a poor relationship with Attera, and because of the Atterans holding high positions in the federal government, Tymaria-Babkha relations became strained as well. These relations reached a breaking point when the country of Morovia collapsed. Both the Atteran faction in Tymaria and the Babkhans wanted to take over the shell of Morovia in order to have it as a colony and leverage its voting rights in the League of Secessionist States. Both sent in agents to try and turn Morovia into a puppet government, and both began highly detailed intelligence work there. Relations between the Atteran element that held power in Tymaria and a more marginalized Alexandrian element had always been very poor, mostly because of very different ways of looking at micronationalism. Alexandrians in the military leaked information about the espionage to the press, and it was printed in the Apollo Fireball a paper at least partially in competition with the Atteran-run Tymarian Sun. After some infighting, it was determined that the espionage operations were illegal and unethical, and Austi Scot was impeached and Diga Makonnen stripped of military command. The nation then had a change of direction in which Alexandrians began to dominate. The second Prime Executive was Jason Rhode, the former Hegemon of Alexandros. Attera, angry at recent events, voted to secede, and eventually the House of Nations voted to let them. After Rhode was\nelected, he was active and productive for a brief time before disappearing. In his absence, things began to break apart. The Free Republic was claimed by the new nation of Baracao, and the United Republic was sent into a prolonged diplomatic crisis trying to contest the territory. Jason Steffke, who had formerly helped lead the revolution against Austi, inexplicably turned against the country and founded the popular Anti-Tymar Council, whose platform was that Tymaria ought not to exist at all and its component nations should regain their independence. Other former Tymarians, most noticeably Bill Dusch, joined him in this enterprise. Things came to a head when new Tymaria citizen William Jesmer was made Minister of Home Affairs. Jesmer figured (correctly) that using his power to update the website and provide interesting content would be less fun than using it to destroy the country, and so he deleted the Tymarian forums with his friend Philip Locke. During the crisis, called the 4-11 incident after the date it took place, Attera kindly offered their former parent state a place to meet on the Tymarian Defense Forces boards. Eventually, the forum was restored, and Locke and Jesmer unceremoniously kicked out of the nation. They formed their own country, Freenesia, as a base from which to get revenge, and attracted the Anti-Tymar Council, Yuri Andropov, and other undesirable elements to their cause. There was a cold war between the two countries which Scott Alexander and others did their best to try and defuse, and defused it was - Locke, who led the Freenesian effort, had to leave micronations for real-life reasons. In Tymaria, accusations began to fly that Shireroth, formerly the state of Yardistan was becoming too powerful. Shireroths willingness to conduct independent foreign policy and even declare war on its own did nothing to quell these rumors, although the Shirerithian government did its best to try. Julian Starr, now back in the country, tried to form an anti-Shireroth faction, but the fact was that it was mostly only the Shirerithians who were doing the work in Tymaria now, with Scott Alexander and Tony Au doing most government\nbusiness illegally without the authorization of the absent Prime Executive. Finally, Rhodes term expired on its own, and Tony Au beat Nicholas du Grifos in the contest to replace him. Au immediately offered all states that wanted to the opportunity to secede, and, excluding Machiavellia, they did. This marks the end of a strong, relevant Tymaria.\nThe country itself sputtered on for about three more months, with Tony Au, Scott Alexander, Orion, and Sirithil nos Feanor as some of the only active citizens. Eventually, in a bid to prevent the Imperium of Menelmacar from taking the place over in Operation Jade Wolf, Au agreed to disband the country in September 2002.\n\n==Culture==\nThe Minister of Culture for most of Tymarias existence was Bill Dusch, who tried to implement role-playing-game and fantasy ideas that were poorly received by the vast majority of the states, leading Bill to famously declare that \"Tymaria has no culture\". While perhaps an exaggeration, there was some truth in this - it was not until April 2002, six months after its foundation, that Tymaria even figured out what its",
         "currency": "",
         "motto": "",
@@ -11187,7 +11185,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11203,7 +11201,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11219,7 +11217,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11235,7 +11233,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kovocha",
         "currency": "unknown",
         "motto": "",
@@ -11251,7 +11249,7 @@ export const micrasWikiMicronations = [
         "foundation": "15th July 2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11266,7 +11264,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11280,7 +11278,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -11294,7 +11292,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Hempton",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -11310,7 +11308,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1710}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Stadt Sankt Ludwigshafen",
         "currency": "Ludwigspfennig<br>\nBefore 1690 reforms: Jingdaoese Kala and Craitish Cräite",
         "motto": "Lernet Gutes tun, trachtet nach Recht, helfet dem Unterdrückten, schaffet dem Waisen Recht und helfet der Witwen Sache! (Jesaja 1:17)",
@@ -11328,7 +11326,7 @@ export const micrasWikiMicronations = [
         "foundation": "1680"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bellissimomare",
         "currency": "Golden Camelar",
         "motto": "May the eyes of cowards never sleep",
@@ -11347,7 +11345,7 @@ export const micrasWikiMicronations = [
         "foundation": "The beginning of time itself"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{nihongo|Kipei|キペイ|Kipei}}",
         "currency": "Sanpanese yen|Sanpanese Yen ({{nihongo|サンパネーゼ円}})",
         "motto": "{{nihongo|Çok yaşa Sanpantul!|長寿のサンパントゥル!Chōju no sanpanto~uru|}} ",
@@ -11363,7 +11361,7 @@ export const micrasWikiMicronations = [
         "foundation": "1675"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Novi Nigrad",
         "currency": "{{unbulleted list|Shirerithian erb (€)|Natopian natopo (₦)}}",
         "motto": "Zełe au ka rinei āvāvi<br/><small>(Classical Āirumāli, translation unknown)</small>",
@@ -11379,7 +11377,7 @@ export const micrasWikiMicronations = [
         "foundation": "1542 (''as emirate'') <br> 1673 (''as independent state'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "{{nihongo|Kipei|喜兵|Kippei}}",
         "currency": "Sanpanese yen|Sanpanese Yen (old), Çakar Muhar|Muhar (₼) (new)",
         "motto": "{{nihongo|Long live Sanpantul!|三帆人万歳!|Sanhanto Banzai!|}}",
@@ -11395,7 +11393,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1675|5th July 2019}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Stad Sint Barentsz",
         "currency": "Barentszpenning",
         "motto": " “You have made your way around this hill country long enough; now turn north.\" (Deuteronomy 2:3)",
@@ -11411,7 +11409,7 @@ export const micrasWikiMicronations = [
         "foundation": "1673"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital|Capital ||align=left | Varying; recently Zermelo",
         "currency": "currencies|Currency ||align=left |\n* No currency/informal credit (Steve)\n* Majority Natopian natopo (Visitors)",
         "motto": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\"",
@@ -11430,7 +11428,7 @@ export const micrasWikiMicronations = [
         "foundation": "{| class=\"infobox vcard geography\" style=\"width:300px; font-size:83%;\""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Grøßenburg",
         "currency": "none",
         "motto": "motto was Þu Woltsch, Þu Kantsch (Roughly translating as If you will it, You can do it)\n\nThe one great simulated aspect that is absolutely important to Slobovish culture is the Slobovish Language. As a constructed language it is very much simulated, and as a ceremonial language it did not serve very much as a functional aspect. However, the Slobovish language was a defining factor in Slobovish culture, and a source of pride for many Slobovs.\n\nBeyond the simulated aspects, there were some very real cultural elements, such as Slobovish cuisine, Slobovias symbols, Slobovish poetry and lyrics, etc., which were real because they were real manifestations of the mix of cultural influences brought to the table by the individual members of the community. Moreover, the community itself was very real; Slobovia was the sum of all of its citizens.\n\n===National Anthem===\n\nLeuþ zo Slobowien (Slobovish for \"Hymn to Slobovia\") is a Slobovish patriotic song originally written by Tregh Tomsohnd and Johanns fonn Klosso in 2003. It was originally intended for use as a national anthem and was the best candidate for being the national anthem of Slobovia, despite the fact that it only consists of one verse. However, although it was the best anthem available, it was never officially adopted.\n\n{|class=\"toccolours\" cellpadding=\"10\" align=center rules=\"cols\"\n!colspan=\"2\" bgcolor=\"steelblue\" |Leuþ zo Slobowien",
@@ -11447,7 +11445,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 1, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Southman|Nanjin-shi",
         "currency": "Mon (文) (GSM)",
         "motto": "Two Regions Under One Union",
@@ -11463,7 +11461,7 @@ export const micrasWikiMicronations = [
         "foundation": "10.VIII.1719 [[Norton calendar|AN]]"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Snaiwdene",
         "currency": "",
         "motto": "",
@@ -11479,7 +11477,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "Freedom or Death",
@@ -11495,7 +11493,7 @@ export const micrasWikiMicronations = [
         "foundation": "1690/1719"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sabor",
         "currency": "gold, silver",
         "motto": "",
@@ -11511,7 +11509,7 @@ export const micrasWikiMicronations = [
         "foundation": "19.III.{{AN|1728}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Madinat al-Fath",
         "currency": "Gold dinar (Arboric: ﺩﻳﻨﺎﺭ ذهبي‎)",
         "motto": "Pax Apollonia",
@@ -11527,7 +11525,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1504 AN|12/05/2005}} as Amokolia <br> {{tooltip|1678 AN|18/11/2019}} as Francia <br> {{tooltip|1685 AN|25/06/2020}} as Emirate of Arbor <br> {{tooltip|1702 AN|29/11/2021}} as Arboric Republic of Barikalus <br> {{tooltip|1704 AN|19/01/2022}} as Occupied Barikalus"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Steerswick (city)|Steerswick",
         "currency": "Mondomark",
         "motto": "",
@@ -11543,7 +11541,7 @@ export const micrasWikiMicronations = [
         "foundation": "\n9.I.1598 [[Norton calendar|AN]] (as Stiermark) <br>\n18.XV.1617 [[Norton calendar|AN]] (as Steeria) <br>\n20.XII.1702 [[Norton calendar|AN]] (as Steerswick)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Surenshahr",
         "currency": "Surenid tomān|Tomān",
         "motto": "{{tooltip|Marā dād farmūd-o khod dāvar ast|By the Justice I give, shall the Almighty judge me}}",
@@ -11559,7 +11557,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1686}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Puerto Swish-Kanal",
         "currency": "Swishden Krona|Krona (K)",
         "motto": "Sic Mundus Creatus Est!",
@@ -11575,7 +11573,7 @@ export const micrasWikiMicronations = [
         "foundation": "''February 5, 2021''"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Talenore City",
         "currency": "Natopian natopo (₦)<br><small>Tali (former)</small>",
         "motto": "\"Strength through diversity\"",
@@ -11594,7 +11592,7 @@ export const micrasWikiMicronations = [
         "foundation": "1613 "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Soekarnograd",
         "currency": "microwiki:Los Bay Petrosian ruble|Ruble",
         "motto": "",
@@ -11613,7 +11611,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 14th 2011"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Romero",
         "currency": "Tellian Real (Telreal)",
         "motto": "Nostrum Placitum Locus (Our Meeting Place in Latin)",
@@ -11631,7 +11629,7 @@ export const micrasWikiMicronations = [
         "foundation": "IX.{{AN|11|2007}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Theogiorick",
         "currency": "None; currency-less society",
         "motto": "",
@@ -11648,7 +11646,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "various",
         "currency": "Guilder (£)",
         "motto": "The Gods Are Our Strength",
@@ -11664,7 +11662,7 @@ export const micrasWikiMicronations = [
         "foundation": "Lone Moon, 1685 [[shire:AN|AN]]<br>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Antakşehir",
         "currency": "Thraci Manat",
         "motto": "",
@@ -11680,7 +11678,7 @@ export const micrasWikiMicronations = [
         "foundation": "7 August 2020"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Jonkersberghe",
         "currency": "Transbataafsche Kruys",
         "motto": "Werk. Bid. En Bewonder.",
@@ -11698,7 +11696,7 @@ export const micrasWikiMicronations = [
         "foundation": "14.13.1659"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fieldburg",
         "currency": "Natopo, New Erb (v€)",
         "motto": "\"Patientia Vincit Omnia\"",
@@ -11714,7 +11712,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Rillanon",
         "currency": "ecu",
         "motto": "",
@@ -11730,7 +11728,7 @@ export const micrasWikiMicronations = [
         "foundation": "May 21st, 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Riskai (city)|Riskai",
         "currency": "Crown",
         "motto": "Unedic gani Tar Coron",
@@ -11746,7 +11744,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chryste",
         "currency": "New Erb (v€)",
         "motto": "\"By the Blessing of the Upright the City is Exalted\"",
@@ -11762,7 +11760,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Tyrador",
         "currency": "Hurmu crown|Crown (Hurmu crown|HUK)",
         "motto": "",
@@ -11779,7 +11777,7 @@ export const micrasWikiMicronations = [
         "foundation": "1702 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Inversalley",
         "currency": "",
         "motto": "",
@@ -11795,7 +11793,7 @@ export const micrasWikiMicronations = [
         "foundation": "6 February 2019"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "Zotuk",
         "motto": "Workers of the World, Unite!",
@@ -11812,7 +11810,7 @@ export const micrasWikiMicronations = [
         "foundation": "1721 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Neutriesen",
         "currency": "Treisenmark",
         "motto": "Unity within Diversity",
@@ -11830,7 +11828,7 @@ export const micrasWikiMicronations = [
         "foundation": "22 December 2004"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capitolia",
         "currency": "currency = Natopian natopo|Natopo (₦) / Benacian sovereign|sovereign (£) / Sanaman rilha|rilha (R$) <br>United Isles scudo from 1687",
         "motto": "{{United Isles article}}\n{{Infobox Nation Comprehensive",
@@ -11850,7 +11848,7 @@ export const micrasWikiMicronations = [
         "foundation": "estdate = {{unbulleted list|21.VIII.1684 ([[Conference of the Isles]])|22.XIII.1684 ([[Declaration of Fuconara]])|18.III.1685 ([[Treaty of Hareffa Lunti]])|1.VIII.1685 (Independence Day)}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Merensk",
         "currency": "Benacian sovereign (ß)",
         "motto": " Faith and Endurance surpasses Might",
@@ -11868,7 +11866,7 @@ export const micrasWikiMicronations = [
         "foundation": "05.VII.1671"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Bashkim (wikipedia:De facto|de facto)",
         "currency": "Valeser mekhak (Մ)",
         "motto": "",
@@ -11887,7 +11885,7 @@ export const micrasWikiMicronations = [
         "foundation": "9.IX.1717"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Reichdorf",
         "currency": "Imperial Dautzen",
         "motto": "",
@@ -11905,7 +11903,7 @@ export const micrasWikiMicronations = [
         "foundation": "c. 1520 AN "
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Madinat Kasul<br/> <small>(Laziville)</small>",
         "currency": "Mbasana Pound",
         "motto": "Splendid Glory and Victory to the People",
@@ -11921,7 +11919,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Infobox Nation Jack2"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Weisenburg",
         "currency": "Weisenburger Mark|Mark (𝔐)",
         "motto": "Stärke, Ehre, Treue",
@@ -11937,7 +11935,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1725}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zoroaster",
         "currency": "Natopian natopo (₦)",
         "motto": "Xāk-e daštat behtar az zarast <small>(Babkhi \"The soil of your valleys are better than gold\")</small>",
@@ -11955,7 +11953,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Verona",
         "currency": "",
         "motto": "\"Surgere crebo cum cadas\"",
@@ -11969,7 +11967,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Araxion",
         "currency": "Benacian Sovereign{{,}}Elwynnese mark",
         "motto": "Elwynn prevails!",
@@ -11987,7 +11985,7 @@ export const micrasWikiMicronations = [
         "foundation": "1672 (AN)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Carlstad",
         "currency": "Riskaian krona",
         "motto": "",
@@ -12003,7 +12001,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1539}} (establishment) <br> {{AN|1685}} (de facto independence) <br> {{AN|1702}} (de jure independence)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Port Valerie",
         "currency": "{{Nation\nDemocratic State of Venetia\n|image_flag = Flag of Venetia.jpg\nVenetican\nPort Valerie\n|largecity = Oporto\n|population = \nAugust 23, 2002\n|government = Democratic Parliamentary Republic\n|leader = Prime Minister Henry Weiss\n",
         "motto": "",
@@ -12022,7 +12020,7 @@ export const micrasWikiMicronations = [
         "foundation": "August 23, 2002"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kawada",
         "currency": "Cy",
         "motto": "Reach for the stars",
@@ -12033,12 +12031,12 @@ export const micrasWikiMicronations = [
         "name": "Super Fortress ViIx",
         "flag": "https://micras.org/wiki/images/3/3f/Vi%27Ix_flag.png",
         "languages": [
-            "<span class=\"plainlinks\">wikipedia:English language|English"
+            "<span class=\"plainlinks\">English"
         ],
         "foundation": "2751 ASC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Vox (POL), Aleksandrów (MCS)",
         "currency": "",
         "motto": "",
@@ -12054,7 +12052,7 @@ export const micrasWikiMicronations = [
         "foundation": "7298 ASC/1674 AN (30 June, 2019)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Xiacheng",
         "currency": "Kala",
         "motto": "",
@@ -12070,7 +12068,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Jamestown|Jamestown (Vyktory)",
         "currency": "Dollar ($)",
         "motto": "Latin: Libertas est victoria.",
@@ -12086,7 +12084,7 @@ export const micrasWikiMicronations = [
         "foundation": "6 July 2014 (3 BVE)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Geneva",
         "currency": "Natopian natopo (₦)",
         "motto": "Peace Through Silent Oppression",
@@ -12102,7 +12100,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|1707}}"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Xang Khon",
         "currency": "Ngwen",
         "motto": "",
@@ -12119,7 +12117,7 @@ export const micrasWikiMicronations = [
         "foundation": "21 May 2016"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Kujira-kei / Hauptstadt Walstadt",
         "currency": "Natopian natopo (₦)",
         "motto": "TBA",
@@ -12136,7 +12134,7 @@ export const micrasWikiMicronations = [
         "foundation": "1592 <small>(as the Principality of Walstadt-Kujirashi)</small> <br> 1648 <small>(Renamed The Two Martyrs)</small> <br> 1688 <small>(Renamed Principality of Whales)</small>"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Chuán Ké",
         "currency": "Xhusovar Jeng",
         "motto": "{{Nation",
@@ -12152,7 +12150,7 @@ export const micrasWikiMicronations = [
         "foundation": "14 July 2017"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "None",
         "currency": "wikipedia:Euro|Euro",
         "motto": "",
@@ -12170,7 +12168,7 @@ export const micrasWikiMicronations = [
         "foundation": "27 August 2016"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Xiacheng",
         "currency": "Kala",
         "motto": "",
@@ -12186,7 +12184,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Zeeburg",
         "currency": "Batavian Kruys",
         "motto": "{{Batavia Article}}\n{{Nation",
@@ -12203,7 +12201,7 @@ export const micrasWikiMicronations = [
         "foundation": "4 April 2012"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Xiacheng",
         "currency": "Kala",
         "motto": "",
@@ -12219,7 +12217,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Mighi",
         "currency": "Akhidian Zendert",
         "motto": "",
@@ -12235,7 +12233,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hamstadt",
         "currency": "",
         "motto": "",
@@ -12251,7 +12249,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Agra<br>Al-Hamra <small>summer capital</small>",
         "currency": "Çakar Muhar|Muhar (₼)",
         "motto": "صلح ثمره عدالت است",
@@ -12267,7 +12265,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{tooltip|1687 AN|14/08/2020}} as Ultimate Çakar Sultanate<br>{{tooltip|1698 AN|26/07/2021}} as Great Apollonian Empire<br>{{tooltip|1704 AN|27/01/2022}} as Çakar Empire"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Anun",
         "currency": "–",
         "motto": "Licentia pro Totus (Liberty and Justice)",
@@ -12284,7 +12282,7 @@ export const micrasWikiMicronations = [
         "foundation": "–"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Daocheng",
         "currency": "Kala",
         "motto": "Sensible and Ruthless",
@@ -12303,7 +12301,7 @@ export const micrasWikiMicronations = [
         "foundation": "'''Grand Duchy of Southbatavia''':<br> \n01.06.1583 <small>(December 11st 2011)</small> ({{AgeAN|1583|noAN=y}} [[Norton calendar|Norton years]] ago) <br> '''Empire of Jingdao and Southbatavia''':  <br> 13.03.1592 <small>(September 5th 2012)</small> ({{AgeAN|1592|noAN=y}} [[Norton calendar|Norton years]] ago)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "capital city of the former Arbor, see Al-Hamra.\n{{Infobox Nation Comprehensive",
         "currency": "Guilder (£)",
         "motto": "For God and Country",
@@ -12319,7 +12317,7 @@ export const micrasWikiMicronations = [
         "foundation": "Spring, {{AN|1695}} (as Al Hamra)<br>Summer, {{AN|1707}} (as Eriador)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Port of Sails",
         "currency": "GELT <small>(depricated)</small>",
         "motto": "",
@@ -12335,7 +12333,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Sarhat <small>Capital City</small><br>Valarion <small>Seat of Government</small>",
         "currency": "Salidash",
         "motto": "\"For the rod of the wicked shall not rest upon the lot of the righteous.\"",
@@ -12352,7 +12350,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{Verionian Article}}\n{{Infobox Nation Jack"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Fort Hunter",
         "currency": "Redoubt Crown (RDC)",
         "motto": "",
@@ -12369,7 +12367,7 @@ export const micrasWikiMicronations = [
         "foundation": "1715 (''de facto''); 10.III.1716 (''de jure'')"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Novograd",
         "currency": "Reuel (=100 hunderts)",
         "motto": "",
@@ -12387,7 +12385,7 @@ export const micrasWikiMicronations = [
         "foundation": "12 May, 2006"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Klemmen Stadt",
         "currency": "Jamzinia Dollar (JD$)",
         "motto": "",
@@ -12403,7 +12401,7 @@ export const micrasWikiMicronations = [
         "foundation": "12 August 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Iridia City",
         "currency": "",
         "motto": "",
@@ -12419,7 +12417,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Koyerno",
         "currency": "",
         "motto": "{{Expand}}\n\n{{Nation",
@@ -12435,7 +12433,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Moarrac",
         "currency": "Morin",
         "motto": "",
@@ -12453,7 +12451,7 @@ export const micrasWikiMicronations = [
         "foundation": "March 13, 2009"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "",
         "currency": "",
         "motto": "",
@@ -12469,7 +12467,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Great Warren",
         "currency": "Lp",
         "motto": "{{cleanup}}\n{{Nation",
@@ -12485,7 +12483,7 @@ export const micrasWikiMicronations = [
         "foundation": "7th August 2005"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Hatrecht",
         "currency": "Constancian Stater",
         "motto": "Small, Ancient and Noble",
@@ -12504,7 +12502,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Whale bone",
         "currency": "",
         "motto": "",
@@ -12520,7 +12518,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Shirekeep",
         "currency": "Erb",
         "motto": "Malarbor requiro is",
@@ -12536,7 +12534,7 @@ export const micrasWikiMicronations = [
         "foundation": "April 24, 2000"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "St Anne",
         "currency": "Apollonian Credits",
         "motto": "{{WIP}}\n{{Nation",
@@ -12552,7 +12550,7 @@ export const micrasWikiMicronations = [
         "foundation": "TBC"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Oudorp",
         "currency": "Ludwigspfennig",
         "motto": "Met de hulp van de Here, en door samen op te trekken houden wij stand.",
@@ -12568,7 +12566,7 @@ export const micrasWikiMicronations = [
         "foundation": "1716"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Capital city|Capital<br><small>and largest city</small>",
         "currency": "Currency|Currency",
         "motto": "",
@@ -12584,7 +12582,7 @@ export const micrasWikiMicronations = [
         "foundation": ""
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Marduk (Pratorian)<br><small>six administrative capitals on a rotating basis</small>",
         "currency": "Guilder (£)",
         "motto": "The Gods Are Our Strength",
@@ -12600,7 +12598,7 @@ export const micrasWikiMicronations = [
         "foundation": "Lone Moon, {{AN|1685}}<br>Wolf Moon, {{AN|1690}} (current gov't)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Paris",
         "currency": "Akhidian Zendert",
         "motto": "",
@@ -12616,7 +12614,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Brandenburg (ruined, de jure) <br> Tsofnhafen (de facto)",
         "currency": "–",
         "motto": "Licentia pro Totus (Liberty and Justice)",
@@ -12649,7 +12647,7 @@ export const micrasWikiMicronations = [
         "foundation": "Winter, {{AN|228}}<br>October 23rd, 2018 (est. in Micras)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Oudorp",
         "currency": "Ludwigspfennig",
         "motto": "Met de hulp van de Here, en door samen op te trekken houden wij stand.",
@@ -12667,7 +12665,7 @@ export const micrasWikiMicronations = [
         "foundation": "1709"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Shirekeep",
         "currency": "Shirerithian erb|Erb (€)",
         "motto": "{{tooltip|Szær Saszafran, ælt boþ usroszmos|Through Spite, all can be figured out.}}",
@@ -12685,7 +12683,7 @@ export const micrasWikiMicronations = [
         "foundation": "{{AN|79}} (establishment) <br> {{AN|1466}} (de facto independence) <br> {{AN|1469}} (de jure independence)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "New Paris",
         "currency": "Akhidian Zendert",
         "motto": "",
@@ -12701,7 +12699,7 @@ export const micrasWikiMicronations = [
         "foundation": "1707 AN"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Stormhold (legislative/executive)<br>Dragnor (administrative)",
         "currency": "Guilder (£)",
         "motto": "Strength and Honor",
@@ -12717,7 +12715,7 @@ export const micrasWikiMicronations = [
         "foundation": "Winter, 228 [[shire:AN|AN]]<br>October 23rd, 2018 (est. in Micras)"
     },
     {
-        "assignedModerator": "themicronationaldirectory@gmail.com",
+        "assignedModerator": "",
         "capital": "Yixing",
         "currency": "Imperial Federation Guilder (£)",
         "motto": "Strength and Honor",

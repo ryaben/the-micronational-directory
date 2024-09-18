@@ -1,13 +1,30 @@
 <script setup>
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/init.js';
 import store from '../store';
+
+defineProps({
+    moderatorsList: {
+        type: Array,
+        required: true,
+        default: store.getters.moderators
+    },
+    userIsModerator: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    user: {
+        type: Object,
+        required: true,
+        default: {}
+    },
+});
 </script>
 
 <template>
     <section class="site-section">
         <div v-if="userIsModerator">
-            <h2 class="centered">Welcome to the <span class="underlined">Moderation Panel</span>, {{ user.displayName }}
+            <h2 class="centered">Welcome to the <span class="underlined">Moderation Tools Panel</span>, {{
+            user.displayName }}
             </h2>
 
             <div class="options-container">
@@ -48,7 +65,7 @@ import store from '../store';
             </div>
         </div>
         <div v-if="!userIsModerator">
-            You don't have sufficient privileges in order to moderate pending submissions.
+            You don't have sufficient privileges in order to use moderation tools.
         </div>
     </section>
 </template>
@@ -60,32 +77,8 @@ export default {
     },
     data() {
         return {
-            user: {}
+
         }
-    },
-    computed: {
-        moderatorsList() {
-            return store.getters.moderators;
-        },
-        userIsModerator() {
-            return this.moderatorsList.includes(this.user.email);
-        }
-    },
-    methods: {
-        authListener() {
-            onAuthStateChanged(auth, user => {
-                if (user) {
-                    this.user = user;
-                } else {
-                    this.user = {
-                        emailVerified: false
-                    }
-                }
-            });
-        },
-    },
-    mounted() {
-        this.authListener();
     }
 }
 </script>

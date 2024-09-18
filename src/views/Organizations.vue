@@ -5,6 +5,24 @@ import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.v
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
 import Settingsbar from '../components/Settingsbar.vue';
 import store from '../store';
+
+defineProps({
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
+  organizationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations
+  },
+  visibleOrganizations: {
+    type: Array,
+    required: false,
+    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+  }
+});
 </script>
 
 <template>
@@ -54,15 +72,6 @@ export default {
     }
   },
   computed: {
-    micronationsDirectory() {
-      return store.getters.micronations;
-    },
-    organizationsDirectory() {
-      return store.getters.organizations;
-    },
-    visibleOrganizations() {
-      return this.organizationsDirectory.filter(element => element.approved && element.searchDisplay && element.filterDisplay);
-    },
     organizationsModerationDirectory() {
       return this.organizationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
     },

@@ -24,9 +24,7 @@ defineProps({
     directoryData: {
         type: Array,
         required: true,
-        default: [
-
-        ]
+        default: []
     },
     formPlaceholders: {
         type: Object,
@@ -306,7 +304,7 @@ defineProps({
                             <Recaptcha @checkbox="checkRecaptcha" />
                             <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
                                 class="login-button short color-transition">
-                            <label>(wait a few seconds for notification)</label>
+                            <label>(wait a few seconds for confirmation)</label>
                         </div>
                     </div>
                 </form>
@@ -319,7 +317,7 @@ defineProps({
                 <DirectoryEntry v-if="entryType === 'micronation'" :initial-info-view="true" :width="180"
                     :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory"
                     :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-                    :supranational-micronations="supranationalMicronations" :info="{
+                    :supranational-micronations="supranationalMicronations" :disable-full-profile-button="true" :info="{
                     name: {
                         main: formPlaceholders.newEntryName,
                         mainAlt: formPlaceholders.newEntryNameAlt,
@@ -402,7 +400,7 @@ export default {
                 "Currency (or currencies) legally adopted and accepted, they could be purported as well, either physical and digital. Some micronations even include macronational fiat currencies, and they are applicable as well. If there's more than one, then add all of them separated by commas. DO NOT include their symbols between parenthesis, e.g. (K$).",
                 "The full founding date. If there's not enough information to input a full date, select the first day of the available timespan data. For instance, if it's only known that it was founded on 1997, input January 1, 1997. If a foundation is stated on August, 2004, select August 1, 2004.",
                 "The micronation's location of its territorial claims. There is no possibility for selecting polygonal ranges, only geopoint pins. So, for large territorial claims, you can mark the capital or even the leader's approximate location. In any case not applicable, just leave the blue pin as is.",
-                "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinction cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
+                "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
                 "Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.",
                 "Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.",
                 "Only .png files, it would be great if you first compress it at https://tinypng.com/. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version."
