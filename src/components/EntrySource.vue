@@ -1,5 +1,5 @@
 <script setup>
-import {checkHref, checkIcon, cleanString} from '../assets/EntrySourceFunctions';
+import {checkHref, checkIcon, cleanString, getIconFolder} from '../assets/EntrySourceFunctions';
 
 defineProps({
     icon: {
@@ -34,7 +34,7 @@ defineProps({
     <a class="source-container" :class="icon"
         :style="[{ 'width': size + 'px' }, { 'height': size + 'px' }]"
         :href="checkHref(href)" target="_blank">
-        <img :src="icon !== 'flag' ? '/images/' + icon + '.png' : flagSource" alt="icon">
+        <img :src="icon !== 'flag' ? '/images/' + getIconFolder(icon) + '/' + icon + '.png' : flagSource" alt="icon">
     </a>
 </template>
 

@@ -109,4 +109,12 @@ export function cleanString(string) {
     return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-export default {checkHref, checkIcon, cleanString};
+export function getIconFolder(icon) {
+    const socialMediaIcons = [
+        'Discord', 'Facebook', 'Instagram', 'Mastodon', 'Reddit',
+        'Telegram', 'Twitter', 'WhatsApp', 'YouTube', 'Email'
+    ];
+    return socialMediaIcons.includes(icon) ? 'social-media' : 'sources';
+}
+
+export default {checkHref, checkIcon, cleanString, getIconFolder};
