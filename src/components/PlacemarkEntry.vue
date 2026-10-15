@@ -39,9 +39,9 @@ defineProps({
 
         <hr class="light-divider">
 
-        <p v-if="present && placemarkInfo.location._lat === 0">An entry seems to exist on TMD but does not have any
+        <p v-if="present && placemarkInfo.location._latitude === 0">An entry seems to exist on TMD but does not have any
             location data:</p>
-        <p v-if="present && placemarkInfo.location._lat !== 0">It seems that exists an entry on TMD that already
+        <p v-if="present && placemarkInfo.location._latitude !== 0">It seems that exists an entry on TMD that already
             contains location data:</p>
         <p v-if="!present">Seems that there is no entry for this micronation on TMD. But here is the location info!</p>
 
@@ -70,8 +70,8 @@ defineProps({
     }" />
         <button v-if="present" class="login-button color-transition" style="width: auto; margin-top: 10px;"
             @click="saveLocation(placemarkInfo)">
-            <span v-if="placemarkInfo.location._lat === 0">Save location on TMD</span>
-            <span v-if="placemarkInfo.location._lat !== 0">Update location on TMD</span>
+            <span v-if="placemarkInfo.location._latitude === 0">Save location on TMD</span>
+            <span v-if="placemarkInfo.location._latitude !== 0">Update location on TMD</span>
         </button>
     </div>
 </template>

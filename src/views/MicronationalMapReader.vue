@@ -60,14 +60,14 @@ defineProps({
       <div class="page-area">
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      micro.micronationalMap.location.applicable && micro.location._lat === 0).length }}</span> micronations from
+      micro.micronationalMap.location.applicable && micro.location._latitude === 0).length }}</span> micronations from
           the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b
             style="color: red;">DOES
             NOT</b> have location info:
         </p>
         <div class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat === 0)"
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._latitude === 0)"
             :key="i" :present="true" :placemark-info="item" />
         </div>
 
@@ -75,14 +75,14 @@ defineProps({
 
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      micro.micronationalMap.location.applicable && micro.location._lat !== 0).length }}</span> micronations from
+      micro.micronationalMap.location.applicable && micro.location._latitude !== 0).length }}</span> micronations from
           the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has
           preexisting
           location info:
         </p>
         <div class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._lat !== 0)"
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location._latitude !== 0)"
             :key="i" :present="true" :placemark-info="item" />
         </div>
 
