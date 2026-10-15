@@ -1,0 +1,2925 @@
+[
+  {
+    "foundationDate": {
+      "_seconds": 1522708800,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "name": {
+      "mainAlt": "AEA",
+      "main": "Alianza Euroamericana"
+    },
+    "logo": "/images/logos/Alianza Euroamericana.jpg",
+    "motto": "",
+    "creationDate": {
+      "_seconds": 1720648036,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [],
+    "websites": [
+      "https://el-dorado.fandom.com/es/wiki/Alianza_Euroamericana",
+      "https://aurea.fandom.com/es/wiki/Alianza_Euroamericana",
+      "https://rotham.fandom.com/es/wiki/Alianza_Euroamericana"
+    ],
+    "approved": true,
+    "id": "Alianza Euroamericana"
+  },
+  {
+    "name": {
+      "main": "Alliance of Canadian Micronations",
+      "mainAlt": "ACM"
+    },
+    "logo": "/images/logos/Alliance of Canadian Micronations.jpg",
+    "motto": "We stand united",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1541104500,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "https://discord.gg/3XqFyQSkG4"
+    ],
+    "websites": [
+      "https://discord.gg/3XqFyQSkG4"
+    ],
+    "author": {
+      "name": "WestaniaGov",
+      "email": "westaniangov@gmail.com"
+    },
+    "creationDate": {
+      "_seconds": 1734755937,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Alliance of Canadian Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1412129580,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Chinese",
+      "Japanese",
+      "Korean"
+    ],
+    "contactInfo": [
+      "https://aeam.fandom.com/wiki/Forum:Help_desk?t=20081016235248"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "AEAM",
+      "main": "Alliance of East Asian Micronations"
+    },
+    "logo": "/images/logos/Alliance of East Asian Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "http://aeam.wikia.com/wiki/Main_Page"
+    ],
+    "creationDate": {
+      "_seconds": 1719465331,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Alliance of East Asian Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1622765580,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/7mXkhqAPyR",
+      "https://docs.google.com/forms/d/e/1FAIpQLSd2w1rlyLaChw-D2A2ULklCJELp_vqL-oHtktkIJ7aMNxE0KA/viewform"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "AotM",
+      "main": "Alliance of the Micronations"
+    },
+    "logo": "/images/logos/Alliance of the Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Alliance_of_the_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1718075686,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Alliance of the Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1422497040,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/index.php?title=Talk:American_Micronational_Co-operation&action=edit&redlink=1"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "AMC",
+      "main": "American Micronational Co-operation"
+    },
+    "logo": "/images/logos/American Micronational Co-operation.jpg",
+    "motto": "Lorem patruus Robertus",
+    "websites": [
+      "https://micronations.wiki/wiki/American_Micronational_Co-operation"
+    ],
+    "creationDate": {
+      "_seconds": 1718082328,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "American Micronational Co-operation"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1706402400,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish",
+      "Interlingua"
+    ],
+    "author": {
+      "name": "Famiran Government",
+      "email": "gobiernofamirano@gmail.com"
+    },
+    "logo": "/images/logos/Angos-Famrian, Monarchical League.jpg",
+    "motto": "Lealtad Y Justicia",
+    "creationDate": {
+      "_seconds": 1719812590,
+      "_nanoseconds": 0
+    },
+    "name": {
+      "mainAlt": "LMAF",
+      "main": "Angos-Famiran Monarchical League"
+    },
+    "websites": [
+      "https://ligamonarquicaangosfamirana.blogspot.com/"
+    ],
+    "contactInfo": [
+      "gobiernofamirano@gmail.com",
+      "union.angosvria@gmail.com"
+    ],
+    "approved": true,
+    "id": "Angos-Famrian, Monarchical League"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1228592280,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "amu@lostisland.org",
+      "https://t.me/amu_ru",
+      "https://www.facebook.com/Antarctic-Micronational-Union-178798232155506/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "AMU",
+      "main": "Antarctic Micronational Union"
+    },
+    "logo": "/images/logos/Antarctic Micronational Union.jpg",
+    "motto": "AMU. For Antarctica",
+    "websites": [
+      "https://amu.lostisland.org/",
+      "https://en.wikipedia.org/wiki/Antarctic_Micronational_Union",
+      "https://micronations.wiki/wiki/Antarctic_Micronational_Union",
+      "https://www.westarctica.wiki/index.php/Antarctic_Micronational_Union"
+    ],
+    "creationDate": {
+      "_seconds": 1709250200,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Antarctic Micronational Union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1551645960,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/wiki/Talk:Asia-Pacific_Alliance"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ASPAA",
+      "main": "Asia-Pacific Alliance"
+    },
+    "logo": "/images/logos/Asia-Pacific Alliance.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Asia-Pacific_Alliance"
+    ],
+    "creationDate": {
+      "_seconds": 1719532085,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Asia-Pacific Alliance"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1212356880,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://adepma.es.tl/Contacto.htm",
+      "yaben345@hotmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ADEPMA",
+      "main": "Asociación de Entretenimientos para Micronaciones Argentinas"
+    },
+    "logo": "/images/logos/Asociación de Entretenimientos para Micronaciones Argentinas.jpg",
+    "motto": "",
+    "creationDate": {
+      "_seconds": 1709254313,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "websites": [
+      "https://adepma.es.tl/"
+    ],
+    "id": "Asociación de Entretenimientos para Micronaciones Argentinas"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1544306040,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish",
+      "English",
+      "D'jon"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/wiki/Talk:Association_of_Nations"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "AN",
+      "main": "Asociación de Naciones"
+    },
+    "logo": "/images/logos/Asociación de Naciones.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Association_of_Nations"
+    ],
+    "creationDate": {
+      "_seconds": 1718067400,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Asociación de Naciones"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1629910920,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/mRuqCmFP"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ACM",
+      "main": "Assembly of Chicagoland Micronations"
+    },
+    "logo": "/images/logos/Assembly of Chicagoland Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://sites.google.com/view/acmicro/home",
+      "https://micronations.wiki/wiki/Assembly_of_Chicagoland_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1718568275,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Assembly of Chicagoland Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1598409720,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/profile.php?id=100067687327144"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ASAM",
+      "main": "Association of South Asian Micronations"
+    },
+    "logo": "/images/logos/Association of South Asian Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Association_of_South_Asian_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1709272081,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Association of South Asian Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1575242280,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://arunion.boards.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ARU",
+      "main": "Atlanta Regional Union"
+    },
+    "logo": "/images/logos/Atlanta Regional Union.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Atlanta_Regional_Union"
+    ],
+    "creationDate": {
+      "_seconds": 1719541211,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Atlanta Regional Union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1650421860,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Serbo-Croatian",
+      "Hellenic",
+      "Bulgarian",
+      "Romanian",
+      "Slavomacedonian",
+      "Slovenian",
+      "Hungarian",
+      "Albanian"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/index.php?title=Talk:Balkan_League_of_Micronations&action=edit&redlink=1"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "BLM",
+      "main": "Balkan League of Micronations"
+    },
+    "logo": "/images/logos/Balkan League of Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Balkan_League_of_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1719552842,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Balkan League of Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1639410840,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Latvian",
+      "Lithuanian",
+      "Estonian",
+      "Russian",
+      "Esgeldian",
+      "Latgalian",
+      "Wadrian",
+      "Tailerian"
+    ],
+    "author": {
+      "name": "JDFRG",
+      "email": "slitronia@gmail.com"
+    },
+    "name": {
+      "mainAlt": "BU",
+      "main": "Baltic Union"
+    },
+    "logo": "/images/logos/Baltic Union.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Baltic_Union"
+    ],
+    "creationDate": {
+      "_seconds": 1726574128,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "https://discord.gg/xRHuk9qKaK",
+      "https://docs.google.com/forms/d/15p8gClwvPBymrImiAKSPw8OwCIJwXwMLtexevNTVs1o"
+    ],
+    "approved": true,
+    "id": "Baltic Union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1221617640,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "German"
+    ],
+    "contactInfo": [
+      "https://carta.mn-orga.de/forum/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CartA",
+      "main": "Cartographie-Assoziation"
+    },
+    "logo": "/images/logos/Cartographie-Assoziation.jpg",
+    "motto": "",
+    "websites": [
+      "https://carta.mn-orga.de/forum/cms/index.php/startseite/",
+      "https://www.mn-wiki.de/index.php?title=Cartographie-Assoziation"
+    ],
+    "creationDate": {
+      "_seconds": 1709183713,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Cartographie-Assoziation"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1304388420,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/groups/cims.micronation/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CIMS",
+      "main": "Coalition of International Micro-States"
+    },
+    "logo": "/images/logos/Coalition of International Micro-States.jpg",
+    "motto": "Strength through Unity",
+    "websites": [
+      "https://micronations.wiki/wiki/Coalition_of_International_Micro-States",
+      "https://web.archive.org/web/20120702080930/http://internationalmicrostates.webs.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1719551328,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Coalition of International Micro-States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 921079920,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "comity@egroups.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CP",
+      "main": "Comity of Peoples"
+    },
+    "logo": "/images/logos/Comity of Peoples.jpg",
+    "motto": "An intermicronational cooperative venture",
+    "websites": [
+      "https://web.archive.org/web/20070122143330/https://www.corvinia.org/minfor/comity/index.html"
+    ],
+    "creationDate": {
+      "_seconds": 1720118106,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Comity of Peoples"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1238097360,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish",
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20161017064933/http://cocemi.foroactivo.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CoCeCMi",
+      "main": "Comunidad Centroamericana y Caribeña de Micronaciones"
+    },
+    "logo": "/images/logos/Comunidad Centroamericana y Caribeña de Micronaciones.jpg",
+    "motto": "El Micronacionalismo, nuestra Pasión",
+    "websites": [
+      "https://omu.fandom.com/es/wiki/Comunidad_Centroamericana_y_Caribe%C3%B1a_de_Micronaciones",
+      "https://web.archive.org/web/20151105061217/http://sites.google.com/site/cocemi/Home"
+    ],
+    "creationDate": {
+      "_seconds": 1709247631,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Comunidad Centroamericana y Caribeña de Micronaciones"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1579641600,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://twitter.com/_cmloe"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CMLOE",
+      "main": "Comunidad de Micronaciones de Lengua Oficial Española"
+    },
+    "logo": "/images/logos/Comunidad de Micronaciones de Lengua Oficial Española.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20201101005953/https://sites.google.com/view/cmloesitio/home"
+    ],
+    "creationDate": {
+      "_seconds": 1709252476,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Comunidad de Micronaciones de Lengua Oficial Española"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1586283240,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Portuguese",
+      "English",
+      "Spanish",
+      "French"
+    ],
+    "contactInfo": [
+      "conferenceofsantiago@gmail.com",
+      "https://www.facebook.com/conferenciadesantiago"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CS",
+      "main": "Conference of Santiago"
+    },
+    "logo": "/images/logos/Conference of Santiago.jpg",
+    "motto": "",
+    "websites": [
+      "https://conferenceofsantiago.wixsite.com/conferenceofsantiago",
+      "http://santiagomicro.xobor.com/",
+      "https://micronations.wiki/wiki/Conference_of_Santiago"
+    ],
+    "creationDate": {
+      "_seconds": 1709241522,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Conference of Santiago"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1603507320,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/Dph2Dg4wCJ"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CONPACT",
+      "main": "Constantia Pact"
+    },
+    "logo": "/images/logos/Constantia Pact.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Constantia_Pact",
+      "https://web.archive.org/web/20220816220219/https://conpact.co/"
+    ],
+    "creationDate": {
+      "_seconds": 1719553405,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Constantia Pact"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1580219100,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.com/invite/MybPSgWH?utm_source=Discord%20Widget&utm_medium=Connect",
+      "general@cuperinoalliance.ca",
+      "https://twitter.com/ca_organisation"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "CA",
+      "main": "Cupertino Alliance"
+    },
+    "logo": "/images/logos/Cupertino Alliance.jpg",
+    "motto": "For thee we stand together",
+    "websites": [
+      "https://www.cupertinoalliance.ca/",
+      "https://micronations.wiki/wiki/Cupertino_Alliance"
+    ],
+    "creationDate": {
+      "_seconds": 1709311865,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Cupertino Alliance"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1307844180,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/groups/557155781003875/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "EUM",
+      "main": "European Union of Micronations"
+    },
+    "logo": "/images/logos/European Union of Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/European_Union_of_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1719551097,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "European Union of Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1026613620,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20190103171322/http://contact.5world.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "5WC",
+      "main": "Fifth World Council"
+    },
+    "logo": "/images/logos/Fifth World Council.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20190809104324/http://5world.net:80/",
+      "https://web.archive.org/web/20081008182301/http://groups.msn.com/FifthWorld",
+      "https://fifthworld.fandom.com/wiki/Fifth_World_Council",
+      "https://micronations.wiki/wiki/Fifth_World_Council"
+    ],
+    "creationDate": {
+      "_seconds": 1719466125,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Fifth World Council"
+  },
+  {
+    "name": {
+      "main": "Fondo Monetario Intermicronacional",
+      "mainAlt": "FMIM"
+    },
+    "logo": "/images/logos/Fondo Monetario Intermicronacional.jpg",
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "foundationDate": {
+      "_seconds": 1230676800,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [],
+    "websites": [
+      "https://micronaciones.fandom.com/wiki/Actualidad_Micronacional:Diciembre_2008"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1768444918,
+      "_nanoseconds": 0
+    },
+    "id": "Fondo Monetario Intermicronacional"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 852131760,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "harwoods@wr.com.au"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "GA",
+      "main": "Grand Alliance"
+    },
+    "logo": "/images/logos/Grand Alliance.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20011210164525/http://www.geocities.com:80/CapitolHill/Senate/5519/central.htm",
+      "https://micronations.wiki/wiki/Grand_Alliance"
+    ],
+    "creationDate": {
+      "_seconds": 1719512241,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Grand Alliance"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1231177680,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/X3PMtKrNVX",
+      "https://twitter.com/grandunifiedmn",
+      "https://www.instagram.com/grandunifiedmicronational"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "GUM",
+      "main": "Grand Unified Micronational"
+    },
+    "logo": "/images/logos/Grand Unified Micronational.jpg",
+    "motto": "",
+    "websites": [
+      "https://grandunifiedmicronational.wordpress.com/",
+      "https://micronations.wiki/wiki/Grand_Unified_Micronational",
+      "https://www.westarctica.wiki/index.php/Grand_Unified_Micronational"
+    ],
+    "creationDate": {
+      "_seconds": 1709243614,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Grand Unified Micronational"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1201890540,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "grupomicronacional@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "G4",
+      "main": "Grupo Micronacional de los Cuatro"
+    },
+    "logo": "/images/logos/Grupo Micronacional de los Cuatro.jpg",
+    "motto": "",
+    "websites": [
+      "https://grupomicronacional.es.tl/",
+      "https://micronaciones.fandom.com/wiki/G-4"
+    ],
+    "creationDate": {
+      "_seconds": 1709332405,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Grupo Micronacional de los Cuatro"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1709042640,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [],
+    "languages": [
+      "English"
+    ],
+    "author": {
+      "name": "DH-AireyannaYG @ Free Republic of Libernesia",
+      "email": "s5191408@cloud.elegantia.edu.hk"
+    },
+    "name": {
+      "mainAlt": "ILM",
+      "main": "Intercontinental League of Micronations"
+    },
+    "logo": "/images/logos/Intercontinental League of Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Intercontinental_League_of_Micronations"
+    ],
+    "creationDate": {
+      "_seconds": 1724827813,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Intercontinental League of Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1611263400,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "peakdistrictrailway@gmail.com",
+      "https://discord.gg/X26YQTMDjj"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "IAC",
+      "main": "International Aerospace Community"
+    },
+    "logo": "/images/logos/International Aerospace Community.jpg",
+    "motto": "",
+    "websites": [
+      "https://internationalaerospacecommunity.wordpress.com/",
+      "https://micronations.wiki/wiki/International_Aerospace_Community"
+    ],
+    "creationDate": {
+      "_seconds": 1718583051,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "International Aerospace Community"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1095545400,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "theassociation@sympatico.ca"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "IA",
+      "main": "International Association"
+    },
+    "logo": "/images/logos/International Association.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20050828084715/http://www3.sympatico.ca:80/jklaas/zklaas/micronations/association.htm"
+    ],
+    "creationDate": {
+      "_seconds": 1719882656,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "International Association"
+  },
+  {
+    "name": {
+      "main": "Johnson Family Baronetcy ",
+      "mainAlt": "Johnson Baronetcy "
+    },
+    "logo": "/images/logos/Johnson Family Baronetcy .jpg",
+    "motto": "Orbis-non-Sufficit",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1397720400,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "kagejustinslick@gmail.com"
+    ],
+    "websites": [
+      "https://qr.ae/pAOWQl",
+      "https://ballenyroyaltranport.blogspot.com/2025/04/legacy-in-her-hands.html"
+    ],
+    "author": {
+      "name": "Justin kage ",
+      "email": "ghost22pool@gmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1747309542,
+      "_nanoseconds": 0
+    },
+    "id": "Johnson Family Baronetcy "
+  },
+  {
+    "name": {
+      "main": "Kongo Sitarai Unifield allience",
+      "mainAlt": "k.s.u.a"
+    },
+    "logo": "/images/logos/Kongo Sitarai Unifield allience.jpg",
+    "motto": "“Sovereigns United, Worlds Commanded.”",
+    "languages": [
+      "barakish",
+      "English",
+      "Latin",
+      "Sanskrit",
+      "Swahili"
+    ],
+    "foundationDate": {
+      "_seconds": 1744087620,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "baraka15@tutamail.com",
+      "baraka15@tutamail.com",
+      "baraka15@tutamail.com"
+    ],
+    "websites": [
+      "https://sites.google.com/student.guhsdaz.org/thekongosupremeempire/home",
+      "https://sites.google.com/student.guhsdaz.org/thekongosupremeempire/",
+      "https://kongo-sitarai-unifield-allianceksua.fandom.com/wiki/Kongo-_Sitarai_Unifield_Alliance(KSUA)_Wiki"
+    ],
+    "author": {
+      "name": "Kongo supreme empire",
+      "email": "baraka15@tutamail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1754655113,
+      "_nanoseconds": 0
+    },
+    "id": "Kongo Sitarai Unifield allience"
+  },
+  {
+    "name": {
+      "main": "Koptar Union",
+      "mainAlt": "KU"
+    },
+    "logo": "/images/logos/Koptar Union.jpg",
+    "motto": "To spread freedom",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1734146100,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "daemonalee@gmail.com"
+    ],
+    "websites": [
+      "https://sites.google.com/view/ufbobkingdom/home?authuser=0"
+    ],
+    "author": {
+      "name": "Daemon Lee",
+      "email": "daemonalee@gmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1737793100,
+      "_nanoseconds": 0
+    },
+    "id": "Koptar Union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1331312400,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "name": {
+      "mainAlt": "LoC",
+      "main": "League of Countries"
+    },
+    "logo": "/images/logos/League of Countries.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20121015180228/http://loc.novaltia.org:80/",
+      "https://web.archive.org/web/20120527235622/http://micronations.wikia.com/wiki/The_League_of_Countries",
+      "https://el-dorado.fandom.com/es/wiki/Biblioteca_Diplom%C3%A1tica_Shimon_Peres"
+    ],
+    "creationDate": {
+      "_seconds": 1723617362,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "contactInfo": [
+      "https://micronations.wiki/wiki/League_of_Countries",
+      "https://www.facebook.com/LeagueOfCountries"
+    ],
+    "id": "League of Countries"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1475784540,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Greek",
+      "English"
+    ],
+    "contactInfo": [
+      "leaguehm@protonmail.com",
+      "https://twitter.com/League_HM"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "logo": "/images/logos/League of Hellenistic Micronations.jpg",
+    "motto": "",
+    "creationDate": {
+      "_seconds": 1709421147,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "name": {
+      "main": "League of Hellenistic Micronations",
+      "mainAlt": "LHM"
+    },
+    "websites": [
+      "https://leaguehm.weebly.com/",
+      "https://micronations.wiki/wiki/League_of_Hellenistic_Micronations"
+    ],
+    "id": "League of Hellenistic Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1546709400,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Esperanto"
+    ],
+    "contactInfo": [
+      "https://twitter.com/LIN_org",
+      "https://discord.com/invite/WzxNHEMxDB",
+      "https://docs.google.com/forms/d/e/1FAIpQLScdYmHhTDrHtriM8TTMtkIx2QKLT1iHKXHanGgTOt6D3tm5eQ/viewform"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "LIN",
+      "main": "League of Independent Nations"
+    },
+    "logo": "/images/logos/League of Independent Nations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/League_of_Independent_Nations"
+    ],
+    "creationDate": {
+      "_seconds": 1718051563,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "League of Independent Nations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 883669740,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "lms@reuniao.org"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "LMS",
+      "main": "League of Monarchist States"
+    },
+    "logo": "/images/logos/League of Monarchist States.jpg",
+    "motto": "Est Rex, pater patriae",
+    "websites": [
+      "https://www.oocities.org/capitolhill/lobby/6708/"
+    ],
+    "creationDate": {
+      "_seconds": 1719514215,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "League of Monarchist States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1566687360,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "http://microam.xobor.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "LPN",
+      "main": "League of Professional Nations"
+    },
+    "logo": "/images/logos/League of Professional Nations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/League_of_Professional_Nations"
+    ],
+    "creationDate": {
+      "_seconds": 1719540270,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "League of Professional Nations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 325621200,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Portuguese",
+      "Spanish",
+      "French"
+    ],
+    "contactInfo": [
+      "loss_micro@geocities.com",
+      "loss@yahoogroups.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "LOSS",
+      "main": "League of Secessionist States"
+    },
+    "logo": "/images/logos/League of Secessionist States.jpg",
+    "motto": "",
+    "creationDate": {
+      "_seconds": 1709242163,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "websites": [
+      "https://www.reuniao.org/loss/engl.htm",
+      "https://web.archive.org/web/20230814135612/http://theloss.org/",
+      "https://www.reuniao.org/loss/archive/loss1996.htm",
+      "https://en.wikipedia.org/wiki/League_of_Secessionist_States",
+      "https://micronations.wiki/wiki/League_of_Secessionist_States",
+      "https://web.archive.org/web/20000818063510/http://www.geocities.com/CapitolHill/5111/"
+    ],
+    "id": "League of Secessionist States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1165246020,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20161014170750/http://linceliga.blogspot.com/",
+      "https://web.archive.org/web/20240000000000*/http://linceliga2018.blogspot.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "LINCE",
+      "main": "Liga Intermicronacional Castellanohablante"
+    },
+    "logo": "/images/logos/Liga Intermicronacional Castellanohablante.jpg",
+    "motto": "",
+    "websites": [
+      "https://e-s-hezpenya.es.tl/L-.-I-.-N-.-C-.-E-.-%2C-Liga-INtermicroncional-y-CastellanohablantE.htm",
+      "https://e-s-hezpenya.es.tl/X-ANIVERASARIO-LINCE.htm",
+      "https://morielpress.blogspot.com/2009/08/vicea-cambia-secretario-general-del.html"
+    ],
+    "creationDate": {
+      "_seconds": 1709318322,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Liga Intermicronacional Castellanohablante"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 964062000,
+      "_nanoseconds": 852000000
+    },
+    "contactInfo": [
+      "http://lom_site.tripod.com/"
+    ],
+    "approved": true,
+    "motto": "",
+    "logo": "/images/logos/LoM.jpg",
+    "websites": [
+      "http://lom_site.tripod.com/",
+      "https://web.archive.org/web/20110716191826/http://lom.4t.com/",
+      "https://web.archive.org/web/20040828021352/http://groups.yahoo.com:80/group/generalassembly/",
+      "https://micronations.wiki/wiki/League_of_Micronations"
+    ],
+    "languages": [
+      "English"
+    ],
+    "name": {
+      "mainAlt": "LoM",
+      "main": "League of Micronations"
+    },
+    "creationDate": {
+      "_seconds": 1709137183,
+      "_nanoseconds": 772000000
+    },
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "id": "LoM"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 978028680,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.com/invite/hqV9HXk",
+      "http://micras.org/forum/index.php"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "logo": "/images/logos/Micras Cartography Society.jpg",
+    "motto": "",
+    "websites": [
+      "https://micras.org/",
+      "https://web.archive.org/web/20050528170737/http://www.geocities.com/microcartography/",
+      "https://micronations.wiki/wiki/Micronational_Cartography_Society",
+      "https://shireroth.org/shirewiki/Micronational_Cartography_Society"
+    ],
+    "creationDate": {
+      "_seconds": 1709242754,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "name": {
+      "mainAlt": "MCS",
+      "main": "Micronational Cartography Society"
+    },
+    "id": "Micras Cartography Society"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1213218120,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "microcommunity@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "MICROCOM",
+      "main": "Micro Community"
+    },
+    "logo": "/images/logos/Micro Community.jpg",
+    "motto": "",
+    "websites": [
+      "https://microcom.es.tl/",
+      "https://web.archive.org/web/20180322012009/http://microcom.creacionforo.com/",
+      "https://micronaciones.fandom.com/wiki/MICROCOM"
+    ],
+    "creationDate": {
+      "_seconds": 1709251597,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Micro Community"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1459525080,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/ZxChmzFvRa",
+      "https://www.instagram.com/micronationalassembly",
+      "https://twitter.com/OrgofMA"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "MA",
+      "main": "Micronational Assembly"
+    },
+    "logo": "/images/logos/Micronational Assembly.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronationalassembly.wordpress.com/",
+      "https://micronations.wiki/wiki/Micronational_Assembly"
+    ],
+    "creationDate": {
+      "_seconds": 1717872103,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Micronational Assembly"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1546301460,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/wiki/Talk:Micronational_Heritage_Association"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "MHA",
+      "main": "Micronational Heritage Association"
+    },
+    "logo": "/images/logos/Micronational Heritage Association.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Micronational_Heritage_Association"
+    ],
+    "creationDate": {
+      "_seconds": 1718593949,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Micronational Heritage Association"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1515349860,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://micronationalolympicfederation.weebly.com/sign-up-and-contact.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "MOF",
+      "main": "Micronational Olympic Federation"
+    },
+    "logo": "/images/logos/Micronational Olympic Federation.jpg",
+    "motto": "More than just the Olympics",
+    "websites": [
+      "https://micronationalolympicfederation.weebly.com/",
+      "https://micronations.wiki/wiki/Micronational_Olympic_Federation"
+    ],
+    "creationDate": {
+      "_seconds": 1717968975,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Micronational Olympic Federation"
+  },
+  {
+    "name": {
+      "main": "Micronations Alliance for Environmental Protection",
+      "mainAlt": "MAEP"
+    },
+    "logo": "/images/logos/Micronations Alliance for Environmental Protection.jpg",
+    "motto": "United for a Greener Future",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1731434520,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "contact.maep.org@gmail.com"
+    ],
+    "websites": [
+      "https://www.dovearchives.wiki/wiki/MAEP",
+      "https://maep.elnathar.com"
+    ],
+    "author": {
+      "name": "Elnäthar",
+      "email": "elnathar.gov@gmail.com"
+    },
+    "creationDate": {
+      "_seconds": 1741367523,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Micronations Alliance for Environmental Protection"
+  },
+  {
+    "name": {
+      "main": "Movimiento Femenino de Micronacionalismo",
+      "mainAlt": "MFM"
+    },
+    "logo": "/images/logos/Movimiento Femenino de Micronacionalismo.jpg",
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "foundationDate": {
+      "_seconds": 1251153600,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [],
+    "websites": [
+      "https://elpais-tegalia.blogspot.com/",
+      "https://el-dorado.fandom.com/es/wiki/Biblioteca_Diplom%C3%A1tica_Shimon_Peres"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1768447239,
+      "_nanoseconds": 0
+    },
+    "id": "Movimiento Femenino de Micronacionalismo"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1530890220,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://twitter.com/MAofTheAmericas",
+      "https://www.facebook.com/groups/2160617987549128/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "MAA",
+      "main": "Multinational Association of the Americas"
+    },
+    "logo": "/images/logos/Multinational Association of the Americas.jpg",
+    "motto": "",
+    "websites": [
+      "https://www.nationstates.net/nation=the_americas740/detail=factbook",
+      "https://www.queendomofnyx.com/452729239/448173468/448176292"
+    ],
+    "creationDate": {
+      "_seconds": 1718734658,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Multinational Association of the Americas"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1638843180,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/VaTTpqAz"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "NOFN",
+      "main": "New Organization of Free Nations"
+    },
+    "logo": "/images/logos/New Organization of Free Nations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/New_Organization_of_Free_Nations"
+    ],
+    "creationDate": {
+      "_seconds": 1720934084,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "New Organization of Free Nations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1237056000,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "http://namco.forumcommunity.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "NAMCO",
+      "main": "North American Micronational Culture Organization"
+    },
+    "logo": "/images/logos/North American Micronational Culture Organization.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/North_American_Micronational_Culture_Organization",
+      "https://karniaruthenia.miraheze.org/wiki/North_American_Micronational_Culture_Organization"
+    ],
+    "creationDate": {
+      "_seconds": 1721861009,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "North American Micronational Culture Organization"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1568427600,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Welsh"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/wiki/Talk:North_Atlantic_Diplomatic_Union"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "NADU",
+      "main": "North Atlantic Diplomatic Union"
+    },
+    "logo": "/images/logos/North Atlantic Diplomatic Union.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/North_Atlantic_Diplomatic_Union",
+      "https://naduofficial.wordpress.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1719552169,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "North Atlantic Diplomatic Union"
+  },
+  {
+    "author": {
+      "email": "republicofthewolfpackxanthera@gmail.com",
+      "name": "Republic Of The Wolf Pack Xanthera"
+    },
+    "logo": "/images/logos/North Atlantic Micronational Coalition Against Terror.jpg",
+    "websites": [
+      "https://north-atlantic-micronation-coalition-against-terrorismnamcat.webnode.page/"
+    ],
+    "motto": "\"Together we stand, united against terror.\"",
+    "approved": false,
+    "foundationDate": {
+      "_seconds": 1720642200,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "republicofthewolfpackxanthera@gmail.com"
+    ],
+    "creationDate": {
+      "_seconds": 1758851747,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "name": {
+      "mainAlt": "N.A.M.C.A.T.",
+      "main": "North Atlantic Micronational Coalition Against Terror"
+    },
+    "id": "North Atlantic Micronational Coalition Against Terror"
+  },
+  {
+    "name": {
+      "main": "Novaharmonia",
+      "mainAlt": "Novaharmonia"
+    },
+    "logo": "/images/logos/Novaharmonia.jpg",
+    "motto": "",
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "foundationDate": {
+      "_seconds": 1735732680,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "Michaelkelder3@gmail.com"
+    ],
+    "websites": [
+      "https://novaharmonia3.webnode.nl/"
+    ],
+    "author": {
+      "name": "Vorst michael",
+      "email": "michaelkelder3@gmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1767005950,
+      "_nanoseconds": 0
+    },
+    "id": "Novaharmonia"
+  },
+  {
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "https://twitter.com/OMF_officiel",
+      "https://www.facebook.com/groups/787477944682558",
+      "microfrancophonie@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "logo": "/images/logos/Organisation de la microfrancophonie.jpg",
+    "motto": "Unis par nos racines",
+    "creationDate": {
+      "_seconds": 1709231062,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "name": {
+      "mainAlt": "OMF",
+      "main": "Organisation de la MicroFrancophonie"
+    },
+    "websites": [
+      "https://www.microfrancophonie.org/",
+      "https://en.wikipedia.org/wiki/Organisation_de_la_microfrancophonie",
+      "https://micronations.wiki/wiki/MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1432999320,
+      "_nanoseconds": 29000000
+    },
+    "id": "Organisation de la microfrancophonie"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1083440760,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "o_d_m@yahoogroupes.fr"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OdM",
+      "main": "Organisation du Micromonde"
+    },
+    "logo": "/images/logos/Organisation du Micromonde.jpg",
+    "motto": "",
+    "websites": [
+      "https://www.scanthel.net/wiki/index.php?title=Organisation_du_Micromonde",
+      "https://web.archive.org/web/20060721153445/http://www.micromonde.org:80/",
+      "https://web.archive.org/web/20201214145937/https://fr.groups.yahoo.com/neo/groups/O_d_M/info"
+    ],
+    "creationDate": {
+      "_seconds": 1709247086,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation du Micromonde"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1064023560,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "German"
+    ],
+    "contactInfo": [
+      "https://oik.mn-orga.de/forum/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OIK",
+      "main": "Organisation für Internationale Kartografie"
+    },
+    "logo": "/images/logos/Organisation für Internationale Kartografie.jpg",
+    "motto": "",
+    "websites": [
+      "https://www.mn-wiki.de/index.php?title=Organisation_f%C3%BCr_Internationale_Kartografie",
+      "https://www.mn-wiki.de/index.php?title=Liste_der_OIK-Mitgliedsstaaten"
+    ],
+    "creationDate": {
+      "_seconds": 1709269579,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation für Internationale Kartografie"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1256926380,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "support@oamicro.org",
+      "mao@oamicro.org",
+      "secretarygeneral@oamicro.org"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OAM",
+      "main": "Organisation of Active Micronations"
+    },
+    "logo": "/images/logos/Organisation of Active Micronations.jpg",
+    "motto": "Democracy, activity & peace.",
+    "websites": [
+      "https://micronations.wiki/wiki/OAM",
+      "https://web.archive.org/web/20101110030201/http://www.oamicro.org/"
+    ],
+    "creationDate": {
+      "_seconds": 1719177488,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation of Active Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1542836640,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/Yd7H2s5"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OAM",
+      "main": "Organisation of Active Micronations (New Eiffel Union)"
+    },
+    "logo": "/images/logos/Organisation of Active Micronations (New Eiffel Union).jpg",
+    "motto": "A real friend walks in when the rest of the world walks out",
+    "websites": [
+      "https://micronations.wiki/wiki/Organisation_of_Active_Micronations_(New_Eiffel_Union)"
+    ],
+    "creationDate": {
+      "_seconds": 1719621923,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation of Active Micronations (New Eiffel Union)"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 915205380,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "LIADirect@aol.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ONTES",
+      "main": "Organisation of Non-Territorial and Emerging States"
+    },
+    "logo": "/images/logos/Organisation of Non-Territorial and Emerging States.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20010628152311/http://members.aol.com:80/swordmi/landreth/ontes.html"
+    ],
+    "creationDate": {
+      "_seconds": 1719513837,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation of Non-Territorial and Emerging States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1554496800,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "French",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/index.php?title=Talk:Organisation_of_North_American_States&action=edit&redlink=1"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ONAS",
+      "main": "Organisation of North American States"
+    },
+    "logo": "/images/logos/Organisation of North American States.jpg",
+    "motto": "Durci ensemble (Hardened together)",
+    "websites": [
+      "https://micronations.wiki/wiki/Organisation_of_North_American_States"
+    ],
+    "creationDate": {
+      "_seconds": 1719531784,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organisation of North American States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1590360000,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://x.com/miceonaciones"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "name": {
+      "mainAlt": "OHM",
+      "main": "Organización Hispana de Micronaciones"
+    },
+    "logo": "/images/logos/Organización Hispana de Micronaciones.jpg",
+    "motto": "",
+    "websites": [
+      "https://www.facebook.com/profile.php?id=100071519266569"
+    ],
+    "creationDate": {
+      "_seconds": 1720591488,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organización Hispana de Micronaciones"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1546024320,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish",
+      "English",
+      "Portuguese"
+    ],
+    "contactInfo": [
+      "https://twitter.com/GustavoEssedinG",
+      "https://www.facebook.com/p/Organizaci%C3%B3n-de-Micro-Estados-de-Naciones-Unidas-100068987836960",
+      "suistemon1.cumeminternazunal@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OMENU",
+      "main": "Organización de Micro Estados de Naciones Unidas"
+    },
+    "logo": "/images/logos/Organización de Micro Estados de Naciones Unidas.jpg",
+    "motto": "",
+    "websites": [
+      "https://gustavoessedin.wixsite.com/omenu"
+    ],
+    "creationDate": {
+      "_seconds": 1709244996,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organización de Micro Estados de Naciones Unidas"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1319152200,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "https://micronaciones.fandom.com/es/wiki/Organizaci%C3%B3n_de_Micronaciones#articleComments"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OM",
+      "main": "Organización de Micronaciones"
+    },
+    "logo": "/images/logos/Organización de Micronaciones.jpg",
+    "creationDate": {
+      "_seconds": 1709259085,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "languages": [
+      "Spanish",
+      "English",
+      "French",
+      "Portuguese"
+    ],
+    "motto": "To serve the micronational community",
+    "websites": [
+      "https://micronaciones.fandom.com/es/wiki/Organizaci%C3%B3n_de_Micronaciones",
+      "https://micronations.wiki/wiki/Organization_of_Micronations"
+    ],
+    "id": "Organización de Micronaciones"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1241895420,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://oma-micronaciones.activo.mx/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OMA",
+      "main": "Organización de Micronaciones Americanas"
+    },
+    "logo": "/images/logos/Organización de Micronaciones Americanas.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20160220165557/http://boletindelaoma.blogspot.se/",
+      "https://web.archive.org/web/20200718200510/http://oma-micronaciones.blogspot.com/2017/10/tratado-de-la-oma.html",
+      "https://omu.fandom.com/es/wiki/Organizaci%C3%B3n_de_Micronaciones_Americanas",
+      "https://el-dorado.fandom.com/es/wiki/Organizaci%C3%B3n_de_Micronaciones_Americanas"
+    ],
+    "creationDate": {
+      "_seconds": 1709244370,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organización de Micronaciones Americanas"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1231865220,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish",
+      "English"
+    ],
+    "contactInfo": [
+      "https://omu-foro.forosactivos.net/",
+      "https://twitter.com/orgmicrounid",
+      "https://twitter.com/omu_es",
+      "https://www.facebook.com/micronacionesunidas/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "OMU",
+      "main": "Organización de Micronaciones Unidas"
+    },
+    "logo": "/images/logos/Organización de Micronaciones Unidas.jpg",
+    "motto": "",
+    "websites": [
+      "https://sites.google.com/view/omu-oficial/p%C3%A1gina-principal",
+      "https://omu.fandom.com/es/wiki/Organizaci%C3%B3n_de_las_Micronaciones_Unidas",
+      "https://micronaciones.fandom.com/wiki/OMU"
+    ],
+    "creationDate": {
+      "_seconds": 1709239872,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organización de Micronaciones Unidas"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1386557340,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Russian",
+      "English"
+    ],
+    "contactInfo": [
+      "ong.organization@yandex.ru",
+      "https://vk.com/ongpolitik"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "ONG",
+      "main": "Organization of Independent States"
+    },
+    "logo": "/images/logos/Organization of Independent States.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Organization_of_Independent_States",
+      "https://ong.ucoz.net/"
+    ],
+    "creationDate": {
+      "_seconds": 1721800259,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Organization of Independent States"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1247947020,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "sociedaddemicronaciones@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "SODEMI",
+      "main": "Sociedad de Micronaciones"
+    },
+    "logo": "/images/logos/Sociedad de Micronaciones.jpg",
+    "motto": "",
+    "websites": [
+      "https://sociedaddemicronaciones.wordpress.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1709333950,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Sociedad de Micronaciones"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 906135600,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "otterthighs@yahoo.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "SPUM",
+      "main": "Splendid Micro-Union of Microstatia"
+    },
+    "logo": "/images/logos/Splendid Micro-Union of Microstatia.jpg",
+    "motto": "",
+    "websites": [
+      "https://klausjames.tripod.com/spum.html",
+      "https://web.archive.org/web/20080520040122/https://members.tripod.com/~Klausjames/spum10.html/",
+      "https://web.archive.org/web/20020527054724/http://spum.topcities.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1709321200,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Splendid Micro-Union of Microstatia"
+  },
+  {
+    "name": {
+      "main": "Tabletinian colonial union",
+      "mainAlt": "tcu"
+    },
+    "logo": "/images/logos/Tabletinian colonial union.jpg",
+    "motto": "united across the globe",
+    "languages": [
+      "English",
+      "Russian",
+      "Hindi",
+      "French",
+      "German",
+      "Chinese"
+    ],
+    "foundationDate": {
+      "_seconds": 1782465300,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "015060@glc.qld.edu.au"
+    ],
+    "websites": [
+      "https://en.wikipedia.org/wiki/Table"
+    ],
+    "author": {
+      "name": "tableton",
+      "email": "014876@glc.qld.edu.au"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1783206998,
+      "_nanoseconds": 0
+    },
+    "id": "Tabletinian colonial union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1469465340,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Chinese"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/Taiwanese.Micronations.Alliance",
+      "https://www.instagram.com/micronations_tw/",
+      "https://x.com/micronations_tw"
+    ],
+    "author": {
+      "name": "DH-AireyannaYG @ Free Republic of Libernesia",
+      "email": "s5191408@cloud.elegantia.edu.hk"
+    },
+    "name": {
+      "mainAlt": "TMA",
+      "main": "Taiwanese Micronational Alliance (福爾摩沙微國家共同體)"
+    },
+    "logo": "/images/logos/Taiwanese Micronational Alliance (福爾摩沙微國家共同體).jpg",
+    "motto": "",
+    "websites": [
+      "https://sites.google.com/view/micronations-taiwan",
+      "https://micronations.wiki/wiki/Taiwanese_Micronational_Alliance",
+      "https://www.micropedia.uk/wiki/%E7%A6%8F%E7%88%BE%E6%91%A9%E6%B2%99%E5%BE%AE%E5%9C%8B%E5%AE%B6%E5%85%B1%E5%90%8C%E9%AB%94"
+    ],
+    "creationDate": {
+      "_seconds": 1725010057,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Taiwanese Micronational Alliance (福爾摩沙微國家共同體)"
+  },
+  {
+    "name": {
+      "main": "The unva",
+      "mainAlt": "Unitednovaverdetionaccoplis"
+    },
+    "logo": "/images/logos/The unva.jpg",
+    "motto": "Nova totrum exo",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1767126120,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "Michaelkelder3@gmail.com"
+    ],
+    "websites": [
+      "https://novaharmonia3.webnode.nl/"
+    ],
+    "author": {
+      "name": "Vorst michael",
+      "email": "michaelkelder3@gmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1767209012,
+      "_nanoseconds": 0
+    },
+    "id": "The unva"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1247253600,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Dutch",
+      "German"
+    ],
+    "contactInfo": [
+      "https://micronations.wiki/wiki/Talk:Union_Against_Micronational_War"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UAMW",
+      "main": "Union Against Micronational War"
+    },
+    "logo": "/images/logos/Union Against Micronational War.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Union_Against_Micronational_War"
+    ],
+    "creationDate": {
+      "_seconds": 1709245518,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Union Against Micronational War"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1426606020,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [],
+    "languages": [
+      "Spanish",
+      "English"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UMR",
+      "main": "Union Micronacional de Radiodifusión"
+    },
+    "logo": "/images/logos/Union Micronacional de Radiodifusión.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/Micronational_Broadcasting_Union_(2015)",
+      "http://microvision.foroactivo.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1724092246,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Union Micronacional de Radiodifusión"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1136127120,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20121212073256/http://unam.20.forumer.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UNAM",
+      "main": "Union of North American Micronations"
+    },
+    "logo": "/images/logos/Union of North American Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20140517043715/http://unam.co.nr/",
+      "https://acadamenorth.wordpress.com/"
+    ],
+    "creationDate": {
+      "_seconds": 1719424369,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Union of North American Micronations"
+  },
+  {
+    "name": {
+      "main": "United League of Nations",
+      "mainAlt": "ULN"
+    },
+    "logo": "/images/logos/United League of Nations.jpg",
+    "motto": "Peace, Unity, Freedom",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1766769600,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "usrkc.gov.rkc@tutamail.com"
+    ],
+    "websites": [
+      "https://www.themicronationaldirectory.com.ar/"
+    ],
+    "author": {
+      "name": "Rudra",
+      "email": "usrkc.gov.rkc@tutamail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1779222127,
+      "_nanoseconds": 0
+    },
+    "id": "United League of Nations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1199222580,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "mailto:contact@unmcn.org",
+      "61294750699"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "logo": "/images/logos/United Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/United_Micronations_(2008)",
+      "https://web.archive.org/web/20090414052605/http://www.unmcn.org/index.html"
+    ],
+    "creationDate": {
+      "_seconds": 1719365047,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "name": {
+      "mainAlt": "UNMCN",
+      "main": "United Micronations (2008)"
+    },
+    "id": "United Micronations"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1072997220,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "UnitedMicronations@groups.msn.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UM",
+      "main": "United Micronations (2004)"
+    },
+    "logo": "/images/logos/United Micronations (2004).jpg",
+    "motto": "Communication, Evolution, Reconciliation",
+    "websites": [
+      "https://web.archive.org/web/20070923094028/https://groups.msn.com/UnitedMicronations",
+      "https://micronations.wiki/wiki/United_Micronations_(2004)"
+    ],
+    "creationDate": {
+      "_seconds": 1719366467,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "United Micronations (2004)"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1447636560,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "umorg.contact@gmail.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UM",
+      "main": "United Micronations (2015)"
+    },
+    "logo": "/images/logos/United Micronations (2015).jpg",
+    "motto": "",
+    "websites": [
+      "https://micronations.wiki/wiki/United_Micronations_(2015)",
+      "https://web.archive.org/web/20200218132911/https://unitedmicronations.es.tl/"
+    ],
+    "creationDate": {
+      "_seconds": 1720758008,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "United Micronations (2015)"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1719861480,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English",
+      "Spanish",
+      "French"
+    ],
+    "contactInfo": [
+      "https://x.com/_UMOW_",
+      "https://www.instagram.com/_umow_",
+      "https://www.threads.net/@_umow_"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UMOW",
+      "main": "United Micronations Organization of the Willow"
+    },
+    "logo": "/images/logos/United Micronations Organization of the Willow.jpg",
+    "motto": "United for a Better Planet",
+    "websites": [
+      "https://sites.google.com/view/umoweef"
+    ],
+    "creationDate": {
+      "_seconds": 1724797150,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "United Micronations Organization of the Willow"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 942242760,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "German"
+    ],
+    "contactInfo": [
+      "http://uvno.freie-republik.info/forum/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UVNO",
+      "main": "United Virtual Nations Organization"
+    },
+    "logo": "/images/logos/United Virtual Nations Organization.jpg",
+    "motto": "",
+    "websites": [
+      "http://uvno.freie-republik.info/",
+      "https://www.mn-wiki.de/index.php?title=United_Virtual_Nations_Organization"
+    ],
+    "creationDate": {
+      "_seconds": 1709226569,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "United Virtual Nations Organization"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1172874360,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "http://web.archive.org/web/20071207133303/http://umeurope.proboards99.com/index.cgi"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UME",
+      "main": "Unión Micronacional Europea"
+    },
+    "logo": "/images/logos/Unión Micronacional Europea.jpg",
+    "motto": "",
+    "creationDate": {
+      "_seconds": 1709256770,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "websites": [
+      "http://web.archive.org/web/20071015072054/emuume.wordpress.com/",
+      "https://micronaciones.fandom.com/wiki/UME",
+      "https://web.archive.org/web/20100715011247/https://europamicro.wordpress.com/"
+    ],
+    "id": "Unión Micronacional Europea"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1250192040,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://umisud.foroactivo.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "UMISUD",
+      "main": "Unión de Micronaciones Sudamericanas"
+    },
+    "logo": "/images/logos/Unión de Micronaciones Sudamericanas.jpg",
+    "motto": "",
+    "websites": [
+      "https://el-dorado.fandom.com/es/wiki/Uni%C3%B3n_de_Micronaciones_Sudamericanas",
+      "https://rotham.fandom.com/es/wiki/UMISUD"
+    ],
+    "creationDate": {
+      "_seconds": 1709246180,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "Unión de Micronaciones Sudamericanas"
+  },
+  {
+    "name": {
+      "main": "WPO",
+      "mainAlt": "World Peace Organization"
+    },
+    "logo": "/images/logos/WPO.jpg",
+    "motto": "Protect Peace, Provide Peace, Promote Peace",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1766769600,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "usrkc.gov.rkc@tutamail.com"
+    ],
+    "websites": [
+      "https://www.themicronationaldirectory.com.ar/"
+    ],
+    "author": {
+      "name": "Rudra",
+      "email": "usrkc.gov.rkc@tutamail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1779222214,
+      "_nanoseconds": 0
+    },
+    "id": "WPO"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 946746180,
+      "_nanoseconds": 0
+    },
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "webmaster@micronations.co.uk",
+      "https://web.archive.org/web/20001206222100/http://www.micronations.co.uk/join.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "name": {
+      "mainAlt": "WMU",
+      "main": "World Micronation Union"
+    },
+    "logo": "/images/logos/World Micronation Union.jpg",
+    "motto": "",
+    "websites": [
+      "https://web.archive.org/web/20010124054200/http://www.micronations.co.uk/index.htm"
+    ],
+    "creationDate": {
+      "_seconds": 1720123430,
+      "_nanoseconds": 0
+    },
+    "approved": true,
+    "id": "World Micronation Union"
+  },
+  {
+    "foundationDate": {
+      "_seconds": 1677952380,
+      "_nanoseconds": 0
+    },
+    "author": {
+      "name": "Lily ",
+      "email": "lily123131445@gmail.com"
+    },
+    "logo": "/images/logos/international Council of Micronations.jpg",
+    "motto": "",
+    "websites": [
+      "https://icm.dovesites.org/"
+    ],
+    "creationDate": {
+      "_seconds": 1719788133,
+      "_nanoseconds": 0
+    },
+    "name": {
+      "mainAlt": "ICM",
+      "main": "International Council of Micronations"
+    },
+    "contactInfo": [
+      "councilinternational5@gmail.com",
+      "https://docs.google.com/forms/d/e/1FAIpQLSe2u03Ai1s9alDIiAkbfQhxFQeETMOIm6eGYVN52MXyA0yI7w/viewform?usp=sf_link"
+    ],
+    "approved": true,
+    "languages": [
+      "English"
+    ],
+    "id": "international Council of Micronations"
+  },
+  {
+    "name": {
+      "main": "micronation united nations",
+      "mainAlt": "mum"
+    },
+    "logo": "/images/logos/micronation united nations.jpg",
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "foundationDate": {
+      "_seconds": 1606459740,
+      "_nanoseconds": 0
+    },
+    "contactInfo": [
+      "baraka15@onmailcom"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Draft:The_Kongo_supreme_empire"
+    ],
+    "author": {
+      "name": "emperor baraka",
+      "email": "baraka15@onmail.com"
+    },
+    "approved": false,
+    "creationDate": {
+      "_seconds": 1738504221,
+      "_nanoseconds": 0
+    },
+    "id": "micronation united nations"
+  }
+]
