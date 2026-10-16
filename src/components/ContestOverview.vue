@@ -14,9 +14,9 @@ defineProps({
     <div class="stats-container compact">
         <h1 class="underlined">{{ contestInfo.name }}</h1>
         <h3>{{ startingDate }} - {{ endingDate }}</h3>
-        <CountdownTimer v-show="!alreadyStarted" :expiration-date="contestInfo.startDate.seconds * 1000"
+        <CountdownTimer v-show="!alreadyStarted" :expiration-date="(contestInfo.startDate.seconds || contestInfo.startDate._seconds) * 1000"
             finish-message="The event has started!" pre-message="Begins in: " />
-        <CountdownTimer v-show="alreadyStarted" :expiration-date="contestInfo.endDate.seconds * 1000"
+        <CountdownTimer v-show="alreadyStarted" :expiration-date="(contestInfo.endDate.seconds || contestInfo.endDate._seconds) * 1000"
             finish-message="The event has finished!" pre-message="Ends in: " />
         <p style="margin-top: 10px;">
             You are invited to <a href="/login">create an account</a> at our website (if you don't have one yet) and
@@ -58,19 +58,19 @@ export default {
     },
     computed: {
         startingDate() {
-            const dateString = new Date(this.contestInfo.startDate.seconds * 1000);
+            const dateString = new Date((this.contestInfo.startDate.seconds || this.contestInfo.startDate._seconds) * 1000);
             const dateFullMonth = dateString.toLocaleString('default', { month: 'long' });
 
             return dateFullMonth + ' ' + dateString.getDate();
         },
         endingDate() {
-            const dateString = new Date(this.contestInfo.endDate.seconds * 1000);
+            const dateString = new Date((this.contestInfo.endDate.seconds || this.contestInfo.endDate._seconds) * 1000);
             const dateFullMonth = dateString.toLocaleString('default', { month: 'long' });
 
             return dateFullMonth + ' ' + dateString.getDate();;
         },
         alreadyStarted() {
-            return (this.contestInfo.startDate.seconds * 1000) < new Date().getTime();
+            return ((this.contestInfo.startDate.seconds || this.contestInfo.startDate._seconds) * 1000) < new Date().getTime();
         }
     }
 }

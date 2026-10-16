@@ -114,7 +114,7 @@ export default {
             let count = 0;
 
             array.forEach(element => {
-                const creationDate = new Date(element.creationDate.seconds * 1000);
+                const creationDate = new Date(element.creationDate._seconds * 1000);
 
                 if (element.author.email === value) {
                     if (creationDate >= startDate && creationDate <= endDate) {
