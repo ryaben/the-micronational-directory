@@ -89,7 +89,7 @@ defineProps({
         <!-- <div class="tables-container">
             <ContestOverview :contest-info="activeContest" />
             <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
-                :start-timestamp="activeContest.startDate.seconds" :end-timestamp="activeContest.endDate.seconds" />
+                :start-timestamp="(activeContest.startDate.seconds || activeContest.startDate._seconds)" :end-timestamp="(activeContest.endDate.seconds || activeContest.endDate._seconds)" />
             </div> -->
         <div class="tables-container">
             <div class="ranking-container">
@@ -106,11 +106,11 @@ defineProps({
                         </div>
                         <div v-for="(contest, i) in contestsList" :key="i"
                             class="table-values-container clickable second" @click="selectedContest = contest">
-                            <p class="table-value">{{ new Date(contest.startDate.seconds * 1000).toDateString() }}</p>
+                            <p class="table-value">{{ new Date((contest.startDate.seconds || contest.startDate._seconds) * 1000).toDateString() }}</p>
                         </div>
                         <div v-for="(contest, i) in contestsList" :key="i"
                             class="table-values-container clickable third" @click="selectedContest = contest">
-                            <p class="table-value">{{ new Date(contest.endDate.seconds * 1000).toDateString() }}</p>
+                            <p class="table-value">{{ new Date((contest.endDate.seconds || contest.endDate._seconds) * 1000).toDateString() }}</p>
                         </div>
                     </div>
                 </div>
@@ -119,8 +119,8 @@ defineProps({
             <div class="ranking-container">
                 <Transition name="fade">
                     <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
-                        :directory="selectedContest.directory" :start-timestamp="selectedContest.startDate.seconds"
-                        :end-timestamp="selectedContest.endDate.seconds"
+                        :directory="selectedContest.directory" :start-timestamp="(selectedContest.startDate.seconds || selectedContest.startDate._seconds)"
+                        :end-timestamp="(selectedContest.endDate.seconds || selectedContest.endDate._seconds)"
                         :micronations-approved-directory="micronationsApprovedDirectory"
                         :organizations-approved-directory="organizationsApprovedDirectory"
                         :current-user-email="user.email" />
