@@ -131,7 +131,7 @@ export default {
             return cleanString;
         },
         cleanTimestamp(timestamp) {
-            return new Date(timestamp.seconds * 1000).toDateString();
+            return new Date(timestamp._seconds * 1000).toDateString();
         },
         incrementKey() {
             this.componentKey++;

@@ -157,7 +157,7 @@ export default {
             return cleanString;
         },
         cleanTimestamp(timestamp) {
-            return new Date(timestamp.seconds * 1000).toDateString();
+            return new Date(timestamp._seconds * 1000).toDateString();
         },
         findOrg(name) {
             const orgQuery = this.visibleOrganizations.find(org => org.name.main === name || org.name.mainAlt === name);
