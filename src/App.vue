@@ -4,6 +4,16 @@ import store from './store';
 import { auth } from './firebase/init.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { version } from '../package.json';
+import { onMounted, ref, watch } from 'vue';
+
+const theme = ref(localStorage.getItem('tmd-theme') || 'dark');
+const toggleTheme = () => { theme.value = theme.value === 'dark' ? 'light' : 'dark'; };
+const applyTheme = value => document.documentElement.dataset.theme = value;
+watch(theme, value => {
+  localStorage.setItem('tmd-theme', value);
+  applyTheme(value);
+});
+onMounted(() => applyTheme(theme.value));
 </script>
 
 <template>
@@ -59,7 +69,9 @@ import { version } from '../package.json';
       <select name="languageSelect" id="languageSelect">
         <option value="english">English</option>
       </select>
-      <label for="darkModeCheckbox"><input id="darkModeCheckbox" type="checkbox" disabled checked>Dark mode</label>
+      <button id="themeToggle" type="button" :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`" @click="toggleTheme">
+        <span aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span> {{ theme === 'dark' ? 'Light mode' : 'Dark mode' }}
+      </button>
       <!-- <label class="footer-label margin-top">Cookie-free<br>website! ✅</label> -->
     </div>
 
@@ -148,7 +160,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 header {
   display: flex;
   width: auto;
@@ -162,12 +174,14 @@ header {
 }
 
 #logo {
-  width: 600px;
-  margin-bottom: 20px;
+  width: min(600px, 78vw);
+  max-height: 140px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
 #slogan {
-  font-size: 21px;
+  font-size: clamp(14px, 2vw, 19px);
   margin-block-start: 0;
   margin-block-end: 20px;
 }
@@ -194,6 +208,17 @@ footer label[for="darkModeCheckbox"],
   border-radius: 8px;
   cursor: pointer;
 }
+
+#themeToggle {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-background-soft);
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#themeToggle:hover { background: var(--navbar-tab-background-color-hover); }
 
 footer label[for="darkModeCheckbox"] {
   border-top-left-radius: 0px;
@@ -245,10 +270,14 @@ footer label[for="darkModeCheckbox"] {
 }
 
 #sendEmail {
-  padding: 6px 9px 6px 9px;
-  font-size: 10px;
-  width: 177px;
-  height: 17px;
+  display: inline-block;
+  max-width: 100%;
+  padding: 7px 11px;
+  font-size: 12px;
+  line-height: 1.4;
+  width: auto;
+  height: auto;
+  overflow-wrap: anywhere;
 }
 
 #openSourceCode {
@@ -256,5 +285,17 @@ footer label[for="darkModeCheckbox"] {
   font-size: 15px;
   width: 177px;
   height: 27px;
+}
+
+@media (max-width: 700px) {
+  footer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+  footer .credits { grid-column: 1 / -1; }
+  footer > a { grid-column: 1 / -1; justify-self: center; }
+}
+
+@media (max-width: 420px) {
+  footer { grid-template-columns: 1fr; }
+  footer .credits, footer > a { grid-column: auto; }
+  #sendEmail { max-width: 100%; }
 }
 </style>

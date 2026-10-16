@@ -237,7 +237,12 @@ export default {
 
 .directory-entry-container:hover {
     background-color: var(--navbar-tab-background-color-hover);
-    color: var(--navbar-text-color-hover);
+    color: var(--directory-entry-text-color);
+}
+
+.directory-entry-container :deep(.entry-text),
+.directory-entry-container :deep(.entry-text a) {
+    color: inherit;
 }
 
 .entry-flag {

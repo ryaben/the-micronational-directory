@@ -1,8 +1,8 @@
 <template>
   <section class="site-section">
     <div style="display: flex; justify-content: center; width: auto; margin-bottom: 20px;">
-      <iframe src="https://www.youtube-nocookie.com/embed/EC1C1eSGmpk?si=EHoLRW50t3uHbt3l" title="YouTube video player"
-        frameborder="0" style="width: 50%; height: 315px;"
+      <iframe class="about-video" src="https://www.youtube-nocookie.com/embed/EC1C1eSGmpk?si=EHoLRW50t3uHbt3l" title="YouTube video player"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
@@ -176,31 +176,66 @@ export default {
 
 .bottom-container {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(20px, 4vw, 56px);
 }
 
 .bottom-side-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .scrollable-container {
   padding: 15px;
-  width: 87%;
+  width: 100%;
+  min-height: 0;
+  max-height: 360px;
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 .listing-entry {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 6px 0;
 }
 
 .listing-entry img {
-  margin-right: 15px;
+  flex: 0 0 auto;
+  max-width: min(180px, 28%);
+  height: auto;
+  object-fit: contain;
+  margin-right: 0;
+}
+
+.listing-entry p { min-width: 0; margin: 8px 0; }
+
+.about-video {
+  display: block;
+  width: min(100%, 760px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: 14px;
 }
 
 .divider {
   width: 100%;
+}
+
+@media (max-width: 760px) {
+  .bottom-container { flex-direction: column; gap: 20px; }
+  .bottom-side-container { width: 100%; flex-basis: auto; }
+  .scrollable-container { max-height: 320px; }
+}
+
+@media (max-width: 480px) {
+  .listing-entry { gap: 10px; }
+  .listing-entry img { max-width: 26%; }
+  .scrollable-container { padding: 10px; }
 }
 </style>
