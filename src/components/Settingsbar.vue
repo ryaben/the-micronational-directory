@@ -151,10 +151,10 @@ defineProps({
                   />
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field">
-                  <label for="initialLetter">Initial</label>
+                  <label for="initialLetter">Initial letter</label>
                   <select name="initialLetter" id="initialLetter" v-model="initialFilter">
                     <optgroup>
-                      <option value="none">No filter</option>
+                      <option value="none">Any</option>
                     </optgroup>
                     <optgroup class="letters-group">
                       <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">
