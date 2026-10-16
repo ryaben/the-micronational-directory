@@ -13,6 +13,7 @@ import SelectedLanguage from '../components/SelectedLanguage.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
 import { createGitHubIssue } from '../utils/githubFunctions.js';
+import imageCompression from 'browser-image-compression';
 
 defineProps({
     entryType: {
@@ -494,7 +495,15 @@ export default {
 
                         // Handle flag file
                         if (this.flagSource) {
-                            const base64Data = await this.fileToBase64(this.flagSource);
+                            // Compress image before converting to base64
+                            const options = {
+                                maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
+                                maxWidthOrHeight: 1920,
+                                useWebWorker: true,
+                                initialQuality: 0.7
+                            };
+                            const compressedFile = await imageCompression(this.flagSource, options);
+                            const base64Data = await this.fileToBase64(compressedFile);
                             entryData.flagFile = {
                                 name: `${this.formPlaceholders.newEntryName}.png`,
                                 data: base64Data
@@ -505,7 +514,15 @@ export default {
                     } else if (this.entryType === 'organization') {
                         // Handle logo file
                         if (this.flagSource) {
-                            const base64Data = await this.fileToBase64(this.flagSource);
+                            // Compress image before converting to base64
+                            const options = {
+                                maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
+                                maxWidthOrHeight: 1920,
+                                useWebWorker: true,
+                                initialQuality: 0.7
+                            };
+                            const compressedFile = await imageCompression(this.flagSource, options);
+                            const base64Data = await this.fileToBase64(compressedFile);
                             entryData.logoFile = {
                                 name: `${this.formPlaceholders.newEntryName}.png`,
                                 data: base64Data

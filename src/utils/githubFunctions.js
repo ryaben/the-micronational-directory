@@ -15,6 +15,7 @@ function formatEntryForJSON(entryData, entryType) {
     languages: entryData.languages || [],
     contactInfo: entryData.contactInfo || [],
     websites: entryData.websites || [],
+    author: entryData.author || { name: 'Unknown', email: 'Unknown' },
     approved: false
   }
 
