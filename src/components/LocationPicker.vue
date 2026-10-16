@@ -49,7 +49,7 @@ defineProps({
             </MapboxMarker>
 
             <MapboxMarker v-if="mode === 'locationMap'" v-for="(marker, i) in collection" :key="i"
-                class="micronation-marker" :lng-lat="[marker.location.longitude, marker.location.latitude]" popup>
+                class="micronation-marker" :lng-lat="[marker.location._longitude, marker.location._latitude]" popup>
                 <template v-slot:popup>
                     <p class="custom-marker" style="color: black; font-size: 12px; text-align: center;">
                         {{ marker.name.main }}<span v-if="marker.name.title">,</span> {{ marker.name.title }}

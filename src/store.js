@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from './firebase/init.js';
 
 const store = createStore({
@@ -45,32 +45,40 @@ const store = createStore({
     },
     actions: {
         async getMicronations(context) {
-            const q = query(collection(db, "micronations"));
-            let micronationsList = [];
-            let physicalMicronationsList = [];
+            try {
+                const response = await fetch('/micronations.json');
+                const data = await response.json();
+                let micronationsList = [];
+                let physicalMicronationsList = [];
 
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                micronationsList.push({ id: doc.id, pageDisplay: false, searchDisplay: true, filterDisplay: true, ...doc.data() });
+                data.forEach((item) => {
+                    micronationsList.push({ pageDisplay: false, searchDisplay: true, filterDisplay: true, ...item });
 
-                if (doc.data().location._lat !== 0 && doc.data().location._long !== 0) {
-                    physicalMicronationsList.push({ id: doc.id, pageDisplay: false, searchDisplay: true, filterDisplay: true, ...doc.data() });
-                }
-            });
+                    if (item.location && item.location._latitude !== 0 && item.location._longitude !== 0) {
+                        physicalMicronationsList.push({ pageDisplay: false, searchDisplay: true, filterDisplay: true, ...item });
+                    }
+                });
 
-            context.commit('SET_MICRONATIONS', micronationsList);
-            context.commit('SET_PHYSICAL_MICRONATIONS', physicalMicronationsList);
+                context.commit('SET_MICRONATIONS', micronationsList);
+                context.commit('SET_PHYSICAL_MICRONATIONS', physicalMicronationsList);
+            } catch (error) {
+                console.error('Error fetching micronations:', error);
+            }
         },
         async getOrganizations(context) {
-            const q = query(collection(db, "organizations"));
-            let organizationsList = [];
+            try {
+                const response = await fetch('/organizations.json');
+                const data = await response.json();
+                let organizationsList = [];
 
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                organizationsList.push({ id: doc.id, pageDisplay: false, searchDisplay: true, filterDisplay: true, ...doc.data() });
-            });
+                data.forEach((item) => {
+                    organizationsList.push({ pageDisplay: false, searchDisplay: true, filterDisplay: true, ...item });
+                });
 
-            context.commit('SET_ORGANIZATIONS', organizationsList);
+                context.commit('SET_ORGANIZATIONS', organizationsList);
+            } catch (error) {
+                console.error('Error fetching organizations:', error);
+            }
         },
         async getContests(context) {
             const q = query(collection(db, "contests"));

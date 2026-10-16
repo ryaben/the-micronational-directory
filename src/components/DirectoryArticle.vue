@@ -1,5 +1,5 @@
 <script setup>
-import { checkHref, checkIcon, cleanString } from '../assets/EntrySourceFunctions';
+import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import MemberSource from '../components/MemberSource.vue';
 import store from '../store';
@@ -28,9 +28,9 @@ defineProps({
         <div class="directory-article-container" :key="componentKey">
             <div class="article-title">
                 <div class="article-full-name">
-                    <EntrySource class="entry-source gmaps" v-if="info.location._lat && info.location._long"
+                    <EntrySource class="entry-source gmaps" v-if="info.location._latitude && info.location._longitude"
                         :flag-source="info.flag" :size="36" :micronation-name="info.name.main" :icon="'Google Maps'"
-                        :href="'https://maps.google.com/?q=' + info.location._lat + ',' + info.location._long" />
+                        :href="'https://maps.google.com/?q=' + info.location._latitude + ',' + info.location._longitude" />
                     <p class="article-text article-name"><b>{{ info.name.main }}</b><span
                             v-if="info.name.title !== ''">,</span>
                         {{ info.name.title }}

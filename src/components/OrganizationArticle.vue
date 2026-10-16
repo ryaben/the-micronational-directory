@@ -1,5 +1,5 @@
 <script setup>
-import { checkHref, checkIcon, cleanString } from '../assets/EntrySourceFunctions';
+import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import MemberSource from '../components/MemberSource.vue';
 import store from '../store';
