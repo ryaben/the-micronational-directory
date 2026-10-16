@@ -253,11 +253,11 @@ export default {
           this.elementsDirectory.reverse();
           break;
         case 'latestAdded':
-          this.elementsDirectory.sort((a, b) => (a.creationDate.seconds > b.creationDate.seconds) ? 1 : -1);
+          this.elementsDirectory.sort((a, b) => (a.creationDate._seconds > b.creationDate._seconds) ? 1 : -1);
           this.elementsDirectory.reverse();
           break;
         case 'oldestAdded':
-          this.elementsDirectory.sort((a, b) => (a.creationDate.seconds > b.creationDate.seconds) ? 1 : -1);
+          this.elementsDirectory.sort((a, b) => (a.creationDate._seconds > b.creationDate._seconds) ? 1 : -1);
           break;
         case 'random':
           this.shuffleArray(this.elementsDirectory);
