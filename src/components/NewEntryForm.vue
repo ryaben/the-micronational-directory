@@ -1,9 +1,7 @@
 <script setup>
-import { auth, db } from '../firebase/init.js';
-import { doc, setDoc, Timestamp, GeoPoint } from "firebase/firestore";
-import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { auth } from '../firebase/init.js';
 import { notify } from "@kyvg/vue3-notification";
-import { checkHref, checkIcon, cleanString } from '../assets/EntrySourceFunctions';
+import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
 import store from '../store';
 import emailjs from 'emailjs-com';
 import languages from 'language-list';
@@ -14,6 +12,7 @@ import HelpTooltip from '../components/HelpTooltip.vue';
 import SelectedLanguage from '../components/SelectedLanguage.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
+import { createGitHubIssue } from '../utils/githubFunctions.js';
 
 defineProps({
     entryType: {
@@ -330,7 +329,7 @@ defineProps({
                     languages: formPlaceholders.newEntryLanguages,
                     capital: formPlaceholders.newEntryCapital,
                     currency: formPlaceholders.newEntryCurrency,
-                    foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                    foundationDate: { seconds: Math.floor(new Date(foundationDate).getTime() / 1000) },
                     memberships: formPlaceholders.newEntryMemberships,
                     contactInfo: formPlaceholders.newEntryEmails,
                     websites: formPlaceholders.newEntryWebsites,
@@ -346,7 +345,7 @@ defineProps({
                     logo: flagPreview,
                     motto: formPlaceholders.newEntryMotto,
                     languages: formPlaceholders.newEntryLanguages,
-                    foundationDate: Timestamp.fromDate(convertTZ(new Date(foundationDate), 'Etc/UTC')),
+                    foundationDate: { seconds: Math.floor(new Date(foundationDate).getTime() / 1000) },
                     contactInfo: formPlaceholders.newEntryEmails,
                     websites: formPlaceholders.newEntryWebsites,
                     approved: true
@@ -463,77 +462,71 @@ export default {
             }
 
             if (this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
-                switch (this.entryType) {
-                    case 'micronation':
-                        let physicalLocation;
-                        switch (this.physicalType) {
-                            case true:
-                                physicalLocation = new GeoPoint(this.locationPickerMarkerPosition[1], this.locationPickerMarkerPosition[0])
-                                break;
-                            case false:
-                                physicalLocation = new GeoPoint(0, 0);
-                                break;
-                            default:
-                                physicalLocation = new GeoPoint(0, 0);
-                                break;
+                try {
+                    // Prepare entry data
+                    const entryData = {
+                        name: {
+                            main: this.formPlaceholders.newEntryName,
+                            mainAlt: this.formPlaceholders.newEntryNameAlt,
+                            title: this.formPlaceholders.newEntryTitle,
+                            titleAlt: this.formPlaceholders.newEntryTitleAlt
+                        },
+                        motto: this.formPlaceholders.newEntryMotto,
+                        languages: this.formPlaceholders.newEntryLanguages,
+                        contactInfo: this.formPlaceholders.newEntryEmails,
+                        websites: this.formPlaceholders.newEntryWebsites,
+                        author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
+                        foundationDate: this.foundationDate
+                    };
+
+                    if (this.entryType === 'micronation') {
+                        entryData.type = this.checkTypes;
+                        entryData.capital = this.formPlaceholders.newEntryCapital;
+                        entryData.currency = this.formPlaceholders.newEntryCurrency;
+                        entryData.memberships = this.formPlaceholders.newEntryMemberships;
+
+                        if (this.physicalType) {
+                            entryData.location = {
+                                latitude: this.locationPickerMarkerPosition[1],
+                                longitude: this.locationPickerMarkerPosition[0]
+                            };
                         }
 
-                        this.uploadFlag(this.formPlaceholders.newEntryName, 'flags', function (fileName) {
-                            that.generateFlagReference(fileName, 'flags', async function (flagReference) {
-                                await setDoc(doc(db, "micronations", that.formPlaceholders.newEntryName), {
-                                    name: {
-                                        main: that.formPlaceholders.newEntryName,
-                                        mainAlt: that.formPlaceholders.newEntryNameAlt,
-                                        title: that.formPlaceholders.newEntryTitle,
-                                        titleAlt: that.formPlaceholders.newEntryTitleAlt
-                                    },
-                                    flag: flagReference,
-                                    motto: that.formPlaceholders.newEntryMotto,
-                                    type: that.checkTypes,
-                                    languages: that.formPlaceholders.newEntryLanguages,
-                                    capital: that.formPlaceholders.newEntryCapital,
-                                    currency: that.formPlaceholders.newEntryCurrency,
-                                    foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
-                                    location: physicalLocation,
-                                    memberships: that.formPlaceholders.newEntryMemberships,
-                                    contactInfo: that.formPlaceholders.newEntryEmails,
-                                    websites: that.formPlaceholders.newEntryWebsites,
-                                    author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
-                                    approved: false,
-                                    creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
-                                });
+                        // Handle flag file
+                        if (this.flagSource) {
+                            const base64Data = await this.fileToBase64(this.flagSource);
+                            entryData.flagFile = {
+                                name: `${this.formPlaceholders.newEntryName}.png`,
+                                data: base64Data
+                            };
+                        } else if (this.formPlaceholders.newEntryFlag) {
+                            entryData.flag = this.formPlaceholders.newEntryFlag;
+                        }
+                    } else if (this.entryType === 'organization') {
+                        // Handle logo file
+                        if (this.flagSource) {
+                            const base64Data = await this.fileToBase64(this.flagSource);
+                            entryData.logoFile = {
+                                name: `${this.formPlaceholders.newEntryName}.png`,
+                                data: base64Data
+                            };
+                        } else if (this.formPlaceholders.newEntryFlag) {
+                            entryData.logo = this.formPlaceholders.newEntryFlag;
+                        }
+                    }
 
-                                that.emailNotice();
-                                that.successNotification();
-                            });
-                        });
-                        break;
-                    case 'organization':
-                        this.uploadFlag(this.formPlaceholders.newEntryName, 'organizations', function (fileName) {
-                            that.generateFlagReference(fileName, 'organizations', async function (flagReference) {
-                                await setDoc(doc(db, "organizations", that.formPlaceholders.newEntryName), {
-                                    name: {
-                                        main: that.formPlaceholders.newEntryName,
-                                        mainAlt: that.formPlaceholders.newEntryNameAlt
-                                    },
-                                    logo: flagReference,
-                                    motto: that.formPlaceholders.newEntryMotto,
-                                    languages: that.formPlaceholders.newEntryLanguages,
-                                    foundationDate: Timestamp.fromDate(that.convertTZ(new Date(that.foundationDate), 'Etc/UTC')),
-                                    contactInfo: that.formPlaceholders.newEntryEmails,
-                                    websites: that.formPlaceholders.newEntryWebsites,
-                                    author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
-                                    approved: false,
-                                    creationDate: Timestamp.fromDate(that.convertTZ(new Date(), 'Etc/UTC'))
-                                });
+                    // Create GitHub issue
+                    await createGitHubIssue(entryData, this.entryType);
 
-                                that.emailNotice();
-                                that.successNotification();
-                            });
-                        });
-                        break;
-                    default:
-                        break;
+                    this.emailNotice();
+                    this.successNotification();
+                } catch (error) {
+                    console.error('Error submitting entry:', error);
+                    notify({
+                        title: "Error when submitting",
+                        text: error.message || "Failed to submit entry. Please try again.",
+                        type: "error"
+                    });
                 }
             } else {
                 notify({
@@ -543,30 +536,13 @@ export default {
                 });
             }
         },
-        async uploadFlag(fileName, folder, callback) {
-            const storage = getStorage();
-            const storageRef = ref(storage, 'images/' + folder + '/' + fileName + '.png');
-
-            uploadBytes(storageRef, this.flagSource).then((snapshot) => {
-                console.log('Flag file uploaded with ID ' + fileName);
-                callback(fileName);
+        async fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
             });
-        },
-        async generateFlagReference(fileName, folder, callback) {
-            const storage = getStorage();
-
-            getDownloadURL(ref(storage, 'images/' + folder + '/' + fileName + '.png'))
-                .then((url) => {
-                    console.log('Reference link for ' + fileName + ' is:' + url);
-                    callback(url);
-                })
-                .catch((error) => {
-                    notify({
-                        title: "Error on getting image",
-                        text: error,
-                        type: "error"
-                    });
-                });
         },
         searchElement(value) {
             return this.directoryData.find(function (entry) {
@@ -600,7 +576,7 @@ export default {
         },
         emailNotice() {
             const that = this;
-            if (auth.currentUser.email !== 'themicronationaldirectory@gmail.com') {
+            if (auth.currentUser && auth.currentUser.email !== 'themicronationaldirectory@gmail.com') {
                 emailjs.send("service_gd9nz5x", "template_wnd0ghn", {
                     user: auth.currentUser.email,
                     micronation: that.formPlaceholders.newEntryName,
@@ -669,9 +645,6 @@ export default {
                     this.flagPreview = blobURL;
                     this.flagSource = new File([blob], 'image.png', { type: blob.type });
                 });
-        },
-        convertTZ(date, tzString) {
-            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
         },
     }
 }

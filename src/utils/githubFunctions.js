@@ -30,7 +30,14 @@ function formatEntryForJSON(entryData, entryType) {
     formatted.memberships = entryData.memberships || ''
 
     if (entryData.foundationDate) {
-      const date = new Date(entryData.foundationDate)
+      let date
+      if (entryData.foundationDate.seconds) {
+        // Firebase timestamp format
+        date = new Date(entryData.foundationDate.seconds * 1000)
+      } else {
+        // Date object or string
+        date = new Date(entryData.foundationDate)
+      }
       formatted.creationDate = {
         _seconds: Math.floor(date.getTime() / 1000)
       }
@@ -50,7 +57,14 @@ function formatEntryForJSON(entryData, entryType) {
     }
 
     if (entryData.foundationDate) {
-      const date = new Date(entryData.foundationDate)
+      let date
+      if (entryData.foundationDate.seconds) {
+        // Firebase timestamp format
+        date = new Date(entryData.foundationDate.seconds * 1000)
+      } else {
+        // Date object or string
+        date = new Date(entryData.foundationDate)
+      }
       formatted.creationDate = {
         _seconds: Math.floor(date.getTime() / 1000)
       }
@@ -87,6 +101,11 @@ export async function createGitHubIssue(entryData, entryType) {
   let base64Content = ''
   if (fileData && fileData.data) {
     base64Content = fileData.data.includes(',') ? fileData.data.split(',')[1] : fileData.data
+    const MAX_BASE64_LENGTH = 50000; // ~37 KB (Límite seguro para el body de GitHub)
+    if (base64Content.length > MAX_BASE64_LENGTH) {
+      console.warn(`La imagen Base64 excede el límite permitido (${base64Content.length} caracteres).`);
+      throw new Error('La imagen adjunta es demasiado pesada. Por favor, sube una imagen de menor peso (máximo ~35 KB).');
+    }
   }
 
   // Estructuramos el issue con marcadores claros para la GitHub Action

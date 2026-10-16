@@ -1,5 +1,5 @@
 <script setup>
-import {checkHref, checkIcon, cleanString, getIconFolder} from '../assets/EntrySourceFunctions';
+import {checkHref, checkIcon, cleanString, getIconFolder} from '../utils/EntrySourceFunctions';
 
 defineProps({
     icon: {
