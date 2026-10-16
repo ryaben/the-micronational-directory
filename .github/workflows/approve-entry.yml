@@ -1,0 +1,103 @@
+name: Approve Entry and Commit File
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  process-approval:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Process Issue Data
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const issueBody = context.payload.issue.body;
+
+            // 1. Extraer JSON de la entrada
+            const jsonMatch = issueBody.match(/```json\n([\s\S]*?)\n```/);
+            if (!jsonMatch) {
+              core.setFailed('No JSON data found in issue body.');
+              return;
+            }
+            const entryData = JSON.parse(jsonMatch[1]);
+            entryData.approved = true; // Marcar como aprobado en el JSON
+
+            // Detectar si es micronation u organization por etiquetas
+            const labels = context.payload.issue.labels.map(l => l.name);
+            const isMicronation = labels.includes('micronation');
+            const targetJsonPath = isMicronation ? 'public/micronations.json' : 'public/organizations.json';
+
+            // 2. Extraer y guardar imagen Base64 (si existe)
+            const base64Match = issueBody.match(/```base64\n([\s\S]*?)\n```/);
+            const filePathMatch = issueBody.match(/- \*\*Target Path:\*\* `(.*?)`/);
+
+            if (base64Match && filePathMatch) {
+              const base64Data = base64Match[1].trim();
+              const targetFilePath = filePathMatch[1].trim();
+              
+              const fullPath = path.join(process.cwd(), targetFilePath);
+              const dir = path.dirname(fullPath);
+
+              if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir, { recursive: true });
+              }
+
+              fs.writeFileSync(fullPath, Buffer.from(base64Data, 'base64'));
+              console.log(`Saved image to ${targetFilePath}`);
+            }
+
+            // 3. Actualizar el archivo JSON correspondiente
+            const jsonFullPath = path.join(process.cwd(), targetJsonPath);
+            let currentData = [];
+
+            if (fs.existsSync(jsonFullPath)) {
+              const fileContent = fs.readFileSync(jsonFullPath, 'utf8');
+              currentData = JSON.parse(fileContent);
+            }
+
+            currentData.push(entryData);
+            fs.writeFileSync(jsonFullPath, JSON.stringify(currentData, null, 2));
+            console.log(`Updated ${targetJsonPath}`);
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/
+          git commit -m "feat: auto-approved submission from issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Close Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ **Entry Approved**: The image and JSON data have been automatically committed to the repository.'
+            });
+            github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
