@@ -172,4 +172,531 @@ Add the label **\`approved\`** or close this issue with the **\`approved\`** lab
   }
 }
 
-export default { createGitHubIssue }
+/**
+ * Fetches GitHub issues with specific labels, paginating to retrieve all results
+ * @param {Array} labels Labels to filter by (e.g., ['new-entry', 'review-required'])
+ * @returns {Promise<Array>} Array of issues
+ */
+export async function fetchGitHubIssues(labels = ['new-entry', 'review-required']) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const labelList = Array.isArray(labels) ? labels : (labels ? [labels] : [])
+  let allIssues = []
+  let page = 1
+
+  try {
+    while (true) {
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues?state=open&per_page=100&page=${page}`
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: 'application/vnd.github.v3+json'
+        }
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(`GitHub API error: ${errorData.message}`)
+      }
+
+      const issues = await response.json()
+      if (!issues || issues.length === 0) {
+        break
+      }
+
+      // Filter out pull requests (GitHub API /issues returns PRs as well)
+      const nonPrIssues = issues.filter(issue => !issue.pull_request)
+      allIssues = allIssues.concat(nonPrIssues)
+
+      if (issues.length < 100) {
+        break
+      }
+      page++
+    }
+
+    // Filter by labels if specified (matches if the issue has any of the specified labels)
+    if (labelList.length > 0) {
+      return allIssues.filter(issue =>
+        issue.labels && issue.labels.some(label => labelList.includes(label.name))
+      )
+    }
+
+    return allIssues
+  } catch (error) {
+    console.error('Error fetching GitHub issues:', error)
+    throw error
+  }
+}
+
+/**
+ * Parses GitHub issue body to extract entry JSON data
+ * @param {string} body The issue body
+ * @returns {Object|null} The parsed entry data or null if not found
+ */
+export function parseIssueBody(body) {
+  if (!body) return null
+  try {
+    // Extract JSON from between ```json and ```
+    const jsonMatch = body.match(/```json\s*\r?\n([\s\S]*?)\r?\n```/)
+    if (!jsonMatch) {
+      return null
+    }
+
+    return JSON.parse(jsonMatch[1])
+  } catch (error) {
+    console.error('Error parsing issue body:', error)
+    return null
+  }
+}
+
+/**
+ * Converts GitHub issue data to the format expected by DirectoryEntry/OrganizationEntry components
+ * @param {Object} issue The GitHub issue object
+ * @returns {Object} The formatted entry data
+ */
+export function convertIssueToEntry(issue) {
+  if (!issue || !issue.body) {
+    return null
+  }
+  const entryData = parseIssueBody(issue.body)
+  if (!entryData) {
+    return null
+  }
+
+  // Determine entry type from issue labels, title, or entryData
+  const hasOrgLabel = issue.labels && issue.labels.some(label =>
+    label.name.toLowerCase() === 'organization' || label.name.toLowerCase() === 'organizations'
+  )
+  const hasMicronationLabel = issue.labels && issue.labels.some(label =>
+    label.name.toLowerCase() === 'micronation' || label.name.toLowerCase() === 'micronations'
+  )
+
+  let isMicronation = false
+  if (hasOrgLabel) {
+    isMicronation = false
+  } else if (hasMicronationLabel) {
+    isMicronation = true
+  } else if (issue.title && /^New organization submission/i.test(issue.title)) {
+    isMicronation = false
+  } else if (issue.title && /^New micronation submission/i.test(issue.title)) {
+    isMicronation = true
+  } else if (entryData.entryType) {
+    isMicronation = entryData.entryType === 'micronation'
+  } else {
+    isMicronation = !!entryData.flag || !entryData.logo
+  }
+
+  // Extract base64 image if present and convert to data URL for preview
+  const base64Image = extractBase64Image(issue.body)
+  const fileMetadata = extractFileMetadata(issue.body)
+  
+  let imageDataUrl = null
+  if (base64Image) {
+    // Determine image type from file extension or default to png
+    const extension = fileMetadata?.name?.split('.').pop() || 'png'
+    imageDataUrl = `data:image/${extension};base64,${base64Image}`
+  }
+
+  // Add issue metadata
+  const formatted = {
+    ...entryData,
+    id: issue.id, // Use issue ID as entry ID
+    issueNumber: issue.number, // Store issue number for operations
+    githubUrl: issue.html_url, // Link to the issue
+    issueBody: issue.body, // Store the original issue body for image extraction
+    approved: false, // Issues are always pending approval
+    searchDisplay: true,
+    filterDisplay: true,
+    entryType: isMicronation ? 'micronation' : 'organization',
+    memberships: Array.isArray(entryData.memberships) ? entryData.memberships : [],
+    languages: Array.isArray(entryData.languages) ? entryData.languages : [],
+    contactInfo: Array.isArray(entryData.contactInfo) ? entryData.contactInfo : [],
+    websites: Array.isArray(entryData.websites) ? entryData.websites : []
+  }
+
+  // Use data URL for preview if image is in the issue, otherwise use the path
+  if (isMicronation && imageDataUrl) {
+    formatted.flag = imageDataUrl
+  } else if (!isMicronation && imageDataUrl) {
+    formatted.logo = imageDataUrl
+  }
+
+  // Ensure name has the required structure
+  if (!formatted.name) {
+    formatted.name = {
+      main: issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') || 'Unnamed',
+      mainAlt: '',
+      title: '',
+      titleAlt: ''
+    }
+  } else if (typeof formatted.name === 'string') {
+    formatted.name = {
+      main: formatted.name,
+      mainAlt: '',
+      title: '',
+      titleAlt: ''
+    }
+  } else {
+    formatted.name = {
+      main: formatted.name.main || issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') || 'Unnamed',
+      mainAlt: formatted.name.mainAlt || '',
+      title: formatted.name.title || '',
+      titleAlt: formatted.name.titleAlt || ''
+    }
+  }
+
+  // Ensure author has the required structure
+  if (!formatted.author || typeof formatted.author !== 'object') {
+    formatted.author = {
+      name: typeof formatted.author === 'string' ? formatted.author : 'Unknown',
+      email: ''
+    }
+  }
+
+  // Normalize foundationDate
+  if (!formatted.foundationDate) {
+    if (formatted.creationDate && (formatted.creationDate._seconds || formatted.creationDate.seconds)) {
+      formatted.foundationDate = {
+        _seconds: formatted.creationDate._seconds || formatted.creationDate.seconds
+      }
+    } else {
+      formatted.foundationDate = { _seconds: 0 }
+    }
+  } else if (typeof formatted.foundationDate === 'object') {
+    if (!formatted.foundationDate._seconds && formatted.foundationDate.seconds) {
+      formatted.foundationDate._seconds = formatted.foundationDate.seconds
+    } else if (!formatted.foundationDate._seconds) {
+      formatted.foundationDate = { _seconds: 0 }
+    }
+  } else {
+    formatted.foundationDate = { _seconds: 0 }
+  }
+
+  return formatted
+}
+
+/**
+ * Adds a label to a GitHub issue
+ * @param {number} issueNumber The issue number
+ * @param {string} label The label to add
+ * @returns {Promise<Object>} The response from GitHub API
+ */
+export async function addIssueLabel(issueNumber, label) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/labels`
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        labels: [label]
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error adding label to issue:', error)
+    throw error
+  }
+}
+
+/**
+ * Closes a GitHub issue
+ * @param {number} issueNumber The issue number
+ * @returns {Promise<Object>} The response from GitHub API
+ */
+export async function closeIssue(issueNumber) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        state: 'closed'
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error closing issue:', error)
+    throw error
+  }
+}
+
+/**
+ * Adds a comment to a GitHub issue
+ * @param {number} issueNumber The issue number
+ * @param {string} comment The comment text
+ * @returns {Promise<Object>} The response from GitHub API
+ */
+export async function addIssueComment(issueNumber, comment) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/comments`
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        body: comment
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error adding comment to issue:', error)
+    throw error
+  }
+}
+
+/**
+ * Fetches a file from the GitHub repository
+ * @param {string} path The file path in the repository (e.g., 'public/micronations.json')
+ * @returns {Promise<Object>} The file content and SHA
+ */
+export async function fetchRepoFile(path) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json'
+      }
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    const data = await response.json()
+    
+    // Decode base64 content
+    const content = atob(data.content)
+    const jsonContent = JSON.parse(content)
+    
+    return {
+      content: jsonContent,
+      sha: data.sha
+    }
+  } catch (error) {
+    console.error('Error fetching repo file:', error)
+    throw error
+  }
+}
+
+/**
+ * Updates a file in the GitHub repository
+ * @param {string} path The file path in the repository
+ * @param {string} content The new file content (as JSON string)
+ * @param {string} sha The current file SHA (required for updates)
+ * @param {string} commitMessage The commit message
+ * @returns {Promise<Object>} The response from GitHub API
+ */
+export async function updateRepoFile(path, content, sha, commitMessage) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
+
+  // Encode content to base64
+  const base64Content = btoa(content)
+
+  try {
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: commitMessage,
+        content: base64Content,
+        sha: sha
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error updating repo file:', error)
+    throw error
+  }
+}
+
+/**
+ * Creates a new file in the GitHub repository
+ * @param {string} path The file path in the repository
+ * @param {string} content The file content (as base64 string for binary files)
+ * @param {string} commitMessage The commit message
+ * @returns {Promise<Object>} The response from GitHub API
+ */
+export async function createRepoFile(path, content, commitMessage) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    console.error('GitHub credentials not configured')
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: commitMessage,
+        content: content
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(`GitHub API error: ${errorData.message}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('Error creating repo file:', error)
+    throw error
+  }
+}
+
+/**
+ * Extracts base64 image data from a GitHub issue body
+ * @param {string} body The issue body
+ * @returns {string|null} The base64 image data or null
+ */
+export function extractBase64Image(body) {
+  if (!body) return null
+  const match = body.match(/```base64\s*\r?\n([\s\S]*?)\r?\n```/)
+  if (!match) {
+    return null
+  }
+  return match[1].trim()
+}
+
+/**
+ * Extracts file metadata from a GitHub issue body
+ * @param {string} body The issue body
+ * @returns {Object|null} The file metadata or null
+ */
+export function extractFileMetadata(body) {
+  const nameMatch = body.match(/\*\*File Name:\*\* `([^`]+)`/)
+  const pathMatch = body.match(/\*\*Target Path:\*\* `([^`]+)`/)
+  
+  if (!nameMatch || !pathMatch) {
+    return null
+  }
+  
+  return {
+    name: nameMatch[1],
+    path: pathMatch[1]
+  }
+}
+
+export default { 
+  createGitHubIssue,
+  fetchGitHubIssues,
+  parseIssueBody,
+  convertIssueToEntry,
+  addIssueLabel,
+  closeIssue,
+  addIssueComment,
+  fetchRepoFile,
+  updateRepoFile,
+  createRepoFile,
+  extractBase64Image,
+  extractFileMetadata
+}

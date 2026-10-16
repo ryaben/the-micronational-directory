@@ -825,35 +825,6 @@
     "id": "Fifth World Council"
   },
   {
-    "name": {
-      "main": "Fondo Monetario Intermicronacional",
-      "mainAlt": "FMIM"
-    },
-    "logo": "/images/logos/Fondo Monetario Intermicronacional.jpg",
-    "motto": "",
-    "languages": [
-      "Spanish"
-    ],
-    "foundationDate": {
-      "_seconds": 1230676800,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [],
-    "websites": [
-      "https://micronaciones.fandom.com/wiki/Actualidad_Micronacional:Diciembre_2008"
-    ],
-    "author": {
-      "name": "lflugo",
-      "email": "eldoradogov@hotmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1768444918,
-      "_nanoseconds": 0
-    },
-    "id": "Fondo Monetario Intermicronacional"
-  },
-  {
     "foundationDate": {
       "_seconds": 852131760,
       "_nanoseconds": 0
@@ -1044,108 +1015,6 @@
     },
     "approved": true,
     "id": "International Association"
-  },
-  {
-    "name": {
-      "main": "Johnson Family Baronetcy ",
-      "mainAlt": "Johnson Baronetcy "
-    },
-    "logo": "/images/logos/Johnson Family Baronetcy .jpg",
-    "motto": "Orbis-non-Sufficit",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1397720400,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "kagejustinslick@gmail.com"
-    ],
-    "websites": [
-      "https://qr.ae/pAOWQl",
-      "https://ballenyroyaltranport.blogspot.com/2025/04/legacy-in-her-hands.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1747309542,
-      "_nanoseconds": 0
-    },
-    "id": "Johnson Family Baronetcy "
-  },
-  {
-    "name": {
-      "main": "Kongo Sitarai Unifield allience",
-      "mainAlt": "k.s.u.a"
-    },
-    "logo": "/images/logos/Kongo Sitarai Unifield allience.jpg",
-    "motto": "“Sovereigns United, Worlds Commanded.”",
-    "languages": [
-      "barakish",
-      "English",
-      "Latin",
-      "Sanskrit",
-      "Swahili"
-    ],
-    "foundationDate": {
-      "_seconds": 1744087620,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "baraka15@tutamail.com",
-      "baraka15@tutamail.com",
-      "baraka15@tutamail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/student.guhsdaz.org/thekongosupremeempire/home",
-      "https://sites.google.com/student.guhsdaz.org/thekongosupremeempire/",
-      "https://kongo-sitarai-unifield-allianceksua.fandom.com/wiki/Kongo-_Sitarai_Unifield_Alliance(KSUA)_Wiki"
-    ],
-    "author": {
-      "name": "Kongo supreme empire",
-      "email": "baraka15@tutamail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1754655113,
-      "_nanoseconds": 0
-    },
-    "id": "Kongo Sitarai Unifield allience"
-  },
-  {
-    "name": {
-      "main": "Koptar Union",
-      "mainAlt": "KU"
-    },
-    "logo": "/images/logos/Koptar Union.jpg",
-    "motto": "To spread freedom",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1734146100,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "daemonalee@gmail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/ufbobkingdom/home?authuser=0"
-    ],
-    "author": {
-      "name": "Daemon Lee",
-      "email": "daemonalee@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1737793100,
-      "_nanoseconds": 0
-    },
-    "id": "Koptar Union"
   },
   {
     "foundationDate": {
@@ -1617,36 +1486,6 @@
     "id": "Micronations Alliance for Environmental Protection"
   },
   {
-    "name": {
-      "main": "Movimiento Femenino de Micronacionalismo",
-      "mainAlt": "MFM"
-    },
-    "logo": "/images/logos/Movimiento Femenino de Micronacionalismo.jpg",
-    "motto": "",
-    "languages": [
-      "Spanish"
-    ],
-    "foundationDate": {
-      "_seconds": 1251153600,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [],
-    "websites": [
-      "https://elpais-tegalia.blogspot.com/",
-      "https://el-dorado.fandom.com/es/wiki/Biblioteca_Diplom%C3%A1tica_Shimon_Peres"
-    ],
-    "author": {
-      "name": "lflugo",
-      "email": "eldoradogov@hotmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1768447239,
-      "_nanoseconds": 0
-    },
-    "id": "Movimiento Femenino de Micronacionalismo"
-  },
-  {
     "foundationDate": {
       "_seconds": 1530890220,
       "_nanoseconds": 0
@@ -1775,69 +1614,6 @@
     },
     "approved": true,
     "id": "North Atlantic Diplomatic Union"
-  },
-  {
-    "author": {
-      "email": "republicofthewolfpackxanthera@gmail.com",
-      "name": "Republic Of The Wolf Pack Xanthera"
-    },
-    "logo": "/images/logos/North Atlantic Micronational Coalition Against Terror.jpg",
-    "websites": [
-      "https://north-atlantic-micronation-coalition-against-terrorismnamcat.webnode.page/"
-    ],
-    "motto": "\"Together we stand, united against terror.\"",
-    "approved": false,
-    "foundationDate": {
-      "_seconds": 1720642200,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "republicofthewolfpackxanthera@gmail.com"
-    ],
-    "creationDate": {
-      "_seconds": 1758851747,
-      "_nanoseconds": 0
-    },
-    "languages": [
-      "English"
-    ],
-    "name": {
-      "mainAlt": "N.A.M.C.A.T.",
-      "main": "North Atlantic Micronational Coalition Against Terror"
-    },
-    "id": "North Atlantic Micronational Coalition Against Terror"
-  },
-  {
-    "name": {
-      "main": "Novaharmonia",
-      "mainAlt": "Novaharmonia"
-    },
-    "logo": "/images/logos/Novaharmonia.jpg",
-    "motto": "",
-    "languages": [
-      "English",
-      "Spanish"
-    ],
-    "foundationDate": {
-      "_seconds": 1735732680,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "Michaelkelder3@gmail.com"
-    ],
-    "websites": [
-      "https://novaharmonia3.webnode.nl/"
-    ],
-    "author": {
-      "name": "Vorst michael",
-      "email": "michaelkelder3@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767005950,
-      "_nanoseconds": 0
-    },
-    "id": "Novaharmonia"
   },
   {
     "languages": [
@@ -2339,42 +2115,6 @@
     "id": "Splendid Micro-Union of Microstatia"
   },
   {
-    "name": {
-      "main": "Tabletinian colonial union",
-      "mainAlt": "tcu"
-    },
-    "logo": "/images/logos/Tabletinian colonial union.jpg",
-    "motto": "united across the globe",
-    "languages": [
-      "English",
-      "Russian",
-      "Hindi",
-      "French",
-      "German",
-      "Chinese"
-    ],
-    "foundationDate": {
-      "_seconds": 1782465300,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "015060@glc.qld.edu.au"
-    ],
-    "websites": [
-      "https://en.wikipedia.org/wiki/Table"
-    ],
-    "author": {
-      "name": "tableton",
-      "email": "014876@glc.qld.edu.au"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1783206998,
-      "_nanoseconds": 0
-    },
-    "id": "Tabletinian colonial union"
-  },
-  {
     "foundationDate": {
       "_seconds": 1469465340,
       "_nanoseconds": 0
@@ -2408,37 +2148,6 @@
     },
     "approved": true,
     "id": "Taiwanese Micronational Alliance (福爾摩沙微國家共同體)"
-  },
-  {
-    "name": {
-      "main": "The unva",
-      "mainAlt": "Unitednovaverdetionaccoplis"
-    },
-    "logo": "/images/logos/The unva.jpg",
-    "motto": "Nova totrum exo",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1767126120,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "Michaelkelder3@gmail.com"
-    ],
-    "websites": [
-      "https://novaharmonia3.webnode.nl/"
-    ],
-    "author": {
-      "name": "Vorst michael",
-      "email": "michaelkelder3@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767209012,
-      "_nanoseconds": 0
-    },
-    "id": "The unva"
   },
   {
     "foundationDate": {
@@ -2535,37 +2244,6 @@
     },
     "approved": true,
     "id": "Union of North American Micronations"
-  },
-  {
-    "name": {
-      "main": "United League of Nations",
-      "mainAlt": "ULN"
-    },
-    "logo": "/images/logos/United League of Nations.jpg",
-    "motto": "Peace, Unity, Freedom",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1766769600,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "usrkc.gov.rkc@tutamail.com"
-    ],
-    "websites": [
-      "https://www.themicronationaldirectory.com.ar/"
-    ],
-    "author": {
-      "name": "Rudra",
-      "email": "usrkc.gov.rkc@tutamail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1779222127,
-      "_nanoseconds": 0
-    },
-    "id": "United League of Nations"
   },
   {
     "foundationDate": {
@@ -2797,37 +2475,6 @@
     "id": "Unión de Micronaciones Sudamericanas"
   },
   {
-    "name": {
-      "main": "WPO",
-      "mainAlt": "World Peace Organization"
-    },
-    "logo": "/images/logos/WPO.jpg",
-    "motto": "Protect Peace, Provide Peace, Promote Peace",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1766769600,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "usrkc.gov.rkc@tutamail.com"
-    ],
-    "websites": [
-      "https://www.themicronationaldirectory.com.ar/"
-    ],
-    "author": {
-      "name": "Rudra",
-      "email": "usrkc.gov.rkc@tutamail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1779222214,
-      "_nanoseconds": 0
-    },
-    "id": "WPO"
-  },
-  {
     "foundationDate": {
       "_seconds": 946746180,
       "_nanoseconds": 0
@@ -2890,36 +2537,5 @@
       "English"
     ],
     "id": "international Council of Micronations"
-  },
-  {
-    "name": {
-      "main": "micronation united nations",
-      "mainAlt": "mum"
-    },
-    "logo": "/images/logos/micronation united nations.jpg",
-    "motto": "",
-    "languages": [
-      "English"
-    ],
-    "foundationDate": {
-      "_seconds": 1606459740,
-      "_nanoseconds": 0
-    },
-    "contactInfo": [
-      "baraka15@onmailcom"
-    ],
-    "websites": [
-      "https://micronations.wiki/wiki/Draft:The_Kongo_supreme_empire"
-    ],
-    "author": {
-      "name": "emperor baraka",
-      "email": "baraka15@onmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1738504221,
-      "_nanoseconds": 0
-    },
-    "id": "micronation united nations"
   }
 ]

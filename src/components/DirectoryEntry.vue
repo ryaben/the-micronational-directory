@@ -93,7 +93,7 @@ defineProps({
                     <hr class="light-divider">
 
                     <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-            new Date(info.foundationDate.seconds * 1000).toDateString() }}</p>
+            info.foundationDate && info.foundationDate._seconds ? new Date(info.foundationDate._seconds * 1000).toDateString() : 'Unknown' }}</p>
                     <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span
                             v-if="info.capital !== ''">{{
             info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
@@ -105,9 +105,9 @@ defineProps({
 
                     <div class="entry-group extended">
                         <p class="entry-text"><span class="underlined">Historical memberships:</span>
-                            <span v-if="info.memberships == ''">&nbsp;None.</span>
+                            <span v-if="!info.memberships || info.memberships.length === 0">&nbsp;None.</span>
                         </p>
-                        <div v-if="info.memberships.length" class="sources-container">
+                        <div v-if="info.memberships && info.memberships.length" class="sources-container">
                             <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
                                 :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="56"
                                 :height="40" :micronation-name="member" :icon="'flag'" />
@@ -118,7 +118,7 @@ defineProps({
 
                     <div class="entry-group">
                         <p class="entry-text">Contact media:
-                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
+                            <span v-if="!info.contactInfo || !info.contactInfo.length"><br>N/A.</span>
                         </p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"

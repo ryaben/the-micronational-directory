@@ -4409,49 +4409,6 @@
     "id": "Aranien"
   },
   {
-    "name": {
-      "main": "Araucanie et Patagonie ",
-      "mainAlt": "Kingdom of Araucania and Patagonia ",
-      "title": "Royaume ",
-      "titleAlt": "Reino de Araucanía y Patagonia "
-    },
-    "flag": "/images/flags/Araucanie et Patagonie .jpg",
-    "motto": "Marichiweu ",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "French"
-    ],
-    "capital": "Percenquo ",
-    "currency": "Pesos",
-    "foundationDate": {
-      "_seconds": -287814840,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": -38.63345322727547,
-      "_longitude": -72.43435371324068
-    },
-    "memberships": [],
-    "contactInfo": [
-      "Galvarino@mail.fr "
-    ],
-    "websites": [
-      "Https://www.araucanie-patagonie.org"
-    ],
-    "author": {
-      "name": "Llaurent94",
-      "email": "llaurent94@yahoo.fr"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767032964,
-      "_nanoseconds": 0
-    },
-    "id": "Araucanie et Patagonie "
-  },
-  {
     "capital": "Capital de Arbruy",
     "flag": "/images/flags/Arbruy.jpg",
     "languages": [
@@ -5070,49 +5027,6 @@
     ],
     "approved": true,
     "id": "Arkapura"
-  },
-  {
-    "name": {
-      "main": "Arkzelia",
-      "mainAlt": "阿克薩地亞",
-      "title": "People's Democratic Republic of",
-      "titleAlt": "人民民主共和國"
-    },
-    "flag": "/images/flags/Arkzelia.jpg",
-    "motto": "祖國！革命！社會主義！(Fatherland! Revolution! Socialism!)",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Chinese",
-      "Cantonese"
-    ],
-    "capital": "Zvezeda Capital City",
-    "currency": "Arkzelian Kiel",
-    "foundationDate": {
-      "_seconds": 1704619080,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 22.31828828243519,
-      "_longitude": 114.25810602276766
-    },
-    "memberships": [],
-    "contactInfo": [],
-    "websites": [
-      "https://zh.micronations.wiki/wiki/%E9%98%BF%E5%85%8B%E8%96%A9%E5%9C%B0%E4%BA%9E%E4%BA%BA%E6%B0%91%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E5%9C%8B"
-    ],
-    "author": {
-      "name": "robert_therobert",
-      "email": "mlgdankmemes1997@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1772587290,
-      "_nanoseconds": 0
-    },
-    "id": "Arkzelia"
   },
   {
     "capital": "Santo Niño City",
@@ -7742,50 +7656,6 @@
     "id": "Baliga"
   },
   {
-    "memberships": [],
-    "name": {
-      "main": "Balleny ",
-      "mainAlt": "",
-      "title": "The province of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Balleny .jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Ojibwa"
-    ],
-    "capital": "Germania Ont",
-    "currency": "Indigenous Pound Note",
-    "foundationDate": {
-      "_seconds": 1629532200,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "kagejustinslick@gmail.com"
-    ],
-    "websites": [
-      "https://ballenyroyaltranport.blogspot.com/p/the-province-of-balleny.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1746446048,
-      "_nanoseconds": 0
-    },
-    "id": "Balleny "
-  },
-  {
     "capital": "Banania",
     "flag": "/images/flags/Bananaworld.jpg",
     "languages": [
@@ -8309,49 +8179,6 @@
       "Organisation of North American States"
     ],
     "id": "Baustralia"
-  },
-  {
-    "name": {
-      "main": "Beanwai",
-      "mainAlt": "",
-      "title": "Kingdom of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Beanwai.jpg",
-    "motto": "Always together, never alone.",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Fallen Timbers",
-    "currency": "Beanies",
-    "foundationDate": {
-      "_seconds": 1644538380,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "beeandwai@gmail.com"
-    ],
-    "websites": [
-      "Beanwai.com"
-    ],
-    "author": {
-      "name": "Yvonne Chappell",
-      "email": "beeandwai@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1768976085,
-      "_nanoseconds": 0
-    },
-    "id": "Beanwai"
   },
   {
     "capital": "Begley City",
@@ -11230,52 +11057,6 @@
     "id": "Casmira (Autonomous on Fámira)"
   },
   {
-    "name": {
-      "main": "Catleone",
-      "mainAlt": "Королевство Catleone",
-      "title": "Kingdom of Catleone",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Catleone.jpg",
-    "motto": "“Pro me et meis”  (For myself and my own)",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "Russian",
-      "English"
-    ],
-    "capital": "Divanburg",
-    "currency": "bene",
-    "foundationDate": {
-      "_seconds": 1764586680,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "contact@catleone.org "
-    ],
-    "websites": [
-      "https://catleone.org/",
-      "https://www.facebook.com/catleone.official",
-      "https://t.me/catleone_official "
-    ],
-    "author": {
-      "name": "Catleone",
-      "email": "catleoneorg@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767690264,
-      "_nanoseconds": 0
-    },
-    "id": "Catleone"
-  },
-  {
     "capital": "Salisbury",
     "flag": "/images/flags/Caudonia.jpg",
     "languages": [
@@ -13421,49 +13202,6 @@
       "_longitude": -95.1133859
     },
     "id": "Cycoldia"
-  },
-  {
-    "name": {
-      "main": "D.R Sahraveth",
-      "mainAlt": "ભૂમિ નાની છે, દ્રષ્ટિ વિશાળ હશે.",
-      "title": "Rajya / Kingdom",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/D.R Sahraveth.jpg",
-    "motto": "Small in Land, Vast in Vision.",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Aksharnagar",
-    "currency": "Dollar",
-    "foundationDate": {
-      "_seconds": 1718019000,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "drc.islimar.primeministeroffice@gmail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/drc-islimar-co-uk/home"
-    ],
-    "author": {
-      "name": "The Democratic Republic of Sahraveth",
-      "email": "drc.islimar.primeministeroffice@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1760724421,
-      "_nanoseconds": 0
-    },
-    "id": "D.R Sahraveth"
   },
   {
     "capital": "Goblin",
@@ -17251,49 +16989,6 @@
     "id": "Extasien"
   },
   {
-    "memberships": [],
-    "name": {
-      "main": "FDS Nation",
-      "mainAlt": "",
-      "title": "",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/FDS Nation.jpg",
-    "motto": "Never Give Up!!!",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "",
-    "currency": "",
-    "foundationDate": {
-      "_seconds": 1743556380,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "kristopherwright935@yahoo.com"
-    ],
-    "websites": [
-      "https://fooddyestudios.simdif.com/fds_nation.html"
-    ],
-    "author": {
-      "name": "Kristopher Wright",
-      "email": "kristopherwright935@yahoo.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1745039985,
-      "_nanoseconds": 0
-    },
-    "id": "FDS Nation"
-  },
-  {
     "capital": "",
     "flag": "/images/flags/Falkenberg.jpg",
     "languages": [
@@ -20110,140 +19805,6 @@
     "id": "Gran Navgardia"
   },
   {
-    "name": {
-      "main": "Grand Duchy of Frankfort ",
-      "mainAlt": "Johnson point oil exploration camp ",
-      "title": "Grand Duchy of Terra Nullius ",
-      "titleAlt": "Igluliliutinga"
-    },
-    "flag": "/images/flags/Grand Duchy of Frankfort .jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Inuktitut"
-    ],
-    "capital": "Igluliliutinga ",
-    "currency": "Indigenous dollar & Indigenous Pound ",
-    "foundationDate": {
-      "_seconds": -2170214700,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 72.27607052362691,
-      "_longitude": -120.1983102119555
-    },
-    "memberships": [],
-    "contactInfo": [
-      "kagejustinslick@gmail.com"
-    ],
-    "websites": [
-      "https://terranulliusupdate.blogspot.com/2025/07/terra-nullius-asset-update.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1762126767,
-      "_nanoseconds": 0
-    },
-    "id": "Grand Duchy of Frankfort "
-  },
-  {
-    "name": {
-      "main": "Grand Duchy of Frankfurt",
-      "mainAlt": "",
-      "title": "Grand Dutchy of Terra Nullius ",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Grand Duchy of Frankfurt.jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Inuktitut"
-    ],
-    "capital": "Igluliliutinga ",
-    "currency": "Indigenous dollar & Indigenous Pound ",
-    "foundationDate": {
-      "_seconds": -2201787720,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 72.28243876413012,
-      "_longitude": -120.18926925567041
-    },
-    "memberships": [],
-    "contactInfo": [
-      "Colpoyswilliamjohson@gmail.com"
-    ],
-    "websites": [
-      "https://terranulliusupdate.blogspot.com/2025/07/terra-nullius-asset-update.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1762176279,
-      "_nanoseconds": 0
-    },
-    "id": "Grand Duchy of Frankfurt"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "Grand Duchy of Pengua",
-      "mainAlt": "",
-      "title": "Grand Duchy of ",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Grand Duchy of Pengua.jpg",
-    "motto": "Christ is King",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Spanish",
-      "Latin"
-    ],
-    "capital": "Marquisate of Saint Guadalupe",
-    "currency": "Aquilan",
-    "foundationDate": {
-      "_seconds": 1588781100,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "granducadodepengua@gmail.com",
-      "https://x.com/granducdepengua"
-    ],
-    "websites": [
-      "https://sites.google.com/view/gran-ducado-de-pengua/home?authuser=1"
-    ],
-    "author": {
-      "name": "Gran Ducado de Pengua",
-      "email": "granducadodepengua@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1740877788,
-      "_nanoseconds": 0
-    },
-    "id": "Grand Duchy of Pengua"
-  },
-  {
     "capital": "Grandia City",
     "flag": "/images/flags/Grandia.jpg",
     "languages": [
@@ -22928,50 +22489,6 @@
     "id": "Hélianthis"
   },
   {
-    "memberships": [],
-    "name": {
-      "main": "I.N.A.T",
-      "mainAlt": "",
-      "title": "The province of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/I.N.A.T.jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Ojibwa"
-    ],
-    "capital": "Faulkenburg",
-    "currency": "Indigenous Pound Note",
-    "foundationDate": {
-      "_seconds": 1629329340,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "countballeny@gmail.com"
-    ],
-    "websites": [
-      "https://ballenyroyaltranport.blogspot.com/2025/04/legacy-in-her-hands.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1746329680,
-      "_nanoseconds": 0
-    },
-    "id": "I.N.A.T"
-  },
-  {
     "capital": "Duchy of Amberly",
     "flag": "/images/flags/Ibrosian Protectorate.jpg",
     "languages": [
@@ -24481,49 +23998,6 @@
     "id": "Kaleido"
   },
   {
-    "name": {
-      "main": "Kallonia",
-      "mainAlt": "",
-      "title": "Kingdom of Kallonia",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Kallonia.jpg",
-    "motto": "tate, Nation and Prosperity",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Farenett",
-    "currency": "Kallonian Kelan",
-    "foundationDate": {
-      "_seconds": 1683279000,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "tomnoickot@proton.me"
-    ],
-    "websites": [
-      "https://micronations.wiki/wiki/Kingdom_of_Kallonia"
-    ],
-    "author": {
-      "name": "Hristo Sakellariou",
-      "email": "tomnoickot@proton.me"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1769968494,
-      "_nanoseconds": 0
-    },
-    "id": "Kallonia"
-  },
-  {
     "capital": "Kaltar",
     "flag": "/images/flags/Kaltaria.jpg",
     "languages": [
@@ -25544,95 +25018,6 @@
     "id": "Khäbir"
   },
   {
-    "name": {
-      "main": "Kingdom Syed Saif Uddin Landhi",
-      "mainAlt": "Kingdom Landhi",
-      "title": "kingdom Landhi",
-      "titleAlt": "Kindom landhi"
-    },
-    "flag": "/images/flags/Kingdom Syed Saif Uddin Landhi.jpg",
-    "motto": "Unity, Prosperity, and Progress",
-    "type": [
-      "Physical",
-      "Digital",
-      "Fictional"
-    ],
-    "languages": [
-      "Urdu"
-    ],
-    "capital": "Kingdom Landhi",
-    "currency": "KLC",
-    "foundationDate": {
-      "_seconds": 1659705540,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "https://www.sotwe.com/Kinglandhi",
-      "www.kindomlandhi.blogspot.com"
-    ],
-    "websites": [
-      "https://x.com/syeda_arbish",
-      "https://x.com/syeda_arbish"
-    ],
-    "author": {
-      "name": "Kingdom Syed Saif Uddin Landhi",
-      "email": "syedaarbish12@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1786436851,
-      "_nanoseconds": 0
-    },
-    "id": "Kingdom Syed Saif Uddin Landhi"
-  },
-  {
-    "name": {
-      "main": "Kingdom of Catleone",
-      "mainAlt": "",
-      "title": "Kingdom of Catleone",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Kingdom of Catleone.jpg",
-    "motto": "Pro me et meis",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English",
-      "Russian"
-    ],
-    "capital": "Divanburg",
-    "currency": "bene ",
-    "foundationDate": {
-      "_seconds": 1764596460,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [],
-    "websites": [
-      "https://catleone.org "
-    ],
-    "author": {
-      "name": "Catleone",
-      "email": "catleoneorg@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1771328687,
-      "_nanoseconds": 0
-    },
-    "id": "Kingdom of Catleone"
-  },
-  {
     "capital": "",
     "flag": "/images/flags/Kirael.jpg",
     "languages": [
@@ -26043,49 +25428,6 @@
       "_nanoseconds": 0
     },
     "id": "Kotland"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "Kralia",
-      "mainAlt": "",
-      "title": "Democracy of Kralia",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Kralia.jpg",
-    "motto": "",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Granger, IN",
-    "currency": "US Dollar",
-    "foundationDate": {
-      "_seconds": 1743014520,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "kartonskiigrac@gmail.com"
-    ],
-    "websites": [
-      "https://docs.google.com/document/d/10EarM54WeVvN8MfVtuWCMFFczz7wOrbJHQxLKH3djJk/edit?usp=sharing"
-    ],
-    "author": {
-      "name": "Jay Geneke",
-      "email": "kartonskiigrac@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1743043480,
-      "_nanoseconds": 0
-    },
-    "id": "Kralia"
   },
   {
     "capital": "Krassbach",
@@ -31731,49 +31073,6 @@
     "id": "Metroland"
   },
   {
-    "name": {
-      "main": "Mhr. Sh. Sahraveth",
-      "mainAlt": "મહારાજાપતિ શ્રી સહરાવેથ રાજ્ય",
-      "title": "(Maharajapati) Kingdom Of",
-      "titleAlt": "Maharajapati"
-    },
-    "flag": "/images/flags/Mhr. Sh. Sahraveth.jpg",
-    "motto": "Small in Land, Vast in Vision",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Aksharnagar House",
-    "currency": "Sahrevi Dollar",
-    "foundationDate": {
-      "_seconds": 1718019000,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "drc.islimar.primeministeroffice@gmail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/drc-islimar-co-uk/home"
-    ],
-    "author": {
-      "name": "The Democratic Republic of Sahraveth",
-      "email": "drc.islimar.primeministeroffice@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1761253697,
-      "_nanoseconds": 0
-    },
-    "id": "Mhr. Sh. Sahraveth"
-  },
-  {
     "capital": "Microna",
     "flag": "/images/flags/Microna.jpg",
     "languages": [
@@ -36182,53 +35481,6 @@
     "id": "Nossia"
   },
   {
-    "name": {
-      "main": "Notago",
-      "mainAlt": "",
-      "title": "Kingdom of Notago",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Notago.jpg",
-    "motto": "",
-    "type": [
-      "Physical",
-      "Digital",
-      "Fictional"
-    ],
-    "languages": [
-      "French",
-      "English",
-      "Polish",
-      "Russian",
-      "Bulgarian"
-    ],
-    "capital": "Lubin",
-    "currency": "Notago Dollar",
-    "foundationDate": {
-      "_seconds": 1780846320,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 51.37961356390659,
-      "_longitude": 16.212287788455285
-    },
-    "memberships": [],
-    "contactInfo": [],
-    "websites": [
-      "https://x.com/WoupMaholf/status/2063644128844411147"
-    ],
-    "author": {
-      "name": "woupma",
-      "email": "veofreeveofree@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1780839255,
-      "_nanoseconds": 0
-    },
-    "id": "Notago"
-  },
-  {
     "capital": "",
     "flag": "/images/flags/Nova.jpg",
     "languages": [
@@ -36375,49 +35627,6 @@
     "id": "Nova Edeno"
   },
   {
-    "name": {
-      "main": "Nova harmonia",
-      "mainAlt": "",
-      "title": "Kingdom",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Nova harmonia.jpg",
-    "motto": "Nova totrum exo",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Harmonia magna",
-    "currency": "Harmonia magna kroon",
-    "foundationDate": {
-      "_seconds": 1767126300,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 51.482043115483265,
-      "_longitude": 3.9012647310466946
-    },
-    "memberships": [],
-    "contactInfo": [
-      "Michaelkelder3@gmail.com"
-    ],
-    "websites": [
-      "https://novaharmonia3.webnode.nl/"
-    ],
-    "author": {
-      "name": "Vorst michael",
-      "email": "michaelkelder3@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767209287,
-      "_nanoseconds": 0
-    },
-    "id": "Nova harmonia"
-  },
-  {
     "capital": "Castílpolis",
     "flag": "/images/flags/NovaCastilmimbre.jpg",
     "languages": [
@@ -36511,51 +35720,6 @@
     },
     "approved": true,
     "id": "NovaTroie"
-  },
-  {
-    "name": {
-      "main": "Novaharmonia",
-      "mainAlt": "Novaharmonia",
-      "title": "Kingdom",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Novaharmonia.jpg",
-    "motto": "",
-    "type": [
-      "Physical",
-      "Fictional"
-    ],
-    "languages": [
-      "English",
-      "Spanish"
-    ],
-    "capital": "Harmonia Magna",
-    "currency": "Harmonia Magna crown",
-    "foundationDate": {
-      "_seconds": 1737028740,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "Michaelkelder3@gmail.com"
-    ],
-    "websites": [
-      "https://novaharmonia3.webnode.nl/"
-    ],
-    "author": {
-      "name": "Vorst michael",
-      "email": "michaelkelder3@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1767005976,
-      "_nanoseconds": 0
-    },
-    "id": "Novaharmonia"
   },
   {
     "capital": "Virtual Capital, Angevin",
@@ -40208,49 +39372,6 @@
     "id": "Polanda"
   },
   {
-    "memberships": [],
-    "name": {
-      "main": "Polyville",
-      "mainAlt": "Polyville Legal Zone",
-      "title": "Sovereign Micro-Nation of Polyville",
-      "titleAlt": "The Polyville Legal Zone DAO"
-    },
-    "flag": "/images/flags/Polyville.jpg",
-    "motto": "\"Decentralized Sovereignty, Global Unity\"",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Syntiverse, Polyville State",
-    "currency": "Polycoin (Blockchain-backed cryptocurrency)",
-    "foundationDate": {
-      "_seconds": 1672688640,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "polliville0@gmail.com"
-    ],
-    "websites": [
-      "https://pollyville.webnode.page/"
-    ],
-    "author": {
-      "name": "Kim-Terje",
-      "email": "rudschinatgronli@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1735135110,
-      "_nanoseconds": 0
-    },
-    "id": "Polyville"
-  },
-  {
     "capital": "Zerbisti",
     "flag": "/images/flags/Pommerland.jpg",
     "languages": [
@@ -41205,51 +40326,6 @@
     "id": "Racktidan"
   },
   {
-    "memberships": [],
-    "name": {
-      "main": "Radia",
-      "mainAlt": "",
-      "title": "The United isles of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Radia.jpg",
-    "motto": "",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "English",
-      "French"
-    ],
-    "capital": "New Bashaw",
-    "currency": "Lira / Bits",
-    "foundationDate": {
-      "_seconds": 1726026660,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "cyrisallen534@gmail.com"
-    ],
-    "websites": [
-      "https://discord.gg/B9GFP79x"
-    ],
-    "author": {
-      "name": "Cy",
-      "email": "cyrisallen534@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1734868441,
-      "_nanoseconds": 0
-    },
-    "id": "Radia"
-  },
-  {
     "capital": "Mesteakan",
     "flag": "/images/flags/Ranzania.jpg",
     "languages": [
@@ -41830,50 +40906,6 @@
     "currency": "Renslöer Kronen",
     "approved": true,
     "id": "Renslö"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "Republic of Ada`",
-      "mainAlt": "R.O.A.",
-      "title": "Ada Republic",
-      "titleAlt": "Ada"
-    },
-    "flag": "/images/flags/Republic of Ada`.jpg",
-    "motto": "Forgotten no more!",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Salt Creek Township",
-    "currency": "we use the US dollar but some times for domestic trading we use Rocks with the official seal of country on it ",
-    "foundationDate": {
-      "_seconds": 1682451300,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "zayhend13@gmail.com"
-    ],
-    "websites": [
-      "https://en.wikipedia.org/wiki/Ada,_Kansas",
-      "https://en.wikipedia.org/wiki/Ottawa_County,_Kansas"
-    ],
-    "author": {
-      "name": "zayden",
-      "email": "zayhend13@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1740476475,
-      "_nanoseconds": 0
-    },
-    "id": "Republic of Ada`"
   },
   {
     "capital": "Berlín",
@@ -43126,49 +42158,6 @@
     "id": "Sabini"
   },
   {
-    "name": {
-      "main": "Sahraveth",
-      "mainAlt": "Shri Sahraveth Swasthyakhanda Desh",
-      "title": "Democratic Republic of ",
-      "titleAlt": "શ્રી સહરાવેથ રાજાધિરાજ સ્વાસ્થયખંડ"
-    },
-    "flag": "/images/flags/Sahraveth.jpg",
-    "motto": "Small is the land, vast is the vision.",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Aksharnagar",
-    "currency": "Sahrevi Dollar",
-    "foundationDate": {
-      "_seconds": 1721302200,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "drc.islimar.primeministeroffice@gmail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/drc-islimar-co-uk/apply"
-    ],
-    "author": {
-      "name": "The Democratic Republic of Sahraveth",
-      "email": "drc.islimar.primeministeroffice@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1760131372,
-      "_nanoseconds": 0
-    },
-    "id": "Sahraveth"
-  },
-  {
     "capital": "O'Gweed",
     "flag": "/images/flags/Saint Corjimia.jpg",
     "languages": [
@@ -43358,51 +42347,6 @@
     ],
     "approved": true,
     "id": "Saint-Castin"
-  },
-  {
-    "name": {
-      "main": "Sakastan",
-      "mainAlt": "Samira",
-      "title": "Kingdom of ",
-      "titleAlt": "Zopunyan"
-    },
-    "flag": "/images/flags/Sakastan.jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Russian"
-    ],
-    "capital": "Nibiru",
-    "currency": "Imperial Russian Rubles",
-    "foundationDate": {
-      "_seconds": 1287665940,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 44.96706405543728,
-      "_longitude": 50.31708552096313
-    },
-    "memberships": [],
-    "contactInfo": [
-      "samirazopunyan@mail.ru "
-    ],
-    "websites": [
-      "@Royal_oriental_show",
-      "www.youtube.com/@SamiraZopunyan"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1771874484,
-      "_nanoseconds": 0
-    },
-    "id": "Sakastan"
   },
   {
     "capital": "Suveste",
@@ -47480,53 +46424,6 @@
     "id": "São Guimarães"
   },
   {
-    "name": {
-      "main": "Tableton",
-      "mainAlt": "",
-      "title": "grand empire of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Tableton.jpg",
-    "motto": "may tableton never fall",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "English",
-      "Russian",
-      "Hindi",
-      "French",
-      "German"
-    ],
-    "capital": "Tablin City",
-    "currency": "Tabletinian dollar",
-    "foundationDate": {
-      "_seconds": 1779354660,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": -27.215613571264306,
-      "_longitude": 153.04857317871028
-    },
-    "memberships": [],
-    "contactInfo": [
-      "015060@glc.qld.edu.au"
-    ],
-    "websites": [
-      "https://en.wikipedia.org/wiki/Table"
-    ],
-    "author": {
-      "name": "tableton",
-      "email": "014876@glc.qld.edu.au"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1783206881,
-      "_nanoseconds": 0
-    },
-    "id": "Tableton"
-  },
-  {
     "capital": "Redby",
     "flag": "/images/flags/Taemoe.jpg",
     "contactInfo": [
@@ -48149,50 +47046,6 @@
     "id": "Terra Firma"
   },
   {
-    "name": {
-      "main": "Terra Nullius ",
-      "mainAlt": "Johnson point oil exploration camp",
-      "title": "Grand Dutchy of Terra Nullius ",
-      "titleAlt": "Igluliliutinga"
-    },
-    "flag": "/images/flags/Terra Nullius .jpg",
-    "motto": "Orbis-non-Sufficit",
-    "type": [
-      "Physical",
-      "Digital"
-    ],
-    "languages": [
-      "Inuktitut"
-    ],
-    "capital": "Igluliliutinga ",
-    "currency": "Indigenous dollar & Indigenous Pound ",
-    "foundationDate": {
-      "_seconds": 1761938160,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 72.28080298829857,
-      "_longitude": -120.18661480870101
-    },
-    "memberships": [],
-    "contactInfo": [
-      "kagejustinslick@gmail.com"
-    ],
-    "websites": [
-      "https://terranulliusupdate.blogspot.com/2025/07/terra-nullius-asset-update.html"
-    ],
-    "author": {
-      "name": "Justin kage ",
-      "email": "ghost22pool@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1762039653,
-      "_nanoseconds": 0
-    },
-    "id": "Terra Nullius "
-  },
-  {
     "capital": "Breningrad",
     "flag": "/images/flags/Tesforia.jpg",
     "languages": [
@@ -48475,52 +47328,6 @@
     ],
     "approved": true,
     "id": "The Empire of Jakwal"
-  },
-  {
-    "name": {
-      "main": "The Golliez",
-      "mainAlt": "Golliez",
-      "title": "Kingdom of",
-      "titleAlt": "Royaume du"
-    },
-    "flag": "/images/flags/The Golliez.jpg",
-    "motto": "Tozo mi louéin, tozo mi hâtt",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "French",
-      "Italian",
-      "Franco-Provençal",
-      "Neapolitan"
-    ],
-    "capital": "Ardoises",
-    "currency": "Rondin",
-    "foundationDate": {
-      "_seconds": 1669482000,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 46.27726134102838,
-      "_longitude": 7.435307991996325
-    },
-    "memberships": [],
-    "contactInfo": [
-      "gouv.golliez@outlook.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/gouv-golliez/accueil"
-    ],
-    "author": {
-      "name": "Aldo Mico",
-      "email": "gouv.golliez@outlook.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1777131882,
-      "_nanoseconds": 0
-    },
-    "id": "The Golliez"
   },
   {
     "capital": "Dovedon City",
@@ -50158,50 +48965,6 @@
     "id": "Tyrencji"
   },
   {
-    "name": {
-      "main": "USRKC",
-      "mainAlt": "USRKC",
-      "title": "The United States of Rk Country",
-      "titleAlt": "Rk Country"
-    },
-    "flag": "/images/flags/USRKC.jpg",
-    "motto": "Peace for All",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English",
-      "Rkianesse"
-    ],
-    "capital": "Rk City",
-    "currency": "Rkian Dollar ",
-    "foundationDate": {
-      "_seconds": 1750954260,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "usrkc.gov.rkc@tutamail.com"
-    ],
-    "websites": [
-      "https://rudra-patels-team-9.adalo.com/usrkc-citizen-portal?source=pwa"
-    ],
-    "author": {
-      "name": "Rudra",
-      "email": "usrkc.gov.rkc@tutamail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1779221571,
-      "_nanoseconds": 0
-    },
-    "id": "USRKC"
-  },
-  {
     "capital": "Ulmuria",
     "flag": "/images/flags/Ulmuria.jpg",
     "languages": [
@@ -50245,94 +49008,6 @@
       "_nanoseconds": 0
     },
     "id": "Ulmuria"
-  },
-  {
-    "name": {
-      "main": "Union of Sovereign Synetic Republics",
-      "mainAlt": "Unitato de Sur'Republikoj Sinéčikaj",
-      "title": "",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Union of Sovereign Synetic Republics.jpg",
-    "motto": "REMPVBLICAM LIBERTATEM",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "Portuguese",
-      "Sudovineso"
-    ],
-    "capital": "Sudóvia (executive), Telávia (legislative)",
-    "currency": "Sinarj",
-    "foundationDate": {
-      "_seconds": 1741179600,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "urssin.gov@gmail.com",
-      "https://urssingov.wixsite.com/home"
-    ],
-    "websites": [
-      "https://micronations.wiki/wiki/Synetic_Union",
-      "https://micropedia.com.br/index.php/Uni%C3%A3o_Sin%C3%A9tica"
-    ],
-    "author": {
-      "name": "Felipe",
-      "email": "felipelui480@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1768767684,
-      "_nanoseconds": 0
-    },
-    "id": "Union of Sovereign Synetic Republics"
-  },
-  {
-    "type": [],
-    "memberships": [],
-    "name": {
-      "main": "United Federation of Big Old Bunny",
-      "mainAlt": "",
-      "title": "Democratic People's Federal Kingdom of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/United Federation of Big Old Bunny.jpg",
-    "motto": "Unus Bob, Multi Homeniess",
-    "languages": [
-      "English"
-    ],
-    "capital": "New Trust City",
-    "currency": "Bobbie",
-    "foundationDate": {
-      "_seconds": 1727057100,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 40.15538089318113,
-      "_longitude": -75.82680627577908
-    },
-    "contactInfo": [
-      "daemonalee@gmail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/view/ufbobkingdom/home?authuser=0",
-      "https://sites.google.com/view/ufbobkingdom/home?authuser=0"
-    ],
-    "author": {
-      "name": "Daemon Lee",
-      "email": "daemonalee@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1737792570,
-      "_nanoseconds": 0
-    },
-    "id": "United Federation of Big Old Bunny"
   },
   {
     "capital": "",
@@ -50420,50 +49095,6 @@
     ],
     "approved": true,
     "id": "United Kingdoms"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "United West Canada",
-      "mainAlt": "UWC",
-      "title": "Autocracy of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/United West Canada.jpg",
-    "motto": "We stand united",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Yuk",
-    "currency": "Wen",
-    "foundationDate": {
-      "_seconds": 1544500560,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 52.97001728265437,
-      "_longitude": -113.37143516543875
-    },
-    "contactInfo": [
-      "https://discord.gg/j2yQxgQdxE"
-    ],
-    "websites": [
-      "https://sites.google.com/view/westaniagov",
-      "https://discord.gg/j2yQxgQdxE"
-    ],
-    "author": {
-      "name": "WestaniaGov",
-      "email": "westaniangov@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1735383383,
-      "_nanoseconds": 0
-    },
-    "id": "United West Canada"
   },
   {
     "capital": "Cabindon",
@@ -51592,49 +50223,6 @@
       "Digital"
     ],
     "id": "Vensia"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "Verdelion",
-      "mainAlt": "Verdelia",
-      "title": "First Republic of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Verdelion.jpg",
-    "motto": "Peace, Unity, Prosperity",
-    "type": [
-      "Digital"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "Evansburg",
-    "currency": "Neosphere Neo's",
-    "foundationDate": {
-      "_seconds": 1723137840,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "verdelion.republic@gmail.com"
-    ],
-    "websites": [
-      "about:blank"
-    ],
-    "author": {
-      "name": "Max",
-      "email": "verdelion.republic@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1735151185,
-      "_nanoseconds": 0
-    },
-    "id": "Verdelion"
   },
   {
     "capital": "Verdis",
@@ -53130,47 +51718,6 @@
     "id": "Westgovia"
   },
   {
-    "type": [],
-    "memberships": [],
-    "name": {
-      "main": "Westnia",
-      "mainAlt": "AW",
-      "title": "Kingdom of",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/Westnia.jpg",
-    "motto": "Never Walk Alone",
-    "languages": [
-      "English"
-    ],
-    "capital": "Yuk",
-    "currency": "Wen",
-    "foundationDate": {
-      "_seconds": 1544478000,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 52.96896087814531,
-      "_longitude": -113.37090791752806
-    },
-    "contactInfo": [
-      "https://discord.gg/j2yQxgQdxE"
-    ],
-    "websites": [
-      "https://discord.gg/j2yQxgQdxE"
-    ],
-    "author": {
-      "name": "WestaniaGov",
-      "email": "westaniangov@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1734756169,
-      "_nanoseconds": 0
-    },
-    "id": "Westnia"
-  },
-  {
     "capital": "Valhall",
     "flag": "/images/flags/Wikingland.jpg",
     "contactInfo": [],
@@ -54211,55 +52758,6 @@
     "id": "Zenith"
   },
   {
-    "name": {
-      "main": "Zeteland",
-      "mainAlt": "Zeteland",
-      "title": "Kingdom of",
-      "titleAlt": "Kuninggard"
-    },
-    "flag": "/images/flags/Zeteland.jpg",
-    "motto": "Ibnass, Welesen, ond Freihal",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "English",
-      "Zetic",
-      "German"
-    ],
-    "capital": "Reikbaurg",
-    "currency": "Reikscaut",
-    "foundationDate": {
-      "_seconds": 1696134240,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 34.59575571011112,
-      "_longitude": -83.18278439899659
-    },
-    "memberships": [],
-    "contactInfo": [
-      "zetereiks@gmail.com",
-      "fliudframreikbaurg@zetelandnational.org",
-      "https://www.instagram.com/zetelandofficial/",
-      "https://www.instagram.com/zetelandofficial_ze/"
-    ],
-    "websites": [
-      "https://www.zetelandnational.org/",
-      "https://micronations.fandom.com/wiki/Zeteland"
-    ],
-    "author": {
-      "name": "Zetelandnational",
-      "email": "zetereiks@gmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1760330403,
-      "_nanoseconds": 0
-    },
-    "id": "Zeteland"
-  },
-  {
     "capital": "",
     "flag": "/images/flags/Zollernberg.jpg",
     "languages": [
@@ -54401,100 +52899,6 @@
     ],
     "approved": true,
     "id": "Zugesbucht"
-  },
-  {
-    "name": {
-      "main": "kse",
-      "mainAlt": "the Kongo supreme Supra-Empire ",
-      "title": "Kongo supreme empire",
-      "titleAlt": "the Kongo supreme Imperium Mundi "
-    },
-    "flag": "/images/flags/kse.jpg",
-    "motto": "“From Unity, Supremacy; Through Supremacy, Peace.”",
-    "type": [
-      "Physical",
-      "Digital",
-      "Fictional"
-    ],
-    "languages": [
-      "barakish",
-      "English",
-      "Latin",
-      "Sanskrit",
-      "Swahili"
-    ],
-    "capital": "Baraka city",
-    "currency": "KSE Gold",
-    "foundationDate": {
-      "_seconds": 1558845660,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "memberships": [],
-    "contactInfo": [
-      "baraka15@tutamail.com"
-    ],
-    "websites": [
-      "https://sites.google.com/student.guhsdaz.org/thekongosupremeempire/home"
-    ],
-    "author": {
-      "name": "Kongo supreme empire",
-      "email": "baraka15@tutamail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1754653492,
-      "_nanoseconds": 0
-    },
-    "id": "kse"
-  },
-  {
-    "memberships": [],
-    "name": {
-      "main": "the kongo supreme empire",
-      "mainAlt": "kongo  supreme empire",
-      "title": "emperor",
-      "titleAlt": ""
-    },
-    "flag": "/images/flags/the kongo supreme empire.jpg",
-    "motto": "for the emperor for the empire",
-    "type": [
-      "Physical",
-      "Digital",
-      "Fictional"
-    ],
-    "languages": [
-      "English"
-    ],
-    "capital": "baraka city",
-    "currency": "kongo pesa",
-    "foundationDate": {
-      "_seconds": 1591512240,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 0,
-      "_longitude": 0
-    },
-    "contactInfo": [
-      "baraka15@onmailcom"
-    ],
-    "websites": [
-      "https://micronations.wiki/wiki/Draft:The_Kongo_supreme_empire"
-    ],
-    "author": {
-      "name": "emperor baraka",
-      "email": "baraka15@onmail.com"
-    },
-    "approved": false,
-    "creationDate": {
-      "_seconds": 1738504078,
-      "_nanoseconds": 0
-    },
-    "id": "the kongo supreme empire"
   },
   {
     "capital": "",

@@ -55,7 +55,7 @@ defineProps({
                     </p>
 
                     <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                        new Date(info.foundationDate.seconds * 1000).toDateString() }}
+                        info.foundationDate && info.foundationDate._seconds ? new Date(info.foundationDate._seconds * 1000).toDateString() : 'Unknown' }}
                     </p>
 
                     <hr class="light-divider">
@@ -73,7 +73,7 @@ defineProps({
 
                     <div class="entry-group">
                         <p class="entry-text">Contact media:
-                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
+                            <span v-if="!info.contactInfo || !info.contactInfo.length"><br>N/A.</span>
                         </p>
                         <div class="sources-container">
                             <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"

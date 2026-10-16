@@ -32,8 +32,8 @@ defineProps({
                     <h3 class="option-column-title">User-made entries approval</h3>
                     <p class="option-description">
                         Access an unpublished directory that contains only offline, user-submitted entries. You can
-                        approve them so they immediately get published to the definitive Directory, or reject (and
-                        delete) them instead if they don't comply with our requirements. Users are automatically
+                        approve them so they immediately get published to the definitive Directory, or reject
+                        them instead if they don't comply with our requirements. Users are automatically
                         notified via email for every action performed here.
                     </p>
                     <router-link :to="'/moderation'" class="styled-link login-button color-transition">Use
