@@ -19,7 +19,12 @@ defineProps({
         required: false,
         default: 120
     },
+    inlineProfilePreview: {
+        type: Boolean,
+        default: false
+    },
 })
+const emit = defineEmits(['open-profile'])
 </script>
 
 <template>
@@ -70,7 +75,8 @@ defineProps({
         </div>
 
         <div v-if="infoView" class="info-buttons-container">
-            <router-link :to="'/organizations/' + info.name.main" class="info-button full-width">See full profile</router-link>
+            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">See full profile</button>
+            <router-link v-else :to="'/organizations/' + info.name.main" class="info-button full-width">See full profile</router-link>
         </div>
     </div>
 </template>
@@ -252,6 +258,7 @@ export default {
 .info-button {
     text-align: center;
     font-size: 12px;
+    font-family: inherit;
     text-decoration: none;
     background: var(--vt-c-indigo);
     border: 1px solid var(--color-border);
@@ -300,6 +307,6 @@ export default {
 .sources-container.members { max-height: 150px; overflow-y: auto; }
 .source-empty { margin: 0; color: var(--color-muted); font-size: 11px; font-style: italic; }
 .info-buttons-container { width: calc(100% + 24px); margin-top: 10px; }
-.info-button { display: flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 8px; font-size: 13px; line-height: 1.3; transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
+.info-button { display: flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 8px; font-size: 13px; font-family: inherit; line-height: 1.3; transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
 .info-button:hover { color: var(--vt-c-white-soft); background: color-mix(in srgb, var(--vt-c-indigo) 86%, var(--color-heading)); box-shadow: 0 2px 8px color-mix(in srgb, var(--vt-c-indigo) 20%, transparent); }
 </style>

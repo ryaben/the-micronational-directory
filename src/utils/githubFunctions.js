@@ -75,6 +75,29 @@ function formatEntryForJSON(entryData, entryType) {
   return formatted
 }
 
+function encodeBase64Utf8(value) {
+  const bytes = new TextEncoder().encode(value)
+  const chunks = []
+  const chunkSize = 0x8000
+
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    chunks.push(String.fromCharCode(...bytes.subarray(index, index + chunkSize)))
+  }
+
+  return btoa(chunks.join(''))
+}
+
+export function stableStringify(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map(stableStringify).join(',')}]`
+  }
+  if (value && typeof value === 'object') {
+    const properties = Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+    return `{${properties.join(',')}}`
+  }
+  return JSON.stringify(value)
+}
+
 /**
  * Creates a GitHub issue containing the entry JSON and Base64 encoded file
  * @param {Object} entryData The entry data from the form
@@ -537,16 +560,62 @@ export async function fetchRepoFile(path) {
       }
     })
 
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
+    const responseText = await response.text()
+    let data
+    try {
+      data = responseText ? JSON.parse(responseText) : null
+    } catch {
+      throw new Error(`GitHub returned an unreadable response while fetching ${path} (HTTP ${response.status}).`)
     }
 
-    const data = await response.json()
-    
-    // Decode base64 content
-    const content = atob(data.content)
-    const jsonContent = JSON.parse(content)
+    if (!response.ok) {
+      throw new Error(`GitHub API error (${response.status}): ${data?.message || response.statusText || 'Request failed'}`)
+    }
+
+    if (!data || !data.sha) {
+      throw new Error(`GitHub returned no file content for ${path}. Check that the repository and file path are configured correctly.`)
+    }
+
+    let content
+    if (typeof data.content === 'string' && data.content.trim()) {
+      // GitHub may wrap base64 content across multiple lines. Decode UTF-8 so
+      // non-ASCII names and descriptions survive before parsing the JSON.
+      const binaryContent = atob(data.content.replace(/\s/g, ''))
+      const bytes = Uint8Array.from(binaryContent, character => character.charCodeAt(0))
+      content = new TextDecoder().decode(bytes)
+    } else {
+      // The Contents API omits `content` for files larger than 1 MB. Fetch
+      // the blob by SHA using GitHub's raw media type in that case.
+      const blobUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/blobs/${data.sha}`
+      const blobResponse = await fetch(blobUrl, {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: 'application/vnd.github.raw'
+        }
+      })
+      if (!blobResponse.ok) {
+        const blobError = await blobResponse.text()
+        let message = blobResponse.statusText || 'Request failed'
+        try {
+          message = JSON.parse(blobError).message || message
+        } catch {
+          // Keep the HTTP status text when GitHub does not return JSON.
+        }
+        throw new Error(`GitHub API error (${blobResponse.status}): ${message}`)
+      }
+      content = await blobResponse.text()
+    }
+
+    let jsonContent
+    try {
+      jsonContent = JSON.parse(content)
+    } catch {
+      throw new Error(`The repository file ${path} does not contain valid JSON.`)
+    }
+
+    if (!Array.isArray(jsonContent)) {
+      throw new Error(`The repository file ${path} must contain a JSON array.`)
+    }
     
     return {
       content: jsonContent,
@@ -578,8 +647,8 @@ export async function updateRepoFile(path, content, sha, commitMessage) {
 
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
 
-  // Encode content to base64
-  const base64Content = btoa(content)
+  // GitHub expects base64 encoded UTF-8. btoa(content) fails for Unicode.
+  const base64Content = encodeBase64Utf8(content)
 
   try {
     const response = await fetch(url, {

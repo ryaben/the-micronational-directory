@@ -1,11 +1,13 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
+import DirectoryArticle from '../components/DirectoryArticle.vue';
+import OrganizationArticle from '../components/OrganizationArticle.vue';
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import store from '../store';
 import { notify } from "@kyvg/vue3-notification";
 import emailjs from 'emailjs-com';
-import { fetchGitHubIssues, convertIssueToEntry, addIssueLabel, closeIssue, addIssueComment, fetchRepoFile, updateRepoFile, createRepoFile, extractBase64Image, extractFileMetadata } from '../utils/githubFunctions.js';
+import { fetchGitHubIssues, convertIssueToEntry, addIssueLabel, closeIssue, addIssueComment, fetchRepoFile, updateRepoFile, createRepoFile, extractBase64Image, extractFileMetadata, stableStringify } from '../utils/githubFunctions.js';
 
 defineProps({
   micronationsDirectory: {
@@ -67,7 +69,7 @@ defineProps({
             <DirectoryEntry v-for="item in micronationsModerationDirectory" :key="item.id" :width="entryWidth"
               :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-              :supranational-micronations="supranationalMicronations" :disable-full-profile-button="true" :info="{
+              :supranational-micronations="supranationalMicronations" :inline-profile-preview="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -89,9 +91,9 @@ defineProps({
       author: item.author,
       approved: item.approved,
       creationDate: item.creationDate
-    }" @click="handleEntryClick(item, 'Micronation')" />
+    }" @open-profile="openEntryProfile(item, 'Micronation')" @click="selectEntry(item, 'Micronation')" />
             <OrganizationEntry v-for="item in organizationsModerationDirectory" :key="item.id" :width="entryWidth"
-              :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :disable-full-profile-button="true" :info="{
+              :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :inline-profile-preview="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -106,8 +108,27 @@ defineProps({
       author: item.author,
       approved: item.approved,
       creationDate: item.creationDate
-    }" @click="handleEntryClick(item, 'Organization')" />
+    }" @open-profile="openEntryProfile(item, 'Organization')" @click="selectEntry(item, 'Organization')" />
           </div>
+          <Teleport to="body">
+          <div v-if="selectedProfileEntry" class="profile-preview-overlay" role="presentation" @click.self="closeSelectedPreview">
+            <section class="selected-entry-details" role="dialog" aria-modal="true" :aria-label="`Full profile for ${selectedProfileEntry.name.main}`">
+              <div class="details-heading">
+                <div>
+                  <span>Submission #{{ selectedProfileEntry.issueNumber }}</span>
+                  <h3>Full submission details</h3>
+                </div>
+                <div class="details-heading-actions">
+                  <a v-if="selectedProfileEntry.githubUrl" :href="selectedProfileEntry.githubUrl" target="_blank" rel="noopener noreferrer">Open GitHub issue ↗</a>
+                  <button type="button" class="close-preview-button" @click="closeSelectedPreview"><span aria-hidden="true">×</span> Close</button>
+                </div>
+              </div>
+              <DirectoryArticle v-if="selectedProfileEntry.entryType === 'micronation'" :info="selectedProfileEntry"
+                :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" preview />
+              <OrganizationArticle v-else :info="selectedProfileEntry" :micronations-directory="micronationsDirectory" preview />
+            </section>
+          </div>
+          </Teleport>
         </div>
       </template>
 
@@ -166,6 +187,7 @@ export default {
       entryWidth: 180,
       fixedHeight: false,
       selectedEntry: undefined,
+      selectedProfileEntry: undefined,
       selectedEntryName: 'None selected',
       selectedEntryAuthor: '',
       selectedEntryType: undefined,
@@ -225,18 +247,24 @@ export default {
         });
       }
     },
-    handleEntryClick(item, type) {
+    findFullIssueEntry(item) {
       // Find the full entry data with issueBody from the original issues
-      const fullEntry = this.githubIssues
+      return this.githubIssues
         .map(issue => convertIssueToEntry(issue))
         .find(entry => entry && entry.id === item.id);
-      
-      if (fullEntry) {
-        this.selectedEntry = fullEntry;
-        this.selectedEntryName = item.name.main;
-        this.selectedEntryAuthor = item.author.email;
-        this.selectedEntryType = type;
-      }
+    },
+    selectEntry(item, type) {
+      this.selectedEntry = this.findFullIssueEntry(item) || item;
+      this.selectedEntryName = item.name?.main || 'Selected entry';
+      this.selectedEntryAuthor = item.author?.email || '';
+      this.selectedEntryType = type;
+    },
+    openEntryProfile(item, type) {
+      this.selectEntry(item, type);
+      this.selectedProfileEntry = this.selectedEntry;
+    },
+    closeSelectedPreview() {
+      this.selectedProfileEntry = undefined;
     },
     async fetchPendingIssues() {
       this.loadingIssues = true;
@@ -278,6 +306,7 @@ export default {
         this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
         this.forceRerender();
         this.selectedEntry = undefined;
+        this.selectedProfileEntry = undefined;
         this.selectedEntryName = 'None selected';
         this.selectedEntryAuthor = '';
         this.selectedEntryType = undefined;
@@ -344,13 +373,18 @@ export default {
           }
         }
 
-        // Add entry to the JSON array
-        currentData.push(entryForJson);
+        // Match the JSON representation GitHub will store, excluding undefined fields.
+        const persistedEntry = JSON.parse(JSON.stringify(entryForJson));
+        const entrySignature = stableStringify(persistedEntry);
+        // Keep approval retries idempotent: replace exact copies of this entry
+        // instead of publishing another duplicate.
+        const updatedData = currentData.filter(item => stableStringify(item) !== entrySignature);
+        updatedData.push(persistedEntry);
 
         // Update the JSON file
         await updateRepoFile(
           jsonFilePath,
-          JSON.stringify(currentData, null, 2),
+          JSON.stringify(updatedData, null, 2),
           currentSha,
           `Add approved ${entryTypeName}: ${entry.name.main}`
         );
@@ -373,11 +407,10 @@ export default {
         const comment = `**Entry Approved**\n\n${that.rejectionReason ? `Note: ${that.rejectionReason}` : ''}\n\nThe entry has been approved and automatically added to ${jsonFilePath}.`;
         await addIssueComment(entry.issueNumber, comment);
 
-        // Add 'approved' label to the issue
-        await addIssueLabel(entry.issueNumber, 'approved');
-
-        // Close the issue
+        // Close before adding the label so the label-triggered GitHub Action
+        // (which handles manual approvals on open issues) does not add it again.
         await closeIssue(entry.issueNumber);
+        await addIssueLabel(entry.issueNumber, 'approved');
 
         await this.sendDecisionEmail(entry, 'approve');
 
@@ -385,6 +418,7 @@ export default {
         this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
         this.forceRerender();
         this.selectedEntry = undefined;
+        this.selectedProfileEntry = undefined;
         this.selectedEntryName = 'None selected';
         this.selectedEntryAuthor = '';
         this.selectedEntryType = undefined;
@@ -561,6 +595,84 @@ export default {
 
 #notEnoughPrivileges {
   margin: 20px;
+}
+
+.profile-preview-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(10 15 25 / 68%);
+}
+
+.selected-entry-details {
+  width: min(1100px, 100%);
+  max-height: min(90vh, 100%);
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.details-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.details-heading span {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.details-heading h3 {
+  margin: 2px 0 0;
+  color: var(--color-heading);
+}
+
+.details-heading a {
+  color: var(--color-accent);
+  font-weight: 650;
+}
+
+.details-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.close-preview-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-muted);
+  background: var(--color-surface);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.close-preview-button:hover {
+  color: var(--color-heading);
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+
+.close-preview-button span {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .moderation-buttons .login-button {
