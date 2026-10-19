@@ -53156,5 +53156,55 @@
       "_seconds": 1760330403,
       "_nanoseconds": 0
     }
+  },
+  {
+    "name": {
+      "main": "The Golliez",
+      "mainAlt": "Golliez",
+      "title": "Kingdom of",
+      "titleAlt": "Royaume du"
+    },
+    "flag": "/images/flags/The Golliez.jpg",
+    "motto": "Tozo mi louéin, tozo mi hâtt",
+    "type": [
+      "Physical"
+    ],
+    "languages": [
+      "French",
+      "Italian",
+      "Franco-Provençal",
+      "Neapolitan"
+    ],
+    "capital": "Ardoises",
+    "currency": "Rondin",
+    "foundationDate": {
+      "seconds": 1669482000,
+      "_seconds": 1669482000
+    },
+    "location": {
+      "latitude": 46.27726134102838,
+      "longitude": 7.435307991996325
+    },
+    "memberships": [
+      "Union Against Micronational War",
+      "League of Independent Nations"
+    ],
+    "contactInfo": [
+      "gouv.golliez@outlook.com"
+    ],
+    "websites": [
+      "https://sites.google.com/view/gouv-golliez/accueil",
+      "https://micronations.wiki/wiki/Kingdom_of_the_Golliez",
+      "https://royaume-golliez.netlify.app/"
+    ],
+    "author": {
+      "name": "Aldo Mico",
+      "email": "gouv.golliez@outlook.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1777131882,
+      "_nanoseconds": 0
+    }
   }
 ]
