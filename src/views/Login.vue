@@ -8,7 +8,7 @@ import { notify } from "@kyvg/vue3-notification";
 <template>
     <section class="site-section login">
         <div class="login-layout">
-            <aside class="login-welcome">
+            <aside class="login-welcome" :style="{ '--login-background-image': `url('/images/login-backgrounds/${backgroundImage}')` }">
                 <img class="welcome-mark" src="/images/plain-logo1.png" alt="The Micronational Directory logo">
                 <h1>Small nations.<br><span>Big stories.</span></h1>
                 <p class="welcome-copy">A home for the people, places and projects preserving micronational worlds.</p>
@@ -65,7 +65,10 @@ import { notify } from "@kyvg/vue3-notification";
 <script>
 export default {
     data() {
+        const backgrounds = ['1.png', '2.png', '3.png', '4.png', '5.png'];
+
         return {
+            backgroundImage: backgrounds[Math.floor(Math.random() * backgrounds.length)],
             loginName: '',
             loginEmail: '',
             loginPassword: '',
@@ -196,7 +199,7 @@ export default {
     background-image:
         linear-gradient(rgba(12, 18, 29, .42), rgba(12, 18, 29, .52)),
         radial-gradient(ellipse at 12% 100%, rgba(81, 121, 220, .28), transparent 58%),
-        url('/images/login-background.png');
+        var(--login-background-image);
     background-position: center;
     background-size: cover;
 }

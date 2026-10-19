@@ -15,7 +15,7 @@ defineProps({
         :src="theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'"
         alt=""
       />
-      <hr class="brand-divider" />
+      <hr class="brand-divider" :class="{ 'brand-divider--light': theme === 'light' }" />
       <span class="brand-name">The Micronational Directory</span>
     </a>
   </header>
@@ -54,6 +54,10 @@ defineProps({
   margin: 0;
   border: 0;
   background: #fff;
+}
+
+.brand-divider--light {
+  background: #000;
 }
 
 .brand-name {

@@ -36,6 +36,7 @@ const imageSrc = () => props.icon === 'flag'
 <style scoped>
 .source-container {
   display: block;
+  flex-shrink: 0;
   overflow: hidden;
   cursor: pointer;
   background-color: #f1f5f9;

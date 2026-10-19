@@ -38,7 +38,10 @@ function navigateToSection(target) {
 
 <template>
   <div class="moderation-hub">
-    <Sectionbar :sections="sections" :initial-selected-section="selectedSection"
+    <p v-if="!props.userIsModerator" class="moderation-access-denied">
+      You don't have sufficient privileges to access moderation tools.
+    </p>
+    <Sectionbar v-else :sections="sections" :initial-selected-section="selectedSection"
       @section-change="navigateToSection">
       <template #submissions>
         <Moderation :micronations-directory="props.micronationsDirectory"
@@ -69,5 +72,15 @@ export default { name: 'ModerationHub' };
 <style scoped>
 .moderation-hub {
   min-width: 0;
+}
+
+.moderation-access-denied {
+  margin: 20px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  background: var(--color-surface-raised);
+  line-height: 1.5;
 }
 </style>
