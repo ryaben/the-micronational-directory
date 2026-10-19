@@ -6,7 +6,10 @@ on:
 
 jobs:
   process-approval:
-    if: github.event.label.name == 'approved'
+    # The moderation UI writes the JSON itself, then closes the issue and
+    # applies this label for tracking. Only open issues use this workflow's
+    # separate label-to-approve path.
+    if: github.event.label.name == 'approved' && github.event.issue.state == 'open'
     runs-on: ubuntu-latest
 
     permissions:

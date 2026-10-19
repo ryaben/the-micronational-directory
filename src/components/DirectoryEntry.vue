@@ -30,6 +30,10 @@ defineProps({
         required: false,
         default: false
     },
+    inlineProfilePreview: {
+        type: Boolean,
+        default: false
+    },
     micronationsDirectory: {
         type: Array,
         required: false,
@@ -51,6 +55,7 @@ defineProps({
         default: store.getters.micronations.filter(element => element.supranational)
     }
 })
+const emit = defineEmits(['open-profile'])
 </script>
 
 <template>
@@ -114,7 +119,8 @@ defineProps({
         </div>
 
         <div v-if="viewMode !== 'collage' && infoView" class="info-buttons-container">
-            <router-link v-if="!disableFullProfileButton" :to="'/directory/' + info.name.main"
+            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">See full profile</button>
+            <router-link v-else-if="!disableFullProfileButton" :to="'/directory/' + info.name.main"
                 class="info-button full-width">See full profile</router-link>
             <span v-else class="info-button full-width disabled">See full profile</span>
         </div>
@@ -437,6 +443,7 @@ export default {
     padding: 5px 8px;
     text-align: center;
     font-size: 13px;
+    font-family: inherit;
     line-height: 1.3;
     text-decoration: none;
     background: var(--vt-c-indigo);
@@ -449,6 +456,8 @@ export default {
 
 .info-button.full-width {
     width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     border-bottom-left-radius: var(--radius-sm);
     border-bottom-right-radius: var(--radius-sm);
     border-left: none;
