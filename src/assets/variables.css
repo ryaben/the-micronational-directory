@@ -64,6 +64,16 @@
   --login-form-buttons-background-color-active: #fff;
   --login-form-buttons-text-color-active: #3c5fb8;
   --profile-left-side-background-color: #202d3d;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-2xl: 16px;
+  --radius-3xl: 18px;
+  --radius-full: 9999px;
+  --transition-fast: 0.16s;
+  --transition-base: 0.2s;
+  --transition-slow: 0.3s;
 }
 
 :root[data-theme='light'] {
@@ -103,7 +113,7 @@
   --site-section-border-color: transparent;
   --directory-settings-background-color: #fff;
   --directory-entry-text-color: #243247;
-  --directory-entry-background-color: #fff;
+  --directory-entry-background-color: #edf2f8;
   --directory-contact-email-color: #b53d45;
   --directory-website-link-color: #355dbd;
   --login-form-background-color1: #d5dfeb;
@@ -113,4 +123,14 @@
   --login-form-buttons-background-color-active: #fff;
   --login-form-buttons-text-color-active: #355dbd;
   --profile-left-side-background-color: #edf2f8;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-2xl: 16px;
+  --radius-3xl: 18px;
+  --radius-full: 9999px;
+  --transition-fast: 0.16s;
+  --transition-base: 0.2s;
+  --transition-slow: 0.3s;
 }

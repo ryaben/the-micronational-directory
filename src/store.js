@@ -1,6 +1,4 @@
 import { createStore } from 'vuex';
-import { collection, query, getDocs } from "firebase/firestore";
-import { db } from './firebase/init.js';
 
 const store = createStore({
     state: {
@@ -81,6 +79,10 @@ const store = createStore({
             }
         },
         async getContests(context) {
+            const [{ collection, query, getDocs }, { db }] = await Promise.all([
+                import('firebase/firestore'),
+                import('./firebase/firestore.js')
+            ]);
             const q = query(collection(db, "contests"));
             let contestsList = [];
 

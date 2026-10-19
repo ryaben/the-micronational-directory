@@ -3,8 +3,6 @@ import SettingsSubcontainer from '../components/SettingsSubcontainer.vue'
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue'
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue'
 import store from '../store'
-import html2canvas from 'html2canvas'
-import { saveAs } from 'file-saver'
 
 defineProps({
   storeGetter: {
@@ -31,6 +29,11 @@ defineProps({
     type: Array,
     required: false,
     default: ['']
+  },
+  showUnapproved: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 </script>
@@ -331,6 +334,7 @@ export default {
   data: () => {
     return {
       directoryLoaded: false,
+      workingDirectory: [],
       activeSettingsTab: 'Pages',
       flagView: false,
       inputFilter: '',
@@ -346,6 +350,24 @@ export default {
     }
   },
   watch: {
+    elementsDirectory: {
+      immediate: true,
+      handler(entries) {
+        const query = this.normalizeString(this.inputFilter.toLowerCase())
+        this.workingDirectory = (entries || []).map(element => ({
+          ...element,
+          name: { ...element.name, mainAlt: element.name?.mainAlt || '' },
+          searchDisplay: !query || this.normalizeString(element.name.main.toLowerCase()).includes(query) ||
+            this.normalizeString((element.name.mainAlt || '').toLowerCase()).includes(query),
+          filterDisplay: this.initialFilter === 'none' ||
+            this.normalizeString(element.name.main.charAt(0)) === this.initialFilter
+        }))
+        if (this.directoryLoaded) {
+          this.currentPage = 1
+          this.sortMicronations()
+        }
+      }
+    },
     availableSettingsTabs(tabs) {
       if (!tabs.some((tab) => tab.id === this.activeSettingsTab)) {
         this.activeSettingsTab = tabs[0]?.id || ''
@@ -371,24 +393,22 @@ export default {
         .map((tab) => ({ id: tab, label: tab }))
     },
     visibleElements() {
-      if (this.elementsDirectory.length) {
+      if (this.workingDirectory.length) {
         this.directoryLoaded = true
       }
-      return this.elementsDirectory.filter(
-        (element) => element.approved && element.searchDisplay && element.filterDisplay
+      return this.workingDirectory.filter(
+        (element) => (this.showUnapproved || element.approved) && element.searchDisplay && element.filterDisplay
       )
     },
     pagedElements() {
-      return this.elementsDirectory.filter(
-        (element) =>
-          element.approved && element.pageDisplay && element.searchDisplay && element.filterDisplay
-      )
+      const firstVisibleIndex = this.entriesPerPage * (this.currentPage - 1)
+      return this.visibleElements.slice(firstVisibleIndex, firstVisibleIndex + Number(this.entriesPerPage))
     },
     totalPages() {
-      return Math.ceil(this.visibleElements.length / this.entriesPerPage)
+      return Math.max(Math.ceil(this.visibleElements.length / this.entriesPerPage), 1)
     },
     filterLetters() {
-      return this.addFilterLetters(this.elementsDirectory, 'main')
+      return this.addFilterLetters(this.workingDirectory, 'main')
     }
   },
   methods: {
@@ -397,56 +417,32 @@ export default {
       this.pageElements()
     },
     pageElements() {
-      const that = this
-
-      this.visibleElements.forEach(function (entry, index) {
-        if (
-          that.entriesPerPage * that.currentPage - 1 >= index &&
-          index >= that.entriesPerPage * (that.currentPage - 1)
-        ) {
-          entry.pageDisplay = true
-        } else {
-          entry.pageDisplay = false
-        }
-      })
-
-      if (this.currentPage > this.totalPages) {
-        this.currentPage = this.totalPages
-      }
       if (this.entriesPerPage < 1) {
         this.entriesPerPage = 1
       } else if (this.entriesPerPage > this.maxTotalLoad) {
         this.entriesPerPage = this.maxTotalLoad
       }
 
+      this.currentPage = Math.min(Math.max(Number(this.currentPage) || 1, 1), this.totalPages)
+
       this.emitDirectory()
     },
     sortMicronations() {
       switch (this.entrySorting) {
         case 'ascending':
-          this.elementsDirectory.sort((a, b) =>
-            this.normalizeString(a.name.main) > this.normalizeString(b.name.main) ? 1 : -1
-          )
+          this.workingDirectory.sort((a, b) => this.compareEntryNames(a, b))
           break
         case 'descending':
-          this.elementsDirectory.sort((a, b) =>
-            this.normalizeString(a.name.main) > this.normalizeString(b.name.main) ? 1 : -1
-          )
-          this.elementsDirectory.reverse()
+          this.workingDirectory.sort((a, b) => this.compareEntryNames(b, a))
           break
         case 'latestAdded':
-          this.elementsDirectory.sort((a, b) =>
-            a.creationDate._seconds > b.creationDate._seconds ? 1 : -1
-          )
-          this.elementsDirectory.reverse()
+          this.workingDirectory.sort((a, b) => this.entryTimestamp(b) - this.entryTimestamp(a))
           break
         case 'oldestAdded':
-          this.elementsDirectory.sort((a, b) =>
-            a.creationDate._seconds > b.creationDate._seconds ? 1 : -1
-          )
+          this.workingDirectory.sort((a, b) => this.entryTimestamp(a) - this.entryTimestamp(b))
           break
         case 'random':
-          this.shuffleArray(this.elementsDirectory)
+          this.shuffleArray(this.workingDirectory)
           break
         default:
           break
@@ -461,13 +457,13 @@ export default {
       array.forEach(function (element) {
         if (that.subPropForFilter) {
           if (
-            element.approved &&
+            (that.showUnapproved || element.approved) &&
             !letters.includes(that.normalizeString(element.name[propName].charAt(0)))
           ) {
             letters.push(that.normalizeString(element.name[propName].charAt(0)))
           }
         } else {
-          if (element.approved && !letters.includes(that.normalizeString(element.name.charAt(0)))) {
+          if ((that.showUnapproved || element.approved) && !letters.includes(that.normalizeString(element.name.charAt(0)))) {
             letters.push(that.normalizeString(element.name.charAt(0)))
           }
         }
@@ -479,11 +475,11 @@ export default {
       const that = this
 
       if (this.inputFilter == '') {
-        this.elementsDirectory.forEach(function (element) {
+        this.workingDirectory.forEach(function (element) {
           element.searchDisplay = true
         })
       } else {
-        this.elementsDirectory.forEach(function (element) {
+        this.workingDirectory.forEach(function (element) {
           const entryCurated = that.normalizeString(element.name.main.toLowerCase())
           const entryAltCurated = that.normalizeString(element.name.mainAlt.toLowerCase())
           const searchCurated = that.normalizeString(that.inputFilter.toLowerCase())
@@ -502,11 +498,11 @@ export default {
       const that = this
 
       if (this.initialFilter === 'none') {
-        this.elementsDirectory.forEach(function (element) {
+        this.workingDirectory.forEach(function (element) {
           element.filterDisplay = true
         })
       } else {
-        this.elementsDirectory.forEach(function (element) {
+        this.workingDirectory.forEach(function (element) {
           if (that.normalizeString(element.name.main.charAt(0)) === that.initialFilter) {
             element.filterDisplay = true
           } else {
@@ -537,6 +533,18 @@ export default {
     normalizeString(string) {
       return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     },
+    compareEntryNames(a, b) {
+      const first = this.normalizeString((a.name?.main || '').toLowerCase())
+      const second = this.normalizeString((b.name?.main || '').toLowerCase())
+      return first.localeCompare(second)
+    },
+    entryTimestamp(entry) {
+      const creationDate = entry.creationDate
+      if (creationDate?._seconds) return creationDate._seconds
+      if (creationDate?.seconds) return creationDate.seconds
+      const timestamp = new Date(creationDate || 0).getTime()
+      return Number.isFinite(timestamp) ? timestamp / 1000 : 0
+    },
     updateZoom() {
       this.$refs.cardSizeLabel.innerHTML = this.entryWidth + 'px'
       this.$emit('updatedEntryWidth', this.entryWidth)
@@ -554,6 +562,10 @@ export default {
       this.$emit('loadedDirectory', this.pagedElements)
     },
     async generateCollage() {
+      const [{ default: html2canvas }, { saveAs }] = await Promise.all([
+        import('html2canvas'),
+        import('file-saver')
+      ])
       const canvas = await html2canvas(document.getElementById('micronationsList'), {
         useCORS: true
       })
@@ -687,7 +699,7 @@ export default {
   border: 0;
   background: transparent;
   padding: 0 12px;
-  gap: 12px;
+  gap: 18px;
 }
 .settings-panel :deep(.setting-parameter-subcontainer) {
   flex: 0 0 auto;
@@ -750,7 +762,6 @@ export default {
   width: 54px;
 }
 .settings-panel-pages :deep(.setting-parameter-subcontainer:first-child) {
-  flex: 0 0 145px;
   align-items: flex-start;
   align-self: center;
   gap: 4px;
@@ -771,7 +782,7 @@ export default {
   max-width: 100%;
   grid-template-columns: 160px 160px max-content;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
 }
 .settings-panel-filter :deep(.filter-field) {
   display: grid;

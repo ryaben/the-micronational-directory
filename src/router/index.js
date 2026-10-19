@@ -1,114 +1,98 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-//Views importadas
-import Home from "@/views/Home.vue";
-import Directory from "@/views/Directory.vue";
-import Organizations from "@/views/Organizations.vue";
-import GlobalMap from "@/views/GlobalMap.vue";
-import NewEntry from "@/views/NewEntry.vue";
-import ModerationPanel from "@/views/ModerationPanel.vue";
-import Moderation from "@/views/Moderation.vue";
-import DirectoryProfile from "@/views/DirectoryProfile.vue";
-import OrganizationProfile from "@/views/OrganizationProfile.vue";
-import Stats from "@/views/Stats.vue";
-import Login from "@/views/Login.vue";
-import Profile from "@/views/Profile.vue";
-import Donate from "@/views/Donate.vue";
-import About from "@/views/About.vue";
-import TermsOfContests from "@/views/TermsOfContests.vue";
-
-import MediaWikiReader from "@/views/MediaWikiReader.vue";
-import MicronationalMapReader from "@/views/MicronationalMapReader.vue";
-
 //Rutas
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: () => import("@/views/Home.vue")
   },
   {
     path: "/directory",
     name: "Directory",
-    component: Directory
+    component: () => import("@/views/Directory.vue")
   },
   {
     path: "/organizations",
     name: "Organizations",
-    component: Organizations
+    component: () => import("@/views/Organizations.vue")
   },
   {
     path: "/map",
     name: "GlobalMap",
-    component: GlobalMap
+    component: () => import("@/views/GlobalMap.vue")
   },
   {
     path: "/new-entry",
     name: "NewEntry",
-    component: NewEntry
+    component: () => import("@/views/NewEntry.vue")
   },
   {
     path: "/moderation-panel",
     name: "ModerationPanel",
-    component: ModerationPanel
+    redirect: { name: "ModerationHub" }
   },
   {
     path: "/moderation",
-    name: "Moderation",
-    component: Moderation
+    name: "ModerationHub",
+    component: () => import("@/views/ModerationHub.vue")
   },
   {
     path: "/directory/:micronationName",
     name: "DirectoryProfile",
-    component: DirectoryProfile,
+    component: () => import("@/views/DirectoryProfile.vue"),
     props: true
   },
   {
     path: "/organizations/:organizationName",
     name: "OrganizationProfile",
-    component: OrganizationProfile,
+    component: () => import("@/views/OrganizationProfile.vue"),
     props: true
   },
   {
     path: "/stats",
     name: "Stats",
-    component: Stats
+    component: () => import("@/views/Stats.vue")
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: () => import("@/views/Login.vue")
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: () => import("@/views/Profile.vue")
   },
   {
     path: "/profile",
-    name: "Profile",
-    component: Profile
+    redirect: { name: "Account" }
   },
   {
     path: "/donate",
     name: "Donate",
-    component: Donate
+    component: () => import("@/views/Donate.vue")
   },
   {
     path: "/about",
     name: "About",
-    component: About
+    component: () => import("@/views/About.vue")
   },
   {
     path: "/terms-of-contests",
     name: "TermsOfContests",
-    component: TermsOfContests
+    component: () => import("@/views/TermsOfContests.vue")
   },
 
   {
     path: "/mediawiki-reader",
     name: "MediaWikiReader",
-    component: MediaWikiReader
+    redirect: { name: "ModerationHub", query: { section: "mediawiki" } }
   },
   {
     path: "/googlemymaps-reader",
     name: "MicronationalMapReader",
-    component: MicronationalMapReader
+    redirect: { name: "ModerationHub", query: { section: "google-maps" } }
   }
 ];
 

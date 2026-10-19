@@ -22,6 +22,10 @@ defineProps({
     type: Array,
     required: false,
     default: []
+  },
+  theme: {
+    type: String,
+    default: 'dark'
   }
 })
 </script>
@@ -29,7 +33,7 @@ defineProps({
 <template>
   <router-link :to="{ name: route }" class="tab-router-link" @mouseenter="updateHeight" @mouseleave="updateHeight">
     <div class="button-container color-transition" :class="{'unfolded': height != 0 && subButtons.length}">
-      <img :src="'/images/navbar-icons/' + icon" :alt="text + ' icon'">
+      <img :src="'/images/navbar-icons/' + (theme === 'light' ? icon.replace('.png', '-black.png') : icon)" :alt="text + ' icon'">
       <p>{{ text }}</p>
     </div>
 
@@ -98,7 +102,7 @@ export default {
   min-height: 42px;
   padding: 6px 12px;
   border: 1px solid var(--navbar-tab-border-color);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   color: var(--color-text);
   background-color: var(--navbar-tab-background-color);
   cursor: pointer;

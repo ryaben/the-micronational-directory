@@ -5,6 +5,7 @@ import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.v
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
 import Settingsbar from '../components/Settingsbar.vue';
 import store from '../store';
+import { animateDirectoryCardEnter, animateDirectoryCardLeave, positionLeavingDirectoryCard } from '../utils/directoryCardTransitions.js';
 
 defineProps({
   micronationsDirectory: {
@@ -27,14 +28,15 @@ defineProps({
 
 <template>
   <div class="animation-error-avoider">
-    <section class="site-section">
+    <section class="site-section site-section--flush">
       <Settingsbar :view-mode="'organizations'" :store-getter="'organizations'"
         :elements-directory="organizationsDirectory" @loaded-directory="loadPagedOrganizations"
         @updated-entry-width="updateOrganizationEntryWidth" />
       <div id="organizationsList" class="organizations-list" ref="organizationsList"
         :class="{ 'fixed-height': fixedHeight }">
-        <TransitionGroup>
-          <OrganizationEntry v-for="(item, i) in pagedOrganizationsDirectory" :key="i" :width="organizationEntryWidth"
+        <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
+          @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
+          <OrganizationEntry v-for="(item, i) in pagedOrganizationsDirectory" :key="item.id || item.name.main" :width="organizationEntryWidth"
             :logo-height="organizationEntryWidth * 0.6" :micronations-directory="micronationsDirectory" :info="{
         id: item.id,
         name: {
@@ -95,24 +97,12 @@ export default {
 </script>
 
 <style scoped>
-.site-section {
-  padding: 0px;
-}
-
 .organizations-list {
+  position: relative;
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
   padding: 0 12px 9px 12px;
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 </style>

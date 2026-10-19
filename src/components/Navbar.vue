@@ -8,6 +8,10 @@ defineProps({
     default: [{
       text: "Home", icon: "home.png", route: "Home", subButtons: []
     }]
+  },
+  theme: {
+    type: String,
+    default: 'dark'
   }
 })
 </script>
@@ -15,7 +19,7 @@ defineProps({
 <template>
   <nav class="navbar">
     <div class="tabs-container">
-      <NavbarButton v-for="(item, i) in buttons" :key="i" :text="item.text" :icon="item.icon" :route="item.route" :sub-buttons="item.subButtons" />
+      <NavbarButton v-for="(item, i) in buttons" :key="i" :text="item.text" :icon="item.icon" :route="item.route" :sub-buttons="item.subButtons" :theme="theme" />
     </div>
   </nav>
 </template>
@@ -38,7 +42,7 @@ export default {
   align-items: center;
   background-color: var(--navbar-background-color);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-2xl);
   padding: 10px;
   margin-bottom: 22px;
   overflow: visible;

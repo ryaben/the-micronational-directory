@@ -1,267 +1,591 @@
 <script setup>
-import router from '../router/index';
-import store from '../store';
-import {
-  EmailAuthProvider,
-  signOut,
-  sendEmailVerification,
-  reauthenticateWithCredential,
-  updatePassword,
-  onAuthStateChanged
-} from 'firebase/auth';
-import { auth } from '../firebase/init.js';
+import { computed, onMounted, ref, watch } from 'vue';
+import { EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword } from 'firebase/auth';
 import { notify } from '@kyvg/vue3-notification';
+import { auth } from '../firebase/auth.js';
+import router from '../router/index';
+import DirectoryEntry from '../components/DirectoryEntry.vue';
+import OrganizationEntry from '../components/OrganizationEntry.vue';
+import Sectionbar from '../components/Sectionbar.vue';
+import Settingsbar from '../components/Settingsbar.vue';
+import store from '../store';
+import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js';
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  moderatorsList: {
-    type: Array,
-    required: true,
-    default: store.getters.moderators
-  },
-  userIsModerator: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
+const props = defineProps({
+  micronationsDirectory: { type: Array, default: () => store.getters.micronations },
+  organizationsDirectory: { type: Array, default: () => store.getters.organizations },
+  moderatorsList: { type: Array, default: () => store.getters.moderators },
+  userIsModerator: { type: Boolean, default: false },
+  user: { type: Object, default: () => ({}) }
 });
+
+const activeSection = ref('profile');
+const profileSections = [
+  { text: 'Account data', target: 'profile', display: true },
+  { text: 'Update password', target: 'password', display: true },
+  { text: 'Contributions', target: 'contributions', display: true }
+];
+const currentUser = ref(auth.currentUser || props.user || {});
+const pagedEntries = ref([]);
+const issueSubmissions = ref([]);
+const oldPassword = ref('');
+const newPassword = ref('');
+const repeatNewPassword = ref('');
+
+watch(() => props.user, user => {
+  if (user?.email) currentUser.value = user;
+}, { immediate: true });
+
+const authoredEntries = computed(() => {
+  const email = currentUser.value?.email?.toLowerCase();
+  if (!email) return [];
+  const micronations = props.micronationsDirectory
+    .filter(entry => entry.author?.email?.toLowerCase() === email)
+    .map(entry => ({ ...entry, entryType: 'micronation' }));
+  const organizations = props.organizationsDirectory
+    .filter(entry => entry.author?.email?.toLowerCase() === email)
+    .map(entry => ({ ...entry, entryType: 'organization' }));
+  const issueEntries = issueSubmissions.value
+    .map(issue => {
+      const entry = convertIssueToEntry(issue);
+      return entry ? { ...entry, creationDate: issue.created_at } : null;
+    })
+    .filter(entry => entry?.author?.email?.toLowerCase() === email);
+  return [...micronations, ...organizations, ...issueEntries];
+});
+
+const approvedMicronations = computed(() => props.micronationsDirectory.filter(entry => entry.approved));
+const approvedOrganizations = computed(() => props.organizationsDirectory.filter(entry => entry.approved));
+const userContributions = computed(() => authoredEntries.value.filter(entry => entry.entryType === 'micronation' && entry.approved).length);
+const userOrganizationContributions = computed(() => authoredEntries.value.filter(entry => entry.entryType === 'organization' && entry.approved).length);
+const percentageContributions = computed(() => approvedMicronations.value.length ? (userContributions.value * 100 / approvedMicronations.value.length).toFixed(2) : '0.00');
+const percentageOrganizationContributions = computed(() => approvedOrganizations.value.length ? (userOrganizationContributions.value * 100 / approvedOrganizations.value.length).toFixed(2) : '0.00');
+const settingsEntries = computed(() => authoredEntries.value.map(entry => ({
+  ...entry,
+  name: { ...entry.name, mainAlt: entry.name?.mainAlt || '' },
+  searchDisplay: true,
+  filterDisplay: true
+})));
+
+function entryInfo(entry) {
+  return {
+    id: entry.id,
+    name: entry.name,
+    flag: entry.flag,
+    logo: entry.logo,
+    motto: entry.motto,
+    type: entry.type,
+    languages: entry.languages,
+    capital: entry.capital,
+    currency: entry.currency,
+    foundationDate: entry.foundationDate,
+    foundationDateDisplay: formatFoundationDate(entry.foundationDate),
+    location: entry.location,
+    memberships: entry.memberships || [],
+    contactInfo: entry.contactInfo || [],
+    websites: entry.websites || [],
+    author: entry.author,
+    approved: entry.approved,
+    creationDate: entry.creationDate
+  };
+}
+
+function formatFoundationDate(date) {
+  if (!date) return 'Unknown';
+  const seconds = date._seconds || date.seconds;
+  const parsedDate = seconds ? new Date(seconds * 1000) : new Date(date);
+  return Number.isNaN(parsedDate.getTime())
+    ? 'Unknown'
+    : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(parsedDate);
+}
+
+function updatePagedEntries(entries) {
+  pagedEntries.value = entries;
+}
+
+async function loadUserIssueSubmissions() {
+  try {
+    issueSubmissions.value = await fetchGitHubIssues(['new-entry', 'review-required']);
+  } catch (error) {
+    console.error('Unable to load the current user’s GitHub submissions:', error);
+  }
+}
+
+async function resendVerification() {
+  try {
+    await sendEmailVerification(auth.currentUser);
+    notify({ title: 'Session status', text: 'An email was sent to your address. Verify your account to add directory entries.', type: 'success' });
+  } catch (error) {
+    notify({ title: 'Unable to send email', text: error.message, type: 'error' });
+  }
+}
+
+async function changePassword() {
+  if (newPassword.value !== repeatNewPassword.value) {
+    notify({ title: 'Password mismatch', text: "The values entered don't match. Please check your new password.", type: 'error' });
+    return;
+  }
+  try {
+    const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword.value);
+    await reauthenticateWithCredential(auth.currentUser, credential);
+    await updatePassword(auth.currentUser, newPassword.value);
+    oldPassword.value = '';
+    newPassword.value = '';
+    repeatNewPassword.value = '';
+    notify({ title: 'Password updated', text: 'Your password was successfully updated.', type: 'success' });
+  } catch (error) {
+    notify({ title: 'Unable to update password', text: error.code === 'auth/invalid-credential' ? 'The current password you entered is not valid.' : error.message, type: 'error' });
+  }
+}
+
+async function signOutCall() {
+  localStorage.removeItem('firebase-auth-user');
+  await signOut(auth);
+  notify({ title: 'Session status', text: 'You have logged out from your account.', type: 'warning' });
+  router.push('/login');
+}
+
+onAuthStateChanged(auth, user => {
+  if (user) currentUser.value = user;
+  else if (!props.user?.email && localStorage.getItem('firebase-auth-user') === null) router.push('/login');
+});
+
+onMounted(loadUserIssueSubmissions);
 </script>
 
 <template>
-  <section class="site-section paddingless">
-    <div class="left-side">
-      <button class="login-button color-transition" :disabled="user.emailVerified" @click="resendVerification">
-        Resend verification email
-      </button>
-      <button class="login-button color-transition" v-show="!passwordMenu" @click="
-        passwordMenu = true;
-      moderationMenu = false;
-      ">
-        Update password
-      </button>
-      <button class="login-button color-transition" v-show="passwordMenu" @click="passwordMenu = false">
-        Return to main menu
-      </button>
-      <button class="login-button color-transition" @click="signOutCall">Log out</button>
-    </div>
-    <div class="right-side">
-      <div class="main-menu menu" v-show="!passwordMenu && !moderationMenu">
-        <h3>Hello, {{ user.displayName }}!</h3>
-        <p>
-          Your email address is: <span class="underlined">{{ user.email }}</span>
-          <br />
-          and its status is:
-          <span v-if="user.emailVerified" class="verified"><b>Verified</b>.</span>
-          <span v-if="!user.emailVerified"><b class="not-verified">NOT verified</b> (you need to refresh if performed
-            with open session).</span>
-        </p>
-        <p v-if="userIsModerator">
-          <span>You <b class="verified">are a moderator</b> and have moderation privileges.</span>
-        </p>
-        <p class="contributions-text">
-          Your contribution:<br />
-          - <b>{{ userContributions }}</b> micronation entries on the Directory ({{ percentageContributions }}%
-          of the total).<br />
-          - <b>{{ userOrganizationContributions }}</b> organization entries on the Directory ({{
-        percentageOrganizationContributions }}%
-          of the total).
-        </p>
+  <section class="site-section profile-shell">
+    <div class="profile-heading">
+      <div class="profile-avatar" aria-hidden="true">{{ (currentUser.displayName || currentUser.email || 'U').slice(0,
+        1).toUpperCase() }}</div>
+      <div>
+        <h1>Hello, {{ currentUser.displayName || 'there' }}!</h1>
+        <p class="profile-intro">Manage your account and see what you’ve added to the directory.</p>
       </div>
-      <form class="password-menu menu" v-show="passwordMenu" @submit.prevent="changePassword">
-        <input class="login-input" type="password" id="oldPassword" v-model="oldPassword" required
-          placeholder="Old password" />
-        <input class="login-input" type="password" id="newPassword" v-model="newPassword" required
-          placeholder="New password" />
-        <input class="login-input" type="password" id="repeatNewPassword" v-model="repeatNewPassword" required
-          placeholder="Repeat new password" />
-        <input id="changePasswordButton" type="submit" value="Update password" class="login-button color-transition" />
-      </form>
     </div>
+
+    <Sectionbar :sections="profileSections" :initial-selected-section="activeSection"
+      @section-change="activeSection = $event">
+      <template #profile>
+        <div class="section-content profile-data">
+          <div class="panel-heading">
+            <div>
+              <h2>Your data</h2>
+            </div><span class="status-pill" :class="currentUser.emailVerified ? 'verified' : 'unverified'">{{
+              currentUser.emailVerified ? 'Email verified' : 'Verification needed' }}</span>
+          </div>
+          <div class="data-grid">
+            <div class="data-card"><span class="data-label">Display name</span><strong>{{ currentUser.displayName ||
+                'Not set' }}</strong></div>
+            <div class="data-card"><span class="data-label">Email address</span><strong>{{ currentUser.email ||
+                'Loading…' }}</strong></div>
+            <div class="data-card"><span class="data-label">Account status</span><strong>{{ currentUser.emailVerified ?
+              'Verified' : 'Not verified' }}</strong><button v-if="!currentUser.emailVerified" class="text-action"
+                type="button" @click="resendVerification">Resend verification email</button></div>
+            <div class="data-card moderator-card">
+              <span class="data-label">Role</span>
+              <strong :class="(userIsModerator || moderatorsList.includes(currentUser.email)) ? 'verified-text' : 'contributor-text'">
+                {{ (userIsModerator || moderatorsList.includes(currentUser.email)) ? 'Moderator' : 'Contributor' }}
+              </strong>
+              <span>{{ (userIsModerator || moderatorsList.includes(currentUser.email))
+                ? 'Moderation privileges are enabled for your account.'
+                : 'You can contribute entries to the directory.' }}</span>
+            </div>
+          </div>
+          <div class="profile-footer"><span>Sign out of your account on this device.</span><button class="logout-button"
+              type="button" @click="signOutCall">Log out <span aria-hidden="true">↗</span></button></div>
+        </div>
+      </template>
+
+      <template #password>
+        <form class="section-content password-content" @submit.prevent="changePassword">
+          <div class="password-fields">
+            <div class="panel-heading">
+              <div>
+                <h2>Update password</h2>
+              </div>
+            </div>
+            <p class="section-description">Choose a strong password you don’t use elsewhere. Confirm your current password
+              to make this change.</p>
+            <label>Current password<input v-model="oldPassword" class="login-input" type="password"
+                autocomplete="current-password" required placeholder="Enter current password"></label>
+            <label>New password<input v-model="newPassword" class="login-input" type="password"
+                autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"></label>
+            <label>Confirm new password<input v-model="repeatNewPassword" class="login-input" type="password"
+                autocomplete="new-password" required minlength="6" placeholder="Re-enter new password"></label>
+            <button class="primary-action" type="submit">Save new password</button>
+          </div>
+        </form>
+      </template>
+
+      <template #contributions>
+        <div class="section-content contributions-content">
+          <div class="panel-heading">
+            <div>
+              <h2>Contributions</h2>
+              <p class="section-description">Approved entries count toward your totals. Your full submission list
+                includes entries awaiting approval.</p>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card"><span>Micronations</span><strong>{{ userContributions }}</strong><small>{{
+                percentageContributions }}% of approved directory</small></article>
+            <article class="stat-card"><span>Organizations</span><strong>{{ userOrganizationContributions
+                }}</strong><small>{{ percentageOrganizationContributions }}% of approved directory</small></article>
+            <article class="stat-card total-stat"><span>Total submissions</span><strong>{{ authoredEntries.length
+                }}</strong><small>{{authoredEntries.filter(entry => !entry.approved).length}} awaiting
+                approval</small></article>
+          </div>
+
+          <div class="listing-header">
+            <div>
+              <h3>Your directory entries</h3>
+            </div>
+          </div>
+          <Settingsbar v-if="authoredEntries.length" view-mode="micronations" store-getter="micronations" :elements-directory="settingsEntries"
+            :show-unapproved="true" :hidden-subcontainers="['Display', 'Flags']"
+            @loaded-directory="updatePagedEntries" />
+          <p v-if="!authoredEntries.length" class="empty-state">You haven’t added any directory entries yet.</p>
+          <p v-else-if="!pagedEntries.length" class="empty-state">No entries match these settings.</p>
+          <div v-else class="entries-list">
+            <div v-for="entry in pagedEntries" :key="`${entry.entryType}-${entry.id || entry.name.main}`"
+              class="entry-wrapper">
+              <span class="entry-status" :class="entry.approved ? 'approved' : 'pending'">{{ entry.approved ? 'Approved'
+                : 'Pending' }}</span>
+              <DirectoryEntry v-if="entry.entryType === 'micronation'" :info="entryInfo(entry)" :width="190"
+                :flag-height="114" :micronations-directory="micronationsDirectory"
+                :organizations-directory="organizationsDirectory" :disable-full-profile-button="!entry.approved" />
+              <OrganizationEntry v-else :info="entryInfo(entry)" :width="190" :logo-height="114"
+                :micronations-directory="micronationsDirectory" />
+            </div>
+          </div>
+        </div>
+      </template>
+    </Sectionbar>
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      user: {},
-      componentKey: 0,
-      passwordMenu: false,
-      moderationMenu: false,
-      oldPassword: '',
-      newPassword: '',
-      repeatNewPassword: ''
-    }
-  },
-  computed: {
-    userContributions() {
-      return this.countContributions(this.micronationsDirectory.filter((element) => element.approved), this.user.email);
-    },
-    userOrganizationContributions() {
-      return this.countContributions(this.organizationsDirectory.filter((element) => element.approved), this.user.email);
-    },
-    percentageContributions() {
-      return ((this.userContributions * 100) / this.micronationsDirectory.filter((element) => element.approved).length).toFixed(2);
-    },
-    percentageOrganizationContributions() {
-      return ((this.userOrganizationContributions * 100) / this.organizationsDirectory.filter((element) => element.approved).length).toFixed(2);
-    }
-  },
-  methods: {
-    async resendVerification() {
-      sendEmailVerification(auth.currentUser).then(function () {
-        notify({
-          title: 'Session status',
-          text: 'An email was sent to your address, verify your account to add entries on the Directory.',
-          type: 'success'
-        })
-      })
-    },
-    async changePassword() {
-      if (this.newPassword !== this.repeatNewPassword) {
-        return notify({
-          title: 'Password mismatch',
-          text: "The values entered don't match, please check your new password.",
-          type: 'error'
-        })
-      } else {
-        const credential = EmailAuthProvider.credential(auth.currentUser.email, this.oldPassword)
-        reauthenticateWithCredential(auth.currentUser, credential)
-          .then(() => {
-            updatePassword(auth.currentUser, this.newPassword)
-              .then(() => {
-                this.newPassword = ''
-                this.oldPassword = ''
-                this.repeatNewPassword = ''
-                return notify({
-                  title: 'Password update',
-                  text: 'Your password was successfully updated. Use it the next time you log in.',
-                  type: 'success'
-                })
-              })
-              .catch((error) => {
-                return notify({
-                  title: 'Error while updating',
-                  text: error,
-                  type: 'error'
-                })
-              })
-          })
-          .catch((error) => {
-            return notify({
-              title: 'Error while updating',
-              text: 'The password you entered as old is not valid as current one.',
-              type: 'error'
-            })
-          })
-      }
-    },
-    async signOutCall() {
-      localStorage.removeItem('firebase-auth-user');
-      await signOut(auth).then(function () {
-        notify({
-          title: 'Session status',
-          text: 'You have logged out from your account.',
-          type: 'warning'
-        })
-      });
-    },
-    countContributions(array, value) {
-      let count = 0;
-
-      array.forEach((element) => {
-        if (element.author.email === value) {
-          count += 1;
-        }
-      })
-
-      return count;
-    },
-    forceRerender() {
-      this.componentKey += 1;
-    },
-    authListener() {
-      onAuthStateChanged(auth, (user) => {
-        if (!user) {
-          if (localStorage.getItem('firebase-auth-user') === null) {
-            router.push('/login');
-          }
-        } else {
-          this.user = JSON.parse(localStorage.getItem('firebase-auth-user'));
-        }
-      });
-    }
-  },
-  async mounted() {
-    this.authListener();
-  }
-}
-</script>
-
 <style scoped>
-.paddingless {
-  padding: 0;
-  display: grid;
-  grid-template-columns: 35% 65%;
-  height: 315px;
+.profile-shell {
+  margin-inline: auto;
+  padding: clamp(18px, 4vw, 42px);
 }
 
-.left-side,
-.moderation-buttons {
+.profile-heading {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: var(--profile-left-side-background-color);
-  border-right: 4px solid var(--site-section-border-color);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  gap: 18px;
+  padding: 8px 4px 28px;
 }
 
-.left-side .login-button {
-  width: 70%;
-  margin-bottom: 25px;
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  border-radius: 20px;
+  color: white;
+  font-size: 26px;
+  font-weight: 750;
+  background: linear-gradient(145deg, #7194ef, #4268cb);
+  box-shadow: 0 10px 26px #4268cb38;
 }
 
-.left-side .login-button:last-child,
-.moderation-buttons .login-button:last-child {
-  margin-bottom: 0;
+.profile-heading h1 {
+  margin: 0;
+  color: var(--color-heading);
+  font-size: clamp(25px, 4vw, 34px);
 }
 
-.right-side {
-  padding: 0px;
+.profile-intro,
+.section-description {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+  line-height: 1.55;
 }
 
-.menu {
+.section-content {
+  width: 100%;
+  margin: 0;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--color-border);
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  color: var(--color-heading);
+  font-size: 23px;
+}
+
+.status-pill,
+.entry-status {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pill.verified,
+.entry-status.approved {
+  color: #2f855a;
+  background: #35a66c1c;
+}
+
+.status-pill.unverified,
+.entry-status.pending {
+  color: #a86b10;
+  background: #e9a3291f;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.data-card {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  align-items: flex-start;
+  gap: 7px;
+  min-height: 90px;
+  padding: 17px;
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+  background: var(--color-background-soft);
 }
 
-.menu .login-input {
-  width: 40%;
-  margin-bottom: 20px;
+.data-label {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 650;
 }
 
-.verified {
-  color: var(--success-tone);
+.data-card strong {
+  color: var(--color-heading);
+  overflow-wrap: anywhere;
 }
 
-.not-verified {
-  color: var(--failure-tone);
+.data-card>span:last-child {
+  color: var(--color-muted);
+  font-size: 13px;
 }
 
-.contributions-text {
+.verified-text {
+  color: var(--success-tone) !important;
+}
+
+.text-action {
+  padding: 0;
+  border: 0;
+  color: var(--color-link);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.profile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.logout-button,
+.primary-action {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: #bd4852;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.logout-button:hover {
+  background: #a63943;
+  transform: translateY(-1px);
+}
+
+.password-content {
+  max-width: none;
+}
+
+.password-fields {
+  width: 50%;
+}
+
+.password-fields>label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 17px;
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.password-fields .login-input {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.primary-action {
+  margin-top: 22px;
+  background: var(--vt-c-indigo);
+}
+
+.primary-action:hover {
+  background: var(--vt-c-indigo-dark);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-background-soft);
+}
+
+.stat-card span {
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.stat-card strong {
+  color: var(--color-heading);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.stat-card small {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.total-stat {
+  background: linear-gradient(140deg, var(--color-background-soft), var(--navbar-tab-background-color-selected));
+}
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.listing-header>div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.listing-header h3 {
+  margin: 0;
+  color: var(--color-heading);
   font-size: 18px;
+}
+
+.listing-header span {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.entries-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px;
+  padding-top: 20px;
+}
+
+.entry-wrapper {
+  position: relative;
+  padding-top: 14px;
+}
+
+.entry-status {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 7px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.empty-state {
+  padding: 30px 16px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .profile-shell {
+    padding: 14px;
+  }
+
+  .profile-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .profile-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+  }
+
+  .data-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .password-fields {
+    width: 100%;
+  }
 }
 </style>

@@ -92,10 +92,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.no-entries {
-    width: auto;
-    font-size: 22px;
-    text-align: center;
-}
-</style>

@@ -55,7 +55,7 @@ defineProps({
         <div class="scrollable-container contributors-ranking">
             <div v-for="(contributor, i) in contributorsList.filter(contrib => contrib.contributions > 0)" :key="i" class="contributor-entry"
                 :class="{ 'current-user': contributor.email === currentUserEmail, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
-                <p class="contributor-rank">{{ i + 1 }}.</p>
+                <p class="contributor-rank" :aria-label="`Rank ${i + 1}`">{{ i + 1 }}</p>
                 <p class="contributor-name">{{ contributor.name }}<span
                         v-if="contributor.email === currentUserEmail">&nbsp;(it's
                         you!)</span></p>
@@ -133,20 +133,44 @@ export default {
 .stats-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: auto;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
 }
 
 .container-title {
-    text-align: center;
+    color: var(--color-heading);
+    text-align: left;
+}
+
+.contributors-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-height: 150px;
+    padding: 7px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-background-soft);
 }
 
 .contributor-entry {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    border-bottom: 3px solid var(--vt-c-indigo);
-    padding: 0 10px 0 10px;
+    gap: 12px;
+    min-height: 52px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: transform var(--transition-fast) ease, border-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+}
+
+.contributor-entry:hover {
+    transform: translateY(-1px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-soft);
 }
 
 .contributor-entry.hidden {
@@ -154,65 +178,94 @@ export default {
 }
 
 .contributor-entry.special {
-    padding: 5px;
-    width: 85%;
-    border-bottom: none;
-    margin-bottom: 13px;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 9px;
+    padding: 10px 13px;
+    border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
 }
 
 .contributor-entry.current-user {
-    background-color: var(--vt-c-white);
-    color: var(--vt-c-black);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) {
-    background: linear-gradient(138deg, var(--gold) 0%, var(--gold-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) p:nth-child(2)::after {
-    content: "🥇";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(2) {
-    background: linear-gradient(138deg, var(--silver) 0%, var(--silver-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(2) p:nth-child(2)::after {
-    content: "🥈";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(3) {
-    background: linear-gradient(138deg, var(--bronze) 0%, var(--bronze-dark) 70%);
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(3) p:nth-child(2)::after {
-    content: "🥉";
-}
-
-.contributors-ranking .contributor-entry:nth-of-type(1) p,
-.contributors-ranking .contributor-entry:nth-of-type(2) p,
-.contributors-ranking .contributor-entry:nth-of-type(3) p {
-    color: var(--vt-c-black);
-}
-
-.contributors-ranking .contributor-entry:last-of-type {
-    border-bottom: none;
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+    color: var(--color-heading);
 }
 
 .contributor-rank {
-    font-size: 17px;
-    margin-right: 5px;
-    font-weight: bold;
+    display: grid;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    margin: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-background-mute);
+    color: var(--color-muted);
+    font-size: 13px;
+    font-weight: 750;
 }
 
 .contributor-name {
-    font-size: 17px;
-    width: 100%;
-    font-weight: bold;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
 }
 
 .contributor-contributions {
-    font-size: 20px;
-    font-weight: bold;
+    flex: 0 0 auto;
+    min-width: 38px;
+    margin: 0;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: var(--color-background-mute);
+    color: var(--color-heading);
+    font-size: 15px;
+    font-weight: 750;
+    text-align: center;
+}
+
+.contributors-ranking .contributor-entry:nth-of-type(1) {
+    border-color: var(--gold-dark);
+    background: linear-gradient(105deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: #302700;
+}
+
+.contributors-ranking .contributor-entry:nth-of-type(1) .contributor-rank { background: var(--gold); color: #332800; }
+.contributors-ranking .contributor-entry:nth-of-type(1) .contributor-contributions { background: color-mix(in srgb, #302700 12%, transparent); color: #302700; }
+.contributors-ranking .contributor-entry:nth-of-type(1) .contributor-name::after { content: "  🥇"; }
+
+.contributors-ranking .contributor-entry:nth-of-type(2) {
+    border-color: var(--silver-dark);
+    background: linear-gradient(105deg, var(--silver) 0%, var(--silver-dark) 100%);
+    color: #202020;
+}
+
+.contributors-ranking .contributor-entry:nth-of-type(2) .contributor-rank { background: var(--silver); color: #252525; }
+.contributors-ranking .contributor-entry:nth-of-type(2) .contributor-contributions { background: color-mix(in srgb, #202020 12%, transparent); color: #202020; }
+.contributors-ranking .contributor-entry:nth-of-type(2) .contributor-name::after { content: "  🥈"; }
+
+.contributors-ranking .contributor-entry:nth-of-type(3) {
+    border-color: var(--bronze-dark);
+    background: linear-gradient(105deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+    color: #fff;
+}
+
+.contributors-ranking .contributor-entry:nth-of-type(3) .contributor-rank { background: var(--bronze); color: #fff; }
+.contributors-ranking .contributor-entry:nth-of-type(3) .contributor-contributions { background: color-mix(in srgb, #000 20%, transparent); color: #fff; }
+.contributors-ranking .contributor-entry:nth-of-type(3) .contributor-name::after { content: "  🥉"; }
+
+.contributor-entry.special .contributor-name::after { content: none !important; }
+
+@media (max-width: 500px) {
+    .contributors-ranking { gap: 6px; padding: 6px; }
+    .contributor-entry { gap: 8px; min-height: 48px; padding: 7px 9px; }
+    .contributor-rank { flex-basis: 27px; width: 27px; height: 27px; }
+    .contributor-name { font-size: 14px; }
+    .contributor-contributions { min-width: 34px; padding: 4px 8px; font-size: 14px; }
 }
 </style>

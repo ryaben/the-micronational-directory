@@ -1,9 +1,7 @@
 <script setup>
-import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
+import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
-import MemberSource from '../components/MemberSource.vue';
 import AnimateHeight from 'vue-animate-height';
-import store from '../store';
 
 defineProps({
     width: {
@@ -21,81 +19,58 @@ defineProps({
         required: false,
         default: 120
     },
-    micronationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations
-    },
 })
 </script>
 
 <template>
-    <div class="directory-entry-container" :class="{ 'info-displayed': infoView }" :style="cssProps">
-
-        <img :src="info.logo" class="entry-logo" :style="{ 'height': logoHeight + 'px' }" alt="Logo">
+    <div class="directory-entry-container" :class="{ 'info-displayed': infoView }" :style="cssProps"
+        @click="toggleInfo">
+        <img :src="info.logo" class="entry-logo" :style="{ height: logoHeight + 'px' }" alt="Logo">
 
         <div class="entry-info">
-            <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><br><br v-show="!infoView"></p>
+            <p class="entry-text entry-name" :class="{ expanded: infoView }"><b>{{ info.name.main }}</b></p>
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
-                <div class="animated-info">
-                    <p class="entry-text entry-alt-name">
-                        (<b>{{ info.name.mainAlt }}</b>)
-                    </p>
+                <div class="expanded-details">
+                    <p v-if="info.name.mainAlt" class="entry-alt-name"><b>{{ info.name.mainAlt }}</b></p>
+                    <p v-if="info.motto" class="detail-motto">“{{ info.motto }}”</p>
 
-                    <hr class="light-divider">
-
-                    <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
-                        info.motto }}"</span><span v-if="info.motto === ''">No motto.</span>
-                    </p>
-                    <p class="entry-text">
-                        <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
-                                v-if="i !== info.languages.length - 1">,&nbsp;</span><span
-                                v-if="i === info.languages.length - 1">.</span></span>
-                    </p>
-
-                    <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-                        info.foundationDate && info.foundationDate._seconds ? new Date(info.foundationDate._seconds * 1000).toDateString() : 'Unknown' }}
-                    </p>
-
-                    <hr class="light-divider">
-
-                    <div class="entry-group extended">
-                        <p class="entry-text">Historical members:</p>
-                        <div class="sources-container members">
-                            <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
-                                :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="49" :height="28"
-                                :micronation-name="member.name.main" :icon="'flag'" />
+                    <div class="entry-facts">
+                        <div class="entry-fact">
+                            <span class="fact-label">Languages</span>
+                            <strong>{{ info.languages?.length ? info.languages.join(', ') : 'Not listed' }}</strong>
+                        </div>
+                        <div class="entry-fact">
+                            <span class="fact-label">Founded</span>
+                            <strong>{{ formatFoundation(info.foundationDate) }}</strong>
                         </div>
                     </div>
 
-                    <hr class="light-divider">
-
-                    <div class="entry-group">
-                        <p class="entry-text">Contact media:
-                            <span v-if="!info.contactInfo || !info.contactInfo.length"><br>N/A.</span>
-                        </p>
+                    <section class="entry-sources-section">
+                        <div class="sources-heading"><span>Contact media</span><small>{{ info.contactInfo?.length || 0 }}</small></div>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
-                                :href="contact" :flag-source="info.logo" :size="32" :micronation-name="info.name.main"
+                            <EntrySource v-for="(contact, i) in info.contactInfo" :key="contact + i"
+                                :href="contact" :flag-source="info.logo" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
-                    </div>
-                    <div class="entry-group">
-                        <p class="entry-text">Info sources:</p>
+                        <p v-if="!info.contactInfo?.length" class="source-empty">No contact media listed</p>
+                    </section>
+
+                    <section class="entry-sources-section">
+                        <div class="sources-heading"><span>Info sources</span><small>{{ info.websites?.length || 0 }}</small></div>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i" :href="website"
-                                :flag-source="info.logo" :size="32" :micronation-name="info.name.main"
+                            <EntrySource v-for="(website, i) in info.websites" :key="website + i"
+                                :href="website" :flag-source="info.logo" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
-                    </div>
+                        <p v-if="!info.websites?.length" class="source-empty">No sources listed</p>
+                    </section>
                 </div>
             </AnimateHeight>
         </div>
 
-        <div class="info-buttons-container">
-            <button class="info-button" @click="toggleInfo">{{ infoView ? 'Collapse' : 'Expand' }}</button>
-            <router-link :to="'/organizations/' + info.name.main" class="info-button">Full profile</router-link>
+        <div v-if="infoView" class="info-buttons-container">
+            <router-link :to="'/organizations/' + info.name.main" class="info-button full-width">See full profile</router-link>
         </div>
     </div>
 </template>
@@ -114,10 +89,6 @@ export default {
         };
     },
     computed: {
-        getMembers() {
-            const that = this;
-            return this.micronationsDirectory.filter(element => element.approved && (element.memberships.includes(that.info.name.main) || element.memberships.includes(that.info.name.mainAlt)));
-        },
         cssProps() {
             return {
                 '--container-width': (this.width) + "px"
@@ -125,10 +96,15 @@ export default {
         }
     },
     methods: {
+        formatFoundation(date) {
+            if (date == null || date === '') return 'Unknown';
+            const seconds = date?._seconds ?? date?.seconds;
+            const parsedDate = seconds != null ? new Date(seconds * 1000) : new Date(date);
+            if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
+            return parsedDate.getFullYear();
+        },
         toggleInfo() {
-            if (this.viewMode !== 'collage') {
-                this.infoView = !this.infoView;
-            }
+            this.infoView = !this.infoView;
             this.updateHeight();
         },
         updateHeight() {
@@ -148,11 +124,23 @@ export default {
     max-height: max-content;
     background-color: var(--directory-entry-background-color);
     color: var(--directory-entry-text-color);
-    border-radius: 8px;
-    border: 2px solid var(--site-section-border-color);
-    padding: 15px 15px 0 15px;
+    border-radius: var(--radius-sm);
+    border: none;
+    padding: 15px;
+    padding-bottom: 15px;
     margin: 0 3px 6px 3px;
-    transition: linear background-color 0.3s, linear color 0.3s;
+    transition: transform var(--transition-base) ease, background-color var(--transition-base) ease, box-shadow var(--transition-base) ease;
+    cursor: pointer;
+}
+
+.directory-entry-container.info-displayed {
+    padding-bottom: 0;
+}
+
+.directory-entry-container:hover {
+    transform: translateY(-4px);
+    background-color: var(--navbar-tab-background-color-hover);
+    box-shadow: var(--shadow-soft);
 }
 
 .directory-entry-container.collage-mode {
@@ -262,29 +250,56 @@ export default {
 }
 
 .info-button {
-    width: 50%;
     text-align: center;
     font-size: 12px;
     text-decoration: none;
     background: var(--vt-c-indigo);
-    border: 1px solid var(--vt-c-black);
+    border: 1px solid var(--color-border);
     border-bottom: none;
     color: var(--vt-c-white-soft);
     cursor: pointer;
 }
 
-.info-buttons-container .info-button:first-child {
-    border-bottom-left-radius: 8px;
+.info-button.full-width {
+    width: 100%;
+    border-bottom-left-radius: var(--radius-sm);
+    border-bottom-right-radius: var(--radius-sm);
     border-left: none;
-}
-
-.info-buttons-container .info-button:last-child {
-    border-bottom-right-radius: 8px;
     border-right: none;
 }
 
 .info-button:hover {
-    background: var(--soft-beige);
-    color: var(--vt-c-indigo-dark);
+    background: var(--navbar-tab-background-color-hover);
+    color: var(--color-accent);
 }
+
+/* Keep the organization card aligned with the refreshed micronation card. */
+.directory-entry-container.info-displayed {
+    padding: 12px;
+    padding-bottom: 0;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 24%, var(--color-border));
+    border-radius: var(--radius-md);
+    background: linear-gradient(155deg, color-mix(in srgb, var(--color-accent) 6%, var(--directory-entry-background-color)), var(--directory-entry-background-color) 48%);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--color-heading) 9%, transparent);
+}
+
+.directory-entry-container.info-displayed:hover { transform: translateY(-2px); }
+.entry-logo { display: block; max-width: 100%; object-fit: contain; }
+.entry-text.entry-name.expanded { margin-bottom: 2px; }
+.expanded-details { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+.entry-alt-name { margin: 0; color: var(--color-muted); font-size: 11px; font-style: italic; text-align: center; overflow-wrap: anywhere; }
+.detail-motto { margin: 0; padding: 8px 10px; border-left: 3px solid var(--color-accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--color-text); background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface)); font-size: 12px; font-style: italic; line-height: 1.4; text-align: left; overflow-wrap: anywhere; }
+.entry-facts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.entry-fact { display: flex; min-width: 0; flex-direction: column; gap: 4px; padding: 7px 8px; border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--color-surface) 72%, transparent); text-align: left; }
+.fact-label { color: var(--color-muted); font-size: 9px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.entry-fact strong { color: var(--color-heading); font-size: 11px; line-height: 1.35; overflow-wrap: anywhere; }
+.entry-sources-section { padding-top: 8px; border-top: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent); }
+.sources-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; color: var(--color-muted); font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.sources-heading small { display: grid; min-width: 19px; height: 19px; padding: 0 4px; place-items: center; border-radius: var(--radius-full); color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)); font-size: 10px; letter-spacing: normal; }
+.expanded-details .sources-container { display: flex; width: 100%; justify-content: flex-start; gap: 6px; flex-wrap: wrap; }
+.sources-container.members { max-height: 150px; overflow-y: auto; }
+.source-empty { margin: 0; color: var(--color-muted); font-size: 11px; font-style: italic; }
+.info-buttons-container { width: calc(100% + 24px); margin-top: 10px; }
+.info-button { display: flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 8px; font-size: 13px; line-height: 1.3; transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
+.info-button:hover { color: var(--vt-c-white-soft); background: color-mix(in srgb, var(--vt-c-indigo) 86%, var(--color-heading)); box-shadow: 0 2px 8px color-mix(in srgb, var(--vt-c-indigo) 20%, transparent); }
 </style>
