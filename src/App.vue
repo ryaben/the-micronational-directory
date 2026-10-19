@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       user: {},
-      navbarButtons: [
+      navigationButtons: [
         { text: 'Home', icon: 'home.png', route: 'Home' },
         {
           text: 'Directory',
@@ -81,7 +81,7 @@ export default {
             { text: 'Organizations', route: 'Organizations' },
             { text: 'World map', route: 'GlobalMap' },
             { text: 'New entry', route: 'NewEntry' },
-            { text: 'Moderation', route: 'ModerationPanel' }
+            { text: 'Moderation', route: 'ModerationPanel', requiresModerator: true }
           ]
         },
         {
@@ -105,6 +105,14 @@ export default {
     }
   },
   computed: {
+    navbarButtons() {
+      return this.navigationButtons.map((button) => ({
+        ...button,
+        subButtons: (button.subButtons || []).filter((subButton) =>
+          !subButton.requiresModerator || this.userIsModerator
+        )
+      }))
+    },
     micronationsDirectory() {
       return store.getters.micronations
     },
