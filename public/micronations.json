@@ -53198,5 +53198,50 @@
       "_seconds": 1769968494,
       "_nanoseconds": 0
     }
+  },
+  {
+    "name": {
+      "main": "Arkzelia",
+      "mainAlt": "阿克薩地亞",
+      "title": "People's Democratic Republic of",
+      "titleAlt": "人民民主共和國"
+    },
+    "flag": "/images/flags/Arkzelia.jpg",
+    "motto": "祖國！革命！社會主義！(Fatherland! Revolution! Socialism!)",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "languages": [
+      "Chinese",
+      "Cantonese"
+    ],
+    "capital": "Zvezeda Capital City",
+    "currency": "Arkzelian Kiel, Hong Kong Dollar",
+    "foundationDate": {
+      "seconds": 1704619080,
+      "_seconds": 1704619080
+    },
+    "location": {
+      "latitude": 22.31828828243519,
+      "longitude": 114.25810602276766
+    },
+    "memberships": [],
+    "contactInfo": [
+      "https://discord.gg/NuvtSUjb9Y/",
+      "https://x.com/PDRGaugauzia"
+    ],
+    "websites": [
+      "https://zh.micronations.wiki/wiki/%E9%98%BF%E5%85%8B%E8%96%A9%E5%9C%B0%E4%BA%9E%E4%BA%BA%E6%B0%91%E6%B0%91%E4%B8%BB%E5%85%B1%E5%92%8C%E5%9C%8B"
+    ],
+    "author": {
+      "name": "robert_therobert",
+      "email": "mlgdankmemes1997@gmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1772587290,
+      "_nanoseconds": 0
+    }
   }
 ]
