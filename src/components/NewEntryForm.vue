@@ -12,8 +12,10 @@ import HelpTooltip from '../components/HelpTooltip.vue';
 import SelectedElement from '../components/SelectedElement.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
+import ModerationImageEditor from './ModerationImageEditor.vue';
 import { createGitHubIssue } from '../utils/githubFunctions.js';
 import imageCompression from 'browser-image-compression';
+import '@vuepic/vue-datepicker/dist/main.css';
 
 const LocationPicker = defineAsyncComponent(() => import('../components/LocationPicker.vue'));
 
@@ -23,6 +25,11 @@ defineProps({
         required: false,
         default: 'micronation'
     },
+    isModerationEditor: { type: Boolean, default: false },
+    initialEntry: { type: Object, default: null },
+    initialImageMode: { type: String, default: 'url' },
+    saving: { type: Boolean, default: false },
+    imageProcessing: { type: Boolean, default: false },
     directoryData: {
         type: Array,
         required: true,
@@ -70,13 +77,14 @@ defineProps({
         default: store.getters.micronations.filter(element => element.supranational)
     }
 });
+const emit = defineEmits(['save-corrections', 'edit-image-change', 'image-error', 'image-processing']);
 </script>
 
 <template>
     <Transition name="opacity">
-        <div class="new-entry-container">
+        <div class="new-entry-container" :class="{ 'new-entry-container--moderation': isModerationEditor }">
             <div class="new-entry-content">
-                <p class="new-entry-intro">Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to
+                <p v-if="!isModerationEditor" class="new-entry-intro">Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to
                     fill,
                     the others can be blank.
                     <br>Help us save moderation efforts! <a href="mailto:themicronationaldirectory@gmail.com">Ask any
@@ -153,9 +161,9 @@ defineProps({
                                 @click="activeTooltipIndex === 6 ? '' : activateTooltip(6, 'Official languages', $event)">
                         </label>
                         <div class="new-entry-option-container">
-                            <div style="display: flex;">
-                                <select name="newEntryLanguages" class="new-entry-option-select" @change="addLanguage"
-                                    required>
+                            <div class="new-entry-select-controls">
+                                <select name="newEntryLanguages" class="new-entry-option-select" @change="addLanguage">
+                                    <option value="" disabled>Select language</option>
                                     <optgroup>
                                         <option value="custom">Other (custom)</option>
                                     </optgroup>
@@ -166,6 +174,8 @@ defineProps({
                                     </optgroup>
                                 </select>
                                 <input type="text" placeholder="Custom language name" v-model="customLanguage">
+                                <button type="button" class="login-button squared-button color-transition new-entry-option-button"
+                                    @click="addCustomLanguage">Add</button>
                             </div>
                             <div class="selected-elements-container">
                                 <SelectedElement class="selection margin-top"
@@ -204,11 +214,10 @@ defineProps({
                                 @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)">
                         </label>
                         <div v-if="entryType === 'micronation'" v-show="physicalType">
-                            <label v-show="physicalType">Drag and drop the blue pin to the location of the
-                                micronation (leave as is if unknown or not applicable, for large territories you can
-                                mark the capital):</label>
+                            <p class="new-entry-location-note">Drag the pin to the micronation's location. Leave it at the default location (0, 0) if unknown.</p>
                             <LocationPicker v-if="renderedMapboxNewEntry" :visible="!physicalType" ref="locationPicker"
-                                mode="picker" width="100%" height="300px" @dragged-marker="draggedMarker" />
+                                mode="picker" width="100%" height="300px" :initial-position="locationPickerMarkerPosition"
+                                @dragged-marker="draggedMarker" />
                         </div>
 
                         <label v-if="entryType === 'micronation'" for="newEntryMemberships" class="new-entry-form-text">
@@ -216,9 +225,10 @@ defineProps({
                                 @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)">
                         </label>
                         <div v-if="entryType === 'micronation'" class="new-entry-option-container">
-                            <div style="display: flex;">
+                            <div class="new-entry-select-controls">
                                 <select name="newEntryMemberships" class="new-entry-option-select"
                                     @change="addMembership">
+                                    <option value="" disabled>Select organization</option>
                                     <optgroup>
                                         <option value="custom">Other (manual input)</option>
                                     </optgroup>
@@ -232,6 +242,8 @@ defineProps({
                                 </select>
                                 <input type="text" placeholder="Other (full name, no acronym)"
                                     v-model="customMembership">
+                                <button type="button" class="login-button squared-button color-transition new-entry-option-button"
+                                    @click="addCustomMembership">Add</button>
                             </div>
                             <div class="selected-elements-container">
                                 <SelectedElement class="selection margin-top"
@@ -254,7 +266,7 @@ defineProps({
                             <div class="selected-elements-container">
                                 <SelectedElement class="selection margin-top"
                                     v-for="(contact, i) in formPlaceholders.newEntryEmails" :key="i"
-                                    :element-text="checkIcon(contact)" @remove-element="removeEmail" />
+                                    :element-text="contact" :icon="checkIcon(contact)" @remove-element="removeEmail" />
                             </div>
                         </div>
 
@@ -272,7 +284,7 @@ defineProps({
                             <div class="selected-elements-container">
                                 <SelectedElement class="selection margin-top"
                                     v-for="(website, i) in formPlaceholders.newEntryWebsites" :key="i"
-                                    :element-text="checkIcon(website)" @remove-element="removeWebsite" />
+                                    :element-text="website" :icon="checkIcon(website)" @remove-element="removeWebsite" />
                             </div>
                         </div>
 
@@ -282,6 +294,15 @@ defineProps({
                                 @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)">
                         </label>
                         <div class="flag-preview-container">
+                            <img v-if="isModerationEditor && editImageValue" :src="editImageValue"
+                                class="moderation-edit-image-preview" :alt="entryType === 'micronation' ? 'Current flag' : 'Current logo'">
+                            <ModerationImageEditor v-if="isModerationEditor" v-model="editImageValue"
+                                :initial-mode="initialImageMode" :image-name="formPlaceholders.newEntryName"
+                                :asset-type="entryType === 'micronation' ? 'flag' : 'logo'"
+                                @image-change="emit('edit-image-change', $event)"
+                                @image-error="emit('image-error', $event)"
+                                @image-processing="emit('image-processing', $event)" />
+                            <template v-else>
                             <div style="display: flex; margin-bottom: 5px;">
                                 <label class="flag-radio">
                                     <input v-model="flagRadio" type="radio" name="flagRadio" value="file">
@@ -300,22 +321,24 @@ defineProps({
                             <label for="">(if N/A or unobtainable: <a href="/images/missing-flag.png"
                                     target="_blank">download or use the URL to this template</a>)
                             </label>
+                            </template>
                         </div>
 
                         <div class="wide-row">
-                            <Recaptcha @checkbox="checkRecaptcha" />
+                            <Recaptcha v-if="!isModerationEditor" @checkbox="checkRecaptcha" />
                             <button id="addEntryButton" type="submit"
-                                :disabled="!passedRecaptcha || isSubmitting" :aria-busy="isSubmitting"
+                                :disabled="isModerationEditor ? saving || imageProcessing : !passedRecaptcha || isSubmitting"
+                                :aria-busy="isModerationEditor ? saving : isSubmitting"
                                 class="login-button short color-transition">
-                                <span v-if="isSubmitting" class="submit-spinner" aria-hidden="true"></span>
-                                <span>{{ isSubmitting ? 'Submitting…' : 'Add new entry' }}</span>
+                                <span v-if="isSubmitting || (isModerationEditor && saving)" class="submit-spinner" aria-hidden="true"></span>
+                                <span>{{ isModerationEditor ? (saving ? 'Saving corrections…' : 'Save corrections') : (isSubmitting ? 'Submitting…' : 'Add new entry') }}</span>
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <div class="new-entry-preview">
+            <div v-if="!isModerationEditor" class="new-entry-preview">
                 <h3 id="previewTitle">Entry preview</h3>
 
                 <DirectoryEntry v-if="entryType === 'micronation'" :initial-info-view="true" :width="180"
@@ -371,11 +394,17 @@ export default {
         OrganizationEntry,
         HelpTooltip
     },
-    data: () => {
+    data() {
+        const entry = this.initialEntry || {};
+        const location = entry.location || {};
+        const foundationDate = entry.foundationDate;
+        const foundationSeconds = foundationDate?._seconds ?? foundationDate?.seconds;
         return {
-            foundationDate: null,
+            foundationDate: foundationDate == null ? null : foundationSeconds != null
+                ? new Date(foundationSeconds * 1000) : new Date(foundationDate),
             flagSource: '',
-            flagPreview: '',
+            flagPreview: entry.flag || entry.logo || '',
+            editImageValue: entry.flag || entry.logo || '',
             flagRadio: 'file',
             passedRecaptcha: false,
             isSubmitting: false,
@@ -383,9 +412,9 @@ export default {
             customMembership: '',
             currentEmail: '',
             currentWebsite: '',
-            locationPickerMarkerPosition: [0, 0],
-            renderedMapboxNewEntry: false,
-            physicalType: false,
+            locationPickerMarkerPosition: [Number(location.longitude ?? location._longitude ?? 0), Number(location.latitude ?? location._latitude ?? 0)],
+            renderedMapboxNewEntry: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
+            physicalType: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
             tooltipDisplay: false,
             tooltipPosition: {
                 x: 0,
@@ -414,7 +443,7 @@ export default {
     },
     watch: {
         formPlaceholders(newValue) {
-            this.displayImage(newValue.newEntryFlag);
+            if (!this.isModerationEditor) this.displayImage(newValue.newEntryFlag);
         }
     },
     computed: {
@@ -449,6 +478,43 @@ export default {
     methods: {
         async addEntry() {
             const that = this;
+
+            if (this.isModerationEditor) {
+                if (!this.formPlaceholders.newEntryName.trim()) {
+                    return notify({ title: 'Cannot save entry', text: 'The official name is required.', type: 'error' });
+                }
+                if (!this.formPlaceholders.newEntryLanguages.length) {
+                    return notify({ title: 'Cannot save entry', text: 'Add at least one official language.', type: 'error' });
+                }
+                if (!this.formPlaceholders.newEntryWebsites.length) {
+                    return notify({ title: 'Cannot save entry', text: 'Add at least one information source.', type: 'error' });
+                }
+                const entryData = {
+                    name: {
+                        main: this.formPlaceholders.newEntryName,
+                        mainAlt: this.formPlaceholders.newEntryNameAlt,
+                        title: this.formPlaceholders.newEntryTitle,
+                        titleAlt: this.formPlaceholders.newEntryTitleAlt
+                    },
+                    motto: this.formPlaceholders.newEntryMotto,
+                    languages: [...this.formPlaceholders.newEntryLanguages],
+                    contactInfo: [...this.formPlaceholders.newEntryEmails],
+                    websites: [...this.formPlaceholders.newEntryWebsites],
+                    foundationDate: this.foundationDate ? { seconds: Math.floor(new Date(this.foundationDate).getTime() / 1000) } : null
+                };
+                if (this.entryType === 'micronation') {
+                    entryData.type = this.checkTypes;
+                    entryData.capital = this.formPlaceholders.newEntryCapital;
+                    entryData.currency = this.formPlaceholders.newEntryCurrency;
+                    entryData.memberships = [...this.formPlaceholders.newEntryMemberships];
+                    entryData.location = this.physicalType ? {
+                        latitude: Number(this.locationPickerMarkerPosition[1]),
+                        longitude: Number(this.locationPickerMarkerPosition[0])
+                    } : null;
+                }
+                this.$emit('save-corrections', entryData);
+                return;
+            }
 
             if (this.isSubmitting) return;
 
@@ -580,25 +646,29 @@ export default {
         },
         addLanguage(event) {
             const lang = event.target.value;
-
-            if (this.formPlaceholders.newEntryLanguages.find(e => e === lang || (lang === 'custom' && e === this.customLanguage)) === undefined) {
-                if (lang === 'custom') {
-                    this.formPlaceholders.newEntryLanguages.push(this.customLanguage);
-                } else {
-                    this.formPlaceholders.newEntryLanguages.push(lang);
-                }
-            }
+            if (lang === 'custom') this.addCustomLanguage();
+            else if (lang && !this.formPlaceholders.newEntryLanguages.includes(lang)) this.formPlaceholders.newEntryLanguages.push(lang);
+            event.target.value = '';
         },
         addMembership(event) {
-            const lang = event.target.value;
-
-            if (this.formPlaceholders.newEntryMemberships.find(e => e === lang || (lang === 'custom' && e === this.customMembership)) === undefined) {
-                if (lang === 'custom') {
-                    this.formPlaceholders.newEntryMemberships.push(this.customMembership);
-                } else {
-                    this.formPlaceholders.newEntryMemberships.push(lang);
-                }
+            const membership = event.target.value;
+            if (membership === 'custom') this.addCustomMembership();
+            else if (membership && !this.formPlaceholders.newEntryMemberships.includes(membership)) this.formPlaceholders.newEntryMemberships.push(membership);
+            event.target.value = '';
+        },
+        addCustomLanguage() {
+            const language = this.customLanguage.trim();
+            if (language && !this.formPlaceholders.newEntryLanguages.includes(language)) {
+                this.formPlaceholders.newEntryLanguages.push(language);
             }
+            this.customLanguage = '';
+        },
+        addCustomMembership() {
+            const membership = this.customMembership.trim();
+            if (membership && !this.formPlaceholders.newEntryMemberships.includes(membership)) {
+                this.formPlaceholders.newEntryMemberships.push(membership);
+            }
+            this.customMembership = '';
         },
         emailNotice() {
             const that = this;
@@ -691,6 +761,34 @@ export default {
     box-shadow: var(--shadow-soft);
 }
 
+.new-entry-container--moderation {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.new-entry-container--moderation .new-entry-form {
+    margin-bottom: 0;
+}
+
+.new-entry-container--moderation .wide-row {
+    grid-column: 1 / -1;
+}
+
+.moderation-edit-image-preview {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    background: var(--color-background-soft);
+}
+
 .new-entry-content {
     display: flex;
     min-width: 0;
@@ -742,6 +840,21 @@ export default {
     margin-right: 6px;
 }
 
+.new-entry-select-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.new-entry-select-controls > * {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
 .new-entry-option-button {
     width: auto;
     min-width: 76px;
@@ -765,6 +878,12 @@ export default {
     font-size: 14px;
     font-weight: 700;
     color: var(--color-heading);
+}
+
+.new-entry-location-note {
+    margin: 0 0 8px;
+    color: var(--color-muted);
+    font-size: 12px;
 }
 
 div.new-entry-type {
@@ -944,6 +1063,14 @@ div.new-entry-type {
     .new-entry-option-container > div:first-child {
         flex-wrap: wrap;
         gap: 6px;
+    }
+
+    .new-entry-select-controls {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .new-entry-select-controls select {
+        grid-column: 1 / -1;
     }
 
     .new-entry-option-container > div:first-child > * {

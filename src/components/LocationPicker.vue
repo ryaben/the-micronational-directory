@@ -30,6 +30,11 @@ defineProps({
         type: Array,
         require: false,
         default: []
+    },
+    initialPosition: {
+        type: Array,
+        required: false,
+        default: () => [0, 0]
     }
 });
 </script>
@@ -38,7 +43,7 @@ defineProps({
     <div class="mapbox-container" :style="visible ? 'display: none;' : 'display: flex;'">
         <MapboxMap :style="{ 'height': height, 'width': width }" :access-token="mapboxToken" ref="mapbox"
             map-style="mapbox://styles/ramayaben/clldsj3t701e101mf8buwfsad"
-            @mb-created="(mapboxInstance) => map = mapboxInstance">
+            @mb-created="initializeMap">
             <MapboxMarker v-if="mode === 'picker'" id="mapboxMarker" :lng-lat="markerPosition" popup draggable
                 @mb-dragend="updatePosition">
                 <template v-slot:popup>
@@ -63,6 +68,16 @@ defineProps({
             <MapboxNavigationControl position="bottom-right" />
         </MapboxMap>
     </div>
+    <div v-if="mode === 'picker'" class="location-coordinates">
+        <label>
+            Longitude
+            <input type="number" step="any" :value="coordinateInputs.longitude" @input="updateCoordinate('longitude', $event.target.value)">
+        </label>
+        <label>
+            Latitude
+            <input type="number" step="any" :value="coordinateInputs.latitude" @input="updateCoordinate('latitude', $event.target.value)">
+        </label>
+    </div>
 </template>
 
 <script>
@@ -71,17 +86,52 @@ export default {
     components: {
         MemberSource
     },
-    data: () => {
+    data() {
         return {
+            map: null,
             layerOptions: {},
-            markerPosition: [0, 0]
+            markerPosition: [...this.initialPosition],
+            coordinateInputs: {
+                longitude: String(this.initialPosition[0] ?? 0),
+                latitude: String(this.initialPosition[1] ?? 0)
+            }
         };
     },
+    watch: {
+        initialPosition(position) {
+            if (Array.isArray(position) && position.length === 2) {
+                this.markerPosition = [...position];
+                this.coordinateInputs = { longitude: String(position[0]), latitude: String(position[1]) };
+            }
+        }
+    },
     methods: {
+        initializeMap(mapboxInstance) {
+            this.map = mapboxInstance;
+            const hasInitialLocation = this.initialPosition.some(value => Number(value) !== 0);
+            if (this.mode === 'picker' && hasInitialLocation) {
+                mapboxInstance.setCenter(this.markerPosition);
+                mapboxInstance.setZoom(4);
+            }
+        },
         updatePosition(e) {
             this.markerPosition = [e.target._lngLat.lng, e.target._lngLat.lat];
+            this.coordinateInputs = {
+                longitude: String(this.markerPosition[0]),
+                latitude: String(this.markerPosition[1])
+            };
             this.$emit('dragged-marker', this.markerPosition);
         },
+        updateCoordinate(axis, value) {
+            this.coordinateInputs[axis] = value;
+            if (value === '' || !Number.isFinite(Number(value))) return;
+
+            const position = [...this.markerPosition];
+            position[axis === 'longitude' ? 0 : 1] = Number(value);
+            this.markerPosition = position;
+            this.map?.setCenter(position);
+            this.$emit('dragged-marker', position);
+        }
     }
 }
 </script>
@@ -90,5 +140,33 @@ export default {
 .mapbox-container {
     display: flex;
     justify-content: center;
+}
+
+.location-coordinates {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.location-coordinates label {
+    display: grid;
+    gap: 4px;
+    color: var(--color-muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.location-coordinates input {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-heading);
+    background: var(--color-surface);
+    font: inherit;
 }
 </style>

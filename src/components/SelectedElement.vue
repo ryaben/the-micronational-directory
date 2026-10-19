@@ -1,8 +1,14 @@
 <script setup>
+import { getIconFolder } from '../utils/EntrySourceFunctions';
+
 defineProps({
     elementText: {
         type: String,
         required: true
+    },
+    icon: {
+        type: String,
+        default: ''
     }
 });
 
@@ -11,7 +17,8 @@ const emit = defineEmits(['remove-element']);
 
 <template>
     <span class="selected-element">
-        <span class="element-text">{{ elementText }}</span>
+        <img v-if="icon" class="element-icon" :src="`/images/${getIconFolder(icon)}/${icon}.png`" alt="" aria-hidden="true">
+        <span class="element-text" :title="elementText">{{ elementText }}</span>
         <button class="remove-element" type="button" :aria-label="`Remove ${elementText}`"
             @click="emit('remove-element', elementText)">
             <span aria-hidden="true">×</span>
@@ -52,6 +59,15 @@ export default { name: 'SelectedElement' };
     line-height: 1.35;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.element-icon {
+    display: block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    border-radius: 3px;
 }
 
 .remove-element {
