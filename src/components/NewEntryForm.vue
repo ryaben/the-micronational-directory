@@ -1,19 +1,21 @@
 <script setup>
-import { auth } from '../firebase/init.js';
+import { defineAsyncComponent } from 'vue';
+import { auth } from '../firebase/auth.js';
 import { notify } from "@kyvg/vue3-notification";
 import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
 import store from '../store';
 import emailjs from 'emailjs-com';
 import languages from 'language-list';
 import VueDatePicker from '@vuepic/vue-datepicker';
-import LocationPicker from '../components/LocationPicker.vue';
 import Recaptcha from '../components/ReCaptcha.vue';
 import HelpTooltip from '../components/HelpTooltip.vue';
-import SelectedLanguage from '../components/SelectedLanguage.vue';
+import SelectedElement from '../components/SelectedElement.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
 import { createGitHubIssue } from '../utils/githubFunctions.js';
 import imageCompression from 'browser-image-compression';
+
+const LocationPicker = defineAsyncComponent(() => import('../components/LocationPicker.vue'));
 
 defineProps({
     entryType: {
@@ -73,8 +75,8 @@ defineProps({
 <template>
     <Transition name="opacity">
         <div class="new-entry-container">
-            <div style="display: flex; flex-direction: column; width: 70%;">
-                <p>Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to
+            <div class="new-entry-content">
+                <p class="new-entry-intro">Please, carefully read instructions for all fields. Fields with an asterisk (*) are mandatory to
                     fill,
                     the others can be blank.
                     <br>Help us save moderation efforts! <a href="mailto:themicronationaldirectory@gmail.com">Ask any
@@ -165,10 +167,10 @@ defineProps({
                                 </select>
                                 <input type="text" placeholder="Custom language name" v-model="customLanguage">
                             </div>
-                            <div class="selected-languages-container">
-                                <SelectedLanguage class="selection margin-top"
+                            <div class="selected-elements-container">
+                                <SelectedElement class="selection margin-top"
                                     v-for="(language, i) in formPlaceholders.newEntryLanguages" :key="i"
-                                    :lang-text="language" @remove-language="removeLanguage(language)" />
+                                    :element-text="language" @remove-element="removeLanguage" />
                             </div>
                         </div>
 
@@ -222,7 +224,7 @@ defineProps({
                                     </optgroup>
                                     <optgroup>
                                         <option
-                                            v-for="(membership, i) in organizationsDirectory.filter(element => element.approved)"
+                                            v-for="(membership, i) in organizationsDirectory"
                                             :key="i" :value="membership.name.main">
                                             {{ membership.name.main }} ({{ membership.name.mainAlt }})
                                         </option>
@@ -231,10 +233,10 @@ defineProps({
                                 <input type="text" placeholder="Other (full name, no acronym)"
                                     v-model="customMembership">
                             </div>
-                            <div class="selected-languages-container">
-                                <SelectedLanguage class="selection margin-top"
+                            <div class="selected-elements-container">
+                                <SelectedElement class="selection margin-top"
                                     v-for="(membership, i) in formPlaceholders.newEntryMemberships" :key="i"
-                                    :lang-text="membership" @remove-language="removeMembership" />
+                                    :element-text="membership" @remove-element="removeMembership" />
                             </div>
                         </div>
 
@@ -249,10 +251,10 @@ defineProps({
                                 <button @click="addEmail(currentEmail)" type="button"
                                     class="login-button squared-button color-transition new-entry-option-button">Add</button>
                             </div>
-                            <div class="selected-languages-container">
-                                <SelectedLanguage class="selection margin-top"
+                            <div class="selected-elements-container">
+                                <SelectedElement class="selection margin-top"
                                     v-for="(contact, i) in formPlaceholders.newEntryEmails" :key="i"
-                                    :lang-text="checkIcon(contact)" @remove-language="removeEmail(contact)" />
+                                    :element-text="checkIcon(contact)" @remove-element="removeEmail" />
                             </div>
                         </div>
 
@@ -267,10 +269,10 @@ defineProps({
                                 <button @click="addWebsite(currentWebsite)" type="button"
                                     class="login-button squared-button color-transition new-entry-option-button">Add</button>
                             </div>
-                            <div class="selected-languages-container">
-                                <SelectedLanguage class="selection margin-top"
+                            <div class="selected-elements-container">
+                                <SelectedElement class="selection margin-top"
                                     v-for="(website, i) in formPlaceholders.newEntryWebsites" :key="i"
-                                    :lang-text="checkIcon(website)" @remove-language="removeWebsite(website)" />
+                                    :element-text="checkIcon(website)" @remove-element="removeWebsite" />
                             </div>
                         </div>
 
@@ -302,17 +304,19 @@ defineProps({
 
                         <div class="wide-row">
                             <Recaptcha @checkbox="checkRecaptcha" />
-                            <input id="addEntryButton" type="submit" value="Add new entry" :disabled="!passedRecaptcha"
+                            <button id="addEntryButton" type="submit"
+                                :disabled="!passedRecaptcha || isSubmitting" :aria-busy="isSubmitting"
                                 class="login-button short color-transition">
-                            <label>(wait a few seconds for confirmation)</label>
+                                <span v-if="isSubmitting" class="submit-spinner" aria-hidden="true"></span>
+                                <span>{{ isSubmitting ? 'Submitting…' : 'Add new entry' }}</span>
+                            </button>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div class="new-entry-preview">
-                <h2 id="previewTitle">Entry preview</h2>
-                <p>(Click on 'Expand' to toggle the display)</p>
+                <h3 id="previewTitle">Entry preview</h3>
 
                 <DirectoryEntry v-if="entryType === 'micronation'" :initial-info-view="true" :width="180"
                     :flag-height="180 * 0.6" view-mode="micronations" :micronations-directory="micronationsDirectory"
@@ -361,9 +365,8 @@ export default {
     name: 'NewEntryForm',
     components: {
         VueDatePicker,
-        LocationPicker,
         Recaptcha,
-        SelectedLanguage,
+        SelectedElement,
         DirectoryEntry,
         OrganizationEntry,
         HelpTooltip
@@ -375,6 +378,7 @@ export default {
             flagPreview: '',
             flagRadio: 'file',
             passedRecaptcha: false,
+            isSubmitting: false,
             customLanguage: '',
             customMembership: '',
             currentEmail: '',
@@ -403,7 +407,7 @@ export default {
                 "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
                 "Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.",
                 "Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.",
-                "Only .png files, it would be great if you first compress it at https://tinypng.com/. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version."
+                "Only .png files, a maximum of 35 Kb so you'll probably have to first compress it at https://tinypng.com/ and use files with small dimensions. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version."
             ],
             activeTooltipText: 0
         };
@@ -446,6 +450,8 @@ export default {
         async addEntry() {
             const that = this;
 
+            if (this.isSubmitting) return;
+
             if (this.formPlaceholders.newEntryWebsites.length === 0) {
                 return notify({
                     title: "Error when submitting",
@@ -463,6 +469,7 @@ export default {
             }
 
             if (this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
+                this.isSubmitting = true;
                 try {
                     // Prepare entry data
                     const entryData = {
@@ -544,6 +551,8 @@ export default {
                         text: error.message || "Failed to submit entry. Please try again.",
                         type: "error"
                     });
+                } finally {
+                    this.isSubmitting = false;
                 }
             } else {
                 notify({
@@ -604,8 +613,8 @@ export default {
         activateTooltip(tooltipIndex, title, event) {
             this.tooltipDisplay = true;
             this.tooltipPosition = {
-                x: event.pageX,
-                y: event.pageY
+                x: Math.max(12, Math.min(event.clientX + 12, window.innerWidth - 352)),
+                y: Math.max(12, Math.min(event.clientY + 12, window.innerHeight * 0.3))
             }
             this.tooltipTitle = title;
             this.activeTooltipText = tooltipIndex;
@@ -669,13 +678,32 @@ export default {
 
 <style scoped>
 .new-entry-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    align-items: start;
+    gap: clamp(20px, 3vw, 40px);
+    margin-top: 18px;
+    padding: clamp(18px, 3vw, 32px);
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-soft);
+}
+
+.new-entry-content {
     display: flex;
-    justify-content: space-between;
-    background-color: var(--directory-settings-background-color);
-    color: var(--vt-c-text-dark-2);
-    border-radius: 6px;
-    border: 2px solid var(--navbar-tab-border-color);
-    padding: 12px;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.new-entry-intro {
+    margin: 0 0 10px;
+    padding: 14px 16px;
+    color: var(--color-muted);
+    background: var(--color-background-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
 }
 
 .listing-new-entry {
@@ -690,46 +718,92 @@ export default {
 
 .new-entry-form {
     display: grid;
-    row-gap: 8px;
-    grid-template-columns: 30% 60%;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    /* border-right: 3px solid var(--vt-c-white-soft); */
+    grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(14px, 2vw, 26px);
+    row-gap: 12px;
+    margin: 8px 0 15px;
 }
 
 .new-entry-option-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 3px;
-    padding: 6px;
-    border-radius: 8px;
-    background-color: var(--vt-c-divider-dark-1);
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-background-soft);
 }
 
 .new-entry-option-select {
     width: 100%;
-    margin-right: 3px;
+    min-width: 0;
+    margin-right: 6px;
 }
 
 .new-entry-option-button {
-    width: 20%;
+    width: auto;
+    min-width: 76px;
+    min-height: 42px;
+    padding: 7px 16px;
 }
 
-.selected-languages-container {
+.selected-elements-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.selected-elements-container:not(:empty) {
+    gap: 6px;
+    margin-top: 8px;
 }
 
 .new-entry-form-text {
     display: flex;
     align-items: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--directory-entry-text-color);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-heading);
 }
 
 div.new-entry-type {
-    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0;
+    row-gap: 8px;
+    padding: 8px 0;
+}
+
+.new-entry-type label,
+.flag-radio {
+    cursor: pointer;
+}
+
+.new-entry-type input[type='checkbox'] {
+    margin-right: 5px;
+}
+
+.new-entry-type label {
+    margin-right: 14px;
+}
+
+.new-entry-form > input[type='text'],
+.new-entry-form > input[type='url'],
+.new-entry-form > input[type='email'],
+.new-entry-form > input[type='date'] {
+    width: 100%;
+    min-height: 44px;
+}
+
+.new-entry-form :deep(.dp__main) {
+    width: 100%;
+}
+
+.new-entry-form :deep(.dp__input) {
+    min-height: 44px;
+    border-radius: var(--radius-md);
 }
 
 .flag-preview {
@@ -742,42 +816,143 @@ div.new-entry-type {
     flex-direction: column;
     align-items: center;
     grid-column: span 2;
-    margin-top: 15px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
 }
 
 #addEntryButton {
-    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    min-height: 48px;
+    box-shadow: var(--shadow-soft);
+}
+
+#addEntryButton:disabled {
+    cursor: wait;
+    opacity: 0.78;
+}
+
+.submit-spinner {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: submit-spin 0.7s linear infinite;
+}
+
+@keyframes submit-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .submit-spinner { animation-duration: 1.8s; }
 }
 
 .new-entry-preview {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    position: sticky;
+    top: 18px;
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-background-soft);
 }
 
 .new-entry-preview p {
     text-align: center;
 }
 
-#previewTitle {
-    margin-block-end: 0px;
-}
-
 .tooltip-activator {
     margin-left: 4px;
     width: 16px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .flag-preview-container {
     display: flex;
     flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.flag-preview-container input[type='file'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed var(--color-border-hover);
+    border-radius: var(--radius-md);
+    background: var(--color-background-soft);
+}
+
+.flag-preview-container > label {
+    color: var(--color-muted);
+    font-size: 13px;
 }
 
 .flag-radio {
     display: flex;
     align-items: center;
     margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+    .new-entry-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .new-entry-preview {
+        position: static;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .new-entry-container {
+        gap: 18px;
+        padding: 14px;
+        border-radius: var(--radius-xl);
+    }
+
+    .new-entry-form {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 6px;
+    }
+
+    .new-entry-form-text {
+        margin-top: 8px;
+    }
+
+    .new-entry-form > input,
+    .new-entry-form > :deep(.dp__main),
+    .new-entry-form > .new-entry-option-container,
+    .new-entry-form > .new-entry-type,
+    .new-entry-form > div,
+    .wide-row {
+        grid-column: 1;
+    }
+
+    .new-entry-option-container > div:first-child {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .new-entry-option-container > div:first-child > * {
+        flex: 1 1 100%;
+        margin: 0;
+    }
+
+    .new-entry-option-button {
+        width: 100%;
+    }
 }
 </style>

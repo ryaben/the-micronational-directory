@@ -1,7 +1,6 @@
 <script setup>
-import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
+import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
-import MemberSource from '../components/MemberSource.vue';
 import AnimateHeight from 'vue-animate-height';
 import store from '../store';
 
@@ -56,92 +55,68 @@ defineProps({
 
 <template>
     <div class="directory-entry-container"
-        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps">
+        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
+        @click="toggleInfo">
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
 
         <div v-show="viewMode !== 'collage'" class="entry-info">
             <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><span
-                    v-if="info.name.title !== ''">,</span><br>
-                <br v-if="info.name.title === ''" v-show="!infoView">
-                {{ info.name.title }}
+                    v-if="info.name.title !== ''">,<br>{{ info.name.title }}</span>
             </p>
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
-                <div class="animated-info">
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-text entry-alt-name">
-                        (<b>{{
-            info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, </span>{{
-            info.name.titleAlt }})
+                <div class="expanded-details">
+                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-alt-name">
+                        <b>{{ info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, {{ info.name.titleAlt }}</span>
                     </p>
 
-                    <hr class="light-divider">
+                    <p v-if="info.motto" class="detail-motto">“{{ info.motto }}”</p>
 
-                    <p class="entry-text"><span v-if="info.motto !== ''" class="underlined italicized">"{{
-            info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
-                    <p class="entry-text">
-                        <span v-for="(type, i) in info.type" :key="i">{{ type }}<span
-                                v-if="i !== info.type.length - 1">,&nbsp;</span><span
-                                v-if="i === info.type.length - 1">.</span></span>
-                    </p>
-                    <p class="entry-text">
-                        <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
-                                v-if="i !== info.languages.length - 1">,&nbsp;</span><span
-                                v-if="i === info.languages.length - 1">.</span></span>
-                    </p>
-
-                    <hr class="light-divider">
-
-                    <p class="entry-text"><span class="underlined">Foundation:</span>&nbsp;{{
-            info.foundationDate && info.foundationDate._seconds ? new Date(info.foundationDate._seconds * 1000).toDateString() : 'Unknown' }}</p>
-                    <p class="entry-text"><span class="underlined">Capital:</span>&nbsp;<span
-                            v-if="info.capital !== ''">{{
-            info.capital }}.</span><span v-if="info.capital === ''">None.</span></p>
-                    <p class="entry-text"><span class="underlined">Currency:</span>&nbsp;<span
-                            v-if="info.currency !== ''">{{
-            info.currency }}.</span><span v-if="info.currency === ''">None.</span></p>
-
-                    <hr class="light-divider">
-
-                    <div class="entry-group extended">
-                        <p class="entry-text"><span class="underlined">Historical memberships:</span>
-                            <span v-if="!info.memberships || info.memberships.length === 0">&nbsp;None.</span>
-                        </p>
-                        <div v-if="info.memberships && info.memberships.length" class="sources-container">
-                            <MemberSource class="member-source" v-for="(member, i) in info.memberships" :key="i"
-                                :href="findOrg(member).href" :flag-source="findOrg(member).logo" :width="56"
-                                :height="40" :micronation-name="member" :icon="'flag'" />
+                    <div class="entry-facts">
+                        <div class="entry-fact">
+                            <span class="fact-label">Languages</span>
+                            <strong>{{ info.languages?.length ? info.languages.join(', ') : 'Not listed' }}</strong>
+                        </div>
+                        <div class="entry-fact">
+                            <span class="fact-label">Founded</span>
+                            <strong>{{ info.foundationDateDisplay || formatFoundation(info.foundationDate) }}</strong>
                         </div>
                     </div>
 
-                    <hr class="light-divider">
-
-                    <div class="entry-group">
-                        <p class="entry-text">Contact media:
-                            <span v-if="!info.contactInfo || !info.contactInfo.length"><br>N/A.</span>
-                        </p>
+                    <section class="entry-sources-section">
+                        <div class="sources-heading">
+                            <span>Contact media</span>
+                            <small>{{ info.contactInfo?.length || 0 }}</small>
+                        </div>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
-                                :href="contact" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                            <EntrySource v-for="(contact, i) in info.contactInfo" :key="contact + i"
+                                :href="contact" :flag-source="info.flag" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
-                    </div>
-                    <div class="entry-group">
-                        <p class="entry-text">Info sources:</p>
+                        <p v-if="!info.contactInfo?.length" class="source-empty">No contact media listed</p>
+                    </section>
+
+                    <section class="entry-sources-section">
+                        <div class="sources-heading">
+                            <span>Info sources</span>
+                            <small>{{ info.websites?.length || 0 }}</small>
+                        </div>
                         <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
-                                :href="website" :flag-source="info.flag" :size="32" :micronation-name="info.name.main"
+                            <EntrySource v-for="(website, i) in info.websites" :key="website + i"
+                                :href="website" :flag-source="info.flag" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
-                    </div>
+                        <p v-if="!info.websites?.length" class="source-empty">No sources listed</p>
+                    </section>
                 </div>
             </AnimateHeight>
         </div>
 
-        <div v-show="viewMode !== 'collage'" class="info-buttons-container">
-            <button class="info-button" @click="toggleInfo">{{ infoView ? 'Collapse' : 'Expand' }}</button>
-            <router-link :class="{ 'disabled': disableFullProfileButton }" :to="'/directory/' + info.name.main"
-                class="info-button">Full profile</router-link>
+        <div v-if="viewMode !== 'collage' && infoView" class="info-buttons-container">
+            <router-link v-if="!disableFullProfileButton" :to="'/directory/' + info.name.main"
+                class="info-button full-width">See full profile</router-link>
+            <span v-else class="info-button full-width disabled">See full profile</span>
         </div>
     </div>
 </template>
@@ -168,13 +143,19 @@ export default {
     },
     methods: {
         toggleInfo() {
-            if (this.viewMode !== 'collage') {
-                this.infoView = !this.infoView;
-            }
+            this.infoView = !this.infoView;
             this.updateHeight();
         },
         updateHeight() {
             return this.height = this.height === 0 ? 'auto' : 0;
+        },
+        formatFoundation(date) {
+            if (!date) return 'Unknown';
+            const parsedDate = date._seconds
+                ? new Date(date._seconds * 1000)
+                : new Date(date);
+            if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
+            return parsedDate.getFullYear();
         },
         findOrg(name) {
             const orgQuery = this.visibleOrganizations.find(org => org.name.main === name || org.name.mainAlt === name);
@@ -183,7 +164,7 @@ export default {
             if (orgQuery === undefined) {
                 if (supranationalQuery === undefined) {
                     return {
-                        href: `/organizations/${name}`,
+                        href: null,
                         logo: '/images/missing-flag.png',
                         name: {
                             main: name,
@@ -220,11 +201,34 @@ export default {
     max-height: max-content;
     background-color: var(--directory-entry-background-color);
     color: var(--directory-entry-text-color);
-    border-radius: 8px;
-    border: 2px solid var(--site-section-border-color);
-    padding: 15px 15px 0 15px;
+    border-radius: var(--radius-sm);
+    border: none;
+    padding: 15px;
+    padding-bottom: 15px;
     margin: 0 3px 6px 3px;
-    transition: linear background-color 0.3s, linear color 0.3s;
+    transition: transform var(--transition-base) ease, background-color var(--transition-base) ease, box-shadow var(--transition-base) ease;
+    cursor: pointer;
+}
+
+.directory-entry-container.info-displayed {
+    padding: 12px;
+    padding-bottom: 0;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 24%, var(--color-border));
+    border-radius: var(--radius-md);
+    background: linear-gradient(155deg,
+        color-mix(in srgb, var(--color-accent) 6%, var(--directory-entry-background-color)),
+        var(--directory-entry-background-color) 48%);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--color-heading) 9%, transparent);
+}
+
+.directory-entry-container.info-displayed:hover {
+    transform: translateY(-2px);
+}
+
+.directory-entry-container:hover {
+    transform: translateY(-4px);
+    background-color: var(--navbar-tab-background-color-hover);
+    box-shadow: var(--shadow-soft);
 }
 
 .directory-entry-container.collage-mode {
@@ -237,7 +241,12 @@ export default {
 
 .directory-entry-container:hover {
     background-color: var(--navbar-tab-background-color-hover);
-    color: var(--navbar-text-color-hover);
+    color: var(--directory-entry-text-color);
+}
+
+.directory-entry-container :deep(.entry-text),
+.directory-entry-container :deep(.entry-text a) {
+    color: inherit;
 }
 
 .entry-flag {
@@ -271,17 +280,115 @@ export default {
 .entry-text.entry-name.expanded {
     -webkit-line-clamp: 5;
     line-clamp: 5;
+    margin-bottom: 2px;
 }
 
-.entry-text.entry-alt-name {
+.expanded-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.entry-alt-name {
+    margin: 0;
+    color: var(--color-muted);
     font-size: 11px;
     font-style: italic;
-    margin-block-start: 3px;
     word-break: normal;
+    text-align: center;
 }
 
-.light-divider {
+.detail-motto {
+    margin: 0;
+    padding: 8px 10px;
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.4;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.entry-facts {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+}
+
+.entry-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 7px 8px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+    text-align: left;
+}
+
+.fact-label {
+    color: var(--color-muted);
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.entry-fact strong {
+    color: var(--color-heading);
+    font-size: 11px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.entry-sources-section {
+    padding-top: 8px;
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+}
+
+.sources-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 7px;
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.sources-heading small {
+    display: grid;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 4px;
+    place-items: center;
+    border-radius: var(--radius-full);
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+    font-size: 10px;
+    letter-spacing: normal;
+}
+
+.expanded-details .sources-container {
+    display: flex;
     width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+}
+
+.source-empty {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 11px;
+    font-style: italic;
 }
 
 .contact-email a,
@@ -318,39 +425,45 @@ export default {
 
 .info-buttons-container {
     display: flex;
-    margin-top: 12px;
-    width: calc(100% + 30px);
+    margin-top: 10px;
+    width: calc(100% + 24px);
 }
 
 .info-button {
-    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 5px 8px;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.3;
     text-decoration: none;
     background: var(--vt-c-indigo);
-    border: 1px solid var(--vt-c-black);
+    border: 1px solid var(--color-border);
     border-bottom: none;
     color: var(--vt-c-white-soft);
     cursor: pointer;
+    transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
 }
 
-.info-buttons-container .info-button:first-child {
-    border-bottom-left-radius: 8px;
+.info-button.full-width {
+    width: 100%;
+    border-bottom-left-radius: var(--radius-sm);
+    border-bottom-right-radius: var(--radius-sm);
     border-left: none;
-}
-
-.info-buttons-container .info-button:last-child {
-    border-bottom-right-radius: 8px;
     border-right: none;
 }
 
 .info-button:hover {
-    background: var(--soft-beige);
-    color: var(--vt-c-indigo-dark);
+    background: color-mix(in srgb, var(--vt-c-indigo) 86%, var(--color-heading));
+    color: var(--vt-c-white-soft);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--vt-c-indigo) 20%, transparent);
 }
 
 .info-button.disabled {
     opacity: 0.6;
     pointer-events: none;
 }
+
 </style>

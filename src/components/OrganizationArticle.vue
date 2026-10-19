@@ -1,7 +1,10 @@
 <script setup>
-import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions';
+import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import MemberSource from '../components/MemberSource.vue';
+import ProfileArticleActions from './ProfileArticleActions.vue';
+import ProfileArticleNavigation from './ProfileArticleNavigation.vue';
+import ProfileDataCell from './ProfileDataCell.vue';
 import store from '../store';
 
 defineProps({
@@ -20,90 +23,83 @@ defineProps({
 
 <template>
     <Transition mode="out-in">
-        <div class="directory-article-container" :key="componentKey">
+        <div class="directory-article-container" :key="info.name.main">
             <div class="article-title">
                 <div class="article-full-name">
                     <p class="article-text article-name">
                         <b>{{ info.name.main }}</b>&nbsp;({{ info.name.mainAlt }})
                     </p>
                 </div>
-                <div class="article-full-name">
-                    <span class="article-text">Try more info at:</span>
-                    <div class="external-container">
-                        <EntrySource class="entry-source" :flag-source="info.logo" :size="46"
-                            :micronation-name="info.name.main" :icon="'MicroWiki'"
-                            :href="'https://micronations.wiki/wiki/' + info.name.mainAlt" />
-                    </div>
-                </div>
+                <ProfileArticleActions :title="info.name.main" />
             </div>
 
-            <div class="article-content">
-                <div class="article-column logo">
+            <div class="organization-article-content">
+                <div class="organization-logo-panel">
                     <img :src="info.logo" class="article-logo" alt="Logo">
                 </div>
 
-                <div class="article-column">
-                    <p class="article-text"><span class="underlined">Organization motto:</span><br><span
-                            v-if="info.motto !== ''" class="italicized">"{{
-            info.motto }}"</span><span v-if="info.motto === ''">No motto.</span></p>
-                    <p class="article-text"><span class="underlined">Foundation:</span><br>{{
-            cleanTimestamp(info.foundationDate) }}</p>
-                    <p class="article-text">
-                        <span class="underlined">Languages:</span><br>
-                        <span v-for="(language, i) in info.languages" :key="i">{{ language }}<span
-                                v-if="i !== info.languages.length - 1">,&nbsp;</span><span
-                                v-if="i === info.languages.length - 1">.</span></span>
-                    </p>
-                </div>
+                <div class="organization-info-table">
+                    <div class="organization-data-grid">
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Organization motto</span>
+                        <span class="organization-data-value" v-if="info.motto !== ''"><span class="italicized">"{{ info.motto }}"</span></span>
+                        <span class="organization-data-value" v-else>No motto.</span>
+                    </ProfileDataCell>
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Foundation</span>
+                        <span class="organization-data-value">{{ cleanTimestamp(info.foundationDate) }}</span>
+                    </ProfileDataCell>
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Languages</span>
+                        <span class="organization-data-value"><span v-for="(language, i) in info.languages" :key="i">{{ language }}<span v-if="i !== info.languages.length - 1">, </span><span v-else>.</span></span></span>
+                    </ProfileDataCell>
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Contact media</span>
+                        <div class="organization-data-value">
+                            <span v-if="!info.contactInfo.length">N/A.</span>
+                            <div v-else class="sources-container">
+                                <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
+                                    :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
+                                    :icon="checkIcon(contact, info.name.main)" />
+                            </div>
+                        </div>
+                    </ProfileDataCell>
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Info sources</span>
+                        <div class="organization-data-value">
+                            <div class="sources-container">
+                                <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
+                                    :href="website" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
+                                    :icon="checkIcon(website, info.name.main)" />
+                            </div>
+                        </div>
+                    </ProfileDataCell>
+                    <ProfileDataCell variant="organization">
+                        <span class="organization-data-label">Try more info at</span>
+                        <div class="organization-data-value">
+                            <div class="sources-container">
+                                <EntrySource class="entry-source" :flag-source="info.logo" :size="46"
+                                    :micronation-name="info.name.main" :icon="'MicroWiki'"
+                                    :href="'https://micronations.wiki/wiki/' + info.name.mainAlt" />
+                            </div>
+                        </div>
+                    </ProfileDataCell>
+                    </div>
 
-                <div class="article-column">
-                    <div class="entry-group extended">
-                        <p class="article-text"><span class="underlined">Historical members:</span></p>
-                        <div class="sources-container members">
+                    <div class="organization-members-panel">
+                        <div class="organization-members-heading">Historical members</div>
+                        <div v-if="getMembers.length" class="sources-container members">
                             <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
                                 :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="60"
                                 :height="40" :micronation-name="member.name.main" :icon="'flag'" />
                         </div>
-                    </div>
-                </div>
-
-                <div class="article-column">
-                    <div>
-                        <p class="article-text breakable underlined">Contact media:
-                            <span v-if="!info.contactInfo.length"><br>N/A.</span>
-                        </p>
-                        <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
-                                :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
-                                :icon="checkIcon(contact, info.name.main)" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="article-text breakable underlined">Info sources:</p>
-                        <div class="sources-container">
-                            <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
-                                :href="website" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
-                                :icon="checkIcon(website, info.name.main)" />
-                        </div>
+                        <div v-else class="organization-empty-members">No historical members.</div>
                     </div>
                 </div>
             </div>
 
-            <div class="article-profiles-control">
-                <span v-if="!info.previous">This is the first entry.</span>
-                <router-link v-if="info.previous" :to="'/organizations/' + info.previous" @click="incrementKey"
-                    class="profile-option login-button color-transition">
-                    ⬅️ Previous<br>{{ info.previous }}
-                </router-link>
-                <span class="article-text contribution-info">Submitted by <b>{{ info.author }}</b> on {{
-            cleanTimestamp(info.creationDate) }}.</span>
-                <router-link v-if="info.next" :to="'/organizations/' + info.next" @click="incrementKey"
-                    class="profile-option login-button color-transition">
-                    Next ➡️<br>{{ info.next }}
-                </router-link>
-                <span v-if="!info.next">This is the last entry.</span>
-            </div>
+            <ProfileArticleNavigation :route-base="'/organizations'" :previous="info.previous" :next="info.next"
+                :author="info.author" :creation-date="info.creationDate" />
         </div>
     </Transition>
 </template>
@@ -111,11 +107,6 @@ defineProps({
 <script>
 export default {
     name: 'OrganizationArticle',
-    data() {
-        return {
-            componentKey: 0
-        }
-    },
     components: {
         EntrySource, MemberSource
     },
@@ -126,172 +117,297 @@ export default {
         }
     },
     methods: {
-        generateMFALink(organization) {
-            const cleanString = organization.replace(/\s+/g, '-').toLowerCase();
-            return cleanString;
-        },
         cleanTimestamp(timestamp) {
-            return new Date(timestamp._seconds * 1000).toDateString();
+            const seconds = timestamp?._seconds ?? timestamp?.seconds;
+            const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp);
+            if (Number.isNaN(date.getTime())) return 'Unknown';
+            return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
         },
-        incrementKey() {
-            this.componentKey++;
-        }
     }
 }
 </script>
 
-<style scoped>
+<style>
 .directory-article-container {
-    background-color: var(--directory-entry-background-color);
+    background: linear-gradient(135deg, var(--directory-entry-background-color) 0%, var(--color-background-mute) 100%);
     color: var(--directory-entry-text-color);
-    border-radius: 8px;
-    border: 2px solid var(--site-section-border-color);
-    padding: 15px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    padding: 0;
     margin: 0 3px 6px 3px;
     width: auto;
-}
-
-.article-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 15px;
-    height: max-content;
-    max-height: max-content;
-}
-
-.profile-option {
-    width: 15%;
-    height: min-content;
-    font-size: 14px;
-    text-decoration: none;
-    text-align: center;
-    border-width: 1px;
-}
-
-.external-container {
-    display: flex;
-    margin-left: 5px;
-}
-
-.article-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    border-right: 1px solid white;
-    padding: 0 5px 0 5px;
-}
-
-.article-column:first-of-type,
-.article-column:last-of-type {
-    border-right: none;
-}
-
-.article-column.logo {
-    align-items: center;
-}
-
-.article-logo {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
 }
 
 .article-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid white;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
+    padding: 24px 28px;
+    background: var(--color-surface-raised);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0;
 }
 
 .article-full-name {
     display: flex;
     align-items: center;
+    gap: 12px;
 }
 
-.article-profiles-control {
+.profile-header-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-top: 2px solid white;
-    margin-top: 15px;
-    padding-top: 10px;
+    gap: 8px;
 }
 
-.contribution-info {
-    text-align: center;
+.profile-header-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    color: var(--color-heading);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background-color var(--transition-base) ease, border-color var(--transition-base) ease,
+        color var(--transition-base) ease, transform var(--transition-base) ease;
+}
+
+.profile-header-action:hover {
+    border-color: var(--color-accent);
+    background: var(--navbar-tab-background-color-hover);
+    color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+.profile-header-action svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.copy-action-label {
+    display: none;
+}
+
+.profile-header-action:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+    outline-offset: 2px;
+}
+
+.article-full-name:last-child {
+    gap: 8px;
+}
+
+.article-text.article-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-heading) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.article-text.article-alt-name {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--color-muted);
+    margin: 0;
 }
 
 .article-text {
-    font-size: 17px;
+    font-size: 16px;
     margin-block-start: 0;
-    margin-block-end: 0;
+    margin-block-end: 12px;
     word-break: break-word;
     overflow-wrap: break-word;
+    color: var(--color-text);
 }
 
 .article-text.breakable {
     word-break: break-all;
 }
 
-.article-text.article-name {
-    font-size: 22px;
-    margin-block-start: 0px;
-    margin-right: 6px;
+.article-text .underlined {
+    color: var(--color-accent);
+    font-weight: 600;
 }
 
-.article-text.article-alt-name {
-    font-size: 18px;
-    font-style: italic;
+.organization-article-content {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.65fr) minmax(0, 3fr);
+    padding: 28px;
+    gap: 24px;
+}
+
+.organization-logo-panel {
+    display: flex;
+    align-self: start;
+    align-items: center;
+    background: var(--color-surface-raised);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 1px solid var(--color-border);
+}
+
+.organization-info-table {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    align-self: start;
+    min-width: 0;
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.organization-data-grid,
+.organization-members-panel {
+    min-width: 0;
+}
+
+.organization-members-heading {
+    color: var(--color-accent);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.organization-members-heading {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.organization-members-panel .sources-container.members {
+    max-height: 420px;
+    padding: 14px;
+}
+
+.organization-members-panel {
+    border-left: 1px solid var(--color-border);
+}
+
+.organization-empty-members {
+    padding: 14px 16px;
+    color: var(--color-text);
+}
+
+.article-logo {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.external-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.article-title .article-text {
+    font-size: 14px;
+    color: var(--color-muted);
+    font-weight: 500;
+    margin: 0;
 }
 
 .sources-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    gap: 8px;
 }
 
 .sources-container.members {
-    margin-top: 4px;
-    padding: 2px 0 2px 0;
-    height: 180px;
-    width: auto;
+    max-height: 200px;
     overflow-y: auto;
-    align-content: start;
-}
-
-.member-source {
-    margin-bottom: 4px;
+    padding-right: 8px;
 }
 
 .entry-source {
-    margin-right: 4px;
+    margin: 0;
 }
 
-.entry-source:last-of-type {
-    margin-right: 0;
+.member-source {
+    margin-bottom: 8px;
 }
 
-.contact-email,
-.website-link,
-.article-profiles-control a.profile-option {
+.article-profiles-control {
     display: flex;
     align-items: center;
-    word-break: break-all;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
+    justify-content: space-between;
+    padding: 20px 28px;
+    background: var(--color-surface-raised);
+    border-top: 1px solid var(--color-border);
+    margin-top: 0;
+    gap: 16px;
 }
 
-.article-profiles-control a.profile-option {
-    padding: 4px;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+.profile-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 140px;
+    height: min-content;
+    gap: 2px;
+    text-decoration: none;
+    text-align: center;
+    padding: 9px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-raised);
+    color: var(--color-heading);
+    transition: background-color var(--transition-base) ease, border-color var(--transition-base) ease,
+        color var(--transition-base) ease, transform var(--transition-base) ease, box-shadow var(--transition-base) ease;
+}
+
+.profile-option:hover {
+    background: var(--navbar-tab-background-color-hover);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.profile-option-label {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.profile-option-name {
+    max-width: 190px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contribution-info {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-muted);
+    flex: 1;
+}
+
+.contribution-info b {
+    color: var(--color-accent);
 }
 
 .contact-email a {
@@ -302,22 +418,62 @@ export default {
     color: var(--directory-website-link-color);
 }
 
-.website-link.centered {
-    display: flex;
-    align-items: center;
-}
-
-#MFALink {
-    margin: 10px 0 0 0;
-}
-
 .v-enter-active,
 .v-leave-active {
-    transition: opacity 0.15s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
     opacity: 0;
+    transform: translateY(10px);
+}
+
+@media (max-width: 1200px) {
+    .organization-article-content {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .organization-logo-panel {
+        grid-column: 1 / -1;
+        width: min(100%, 520px);
+        justify-self: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .organization-info-table {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .article-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .copy-action-label {
+        display: inline;
+    }
+
+    .organization-logo-panel {
+        grid-column: auto;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .organization-members-panel {
+        border-left: 0;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .article-profiles-control {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .profile-option {
+        width: 100%;
+    }
 }
 </style>

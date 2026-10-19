@@ -1,6 +1,6 @@
 <template>
-    <section class="site-section">
-        <p>
+    <section class="site-section terms-page">
+        <p class="terms-updated">
             <span class="underlined">Last update</span>: <b>03/10/2023</b>, subject to edition whenever required.
         </p>
         <hr class="divider">
@@ -125,5 +125,34 @@ export default {
 }
 </script>
   
-<style scoped></style>
+<style scoped>
+.terms-page {
+    margin-inline: auto;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.terms-updated {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.terms-page h1 {
+    margin: 0 0 18px;
+}
+
+.terms-page h2 {
+    margin: 30px 0 10px;
+    font-size: clamp(20px, 2.4vw, 25px);
+}
+
+.terms-page p {
+    margin: 0 0 18px;
+}
+
+.terms-page hr + h1 {
+    margin-top: 0;
+}
+</style>
   

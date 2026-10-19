@@ -91,25 +91,32 @@ defineProps({
         Thanks for understanding and for helping to create this digital database museum!
       </p>
 
-      <button class="login-button short color-transition" :class="{ 'active': newMicronationView }"
-        :disabled="!user.emailVerified" @click="newMicronationView = true; newOrganizationView = false">
-        Add new micronation
-      </button>
-      <button class="login-button short color-transition" :class="{ 'active': newOrganizationView }"
-        :disabled="!user.emailVerified" @click="newOrganizationView = true; newMicronationView = false">
-        Add new organization
-      </button>
-      <label v-if="!user.emailVerified">(Available for <router-link :to="'/login'">registered
-          users with verified email</router-link> only)
-      </label>
+      <div class="entry-actions">
+        <button class="login-button short color-transition" :class="{ 'active': newMicronationView }"
+          :disabled="!user.emailVerified" @click="newMicronationView = true; newOrganizationView = false">
+          Add new micronation
+        </button>
+        <button class="login-button short color-transition" :class="{ 'active': newOrganizationView }"
+          :disabled="!user.emailVerified" @click="newOrganizationView = true; newMicronationView = false">
+          Add new organization
+        </button>
+        <p v-if="!user.emailVerified" class="entry-availability-note">
+          Available to <router-link :to="'/login'">registered users with a verified email</router-link> only.
+        </p>
+      </div>
 
       <!-- los containers de new entry van acá con v-show="newEntryView" -->
-      <NewEntryForm class="new-entry-container" :entry-type="'micronation'"
-        v-if="user.emailVerified && newMicronationView" :directory-data="micronationsDirectory"
-        :form-placeholders="formPlaceholder" />
-      <NewEntryForm class="new-entry-container" :entry-type="'organization'"
-        v-if="user.emailVerified && newOrganizationView" :directory-data="organizationsDirectory"
-        :form-placeholders="formPlaceholder" />
+      <Transition name="entry-form" mode="out-in">
+        <NewEntryForm
+          v-if="user.emailVerified && (newMicronationView || newOrganizationView)"
+          :key="newMicronationView ? 'micronation-entry-form' : 'organization-entry-form'"
+          class="new-entry-container"
+          :entry-type="newMicronationView ? 'micronation' : 'organization'"
+          :directory-data="newMicronationView ? micronationsDirectory : organizationsDirectory"
+          :organizations-directory="organizationsDirectory"
+          :visible-organizations="visibleOrganizations"
+          :form-placeholders="formPlaceholder" />
+      </Transition>
     </div>
   </section>
 </template>
@@ -146,12 +153,32 @@ export default {
 </script>
 
 <style scoped>
-.site-section {
-  padding: 0px;
+.entry-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+  margin-top: 25px;
+  width: fit-content;
+  max-width: 100%;
 }
 
-.login-button.short {
-  margin-right: 4px;
+.entry-availability-note {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  margin: 2px 0 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(65, 105, 225, 0.2);
+  border-radius: 8px;
+  background: rgba(65, 105, 225, 0.07);
+  color: #46536b;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.entry-availability-note a {
+  margin: 0 0.25em;
 }
 
 .dropdown-info-box {
@@ -162,5 +189,27 @@ export default {
 
 .new-entry-container {
   margin-top: 10px;
+}
+
+.entry-form-enter-active,
+.entry-form-leave-active {
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.entry-form-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.entry-form-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-form-enter-active,
+  .entry-form-leave-active {
+    transition-duration: 0.01ms;
+  }
 }
 </style>

@@ -23,69 +23,42 @@ defineProps({
 </script>
 
 <template>
-    <section class="site-section">
-        <div class="events-bar">
-            <p class="events-notice">
-                These are the rankings for most entries submitted, on both micronations and organizations directories.
-                We thank a lot all these users who participated on our platform by adding a piece of micronational
-                legacy
-                and history. Remember that anybody can participate on TMD! You just need to <router-link :to="'/login'">
-                    register and verify you account</router-link> and then head to our <router-link :to="'/new-entry'">
-                    new entry form</router-link>. Contributors that reach 50+ entries on The Micronational Directory are
-                featured on the <router-link :to="'/about'">'Special thanks'</router-link> section of our website!
-            </p>
+    <section class="site-section stats-page">
+        <header class="stats-hero">
+            <h1>Community statistics</h1>
+            <p class="stats-intro">Explore the contributors behind our growing directories. Every approved entry helps preserve micronational history. Want to take part? <router-link to="/login">Create an account</router-link> and <router-link to="/new-entry">submit an entry</router-link>.</p>
+        </header>
+        <div class="stats-overview" aria-label="Directory totals">
+            <article class="overview-card"><span class="overview-label">Micronations</span><strong class="overview-value">{{ micronationsApprovedDirectory.length }}</strong><span class="overview-caption">approved directory entries</span></article>
+            <article class="overview-card"><span class="overview-label">Organizations</span><strong class="overview-value">{{ organizationsApprovedDirectory.length }}</strong><span class="overview-caption">approved directory entries</span></article>
+            <article class="overview-card overview-note"><span class="overview-label">Community recognition</span><strong class="overview-value">50+</strong><span class="overview-caption">entries earns a place in <router-link to="/about">Special thanks</router-link></span></article>
         </div>
+        <section class="stats-section" aria-labelledby="contributors-title">
+            <div class="section-heading"><div><h2 id="contributors-title">Contributors</h2></div><p>All-time submissions across each directory</p></div>
         <div class="tables-container">
-            <div class="ranking-container">
-                <p class="stats-entry main">Total micronations: <b>{{
-                    micronationsApprovedDirectory.length }}</b></p>
-                <EntriesRanking title="All-time Top Micronations Contributors" :tmd-entry="true"
+            <div class="ranking-container ranking-panel">
+                <EntriesRanking title="Top Micronations Contributors" :tmd-entry="true"
                     directory="micronations" :micronations-approved-directory="micronationsApprovedDirectory"
                     :organizations-approved-directory="organizationsApprovedDirectory"
                     :current-user-email="user.email" />
             </div>
 
-            <div class="ranking-container">
-                <p class="stats-entry main">Total organizations: <b>{{
-                    organizationsApprovedDirectory.length }}</b></p>
-                <EntriesRanking title="All-time Top Organizations Contributors" :tmd-entry="true"
+            <div class="ranking-container ranking-panel">
+                <EntriesRanking title="Top Organizations Contributors" :tmd-entry="true"
                     directory="organizations" :micronations-approved-directory="micronationsApprovedDirectory"
                     :organizations-approved-directory="organizationsApprovedDirectory"
                     :current-user-email="user.email" />
             </div>
 
-            <!-- <div class="scrollable-container statistics-table directory">
-                    <p class="table-header">Type</p>
-                    <p class="table-header">Language</p>
-                    <p class="table-header">Memberships</p>
-
-                    <div class="table-values-container">
-                        <p v-for="(entry, i) in typeValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                        entry.amount
-                    }}</b></p>
-                    </div>
-                    <div class="table-values-container">
-                        <p v-for="(entry, i) in languageValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                        entry.amount
-                    }}</b></p>
-                    </div>
-                    <div class="table-values-container">
-                        <p v-for="(entry, i) in membershipValues" :key="i" class="table-value">{{ entry.key }}: <b>{{
-                        entry.amount }}</b></p>
-                    </div>
-                </div> -->
         </div>
-
-        <hr class="divider" />
-
-        <div class="events-bar">
-            <p class="events-notice">Future events or submission campaigns will be listed here, and you'll be able
-                to follow up the terms and everything related. In them, <b>users with most contributions will qualify
-                    for prizes</b>. Carefully read the <router-link :to="'/terms-of-contests'">terms and
-                    conditions</router-link> to know all the details. To check past contests, check the table below
-                and click on any desired row.
-            </p>
-        </div>
+        </section>
+        <section class="stats-section contests-section" aria-labelledby="contests-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="contests-title">Contests history</h2>
+                </div>
+                <p class="contest-terms"><router-link to="/terms-of-contests">Terms and conditions for contests</router-link></p>
+            </div>
         <!-- <div class="tables-container">
             <ContestOverview :contest-info="activeContest" />
             <EntriesRanking title="Ongoing Ranking" :tmd-entry="false"
@@ -93,8 +66,7 @@ defineProps({
             </div> -->
         <div class="tables-container">
             <div class="ranking-container">
-                <div class="stats-container">
-                    <h2>Contests History</h2>
+                <div class="stats-container contest-history">
                     <div class="scrollable-container statistics-table directory">
                         <p class="table-header">Event</p>
                         <p class="table-header">Start date</p>
@@ -116,7 +88,7 @@ defineProps({
                 </div>
             </div>
 
-            <div class="ranking-container">
+            <div class="ranking-container ranking-panel contest-ranking-panel">
                 <Transition name="fade">
                     <EntriesRanking v-if="selectedContest" :title="selectedContest.name" :tmd-entry="false"
                         :directory="selectedContest.directory" :start-timestamp="(selectedContest.startDate.seconds || selectedContest.startDate._seconds)"
@@ -125,8 +97,10 @@ defineProps({
                         :organizations-approved-directory="organizationsApprovedDirectory"
                         :current-user-email="user.email" />
                 </Transition>
+                <p v-if="!selectedContest" class="contest-empty-state">Select a contest from the list to see its contributor ranking.</p>
             </div>
         </div>
+    </section>
     </section>
 </template>
 
@@ -200,138 +174,47 @@ export default {
                 return element.id === contestId;
             });
         }
+    },
+    async mounted() {
+        if (!store.getters.contests.length) await store.dispatch('getContests');
     }
 }
 </script>
 
 <style scoped>
-hr.divider {
-    width: 95%;
-    margin: 30px 0 30px 0;
-}
-
-.site-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.events-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin-bottom: 25px;
-}
-
-.events-notice {
-    text-align: center;
-}
-
-.tables-container {
-    display: flex;
-    width: 100%;
-}
-
-#rankingsContainer {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.ranking-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.statistics-table.directory {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: min-content;
-}
-
-.table-header {
-    font-size: 16px;
-    text-align: center;
-    font-weight: bold;
-    background-color: var(--vt-c-divider-dark-1);
-    margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.table-values-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: fit-content;
-}
-
-.table-values-container:nth-of-type(even),
-.table-header:nth-of-type(even) {
-    border-right: 2px solid var(--vt-c-white);
-    border-left: 2px solid var(--vt-c-white);
-}
-
-.table-values-container:first-of-type,
-.table-header:first-of-type {
-    border-left: none;
-}
-
-.table-values-container:last-of-type,
-.table-header:last-of-type {
-    border-right: none;
-}
-
-.table-values-container.clickable {
-    cursor: pointer;
-}
-
-.table-value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 10px 0 10px 0;
-    width: 100%;
-    height: 45px;
-    text-align: center;
-    border-bottom: 2px solid var(--vt-c-white);
-}
-
-.stats-container {
-    width: 80%;
-}
-
-.stats-container:deep(.contributors-ranking),
-.stats-container:deep(.statistics-table) {
-    width: 100%;
-}
-
-.stats-entry {
-    font-size: 18px;
-}
-
-.stats-entry.main {
-    text-align: center;
-    font-size: 20px;
-    padding: 3px 12px 3px 12px;
-    border-radius: 8px;
-    border: 2px solid var(--vt-c-white);
-    margin-bottom: 15px;
-    margin-right: 8px;
-    width: fit-content;
-}
-
-.stats-entry.main:last-of-type {
-    margin-right: 0;
-}
-
-.half-sized {
-    width: 50%;
-}
+.stats-page { display:flex; flex-direction:column; align-items:center; gap:28px; }
+.stats-hero { width:min(100%, 820px); margin:4px auto 0; text-align:center; }
+.stats-hero h1 { margin:0; }
+.stats-intro { max-width:680px; margin:12px auto 0; color:var(--color-muted); font-size:16px; }
+.stats-overview { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; width:100%; }
+.overview-card { display:flex; flex-direction:column; gap:3px; min-height:125px; padding:18px 20px; border:1px solid var(--color-border); border-radius:var(--radius-xl); background:linear-gradient(145deg,var(--color-surface-raised),var(--color-surface)); }
+.overview-label,.overview-caption { color:var(--color-muted); }
+.overview-label { font-size:13px; font-weight:650; }
+.overview-caption { font-size:12px; }
+.overview-value { color:var(--color-heading); font-size:32px; line-height:1.2; }
+.stats-section { width:100%; }
+.section-heading { margin-bottom:14px; }
+.section-heading h2 { margin:0; }
+.section-heading > p { max-width:440px; margin:0 0 3px; color:var(--color-muted); text-align:right; }
+.section-heading > p.contest-terms { max-width:none; white-space:nowrap; }
+.tables-container { display:flex; align-items:stretch; gap:18px; width:100%; }
+.ranking-container { display:flex; flex-direction:column; align-items:center; min-width:0; width:100%; }
+.ranking-panel,.contest-history { padding:18px; border:1px solid var(--color-border); border-radius:var(--radius-xl); background:var(--color-background-soft); }
+.contest-ranking-panel { justify-content:center; min-height:250px; }
+.contest-empty-state { margin:0; color:var(--color-muted); text-align:center; }
+.ranking-container :deep(.stats-container) { width:100%; }
+.ranking-container :deep(.container-title) { min-height:2.5em; margin:0 0 14px; font-size:19px; }
+.ranking-container :deep(.contributors-ranking) { max-height:390px; border-radius:var(--radius-lg); background:var(--color-surface); }
+.contest-history h2 { margin-top:0; font-size:19px; }
+.statistics-table.directory { display:grid; grid-template-columns:1.3fr 1fr 1fr; grid-template-rows:min-content; min-height:0; max-height:390px; }
+.table-header { position:sticky; top:0; z-index:1; margin:0; padding:10px 6px; background:var(--color-background-mute); color:var(--color-heading); font-size:13px; font-weight:700; text-align:center; }
+.table-values-container { display:flex; flex-direction:column; align-items:center; height:fit-content; }
+.table-values-container:nth-of-type(even),.table-header:nth-of-type(even) { border-right:1px solid var(--color-border); border-left:1px solid var(--color-border); }
+.table-values-container.clickable { cursor:pointer; }
+.table-values-container.clickable:hover { background:var(--navbar-tab-background-color-hover); }
+.table-value { display:flex; align-items:center; justify-content:center; width:100%; min-height:44px; margin:0; padding:8px; border-bottom:1px solid var(--color-border); text-align:center; font-size:13px; }
+.contests-section > .tables-container > .ranking-container { flex:1; }
+@media (max-width:760px) { .stats-page { gap:22px; } .stats-overview { grid-template-columns:repeat(2,minmax(0,1fr)); } .overview-note { grid-column:1 / -1; min-height:auto; } .section-heading { align-items:start; flex-direction:column; gap:6px; } .section-heading > p { text-align:left; white-space:normal; } .contests-section > .tables-container { flex-direction:column; } }
+@media (max-width:500px) { .stats-overview { gap:9px; } .overview-card { min-height:110px; padding:14px; } .overview-value { font-size:27px; } .ranking-panel,.contest-history { padding:12px; } .ranking-container :deep(.container-title) { font-size:17px; } }
 </style>
+

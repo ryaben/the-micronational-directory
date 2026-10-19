@@ -1,5 +1,5 @@
 <script setup>
-import { db } from '../firebase/init.js';
+import { db } from '../firebase/firestore.js';
 import { doc, updateDoc, arrayUnion, GeoPoint } from "firebase/firestore";
 import EntrySource from '../components/EntrySource.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';

@@ -22,6 +22,10 @@ defineProps({
     type: Array,
     required: false,
     default: []
+  },
+  theme: {
+    type: String,
+    default: 'dark'
   }
 })
 </script>
@@ -29,7 +33,7 @@ defineProps({
 <template>
   <router-link :to="{ name: route }" class="tab-router-link" @mouseenter="updateHeight" @mouseleave="updateHeight">
     <div class="button-container color-transition" :class="{'unfolded': height != 0 && subButtons.length}">
-      <img :src="'/images/navbar-icons/' + icon" :alt="text + ' icon'">
+      <img :src="'/images/navbar-icons/' + (theme === 'light' ? icon.replace('.png', '-black.png') : icon)" :alt="text + ' icon'">
       <p>{{ text }}</p>
     </div>
 
@@ -71,9 +75,9 @@ export default {
 <style scoped>
 .tab-router-link {
   position: relative;
+  display: block;
   text-decoration: none;
-  margin-left: 6px;
-  margin-right: 6px;
+  margin: 0 2px;
 }
 
 /* .tab-router-link:hover .button-container {
@@ -82,11 +86,11 @@ export default {
 } */
 
 .tab-router-link:first-of-type {
-  margin-left: 12px;
+  margin-left: 0;
 }
 
 .tab-router-link:last-of-type {
-  margin-right: 12px;
+  margin-right: 0;
 }
 
 .button-container {
@@ -94,12 +98,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 108px;
-  height: 33px;
-  padding: 10px;
-  border: 2px solid var(--navbar-tab-border-color);
-  border-radius: 8px;
-  color: var(--navbar-text-color);
+  min-width: 104px;
+  min-height: 42px;
+  padding: 6px 12px;
+  border: 1px solid var(--navbar-tab-border-color);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
   background-color: var(--navbar-tab-background-color);
   cursor: pointer;
 }
@@ -117,19 +121,19 @@ export default {
 .tab-router-link.router-link-active .button-container,
 .tab-router-link .button-container:hover {
   background-color: var(--navbar-tab-background-color-hover);
-  color: var(--navbar-text-color-hover);
+  color: var(--color-accent);
 }
 
 .tab-router-link:has(.sub-buttons-container .router-link-active) .button-container img,
 .tab-router-link.router-link-active .button-container img,
 .tab-router-link .button-container:hover img {
-  filter: invert(100%);
+  opacity: .8;
 }
 
 .button-container img {
-  width: 32px;
+  width: 25px;
   margin-right: 8px;
-  transition: linear filter 0.2s;
+  transition: opacity .2s ease;
 }
 
 .button-container p {
@@ -139,9 +143,16 @@ export default {
 
 .sub-buttons-container {
   position: absolute;
-  top: 56px;
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
+  min-width: 132px;
+  z-index: 50;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-radius: 0 0 12px 12px;
+  border: 0;
+  box-shadow: none;
 }
 
 .v-enter-active,
@@ -152,5 +163,12 @@ export default {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 520px) {
+  .tab-router-link { margin: 0; min-width: 0; }
+  .button-container { width: 100%; min-width: 0; min-height: 42px; padding: 6px 8px; }
+  .button-container p { font-size: 15px; }
+  .button-container img { width: 22px; margin-right: 6px; }
 }
 </style>

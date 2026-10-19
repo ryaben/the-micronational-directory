@@ -1,12 +1,12 @@
 <script setup>
-import Settingsbar from '../components/Settingsbar.vue';
+import MediaWikiReaderSettings from '../components/MediaWikiReaderSettings.vue';
 import NewEntryForm from '../components/NewEntryForm.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import Sectionbar from '../components/Sectionbar.vue';
+import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import { Timestamp } from "firebase/firestore";
 import store from '../store';
-import { micrasOriginalAPIArray, micrasWikiMicronations } from '../assets/micrasWikiSources';
-import { microWikiOriginalAPIArray, microWikiMicronations } from '../assets/microWikiSources';
+import { animateDirectoryCardEnter, animateDirectoryCardLeave, positionLeavingDirectoryCard } from '../utils/directoryCardTransitions.js';
 import axios from 'axios';
 import $ from 'jquery';
 
@@ -50,131 +50,102 @@ defineProps({
 </script>
 
 <template>
-  <div id="responseText">
-    <Sectionbar id="moderationBar" :sections="moderationbarTabs" @show-target-tab="changeModerationViewMode"
-      :initial-selected-tab="'micrasTab0'" />
+  <section id="responseText" class="site-section site-section--flush site-section--flat-top">
+    <Sectionbar id="moderationBar" :sections="moderationbarTabs" initial-selected-section="micras"
+      @section-change="loadSource">
+      <template #micras>
+        <ModerationToolWorkspace>
+          <template #description>
+            <p class="workspace-description">Render potential entries from articles gathered through a MediaWiki API category request. The reader extracts available article data, though differences in wiki formatting can leave some fields incomplete.</p>
+          </template>
+          <template #summary>
+            <strong class="source-count">{{ micrasDirectory.length }}</strong>
+            <span>MicrasWiki articles</span>
+            <span class="summary-separator">·</span>
+            <span><strong>{{ micrasPresentMicronations }}</strong> may already be in the directory</span>
+          </template>
+          <template #support>
+            <MediaWikiReaderSettings :elements-directory="micrasDirectory"
+              @loaded-directory="loadPagedMicrasMicronations" />
+          </template>
+          <template #main>
+            <p v-if="loadedSources.micras === 'loading'" class="empty-source">Loading MicrasWiki articles…</p>
+            <p v-else-if="loadedSources.micras === 'error'" class="empty-source">MicrasWiki articles could not load. Switch tabs and try again.</p>
+            <p v-else-if="loadedSources.micras === 'loaded' && micrasArray.filter(el => el.assignedModerator === user.email).length === 0" class="empty-source">
+              There are no available cases.
+            </p>
+            <div class="micronations-list" ref="micronationsList">
+              <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
+                @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
+                <DirectoryEntry v-for="(item, i) in pagedMicrasDirectory" :key="item.websites?.[0] || item.name || i" :disable-full-profile-button="true"
+                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)), 'assigned': item.assignedModerator === user.email }"
+                  :info="{
+                    id: `id${i}`, name: { main: item.name, mainAlt: '', title: '', titleAlt: '' }, flag: item.flag,
+                    motto: item.motto, type: ['Digital', 'Fictional'], languages: item.languages, capital: item.capital,
+                    currency: item.currency, foundationDate: item.foundation, location: { _lat: 0, _long: 0 },
+                    memberships: [], contactInfo: item.contactInfo, websites: item.websites,
+                    author: item.assignedModerator, approved: item.approved, creationDate: item.creationDate
+                  }" @click="selectMicronation(i); updateFormMicronationData(item, 'micras')" />
+              </TransitionGroup>
+            </div>
+          </template>
+        </ModerationToolWorkspace>
+      </template>
 
-    <div class="page-area micronations-list">
-      <p
-        v-show="moderationViewMode === 'micras' && micrasArray.filter(el => el.assignedModerator === user.email).length === 0">
-        There are no available cases.
-      </p>
-      <p
-        v-show="moderationViewMode === 'microwiki' && micrasArray.filter(el => el.assignedModerator === user.email).length === 0">
-        There are no available cases.
-      </p>
+      <template #microwiki>
+        <ModerationToolWorkspace>
+          <template #description>
+            <p class="workspace-description">Render potential entries from articles gathered through a MediaWiki API category request. The reader extracts available article data, though differences in wiki formatting can leave some fields incomplete.</p>
+          </template>
+          <template #summary>
+            <strong class="source-count">{{ microWikiDirectory.length }}</strong>
+            <span>filtered MicroWiki articles</span>
+            <span class="summary-separator">·</span>
+            <span>{{ getMicronationsStub(microWikiDirectory) }} stubs · {{ getMicronationsPoor(microWikiDirectory) }} poor</span>
+          </template>
+          <template #support>
+            <MediaWikiReaderSettings :elements-directory="microWikiDirectory"
+              @loaded-directory="loadPagedMicroWikiMicronations" />
+          </template>
+          <template #main>
+            <p v-if="loadedSources.microwiki === 'loading'" class="empty-source">Loading MicroWiki articles…</p>
+            <p v-else-if="loadedSources.microwiki === 'error'" class="empty-source">MicroWiki articles could not load. Switch tabs and try again.</p>
+            <p v-else-if="loadedSources.microwiki === 'loaded' && microWikiArray.filter(el => el.assignedModerator === user.email).length === 0" class="empty-source">
+              There are no available cases.
+            </p>
+            <div class="micronations-list" ref="micronationsListMicroWiki">
+              <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
+                @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
+                <DirectoryEntry v-for="(item, i) in pagedMicroWikiDirectory" :key="item.websites?.[0] || item.name || i" :disable-full-profile-button="true"
+                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)) }"
+                  :info="{
+                    id: `id${i}`, name: { main: item.name, mainAlt: '', title: '', titleAlt: '' }, flag: item.flag,
+                    motto: item.motto, type: [], languages: item.languages, capital: item.capital, currency: item.currency,
+                    foundationDate: item.foundation, location: { _lat: 0, _long: 0 }, memberships: [],
+                    contactInfo: item.contactInfo, websites: item.websites, author: item.assignedModerator,
+                    approved: item.approved, creationDate: item.creationDate
+                  }" @click="selectMicronation(i); updateFormMicronationData(item, 'microwiki')" />
+              </TransitionGroup>
+            </div>
+          </template>
+        </ModerationToolWorkspace>
+      </template>
+    </Sectionbar>
 
-      <div v-show="moderationViewMode === 'micras'" style="display: flex; align-items: flex-end;">
-        <Settingsbar class="settingsbar" :view-mode="'micronations'" :store-getter="'micronations'"
-          :sub-prop-for-filter="false" :elements-directory="micrasDirectory"
-          @loaded-directory="loadPagedMicrasMicronations" :hidden-subcontainers="['Display', 'Flags']" />
-        <!-- <button
-          @click="wikiRequestedMicronations = getFlagImage(microWikiMicronations.filter(el => el.flag.includes('https://micronations.wiki/wiki/File:')).slice(301))"
-          class="login-button color-transition short settingsbar-margin">
-          Request articles data
-        </button> -->
-      </div>
-
-      <Settingsbar v-show="moderationViewMode === 'microwiki'" class="settingsbar" :view-mode="'micronations'"
-        :store-getter="'micronations'" :sub-prop-for-filter="false" :elements-directory="microWikiDirectory"
-        @loaded-directory="loadPagedMicroWikiMicronations" :hidden-subcontainers="['Display', 'Flags']" />
-
-      <div v-show="moderationViewMode === 'micras'">
-        <p class="micronations-stats">
-          There are <span class="underlined">{{ micrasDirectory.length }}</span> articles within category
-          'Nations' on MicrasWiki (that doesn't mean strictly micronations):<br>
-          - At least <span class="underlined">{{ micrasPresentMicronations }}</span> may be <b
-            style="color: var(--success-tone)">present</b> on TMD.
-        </p>
-        <p class="area-title">The following articles have been assigned to you:</p>
-      </div>
-      <div v-show="moderationViewMode === 'microwiki'">
-        <p class="micronations-stats">
-          There are <span class="underlined">{{ microWikiDirectory.length }}</span> (filtered) articles within
-          category 'Micronations' on MicroWiki (that doesn't strictly mean micronations):<br>
-          - Out of them, <span class="underlined">{{ getMicronationsStub(microWikiDirectory) }}</span> are marked as
-          <b style="color: indianred">stubs</b>, and <span class="underlined">{{
-      getMicronationsPoor(microWikiDirectory) }}</span>
-          are marked as <b style="color: red">poor</b>, so probably they don't have enough info to create a valid and
-          compliant entry.<br>
-          - At least <span class="underlined">{{ microWikiPresentMicronations }}</span> may be <b
-            style="color: var(--success-tone)">present</b> on TMD.
-        </p>
-        <p class="area-title">The following articles have been assigned to you:</p>
-      </div>
-
-      <div v-show="moderationViewMode === 'micras'" class="micronations-list" ref="micronationsList">
-        <TransitionGroup>
-          <DirectoryEntry v-for="(item, i) in pagedMicrasDirectory" :key="i + componentKey" :disable-full-profile-button="true"
-            :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)), 'assigned': item.assignedModerator === user.email }"
-            :info="{
-      id: `id${i}`,
-      name: {
-        main: item.name,
-        mainAlt: '',
-        title: '',
-        titleAlt: ''
-      },
-      flag: item.flag,
-      motto: item.motto,
-      type: ['Digital', 'Fictional'],
-      languages: item.languages,
-      capital: item.capital,
-      currency: item.currency,
-      foundationDate: item.foundation,
-      location: { _lat: 0, _long: 0 },
-      memberships: [],
-      contactInfo: item.contactInfo,
-      websites: item.websites,
-      author: item.assignedModerator,
-      approved: item.approved,
-      creationDate: item.creationDate
-    }" @click="selectMicronation(i); updateFormMicronationData(item)" />
-        </TransitionGroup>
-      </div>
-      <div v-show="moderationViewMode === 'microwiki'" class="micronations-list" ref="micronationsListMicroWiki">
-        <TransitionGroup>
-          <DirectoryEntry v-for="(item, i) in pagedMicroWikiDirectory" :key="i + componentKey" :disable-full-profile-button="true"
-            :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)) }"
-            :info="{
-      id: `id${i}`,
-      name: {
-        main: item.name,
-        mainAlt: '',
-        title: '',
-        titleAlt: ''
-      },
-      flag: item.flag,
-      motto: item.motto,
-      type: [],
-      languages: item.languages,
-      capital: item.capital,
-      currency: item.currency,
-      foundationDate: item.foundation,
-      location: { _lat: 0, _long: 0 },
-      memberships: [],
-      contactInfo: item.contactInfo,
-      websites: item.websites,
-      author: item.assignedModerator,
-      approved: item.approved,
-      creationDate: item.creationDate
-    }" @click="selectMicronation(i); updateFormMicronationData(item)" />
-        </TransitionGroup>
-      </div>
+    <div class="wiki-form-follow-up">
+      <p class="area-title">Click a card above to automatically complete the form:</p>
+      <NewEntryForm class="new-entry-container" :entry-type="'micronation'" :directory-data="micronationsDirectory"
+        :form-placeholders="formMicronationData" :micronations-directory="micronationsDirectory"
+        :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
+        :supranational-micronations="supranationalMicronations" />
     </div>
-
-    <p class="area-title">Click on a card from above to automatically complete the form:</p>
-    <NewEntryForm class="new-entry-container" :entry-type="'micronation'" :directory-data="micronationsDirectory"
-      :form-placeholders="formMicronationData" :micronations-directory="micronationsDirectory"
-      :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-      :supranational-micronations="supranationalMicronations" />
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   components: {
-    Settingsbar, DirectoryEntry, NewEntryForm
+    MediaWikiReaderSettings, DirectoryEntry, NewEntryForm
   },
   data() {
     return {
@@ -197,13 +168,13 @@ export default {
         newEntryWebsites: []
       },
       componentKey: 0,
-      moderationViewMode: 'micras',
       moderationbarTabs: [
         { text: 'MicrasWiki', target: 'micras', display: true },
         { text: 'MicroWiki', target: 'microwiki', display: true }
       ],
       micrasArray: [],
       microWikiArray: [],
+      loadedSources: {},
       pagedMicrasDirectory: [],
       pagedMicroWikiDirectory: [],
       wikiRequestedMicronations: []
@@ -224,6 +195,23 @@ export default {
     }
   },
   methods: {
+    async loadSource(source) {
+      if (this.loadedSources[source] === 'loading' || this.loadedSources[source] === 'loaded') return;
+      this.loadedSources[source] = 'loading';
+      try {
+        if (source === 'micras') {
+          const { micrasWikiMicronations } = await import('../assets/micrasWikiSources.js');
+          this.micrasArray = [...micrasWikiMicronations];
+        } else if (source === 'microwiki') {
+          const { microWikiMicronations } = await import('../assets/microWikiSources.js');
+          this.microWikiArray = [...microWikiMicronations];
+        }
+        this.loadedSources[source] = 'loaded';
+      } catch (error) {
+        this.loadedSources[source] = 'error';
+        console.error(`Could not load ${source} source data:`, error);
+      }
+    },
     addSettingsbarPropsToArray(array) {
       const that = this;
       return array.map(function (element) {
@@ -312,10 +300,9 @@ export default {
 
               infoArray.push(articleData);
             })
-            .catch(e => console.log(e));
+            .catch(e => console.error(e));
         });
 
-        console.log(infoArray);
         return infoArray;
       }
 
@@ -356,13 +343,13 @@ export default {
           const textarea = $(response.data).find('#wpTextbox1').text();
           return textarea;
         })
-        .catch(e => console.log(e));
+        .catch(e => console.error(e));
     },
-    updateFormMicronationData(arrayObject) {
+    updateFormMicronationData(arrayObject, source) {
       let membershipsArray = [];
       let fictionalType = false;
 
-      if (this.moderationViewMode === 'micras') {
+      if (source === 'micras') {
         membershipsArray.push('Micronational Cartography Society');
         fictionalType = true;
       }
@@ -421,14 +408,10 @@ export default {
 
       return length;
     },
-    changeModerationViewMode(newValue) {
-      this.moderationViewMode = newValue;
-    },
     selectMicronation(index) {
       this.selectedMicronation = index;
     },
     loadPagedMicrasMicronations(payload) {
-    console.log(payload)
       this.pagedMicrasDirectory = payload;
       // this.forceRerender();
     },
@@ -446,16 +429,20 @@ export default {
       this.componentKey += 1;
     }
   },
-  async mounted() {
-    await store.dispatch('getMicrasPotentialEntries');
-    this.micrasArray = [...micrasWikiMicronations];
-    this.microWikiArray = [...microWikiMicronations];
+  mounted() {
+    this.loadSource('micras');
   },
 }
 </script>
 
 <style scoped>
+#moderationBar:deep(.section-bar) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .micronations-list {
+  position: relative;
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
@@ -466,6 +453,31 @@ export default {
   border-top-right-radius: 0px;
 }
 
+.source-count {
+  margin-right: 8px;
+  color: var(--color-accent);
+  font-size: 19px;
+}
+
+.summary-separator {
+  margin: 0 9px;
+  color: var(--color-muted);
+}
+
+.empty-source {
+  padding: 12px 14px;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  background: var(--color-surface-raised);
+}
+
+.wiki-form-follow-up {
+  margin: 4px 16px 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
 .area-title {
   font-size: 22px;
 }
@@ -474,14 +486,4 @@ export default {
   margin: auto auto 5px 5px;
 }
 
-.settingsbar:deep(.floating) {
-  position: relative;
-  width: auto;
-  padding: 0;
-}
-
-.settingsbar:deep(.directory-settings) {
-  padding: 0;
-  margin: 5px auto 5px auto;
-}
 </style>

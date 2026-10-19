@@ -1,7 +1,7 @@
 <script setup>
-import Sectionbar from '../components/Sectionbar.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
+import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import store from '../store';
 import { notify } from "@kyvg/vue3-notification";
 import emailjs from 'emailjs-com';
@@ -47,18 +47,27 @@ defineProps({
 </script>
 
 <template>
-  <section class="site-section">
-    <div class="moderation-menu" v-if="userIsModerator">
-      <div id="moderationMicronationsContainer">
-        <p id="moderationTitle">Submitted entries pending moderation:</p>
-        <div v-if="loadingIssues" class="loading-message">Loading pending entries from GitHub...</div>
-        <div v-else-if="githubIssues.length === 0 || (micronationsModerationDirectory.length === 0 && organizationsModerationDirectory.length === 0)" class="loading-message">No pending entries found.</div>
-        <div v-else class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
-          :class="{ 'fixed-height': fixedHeight }">
-          <DirectoryEntry v-for="item in micronationsModerationDirectory" :key="item.id" :width="entryWidth"
-            :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
-            :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-            :supranational-micronations="supranationalMicronations" :disable-full-profile-button="true" :info="{
+  <section class="site-section site-section--flush site-section--flat-top">
+    <ModerationToolWorkspace v-if="userIsModerator">
+      <template #description>
+        <p class="workspace-description">Review unpublished entries submitted by users. Approve entries that meet the requirements to publish them in the directory, or reject them. Authors are notified by email after each decision.</p>
+      </template>
+      <template #summary>
+        <strong>{{ micronationsModerationDirectory.length + organizationsModerationDirectory.length }}</strong>
+        <span class="summary-label">entries waiting for review</span>
+        <span v-if="loadingIssues" class="summary-status">Refreshing…</span>
+      </template>
+
+      <template #main>
+        <div id="moderationMicronationsContainer">
+          <div v-if="loadingIssues" class="loading-message">Loading pending entries from GitHub...</div>
+          <div v-else-if="githubIssues.length === 0 || (micronationsModerationDirectory.length === 0 && organizationsModerationDirectory.length === 0)" class="loading-message">No pending entries found.</div>
+          <div v-else class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
+            :class="{ 'fixed-height': fixedHeight }">
+            <DirectoryEntry v-for="item in micronationsModerationDirectory" :key="item.id" :width="entryWidth"
+              :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
+              :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
+              :supranational-micronations="supranationalMicronations" :disable-full-profile-button="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -81,8 +90,8 @@ defineProps({
       approved: item.approved,
       creationDate: item.creationDate
     }" @click="handleEntryClick(item, 'Micronation')" />
-          <OrganizationEntry v-for="item in organizationsModerationDirectory" :key="item.id" :width="entryWidth"
-            :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :disable-full-profile-button="true" :info="{
+            <OrganizationEntry v-for="item in organizationsModerationDirectory" :key="item.id" :width="entryWidth"
+              :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :disable-full-profile-button="true" :info="{
       id: item.id,
       name: {
         main: item.name.main,
@@ -98,34 +107,47 @@ defineProps({
       approved: item.approved,
       creationDate: item.creationDate
     }" @click="handleEntryClick(item, 'Organization')" />
+          </div>
         </div>
-      </div>
+      </template>
 
-      <div class="moderation-buttons" v-if="userIsModerator" v-show="micronationsDirectory.length !== 0">
-        <label class="selected-entry-name">{{ selectedEntryName }}</label>
-        <label class="selected-entry-author">Type: {{ selectedEntryType }}</label>
-        <label class="selected-entry-author">Author: {{ selectedEntryAuthor }}</label>
+      <template #support>
+        <div class="moderation-buttons">
+          <header class="selection-header" :class="{ 'is-empty': !selectedEntry }">
+            <div class="selection-header-topline">
+              <span class="selection-kicker">Submission review</span>
+              <span class="selection-status">{{ selectedEntry ? 'Pending' : 'Select an entry' }}</span>
+            </div>
+            <h3 class="selected-entry-name">{{ selectedEntryName }}</h3>
+            <div class="selection-meta">
+              <div class="selection-meta-item">
+                <span>Type</span>
+                <strong>{{ selectedEntryType || '—' }}</strong>
+              </div>
+              <div class="selection-meta-item">
+                <span>Author</span>
+                <strong>{{ selectedEntryAuthor || '—' }}</strong>
+              </div>
+            </div>
+          </header>
 
-        <Sectionbar id="moderationBar" :sections="moderationbarTabs" @show-target-tab="changeModerationViewMode"
-          :initial-selected-tab="'moderateTab0'" />
-
-        <div v-show="moderationViewMode === 'moderate'" class="moderation-tab">
-          <textarea class="login-input" v-model="rejectionReason" rows="6"
-            placeholder="Additional message for rejection/approval"></textarea>
-          <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined"
-            @click="entryReject(selectedEntry)">
-            Reject
-          </button>
-          <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined"
-            @click="entryApprove(selectedEntry)">
-            Approve
-          </button>
+          <div class="moderation-actions">
+            <textarea class="login-input" v-model="rejectionReason" rows="6"
+              placeholder="Additional message for rejection/approval"></textarea>
+            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined || moderationAction !== null"
+              @click="entryReject(selectedEntry)">
+              <span v-if="moderationAction === 'reject'" class="action-spinner" aria-hidden="true"></span>
+              {{ moderationAction === 'reject' ? 'Rejecting…' : 'Reject' }}
+            </button>
+            <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined || moderationAction !== null"
+              @click="entryApprove(selectedEntry)">
+              <span v-if="moderationAction === 'approve'" class="action-spinner" aria-hidden="true"></span>
+              {{ moderationAction === 'approve' ? 'Approving…' : 'Approve' }}
+            </button>
+          </div>
         </div>
-        <div v-show="moderationViewMode === 'edit'" class="moderation-tab">
-          <p>Work in progress.</p>
-        </div>
-      </div>
-    </div>
+      </template>
+    </ModerationToolWorkspace>
     <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
       You don't have sufficient privileges in order to moderate pending submissions.
     </div>
@@ -135,7 +157,6 @@ defineProps({
 <script>
 export default {
   components: {
-    Sectionbar,
     OrganizationEntry,
     DirectoryEntry
   },
@@ -144,16 +165,12 @@ export default {
       componentKey: 0,
       entryWidth: 180,
       fixedHeight: false,
-      moderationViewMode: 'moderate',
-      moderationbarTabs: [
-        { text: 'Moderate', target: 'moderate', display: true },
-        { text: 'Edit', target: 'edit', display: true },
-      ],
       selectedEntry: undefined,
       selectedEntryName: 'None selected',
       selectedEntryAuthor: '',
       selectedEntryType: undefined,
       rejectionReason: "",
+      moderationAction: null,
       githubIssues: [],
       loadingIssues: false
     }
@@ -179,6 +196,35 @@ export default {
     },
   },
   methods: {
+    async sendDecisionEmail(entry, decision) {
+      const authorEmail = entry.author?.email;
+      if (!authorEmail) {
+        console.warn('Skipping moderation email because the entry has no author email.', entry.id);
+        return;
+      }
+      if (this.moderatorsList.some(moderatorEmail => moderatorEmail.toLowerCase() === authorEmail.toLowerCase())) {
+        return;
+      }
+
+      try {
+        await emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
+          entry_decision: decision,
+          entry_decisiond: decision === 'approve' ? 'approved' : 'rejected',
+          to_name: entry.author?.name || '',
+          to_email: authorEmail,
+          entry_name: entry.name?.main || this.selectedEntryName,
+          rejection_reason: this.rejectionReason
+        }, "P8-p_r-gTZedo_h84");
+      } catch (error) {
+        // The moderation decision is already recorded; a mail failure must not undo it.
+        console.error('Error sending moderation decision email:', error);
+        notify({
+          title: 'Moderation email failed',
+          text: `The entry was ${decision === 'approve' ? 'approved' : 'rejected'}, but the author notification could not be sent.`,
+          type: 'error'
+        });
+      }
+    },
     handleEntryClick(item, type) {
       // Find the full entry data with issueBody from the original issues
       const fullEntry = this.githubIssues
@@ -210,6 +256,11 @@ export default {
       }
     },
     async entryReject(entry) {
+      if (!entry || this.moderationAction || !window.confirm(`Reject “${entry.name?.main || this.selectedEntryName}”? This will close the submission.`)) {
+        return;
+      }
+
+      this.moderationAction = 'reject';
       const that = this;
 
       try {
@@ -221,24 +272,14 @@ export default {
         await addIssueLabel(entry.issueNumber, 'rejected');
         await closeIssue(entry.issueNumber);
 
-        // Send email notification if author is not a moderator
-        if (!this.moderatorsList.includes(that.selectedEntryAuthor)) {
-          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-            entry_decision: 'reject',
-            entry_decisiond: 'rejected',
-            to_name: entry.author.name,
-            to_email: that.selectedEntryAuthor,
-            entry_name: that.selectedEntryName,
-            rejection_reason: that.rejectionReason
-          },
-            "P8-p_r-gTZedo_h84");
-        }
+        await this.sendDecisionEmail(entry, 'reject');
 
         // Remove from local list
         this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
         this.forceRerender();
         this.selectedEntry = undefined;
         this.selectedEntryName = 'None selected';
+        this.selectedEntryAuthor = '';
         this.selectedEntryType = undefined;
         this.rejectionReason = '';
 
@@ -254,9 +295,16 @@ export default {
           text: error.message || error,
           type: 'error'
         })
+      } finally {
+        this.moderationAction = null;
       }
     },
     async entryApprove(entry) {
+      if (!entry || this.moderationAction || !window.confirm(`Approve “${entry.name?.main || this.selectedEntryName}”? This will publish it to the directory.`)) {
+        return;
+      }
+
+      this.moderationAction = 'approve';
       const that = this;
 
       try {
@@ -331,24 +379,14 @@ export default {
         // Close the issue
         await closeIssue(entry.issueNumber);
 
-        // Send email notification if author is not a moderator
-        if (!this.moderatorsList.includes(that.selectedEntryAuthor)) {
-          emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-            entry_decision: 'approve',
-            entry_decisiond: 'approved',
-            to_name: entry.author.name,
-            to_email: that.selectedEntryAuthor,
-            entry_name: that.selectedEntryName,
-            rejection_reason: that.rejectionReason
-          },
-            "P8-p_r-gTZedo_h84");
-        }
+        await this.sendDecisionEmail(entry, 'approve');
 
         // Remove from local list
         this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
         this.forceRerender();
         this.selectedEntry = undefined;
         this.selectedEntryName = 'None selected';
+        this.selectedEntryAuthor = '';
         this.selectedEntryType = undefined;
         this.rejectionReason = '';
 
@@ -364,10 +402,9 @@ export default {
           text: error.message || error,
           type: 'error'
         })
+      } finally {
+        this.moderationAction = null;
       }
-    },
-    changeModerationViewMode(newValue) {
-      this.moderationViewMode = newValue;
     },
     forceRerender() {
       this.componentKey += 1;
@@ -377,32 +414,24 @@ export default {
     }
   },
   mounted() {
-    // Fetch pending GitHub issues when component loads
     this.fetchPendingIssues();
   }
 }
 </script>
 
 <style scoped>
-.site-section {
-  padding: 0px;
-}
-
 #moderationTitle {
   font-size: 20px;
   font-weight: bold;
   width: 100%;
 }
 
-.moderation-menu {
-  display: flex;
-}
-
 #moderationMicronationsContainer {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  padding: 0 15px 10px 15px;
+  width: 100%;
+  min-width: 0;
+  padding: 4px;
 }
 
 #moderationMicronations {
@@ -414,42 +443,120 @@ export default {
 .moderation-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  padding: 20px;
-  background-color: var(--profile-left-side-background-color);
-  border-right: none;
-  border-left: 4px solid var(--site-section-border-color);
-  border-radius: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
   min-height: fit-content;
   height: auto;
-  width: 30%;
-}
-
-#moderationBar {
   width: 100%;
-  justify-content: center;
-  border-radius: 0px;
 }
 
-.moderation-buttons .moderation-tab {
+.selection-header,
+.moderation-actions {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selection-header {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg,
+      color-mix(in srgb, var(--color-accent) 9%, var(--color-surface)),
+      var(--color-surface) 72%);
+}
+
+.selection-header-topline {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.selection-kicker {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.selection-status {
+  padding: 4px 9px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, var(--color-border));
+  border-radius: var(--radius-full);
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 9%, var(--color-surface));
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selection-header.is-empty .selection-status {
+  color: var(--color-muted);
+  background: var(--color-background-soft);
+  border-color: var(--color-border);
 }
 
 .moderation-buttons .selected-entry-name {
+  margin: 0 0 14px;
+  color: var(--color-heading);
   font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 5px;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 
-.moderation-buttons .selected-entry-author {
-  font-size: 14px;
+.selection-meta {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.selection-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+}
+
+.selection-meta-item span {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.selection-meta-item strong {
+  color: var(--color-text);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.moderation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.moderation-buttons .moderation-actions .login-input {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: none;
+  min-height: 170px;
+  margin: 0;
+  resize: none;
 }
 
 #notEnoughPrivileges {
@@ -457,17 +564,29 @@ export default {
 }
 
 .moderation-buttons .login-button {
-  width: 70%;
-  margin-bottom: 25px;
-}
-
-.moderation-buttons .login-button:last-child {
-  margin-bottom: 0;
-}
-
-.moderation-buttons .login-input {
-  margin-top: 15px;
   width: 100%;
+  margin: 0;
+}
+
+.moderation-buttons .login-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.action-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: moderation-spinner 0.7s linear infinite;
+}
+
+@keyframes moderation-spinner {
+  to { transform: rotate(360deg); }
 }
 
 #entryReject {
@@ -483,5 +602,21 @@ export default {
   text-align: center;
   color: var(--text-color);
   font-size: 16px;
+}
+
+.summary-label {
+  margin-left: 8px;
+}
+
+.summary-status {
+  margin-left: auto;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .selection-meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 </style>
