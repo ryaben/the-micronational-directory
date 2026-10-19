@@ -53157,5 +53157,46 @@
       "_seconds": 1777131882,
       "_nanoseconds": 0
     }
+  },
+  {
+    "name": {
+      "main": "Kallonia",
+      "mainAlt": "Kallon Kwyllrhonæt",
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "flag": "/images/flags/Kallonia.jpg",
+    "motto": "Stæt, Natiôn i Prosperæ (State, Nation and Prosperity)",
+    "type": [
+      "Digital"
+    ],
+    "languages": [
+      "English",
+      "Brelian"
+    ],
+    "capital": "Farenett",
+    "currency": "Kallonian Kelan",
+    "foundationDate": {
+      "seconds": 1683279000,
+      "_seconds": 1683279000
+    },
+    "location": null,
+    "memberships": [],
+    "contactInfo": [
+      "tomnoickot@proton.me"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Kingdom_of_Kallonia",
+      "https://kalleon-kallonia.forumotion.eu/"
+    ],
+    "author": {
+      "name": "Hristo Sakellariou",
+      "email": "tomnoickot@proton.me"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1769968494,
+      "_nanoseconds": 0
+    }
   }
 ]
