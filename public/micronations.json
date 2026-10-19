@@ -53156,53 +53156,5 @@
       "_seconds": 1760330403,
       "_nanoseconds": 0
     }
-  },
-  {
-    "name": {
-      "main": "Zeteland",
-      "mainAlt": "Zeteland",
-      "title": "Kingdom of",
-      "titleAlt": "Kuninggard"
-    },
-    "flag": "/images/flags/Zeteland.jpg",
-    "motto": "Ibnass, Welesen, ond Freihal",
-    "type": [
-      "Physical"
-    ],
-    "languages": [
-      "English",
-      "Zetic",
-      "German"
-    ],
-    "capital": "Reikbaurg",
-    "currency": "Reikscaut",
-    "foundationDate": {
-      "_seconds": 1696134240,
-      "_nanoseconds": 0
-    },
-    "location": {
-      "_latitude": 34.59575571011112,
-      "_longitude": -83.18278439899659
-    },
-    "memberships": [],
-    "contactInfo": [
-      "zetereiks@gmail.com",
-      "fliudframreikbaurg@zetelandnational.org",
-      "https://www.instagram.com/zetelandofficial/",
-      "https://www.instagram.com/zetelandofficial_ze/"
-    ],
-    "websites": [
-      "https://www.zetelandnational.org/",
-      "https://micronations.fandom.com/wiki/Zeteland"
-    ],
-    "author": {
-      "name": "Zetelandnational",
-      "email": "zetereiks@gmail.com"
-    },
-    "approved": true,
-    "creationDate": {
-      "_seconds": 1760330403,
-      "_nanoseconds": 0
-    }
   }
 ]
