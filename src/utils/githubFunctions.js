@@ -534,6 +534,77 @@ export async function addIssueComment(issueNumber, comment) {
   }
 }
 
+/** Updates an issue's JSON submission while preserving the rest of its body. */
+export async function updateGitHubIssueEntry(issueNumber, issueBody, entryData, entryType, mediaChange = null) {
+  const token = import.meta.env.VITE_GITHUB_TOKEN
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+
+  if (!token || !repoOwner || !repoName) {
+    throw new Error('GitHub credentials not configured')
+  }
+
+  const jsonBlock = /(```json\s*\r?\n)[\s\S]*?(\r?\n```)/
+  if (!jsonBlock.test(issueBody || '')) {
+    throw new Error('Could not find the submission JSON block in the GitHub issue.')
+  }
+
+  const entryTypeLabel = entryType.charAt(0).toUpperCase() + entryType.slice(1)
+  let body = issueBody.replace(jsonBlock, (match, opening, closing) =>
+    `${opening}${JSON.stringify(entryData, null, 2)}${closing}`
+  ).replace(/^## New .* Submission$/m, `## New ${entryTypeLabel} Submission`)
+
+  const replaceMediaSection = (source, heading, section) => {
+    const pattern = new RegExp(`### ${heading}\\r?\\n[\\s\\S]*?(?=\\r?\\n### |$)`)
+    if (pattern.test(source)) return source.replace(pattern, section)
+    const insertionPoint = source.indexOf('### Submitted By')
+    if (insertionPoint < 0) return `${source.trimEnd()}\n\n${section}\n`
+    return `${source.slice(0, insertionPoint).trimEnd()}\n\n${section}\n\n${source.slice(insertionPoint)}`
+  }
+
+  if (mediaChange?.mode === 'upload') {
+    body = replaceMediaSection(
+      body,
+      'Media File Metadata',
+      `### Media File Metadata\n- **File Name:** \`${mediaChange.name}\`\n- **Target Path:** \`${mediaChange.path}\``
+    )
+    body = replaceMediaSection(body, 'Media File Base64', `### Media File Base64\n\`\`\`base64\n${mediaChange.base64}\n\`\`\``)
+  } else if (mediaChange?.mode === 'url') {
+    body = body
+      .replace(/### Media File Metadata\r?\n[\s\S]*?(?=\r?\n### |$)/, '')
+      .replace(/### Media File Base64\r?\n[\s\S]*?(?=\r?\n### |$)/, '')
+      .replace(/\n{3,}/g, '\n\n')
+  }
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}`
+
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `token ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: `New ${entryType} submission: ${entryData.name?.main || 'Unnamed'}`,
+      body
+    })
+  })
+
+  const responseText = await response.text()
+  let result
+  try {
+    result = responseText ? JSON.parse(responseText) : null
+  } catch {
+    throw new Error(`GitHub returned an unreadable response while updating issue #${issueNumber} (HTTP ${response.status}).`)
+  }
+
+  if (!response.ok) {
+    throw new Error(`GitHub API error (${response.status}): ${result?.message || response.statusText || 'Request failed'}`)
+  }
+
+  return result
+}
+
 /**
  * Fetches a file from the GitHub repository
  * @param {string} path The file path in the repository (e.g., 'public/micronations.json')
@@ -763,6 +834,7 @@ export default {
   addIssueLabel,
   closeIssue,
   addIssueComment,
+  updateGitHubIssueEntry,
   fetchRepoFile,
   updateRepoFile,
   createRepoFile,

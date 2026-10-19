@@ -1,13 +1,12 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import OrganizationEntry from '../components/OrganizationEntry.vue';
-import DirectoryArticle from '../components/DirectoryArticle.vue';
-import OrganizationArticle from '../components/OrganizationArticle.vue';
+import NewEntryForm from '../components/NewEntryForm.vue';
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import store from '../store';
 import { notify } from "@kyvg/vue3-notification";
 import emailjs from 'emailjs-com';
-import { fetchGitHubIssues, convertIssueToEntry, addIssueLabel, closeIssue, addIssueComment, fetchRepoFile, updateRepoFile, createRepoFile, extractBase64Image, extractFileMetadata, stableStringify } from '../utils/githubFunctions.js';
+import { fetchGitHubIssues, convertIssueToEntry, parseIssueBody, addIssueLabel, closeIssue, addIssueComment, fetchRepoFile, updateRepoFile, updateGitHubIssueEntry, createRepoFile, extractBase64Image, extractFileMetadata, stableStringify } from '../utils/githubFunctions.js';
 
 defineProps({
   micronationsDirectory: {
@@ -120,12 +119,15 @@ defineProps({
                 </div>
                 <div class="details-heading-actions">
                   <a v-if="selectedProfileEntry.githubUrl" :href="selectedProfileEntry.githubUrl" target="_blank" rel="noopener noreferrer">Open GitHub issue ↗</a>
-                  <button type="button" class="close-preview-button" @click="closeSelectedPreview"><span aria-hidden="true">×</span> Close</button>
+                  <button type="button" class="close-preview-button" :disabled="savingProfile || profileImageProcessing" @click="closeSelectedPreview"><span aria-hidden="true">×</span> Close</button>
                 </div>
               </div>
-              <DirectoryArticle v-if="selectedProfileEntry.entryType === 'micronation'" :info="selectedProfileEntry"
-                :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" preview />
-              <OrganizationArticle v-else :info="selectedProfileEntry" :micronations-directory="micronationsDirectory" preview />
+              <NewEntryForm v-if="profileDraft && moderationFormDraft" :key="selectedProfileEntry.issueNumber"
+                :entry-type="selectedProfileEntry.entryType" :directory-data="selectedProfileEntry.entryType === 'micronation' ? micronationsDirectory : organizationsDirectory"
+                :form-placeholders="moderationFormDraft" :initial-entry="profileDraft" :initial-image-mode="profileImageMode"
+                :is-moderation-editor="true" :saving="savingProfile" :image-processing="profileImageProcessing"
+                @save-corrections="saveProfileEdits" @edit-image-change="updateProfileImage"
+                @image-error="notifyProfileImageError" @image-processing="profileImageProcessing = $event" />
             </section>
           </div>
           </Teleport>
@@ -188,6 +190,13 @@ export default {
       fixedHeight: false,
       selectedEntry: undefined,
       selectedProfileEntry: undefined,
+      savingProfile: false,
+      profileDraft: null,
+      moderationFormDraft: null,
+      profileSubmissionDraft: null,
+      profileImageMode: 'url',
+      profileMediaDraft: null,
+      profileImageProcessing: false,
       selectedEntryName: 'None selected',
       selectedEntryAuthor: '',
       selectedEntryType: undefined,
@@ -262,9 +271,91 @@ export default {
     openEntryProfile(item, type) {
       this.selectEntry(item, type);
       this.selectedProfileEntry = this.selectedEntry;
+      this.profileDraft = JSON.parse(JSON.stringify(this.selectedEntry));
+      this.profileDraft.name ||= { main: '', mainAlt: '', title: '', titleAlt: '' };
+      this.profileDraft.motto ||= '';
+      this.profileDraft.type ||= [];
+      this.profileDraft.languages ||= [];
+      this.profileDraft.memberships ||= [];
+      this.profileDraft.contactInfo ||= [];
+      this.profileDraft.websites ||= [];
+      this.moderationFormDraft = {
+        newEntryName: this.profileDraft.name.main || '',
+        newEntryNameAlt: this.profileDraft.name.mainAlt || '',
+        newEntryTitle: this.profileDraft.name.title || '',
+        newEntryTitleAlt: this.profileDraft.name.titleAlt || '',
+        newEntryTypePhysical: (this.profileDraft.type || []).includes('Physical'),
+        newEntryTypeDigital: (this.profileDraft.type || []).includes('Digital'),
+        newEntryTypeFictional: (this.profileDraft.type || []).includes('Fictional'),
+        newEntryMotto: this.profileDraft.motto || '',
+        newEntryCapital: this.profileDraft.capital || '',
+        newEntryCurrency: this.profileDraft.currency || '',
+        newEntryLanguages: [...this.profileDraft.languages],
+        newEntryMemberships: [...this.profileDraft.memberships],
+        newEntryEmails: [...this.profileDraft.contactInfo],
+        newEntryWebsites: [...this.profileDraft.websites]
+      };
+      this.profileSubmissionDraft = parseIssueBody(this.selectedEntry?.issueBody);
+      this.profileImageMode = extractFileMetadata(this.selectedEntry?.issueBody) ? 'file' : 'url';
+      this.profileMediaDraft = null;
     },
     closeSelectedPreview() {
       this.selectedProfileEntry = undefined;
+      this.profileDraft = null;
+      this.moderationFormDraft = null;
+      this.profileSubmissionDraft = null;
+      this.profileMediaDraft = null;
+    },
+    async saveProfileEdits(formData) {
+      if (!this.profileDraft || !formData || this.savingProfile || this.profileImageProcessing) return;
+      if (!formData.name?.main?.trim()) {
+        notify({ title: 'Cannot save entry', text: 'The official name is required.', type: 'error' });
+        return;
+      }
+
+      this.savingProfile = true;
+      try {
+        if (!this.profileSubmissionDraft) {
+          throw new Error('The original submission data could not be loaded from the issue.');
+        }
+        const updatedData = JSON.parse(JSON.stringify(this.profileSubmissionDraft));
+        Object.assign(updatedData, formData);
+        const imageField = this.selectedProfileEntry.entryType === 'micronation' ? 'flag' : 'logo';
+        if (this.profileMediaDraft?.mode === 'upload') {
+          updatedData[imageField] = this.profileMediaDraft.path;
+        } else if (this.profileMediaDraft?.mode === 'url') {
+          updatedData[imageField] = this.profileMediaDraft.url;
+        }
+
+        const entryType = this.selectedProfileEntry.entryType;
+        const updatedIssue = await updateGitHubIssueEntry(
+          this.selectedProfileEntry.issueNumber,
+          this.selectedProfileEntry.issueBody,
+          updatedData,
+          entryType,
+          this.profileMediaDraft
+        );
+        this.githubIssues = this.githubIssues.map(issue => issue.number === updatedIssue.number ? updatedIssue : issue);
+        const updatedEntry = convertIssueToEntry(updatedIssue);
+        this.selectedEntry = updatedEntry;
+        this.selectedProfileEntry = updatedEntry;
+        this.selectedEntryName = updatedEntry.name.main;
+        this.profileDraft = JSON.parse(JSON.stringify(updatedEntry));
+        this.profileSubmissionDraft = parseIssueBody(updatedIssue.body);
+        this.profileImageMode = extractFileMetadata(updatedIssue.body) ? 'file' : 'url';
+        this.profileMediaDraft = null;
+        notify({ title: 'Entry updated', text: 'The submission and its GitHub issue were updated.', type: 'success' });
+      } catch (error) {
+        notify({ title: 'Could not update entry', text: error.message || String(error), type: 'error' });
+      } finally {
+        this.savingProfile = false;
+      }
+    },
+    updateProfileImage(change) {
+      this.profileMediaDraft = change;
+    },
+    notifyProfileImageError(message) {
+      notify({ title: 'Could not process image', text: message, type: 'error' });
     },
     async fetchPendingIssues() {
       this.loadingIssues = true;
@@ -645,6 +736,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .close-preview-button {
@@ -667,6 +760,17 @@ export default {
   color: var(--color-heading);
   border-color: var(--color-accent);
   background: var(--color-surface-raised);
+}
+
+.close-preview-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.save-entry-button {
+  color: white;
+  border-color: var(--success-tone);
+  background: var(--success-tone);
 }
 
 .close-preview-button span {
@@ -730,5 +834,6 @@ export default {
   .selection-meta {
     grid-template-columns: minmax(0, 1fr);
   }
+
 }
 </style>
