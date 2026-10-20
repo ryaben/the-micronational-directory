@@ -1,15 +1,25 @@
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue';
-import { EmailAuthProvider, GoogleAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword, linkWithCredential, linkWithPopup } from 'firebase/auth';
-import { notify } from '@kyvg/vue3-notification';
-import { auth } from '../firebase/auth.js';
-import router from '../router/index';
-import DirectoryEntry from '../components/DirectoryEntry.vue';
-import OrganizationEntry from '../components/OrganizationEntry.vue';
-import Sectionbar from '../components/Sectionbar.vue';
-import Settingsbar from '../components/Settingsbar.vue';
-import store from '../store';
-import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js';
+import { computed, onMounted, ref, watch } from 'vue'
+import {
+  EmailAuthProvider,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  reauthenticateWithCredential,
+  sendEmailVerification,
+  signOut,
+  updatePassword,
+  linkWithCredential,
+  linkWithPopup
+} from 'firebase/auth'
+import { notify } from '@kyvg/vue3-notification'
+import { auth } from '../firebase/auth.js'
+import router from '../router/index'
+import DirectoryEntry from '../components/DirectoryEntry.vue'
+import OrganizationEntry from '../components/OrganizationEntry.vue'
+import Sectionbar from '../components/Sectionbar.vue'
+import Settingsbar from '../components/Settingsbar.vue'
+import store from '../store'
+import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js'
 
 const props = defineProps({
   micronationsDirectory: { type: Array, default: () => store.getters.micronations },
@@ -17,57 +27,90 @@ const props = defineProps({
   moderatorsList: { type: Array, default: () => store.getters.moderators },
   userIsModerator: { type: Boolean, default: false },
   user: { type: Object, default: () => ({}) }
-});
+})
 
-const activeSection = ref('profile');
+const activeSection = ref('profile')
 const profileSections = [
   { text: 'Account data', target: 'profile', display: true },
   { text: 'Update password', target: 'password', display: true },
   { text: 'Contributions', target: 'contributions', display: true }
-];
-const currentUser = ref(auth.currentUser || props.user || {});
-const pagedEntries = ref([]);
-const issueSubmissions = ref([]);
-const oldPassword = ref('');
-const newPassword = ref('');
-const repeatNewPassword = ref('');
-const hasPasswordProvider = computed(() => currentUser.value?.providerData?.some(provider => provider.providerId === 'password') ?? false);
-const hasGoogleProvider = computed(() => currentUser.value?.providerData?.some(provider => provider.providerId === 'google.com') ?? false);
+]
+const currentUser = ref(auth.currentUser || props.user || {})
+const pagedEntries = ref([])
+const issueSubmissions = ref([])
+const oldPassword = ref('')
+const newPassword = ref('')
+const repeatNewPassword = ref('')
+const hasPasswordProvider = computed(
+  () =>
+    currentUser.value?.providerData?.some((provider) => provider.providerId === 'password') ?? false
+)
+const hasGoogleProvider = computed(
+  () =>
+    currentUser.value?.providerData?.some((provider) => provider.providerId === 'google.com') ??
+    false
+)
 
-watch(() => props.user, user => {
-  if (user?.email) currentUser.value = user;
-}, { immediate: true });
+watch(
+  () => props.user,
+  (user) => {
+    if (user?.email) currentUser.value = user
+  },
+  { immediate: true }
+)
 
 const authoredEntries = computed(() => {
-  const email = currentUser.value?.email?.toLowerCase();
-  if (!email) return [];
+  const email = currentUser.value?.email?.toLowerCase()
+  if (!email) return []
   const micronations = props.micronationsDirectory
-    .filter(entry => entry.author?.email?.toLowerCase() === email)
-    .map(entry => ({ ...entry, entryType: 'micronation' }));
+    .filter((entry) => entry.author?.email?.toLowerCase() === email)
+    .map((entry) => ({ ...entry, entryType: 'micronation' }))
   const organizations = props.organizationsDirectory
-    .filter(entry => entry.author?.email?.toLowerCase() === email)
-    .map(entry => ({ ...entry, entryType: 'organization' }));
+    .filter((entry) => entry.author?.email?.toLowerCase() === email)
+    .map((entry) => ({ ...entry, entryType: 'organization' }))
   const issueEntries = issueSubmissions.value
-    .map(issue => {
-      const entry = convertIssueToEntry(issue);
-      return entry ? { ...entry, creationDate: issue.created_at } : null;
+    .map((issue) => {
+      const entry = convertIssueToEntry(issue)
+      return entry ? { ...entry, creationDate: issue.created_at } : null
     })
-    .filter(entry => entry?.author?.email?.toLowerCase() === email);
-  return [...micronations, ...organizations, ...issueEntries];
-});
+    .filter((entry) => entry?.author?.email?.toLowerCase() === email)
+  return [...micronations, ...organizations, ...issueEntries]
+})
 
-const approvedMicronations = computed(() => props.micronationsDirectory.filter(entry => entry.approved));
-const approvedOrganizations = computed(() => props.organizationsDirectory.filter(entry => entry.approved));
-const userContributions = computed(() => authoredEntries.value.filter(entry => entry.entryType === 'micronation' && entry.approved).length);
-const userOrganizationContributions = computed(() => authoredEntries.value.filter(entry => entry.entryType === 'organization' && entry.approved).length);
-const percentageContributions = computed(() => approvedMicronations.value.length ? (userContributions.value * 100 / approvedMicronations.value.length).toFixed(2) : '0.00');
-const percentageOrganizationContributions = computed(() => approvedOrganizations.value.length ? (userOrganizationContributions.value * 100 / approvedOrganizations.value.length).toFixed(2) : '0.00');
-const settingsEntries = computed(() => authoredEntries.value.map(entry => ({
-  ...entry,
-  name: { ...entry.name, mainAlt: entry.name?.mainAlt || '' },
-  searchDisplay: true,
-  filterDisplay: true
-})));
+const approvedMicronations = computed(() =>
+  props.micronationsDirectory.filter((entry) => entry.approved)
+)
+const approvedOrganizations = computed(() =>
+  props.organizationsDirectory.filter((entry) => entry.approved)
+)
+const userContributions = computed(
+  () =>
+    authoredEntries.value.filter((entry) => entry.entryType === 'micronation' && entry.approved)
+      .length
+)
+const userOrganizationContributions = computed(
+  () =>
+    authoredEntries.value.filter((entry) => entry.entryType === 'organization' && entry.approved)
+      .length
+)
+const percentageContributions = computed(() =>
+  approvedMicronations.value.length
+    ? ((userContributions.value * 100) / approvedMicronations.value.length).toFixed(2)
+    : '0.00'
+)
+const percentageOrganizationContributions = computed(() =>
+  approvedOrganizations.value.length
+    ? ((userOrganizationContributions.value * 100) / approvedOrganizations.value.length).toFixed(2)
+    : '0.00'
+)
+const settingsEntries = computed(() =>
+  authoredEntries.value.map((entry) => ({
+    ...entry,
+    name: { ...entry.name, mainAlt: entry.name?.mainAlt || '' },
+    searchDisplay: true,
+    filterDisplay: true
+  }))
+)
 
 function entryInfo(entry) {
   return {
@@ -89,123 +132,158 @@ function entryInfo(entry) {
     author: entry.author,
     approved: entry.approved,
     creationDate: entry.creationDate
-  };
+  }
 }
 
 function formatFoundationDate(date) {
-  if (!date) return 'Unknown';
-  const seconds = date._seconds || date.seconds;
-  const parsedDate = seconds ? new Date(seconds * 1000) : new Date(date);
+  if (!date) return 'Unknown'
+  const seconds = date._seconds || date.seconds
+  const parsedDate = seconds ? new Date(seconds * 1000) : new Date(date)
   return Number.isNaN(parsedDate.getTime())
     ? 'Unknown'
-    : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(parsedDate);
+    : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(
+        parsedDate
+      )
 }
 
 function updatePagedEntries(entries) {
-  pagedEntries.value = entries;
+  pagedEntries.value = entries
 }
 
 async function loadUserIssueSubmissions() {
   try {
-    issueSubmissions.value = await fetchGitHubIssues(['new-entry', 'review-required']);
+    issueSubmissions.value = await fetchGitHubIssues(['new-entry', 'review-required'])
   } catch (error) {
-    console.error('Unable to load the current user’s GitHub submissions:', error);
+    console.error('Unable to load the current user’s GitHub submissions:', error)
   }
 }
 
 async function resendVerification() {
   try {
-    await sendEmailVerification(auth.currentUser);
-    notify({ title: 'Session status', text: 'An email was sent to your address. Verify your account to add directory entries.', type: 'success' });
+    await sendEmailVerification(auth.currentUser)
+    notify({
+      title: 'Session status',
+      text: 'An email was sent to your address. Verify your account to add directory entries.',
+      type: 'success'
+    })
   } catch (error) {
-    notify({ title: 'Unable to send email', text: error.message, type: 'error' });
+    notify({ title: 'Unable to send email', text: error.message, type: 'error' })
   }
 }
 
 async function linkGoogleAccount() {
   try {
-    const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider()
     provider.setCustomParameters({
       prompt: 'select_account',
       ...(auth.currentUser?.email ? { login_hint: auth.currentUser.email } : {})
-    });
-    const result = await linkWithPopup(auth.currentUser, provider);
-    currentUser.value = result.user;
-    notify({ title: 'Google linked', text: 'You can now sign in to this account with Google or email and password.', type: 'success' });
+    })
+    const result = await linkWithPopup(auth.currentUser, provider)
+    currentUser.value = result.user
+    notify({
+      title: 'Google linked',
+      text: 'You can now sign in to this account with Google or email and password.',
+      type: 'success'
+    })
   } catch (error) {
     const messages = {
       'auth/credential-already-in-use': 'That Google account is already linked to another account.',
       'auth/provider-already-linked': 'A Google account is already linked to this account.',
       'auth/popup-closed-by-user': 'Google linking was cancelled.',
-      'auth/popup-blocked': 'Your browser blocked the Google sign-in window. Allow popups and try again.'
-    };
-    notify({ title: 'Unable to link Google', text: messages[error.code] || error.message, type: 'error' });
+      'auth/popup-blocked':
+        'Your browser blocked the Google sign-in window. Allow popups and try again.'
+    }
+    notify({
+      title: 'Unable to link Google',
+      text: messages[error.code] || error.message,
+      type: 'error'
+    })
   }
 }
 
 async function changePassword() {
-  const addingPassword = !hasPasswordProvider.value;
+  const addingPassword = !hasPasswordProvider.value
   if (newPassword.value !== repeatNewPassword.value) {
-    notify({ title: 'Password mismatch', text: "The values entered don't match. Please check your new password.", type: 'error' });
-    return;
+    notify({
+      title: 'Password mismatch',
+      text: "The values entered don't match. Please check your new password.",
+      type: 'error'
+    })
+    return
   }
   try {
     if (!addingPassword) {
-      const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword.value);
-      await reauthenticateWithCredential(auth.currentUser, credential);
-      await updatePassword(auth.currentUser, newPassword.value);
+      const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword.value)
+      await reauthenticateWithCredential(auth.currentUser, credential)
+      await updatePassword(auth.currentUser, newPassword.value)
     } else {
-      const credential = EmailAuthProvider.credential(auth.currentUser.email, newPassword.value);
-      await linkWithCredential(auth.currentUser, credential);
-      currentUser.value = auth.currentUser;
+      const credential = EmailAuthProvider.credential(auth.currentUser.email, newPassword.value)
+      await linkWithCredential(auth.currentUser, credential)
+      currentUser.value = auth.currentUser
     }
-    oldPassword.value = '';
-    newPassword.value = '';
-    repeatNewPassword.value = '';
+    oldPassword.value = ''
+    newPassword.value = ''
+    repeatNewPassword.value = ''
     notify({
       title: addingPassword ? 'Password added' : 'Password updated',
-      text: addingPassword ? 'You can now sign in with Google or your email and password.' : 'Your password was successfully updated.',
+      text: addingPassword
+        ? 'You can now sign in with Google or your email and password.'
+        : 'Your password was successfully updated.',
       type: 'success'
-    });
+    })
   } catch (error) {
     const messages = {
       'auth/invalid-credential': 'The current password you entered is not valid.',
-      'auth/credential-already-in-use': 'This email and password are already linked to another account.',
+      'auth/credential-already-in-use':
+        'This email and password are already linked to another account.',
       'auth/email-already-in-use': 'This email is already linked to another account.',
       'auth/weak-password': 'Choose a stronger password with at least 6 characters.'
-    };
-    notify({ title: addingPassword ? 'Unable to add password' : 'Unable to update password', text: messages[error.code] || error.message, type: 'error' });
+    }
+    notify({
+      title: addingPassword ? 'Unable to add password' : 'Unable to update password',
+      text: messages[error.code] || error.message,
+      type: 'error'
+    })
   }
 }
 
 async function signOutCall() {
-  localStorage.removeItem('firebase-auth-user');
-  await signOut(auth);
-  notify({ title: 'Session status', text: 'You have logged out from your account.', type: 'warning' });
-  router.push('/login');
+  localStorage.removeItem('firebase-auth-user')
+  await signOut(auth)
+  notify({
+    title: 'Session status',
+    text: 'You have logged out from your account.',
+    type: 'warning'
+  })
+  router.push('/login')
 }
 
-onAuthStateChanged(auth, user => {
-  if (user) currentUser.value = user;
-  else if (!props.user?.email && localStorage.getItem('firebase-auth-user') === null) router.push('/login');
-});
+onAuthStateChanged(auth, (user) => {
+  if (user) currentUser.value = user
+  else if (!props.user?.email && localStorage.getItem('firebase-auth-user') === null)
+    router.push('/login')
+})
 
-onMounted(loadUserIssueSubmissions);
+onMounted(loadUserIssueSubmissions)
 </script>
 
 <template>
   <section class="site-section profile-shell">
     <div class="profile-heading">
-      <div class="profile-avatar" aria-hidden="true">{{ (currentUser.displayName || currentUser.email || 'U').slice(0,
-        1).toUpperCase() }}</div>
+      <div class="profile-avatar" aria-hidden="true">
+        {{ (currentUser.displayName || currentUser.email || 'U').slice(0, 1).toUpperCase() }}
+      </div>
       <div>
         <h1>Hello, {{ currentUser.displayName || 'there' }}!</h1>
         <p class="profile-intro">Manage your account and see what you’ve added to the directory.</p>
       </div>
     </div>
 
-    <Sectionbar :sections="profileSections" :initial-selected-section="activeSection"
-      @section-change="activeSection = $event">
+    <Sectionbar
+      :sections="profileSections"
+      :initial-selected-section="activeSection"
+      @section-change="activeSection = $event"
+    >
       <template #profile>
         <div class="section-content profile-data">
           <div class="panel-heading">
@@ -214,27 +292,49 @@ onMounted(loadUserIssueSubmissions);
             </div>
           </div>
           <div class="data-grid">
-            <div class="data-card"><span class="data-label">Display name</span><strong>{{ currentUser.displayName ||
-                'Not set' }}</strong></div>
+            <div class="data-card">
+              <span class="data-label">Display name</span
+              ><strong>{{ currentUser.displayName || 'Not set' }}</strong>
+            </div>
             <div class="data-card email-data-card">
               <span class="data-label">Email address</span>
-              <div class="email-value-row">
-                <strong>{{ currentUser.email || 'Loading…' }}</strong>
-                <span class="status-pill" :class="currentUser.emailVerified ? 'verified' : 'unverified'">{{
-                  currentUser.emailVerified ? 'Email verified' : 'Verification needed' }}</span>
-              </div>
+              <strong>{{ currentUser.email || 'Loading…' }}</strong>
             </div>
-            <div class="data-card"><span class="data-label">Account status</span><strong>{{ currentUser.emailVerified ?
-              'Verified' : 'Not verified' }}</strong><button v-if="!currentUser.emailVerified" class="text-action"
-                type="button" @click="resendVerification">Resend verification email</button></div>
+            <div class="data-card">
+              <span class="data-label">Account status</span
+              ><span
+                class="status-pill"
+                :class="currentUser.emailVerified ? 'verified' : 'unverified'"
+                >{{ currentUser.emailVerified ? 'Verified' : 'Not verified' }}</span
+              ><button
+                v-if="!currentUser.emailVerified"
+                class="text-action"
+                type="button"
+                @click="resendVerification"
+              >
+                Resend verification email
+              </button>
+            </div>
             <div class="data-card moderator-card">
               <span class="data-label">Role</span>
-              <strong :class="(userIsModerator || moderatorsList.includes(currentUser.email)) ? 'verified-text' : 'contributor-text'">
-                {{ (userIsModerator || moderatorsList.includes(currentUser.email)) ? 'Moderator' : 'Contributor' }}
+              <strong
+                :class="
+                  userIsModerator || moderatorsList.includes(currentUser.email)
+                    ? 'verified-text'
+                    : 'contributor-text'
+                "
+              >
+                {{
+                  userIsModerator || moderatorsList.includes(currentUser.email)
+                    ? '🔐 Moderator'
+                    : 'Contributor'
+                }}
               </strong>
-              <span>{{ (userIsModerator || moderatorsList.includes(currentUser.email))
-                ? 'Moderation privileges are enabled for your account.'
-                : 'You can contribute entries to the directory.' }}</span>
+              <span>{{
+                userIsModerator || moderatorsList.includes(currentUser.email)
+                  ? 'Moderation privileges are enabled for your account.'
+                  : 'You can contribute entries to the directory.'
+              }}</span>
             </div>
           </div>
           <section class="profile-settings" aria-labelledby="profileSettingsTitle">
@@ -244,13 +344,22 @@ onMounted(loadUserIssueSubmissions);
                 <span class="data-label">Google sign-in</span>
                 <strong>{{ hasGoogleProvider ? 'Connected' : 'Not connected' }}</strong>
               </div>
-              <button v-if="!hasGoogleProvider" class="text-action" type="button" @click="linkGoogleAccount">
+              <button
+                v-if="!hasGoogleProvider"
+                class="text-action"
+                type="button"
+                @click="linkGoogleAccount"
+              >
                 Connect Google account
               </button>
             </div>
           </section>
-          <div class="profile-footer"><span>Sign out of your account on this device.</span><button class="logout-button"
-              type="button" @click="signOutCall">Log out <span aria-hidden="true">↗</span></button></div>
+          <div class="profile-footer">
+            <span>Sign out of your account on this device.</span
+            ><button class="logout-button" type="button" @click="signOutCall">
+              Log out <span aria-hidden="true">↗</span>
+            </button>
+          </div>
         </div>
       </template>
 
@@ -262,16 +371,47 @@ onMounted(loadUserIssueSubmissions);
                 <h2>Update password</h2>
               </div>
             </div>
-            <p class="section-description">{{ hasPasswordProvider
-              ? 'Choose a strong password you don’t use elsewhere. Confirm your current password to make this change.'
-              : 'Add a password to this Google account so you can sign in with either Google or email and password.' }}</p>
-            <label v-if="hasPasswordProvider">Current password<input v-model="oldPassword" class="login-input" type="password"
-                autocomplete="current-password" required placeholder="Enter current password"></label>
-            <label>{{ hasPasswordProvider ? 'New password' : 'Password' }}<input v-model="newPassword" class="login-input" type="password"
-                autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"></label>
-            <label>{{ hasPasswordProvider ? 'Confirm new password' : 'Confirm password' }}<input v-model="repeatNewPassword" class="login-input" type="password"
-                autocomplete="new-password" required minlength="6" placeholder="Re-enter new password"></label>
-            <button class="primary-action" type="submit">{{ hasPasswordProvider ? 'Save new password' : 'Add password' }}</button>
+            <p class="section-description">
+              {{
+                hasPasswordProvider
+                  ? 'Choose a strong password you don’t use elsewhere. Confirm your current password to make this change.'
+                  : 'Add a password to this Google account so you can sign in with either Google or email and password.'
+              }}
+            </p>
+            <label v-if="hasPasswordProvider"
+              >Current password<input
+                v-model="oldPassword"
+                class="login-input"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Enter current password"
+            /></label>
+            <label
+              >{{ hasPasswordProvider ? 'New password' : 'Password'
+              }}<input
+                v-model="newPassword"
+                class="login-input"
+                type="password"
+                autocomplete="new-password"
+                required
+                minlength="6"
+                placeholder="At least 6 characters"
+            /></label>
+            <label
+              >{{ hasPasswordProvider ? 'Confirm new password' : 'Confirm password'
+              }}<input
+                v-model="repeatNewPassword"
+                class="login-input"
+                type="password"
+                autocomplete="new-password"
+                required
+                minlength="6"
+                placeholder="Re-enter new password"
+            /></label>
+            <button class="primary-action" type="submit">
+              {{ hasPasswordProvider ? 'Save new password' : 'Add password' }}
+            </button>
           </div>
         </form>
       </template>
@@ -281,18 +421,28 @@ onMounted(loadUserIssueSubmissions);
           <div class="panel-heading">
             <div>
               <h2>Contributions</h2>
-              <p class="section-description">Approved entries count toward your totals. Your full submission list
-                includes entries awaiting approval.</p>
+              <p class="section-description">
+                Approved entries count toward your totals. Your full submission list includes
+                entries awaiting approval.
+              </p>
             </div>
           </div>
           <div class="stats-grid">
-            <article class="stat-card"><span>Micronations</span><strong>{{ userContributions }}</strong><small>{{
-                percentageContributions }}% of approved directory</small></article>
-            <article class="stat-card"><span>Organizations</span><strong>{{ userOrganizationContributions
-                }}</strong><small>{{ percentageOrganizationContributions }}% of approved directory</small></article>
-            <article class="stat-card total-stat"><span>Total submissions</span><strong>{{ authoredEntries.length
-                }}</strong><small>{{authoredEntries.filter(entry => !entry.approved).length}} awaiting
-                approval</small></article>
+            <article class="stat-card">
+              <span>Micronations</span><strong>{{ userContributions }}</strong
+              ><small>{{ percentageContributions }}% of approved directory</small>
+            </article>
+            <article class="stat-card">
+              <span>Organizations</span><strong>{{ userOrganizationContributions }}</strong
+              ><small>{{ percentageOrganizationContributions }}% of approved directory</small>
+            </article>
+            <article class="stat-card total-stat">
+              <span>Total submissions</span><strong>{{ authoredEntries.length }}</strong
+              ><small
+                >{{ authoredEntries.filter((entry) => !entry.approved).length }} awaiting
+                approval</small
+              >
+            </article>
           </div>
 
           <div class="listing-header">
@@ -300,21 +450,46 @@ onMounted(loadUserIssueSubmissions);
               <h3>Your directory entries</h3>
             </div>
           </div>
-          <Settingsbar v-if="authoredEntries.length" view-mode="micronations" store-getter="micronations" :elements-directory="settingsEntries"
-            :show-unapproved="true" :hidden-subcontainers="['Display', 'Flags']"
-            @loaded-directory="updatePagedEntries" />
-          <p v-if="!authoredEntries.length" class="empty-state">You haven’t added any directory entries yet.</p>
-          <p v-else-if="!pagedEntries.length" class="empty-state">No entries match these settings.</p>
+          <Settingsbar
+            v-if="authoredEntries.length"
+            view-mode="micronations"
+            store-getter="micronations"
+            :elements-directory="settingsEntries"
+            :show-unapproved="true"
+            :hidden-subcontainers="['Display', 'Flags']"
+            @loaded-directory="updatePagedEntries"
+          />
+          <p v-if="!authoredEntries.length" class="empty-state">
+            You haven’t added any directory entries yet.
+          </p>
+          <p v-else-if="!pagedEntries.length" class="empty-state">
+            No entries match these settings.
+          </p>
           <div v-else class="entries-list">
-            <div v-for="entry in pagedEntries" :key="`${entry.entryType}-${entry.id || entry.name.main}`"
-              class="entry-wrapper">
-              <span class="entry-status" :class="entry.approved ? 'approved' : 'pending'">{{ entry.approved ? 'Approved'
-                : 'Pending' }}</span>
-              <DirectoryEntry v-if="entry.entryType === 'micronation'" :info="entryInfo(entry)" :width="190"
-                :flag-height="114" :micronations-directory="micronationsDirectory"
-                :organizations-directory="organizationsDirectory" :disable-full-profile-button="!entry.approved" />
-              <OrganizationEntry v-else :info="entryInfo(entry)" :width="190" :logo-height="114"
-                :micronations-directory="micronationsDirectory" />
+            <div
+              v-for="entry in pagedEntries"
+              :key="`${entry.entryType}-${entry.id || entry.name.main}`"
+              class="entry-wrapper"
+            >
+              <span class="entry-status" :class="entry.approved ? 'approved' : 'pending'">{{
+                entry.approved ? 'Approved' : 'Pending'
+              }}</span>
+              <DirectoryEntry
+                v-if="entry.entryType === 'micronation'"
+                :info="entryInfo(entry)"
+                :width="190"
+                :flag-height="114"
+                :micronations-directory="micronationsDirectory"
+                :organizations-directory="organizationsDirectory"
+                :disable-full-profile-button="!entry.approved"
+              />
+              <OrganizationEntry
+                v-else
+                :info="entryInfo(entry)"
+                :width="190"
+                :logo-height="114"
+                :micronations-directory="micronationsDirectory"
+              />
             </div>
           </div>
         </div>
@@ -399,13 +574,21 @@ onMounted(loadUserIssueSubmissions);
   font-weight: 700;
 }
 
-.status-pill.verified,
+.status-pill.verified {
+  color: #16834b;
+  background: #22c55e24;
+}
+
 .entry-status.approved {
   color: #2f855a;
   background: #35a66c1c;
 }
 
-.status-pill.unverified,
+.status-pill.unverified {
+  color: #c62828;
+  background: #ef444426;
+}
+
 .entry-status.pending {
   color: #a86b10;
   background: #e9a3291f;
@@ -440,19 +623,7 @@ onMounted(loadUserIssueSubmissions);
   overflow-wrap: anywhere;
 }
 
-.email-value-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-}
-
-.email-value-row strong {
-  min-width: 0;
-}
-
-.data-card>span:last-child {
+.data-card > span:last-child {
   color: var(--color-muted);
   font-size: 13px;
 }
@@ -522,7 +693,7 @@ onMounted(loadUserIssueSubmissions);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: .18s ease;
+  transition: 0.18s ease;
 }
 
 .logout-button:hover {
@@ -538,7 +709,7 @@ onMounted(loadUserIssueSubmissions);
   width: 50%;
 }
 
-.password-fields>label {
+.password-fields > label {
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -598,7 +769,11 @@ onMounted(loadUserIssueSubmissions);
 }
 
 .total-stat {
-  background: linear-gradient(140deg, var(--color-background-soft), var(--navbar-tab-background-color-selected));
+  background: linear-gradient(
+    140deg,
+    var(--color-background-soft),
+    var(--navbar-tab-background-color-selected)
+  );
 }
 
 .listing-header {
@@ -608,7 +783,7 @@ onMounted(loadUserIssueSubmissions);
   margin-bottom: 12px;
 }
 
-.listing-header>div {
+.listing-header > div {
   display: flex;
   align-items: baseline;
   gap: 10px;
