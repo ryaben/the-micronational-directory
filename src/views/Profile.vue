@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue';
-import { EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword } from 'firebase/auth';
+import { EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword, linkWithCredential } from 'firebase/auth';
 import { notify } from '@kyvg/vue3-notification';
 import { auth } from '../firebase/auth.js';
 import router from '../router/index';
@@ -31,6 +31,7 @@ const issueSubmissions = ref([]);
 const oldPassword = ref('');
 const newPassword = ref('');
 const repeatNewPassword = ref('');
+const hasPasswordProvider = computed(() => currentUser.value?.providerData?.some(provider => provider.providerId === 'password') ?? false);
 
 watch(() => props.user, user => {
   if (user?.email) currentUser.value = user;
@@ -121,20 +122,37 @@ async function resendVerification() {
 }
 
 async function changePassword() {
+  const addingPassword = !hasPasswordProvider.value;
   if (newPassword.value !== repeatNewPassword.value) {
     notify({ title: 'Password mismatch', text: "The values entered don't match. Please check your new password.", type: 'error' });
     return;
   }
   try {
-    const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword.value);
-    await reauthenticateWithCredential(auth.currentUser, credential);
-    await updatePassword(auth.currentUser, newPassword.value);
+    if (!addingPassword) {
+      const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword.value);
+      await reauthenticateWithCredential(auth.currentUser, credential);
+      await updatePassword(auth.currentUser, newPassword.value);
+    } else {
+      const credential = EmailAuthProvider.credential(auth.currentUser.email, newPassword.value);
+      await linkWithCredential(auth.currentUser, credential);
+      currentUser.value = auth.currentUser;
+    }
     oldPassword.value = '';
     newPassword.value = '';
     repeatNewPassword.value = '';
-    notify({ title: 'Password updated', text: 'Your password was successfully updated.', type: 'success' });
+    notify({
+      title: addingPassword ? 'Password added' : 'Password updated',
+      text: addingPassword ? 'You can now sign in with Google or your email and password.' : 'Your password was successfully updated.',
+      type: 'success'
+    });
   } catch (error) {
-    notify({ title: 'Unable to update password', text: error.code === 'auth/invalid-credential' ? 'The current password you entered is not valid.' : error.message, type: 'error' });
+    const messages = {
+      'auth/invalid-credential': 'The current password you entered is not valid.',
+      'auth/credential-already-in-use': 'This email and password are already linked to another account.',
+      'auth/email-already-in-use': 'This email is already linked to another account.',
+      'auth/weak-password': 'Choose a stronger password with at least 6 characters.'
+    };
+    notify({ title: addingPassword ? 'Unable to add password' : 'Unable to update password', text: messages[error.code] || error.message, type: 'error' });
   }
 }
 
@@ -205,15 +223,16 @@ onMounted(loadUserIssueSubmissions);
                 <h2>Update password</h2>
               </div>
             </div>
-            <p class="section-description">Choose a strong password you don’t use elsewhere. Confirm your current password
-              to make this change.</p>
-            <label>Current password<input v-model="oldPassword" class="login-input" type="password"
+            <p class="section-description">{{ hasPasswordProvider
+              ? 'Choose a strong password you don’t use elsewhere. Confirm your current password to make this change.'
+              : 'Add a password to this Google account so you can sign in with either Google or email and password.' }}</p>
+            <label v-if="hasPasswordProvider">Current password<input v-model="oldPassword" class="login-input" type="password"
                 autocomplete="current-password" required placeholder="Enter current password"></label>
-            <label>New password<input v-model="newPassword" class="login-input" type="password"
+            <label>{{ hasPasswordProvider ? 'New password' : 'Password' }}<input v-model="newPassword" class="login-input" type="password"
                 autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"></label>
-            <label>Confirm new password<input v-model="repeatNewPassword" class="login-input" type="password"
+            <label>{{ hasPasswordProvider ? 'Confirm new password' : 'Confirm password' }}<input v-model="repeatNewPassword" class="login-input" type="password"
                 autocomplete="new-password" required minlength="6" placeholder="Re-enter new password"></label>
-            <button class="primary-action" type="submit">Save new password</button>
+            <button class="primary-action" type="submit">{{ hasPasswordProvider ? 'Save new password' : 'Add password' }}</button>
           </div>
         </form>
       </template>
