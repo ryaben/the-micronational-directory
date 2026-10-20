@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue';
-import { EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword, linkWithCredential } from 'firebase/auth';
+import { EmailAuthProvider, GoogleAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendEmailVerification, signOut, updatePassword, linkWithCredential, linkWithPopup } from 'firebase/auth';
 import { notify } from '@kyvg/vue3-notification';
 import { auth } from '../firebase/auth.js';
 import router from '../router/index';
@@ -32,6 +32,7 @@ const oldPassword = ref('');
 const newPassword = ref('');
 const repeatNewPassword = ref('');
 const hasPasswordProvider = computed(() => currentUser.value?.providerData?.some(provider => provider.providerId === 'password') ?? false);
+const hasGoogleProvider = computed(() => currentUser.value?.providerData?.some(provider => provider.providerId === 'google.com') ?? false);
 
 watch(() => props.user, user => {
   if (user?.email) currentUser.value = user;
@@ -121,6 +122,27 @@ async function resendVerification() {
   }
 }
 
+async function linkGoogleAccount() {
+  try {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account',
+      ...(auth.currentUser?.email ? { login_hint: auth.currentUser.email } : {})
+    });
+    const result = await linkWithPopup(auth.currentUser, provider);
+    currentUser.value = result.user;
+    notify({ title: 'Google linked', text: 'You can now sign in to this account with Google or email and password.', type: 'success' });
+  } catch (error) {
+    const messages = {
+      'auth/credential-already-in-use': 'That Google account is already linked to another account.',
+      'auth/provider-already-linked': 'A Google account is already linked to this account.',
+      'auth/popup-closed-by-user': 'Google linking was cancelled.',
+      'auth/popup-blocked': 'Your browser blocked the Google sign-in window. Allow popups and try again.'
+    };
+    notify({ title: 'Unable to link Google', text: messages[error.code] || error.message, type: 'error' });
+  }
+}
+
 async function changePassword() {
   const addingPassword = !hasPasswordProvider.value;
   if (newPassword.value !== repeatNewPassword.value) {
@@ -189,14 +211,19 @@ onMounted(loadUserIssueSubmissions);
           <div class="panel-heading">
             <div>
               <h2>Your data</h2>
-            </div><span class="status-pill" :class="currentUser.emailVerified ? 'verified' : 'unverified'">{{
-              currentUser.emailVerified ? 'Email verified' : 'Verification needed' }}</span>
+            </div>
           </div>
           <div class="data-grid">
             <div class="data-card"><span class="data-label">Display name</span><strong>{{ currentUser.displayName ||
                 'Not set' }}</strong></div>
-            <div class="data-card"><span class="data-label">Email address</span><strong>{{ currentUser.email ||
-                'Loading…' }}</strong></div>
+            <div class="data-card email-data-card">
+              <span class="data-label">Email address</span>
+              <div class="email-value-row">
+                <strong>{{ currentUser.email || 'Loading…' }}</strong>
+                <span class="status-pill" :class="currentUser.emailVerified ? 'verified' : 'unverified'">{{
+                  currentUser.emailVerified ? 'Email verified' : 'Verification needed' }}</span>
+              </div>
+            </div>
             <div class="data-card"><span class="data-label">Account status</span><strong>{{ currentUser.emailVerified ?
               'Verified' : 'Not verified' }}</strong><button v-if="!currentUser.emailVerified" class="text-action"
                 type="button" @click="resendVerification">Resend verification email</button></div>
@@ -210,6 +237,18 @@ onMounted(loadUserIssueSubmissions);
                 : 'You can contribute entries to the directory.' }}</span>
             </div>
           </div>
+          <section class="profile-settings" aria-labelledby="profileSettingsTitle">
+            <h3 id="profileSettingsTitle">Settings</h3>
+            <div class="settings-card">
+              <div>
+                <span class="data-label">Google sign-in</span>
+                <strong>{{ hasGoogleProvider ? 'Connected' : 'Not connected' }}</strong>
+              </div>
+              <button v-if="!hasGoogleProvider" class="text-action" type="button" @click="linkGoogleAccount">
+                Connect Google account
+              </button>
+            </div>
+          </section>
           <div class="profile-footer"><span>Sign out of your account on this device.</span><button class="logout-button"
               type="button" @click="signOutCall">Log out <span aria-hidden="true">↗</span></button></div>
         </div>
@@ -401,9 +440,50 @@ onMounted(loadUserIssueSubmissions);
   overflow-wrap: anywhere;
 }
 
+.email-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.email-value-row strong {
+  min-width: 0;
+}
+
 .data-card>span:last-child {
   color: var(--color-muted);
   font-size: 13px;
+}
+
+.profile-settings {
+  margin-top: 24px;
+}
+
+.profile-settings h3 {
+  margin: 0 0 12px;
+  color: var(--color-heading);
+  font-size: 18px;
+}
+
+.settings-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 90px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-background-soft);
+}
+
+.settings-card > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
 }
 
 .verified-text {
@@ -592,6 +672,11 @@ onMounted(loadUserIssueSubmissions);
   .data-grid,
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .settings-card {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .panel-heading {
