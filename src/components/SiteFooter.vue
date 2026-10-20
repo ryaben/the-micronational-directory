@@ -1,14 +1,19 @@
 <script setup>
 import { version } from '../../package.json'
+import PreferenceControls from './PreferenceControls.vue'
 
 defineProps({
   theme: {
     type: String,
     default: 'dark'
+  },
+  language: {
+    type: String,
+    default: 'english'
   }
 })
 
-const emit = defineEmits(['toggle-theme'])
+const emit = defineEmits(['update:theme', 'update:language'])
 </script>
 
 <template>
@@ -52,18 +57,12 @@ const emit = defineEmits(['toggle-theme'])
 
     <section class="footer-settings" aria-labelledby="footer-settings-title">
       <h2 class="footer-heading" id="footer-settings-title">Preferences</h2>
-      <select name="languageSelect" id="languageSelect" aria-label="Language">
-        <option value="english">English</option>
-      </select>
-      <button
-        id="themeToggle"
-        type="button"
-        :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`"
-        @click="emit('toggle-theme')"
-      >
-        <span aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
-        {{ theme === 'dark' ? 'Light mode' : 'Dark mode' }}
-      </button>
+      <PreferenceControls
+        :theme="theme"
+        :language="language"
+        @update:theme="emit('update:theme', $event)"
+        @update:language="emit('update:language', $event)"
+      />
     </section>
 
     <section class="footer-visitors" aria-labelledby="footer-visitors-title">
@@ -135,27 +134,6 @@ const emit = defineEmits(['toggle-theme'])
   margin-bottom: 4px;
   color: var(--color-muted);
   font-size: 12px;
-}
-#languageSelect {
-  width: 100%;
-  min-height: 42px;
-  margin-bottom: 9px;
-  cursor: pointer;
-}
-#themeToggle {
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  background: var(--color-background-soft);
-  font-size: 13px;
-  font-weight: 600;
-  min-height: 42px;
-  width: 100%;
-  padding: 8px 13px;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-}
-#themeToggle:hover {
-  background: var(--navbar-tab-background-color-hover);
 }
 .anchor-button {
   text-decoration: none;

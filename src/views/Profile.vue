@@ -18,16 +18,20 @@ import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
 import Sectionbar from '../components/Sectionbar.vue'
 import Settingsbar from '../components/Settingsbar.vue'
+import PreferenceControls from '../components/PreferenceControls.vue'
 import store from '../store'
 import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js'
+import { language, setLanguage } from '../composables/userSettings.js'
 
 const props = defineProps({
+  theme: { type: String, default: 'dark' },
   micronationsDirectory: { type: Array, default: () => store.getters.micronations },
   organizationsDirectory: { type: Array, default: () => store.getters.organizations },
   moderatorsList: { type: Array, default: () => store.getters.moderators },
   userIsModerator: { type: Boolean, default: false },
   user: { type: Object, default: () => ({}) }
 })
+const emit = defineEmits(['update:theme'])
 
 const activeSection = ref('profile')
 const profileSections = [
@@ -339,19 +343,29 @@ onMounted(loadUserIssueSubmissions)
           </div>
           <section class="profile-settings" aria-labelledby="profileSettingsTitle">
             <h3 id="profileSettingsTitle">Settings</h3>
-            <div class="settings-card">
-              <div>
-                <span class="data-label">Google sign-in</span>
-                <strong>{{ hasGoogleProvider ? 'Connected' : 'Not connected' }}</strong>
+            <div class="profile-settings-grid">
+              <div class="settings-card">
+                <div>
+                  <span class="data-label">Google sign-in</span>
+                  <strong>{{ hasGoogleProvider ? 'Connected' : 'Not connected' }}</strong>
+                </div>
+                <button
+                  v-if="!hasGoogleProvider"
+                  class="text-action"
+                  type="button"
+                  @click="linkGoogleAccount"
+                >
+                  Connect Google account
+                </button>
               </div>
-              <button
-                v-if="!hasGoogleProvider"
-                class="text-action"
-                type="button"
-                @click="linkGoogleAccount"
-              >
-                Connect Google account
-              </button>
+              <div class="settings-card settings-preferences">
+                <PreferenceControls
+                  :theme="theme"
+                  :language="language"
+                  @update:theme="emit('update:theme', $event)"
+                  @update:language="setLanguage"
+                />
+              </div>
             </div>
           </section>
           <div class="profile-footer">
@@ -638,6 +652,13 @@ onMounted(loadUserIssueSubmissions)
   font-size: 18px;
 }
 
+.profile-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+}
+
 .settings-card {
   display: flex;
   align-items: center;
@@ -655,6 +676,10 @@ onMounted(loadUserIssueSubmissions)
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
+}
+
+.settings-preferences {
+  display: block;
 }
 
 .verified-text {
@@ -852,6 +877,14 @@ onMounted(loadUserIssueSubmissions)
   .settings-card {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .profile-settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-preferences {
+    align-items: stretch;
   }
 
   .panel-heading {
