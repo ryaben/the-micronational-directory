@@ -113,7 +113,10 @@ const emit = defineEmits([
           >
             <strong>
               A micronation named
-              <router-link class="duplicate-entry-link" :to="`/directory/${duplicateMicronation.name.main}`">
+              <router-link
+                class="duplicate-entry-link"
+                :to="`/directory/${duplicateMicronation.name.main}`"
+              >
                 {{ duplicateMicronation.name.main }}
               </router-link>
               is already in the directory.
@@ -176,7 +179,11 @@ const emit = defineEmits([
               placeholder="E.g. 'Principality of' (just the descriptive name only)"
             />
 
-            <label v-if="entryType !== 'micronation'" for="newEntryNameAlt" class="new-entry-form-text">
+            <label
+              v-if="entryType !== 'micronation'"
+              for="newEntryNameAlt"
+              class="new-entry-form-text"
+            >
               {{ entryType === 'micronation' ? 'Alternative name' : 'Acronym*' }}
               <img
                 src="/images/info.png"
@@ -187,7 +194,8 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <input v-if="entryType !== 'micronation'"
+            <input
+              v-if="entryType !== 'micronation'"
               type="text"
               id="newEntryNameAlt"
               v-model="formPlaceholders.newEntryNameAlt"
@@ -201,18 +209,41 @@ const emit = defineEmits([
             <template v-if="entryType === 'micronation'">
               <label for="newEntryAltNameMain" class="new-entry-form-text">
                 Other names
-                <img src="/images/info.png" alt="info" class="tooltip-activator"
-                  @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)" />
+                <img
+                  src="/images/info.png"
+                  alt="info"
+                  class="tooltip-activator"
+                  @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)"
+                />
               </label>
               <div class="new-entry-option-container alternative-name-fields">
                 <div class="alternative-name-inputs">
-                  <input id="newEntryAltNameMain" v-model="currentAltNameMain" type="text" placeholder="Alternative name" />
-                  <input v-model="currentAltNameTitle" type="text" placeholder="Alternative title (optional)" />
-                  <button type="button" class="login-button squared-button color-transition new-entry-option-button" @click="addAlternativeName">Add name</button>
+                  <input
+                    id="newEntryAltNameMain"
+                    v-model="currentAltNameMain"
+                    type="text"
+                    placeholder="Alternative name"
+                  />
+                  <input
+                    v-model="currentAltNameTitle"
+                    type="text"
+                    placeholder="Alternative title (optional)"
+                  />
+                  <button
+                    type="button"
+                    class="login-button squared-button color-transition new-entry-option-button"
+                    @click="addAlternativeName"
+                  >
+                    Add
+                  </button>
                 </div>
                 <div class="selected-elements-container">
-                  <SelectedElement v-for="(name, i) in formPlaceholders.newEntryAltNames" :key="i"
-                    :element-text="name.title ? `${name.main}, ${name.title}` : name.main" @remove-element="removeAlternativeName(i)" />
+                  <SelectedElement
+                    v-for="(name, i) in formPlaceholders.newEntryAltNames"
+                    :key="i"
+                    :element-text="name.title ? `${name.main}, ${name.title}` : name.main"
+                    @remove-element="removeAlternativeName(i)"
+                  />
                 </div>
               </div>
             </template>
@@ -290,7 +321,7 @@ const emit = defineEmits([
                   class="new-entry-option-select"
                   @change="addLanguage"
                 >
-                                    <option value="" disabled selected>Select language</option>
+                  <option value="" disabled selected>Select language</option>
                   <optgroup>
                     <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
                       {{ language.name }}
@@ -430,7 +461,7 @@ const emit = defineEmits([
                   class="new-entry-option-select"
                   @change="addMembership"
                 >
-                                    <option value="" disabled selected>Select organization</option>
+                  <option value="" disabled selected>Select organization</option>
                   <optgroup>
                     <option
                       v-for="(membership, i) in organizationsDirectory"
@@ -802,8 +833,15 @@ export default {
     duplicateMicronation() {
       const enteredName = this.formPlaceholders.newEntryName.trim()
       if (this.entryType !== 'micronation' || !enteredName) return null
-      return this.directoryData.find(entry => [entry.name?.main, ...(entry.name?.alt || []).map(name => name.main), entry.name?.mainAlt]
-        .some(name => this.matchesWholeWords(name, enteredName))) || null
+      return (
+        this.directoryData.find((entry) =>
+          [
+            entry.name?.main,
+            ...(entry.name?.alt || []).map((name) => name.main),
+            entry.name?.mainAlt
+          ].some((name) => this.matchesWholeWords(name, enteredName))
+        ) || null
+      )
     }
   },
   methods: {
@@ -833,11 +871,17 @@ export default {
           })
         }
         const entryData = {
-          name: this.entryType === 'micronation' ? {
-            main: this.formPlaceholders.newEntryName,
-            title: this.formPlaceholders.newEntryTitle,
-            alt: [...(this.formPlaceholders.newEntryAltNames || [])]
-          } : { main: this.formPlaceholders.newEntryName, mainAlt: this.formPlaceholders.newEntryNameAlt },
+          name:
+            this.entryType === 'micronation'
+              ? {
+                  main: this.formPlaceholders.newEntryName,
+                  title: this.formPlaceholders.newEntryTitle,
+                  alt: [...(this.formPlaceholders.newEntryAltNames || [])]
+                }
+              : {
+                  main: this.formPlaceholders.newEntryName,
+                  mainAlt: this.formPlaceholders.newEntryNameAlt
+                },
           motto: this.formPlaceholders.newEntryMotto,
           languages: [...this.formPlaceholders.newEntryLanguages],
           contactInfo: [...this.formPlaceholders.newEntryEmails],
@@ -885,11 +929,17 @@ export default {
         try {
           // Prepare entry data
           const entryData = {
-            name: this.entryType === 'micronation' ? {
-              main: this.formPlaceholders.newEntryName,
-              title: this.formPlaceholders.newEntryTitle,
-              alt: [...(this.formPlaceholders.newEntryAltNames || [])]
-            } : { main: this.formPlaceholders.newEntryName, mainAlt: this.formPlaceholders.newEntryNameAlt },
+            name:
+              this.entryType === 'micronation'
+                ? {
+                    main: this.formPlaceholders.newEntryName,
+                    title: this.formPlaceholders.newEntryTitle,
+                    alt: [...(this.formPlaceholders.newEntryAltNames || [])]
+                  }
+                : {
+                    main: this.formPlaceholders.newEntryName,
+                    mainAlt: this.formPlaceholders.newEntryNameAlt
+                  },
             motto: this.formPlaceholders.newEntryMotto,
             languages: this.formPlaceholders.newEntryLanguages,
             contactInfo: this.formPlaceholders.newEntryEmails,
@@ -983,10 +1033,13 @@ export default {
     },
     searchElement(value) {
       const normalizedName = value.trim().toLocaleLowerCase()
-      return this.directoryData.find(entry => {
+      return this.directoryData.find((entry) => {
         if (this.entryType === 'micronation') {
-          return [entry.name?.main, ...(entry.name?.alt || []).map(name => name.main), entry.name?.mainAlt]
-            .some(name => this.matchesWholeWords(name, normalizedName))
+          return [
+            entry.name?.main,
+            ...(entry.name?.alt || []).map((name) => name.main),
+            entry.name?.mainAlt
+          ].some((name) => this.matchesWholeWords(name, normalizedName))
         }
         return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
@@ -995,7 +1048,7 @@ export default {
       if (!existingName || !query) return false
       const existingWords = existingName.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
       const queryWords = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
-      return queryWords.some(word => word.length >= 3 && existingWords.includes(word))
+      return queryWords.some((word) => word.length >= 3 && existingWords.includes(word))
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
