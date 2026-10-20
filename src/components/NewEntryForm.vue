@@ -12,8 +12,10 @@ import HelpTooltip from '../components/HelpTooltip.vue'
 import SelectedElement from '../components/SelectedElement.vue'
 import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
+import ModerationImageEditor from './ModerationImageEditor.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
 import imageCompression from 'browser-image-compression'
+import '@vuepic/vue-datepicker/dist/main.css'
 
 const LocationPicker = defineAsyncComponent(() => import('../components/LocationPicker.vue'))
 
@@ -23,6 +25,11 @@ defineProps({
     required: false,
     default: 'micronation'
   },
+  isModerationEditor: { type: Boolean, default: false },
+  initialEntry: { type: Object, default: null },
+  initialImageMode: { type: String, default: 'url' },
+  saving: { type: Boolean, default: false },
+  imageProcessing: { type: Boolean, default: false },
   directoryData: {
     type: Array,
     required: true,
@@ -31,7 +38,7 @@ defineProps({
   formPlaceholders: {
     type: Object,
     required: false,
-    default: () => ({
+    default: {
       newEntryFlag: '',
       newEntryName: '',
       newEntryNameAlt: '',
@@ -47,7 +54,7 @@ defineProps({
       newEntryMemberships: [],
       newEntryEmails: [],
       newEntryWebsites: []
-    })
+    }
   },
   micronationsDirectory: {
     type: Array,
@@ -72,33 +79,27 @@ defineProps({
     default: store.getters.micronations.filter((element) => element.supranational)
   }
 })
+const emit = defineEmits([
+  'save-corrections',
+  'edit-image-change',
+  'image-error',
+  'image-processing'
+])
 </script>
 
 <template>
   <Transition name="opacity">
-    <div class="new-entry-container">
+    <div
+      class="new-entry-container"
+      :class="{ 'new-entry-container--moderation': isModerationEditor }"
+    >
       <div class="new-entry-content">
-        <p class="new-entry-intro">
+        <p v-if="!isModerationEditor" class="new-entry-intro">
           Please, carefully read instructions for all fields. Fields with an asterisk (*) are
           mandatory to fill, the others can be blank. <br />Help us save moderation efforts!
           <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
           check the preview on the right.
         </p>
-        <Transition name="duplicate-alert">
-          <div v-if="duplicateMicronation" class="entry-name-duplicate-alert" role="alert">
-            <strong>
-              A micronation named
-              <router-link
-                class="duplicate-entry-link"
-                :to="`/directory/${duplicateMicronation.name.main}`"
-              >
-                {{ duplicateMicronation.name.main }}
-              </router-link>
-              is already in the directory.
-            </strong>
-            <span>Check the existing entry before submitting this form.</span>
-          </div>
-        </Transition>
 
         <form class="listing-new-entry" @submit.prevent="addEntry">
           <div class="new-entry-form">
@@ -266,16 +267,13 @@ defineProps({
               />
             </label>
             <div class="new-entry-option-container">
-              <div style="display: flex">
+              <div class="new-entry-select-controls">
                 <select
                   name="newEntryLanguages"
                   class="new-entry-option-select"
                   @change="addLanguage"
-                  required
                 >
-                  <optgroup>
-                    <option value="custom">Other (custom)</option>
-                  </optgroup>
+                                    <option value="" disabled selected>Select language</option>
                   <optgroup>
                     <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
                       {{ language.name }}
@@ -283,6 +281,13 @@ defineProps({
                   </optgroup>
                 </select>
                 <input type="text" placeholder="Custom language name" v-model="customLanguage" />
+                <button
+                  type="button"
+                  class="login-button squared-button color-transition new-entry-option-button"
+                  @click="addCustomLanguage"
+                >
+                  Add
+                </button>
               </div>
               <div class="selected-elements-container">
                 <SelectedElement
@@ -371,10 +376,10 @@ defineProps({
               />
             </label>
             <div v-if="entryType === 'micronation'" v-show="physicalType">
-              <label v-show="physicalType"
-                >Drag and drop the blue pin to the location of the micronation (leave as is if
-                unknown or not applicable, for large territories you can mark the capital):</label
-              >
+              <p class="new-entry-location-note">
+                Drag the pin to the micronation's location. Leave it at the default location (0, 0)
+                if unknown.
+              </p>
               <LocationPicker
                 v-if="renderedMapboxNewEntry"
                 :visible="!physicalType"
@@ -382,6 +387,7 @@ defineProps({
                 mode="picker"
                 width="100%"
                 height="300px"
+                :initial-position="locationPickerMarkerPosition"
                 @dragged-marker="draggedMarker"
               />
             </div>
@@ -400,15 +406,13 @@ defineProps({
               />
             </label>
             <div v-if="entryType === 'micronation'" class="new-entry-option-container">
-              <div style="display: flex">
+              <div class="new-entry-select-controls">
                 <select
                   name="newEntryMemberships"
                   class="new-entry-option-select"
                   @change="addMembership"
                 >
-                  <optgroup>
-                    <option value="custom">Other (manual input)</option>
-                  </optgroup>
+                                    <option value="" disabled selected>Select organization</option>
                   <optgroup>
                     <option
                       v-for="(membership, i) in organizationsDirectory"
@@ -424,6 +428,13 @@ defineProps({
                   placeholder="Other (full name, no acronym)"
                   v-model="customMembership"
                 />
+                <button
+                  type="button"
+                  class="login-button squared-button color-transition new-entry-option-button"
+                  @click="addCustomMembership"
+                >
+                  Add
+                </button>
               </div>
               <div class="selected-elements-container">
                 <SelectedElement
@@ -469,7 +480,8 @@ defineProps({
                   class="selection margin-top"
                   v-for="(contact, i) in formPlaceholders.newEntryEmails"
                   :key="i"
-                  :element-text="checkIcon(contact)"
+                  :element-text="contact"
+                  :icon="checkIcon(contact)"
                   @remove-element="removeEmail"
                 />
               </div>
@@ -508,7 +520,8 @@ defineProps({
                   class="selection margin-top"
                   v-for="(website, i) in formPlaceholders.newEntryWebsites"
                   :key="i"
-                  :element-text="checkIcon(website)"
+                  :element-text="website"
+                  :icon="checkIcon(website)"
                   @remove-element="removeWebsite"
                 />
               </div>
@@ -524,59 +537,91 @@ defineProps({
               />
             </label>
             <div class="flag-preview-container">
-              <div style="display: flex; margin-bottom: 5px">
-                <label class="flag-radio">
-                  <input v-model="flagRadio" type="radio" name="flagRadio" value="file" />
-                  <span>Local file</span>
-                </label>
-                <label class="flag-radio">
-                  <input v-model="flagRadio" type="radio" name="flagRadio" value="url" />
-                  <span>External URL</span>
-                </label>
-              </div>
-              <input
-                v-model="formPlaceholders.newEntryFlag"
-                v-if="flagRadio === 'url'"
-                name="flagImage"
-                type="url"
-                ref="flagURLInput"
-                @input="displayImage($event.target.value)"
-                placeholder="Input a direct link to an external image"
-                required
+              <img
+                v-if="isModerationEditor && editImageValue"
+                :src="editImageValue"
+                class="moderation-edit-image-preview"
+                :alt="entryType === 'micronation' ? 'Current flag' : 'Current logo'"
               />
-              <input
-                v-if="flagRadio === 'file'"
-                type="file"
-                @input="previewImage"
-                accept="image/png"
-                required
+              <ModerationImageEditor
+                v-if="isModerationEditor"
+                v-model="editImageValue"
+                :initial-mode="initialImageMode"
+                :image-name="formPlaceholders.newEntryName"
+                :asset-type="entryType === 'micronation' ? 'flag' : 'logo'"
+                @image-change="emit('edit-image-change', $event)"
+                @image-error="emit('image-error', $event)"
+                @image-processing="emit('image-processing', $event)"
               />
-              <label for=""
-                >(if N/A or unobtainable:
-                <a href="/images/missing-flag.png" target="_blank"
-                  >download or use the URL to this template</a
-                >)
-              </label>
+              <template v-else>
+                <div style="display: flex; margin-bottom: 5px">
+                  <label class="flag-radio">
+                    <input v-model="flagRadio" type="radio" name="flagRadio" value="file" />
+                    <span>Local file</span>
+                  </label>
+                  <label class="flag-radio">
+                    <input v-model="flagRadio" type="radio" name="flagRadio" value="url" />
+                    <span>External URL</span>
+                  </label>
+                </div>
+                <input
+                  v-model="formPlaceholders.newEntryFlag"
+                  v-if="flagRadio === 'url'"
+                  name="flagImage"
+                  type="url"
+                  ref="flagURLInput"
+                  @input="displayImage($event.target.value)"
+                  placeholder="Input a direct link to an external image"
+                  required
+                />
+                <input
+                  v-if="flagRadio === 'file'"
+                  type="file"
+                  @input="previewImage"
+                  accept="image/png"
+                  required
+                />
+                <label for=""
+                  >(if N/A or unobtainable:
+                  <a href="/images/missing-flag.png" target="_blank"
+                    >download or use the URL to this template</a
+                  >)
+                </label>
+              </template>
             </div>
 
             <div class="wide-row">
-              <Recaptcha @checkbox="checkRecaptcha" />
+              <Recaptcha v-if="!isModerationEditor" @checkbox="checkRecaptcha" />
               <button
                 id="addEntryButton"
                 type="submit"
-                :disabled="!passedRecaptcha || isSubmitting"
-                :aria-busy="isSubmitting"
+                :disabled="
+                  isModerationEditor ? saving || imageProcessing : !passedRecaptcha || isSubmitting
+                "
+                :aria-busy="isModerationEditor ? saving : isSubmitting"
                 class="login-button short color-transition"
               >
-                <span v-if="isSubmitting" class="submit-spinner" aria-hidden="true"></span>
-                <span>{{ isSubmitting ? 'Submitting…' : 'Add new entry' }}</span>
+                <span
+                  v-if="isSubmitting || (isModerationEditor && saving)"
+                  class="submit-spinner"
+                  aria-hidden="true"
+                ></span>
+                <span>{{
+                  isModerationEditor
+                    ? saving
+                      ? 'Saving corrections…'
+                      : 'Save corrections'
+                    : isSubmitting
+                    ? 'Submitting…'
+                    : 'Add new entry'
+                }}</span>
               </button>
             </div>
           </div>
         </form>
       </div>
 
-      <div class="new-entry-preview">
+      <div v-if="!isModerationEditor" class="new-entry-preview">
         <h3 id="previewTitle">Entry preview</h3>
 
         <DirectoryEntry
@@ -647,11 +692,21 @@ export default {
     OrganizationEntry,
     HelpTooltip
   },
-  data: () => {
+  data() {
+    const entry = this.initialEntry || {}
+    const location = entry.location || {}
+    const foundationDate = entry.foundationDate
+    const foundationSeconds = foundationDate?._seconds ?? foundationDate?.seconds
     return {
-      foundationDate: null,
+      foundationDate:
+        foundationDate == null
+          ? null
+          : foundationSeconds != null
+          ? new Date(foundationSeconds * 1000)
+          : new Date(foundationDate),
       flagSource: '',
-      flagPreview: '',
+      flagPreview: entry.flag || entry.logo || '',
+      editImageValue: entry.flag || entry.logo || '',
       flagRadio: 'file',
       passedRecaptcha: false,
       isSubmitting: false,
@@ -659,9 +714,12 @@ export default {
       customMembership: '',
       currentEmail: '',
       currentWebsite: '',
-      locationPickerMarkerPosition: [0, 0],
-      renderedMapboxNewEntry: false,
-      physicalType: false,
+      locationPickerMarkerPosition: [
+        Number(location.longitude ?? location._longitude ?? 0),
+        Number(location.latitude ?? location._latitude ?? 0)
+      ],
+      renderedMapboxNewEntry: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
+      physicalType: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
       tooltipDisplay: false,
       tooltipPosition: {
         x: 0,
@@ -683,14 +741,14 @@ export default {
         "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
         'Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.',
         'Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.',
-        "Only .png files, a maximum of 35 Kb so you'll probably have to first compress it at https://tinypng.com/ and use files with small dimensions. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version."
+        'Only .png files. The image is automatically compressed when you submit it and must fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
       ],
       activeTooltipText: 0
     }
   },
   watch: {
     formPlaceholders(newValue) {
-      this.displayImage(newValue.newEntryFlag)
+      if (!this.isModerationEditor) this.displayImage(newValue.newEntryFlag)
     }
   },
   computed: {
@@ -720,18 +778,65 @@ export default {
       }
 
       return typesArray
-    },
-    duplicateMicronation() {
-      const enteredName = this.formPlaceholders.newEntryName.trim()
-      if (this.entryType !== 'micronation' || !enteredName) return null
-      return (
-        this.directoryData.find((entry) => this.matchesWholeWords(entry.name?.main, enteredName)) ||
-        null
-      )
     }
   },
   methods: {
     async addEntry() {
+      const that = this
+
+      if (this.isModerationEditor) {
+        if (!this.formPlaceholders.newEntryName.trim()) {
+          return notify({
+            title: 'Cannot save entry',
+            text: 'The official name is required.',
+            type: 'error'
+          })
+        }
+        if (!this.formPlaceholders.newEntryLanguages.length) {
+          return notify({
+            title: 'Cannot save entry',
+            text: 'Add at least one official language.',
+            type: 'error'
+          })
+        }
+        if (!this.formPlaceholders.newEntryWebsites.length) {
+          return notify({
+            title: 'Cannot save entry',
+            text: 'Add at least one information source.',
+            type: 'error'
+          })
+        }
+        const entryData = {
+          name: {
+            main: this.formPlaceholders.newEntryName,
+            mainAlt: this.formPlaceholders.newEntryNameAlt,
+            title: this.formPlaceholders.newEntryTitle,
+            titleAlt: this.formPlaceholders.newEntryTitleAlt
+          },
+          motto: this.formPlaceholders.newEntryMotto,
+          languages: [...this.formPlaceholders.newEntryLanguages],
+          contactInfo: [...this.formPlaceholders.newEntryEmails],
+          websites: [...this.formPlaceholders.newEntryWebsites],
+          foundationDate: this.foundationDate
+            ? { seconds: Math.floor(new Date(this.foundationDate).getTime() / 1000) }
+            : null
+        }
+        if (this.entryType === 'micronation') {
+          entryData.type = this.checkTypes
+          entryData.capital = this.formPlaceholders.newEntryCapital
+          entryData.currency = this.formPlaceholders.newEntryCurrency
+          entryData.memberships = [...this.formPlaceholders.newEntryMemberships]
+          entryData.location = this.physicalType
+            ? {
+                latitude: Number(this.locationPickerMarkerPosition[1]),
+                longitude: Number(this.locationPickerMarkerPosition[0])
+              }
+            : null
+        }
+        this.$emit('save-corrections', entryData)
+        return
+      }
+
       if (this.isSubmitting) return
 
       if (this.formPlaceholders.newEntryWebsites.length === 0) {
@@ -853,52 +958,40 @@ export default {
       })
     },
     searchElement(value) {
-      const normalizedName = value.trim().toLocaleLowerCase()
-      return this.directoryData.find((entry) => {
-        if (this.entryType === 'micronation') {
-          return this.matchesWholeWords(entry.name?.main, normalizedName)
-        }
-        return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
+      return this.directoryData.find(function (entry) {
+        return entry.name.main === value
       })
-    },
-    matchesWholeWords(existingName, query) {
-      if (!existingName || !query) return false
-      const existingWords = existingName.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
-      const queryWords = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
-      return queryWords.some((word) => word.length >= 3 && existingWords.includes(word))
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
     },
     addLanguage(event) {
       const lang = event.target.value
-
-      if (
-        this.formPlaceholders.newEntryLanguages.find(
-          (e) => e === lang || (lang === 'custom' && e === this.customLanguage)
-        ) === undefined
-      ) {
-        if (lang === 'custom') {
-          this.formPlaceholders.newEntryLanguages.push(this.customLanguage)
-        } else {
-          this.formPlaceholders.newEntryLanguages.push(lang)
-        }
-      }
+      if (lang === 'custom') this.addCustomLanguage()
+      else if (lang && !this.formPlaceholders.newEntryLanguages.includes(lang))
+        this.formPlaceholders.newEntryLanguages.push(lang)
+      event.target.value = ''
     },
     addMembership(event) {
-      const lang = event.target.value
-
-      if (
-        this.formPlaceholders.newEntryMemberships.find(
-          (e) => e === lang || (lang === 'custom' && e === this.customMembership)
-        ) === undefined
-      ) {
-        if (lang === 'custom') {
-          this.formPlaceholders.newEntryMemberships.push(this.customMembership)
-        } else {
-          this.formPlaceholders.newEntryMemberships.push(lang)
-        }
+      const membership = event.target.value
+      if (membership === 'custom') this.addCustomMembership()
+      else if (membership && !this.formPlaceholders.newEntryMemberships.includes(membership))
+        this.formPlaceholders.newEntryMemberships.push(membership)
+      event.target.value = ''
+    },
+    addCustomLanguage() {
+      const language = this.customLanguage.trim()
+      if (language && !this.formPlaceholders.newEntryLanguages.includes(language)) {
+        this.formPlaceholders.newEntryLanguages.push(language)
       }
+      this.customLanguage = ''
+    },
+    addCustomMembership() {
+      const membership = this.customMembership.trim()
+      if (membership && !this.formPlaceholders.newEntryMemberships.includes(membership)) {
+        this.formPlaceholders.newEntryMemberships.push(membership)
+      }
+      this.customMembership = ''
     },
     emailNotice() {
       const that = this
@@ -1007,6 +1100,34 @@ export default {
   box-shadow: var(--shadow-soft);
 }
 
+.new-entry-container--moderation {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.new-entry-container--moderation .new-entry-form {
+  margin-bottom: 0;
+}
+
+.new-entry-container--moderation .wide-row {
+  grid-column: 1 / -1;
+}
+
+.moderation-edit-image-preview {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin-bottom: 12px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--color-background-soft);
+}
+
 .new-entry-content {
   display: flex;
   min-width: 0;
@@ -1113,6 +1234,21 @@ export default {
   margin-right: 6px;
 }
 
+.new-entry-select-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.new-entry-select-controls > * {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+}
+
 .new-entry-option-button {
   width: auto;
   min-width: 76px;
@@ -1136,6 +1272,12 @@ export default {
   font-size: 14px;
   font-weight: 700;
   color: var(--color-heading);
+}
+
+.new-entry-location-note {
+  margin: 0 0 8px;
+  color: var(--color-muted);
+  font-size: 12px;
 }
 
 div.new-entry-type {
@@ -1319,6 +1461,14 @@ div.new-entry-type {
   .new-entry-option-container > div:first-child {
     flex-wrap: wrap;
     gap: 6px;
+  }
+
+  .new-entry-select-controls {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .new-entry-select-controls select {
+    grid-column: 1 / -1;
   }
 
   .new-entry-option-container > div:first-child > * {

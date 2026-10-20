@@ -22,6 +22,10 @@ defineProps({
         type: Array,
         required: false,
         default: store.getters.micronations.filter(element => element.supranational)
+    },
+    preview: {
+        type: Boolean,
+        default: false
     }
 })
 </script>
@@ -46,7 +50,7 @@ defineProps({
                         </p>
                     </div>
                 </div>
-                <ProfileArticleActions :title="info.name.main" />
+                <ProfileArticleActions v-if="!preview" :title="info.name.main" />
             </div>
 
             <div class="directory-article-content">
@@ -128,7 +132,7 @@ defineProps({
                 </div>
             </div>
 
-            <ProfileArticleNavigation :route-base="'/directory'" :previous="info.previous" :next="info.next"
+            <ProfileArticleNavigation v-if="!preview" :route-base="'/directory'" :previous="info.previous" :next="info.next"
                 :author="info.author" :creation-date="info.creationDate" />
         </div>
     </Transition>
@@ -391,6 +395,7 @@ export default {
 .member-source {
     margin-bottom: 8px;
 }
+
 
 .article-profiles-control {
     display: flex;

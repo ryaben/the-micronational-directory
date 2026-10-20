@@ -18,6 +18,10 @@ defineProps({
         required: false,
         default: store.getters.micronations
     },
+    preview: {
+        type: Boolean,
+        default: false
+    },
 })
 </script>
 
@@ -30,7 +34,7 @@ defineProps({
                         <b>{{ info.name.main }}</b>&nbsp;({{ info.name.mainAlt }})
                     </p>
                 </div>
-                <ProfileArticleActions :title="info.name.main" />
+                <ProfileArticleActions v-if="!preview" :title="info.name.main" />
             </div>
 
             <div class="organization-article-content">
@@ -98,7 +102,7 @@ defineProps({
                 </div>
             </div>
 
-            <ProfileArticleNavigation :route-base="'/organizations'" :previous="info.previous" :next="info.next"
+            <ProfileArticleNavigation v-if="!preview" :route-base="'/organizations'" :previous="info.previous" :next="info.next"
                 :author="info.author" :creation-date="info.creationDate" />
         </div>
     </Transition>
