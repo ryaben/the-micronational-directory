@@ -7,6 +7,9 @@ import ProfileArticleNavigation from './ProfileArticleNavigation.vue';
 import ProfileDataCell from './ProfileDataCell.vue';
 import store from '../store';
 
+const alternativeNames = (name) => name?.alt?.length ? name.alt :
+    (name?.mainAlt || name?.titleAlt ? [{ main: name.mainAlt || '', title: name.titleAlt || '' }] : []);
+
 defineProps({
     info: {
         type: Object,
@@ -43,11 +46,11 @@ defineProps({
                                 v-if="info.name.title !== ''">,</span>
                             {{ info.name.title }}
                         </p>
-                        <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''"
-                            class="article-text article-alt-name">
-                            (<b>{{ info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">,&nbsp;</span>{{
-                info.name.titleAlt }})
-                        </p>
+                        <div v-if="alternativeNames(info.name).length" class="article-text article-alt-name">
+                            <span v-for="(alt, i) in alternativeNames(info.name)" :key="i" class="article-alt-name-item">
+                                (<b>{{ alt.main }}</b><span v-if="alt.title">,&nbsp;{{ alt.title }}</span>)
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <ProfileArticleActions v-if="!preview" :title="info.name.main" />
@@ -300,6 +303,9 @@ export default {
     font-style: italic;
     color: var(--color-muted);
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 12px;
 }
 
 .article-text {

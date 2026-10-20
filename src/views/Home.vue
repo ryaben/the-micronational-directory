@@ -142,12 +142,7 @@ onMounted(async () => {
           :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
           :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
             id: randomEntry.id,
-            name: {
-              main: randomEntry.name.main,
-              mainAlt: randomEntry.name.mainAlt,
-              title: randomEntry.name.title,
-              titleAlt: randomEntry.name.titleAlt
-            },
+            name: randomEntry.name,
             flag: randomEntry.flag,
             motto: randomEntry.motto,
             type: randomEntry.type,

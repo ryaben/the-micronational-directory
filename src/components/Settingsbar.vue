@@ -356,9 +356,10 @@ export default {
         const query = this.normalizeString(this.inputFilter.toLowerCase())
         this.workingDirectory = (entries || []).map(element => ({
           ...element,
-          name: { ...element.name, mainAlt: element.name?.mainAlt || '' },
-          searchDisplay: !query || this.normalizeString(element.name.main.toLowerCase()).includes(query) ||
-            this.normalizeString((element.name.mainAlt || '').toLowerCase()).includes(query),
+          name: { ...element.name, mainAlt: element.name?.mainAlt || '', alt: element.name?.alt || [] },
+          searchDisplay: !query || [element.name.main, element.name.mainAlt, element.name.title, element.name.titleAlt,
+            ...(element.name.alt || []).flatMap(name => [name.main, name.title])]
+            .some(name => this.normalizeString((name || '').toLowerCase()).includes(query)),
           filterDisplay: this.initialFilter === 'none' ||
             this.normalizeString(element.name.main.charAt(0)) === this.initialFilter
         }))
@@ -480,11 +481,12 @@ export default {
         })
       } else {
         this.workingDirectory.forEach(function (element) {
-          const entryCurated = that.normalizeString(element.name.main.toLowerCase())
-          const entryAltCurated = that.normalizeString(element.name.mainAlt.toLowerCase())
           const searchCurated = that.normalizeString(that.inputFilter.toLowerCase())
+          const names = [element.name.main, element.name.mainAlt, element.name.title, element.name.titleAlt,
+            ...(element.name.alt || []).flatMap(name => [name.main, name.title])]
+          const matches = names.some(name => that.normalizeString((name || '').toLowerCase()).includes(searchCurated))
 
-          if (!entryCurated.includes(searchCurated) && !entryAltCurated.includes(searchCurated)) {
+          if (!matches) {
             element.searchDisplay = false
           } else {
             element.searchDisplay = true

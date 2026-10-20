@@ -1,12 +1,26 @@
 <script setup>
-import DirectoryEntry from '../components/DirectoryEntry.vue';
-import OrganizationEntry from '../components/OrganizationEntry.vue';
-import NewEntryForm from '../components/NewEntryForm.vue';
-import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
-import store from '../store';
-import { notify } from "@kyvg/vue3-notification";
-import emailjs from 'emailjs-com';
-import { fetchGitHubIssues, convertIssueToEntry, parseIssueBody, addIssueLabel, closeIssue, addIssueComment, fetchRepoFile, updateRepoFile, updateGitHubIssueEntry, createRepoFile, extractBase64Image, extractFileMetadata, stableStringify } from '../utils/githubFunctions.js';
+import DirectoryEntry from '../components/DirectoryEntry.vue'
+import OrganizationEntry from '../components/OrganizationEntry.vue'
+import NewEntryForm from '../components/NewEntryForm.vue'
+import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue'
+import store from '../store'
+import { notify } from '@kyvg/vue3-notification'
+import emailjs from 'emailjs-com'
+import {
+  fetchGitHubIssues,
+  convertIssueToEntry,
+  parseIssueBody,
+  addIssueLabel,
+  closeIssue,
+  addIssueComment,
+  fetchRepoFile,
+  updateRepoFile,
+  updateGitHubIssueEntry,
+  createRepoFile,
+  extractBase64Image,
+  extractFileMetadata,
+  stableStringify
+} from '../utils/githubFunctions.js'
 
 defineProps({
   micronationsDirectory: {
@@ -17,7 +31,7 @@ defineProps({
   supranationalMicronations: {
     type: Array,
     required: false,
-    default: store.getters.micronations.filter(element => element.supranational)
+    default: store.getters.micronations.filter((element) => element.supranational)
   },
   organizationsDirectory: {
     type: Array,
@@ -27,7 +41,9 @@ defineProps({
   visibleOrganizations: {
     type: Array,
     required: false,
-    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+    default: store.getters.organizations.filter(
+      (element) => element.approved && element.searchDisplay && element.filterDisplay
+    )
   },
   moderatorsList: {
     type: Array,
@@ -44,92 +60,167 @@ defineProps({
     required: true,
     default: {}
   }
-});
+})
 </script>
 
 <template>
   <section class="site-section site-section--flush site-section--flat-top">
     <ModerationToolWorkspace v-if="userIsModerator">
       <template #description>
-        <p class="workspace-description">Review unpublished entries submitted by users. Approve entries that meet the requirements to publish them in the directory, or reject them. Authors are notified by email after each decision.</p>
+        <p class="workspace-description">
+          Review unpublished entries submitted by users. Approve entries that meet the requirements
+          to publish them in the directory, or reject them. Authors are notified by email after each
+          decision.
+        </p>
       </template>
       <template #summary>
-        <strong>{{ micronationsModerationDirectory.length + organizationsModerationDirectory.length }}</strong>
+        <strong>{{
+          micronationsModerationDirectory.length + organizationsModerationDirectory.length
+        }}</strong>
         <span class="summary-label">entries waiting for review</span>
         <span v-if="loadingIssues" class="summary-status">Refreshing…</span>
       </template>
 
       <template #main>
         <div id="moderationMicronationsContainer">
-          <div v-if="loadingIssues" class="loading-message">Loading pending entries from GitHub...</div>
-          <div v-else-if="githubIssues.length === 0 || (micronationsModerationDirectory.length === 0 && organizationsModerationDirectory.length === 0)" class="loading-message">No pending entries found.</div>
-          <div v-else class="micronations-list" id="moderationMicronations" ref="micronationsListModeration" :key="componentKey"
-            :class="{ 'fixed-height': fixedHeight }">
-            <DirectoryEntry v-for="item in micronationsModerationDirectory" :key="item.id" :width="entryWidth"
-              :flag-height="entryWidth * 0.6" :view-mode="'micronations'" :micronations-directory="micronationsDirectory"
-              :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
-              :supranational-micronations="supranationalMicronations" :inline-profile-preview="true" :info="{
-      id: item.id,
-      name: {
-        main: item.name.main,
-        mainAlt: item.name.mainAlt,
-        title: item.name.title,
-        titleAlt: item.name.titleAlt
-      },
-      flag: item.flag,
-      motto: item.motto,
-      type: item.type,
-      languages: item.languages,
-      capital: item.capital,
-      currency: item.currency,
-      foundationDate: item.foundationDate,
-      location: item.location,
-      memberships: item.memberships,
-      contactInfo: item.contactInfo,
-      websites: item.websites,
-      author: item.author,
-      approved: item.approved,
-      creationDate: item.creationDate
-    }" @open-profile="openEntryProfile(item, 'Micronation')" @click="selectEntry(item, 'Micronation')" />
-            <OrganizationEntry v-for="item in organizationsModerationDirectory" :key="item.id" :width="entryWidth"
-              :flag-height="entryWidth * 0.6" :micronations-directory="micronationsDirectory" :inline-profile-preview="true" :info="{
-      id: item.id,
-      name: {
-        main: item.name.main,
-        mainAlt: item.name.mainAlt
-      },
-      logo: item.logo,
-      motto: item.motto,
-      languages: item.languages,
-      foundationDate: item.foundationDate,
-      contactInfo: item.contactInfo,
-      websites: item.websites,
-      author: item.author,
-      approved: item.approved,
-      creationDate: item.creationDate
-    }" @open-profile="openEntryProfile(item, 'Organization')" @click="selectEntry(item, 'Organization')" />
+          <div v-if="loadingIssues" class="loading-message">
+            Loading pending entries from GitHub...
+          </div>
+          <div
+            v-else-if="
+              githubIssues.length === 0 ||
+              (micronationsModerationDirectory.length === 0 &&
+                organizationsModerationDirectory.length === 0)
+            "
+            class="loading-message"
+          >
+            No pending entries found.
+          </div>
+          <div
+            v-else
+            class="micronations-list"
+            id="moderationMicronations"
+            ref="micronationsListModeration"
+            :key="componentKey"
+            :class="{ 'fixed-height': fixedHeight }"
+          >
+            <DirectoryEntry
+              v-for="item in micronationsModerationDirectory"
+              :key="item.id"
+              :width="entryWidth"
+              :flag-height="entryWidth * 0.6"
+              :view-mode="'micronations'"
+              :micronations-directory="micronationsDirectory"
+              :organizations-directory="organizationsDirectory"
+              :visible-organizations="visibleOrganizations"
+              :supranational-micronations="supranationalMicronations"
+              :inline-profile-preview="true"
+              :info="{
+                id: item.id,
+                name: item.name,
+                flag: item.flag,
+                motto: item.motto,
+                type: item.type,
+                languages: item.languages,
+                capital: item.capital,
+                currency: item.currency,
+                foundationDate: item.foundationDate,
+                location: item.location,
+                memberships: item.memberships,
+                contactInfo: item.contactInfo,
+                websites: item.websites,
+                author: item.author,
+                approved: item.approved,
+                creationDate: item.creationDate
+              }"
+              @open-profile="openEntryProfile(item, 'Micronation')"
+              @click="selectEntry(item, 'Micronation')"
+            />
+            <OrganizationEntry
+              v-for="item in organizationsModerationDirectory"
+              :key="item.id"
+              :width="entryWidth"
+              :flag-height="entryWidth * 0.6"
+              :micronations-directory="micronationsDirectory"
+              :inline-profile-preview="true"
+              :info="{
+                id: item.id,
+                name: {
+                  main: item.name.main,
+                  mainAlt: item.name.mainAlt
+                },
+                logo: item.logo,
+                motto: item.motto,
+                languages: item.languages,
+                foundationDate: item.foundationDate,
+                contactInfo: item.contactInfo,
+                websites: item.websites,
+                author: item.author,
+                approved: item.approved,
+                creationDate: item.creationDate
+              }"
+              @open-profile="openEntryProfile(item, 'Organization')"
+              @click="selectEntry(item, 'Organization')"
+            />
           </div>
           <Teleport to="body">
-          <div v-if="selectedProfileEntry" class="profile-preview-overlay" role="presentation" @click.self="closeSelectedPreview">
-            <section class="selected-entry-details" role="dialog" aria-modal="true" :aria-label="`Full profile for ${selectedProfileEntry.name.main}`">
-              <div class="details-heading">
-                <div>
-                  <span>Submission #{{ selectedProfileEntry.issueNumber }}</span>
-                  <h3>Full submission details</h3>
+            <div
+              v-if="selectedProfileEntry"
+              class="profile-preview-overlay"
+              role="presentation"
+              @click.self="closeSelectedPreview"
+            >
+              <section
+                class="selected-entry-details"
+                role="dialog"
+                aria-modal="true"
+                :aria-label="`Full profile for ${selectedProfileEntry.name.main}`"
+              >
+                <div class="details-heading">
+                  <div>
+                    <span>Submission #{{ selectedProfileEntry.issueNumber }}</span>
+                    <h3>Full submission details</h3>
+                  </div>
+                  <div class="details-heading-actions">
+                    <a
+                      v-if="selectedProfileEntry.githubUrl"
+                      :href="selectedProfileEntry.githubUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Open GitHub issue ↗</a
+                    >
+                    <button
+                      type="button"
+                      class="close-preview-button"
+                      :disabled="savingProfile || profileImageProcessing"
+                      @click="closeSelectedPreview"
+                    >
+                      <span aria-hidden="true">×</span> Close
+                    </button>
+                  </div>
                 </div>
-                <div class="details-heading-actions">
-                  <a v-if="selectedProfileEntry.githubUrl" :href="selectedProfileEntry.githubUrl" target="_blank" rel="noopener noreferrer">Open GitHub issue ↗</a>
-                  <button type="button" class="close-preview-button" :disabled="savingProfile || profileImageProcessing" @click="closeSelectedPreview"><span aria-hidden="true">×</span> Close</button>
-                </div>
-              </div>
-              <NewEntryForm v-if="profileDraft && moderationFormDraft" :key="selectedProfileEntry.issueNumber"
-                :entry-type="selectedProfileEntry.entryType" :directory-data="selectedProfileEntry.entryType === 'micronation' ? micronationsDirectory : organizationsDirectory"
-                :form-placeholders="moderationFormDraft" :initial-entry="profileDraft" :initial-image-mode="profileImageMode"
-                :is-moderation-editor="true" :saving="savingProfile" :image-processing="profileImageProcessing"
-                @save-corrections="saveProfileEdits" @edit-image-change="updateProfileImage"
-                @image-error="notifyProfileImageError" @image-processing="profileImageProcessing = $event" />
-            </section>
-          </div>
+                <NewEntryForm
+                  v-if="profileDraft && moderationFormDraft"
+                  :key="selectedProfileEntry.issueNumber"
+                  :entry-type="selectedProfileEntry.entryType"
+                  :directory-data="
+                    selectedProfileEntry.entryType === 'micronation'
+                      ? micronationsDirectory
+                      : organizationsDirectory
+                  "
+                  :form-placeholders="moderationFormDraft"
+                  :initial-entry="profileDraft"
+                  :initial-image-mode="profileImageMode"
+                  :is-moderation-editor="true"
+                  :saving="savingProfile"
+                  :image-processing="profileImageProcessing"
+                  @save-corrections="saveProfileEdits"
+                  @edit-image-change="updateProfileImage"
+                  @image-error="notifyProfileImageError"
+                  @image-processing="profileImageProcessing = $event"
+                />
+              </section>
+            </div>
           </Teleport>
         </div>
       </template>
@@ -139,7 +230,9 @@ defineProps({
           <header class="selection-header" :class="{ 'is-empty': !selectedEntry }">
             <div class="selection-header-topline">
               <span class="selection-kicker">Submission review</span>
-              <span class="selection-status">{{ selectedEntry ? 'Pending' : 'Select an entry' }}</span>
+              <span class="selection-status">{{
+                selectedEntry ? 'Pending' : 'Select an entry'
+              }}</span>
             </div>
             <h3 class="selected-entry-name">{{ selectedEntryName }}</h3>
             <div class="selection-meta">
@@ -158,32 +251,63 @@ defineProps({
               <div class="selection-meta-item">
                 <span>Issue #</span>
                 <strong>
-                  <a v-if="selectedEntry?.issueNumber && selectedEntry?.githubUrl" :href="selectedEntry.githubUrl"
-                    target="_blank" rel="noopener noreferrer">#{{ selectedEntry.issueNumber }}</a>
-                  <template v-else>{{ selectedEntry?.issueNumber ? `#${selectedEntry.issueNumber}` : '—' }}</template>
+                  <a
+                    v-if="selectedEntry?.issueNumber && selectedEntry?.githubUrl"
+                    :href="selectedEntry.githubUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >#{{ selectedEntry.issueNumber }}</a
+                  >
+                  <template v-else>{{
+                    selectedEntry?.issueNumber ? `#${selectedEntry.issueNumber}` : '—'
+                  }}</template>
                 </strong>
               </div>
             </div>
           </header>
 
           <div class="moderation-actions">
-            <textarea class="login-input" v-model="rejectionReason" rows="6"
-              placeholder="Additional message for rejection/approval"></textarea>
-            <button id="entryReject" class="login-button color-transition" :disabled="selectedEntry === undefined || moderationAction !== null"
-              @click="entryReject(selectedEntry)">
-              <span v-if="moderationAction === 'reject'" class="action-spinner" aria-hidden="true"></span>
+            <textarea
+              class="login-input"
+              v-model="rejectionReason"
+              rows="6"
+              placeholder="Additional message for rejection/approval"
+            ></textarea>
+            <button
+              id="entryReject"
+              class="login-button color-transition"
+              :disabled="selectedEntry === undefined || moderationAction !== null"
+              @click="entryReject(selectedEntry)"
+            >
+              <span
+                v-if="moderationAction === 'reject'"
+                class="action-spinner"
+                aria-hidden="true"
+              ></span>
               {{ moderationAction === 'reject' ? 'Rejecting…' : 'Reject' }}
             </button>
-            <button id="entryApprove" class="login-button color-transition" :disabled="selectedEntry === undefined || moderationAction !== null"
-              @click="entryApprove(selectedEntry)">
-              <span v-if="moderationAction === 'approve'" class="action-spinner" aria-hidden="true"></span>
+            <button
+              id="entryApprove"
+              class="login-button color-transition"
+              :disabled="selectedEntry === undefined || moderationAction !== null"
+              @click="entryApprove(selectedEntry)"
+            >
+              <span
+                v-if="moderationAction === 'approve'"
+                class="action-spinner"
+                aria-hidden="true"
+              ></span>
               {{ moderationAction === 'approve' ? 'Approving…' : 'Approve' }}
             </button>
           </div>
         </div>
       </template>
     </ModerationToolWorkspace>
-    <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
+    <div
+      id="notEnoughPrivileges"
+      v-if="!userIsModerator"
+      v-show="micronationsDirectory.length !== 0"
+    >
       You don't have sufficient privileges in order to moderate pending submissions.
     </div>
   </section>
@@ -212,7 +336,7 @@ export default {
       selectedEntryName: 'None selected',
       selectedEntryAuthor: '',
       selectedEntryType: undefined,
-      rejectionReason: "",
+      rejectionReason: '',
       moderationAction: null,
       githubIssues: [],
       loadingIssues: false
@@ -221,85 +345,110 @@ export default {
   computed: {
     micronationsModerationDirectory() {
       return this.githubIssues
-        .map(issue => convertIssueToEntry(issue))
-        .filter(entry => entry && entry.entryType === 'micronation' && !entry.approved)
-        .map(entry => {
-          const { issueBody, ...rest } = entry;
-          return rest;
-        });
+        .map((issue) => convertIssueToEntry(issue))
+        .filter((entry) => entry && entry.entryType === 'micronation' && !entry.approved)
+        .map((entry) => {
+          const { issueBody, ...rest } = entry
+          return rest
+        })
     },
     organizationsModerationDirectory() {
       return this.githubIssues
-        .map(issue => convertIssueToEntry(issue))
-        .filter(entry => entry && entry.entryType === 'organization' && !entry.approved)
-        .map(entry => {
-          const { issueBody, ...rest } = entry;
-          return rest;
-        });
-    },
+        .map((issue) => convertIssueToEntry(issue))
+        .filter((entry) => entry && entry.entryType === 'organization' && !entry.approved)
+        .map((entry) => {
+          const { issueBody, ...rest } = entry
+          return rest
+        })
+    }
   },
   methods: {
     async sendDecisionEmail(entry, decision) {
-      const authorEmail = entry.author?.email;
+      const authorEmail = entry.author?.email
       if (!authorEmail) {
-        console.warn('Skipping moderation email because the entry has no author email.', entry.id);
-        return;
+        console.warn('Skipping moderation email because the entry has no author email.', entry.id)
+        return
       }
-      if (this.moderatorsList.some(moderatorEmail => moderatorEmail.toLowerCase() === authorEmail.toLowerCase())) {
-        return;
+      if (
+        this.moderatorsList.some(
+          (moderatorEmail) => moderatorEmail.toLowerCase() === authorEmail.toLowerCase()
+        )
+      ) {
+        return
       }
 
       try {
-        await emailjs.send("service_gd9nz5x", "template_w1tt2h5", {
-          entry_decision: decision,
-          entry_decisiond: decision === 'approve' ? 'approved' : 'rejected',
-          to_name: entry.author?.name || '',
-          to_email: authorEmail,
-          entry_name: entry.name?.main || this.selectedEntryName,
-          rejection_reason: this.rejectionReason
-        }, "P8-p_r-gTZedo_h84");
+        await emailjs.send(
+          'service_gd9nz5x',
+          'template_w1tt2h5',
+          {
+            entry_decision: decision,
+            entry_decisiond: decision === 'approve' ? 'approved' : 'rejected',
+            to_name: entry.author?.name || '',
+            to_email: authorEmail,
+            entry_name: entry.name?.main || this.selectedEntryName,
+            rejection_reason: this.rejectionReason
+          },
+          'P8-p_r-gTZedo_h84'
+        )
       } catch (error) {
         // The moderation decision is already recorded; a mail failure must not undo it.
-        console.error('Error sending moderation decision email:', error);
+        console.error('Error sending moderation decision email:', error)
         notify({
           title: 'Moderation email failed',
-          text: `The entry was ${decision === 'approve' ? 'approved' : 'rejected'}, but the author notification could not be sent.`,
+          text: `The entry was ${
+            decision === 'approve' ? 'approved' : 'rejected'
+          }, but the author notification could not be sent.`,
           type: 'error'
-        });
+        })
       }
     },
     findFullIssueEntry(item) {
       // Find the full entry data with issueBody from the original issues
       return this.githubIssues
-        .map(issue => convertIssueToEntry(issue))
-        .find(entry => entry && entry.id === item.id);
+        .map((issue) => convertIssueToEntry(issue))
+        .find((entry) => entry && entry.id === item.id)
     },
     selectEntry(item, type) {
-      this.selectedEntry = this.findFullIssueEntry(item) || item;
-      this.selectedEntryName = item.name?.main || 'Selected entry';
-      this.selectedEntryAuthor = item.author?.email || '';
-      this.selectedEntryType = type;
+      this.selectedEntry = this.findFullIssueEntry(item) || item
+      this.selectedEntryName = item.name?.main || 'Selected entry'
+      this.selectedEntryAuthor = item.author?.email || ''
+      this.selectedEntryType = type
     },
     formatSubmissionDate(value) {
-      if (!value) return '';
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return '';
-      return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+      if (!value) return ''
+      const date = new Date(value)
+      if (Number.isNaN(date.getTime())) return ''
+      return new Intl.DateTimeFormat('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      }).format(date)
     },
     openEntryProfile(item, type) {
-      this.selectEntry(item, type);
-      this.selectedProfileEntry = this.selectedEntry;
-      this.profileDraft = JSON.parse(JSON.stringify(this.selectedEntry));
-      this.profileDraft.name ||= { main: '', mainAlt: '', title: '', titleAlt: '' };
-      this.profileDraft.motto ||= '';
-      this.profileDraft.type ||= [];
-      this.profileDraft.languages ||= [];
-      this.profileDraft.memberships ||= [];
-      this.profileDraft.contactInfo ||= [];
-      this.profileDraft.websites ||= [];
+      this.selectEntry(item, type)
+      this.selectedProfileEntry = this.selectedEntry
+      this.profileDraft = JSON.parse(JSON.stringify(this.selectedEntry))
+      this.profileDraft.name ||= { main: '', mainAlt: '', title: '', titleAlt: '' }
+      this.profileDraft.motto ||= ''
+      this.profileDraft.type ||= []
+      this.profileDraft.languages ||= []
+      this.profileDraft.memberships ||= []
+      this.profileDraft.contactInfo ||= []
+      this.profileDraft.websites ||= []
       this.moderationFormDraft = {
         newEntryName: this.profileDraft.name.main || '',
         newEntryNameAlt: this.profileDraft.name.mainAlt || '',
+        newEntryAltNames:
+          this.profileDraft.name.alt ||
+          (this.profileDraft.name.mainAlt || this.profileDraft.name.titleAlt
+            ? [
+                {
+                  main: this.profileDraft.name.mainAlt || '',
+                  title: this.profileDraft.name.titleAlt || ''
+                }
+              ]
+            : []),
         newEntryTitle: this.profileDraft.name.title || '',
         newEntryTitleAlt: this.profileDraft.name.titleAlt || '',
         newEntryTypePhysical: (this.profileDraft.type || []).includes('Physical'),
@@ -312,114 +461,137 @@ export default {
         newEntryMemberships: [...this.profileDraft.memberships],
         newEntryEmails: [...this.profileDraft.contactInfo],
         newEntryWebsites: [...this.profileDraft.websites]
-      };
-      this.profileSubmissionDraft = parseIssueBody(this.selectedEntry?.issueBody);
-      this.profileImageMode = extractFileMetadata(this.selectedEntry?.issueBody) ? 'file' : 'url';
-      this.profileMediaDraft = null;
+      }
+      this.profileSubmissionDraft = parseIssueBody(this.selectedEntry?.issueBody)
+      this.profileImageMode = extractFileMetadata(this.selectedEntry?.issueBody) ? 'file' : 'url'
+      this.profileMediaDraft = null
     },
     closeSelectedPreview() {
-      this.selectedProfileEntry = undefined;
-      this.profileDraft = null;
-      this.moderationFormDraft = null;
-      this.profileSubmissionDraft = null;
-      this.profileMediaDraft = null;
+      this.selectedProfileEntry = undefined
+      this.profileDraft = null
+      this.moderationFormDraft = null
+      this.profileSubmissionDraft = null
+      this.profileMediaDraft = null
     },
     async saveProfileEdits(formData) {
-      if (!this.profileDraft || !formData || this.savingProfile || this.profileImageProcessing) return;
+      if (!this.profileDraft || !formData || this.savingProfile || this.profileImageProcessing)
+        return
       if (!formData.name?.main?.trim()) {
-        notify({ title: 'Cannot save entry', text: 'The official name is required.', type: 'error' });
-        return;
+        notify({
+          title: 'Cannot save entry',
+          text: 'The official name is required.',
+          type: 'error'
+        })
+        return
       }
 
-      this.savingProfile = true;
+      this.savingProfile = true
       try {
         if (!this.profileSubmissionDraft) {
-          throw new Error('The original submission data could not be loaded from the issue.');
+          throw new Error('The original submission data could not be loaded from the issue.')
         }
-        const updatedData = JSON.parse(JSON.stringify(this.profileSubmissionDraft));
-        Object.assign(updatedData, formData);
-        const imageField = this.selectedProfileEntry.entryType === 'micronation' ? 'flag' : 'logo';
+        const updatedData = JSON.parse(JSON.stringify(this.profileSubmissionDraft))
+        Object.assign(updatedData, formData)
+        const imageField = this.selectedProfileEntry.entryType === 'micronation' ? 'flag' : 'logo'
         if (this.profileMediaDraft?.mode === 'upload') {
-          updatedData[imageField] = this.profileMediaDraft.path;
+          updatedData[imageField] = this.profileMediaDraft.path
         } else if (this.profileMediaDraft?.mode === 'url') {
-          updatedData[imageField] = this.profileMediaDraft.url;
+          updatedData[imageField] = this.profileMediaDraft.url
         }
 
-        const entryType = this.selectedProfileEntry.entryType;
+        const entryType = this.selectedProfileEntry.entryType
         const updatedIssue = await updateGitHubIssueEntry(
           this.selectedProfileEntry.issueNumber,
           this.selectedProfileEntry.issueBody,
           updatedData,
           entryType,
           this.profileMediaDraft
-        );
-        this.githubIssues = this.githubIssues.map(issue => issue.number === updatedIssue.number ? updatedIssue : issue);
-        const updatedEntry = convertIssueToEntry(updatedIssue);
-        this.selectedEntry = updatedEntry;
-        this.selectedProfileEntry = updatedEntry;
-        this.selectedEntryName = updatedEntry.name.main;
-        this.profileDraft = JSON.parse(JSON.stringify(updatedEntry));
-        this.profileSubmissionDraft = parseIssueBody(updatedIssue.body);
-        this.profileImageMode = extractFileMetadata(updatedIssue.body) ? 'file' : 'url';
-        this.profileMediaDraft = null;
-        notify({ title: 'Entry updated', text: 'The submission and its GitHub issue were updated.', type: 'success' });
+        )
+        this.githubIssues = this.githubIssues.map((issue) =>
+          issue.number === updatedIssue.number ? updatedIssue : issue
+        )
+        const updatedEntry = convertIssueToEntry(updatedIssue)
+        this.selectedEntry = updatedEntry
+        this.selectedProfileEntry = updatedEntry
+        this.selectedEntryName = updatedEntry.name.main
+        this.profileDraft = JSON.parse(JSON.stringify(updatedEntry))
+        this.profileSubmissionDraft = parseIssueBody(updatedIssue.body)
+        this.profileImageMode = extractFileMetadata(updatedIssue.body) ? 'file' : 'url'
+        this.profileMediaDraft = null
+        notify({
+          title: 'Entry updated',
+          text: 'The submission and its GitHub issue were updated.',
+          type: 'success'
+        })
       } catch (error) {
-        notify({ title: 'Could not update entry', text: error.message || String(error), type: 'error' });
+        notify({
+          title: 'Could not update entry',
+          text: error.message || String(error),
+          type: 'error'
+        })
       } finally {
-        this.savingProfile = false;
+        this.savingProfile = false
       }
     },
     updateProfileImage(change) {
-      this.profileMediaDraft = change;
+      this.profileMediaDraft = change
     },
     notifyProfileImageError(message) {
-      notify({ title: 'Could not process image', text: message, type: 'error' });
+      notify({ title: 'Could not process image', text: message, type: 'error' })
     },
     async fetchPendingIssues() {
-      this.loadingIssues = true;
+      this.loadingIssues = true
       try {
-        const issues = await fetchGitHubIssues(['new-entry', 'review-required']);
-        this.githubIssues = issues;
-        this.forceRerender();
+        const issues = await fetchGitHubIssues(['new-entry', 'review-required'])
+        this.githubIssues = issues
+        this.forceRerender()
       } catch (error) {
-        console.error('Error fetching GitHub issues:', error);
+        console.error('Error fetching GitHub issues:', error)
         notify({
           title: 'Error loading pending entries',
           text: 'Failed to fetch pending entries from GitHub issues.',
           type: 'error'
-        });
+        })
       } finally {
-        this.loadingIssues = false;
+        this.loadingIssues = false
       }
     },
     async entryReject(entry) {
-      if (!entry || this.moderationAction || !window.confirm(`Reject “${entry.name?.main || this.selectedEntryName}”? This will close the submission.`)) {
-        return;
+      if (
+        !entry ||
+        this.moderationAction ||
+        !window.confirm(
+          `Reject “${entry.name?.main || this.selectedEntryName}”? This will close the submission.`
+        )
+      ) {
+        return
       }
 
-      this.moderationAction = 'reject';
-      const that = this;
+      this.moderationAction = 'reject'
+      const that = this
 
       try {
         // Add rejection comment to the GitHub issue
-        const comment = `**Entry Rejected**\n\n${that.rejectionReason ? `Reason: ${that.rejectionReason}` : 'No reason provided.'}\n\nThe entry was rejected by a moderator.`;
-        await addIssueComment(entry.issueNumber, comment);
+        const comment = `**Entry Rejected**\n\n${
+          that.rejectionReason ? `Reason: ${that.rejectionReason}` : 'No reason provided.'
+        }\n\nThe entry was rejected by a moderator.`
+        await addIssueComment(entry.issueNumber, comment)
 
         // Add 'rejected' label and close the issue
-        await addIssueLabel(entry.issueNumber, 'rejected');
-        await closeIssue(entry.issueNumber);
+        await addIssueLabel(entry.issueNumber, 'rejected')
+        await closeIssue(entry.issueNumber)
 
-        await this.sendDecisionEmail(entry, 'reject');
+        await this.sendDecisionEmail(entry, 'reject')
 
         // Remove from local list
-        this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
-        this.forceRerender();
-        this.selectedEntry = undefined;
-        this.selectedProfileEntry = undefined;
-        this.selectedEntryName = 'None selected';
-        this.selectedEntryAuthor = '';
-        this.selectedEntryType = undefined;
-        this.rejectionReason = '';
+        this.githubIssues = this.githubIssues.filter((issue) => issue.id !== entry.id)
+        this.forceRerender()
+        this.selectedEntry = undefined
+        this.selectedProfileEntry = undefined
+        this.selectedEntryName = 'None selected'
+        this.selectedEntryAuthor = ''
+        this.selectedEntryType = undefined
+        this.rejectionReason = ''
 
         notify({
           title: 'Entry moderation',
@@ -427,68 +599,78 @@ export default {
           type: 'warning'
         })
       } catch (error) {
-        console.error('Error rejecting entry:', error);
+        console.error('Error rejecting entry:', error)
         notify({
           title: 'Error while moderating entry',
           text: error.message || error,
           type: 'error'
         })
       } finally {
-        this.moderationAction = null;
+        this.moderationAction = null
       }
     },
     async entryApprove(entry) {
-      if (!entry || this.moderationAction || !window.confirm(`Approve “${entry.name?.main || this.selectedEntryName}”? This will publish it to the directory.`)) {
-        return;
+      if (
+        !entry ||
+        this.moderationAction ||
+        !window.confirm(
+          `Approve “${
+            entry.name?.main || this.selectedEntryName
+          }”? This will publish it to the directory.`
+        )
+      ) {
+        return
       }
 
-      this.moderationAction = 'approve';
-      const that = this;
+      this.moderationAction = 'approve'
+      const that = this
 
       try {
         // Determine entry type and file paths
-        const isMicronation = this.selectedEntryType === 'Micronation';
-        const jsonFilePath = isMicronation ? 'public/micronations.json' : 'public/organizations.json';
-        const entryTypeName = isMicronation ? 'micronation' : 'organization';
+        const isMicronation = this.selectedEntryType === 'Micronation'
+        const jsonFilePath = isMicronation
+          ? 'public/micronations.json'
+          : 'public/organizations.json'
+        const entryTypeName = isMicronation ? 'micronation' : 'organization'
 
         // Fetch the current JSON file
-        const { content: currentData, sha: currentSha } = await fetchRepoFile(jsonFilePath);
+        const { content: currentData, sha: currentSha } = await fetchRepoFile(jsonFilePath)
 
         // Handle image file if present in the issue
-        let base64Image = null;
-        let fileMetadata = null;
+        let base64Image = null
+        let fileMetadata = null
         if (entry.issueBody) {
-          base64Image = extractBase64Image(entry.issueBody);
-          fileMetadata = extractFileMetadata(entry.issueBody);
+          base64Image = extractBase64Image(entry.issueBody)
+          fileMetadata = extractFileMetadata(entry.issueBody)
         }
 
         // Prepare the entry data for the JSON file
-        const entryForJson = { ...entry };
-        delete entryForJson.id;
-        delete entryForJson.issueNumber;
-        delete entryForJson.githubUrl;
-        delete entryForJson.issueBody;
-        delete entryForJson.entryType;
-        delete entryForJson.searchDisplay;
-        delete entryForJson.filterDisplay;
-        entryForJson.approved = true;
+        const entryForJson = { ...entry }
+        delete entryForJson.id
+        delete entryForJson.issueNumber
+        delete entryForJson.githubUrl
+        delete entryForJson.issueBody
+        delete entryForJson.entryType
+        delete entryForJson.searchDisplay
+        delete entryForJson.filterDisplay
+        entryForJson.approved = true
 
         // Restore the original flag/logo path (not the data URL) for JSON file
         if (fileMetadata) {
           if (isMicronation) {
-            entryForJson.flag = fileMetadata.path;
+            entryForJson.flag = fileMetadata.path
           } else {
-            entryForJson.logo = fileMetadata.path;
+            entryForJson.logo = fileMetadata.path
           }
         }
 
         // Match the JSON representation GitHub will store, excluding undefined fields.
-        const persistedEntry = JSON.parse(JSON.stringify(entryForJson));
-        const entrySignature = stableStringify(persistedEntry);
+        const persistedEntry = JSON.parse(JSON.stringify(entryForJson))
+        const entrySignature = stableStringify(persistedEntry)
         // Keep approval retries idempotent: replace exact copies of this entry
         // instead of publishing another duplicate.
-        const updatedData = currentData.filter(item => stableStringify(item) !== entrySignature);
-        updatedData.push(persistedEntry);
+        const updatedData = currentData.filter((item) => stableStringify(item) !== entrySignature)
+        updatedData.push(persistedEntry)
 
         // Update the JSON file
         await updateRepoFile(
@@ -496,7 +678,7 @@ export default {
           JSON.stringify(updatedData, null, 2),
           currentSha,
           `Add approved ${entryTypeName}: ${entry.name.main}`
-        );
+        )
 
         // Upload image file if present
         if (base64Image && fileMetadata) {
@@ -505,33 +687,35 @@ export default {
               fileMetadata.path,
               base64Image,
               `Add ${entryTypeName} image: ${fileMetadata.name}`
-            );
+            )
           } catch (imageError) {
-            console.error('Error creating image file:', imageError);
+            console.error('Error creating image file:', imageError)
             // Continue with the approval even if image fails
           }
         }
 
         // Add approval comment to the GitHub issue
-        const comment = `**Entry Approved**\n\n${that.rejectionReason ? `Note: ${that.rejectionReason}` : ''}\n\nThe entry has been approved and automatically added to ${jsonFilePath}.`;
-        await addIssueComment(entry.issueNumber, comment);
+        const comment = `**Entry Approved**\n\n${
+          that.rejectionReason ? `Note: ${that.rejectionReason}` : ''
+        }\n\nThe entry has been approved and automatically added to ${jsonFilePath}.`
+        await addIssueComment(entry.issueNumber, comment)
 
         // Close before adding the label so the label-triggered GitHub Action
         // (which handles manual approvals on open issues) does not add it again.
-        await closeIssue(entry.issueNumber);
-        await addIssueLabel(entry.issueNumber, 'approved');
+        await closeIssue(entry.issueNumber)
+        await addIssueLabel(entry.issueNumber, 'approved')
 
-        await this.sendDecisionEmail(entry, 'approve');
+        await this.sendDecisionEmail(entry, 'approve')
 
         // Remove from local list
-        this.githubIssues = this.githubIssues.filter(issue => issue.id !== entry.id);
-        this.forceRerender();
-        this.selectedEntry = undefined;
-        this.selectedProfileEntry = undefined;
-        this.selectedEntryName = 'None selected';
-        this.selectedEntryAuthor = '';
-        this.selectedEntryType = undefined;
-        this.rejectionReason = '';
+        this.githubIssues = this.githubIssues.filter((issue) => issue.id !== entry.id)
+        this.forceRerender()
+        this.selectedEntry = undefined
+        this.selectedProfileEntry = undefined
+        this.selectedEntryName = 'None selected'
+        this.selectedEntryAuthor = ''
+        this.selectedEntryType = undefined
+        this.rejectionReason = ''
 
         notify({
           title: 'Entry moderation',
@@ -539,25 +723,25 @@ export default {
           type: 'success'
         })
       } catch (error) {
-        console.error('Error approving entry:', error);
+        console.error('Error approving entry:', error)
         notify({
           title: 'Error while moderating entry',
           text: error.message || error,
           type: 'error'
         })
       } finally {
-        this.moderationAction = null;
+        this.moderationAction = null
       }
     },
     forceRerender() {
-      this.componentKey += 1;
+      this.componentKey += 1
     },
     scrollToTop() {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0)
     }
   },
   mounted() {
-    this.fetchPendingIssues();
+    this.fetchPendingIssues()
   }
 }
 </script>
@@ -606,9 +790,11 @@ export default {
   padding: 16px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: linear-gradient(145deg,
-      color-mix(in srgb, var(--color-accent) 9%, var(--color-surface)),
-      var(--color-surface) 72%);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-accent) 9%, var(--color-surface)),
+    var(--color-surface) 72%
+  );
 }
 
 .selection-header-topline {
@@ -650,7 +836,7 @@ export default {
   font-size: 20px;
   font-weight: 750;
   line-height: 1.25;
-  text-align: left;
+  text-align: center;
   overflow-wrap: anywhere;
 }
 
@@ -820,7 +1006,9 @@ export default {
 }
 
 @keyframes moderation-spinner {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #entryReject {
@@ -852,6 +1040,5 @@ export default {
   .selection-meta {
     grid-template-columns: minmax(0, 1fr);
   }
-
 }
 </style>

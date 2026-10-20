@@ -47,12 +47,7 @@ defineProps({
 
         <DirectoryEntry v-if="present" :info="{
         id: placemarkInfo.id,
-        name: {
-            main: placemarkInfo.name.main,
-            mainAlt: placemarkInfo.name.mainAlt,
-            title: placemarkInfo.name.title,
-            titleAlt: placemarkInfo.name.titleAlt
-        },
+        name: placemarkInfo.name,
         flag: placemarkInfo.flag,
         motto: placemarkInfo.motto,
         type: placemarkInfo.type,

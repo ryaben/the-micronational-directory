@@ -72,8 +72,8 @@ const emit = defineEmits(['open-profile'])
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
                 <div class="expanded-details">
-                    <p v-if="info.name.mainAlt !== '' || info.name.titleAlt !== ''" class="entry-alt-name">
-                        <b>{{ info.name.mainAlt }}</b><span v-if="info.name.titleAlt !== ''">, {{ info.name.titleAlt }}</span>
+                    <p v-for="(alt, i) in alternativeNames" :key="i" class="entry-alt-name">
+                        (<b>{{ alt.main }}</b><span v-if="alt.title">, {{ alt.title }}</span>)
                     </p>
 
                     <p v-if="info.motto" class="detail-motto">“{{ info.motto }}”</p>
@@ -141,6 +141,13 @@ export default {
         };
     },
     computed: {
+        alternativeNames() {
+            const names = this.info.name?.alt || [];
+            if (names.length) return names;
+            return this.info.name?.mainAlt || this.info.name?.titleAlt
+                ? [{ main: this.info.name.mainAlt || '', title: this.info.name.titleAlt || '' }]
+                : [];
+        },
         cssProps() {
             return {
                 '--container-width': (this.width) + "px"

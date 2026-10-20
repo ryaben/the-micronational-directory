@@ -78,7 +78,7 @@ defineProps({
               <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
                 @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
                 <DirectoryEntry v-for="(item, i) in pagedMicrasDirectory" :key="item.websites?.[0] || item.name || i" :disable-full-profile-button="true"
-                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)), 'assigned': item.assignedModerator === user.email }"
+                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt].some(name => name && item.name.includes(name))), 'assigned': item.assignedModerator === user.email }"
                   :info="{
                     id: `id${i}`, name: { main: item.name, mainAlt: '', title: '', titleAlt: '' }, flag: item.flag,
                     motto: item.motto, type: ['Digital', 'Fictional'], languages: item.languages, capital: item.capital,
@@ -117,7 +117,7 @@ defineProps({
               <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
                 @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
                 <DirectoryEntry v-for="(item, i) in pagedMicroWikiDirectory" :key="item.websites?.[0] || item.name || i" :disable-full-profile-button="true"
-                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => item.name.includes(mic.name.main)) }"
+                  :class="{ 'selected': selectedMicronation === i, 'present': micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt].some(name => name && item.name.includes(name))) }"
                   :info="{
                     id: `id${i}`, name: { main: item.name, mainAlt: '', title: '', titleAlt: '' }, flag: item.flag,
                     motto: item.motto, type: [], languages: item.languages, capital: item.capital, currency: item.currency,
@@ -377,7 +377,8 @@ export default {
       let micronationCounter = 0;
 
       arrayComputed.forEach(function (element) {
-        const check = that.micronationsDirectory.find(mic => element.name.includes(mic.name.main));
+        const check = that.micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt]
+          .some(name => name && element.name.includes(name)));
 
         if (check !== undefined) {
           micronationCounter++

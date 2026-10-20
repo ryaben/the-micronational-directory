@@ -20,6 +20,10 @@ import '@vuepic/vue-datepicker/dist/main.css'
 const LocationPicker = defineAsyncComponent(() => import('../components/LocationPicker.vue'))
 
 defineProps({
+  theme: {
+    type: String,
+    default: 'dark'
+  },
   entryType: {
     type: String,
     required: false,
@@ -42,6 +46,7 @@ defineProps({
       newEntryFlag: '',
       newEntryName: '',
       newEntryNameAlt: '',
+      newEntryAltNames: [],
       newEntryTitle: '',
       newEntryTitleAlt: '',
       newEntryTypePhysical: false,
@@ -171,7 +176,7 @@ const emit = defineEmits([
               placeholder="E.g. 'Principality of' (just the descriptive name only)"
             />
 
-            <label for="newEntryNameAlt" class="new-entry-form-text">
+            <label v-if="entryType !== 'micronation'" for="newEntryNameAlt" class="new-entry-form-text">
               {{ entryType === 'micronation' ? 'Alternative name' : 'Acronym*' }}
               <img
                 src="/images/info.png"
@@ -182,7 +187,7 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <input
+            <input v-if="entryType !== 'micronation'"
               type="text"
               id="newEntryNameAlt"
               v-model="formPlaceholders.newEntryNameAlt"
@@ -193,28 +198,24 @@ const emit = defineEmits([
               "
             />
 
-            <label
-              v-if="entryType === 'micronation'"
-              for="newEntryTitleAlt"
-              class="new-entry-form-text"
-            >
-              Alternative title
-              <img
-                src="/images/info.png"
-                alt="info"
-                class="tooltip-activator"
-                @click="
-                  activeTooltipIndex === 3 ? '' : activateTooltip(3, 'Alternative title', $event)
-                "
-              />
-            </label>
-            <input
-              v-if="entryType === 'micronation'"
-              type="text"
-              id="newEntryTitleAlt"
-              v-model="formPlaceholders.newEntryTitleAlt"
-              placeholder="Second option for title, e.g. in another language"
-            />
+            <template v-if="entryType === 'micronation'">
+              <label for="newEntryAltNameMain" class="new-entry-form-text">
+                Other names
+                <img src="/images/info.png" alt="info" class="tooltip-activator"
+                  @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)" />
+              </label>
+              <div class="new-entry-option-container alternative-name-fields">
+                <div class="alternative-name-inputs">
+                  <input id="newEntryAltNameMain" v-model="currentAltNameMain" type="text" placeholder="Alternative name" />
+                  <input v-model="currentAltNameTitle" type="text" placeholder="Alternative title (optional)" />
+                  <button type="button" class="login-button squared-button color-transition new-entry-option-button" @click="addAlternativeName">Add name</button>
+                </div>
+                <div class="selected-elements-container">
+                  <SelectedElement v-for="(name, i) in formPlaceholders.newEntryAltNames" :key="i"
+                    :element-text="name.title ? `${name.main}, ${name.title}` : name.main" @remove-element="removeAlternativeName(i)" />
+                </div>
+              </div>
+            </template>
 
             <label for="newEntryMotto" class="new-entry-form-text mandatory">
               Motto
@@ -369,6 +370,7 @@ const emit = defineEmits([
             </label>
             <VueDatePicker
               v-model="foundationDate"
+              :dark="theme === 'dark'"
               month-name-format="long"
               :flow="['year', 'month', 'calendar']"
               :utc="'preserve'"
@@ -654,7 +656,7 @@ const emit = defineEmits([
           :info="{
             name: {
               main: formPlaceholders.newEntryName,
-              mainAlt: formPlaceholders.newEntryNameAlt,
+              alt: formPlaceholders.newEntryAltNames,
               title: formPlaceholders.newEntryTitle,
               titleAlt: formPlaceholders.newEntryTitleAlt
             },
@@ -728,6 +730,8 @@ export default {
       isSubmitting: false,
       customLanguage: '',
       customMembership: '',
+      currentAltNameMain: '',
+      currentAltNameTitle: '',
       currentEmail: '',
       currentWebsite: '',
       locationPickerMarkerPosition: [
@@ -745,7 +749,7 @@ export default {
       tooltipTexts: [
         "This should be the most common, shortest variant of the name, barely the proper name itself. Take 'Sealand', 'Hutt River' or 'Denmark' as examples. Ideally, use the main official language version or an English one if available.",
         "Here, the descriptive rest of the full name's composition should be added, excluding the main name added above. Barely 'Principality of' or 'Republic of' are some examples of proper cases. There may be some cases, like 'Athenian Republic', in which this field remains blank and only 'Name' is filled. Avoid adding 'The' and words that serve the same meaning at the beginning.",
-        "An additional, secondary version of the main name. This field is useful when a micronation has several official names in different languages. A clear example would be 'Insulo de la Rozoj' (while 'Rose Island' goes on 'Name')",
+        'Other official or commonly used names, including names in other languages. Add the corresponding title when applicable.',
         "Same as 'Title', but input it in another language. To follow above's example, 'Respubliko de la' could be placed here.",
         'Official, national motto. Be sure to NOT add quotes of any kind. The proper way to populate the field is placing the motto in whatever language it is, and then adding the English translation between parenthesis if available. For instance, a valid input is: Vivat Rex (Long Live the King).',
         "The 'Type' of the micronation applies in regard of its kind of (non) territorial claim. Micronations that claim territory on Earth or other real-world elements are 'Physical', the ones that exist solely on the Internet and don't have actual land pretensions are 'Digital', while cases that live on simulated or fantasy worlds are 'Fictional'. More than one type can be checked, for sure.",
@@ -798,7 +802,8 @@ export default {
     duplicateMicronation() {
       const enteredName = this.formPlaceholders.newEntryName.trim()
       if (this.entryType !== 'micronation' || !enteredName) return null
-      return this.directoryData.find(entry => this.matchesWholeWords(entry.name?.main, enteredName)) || null
+      return this.directoryData.find(entry => [entry.name?.main, ...(entry.name?.alt || []).map(name => name.main), entry.name?.mainAlt]
+        .some(name => this.matchesWholeWords(name, enteredName))) || null
     }
   },
   methods: {
@@ -828,12 +833,11 @@ export default {
           })
         }
         const entryData = {
-          name: {
+          name: this.entryType === 'micronation' ? {
             main: this.formPlaceholders.newEntryName,
-            mainAlt: this.formPlaceholders.newEntryNameAlt,
             title: this.formPlaceholders.newEntryTitle,
-            titleAlt: this.formPlaceholders.newEntryTitleAlt
-          },
+            alt: [...(this.formPlaceholders.newEntryAltNames || [])]
+          } : { main: this.formPlaceholders.newEntryName, mainAlt: this.formPlaceholders.newEntryNameAlt },
           motto: this.formPlaceholders.newEntryMotto,
           languages: [...this.formPlaceholders.newEntryLanguages],
           contactInfo: [...this.formPlaceholders.newEntryEmails],
@@ -881,12 +885,11 @@ export default {
         try {
           // Prepare entry data
           const entryData = {
-            name: {
+            name: this.entryType === 'micronation' ? {
               main: this.formPlaceholders.newEntryName,
-              mainAlt: this.formPlaceholders.newEntryNameAlt,
               title: this.formPlaceholders.newEntryTitle,
-              titleAlt: this.formPlaceholders.newEntryTitleAlt
-            },
+              alt: [...(this.formPlaceholders.newEntryAltNames || [])]
+            } : { main: this.formPlaceholders.newEntryName, mainAlt: this.formPlaceholders.newEntryNameAlt },
             motto: this.formPlaceholders.newEntryMotto,
             languages: this.formPlaceholders.newEntryLanguages,
             contactInfo: this.formPlaceholders.newEntryEmails,
@@ -982,7 +985,8 @@ export default {
       const normalizedName = value.trim().toLocaleLowerCase()
       return this.directoryData.find(entry => {
         if (this.entryType === 'micronation') {
-          return this.matchesWholeWords(entry.name?.main, normalizedName)
+          return [entry.name?.main, ...(entry.name?.alt || []).map(name => name.main), entry.name?.mainAlt]
+            .some(name => this.matchesWholeWords(name, normalizedName))
         }
         return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
@@ -1002,6 +1006,16 @@ export default {
       else if (lang && !this.formPlaceholders.newEntryLanguages.includes(lang))
         this.formPlaceholders.newEntryLanguages.push(lang)
       event.target.value = ''
+    },
+    addAlternativeName() {
+      const main = this.currentAltNameMain.trim()
+      if (!main) return
+      this.formPlaceholders.newEntryAltNames.push({ main, title: this.currentAltNameTitle.trim() })
+      this.currentAltNameMain = ''
+      this.currentAltNameTitle = ''
+    },
+    removeAlternativeName(index) {
+      this.formPlaceholders.newEntryAltNames.splice(index, 1)
     },
     addMembership(event) {
       const membership = event.target.value
@@ -1259,6 +1273,24 @@ export default {
   background: var(--color-background-soft);
 }
 
+.alternative-name-fields {
+  min-width: 0;
+}
+
+.alternative-name-inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.alternative-name-inputs > input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+
 .new-entry-option-select {
   width: 100%;
   min-width: 0;
@@ -1492,6 +1524,14 @@ div.new-entry-type {
   .new-entry-option-container > div:first-child {
     flex-wrap: wrap;
     gap: 6px;
+  }
+
+  .alternative-name-inputs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alternative-name-inputs .new-entry-option-button {
+    width: 100%;
   }
 
   .new-entry-select-controls {
