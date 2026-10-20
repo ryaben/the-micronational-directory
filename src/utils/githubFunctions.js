@@ -333,6 +333,7 @@ export function convertIssueToEntry(issue) {
     ...entryData,
     id: issue.id, // Use issue ID as entry ID
     issueNumber: issue.number, // Store issue number for operations
+    createdAt: issue.created_at || null, // GitHub submission creation timestamp
     githubUrl: issue.html_url, // Link to the issue
     issueBody: issue.body, // Store the original issue body for image extraction
     approved: false, // Issues are always pending approval

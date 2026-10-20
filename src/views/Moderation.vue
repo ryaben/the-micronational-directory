@@ -151,6 +151,18 @@ defineProps({
                 <span>Author</span>
                 <strong>{{ selectedEntryAuthor || '—' }}</strong>
               </div>
+              <div class="selection-meta-item selection-meta-item--date">
+                <span>Created</span>
+                <strong>{{ formatSubmissionDate(selectedEntry?.createdAt) || '—' }}</strong>
+              </div>
+              <div class="selection-meta-item">
+                <span>Issue #</span>
+                <strong>
+                  <a v-if="selectedEntry?.issueNumber && selectedEntry?.githubUrl" :href="selectedEntry.githubUrl"
+                    target="_blank" rel="noopener noreferrer">#{{ selectedEntry.issueNumber }}</a>
+                  <template v-else>{{ selectedEntry?.issueNumber ? `#${selectedEntry.issueNumber}` : '—' }}</template>
+                </strong>
+              </div>
             </div>
           </header>
 
@@ -267,6 +279,12 @@ export default {
       this.selectedEntryName = item.name?.main || 'Selected entry';
       this.selectedEntryAuthor = item.author?.email || '';
       this.selectedEntryType = type;
+    },
+    formatSubmissionDate(value) {
+      if (!value) return '';
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return '';
+      return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
     },
     openEntryProfile(item, type) {
       this.selectEntry(item, type);
