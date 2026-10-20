@@ -100,6 +100,22 @@ const emit = defineEmits([
           <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
           check the preview on the right.
         </p>
+        <Transition name="duplicate-alert">
+          <div
+            v-if="!isModerationEditor && duplicateMicronation"
+            class="entry-name-duplicate-alert"
+            role="alert"
+          >
+            <strong>
+              A micronation named
+              <router-link class="duplicate-entry-link" :to="`/directory/${duplicateMicronation.name.main}`">
+                {{ duplicateMicronation.name.main }}
+              </router-link>
+              is already in the directory.
+            </strong>
+            <span>Check the existing entry before submitting this form.</span>
+          </div>
+        </Transition>
 
         <form class="listing-new-entry" @submit.prevent="addEntry">
           <div class="new-entry-form">
@@ -778,6 +794,11 @@ export default {
       }
 
       return typesArray
+    },
+    duplicateMicronation() {
+      const enteredName = this.formPlaceholders.newEntryName.trim()
+      if (this.entryType !== 'micronation' || !enteredName) return null
+      return this.directoryData.find(entry => this.matchesWholeWords(entry.name?.main, enteredName)) || null
     }
   },
   methods: {
@@ -958,9 +979,19 @@ export default {
       })
     },
     searchElement(value) {
-      return this.directoryData.find(function (entry) {
-        return entry.name.main === value
+      const normalizedName = value.trim().toLocaleLowerCase()
+      return this.directoryData.find(entry => {
+        if (this.entryType === 'micronation') {
+          return this.matchesWholeWords(entry.name?.main, normalizedName)
+        }
+        return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
+    },
+    matchesWholeWords(existingName, query) {
+      if (!existingName || !query) return false
+      const existingWords = existingName.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
+      const queryWords = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
+      return queryWords.some(word => word.length >= 3 && existingWords.includes(word))
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
@@ -1141,6 +1172,61 @@ export default {
   background: var(--color-background-soft);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+}
+
+.entry-name-duplicate-alert {
+  display: grid;
+  gap: 3px;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border: 1px solid #f3b2b2;
+  border-left: 4px solid #d94b4b;
+  border-radius: var(--radius-md);
+  color: #8f2929;
+  background: #fff0f0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.entry-name-duplicate-alert strong {
+  font-weight: 750;
+}
+
+.duplicate-entry-link {
+  color: #2459b8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.duplicate-entry-link:hover {
+  color: #163d86;
+}
+
+.duplicate-alert-enter-active,
+.duplicate-alert-leave-active {
+  overflow: hidden;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    margin 180ms ease,
+    padding 180ms ease;
+}
+
+.duplicate-alert-enter-from,
+.duplicate-alert-leave-to {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .duplicate-alert-enter-active,
+  .duplicate-alert-leave-active {
+    transition-duration: 1ms;
+  }
 }
 
 .listing-new-entry {
