@@ -100,6 +100,22 @@ const emit = defineEmits([
           <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
           check the preview on the right.
         </p>
+        <Transition name="duplicate-alert">
+          <div
+            v-if="!isModerationEditor && duplicateMicronation"
+            class="entry-name-duplicate-alert"
+            role="alert"
+          >
+            <strong>
+              A micronation named
+              <router-link class="duplicate-entry-link" :to="`/directory/${duplicateMicronation.name.main}`">
+                {{ duplicateMicronation.name.main }}
+              </router-link>
+              is already in the directory.
+            </strong>
+            <span>Check the existing entry before submitting this form.</span>
+          </div>
+        </Transition>
 
         <form class="listing-new-entry" @submit.prevent="addEntry">
           <div class="new-entry-form">
@@ -778,6 +794,11 @@ export default {
       }
 
       return typesArray
+    },
+    duplicateMicronation() {
+      const enteredName = this.formPlaceholders.newEntryName.trim()
+      if (this.entryType !== 'micronation' || !enteredName) return null
+      return this.directoryData.find(entry => this.matchesWholeWords(entry.name?.main, enteredName)) || null
     }
   },
   methods: {
@@ -958,9 +979,19 @@ export default {
       })
     },
     searchElement(value) {
-      return this.directoryData.find(function (entry) {
-        return entry.name.main === value
+      const normalizedName = value.trim().toLocaleLowerCase()
+      return this.directoryData.find(entry => {
+        if (this.entryType === 'micronation') {
+          return this.matchesWholeWords(entry.name?.main, normalizedName)
+        }
+        return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
+    },
+    matchesWholeWords(existingName, query) {
+      if (!existingName || !query) return false
+      const existingWords = existingName.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
+      const queryWords = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
+      return queryWords.some(word => word.length >= 3 && existingWords.includes(word))
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
