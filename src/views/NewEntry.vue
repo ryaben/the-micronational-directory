@@ -4,6 +4,10 @@ import store from '../store';
 import '@vuepic/vue-datepicker/dist/main.css';
 
 defineProps({
+  theme: {
+    type: String,
+    default: 'dark'
+  },
   micronationsDirectory: {
     type: Array,
     required: false,
@@ -115,6 +119,7 @@ defineProps({
           :directory-data="newMicronationView ? micronationsDirectory : organizationsDirectory"
           :organizations-directory="organizationsDirectory"
           :visible-organizations="visibleOrganizations"
+          :theme="theme"
           :form-placeholders="formPlaceholder" />
       </Transition>
     </div>
@@ -134,6 +139,7 @@ export default {
       formPlaceholder: {
         newEntryName: '',
         newEntryNameAlt: '',
+        newEntryAltNames: [],
         newEntryTitle: '',
         newEntryTitleAlt: '',
         newEntryTypePhysical: false,

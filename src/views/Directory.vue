@@ -52,12 +52,7 @@ defineProps({
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations" :info="{
           id: item.id,
-          name: {
-            main: item.name.main,
-            mainAlt: item.name.mainAlt,
-            title: item.name.title,
-            titleAlt: item.name.titleAlt
-          },
+          name: item.name,
           flag: item.flag,
           motto: item.motto,
           type: item.type,

@@ -358,6 +358,7 @@ export function convertIssueToEntry(issue) {
     formatted.name = {
       main: issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') || 'Unnamed',
       mainAlt: '',
+      alt: [],
       title: '',
       titleAlt: ''
     }
@@ -365,6 +366,7 @@ export function convertIssueToEntry(issue) {
     formatted.name = {
       main: formatted.name,
       mainAlt: '',
+      alt: [],
       title: '',
       titleAlt: ''
     }
@@ -372,6 +374,7 @@ export function convertIssueToEntry(issue) {
     formatted.name = {
       main: formatted.name.main || issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') || 'Unnamed',
       mainAlt: formatted.name.mainAlt || '',
+      alt: Array.isArray(formatted.name.alt) ? formatted.name.alt : [],
       title: formatted.name.title || '',
       titleAlt: formatted.name.titleAlt || ''
     }

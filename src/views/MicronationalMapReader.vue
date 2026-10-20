@@ -129,7 +129,8 @@ export default {
       let missingArray = []
 
       placemarksDirectory.forEach(function (element) {
-        const check = that.micronationsDirectory.find(mic => that.normalizeString(element.name).includes(that.normalizeString(mic.name.main)));
+        const check = that.micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt]
+          .some(name => name && that.normalizeString(element.name).includes(that.normalizeString(name))));
 
         if (check !== undefined) {
           presentArray.push({

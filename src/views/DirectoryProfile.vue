@@ -44,12 +44,7 @@ defineProps({
         <DirectoryArticle v-if="requestedMicronation.info !== undefined" id="entryPreview" class="info-displayed"
             :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
             :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
-            name: {
-                main: requestedMicronation.info.name.main,
-                mainAlt: requestedMicronation.info.name.mainAlt,
-                title: requestedMicronation.info.name.title,
-                titleAlt: requestedMicronation.info.name.titleAlt
-            },
+            name: requestedMicronation.info.name,
             flag: requestedMicronation.info.flag,
             motto: requestedMicronation.info.motto,
             type: requestedMicronation.info.type,
