@@ -13,6 +13,7 @@ import {
   signInWithPopup
 } from 'firebase/auth'
 import { auth } from '../firebase/auth.js'
+import { ensureUserDocument } from '../firebase/userProfile.js'
 import { notify } from '@kyvg/vue3-notification'
 </script>
 
@@ -204,6 +205,7 @@ export default {
       try {
         const data = await createUserWithEmailAndPassword(auth, this.loginEmail, this.loginPassword)
         await updateProfile(auth.currentUser, { displayName: this.loginName })
+        await ensureUserDocument(data.user)
         localStorage.setItem('firebase-auth-user', JSON.stringify(data.user))
         await sendEmailVerification(auth.currentUser)
         notify({
@@ -227,6 +229,7 @@ export default {
       try {
         await setPersistence(auth, browserLocalPersistence)
         const data = await signInWithEmailAndPassword(auth, this.loginEmail, this.loginPassword)
+        await ensureUserDocument(data.user)
         notify({
           title: 'Session status',
           text: 'The login process was successful.',
@@ -251,6 +254,7 @@ export default {
         const provider = new GoogleAuthProvider()
         provider.setCustomParameters({ prompt: 'select_account' })
         const data = await signInWithPopup(auth, provider)
+        await ensureUserDocument(data.user)
         localStorage.setItem('firebase-auth-user', JSON.stringify(data.user))
         router.push('/account')
       } catch (error) {

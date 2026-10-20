@@ -1,22 +1,20 @@
 <script setup>
 import { onAuthStateChanged } from 'firebase/auth'
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import SiteFooter from './components/SiteFooter.vue'
 import SiteHeader from './components/SiteHeader.vue'
 import Navbar from './components/Navbar.vue'
 import store from './store'
 import { auth } from './firebase/auth.js'
 import { initializeAnalytics } from './firebase/analytics.js'
+import { language, loadUserSettings, setLanguage, setTheme, theme } from './composables/userSettings.js'
 
-const theme = ref(localStorage.getItem('tmd-theme') || 'dark')
-const toggleTheme = () => {
-  theme.value = theme.value === 'dark' ? 'light' : 'dark'
-}
 const applyTheme = (value) => (document.documentElement.dataset.theme = value)
 watch(theme, (value) => {
   localStorage.setItem('tmd-theme', value)
   applyTheme(value)
 })
+watch(language, (value) => localStorage.setItem('tmd-language', value))
 onMounted(() => {
   applyTheme(theme.value)
   initializeAnalytics().catch((error) => console.warn('Firebase Analytics could not initialize:', error))
@@ -43,6 +41,7 @@ onMounted(() => {
           <component
             :is="Component"
             :theme="theme"
+            @update:theme="setTheme"
             :micronations-directory="micronationsDirectory"
             :visible-micronations="visibleMicronations"
             :supranational-micronations="supranationalMicronations"
@@ -61,7 +60,12 @@ onMounted(() => {
     </router-view>
   </main>
 
-  <SiteFooter :theme="theme" @toggle-theme="toggleTheme" />
+  <SiteFooter
+    :theme="theme"
+    :language="language"
+    @update:theme="setTheme"
+    @update:language="setLanguage"
+  />
   <notifications position="top right" width="350px" speed="700" :pause-on-hover="true" />
 </template>
 
@@ -160,6 +164,7 @@ export default {
     authListener() {
       onAuthStateChanged(auth, (user) => {
         this.user = user || { emailVerified: false }
+        loadUserSettings(user)
       })
     }
   },
