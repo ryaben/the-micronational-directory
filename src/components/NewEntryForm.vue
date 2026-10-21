@@ -16,6 +16,7 @@ import ModerationImageEditor from './ModerationImageEditor.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
 import { createFirestoreStyleId } from '../utils/firestoreStyleId.js'
 import imageCompression from 'browser-image-compression'
+import ChevronDownIcon from './icons/ChevronDownIcon.vue'
 import '@vuepic/vue-datepicker/dist/main.css'
 
 const LocationPicker = defineAsyncComponent(() => import('../components/LocationPicker.vue'))
@@ -43,7 +44,7 @@ defineProps({
   formPlaceholders: {
     type: Object,
     required: false,
-    default: {
+    default: () => ({
       newEntryFlag: '',
       newEntryName: '',
       newEntryNameAlt: '',
@@ -60,7 +61,7 @@ defineProps({
       newEntryMemberships: [],
       newEntryEmails: [],
       newEntryWebsites: []
-    }
+    })
   },
   micronationsDirectory: {
     type: Array,
@@ -116,9 +117,11 @@ const emit = defineEmits([
           >
             <span aria-hidden="true">✨</span>
             <span>AI-powered autocomplete</span>
-            <svg class="ai-assistant-chevron" :class="{ 'is-open': aiPanelOpen }" aria-hidden="true" viewBox="0 0 20 20" fill="none">
-              <path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            <ChevronDownIcon
+              class="ai-assistant-chevron"
+              :class="{ 'is-open': aiPanelOpen }"
+              aria-hidden="true"
+            />
           </button>
           <div
             id="ai-assistant-panel"
@@ -128,10 +131,22 @@ const emit = defineEmits([
             :inert="!aiPanelOpen"
           >
             <div class="ai-assistant-content">
-              <p>Paste a source URL or text, or upload an image/PDF. The assistant suggests fields for you to review.</p>
+              <p>
+                Paste a source URL or text, or upload an image/PDF. The assistant suggests fields
+                for you to review.
+              </p>
               <div class="ai-assistant-inputs">
-                <textarea v-model="aiSourceText" rows="4" maxlength="12000" placeholder="Paste source text or a webpage URL"></textarea>
-                <input type="file" accept="image/png,image/jpeg,image/webp,.pdf" @change="onAiFileChange" />
+                <textarea
+                  v-model="aiSourceText"
+                  rows="4"
+                  maxlength="12000"
+                  placeholder="Paste source text or a webpage URL"
+                ></textarea>
+                <input
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,.pdf"
+                  @change="onAiFileChange"
+                />
               </div>
               <button
                 type="button"
@@ -140,7 +155,9 @@ const emit = defineEmits([
                 @click="extractEntryWithAI"
               >
                 <span v-if="aiBusy" class="submit-spinner" aria-hidden="true"></span>
-                <span :role="aiBusy ? 'status' : null">{{ aiBusy ? 'Analyzing…' : 'Suggest form values' }}</span>
+                <span :role="aiBusy ? 'status' : null">{{
+                  aiBusy ? 'Analyzing…' : 'Suggest form values'
+                }}</span>
               </button>
             </div>
           </div>
@@ -1056,12 +1073,17 @@ export default {
             const reviewResponse = await fetch('/api/ai-assistant', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ action: 'review', entryType: this.entryType, entry: reviewEntry })
+              body: JSON.stringify({
+                action: 'review',
+                entryType: this.entryType,
+                entry: reviewEntry
+              })
             })
             const reviewPayload = await reviewResponse.json().catch(() => ({}))
             if (!reviewResponse.ok) {
               throw new Error(
-                reviewPayload.error || `AI preliminary review failed (HTTP ${reviewResponse.status}).`
+                reviewPayload.error ||
+                  `AI preliminary review failed (HTTP ${reviewResponse.status}).`
               )
             }
             if (!reviewPayload.review || !Array.isArray(reviewPayload.review.checks)) {
@@ -1070,7 +1092,10 @@ export default {
             entryData.aiReview = reviewPayload.review
           } catch (reviewError) {
             aiReviewWarning = reviewError.message || 'Unknown AI review error.'
-            console.warn('AI preliminary review was unavailable; submitting without it.', reviewError)
+            console.warn(
+              'AI preliminary review was unavailable; submitting without it.',
+              reviewError
+            )
           }
 
           // Create GitHub issue
@@ -1157,7 +1182,8 @@ export default {
           if (Array.isArray(name.alt)) this.formPlaceholders.newEntryAltNames = name.alt
           if (entry.capital != null) this.formPlaceholders.newEntryCapital = entry.capital
           if (entry.currency != null) this.formPlaceholders.newEntryCurrency = entry.currency
-          if (Array.isArray(entry.memberships)) this.formPlaceholders.newEntryMemberships = entry.memberships
+          if (Array.isArray(entry.memberships))
+            this.formPlaceholders.newEntryMemberships = entry.memberships
           if (Array.isArray(entry.type)) {
             this.formPlaceholders.newEntryTypePhysical = entry.type.includes('Physical')
             this.formPlaceholders.newEntryTypeDigital = entry.type.includes('Digital')
@@ -1169,8 +1195,10 @@ export default {
           this.formPlaceholders.newEntryNameAlt = name.mainAlt
         }
         if (entry.motto != null) this.formPlaceholders.newEntryMotto = entry.motto
-        if (Array.isArray(entry.languages)) this.formPlaceholders.newEntryLanguages = entry.languages
-        if (Array.isArray(entry.contactInfo)) this.formPlaceholders.newEntryEmails = entry.contactInfo
+        if (Array.isArray(entry.languages))
+          this.formPlaceholders.newEntryLanguages = entry.languages
+        if (Array.isArray(entry.contactInfo))
+          this.formPlaceholders.newEntryEmails = entry.contactInfo
         if (Array.isArray(entry.websites)) this.formPlaceholders.newEntryWebsites = entry.websites
         if (entry.foundationDate) {
           const date = new Date(entry.foundationDate)
@@ -1453,7 +1481,9 @@ export default {
   background: var(--color-background-soft);
 }
 
-.ai-assistant p { margin: 0; }
+.ai-assistant p {
+  margin: 0;
+}
 .ai-assistant-title {
   display: flex;
   width: 100%;
@@ -1468,7 +1498,9 @@ export default {
   text-align: left;
   cursor: pointer;
 }
-.ai-assistant-title > span:first-child { font-size: 1.1em; }
+.ai-assistant-title > span:first-child {
+  font-size: 1.1em;
+}
 .ai-assistant-title:focus-visible {
   outline: 2px solid var(--color-border-hover);
   outline-offset: 4px;
@@ -1481,7 +1513,9 @@ export default {
   color: var(--color-muted);
   transition: transform 220ms ease;
 }
-.ai-assistant-chevron.is-open { transform: rotate(180deg); }
+.ai-assistant-chevron.is-open {
+  transform: rotate(180deg);
+}
 .ai-assistant-collapse {
   display: grid;
   grid-template-rows: 0fr;
@@ -1532,7 +1566,9 @@ export default {
   justify-content: center;
   gap: 8px;
 }
-.ai-review { line-height: 1.5; }
+.ai-review {
+  line-height: 1.5;
+}
 
 .entry-name-duplicate-alert {
   display: grid;

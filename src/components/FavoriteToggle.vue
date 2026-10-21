@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { notify } from '@kyvg/vue3-notification'
 import { useUserFavorites } from '../composables/userFavorites.js'
+import StarIcon from './icons/StarIcon.vue'
 
 const props = defineProps({
   entryId: { type: String, default: '' },
@@ -42,9 +43,7 @@ async function onToggle() {
     :title="isSaved ? 'Remove from favorites' : 'Add to favorites'"
     @click.stop.prevent="onToggle"
   >
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m12 3 2.78 5.63 6.22.9-4.5 4.39 1.06 6.2L12 17.2l-5.56 2.92 1.06-6.2L3 9.53l6.22-.9L12 3Z" />
-    </svg>
+    <StarIcon aria-hidden="true" />
   </button>
 </template>
 
