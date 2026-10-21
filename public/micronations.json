@@ -53861,5 +53861,105 @@
     "aiReview": null,
     "createdAt": "2026-10-16T13:42:28Z",
     "id": "uFsph68Oc1EdE7Nidyuu"
+  },
+  {
+    "name": {
+      "main": "Eslanda",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Республика Эсландия",
+          "title": ""
+        },
+        {
+          "main": "Eslandiya",
+          "title": "Respublika"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Russian",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "RepublicEslanda@yandex.ru",
+      "https://vk.com/republikeslanda"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Republic_of_Eslanda",
+      "https://eslanda.1c-umi.ru/",
+      "https://web.archive.org/web/20160203050503/http://eslanda.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Eslanda.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Hasselwood Rock",
+    "currency": "Eslandan crown, Euro",
+    "memberships": [
+      "Organization of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": 1317254400
+    },
+    "location": {
+      "latitude": 57.597778,
+      "longitude": -13.6875
+    },
+    "creationDate": {
+      "_seconds": 1792613490
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "The submission meets all triage criteria with valid naming, sufficient age, sources, and language data.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The official name 'Republic of Eslanda' is clearly formatted with a main name and title, and alternative names are provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2011-09-29 is significantly older than the cutoff date 2026-09-21, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Multiple relevant sources are provided, including a wiki page, an active-looking domain, and an archived snapshot of the original site."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the official languages, which is preferred for directory submissions."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The claims are coherent, specifying a physical type, specific location coordinates, and membership in a known micronation organization, supported by the provided web sources."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto are empty, which is acceptable as they are not mandatory; required fields like name, date, and sources are present."
+        }
+      ]
+    },
+    "createdAt": "2026-10-21T20:11:30Z",
+    "id": "M2BgMTP2ummXxYJq0ztH"
   }
 ]
