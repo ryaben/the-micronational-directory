@@ -659,7 +659,8 @@ export default {
         // Prepare the entry data for the JSON file
         const entryForJson = { ...entry }
         delete entryForJson.id
-        entryForJson.id = entry.directoryId || await firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id)
+        entryForJson.id = entry.directoryEntryId || entry.directoryId || await firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id)
+        delete entryForJson.directoryEntryId
         delete entryForJson.directoryId
         delete entryForJson.issueNumber
         delete entryForJson.githubUrl
