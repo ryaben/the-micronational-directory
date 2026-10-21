@@ -441,6 +441,7 @@ const emit = defineEmits([
             </label>
             <VueDatePicker
               v-model="foundationDate"
+              :enable-time-picker="false"
               :dark="theme === 'dark'"
               month-name-format="long"
               :flow="['year', 'month', 'calendar']"
@@ -715,7 +716,7 @@ const emit = defineEmits([
 
         <DirectoryEntry
           v-if="entryType === 'micronation'"
-          :initial-info-view="true"
+          :always-expanded="true"
           :width="180"
           :flag-height="180 * 0.6"
           view-mode="micronations"
@@ -746,7 +747,7 @@ const emit = defineEmits([
         />
         <OrganizationEntry
           v-if="entryType === 'organization'"
-          :initial-info-view="true"
+          :always-expanded="true"
           :width="180"
           :flag-height="180 * 0.6"
           view-mode="micronations"
@@ -1050,17 +1051,25 @@ export default {
           delete reviewEntry.author
           delete reviewEntry.flagFile
           delete reviewEntry.logoFile
+          let aiReviewWarning = ''
           try {
             const reviewResponse = await fetch('/api/ai-assistant', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ action: 'review', entryType: this.entryType, entry: reviewEntry })
             })
-            if (reviewResponse.ok) {
-              const reviewPayload = await reviewResponse.json()
-              entryData.aiReview = reviewPayload.review
+            const reviewPayload = await reviewResponse.json().catch(() => ({}))
+            if (!reviewResponse.ok) {
+              throw new Error(
+                reviewPayload.error || `AI preliminary review failed (HTTP ${reviewResponse.status}).`
+              )
             }
+            if (!reviewPayload.review || !Array.isArray(reviewPayload.review.checks)) {
+              throw new Error('The AI preliminary review returned an invalid response.')
+            }
+            entryData.aiReview = reviewPayload.review
           } catch (reviewError) {
+            aiReviewWarning = reviewError.message || 'Unknown AI review error.'
             console.warn('AI preliminary review was unavailable; submitting without it.', reviewError)
           }
 
@@ -1069,6 +1078,13 @@ export default {
 
           this.emailNotice()
           this.successNotification()
+          if (aiReviewWarning) {
+            notify({
+              title: 'AI preliminary review unavailable',
+              text: `Your entry was submitted, but the AI review could not be generated: ${aiReviewWarning}`,
+              type: 'warning'
+            })
+          }
         } catch (error) {
           console.error('Error submitting entry:', error)
           notify({

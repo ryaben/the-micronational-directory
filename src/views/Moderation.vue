@@ -279,6 +279,28 @@ defineProps({
             </div>
           </header>
 
+          <section v-if="selectedEntry" class="ai-review-card" aria-labelledby="ai-review-title">
+            <div class="ai-review-heading">
+              <h4 id="ai-review-title">AI preliminary review</h4>
+              <span>Not a final decision</span>
+            </div>
+            <template v-if="selectedEntry.aiReview">
+              <p v-if="selectedEntry.aiReview.summary" class="ai-review-summary">
+                {{ selectedEntry.aiReview.summary }}
+              </p>
+              <ul v-if="selectedEntry.aiReview.checks?.length" class="ai-review-checks">
+                <li v-for="(check, index) in selectedEntry.aiReview.checks" :key="`${check.criterion}-${index}`">
+                  <span class="ai-review-status" :class="`is-${check.status || 'uncertain'}`">
+                    {{ check.status || 'uncertain' }}
+                  </span>
+                  <span><strong>{{ check.criterion }}</strong><template v-if="check.reason">: {{ check.reason }}</template></span>
+                </li>
+              </ul>
+              <p class="ai-review-triage">Triage: <strong>{{ selectedEntry.aiReview.verdict || 'needs_review' }}</strong></p>
+            </template>
+            <p v-else class="ai-review-summary">No AI analysis was included with this submission.</p>
+          </section>
+
           <div class="moderation-actions">
             <textarea
               class="login-input"
@@ -898,6 +920,65 @@ export default {
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
+
+.ai-review-card {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background-soft);
+  color: var(--color-text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ai-review-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.ai-review-heading h4 {
+  margin: 0;
+  color: var(--color-heading);
+  font-size: 14px;
+}
+
+.ai-review-heading > span,
+.ai-review-triage {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.ai-review-summary {
+  margin: 8px 0;
+}
+
+.ai-review-checks {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+.ai-review-checks li {
+  padding-left: 2px;
+}
+
+.ai-review-status {
+  display: inline-block;
+  margin-right: 5px;
+  font-weight: 750;
+  text-transform: capitalize;
+}
+
+.ai-review-status.is-pass { color: var(--success-tone); }
+.ai-review-status.is-fail { color: var(--failure-tone); }
+.ai-review-status.is-uncertain { color: var(--color-muted); }
+
+.ai-review-triage { margin: 10px 0 0; }
 
 .moderation-actions {
   display: flex;

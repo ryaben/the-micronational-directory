@@ -125,10 +125,10 @@ export async function createGitHubIssue(entryData, entryType) {
     const MAX_BASE64_LENGTH = 50000 // ~37 KB (Límite seguro para el body de GitHub)
     if (base64Content.length > MAX_BASE64_LENGTH) {
       console.warn(
-        `La imagen Base64 excede el límite permitido (${base64Content.length} caracteres).`
+        `The image's Base64 data exceeds the allowed limit (${base64Content.length} characters).`
       )
       throw new Error(
-        'La imagen adjunta es demasiado pesada. Por favor, sube una imagen de menor peso (máximo ~35 KB).'
+        'The attached image is too large. Please upload a smaller image (maximum ~35 KB).'
       )
     }
   }
@@ -169,7 +169,7 @@ ${base64Content}
             check.reason || ''
           }`
       )
-      .join('\n')}\n`
+      .join('\n')}\n\n<!-- AI_REVIEW_JSON\n${JSON.stringify(entryData.aiReview)}\n-->\n`
   }
 
   body += `
@@ -296,6 +296,30 @@ export function parseIssueBody(body) {
   }
 }
 
+export function parseAiReviewFromIssueBody(body) {
+  if (!body) return null
+  const jsonMatch = body.match(/<!-- AI_REVIEW_JSON\s*([\s\S]*?)\s*-->/)
+  if (jsonMatch) {
+    try {
+      return JSON.parse(jsonMatch[1])
+    } catch {
+      // Fall through to parsing the human-readable review in older issues.
+    }
+  }
+
+  const section = body.match(/### AI preliminary review[^\n]*\n([\s\S]*?)(?=\n### |$)/i)?.[1]
+  if (!section) return null
+  const verdict = section.match(/^- \*\*Triage:\*\*\s*(.+)$/m)?.[1]?.trim()
+  const summary = section.match(/^- \*\*Summary:\*\*\s*(.+)$/m)?.[1]?.trim()
+  const checks = [...section.matchAll(/^- \*\*(pass|fail|uncertain)\s+[—–-]\s+([^:*]+):\*\*\s*(.*)$/gim)]
+    .map((match) => ({
+      status: match[1].toLowerCase(),
+      criterion: match[2].trim(),
+      reason: match[3].trim()
+    }))
+  return { verdict: verdict || 'needs_review', summary: summary || '', checks }
+}
+
 /**
  * Converts GitHub issue data to the format expected by DirectoryEntry/OrganizationEntry components
  * @param {Object} issue The GitHub issue object
@@ -353,6 +377,7 @@ export function convertIssueToEntry(issue) {
   // Add issue metadata
   const formatted = {
     ...entryData,
+    aiReview: parseAiReviewFromIssueBody(issue.body),
     id: issue.id, // Use issue ID as entry ID
     directoryEntryId: entryData.id || entryData.directoryId || null,
     issueNumber: issue.number, // Store issue number for operations

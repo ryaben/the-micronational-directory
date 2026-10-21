@@ -31,6 +31,10 @@ defineProps({
         required: false,
         default: false
     },
+    alwaysExpanded: {
+        type: Boolean,
+        default: false
+    },
     inlineProfilePreview: {
         type: Boolean,
         default: false
@@ -132,10 +136,10 @@ export default {
         EntrySource,
         AnimateHeight
     },
-    data: () => {
+    data() {
         return {
-            infoView: false,
-            height: 0
+            infoView: this.alwaysExpanded,
+            height: this.alwaysExpanded ? 'auto' : 0
         };
     },
     computed: {
@@ -147,6 +151,7 @@ export default {
     },
     methods: {
         toggleInfo() {
+            if (this.alwaysExpanded) return;
             this.infoView = !this.infoView;
             this.updateHeight();
         },
@@ -155,8 +160,9 @@ export default {
         },
         formatFoundation(date) {
             if (!date) return 'Unknown';
-            const parsedDate = date._seconds
-                ? new Date(date._seconds * 1000)
+            const seconds = date?._seconds ?? date?.seconds;
+            const parsedDate = seconds != null
+                ? new Date(seconds * 1000)
                 : new Date(date);
             if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
             return parsedDate.getFullYear();
