@@ -2537,5 +2537,43 @@
       "English"
     ],
     "id": "international Council of Micronations"
+  },
+  {
+    "name": {
+      "main": "Fondo Monetario Intermicronacional",
+      "mainAlt": "FMIM",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "logo": "/images/logos/Fondo Monetario Intermicronacional.jpg",
+    "motto": "Por la economía intermicronacional",
+    "languages": [
+      "Spanish",
+      "English"
+    ],
+    "foundationDate": {
+      "seconds": 1230676800,
+      "_seconds": 1230676800
+    },
+    "contactInfo": [
+      "finismund@hotmail.com"
+    ],
+    "websites": [
+      "https://micronaciones.fandom.com/wiki/Actualidad_Micronacional:Diciembre_2008",
+      "https://omu.fandom.com/es/wiki/Fondo_Monetario_Intermicronacional"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792158179
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:42:59Z",
+    "memberships": [],
+    "id": "5Z0XSzzU6TMOtMVHn1QI"
   }
 ]
