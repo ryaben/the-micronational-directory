@@ -90,7 +90,8 @@ const emit = defineEmits([
   'save-corrections',
   'edit-image-change',
   'image-error',
-  'image-processing'
+  'image-processing',
+  'submission-success'
 ])
 </script>
 
@@ -1103,6 +1104,7 @@ export default {
 
           this.emailNotice()
           this.successNotification()
+          this.$emit('submission-success')
           if (aiReviewWarning) {
             notify({
               title: 'AI preliminary review unavailable',

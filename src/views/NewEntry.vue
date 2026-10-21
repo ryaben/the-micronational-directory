@@ -129,7 +129,7 @@ defineProps({
       <Transition name="entry-form" mode="out-in">
         <NewEntryForm
           v-if="user.emailVerified && (newMicronationView || newOrganizationView)"
-          :key="newMicronationView ? 'micronation-entry-form' : 'organization-entry-form'"
+          :key="`${newMicronationView ? 'micronation' : 'organization'}-${componentKey}`"
           class="new-entry-container"
           :entry-type="newMicronationView ? 'micronation' : 'organization'"
           :directory-data="newMicronationView ? micronationsDirectory : organizationsDirectory"
@@ -137,6 +137,7 @@ defineProps({
           :visible-organizations="visibleOrganizations"
           :theme="theme"
           :form-placeholders="formPlaceholder"
+          @submission-success="resetEntryForm"
         />
       </Transition>
     </div>
@@ -154,6 +155,7 @@ export default {
       newOrganizationView: false,
       componentKey: 0,
       formPlaceholder: {
+        newEntryFlag: '',
         newEntryName: '',
         newEntryNameAlt: '',
         newEntryAltNames: [],
@@ -176,6 +178,27 @@ export default {
     setEntryView(entryType) {
       this.newMicronationView = entryType === 'micronation'
       this.newOrganizationView = entryType === 'organization'
+    },
+    resetEntryForm() {
+      this.formPlaceholder = {
+        newEntryFlag: '',
+        newEntryName: '',
+        newEntryNameAlt: '',
+        newEntryAltNames: [],
+        newEntryTitle: '',
+        newEntryTitleAlt: '',
+        newEntryTypePhysical: false,
+        newEntryTypeDigital: true,
+        newEntryTypeFictional: false,
+        newEntryMotto: '',
+        newEntryCapital: '',
+        newEntryCurrency: '',
+        newEntryLanguages: [],
+        newEntryMemberships: [],
+        newEntryEmails: [],
+        newEntryWebsites: []
+      }
+      this.componentKey += 1
     }
   }
 }
