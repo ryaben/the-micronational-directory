@@ -1009,12 +1009,12 @@ export default {
             // Handle flag file
             const imageFile = await this.getImageFileForSubmission()
             if (imageFile) {
-              // Compress image before converting to base64
+              // Preserve more source detail while keeping the encoded image
+              // below githubFunctions' 50,000 character issue-body limit.
               const options = {
-                maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
-                maxWidthOrHeight: 1920,
+                maxSizeMB: 0.035,
+                maxWidthOrHeight: 2560,
                 useWebWorker: true,
-                initialQuality: 0.7,
                 fileType: 'image/png'
               }
               const compressedFile = await imageCompression(imageFile, options)
@@ -1028,12 +1028,12 @@ export default {
             // Handle logo file
             const imageFile = await this.getImageFileForSubmission()
             if (imageFile) {
-              // Compress image before converting to base64
+              // Preserve more source detail while keeping the encoded image
+              // below githubFunctions' 50,000 character issue-body limit.
               const options = {
-                maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
-                maxWidthOrHeight: 1920,
+                maxSizeMB: 0.035,
+                maxWidthOrHeight: 2560,
                 useWebWorker: true,
-                initialQuality: 0.7,
                 fileType: 'image/png'
               }
               const compressedFile = await imageCompression(imageFile, options)
