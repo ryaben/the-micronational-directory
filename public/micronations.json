@@ -53415,5 +53415,100 @@
     "aiReview": null,
     "createdAt": "2026-10-21T14:37:53Z",
     "id": "oH4V4HiIJ5hrXaDGCsxU"
+  },
+  {
+    "name": {
+      "main": "Pathumnesia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "ปทุมนีเซีย",
+          "title": ""
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "ถิ่นบัวหลวง เมืองรวงข้าว เชื้อชาวมอญ อาณาราชัน มหาเจ้าพระยา ก้าวหน้าอุตสาหกรรม (The land of lotus, the city of rice ears, the Mon people, the King, the Chao Phraya, the industrial)",
+    "languages": [
+      "Thai"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/people/%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%AD%E0%B8%B2%E0%B8%93%E0%B8%B2%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B8%9B%E0%B8%97%E0%B8%B8%E0%B8%A1%E0%B8%99%E0%B8%B5%E0%B9%80%E0%B8%8B%E0%B8%B5%E0%B8%A2-kingdom-of-pathumnesia/61557516160198/",
+      "https://www.instagram.com/pathumnesia/",
+      "https://discord.com/invite/9s32v35R",
+      "https://docs.google.com/forms/d/e/1FAIpQLSd1jGue-GT0EbAtP45e1P4Jxk3bqPxj0dj8pNQKl3telGAa_g/viewform"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Draft:Kingdom_of_Pathumnesia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Pathumnesia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Maharaj Pathumnakhon",
+    "currency": "Silaka (de jure), Thai baht (de facto)",
+    "memberships": [
+      "Micronational Assembly",
+      "General Assembly of the Thailand Micronations"
+    ],
+    "foundationDate": {
+      "_seconds": 1711497600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792596401
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and naming criteria but lacks a dedicated official website and sufficient evidence of active micronational operations.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Kingdom of Pathumnesia' is clearly formatted with a title and main name, and an alternative name is provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2024-03-27 is prior to the cutoff date 2026-09-21, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The provided website is a draft page on micronations.wiki, which is a community wiki rather than an official website. While it serves as a source, the guidance prefers official sites, and a draft status may indicate insufficient established presence."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "Thai is listed as the official language, which is a valid de facto language for the entity."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission lists social media links and a wiki draft, but does not provide specific evidence of ongoing micronational activity (such as news, diplomacy, or governance) within the JSON data itself. The claims are coherent but lack direct evidentiary support in the provided fields."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not conflict with guidance. The location coordinates are zero, which is a data quality issue but not a mandatory field failure."
+        }
+      ]
+    },
+    "createdAt": "2026-10-21T15:26:41Z",
+    "id": "L4oNb7bdj9gzlk3dbo7U"
   }
 ]
