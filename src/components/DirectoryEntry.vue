@@ -31,6 +31,10 @@ defineProps({
         required: false,
         default: false
     },
+    alwaysExpanded: {
+        type: Boolean,
+        default: false
+    },
     inlineProfilePreview: {
         type: Boolean,
         default: false
@@ -74,10 +78,6 @@ const emit = defineEmits(['open-profile'])
 
             <AnimateHeight id="animatedHeight" :duration="400" :height="height" :animate-opacity="true">
                 <div class="expanded-details">
-                    <p v-for="(alt, i) in alternativeNames" :key="i" class="entry-alt-name">
-                        (<b>{{ alt.main }}</b><span v-if="alt.title">, {{ alt.title }}</span>)
-                    </p>
-
                     <p v-if="info.motto" class="detail-motto">“{{ info.motto }}”</p>
 
                     <div class="entry-facts">
@@ -136,20 +136,13 @@ export default {
         EntrySource,
         AnimateHeight
     },
-    data: () => {
+    data() {
         return {
-            infoView: false,
-            height: 0
+            infoView: this.alwaysExpanded,
+            height: this.alwaysExpanded ? 'auto' : 0
         };
     },
     computed: {
-        alternativeNames() {
-            const names = this.info.name?.alt || [];
-            if (names.length) return names;
-            return this.info.name?.mainAlt || this.info.name?.titleAlt
-                ? [{ main: this.info.name.mainAlt || '', title: this.info.name.titleAlt || '' }]
-                : [];
-        },
         cssProps() {
             return {
                 '--container-width': (this.width) + "px"
@@ -158,6 +151,7 @@ export default {
     },
     methods: {
         toggleInfo() {
+            if (this.alwaysExpanded) return;
             this.infoView = !this.infoView;
             this.updateHeight();
         },
@@ -166,8 +160,9 @@ export default {
         },
         formatFoundation(date) {
             if (!date) return 'Unknown';
-            const parsedDate = date._seconds
-                ? new Date(date._seconds * 1000)
+            const seconds = date?._seconds ?? date?.seconds;
+            const parsedDate = seconds != null
+                ? new Date(seconds * 1000)
                 : new Date(date);
             if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
             return parsedDate.getFullYear();

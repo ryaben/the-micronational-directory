@@ -24,6 +24,10 @@ defineProps({
         type: Boolean,
         default: false
     },
+    alwaysExpanded: {
+        type: Boolean,
+        default: false
+    },
 })
 const emit = defineEmits(['open-profile'])
 </script>
@@ -90,10 +94,10 @@ export default {
         EntrySource,
         AnimateHeight
     },
-    data: () => {
+    data() {
         return {
-            infoView: false,
-            height: 0
+            infoView: this.alwaysExpanded,
+            height: this.alwaysExpanded ? 'auto' : 0
         };
     },
     computed: {
@@ -112,6 +116,7 @@ export default {
             return parsedDate.getFullYear();
         },
         toggleInfo() {
+            if (this.alwaysExpanded) return;
             this.infoView = !this.infoView;
             this.updateHeight();
         },
