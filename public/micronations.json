@@ -53808,5 +53808,58 @@
     "aiReview": null,
     "createdAt": "2026-10-16T13:42:41Z",
     "id": "pbsuDZFPuWiIMcvXtkKf"
+  },
+  {
+    "name": {
+      "main": "Sahraveth",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Islimar",
+          "title": "Democratic Republic of"
+        },
+        {
+          "main": "Sahraveth",
+          "title": "Democratic Republic of"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "flag": "/images/flags/Sahraveth-moderated-1792612089942.png",
+    "motto": "Small is the land, vast is the vision",
+    "type": [
+      "Digital"
+    ],
+    "languages": [
+      "English",
+      "Gujarati",
+      "Sahrevi"
+    ],
+    "capital": "Aksharnagar",
+    "currency": "United States Dollar, Sahrevi Dollar",
+    "foundationDate": {
+      "seconds": 1718019000,
+      "_seconds": 1718019000
+    },
+    "location": null,
+    "memberships": [],
+    "contactInfo": [
+      "drc.islimar.primeministeroffice@gmail.com"
+    ],
+    "websites": [
+      "https://sites.google.com/view/drc-islimar-co-uk/home"
+    ],
+    "author": {
+      "name": "The Democratic Republic of Sahraveth",
+      "email": "drc.islimar.primeministeroffice@gmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792158148
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:42:28Z",
+    "id": "uFsph68Oc1EdE7Nidyuu"
   }
 ]
