@@ -84,6 +84,7 @@ function xPostsDevApi() {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   if (env.GEMINI_API_KEY) process.env.GEMINI_API_KEY = env.GEMINI_API_KEY
+  if (env.GROQ_API_KEY) process.env.GROQ_API_KEY = env.GROQ_API_KEY
 
   return {
     plugins: [vue(), xPostsDevApi(), aiAssistantDevApi()],
