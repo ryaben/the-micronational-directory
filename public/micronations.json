@@ -53247,5 +53247,59 @@
       "_nanoseconds": 0
     },
     "id": "HkugOHyt6GXl3KqZ40t8"
+  },
+  {
+    "name": {
+      "main": "Greater Cavagnial",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Greater Cavingal",
+          "title": "L'Empire de"
+        },
+        {
+          "main": "Granda Kavagnial",
+          "title": "La Imperio de"
+        },
+        {
+          "main": "Greater Cavagnial wo'",
+          "title": ""
+        }
+      ],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "Sit Nomine Digna (May she be worthy of the name)",
+    "languages": [
+      "English",
+      "French",
+      "Esperanto",
+      "Klingon"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://micronations.wiki/wiki/Empire_of_Greater_Cavagnial",
+      "https://micronations.fandom.com/wiki/L%27Empire_de_Greater_Cavingal"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "public/images/flags/Greater Cavagnial.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Freedonia City",
+    "currency": "Credit (C$); de jure United States dollar ($); de facto",
+    "memberships": [],
+    "creationDate": {
+      "_seconds": 1669161600
+    },
+    "createdAt": "2026-10-21T12:52:51Z",
+    "foundationDate": {
+      "_seconds": 1669161600
+    },
+    "id": "pHBbQFBnJo9qxgIqpbuR"
   }
 ]
