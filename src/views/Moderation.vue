@@ -23,18 +23,6 @@ import {
   stableStringify
 } from '../utils/githubFunctions.js'
 
-async function firestoreStyleIdFromIssueNumber(issueNumber) {
-  const namespace = '6ba7b8109dad11d180b400c04fd430c8'
-  const namespaceBytes = new Uint8Array(namespace.match(/.{2}/g).map(byte => Number.parseInt(byte, 16)))
-  const issueBytes = new TextEncoder().encode(`tmd-entry:${issueNumber}`)
-  const input = new Uint8Array(namespaceBytes.length + issueBytes.length)
-  input.set(namespaceBytes)
-  input.set(issueBytes, namespaceBytes.length)
-  const digest = new Uint8Array(await crypto.subtle.digest('SHA-1', input))
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  return Array.from(digest, byte => alphabet[byte % 62]).join('')
-}
-
 defineProps({
   micronationsDirectory: {
     type: Array,
@@ -398,6 +386,19 @@ export default {
     }
   },
   methods: {
+    async firestoreStyleIdFromIssueNumber(issueNumber) {
+      const namespace = '6ba7b8109dad11d180b400c04fd430c8'
+      const namespaceBytes = new Uint8Array(
+        namespace.match(/.{2}/g).map((byte) => Number.parseInt(byte, 16))
+      )
+      const issueBytes = new TextEncoder().encode(`tmd-entry:${issueNumber}`)
+      const input = new Uint8Array(namespaceBytes.length + issueBytes.length)
+      input.set(namespaceBytes)
+      input.set(issueBytes, namespaceBytes.length)
+      const digest = new Uint8Array(await crypto.subtle.digest('SHA-1', input))
+      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+      return Array.from(digest, (byte) => alphabet[byte % 62]).join('')
+    },
     async sendDecisionEmail(entry, decision) {
       const authorEmail = entry.author?.email
       if (!authorEmail) {
@@ -682,7 +683,10 @@ export default {
         // Prepare the entry data for the JSON file
         const entryForJson = { ...entry }
         delete entryForJson.id
-        entryForJson.id = entry.directoryEntryId || entry.directoryId || await firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id)
+        entryForJson.id =
+          entry.directoryEntryId ||
+          entry.directoryId ||
+          (await this.firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id))
         delete entryForJson.directoryEntryId
         delete entryForJson.directoryId
         delete entryForJson.issueNumber
