@@ -32,19 +32,7 @@ function formatEntryForJSON(entryData, entryType) {
     formatted.currency = entryData.currency || ''
     formatted.memberships = entryData.memberships || ''
 
-    if (entryData.foundationDate) {
-      let date
-      if (entryData.foundationDate.seconds) {
-        // Firebase timestamp format
-        date = new Date(entryData.foundationDate.seconds * 1000)
-      } else {
-        // Date object or string
-        date = new Date(entryData.foundationDate)
-      }
-      formatted.creationDate = {
-        _seconds: Math.floor(date.getTime() / 1000)
-      }
-    }
+    formatted.foundationDate = normalizeDate(entryData.foundationDate)
 
     if (entryData.location) {
       const latitude = entryData.location.latitude
@@ -61,22 +49,25 @@ function formatEntryForJSON(entryData, entryType) {
       formatted.logo = entryData.logo || ''
     }
 
-    if (entryData.foundationDate) {
-      let date
-      if (entryData.foundationDate.seconds) {
-        // Firebase timestamp format
-        date = new Date(entryData.foundationDate.seconds * 1000)
-      } else {
-        // Date object or string
-        date = new Date(entryData.foundationDate)
-      }
-      formatted.creationDate = {
-        _seconds: Math.floor(date.getTime() / 1000)
-      }
-    }
+    formatted.foundationDate = normalizeDate(entryData.foundationDate)
   }
 
+  // This is the directory submission date, separate from the founding date.
+  formatted.creationDate = { _seconds: Math.floor(Date.now() / 1000) }
+
   return formatted
+}
+
+function normalizeDate(value) {
+  if (!value) return { _seconds: 0 }
+  if (value._seconds != null) return { _seconds: Number(value._seconds) }
+  if (value.seconds != null) return { _seconds: Number(value.seconds) }
+  const date = new Date(value)
+  return { _seconds: Number.isFinite(date.getTime()) ? Math.floor(date.getTime() / 1000) : 0 }
+}
+
+export function getPublicAssetPath(repositoryPath) {
+  return repositoryPath?.replace(/^public(?=\/)/, '') || ''
 }
 
 function encodeBase64Utf8(value) {
@@ -376,6 +367,14 @@ export function convertIssueToEntry(issue) {
     languages: Array.isArray(entryData.languages) ? entryData.languages : [],
     contactInfo: Array.isArray(entryData.contactInfo) ? entryData.contactInfo : [],
     websites: Array.isArray(entryData.websites) ? entryData.websites : []
+  }
+  // Legacy issue bodies used creationDate for the founding date.
+  if (!formatted.foundationDate && entryData.creationDate) {
+    formatted.foundationDate = normalizeDate(entryData.creationDate)
+  }
+  const submittedAt = issue.created_at ? new Date(issue.created_at) : null
+  if (submittedAt && Number.isFinite(submittedAt.getTime())) {
+    formatted.creationDate = { _seconds: Math.floor(submittedAt.getTime() / 1000) }
   }
 
   // Use data URL for preview if image is in the issue, otherwise use the path
@@ -910,5 +909,6 @@ export default {
   updateRepoFile,
   createRepoFile,
   extractBase64Image,
-  extractFileMetadata
+  extractFileMetadata,
+  getPublicAssetPath
 }

@@ -55,6 +55,10 @@ jobs:
             }
             const entryData = JSON.parse(jsonMatch[1]);
             entryData.approved = true; // Marcar como aprobado en el JSON
+            const submittedAt = new Date(context.payload.issue.created_at);
+            if (Number.isFinite(submittedAt.getTime())) {
+              entryData.creationDate = { _seconds: Math.floor(submittedAt.getTime() / 1000) };
+            }
             entryData.id = entryData.directoryId || generateFirestoreStyleId();
             delete entryData.directoryId;
 
@@ -70,6 +74,9 @@ jobs:
             if (base64Match && filePathMatch) {
               const base64Data = base64Match[1].trim();
               const targetFilePath = filePathMatch[1].trim();
+              const publicAssetPath = targetFilePath.replace(/^public(?=\/)/, '');
+              if (isMicronation) entryData.flag = publicAssetPath;
+              else entryData.logo = publicAssetPath;
               
               const fullPath = path.join(process.cwd(), targetFilePath);
               const dir = path.dirname(fullPath);

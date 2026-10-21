@@ -579,6 +579,11 @@ export default {
       return first.localeCompare(second)
     },
     entryTimestamp(entry) {
+      if (entry.createdAt) {
+        const addedAt = new Date(entry.createdAt).getTime()
+        if (Number.isFinite(addedAt)) return addedAt / 1000
+      }
+
       const creationDate = entry.creationDate
       if (creationDate?._seconds) return creationDate._seconds
       if (creationDate?.seconds) return creationDate.seconds
