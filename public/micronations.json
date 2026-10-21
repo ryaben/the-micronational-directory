@@ -53286,7 +53286,7 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "approved": true,
-    "flag": "public/images/flags/Greater Cavagnial.png",
+    "flag": "/images/flags/Greater Cavagnial.png",
     "type": [
       "Physical"
     ],
@@ -53294,7 +53294,7 @@
     "currency": "Credit (C$); de jure United States dollar ($); de facto",
     "memberships": [],
     "creationDate": {
-      "_seconds": 1669161600
+      "_seconds": 1792587171
     },
     "createdAt": "2026-10-21T12:52:51Z",
     "foundationDate": {

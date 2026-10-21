@@ -19,6 +19,7 @@ import {
   createRepoFile,
   extractBase64Image,
   extractFileMetadata,
+  getPublicAssetPath,
   stableStringify
 } from '../utils/githubFunctions.js'
 
@@ -676,13 +677,17 @@ export default {
           }
         }
         entryForJson.approved = true
+        const submittedAt = entry.createdAt ? new Date(entry.createdAt) : new Date()
+        if (Number.isFinite(submittedAt.getTime())) {
+          entryForJson.creationDate = { _seconds: Math.floor(submittedAt.getTime() / 1000) }
+        }
 
         // Restore the original flag/logo path (not the data URL) for JSON file
         if (fileMetadata) {
           if (isMicronation) {
-            entryForJson.flag = fileMetadata.path
+            entryForJson.flag = getPublicAssetPath(fileMetadata.path)
           } else {
-            entryForJson.logo = fileMetadata.path
+            entryForJson.logo = getPublicAssetPath(fileMetadata.path)
           }
         }
 
