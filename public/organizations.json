@@ -2575,5 +2575,40 @@
     "createdAt": "2026-10-16T13:42:59Z",
     "memberships": [],
     "id": "5Z0XSzzU6TMOtMVHn1QI"
+  },
+  {
+    "name": {
+      "main": "Movimiento Femenino de Micronacionalismo",
+      "mainAlt": "MFM",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "logo": "/images/logos/Movimiento Femenino de Micronacionalismo.jpg",
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "foundationDate": {
+      "seconds": 1251153600,
+      "_seconds": 1251153600
+    },
+    "contactInfo": [],
+    "websites": [
+      "https://el-dorado.fandom.com/es/wiki/Biblioteca_Diplom%C3%A1tica_Shimon_Peres",
+      "https://elpais-tegalia.blogspot.com/2009/08/la-da-ingrid-visito-belasir.html"
+    ],
+    "author": {
+      "name": "lflugo",
+      "email": "eldoradogov@hotmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792158187
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:43:07Z",
+    "memberships": [],
+    "id": "934vUymggDFot89miepp"
   }
 ]
