@@ -1048,9 +1048,14 @@ export default {
     },
     matchesWholeWords(existingName, query) {
       if (!existingName || !query) return false
-      const existingWords = existingName.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
-      const queryWords = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) || []
-      return queryWords.some((word) => word.length >= 3 && existingWords.includes(word))
+      const normalize = (value) =>
+        value
+          .normalize('NFKC')
+          .toLocaleLowerCase()
+          .match(/[\p{L}\p{N}]+/gu)
+          ?.join(' ') || ''
+
+      return normalize(existingName) === normalize(query)
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
