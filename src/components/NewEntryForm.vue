@@ -106,6 +106,45 @@ const emit = defineEmits([
           <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
           check the preview on the right.
         </p>
+        <section v-if="!isModerationEditor" class="ai-assistant">
+          <button
+            type="button"
+            class="ai-assistant-title"
+            :aria-expanded="aiPanelOpen"
+            aria-controls="ai-assistant-panel"
+            @click="aiPanelOpen = !aiPanelOpen"
+          >
+            <span aria-hidden="true">✨</span>
+            <span>AI-powered autocomplete</span>
+            <svg class="ai-assistant-chevron" :class="{ 'is-open': aiPanelOpen }" aria-hidden="true" viewBox="0 0 20 20" fill="none">
+              <path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div
+            id="ai-assistant-panel"
+            class="ai-assistant-collapse"
+            :class="{ 'is-open': aiPanelOpen }"
+            :aria-hidden="!aiPanelOpen"
+            :inert="!aiPanelOpen"
+          >
+            <div class="ai-assistant-content">
+              <p>Paste a source URL or text, or upload an image/PDF. The assistant suggests fields for you to review.</p>
+              <div class="ai-assistant-inputs">
+                <textarea v-model="aiSourceText" rows="4" maxlength="12000" placeholder="Paste source text or a webpage URL"></textarea>
+                <input type="file" accept="image/png,image/jpeg,image/webp,.pdf" @change="onAiFileChange" />
+              </div>
+              <button
+                type="button"
+                class="login-button short color-transition ai-action-button"
+                :disabled="aiBusy || (!aiSourceText.trim() && !aiSourceFile)"
+                @click="extractEntryWithAI"
+              >
+                <span v-if="aiBusy" class="submit-spinner" aria-hidden="true"></span>
+                <span :role="aiBusy ? 'status' : null">{{ aiBusy ? 'Analyzing…' : 'Suggest form values' }}</span>
+              </button>
+            </div>
+          </div>
+        </section>
         <Transition name="duplicate-alert">
           <div
             v-if="!isModerationEditor && duplicateMicronation"
@@ -760,6 +799,10 @@ export default {
       flagRadio: 'file',
       passedRecaptcha: false,
       isSubmitting: false,
+      aiPanelOpen: true,
+      aiSourceText: '',
+      aiSourceFile: null,
+      aiBusy: false,
       customLanguage: '',
       customMembership: '',
       currentAltNameMain: '',
@@ -1002,6 +1045,25 @@ export default {
             }
           }
 
+          // Add an optional AI triage note; it never makes the moderation decision.
+          const reviewEntry = { ...entryData }
+          delete reviewEntry.author
+          delete reviewEntry.flagFile
+          delete reviewEntry.logoFile
+          try {
+            const reviewResponse = await fetch('/api/ai-assistant', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'review', entryType: this.entryType, entry: reviewEntry })
+            })
+            if (reviewResponse.ok) {
+              const reviewPayload = await reviewResponse.json()
+              entryData.aiReview = reviewPayload.review
+            }
+          } catch (reviewError) {
+            console.warn('AI preliminary review was unavailable; submitting without it.', reviewError)
+          }
+
           // Create GitHub issue
           await createGitHubIssue(entryData, this.entryType)
 
@@ -1032,6 +1094,94 @@ export default {
         reader.onload = () => resolve(reader.result)
         reader.onerror = (error) => reject(error)
       })
+    },
+    onAiFileChange(event) {
+      const file = event.target.files?.[0] || null
+      if (file && file.size > 3 * 1024 * 1024) {
+        event.target.value = ''
+        this.aiSourceFile = null
+        return notify({
+          title: 'AI assistant',
+          text: 'Choose an image or PDF smaller than 3 MB.',
+          type: 'error'
+        })
+      }
+      this.aiSourceFile = file
+    },
+    async extractEntryWithAI() {
+      if (this.aiBusy) return
+      this.aiBusy = true
+      try {
+        let file
+        if (this.aiSourceFile) {
+          file = {
+            name: this.aiSourceFile.name,
+            mimeType: this.aiSourceFile.type || 'application/octet-stream',
+            data: await this.fileToBase64(this.aiSourceFile)
+          }
+        }
+        const response = await fetch('/api/ai-assistant', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'extract',
+            entryType: this.entryType,
+            text: this.aiSourceText,
+            file
+          })
+        })
+        const payload = await response.json()
+        if (!response.ok) throw new Error(payload.error || 'AI extraction failed.')
+
+        const entry = payload.entry || {}
+        const name = typeof entry.name === 'string' ? { main: entry.name } : entry.name || {}
+        if (name.main) this.formPlaceholders.newEntryName = name.main
+        if (this.entryType === 'micronation') {
+          if (name.title != null) this.formPlaceholders.newEntryTitle = name.title
+          if (Array.isArray(name.alt)) this.formPlaceholders.newEntryAltNames = name.alt
+          if (entry.capital != null) this.formPlaceholders.newEntryCapital = entry.capital
+          if (entry.currency != null) this.formPlaceholders.newEntryCurrency = entry.currency
+          if (Array.isArray(entry.memberships)) this.formPlaceholders.newEntryMemberships = entry.memberships
+          if (Array.isArray(entry.type)) {
+            this.formPlaceholders.newEntryTypePhysical = entry.type.includes('Physical')
+            this.formPlaceholders.newEntryTypeDigital = entry.type.includes('Digital')
+            this.formPlaceholders.newEntryTypeFictional = entry.type.includes('Fictional')
+            this.physicalType = this.formPlaceholders.newEntryTypePhysical
+            if (this.physicalType) this.renderedMapboxNewEntry = true
+          }
+        } else if (name.mainAlt != null) {
+          this.formPlaceholders.newEntryNameAlt = name.mainAlt
+        }
+        if (entry.motto != null) this.formPlaceholders.newEntryMotto = entry.motto
+        if (Array.isArray(entry.languages)) this.formPlaceholders.newEntryLanguages = entry.languages
+        if (Array.isArray(entry.contactInfo)) this.formPlaceholders.newEntryEmails = entry.contactInfo
+        if (Array.isArray(entry.websites)) this.formPlaceholders.newEntryWebsites = entry.websites
+        if (entry.foundationDate) {
+          const date = new Date(entry.foundationDate)
+          if (!Number.isNaN(date.getTime())) this.foundationDate = date
+        }
+
+        const imageUrl = this.entryType === 'micronation' ? entry.flag : entry.logo
+        if (imageUrl) {
+          this.flagRadio = 'url'
+          this.formPlaceholders.newEntryFlag = imageUrl
+          await this.displayImage(imageUrl)
+        }
+
+        notify({
+          title: 'AI suggestions ready',
+          text: 'Review every suggested value and correct anything inaccurate.',
+          type: 'success'
+        })
+      } catch (error) {
+        notify({
+          title: 'AI assistant',
+          text: error.message || 'Could not analyze this resource.',
+          type: 'error'
+        })
+      } finally {
+        this.aiBusy = false
+      }
     },
     searchElement(value) {
       const normalizedName = value.trim().toLocaleLowerCase()
@@ -1276,6 +1426,97 @@ export default {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }
+
+.ai-assistant {
+  display: grid;
+  gap: 0;
+  margin: 0 0 14px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background-soft);
+}
+
+.ai-assistant p { margin: 0; }
+.ai-assistant-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-heading);
+  font-size: 1.17em;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.ai-assistant-title > span:first-child { font-size: 1.1em; }
+.ai-assistant-title:focus-visible {
+  outline: 2px solid var(--color-border-hover);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.ai-assistant-chevron {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  color: var(--color-muted);
+  transition: transform 220ms ease;
+}
+.ai-assistant-chevron.is-open { transform: rotate(180deg); }
+.ai-assistant-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  transition:
+    grid-template-rows 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    margin-top 220ms ease,
+    opacity 180ms ease;
+}
+.ai-assistant-collapse.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 8px;
+  opacity: 1;
+}
+.ai-assistant-content {
+  display: grid;
+  min-height: 0;
+  gap: 8px;
+  overflow: hidden;
+}
+.ai-assistant-inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+.ai-assistant textarea {
+  width: 100%;
+  min-height: 112px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.ai-assistant-inputs input[type='file'] {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  align-self: start;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px dashed var(--color-border-hover);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.ai-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.ai-review { line-height: 1.5; }
 
 .entry-name-duplicate-alert {
   display: grid;
@@ -1586,6 +1827,10 @@ div.new-entry-type {
 }
 
 @media (max-width: 600px) {
+  .ai-assistant-inputs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .new-entry-container {
     gap: 18px;
     padding: 14px;
