@@ -793,7 +793,7 @@ export default {
         "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
         'Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.',
         'Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.',
-        'Only .png files. The image is automatically compressed when you submit it and must fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
+        'Upload a PNG or provide a direct image URL. External PNG, JPEG, and WebP images are downloaded and converted to PNG when submitted, then compressed to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
       ],
       activeTooltipText: 0
     }
@@ -930,7 +930,7 @@ export default {
         try {
           // Prepare entry data
           const entryData = {
-            directoryId: createFirestoreStyleId(),
+            id: createFirestoreStyleId(),
             name:
               this.entryType === 'micronation'
                 ? {
@@ -964,41 +964,41 @@ export default {
             }
 
             // Handle flag file
-            if (this.flagSource) {
+            const imageFile = await this.getImageFileForSubmission()
+            if (imageFile) {
               // Compress image before converting to base64
               const options = {
                 maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
                 maxWidthOrHeight: 1920,
                 useWebWorker: true,
-                initialQuality: 0.7
+                initialQuality: 0.7,
+                fileType: 'image/png'
               }
-              const compressedFile = await imageCompression(this.flagSource, options)
+              const compressedFile = await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.flagFile = {
                 name: `${this.formPlaceholders.newEntryName}.png`,
                 data: base64Data
               }
-            } else if (this.formPlaceholders.newEntryFlag) {
-              entryData.flag = this.formPlaceholders.newEntryFlag
             }
           } else if (this.entryType === 'organization') {
             // Handle logo file
-            if (this.flagSource) {
+            const imageFile = await this.getImageFileForSubmission()
+            if (imageFile) {
               // Compress image before converting to base64
               const options = {
                 maxSizeMB: 0.03, // 30 KB (under the 37 KB limit)
                 maxWidthOrHeight: 1920,
                 useWebWorker: true,
-                initialQuality: 0.7
+                initialQuality: 0.7,
+                fileType: 'image/png'
               }
-              const compressedFile = await imageCompression(this.flagSource, options)
+              const compressedFile = await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.logoFile = {
                 name: `${this.formPlaceholders.newEntryName}.png`,
                 data: base64Data
               }
-            } else if (this.formPlaceholders.newEntryFlag) {
-              entryData.logo = this.formPlaceholders.newEntryFlag
             }
           }
 
@@ -1173,18 +1173,47 @@ export default {
     updatePhysicalType() {
       this.physicalType = !this.physicalType
     },
+    async getImageFileForSubmission() {
+      if (this.flagRadio !== 'url') return this.flagSource || null
+
+      const url = this.formPlaceholders.newEntryFlag.trim()
+      if (!url) throw new Error('Enter a direct link to the flag/logo image.')
+      let parsedUrl
+      try {
+        parsedUrl = new URL(url)
+      } catch {
+        throw new Error('Enter a valid image URL.')
+      }
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        throw new Error('The image URL must use HTTP or HTTPS.')
+      }
+
+      const response = await fetch(parsedUrl.href)
+      if (!response.ok) throw new Error(`Could not download the image (HTTP ${response.status}).`)
+      const blob = await response.blob()
+      if (!['image/png', 'image/jpeg', 'image/webp'].includes(blob.type) || !blob.size) {
+        throw new Error('The URL must return a PNG, JPEG, or WebP image.')
+      }
+      const extension = blob.type === 'image/jpeg' ? 'jpg' : blob.type.split('/')[1].split('+')[0]
+      return new File([blob], `image.${extension || 'png'}`, { type: blob.type })
+    },
     previewImage(event) {
       this.flagSource = event.target.files[0]
       this.flagPreview = URL.createObjectURL(this.flagSource)
     },
-    displayImage(value) {
-      fetch(value)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const blobURL = URL.createObjectURL(blob)
-          this.flagPreview = blobURL
-          this.flagSource = new File([blob], 'image.png', { type: blob.type })
-        })
+    async displayImage(value) {
+      if (!value) {
+        this.flagSource = ''
+        this.flagPreview = ''
+        return
+      }
+      try {
+        const file = await this.getImageFileForSubmission()
+        this.flagSource = file
+        this.flagPreview = URL.createObjectURL(file)
+      } catch {
+        // Submission performs the authoritative fetch and reports a useful error.
+      }
     }
   }
 }

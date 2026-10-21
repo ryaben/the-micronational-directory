@@ -11,7 +11,7 @@ import { createFirestoreStyleId } from './firestoreStyleId.js'
  */
 function formatEntryForJSON(entryData, entryType) {
   const formatted = {
-    directoryId: entryData.directoryId || createFirestoreStyleId(),
+    id: entryData.id || entryData.directoryId || createFirestoreStyleId(),
     name: entryData.name,
     motto: entryData.motto || '',
     languages: entryData.languages || [],
@@ -363,6 +363,7 @@ export function convertIssueToEntry(issue) {
   const formatted = {
     ...entryData,
     id: issue.id, // Use issue ID as entry ID
+    directoryEntryId: entryData.id || entryData.directoryId || null,
     issueNumber: issue.number, // Store issue number for operations
     createdAt: issue.created_at || null, // GitHub submission creation timestamp
     githubUrl: issue.html_url, // Link to the issue
