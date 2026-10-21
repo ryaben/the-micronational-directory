@@ -53301,5 +53301,53 @@
       "_seconds": 1669161600
     },
     "id": "pHBbQFBnJo9qxgIqpbuR"
+  },
+  {
+    "name": {
+      "main": "Tresca",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Princely Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Foedere et religione tenemur (Treaty and religion bind us)",
+    "languages": [
+      "English",
+      "Italian",
+      "Spanish",
+      "Portuguese",
+      "French",
+      "Maltese"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://micronations.wiki/wiki/Princely_Republic_of_Tresca"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Tresca.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "St. Alexandra",
+    "currency": "United States dollar",
+    "memberships": [
+      "San Donia"
+    ],
+    "foundationDate": {
+      "_seconds": 1741564800
+    },
+    "location": {
+      "latitude": 40.75,
+      "longitude": -73.633333
+    },
+    "creationDate": {
+      "_seconds": 1792591501
+    },
+    "createdAt": "2026-10-21T14:05:01Z",
+    "id": "7Hg1DFAfX90SprUyCWfw"
   }
 ]
