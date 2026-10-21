@@ -53560,5 +53560,100 @@
     "aiReview": null,
     "createdAt": "2026-10-16T13:39:36Z",
     "id": "O6AXr5lE3Ru9M5BH0Tax"
+  },
+  {
+    "name": {
+      "main": "Alkanuit",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Great Federal Commonwealth and Empire of",
+      "titleAlt": ""
+    },
+    "motto": "Love Thy Neighbor",
+    "languages": [
+      "English",
+      "Spanish",
+      "Japanese",
+      "Alkanuitan",
+      "Tibetan",
+      "Dzongkha",
+      "Mongolian",
+      "Cantonese"
+    ],
+    "contactInfo": [
+      "Alkanuit@gmail.com"
+    ],
+    "websites": [
+      "https://sites.google.com/view/Alkanuit/",
+      "https://micronations.wiki/wiki/Alkanuit",
+      "https://alkanuittimes.altervista.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Alkanuit.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Christland",
+    "currency": "United States dollar, Alkanuitian dollar",
+    "memberships": [
+      "Micronational Assembly"
+    ],
+    "foundationDate": {
+      "_seconds": 1675604940
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792601418
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "Submission meets basic structural and age requirements with provided sources, pending final verification of factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name is clearly formatted with a main name 'Alkanuit' and a title 'Great Federal Commonwealth and Empire of', which is acceptable for a micronation."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2023-02-05 is significantly older than the cutoff date 2026-09-21, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Three relevant websites are provided, including an official site, a wiki entry, and a news site, meeting the requirement for at least one source."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the official languages, which is preferred and satisfies the requirement."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the submission is coherent, the truthfulness of specific claims (e.g., capital 'Christland', currency) cannot be fully verified without accessing the provided links, which is not done in this triage step."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not violate any guidance; their presence is acceptable."
+        }
+      ]
+    },
+    "createdAt": "2026-10-21T16:50:18Z",
+    "id": "3eCCYDgEmdG486yuq5Ew"
   }
 ]
