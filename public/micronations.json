@@ -53744,5 +53744,69 @@
     },
     "createdAt": "2026-10-21T18:27:17Z",
     "id": "gFUrYsW7zuBhrur20b3M"
+  },
+  {
+    "name": {
+      "main": "Union of Sovereign Synetic Republics",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Synetic Union",
+          "title": ""
+        },
+        {
+          "main": "União Sinética",
+          "title": ""
+        },
+        {
+          "main": "União das Repúblicas Soberanas Sinéticas",
+          "title": ""
+        },
+        {
+          "main": "Unitato de Sur'Republikoj Sinéčikaj",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "flag": "/images/flags/Union of Sovereign Synetic Republics.jpg",
+    "motto": "REMPVBLICAM LIBERTATEM",
+    "type": [
+      "Digital"
+    ],
+    "languages": [
+      "Portuguese",
+      "Sudovineso"
+    ],
+    "capital": "Sudóvia (executive), Telávia (legislative)",
+    "currency": "Sinarj",
+    "foundationDate": {
+      "seconds": 1741179600,
+      "_seconds": 1741179600
+    },
+    "location": null,
+    "memberships": [],
+    "contactInfo": [
+      "urssin.gov@gmail.com",
+      "govtelavia@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Synetic_Union",
+      "https://micropedia.com.br/index.php/Uni%C3%A3o_Sin%C3%A9tica",
+      "https://govtelavia.wixsite.com/supremosinetion",
+      "https://urssingov.wixsite.com/home"
+    ],
+    "author": {
+      "name": "Felipe",
+      "email": "felipelui480@gmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792158161
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:42:41Z",
+    "id": "pbsuDZFPuWiIMcvXtkKf"
   }
 ]
