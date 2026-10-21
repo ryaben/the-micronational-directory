@@ -96,7 +96,9 @@ export function stableStringify(value) {
     return `[${value.map(stableStringify).join(',')}]`
   }
   if (value && typeof value === 'object') {
-    const properties = Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
+    const properties = Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`)
     return `{${properties.join(',')}}`
   }
   return JSON.stringify(value)
@@ -129,10 +131,14 @@ export async function createGitHubIssue(entryData, entryType) {
   let base64Content = ''
   if (fileData && fileData.data) {
     base64Content = fileData.data.includes(',') ? fileData.data.split(',')[1] : fileData.data
-    const MAX_BASE64_LENGTH = 50000; // ~37 KB (Límite seguro para el body de GitHub)
+    const MAX_BASE64_LENGTH = 50000 // ~37 KB (Límite seguro para el body de GitHub)
     if (base64Content.length > MAX_BASE64_LENGTH) {
-      console.warn(`La imagen Base64 excede el límite permitido (${base64Content.length} caracteres).`);
-      throw new Error('La imagen adjunta es demasiado pesada. Por favor, sube una imagen de menor peso (máximo ~35 KB).');
+      console.warn(
+        `La imagen Base64 excede el límite permitido (${base64Content.length} caracteres).`
+      )
+      throw new Error(
+        'La imagen adjunta es demasiado pesada. Por favor, sube una imagen de menor peso (máximo ~35 KB).'
+      )
     }
   }
 
@@ -158,6 +164,21 @@ ${JSON.stringify(formattedData, null, 2)}
 ${base64Content}
 \`\`\`
 `
+  }
+
+  if (entryData.aiReview) {
+    body += `\n### AI preliminary review (not a final moderation decision)\n- **Triage:** ${
+      entryData.aiReview.verdict || 'needs_review'
+    }\n- **Summary:** ${entryData.aiReview.summary || 'No summary provided.'}\n\n${(
+      entryData.aiReview.checks || []
+    )
+      .map(
+        (check) =>
+          `- **${check.status || 'uncertain'} — ${check.criterion || 'Criterion'}:** ${
+            check.reason || ''
+          }`
+      )
+      .join('\n')}\n`
   }
 
   body += `
@@ -214,7 +235,7 @@ export async function fetchGitHubIssues(labels = ['new-entry', 'review-required'
     throw new Error('GitHub credentials not configured')
   }
 
-  const labelList = Array.isArray(labels) ? labels : (labels ? [labels] : [])
+  const labelList = Array.isArray(labels) ? labels : labels ? [labels] : []
   let allIssues = []
   let page = 1
 
@@ -240,7 +261,7 @@ export async function fetchGitHubIssues(labels = ['new-entry', 'review-required'
       }
 
       // Filter out pull requests (GitHub API /issues returns PRs as well)
-      const nonPrIssues = issues.filter(issue => !issue.pull_request)
+      const nonPrIssues = issues.filter((issue) => !issue.pull_request)
       allIssues = allIssues.concat(nonPrIssues)
 
       if (issues.length < 100) {
@@ -251,8 +272,8 @@ export async function fetchGitHubIssues(labels = ['new-entry', 'review-required'
 
     // Filter by labels if specified (matches if the issue has any of the specified labels)
     if (labelList.length > 0) {
-      return allIssues.filter(issue =>
-        issue.labels && issue.labels.some(label => labelList.includes(label.name))
+      return allIssues.filter(
+        (issue) => issue.labels && issue.labels.some((label) => labelList.includes(label.name))
       )
     }
 
@@ -299,12 +320,18 @@ export function convertIssueToEntry(issue) {
   }
 
   // Determine entry type from issue labels, title, or entryData
-  const hasOrgLabel = issue.labels && issue.labels.some(label =>
-    label.name.toLowerCase() === 'organization' || label.name.toLowerCase() === 'organizations'
-  )
-  const hasMicronationLabel = issue.labels && issue.labels.some(label =>
-    label.name.toLowerCase() === 'micronation' || label.name.toLowerCase() === 'micronations'
-  )
+  const hasOrgLabel =
+    issue.labels &&
+    issue.labels.some(
+      (label) =>
+        label.name.toLowerCase() === 'organization' || label.name.toLowerCase() === 'organizations'
+    )
+  const hasMicronationLabel =
+    issue.labels &&
+    issue.labels.some(
+      (label) =>
+        label.name.toLowerCase() === 'micronation' || label.name.toLowerCase() === 'micronations'
+    )
 
   let isMicronation = false
   if (hasOrgLabel) {
@@ -324,7 +351,7 @@ export function convertIssueToEntry(issue) {
   // Extract base64 image if present and convert to data URL for preview
   const base64Image = extractBase64Image(issue.body)
   const fileMetadata = extractFileMetadata(issue.body)
-  
+
   let imageDataUrl = null
   if (base64Image) {
     // Determine image type from file extension or default to png
@@ -376,7 +403,10 @@ export function convertIssueToEntry(issue) {
     }
   } else {
     formatted.name = {
-      main: formatted.name.main || issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') || 'Unnamed',
+      main:
+        formatted.name.main ||
+        issue.title.replace(/^New (micronation|organization) submission:\s*/i, '') ||
+        'Unnamed',
       mainAlt: formatted.name.mainAlt || '',
       alt: Array.isArray(formatted.name.alt) ? formatted.name.alt : [],
       title: formatted.name.title || '',
@@ -394,7 +424,10 @@ export function convertIssueToEntry(issue) {
 
   // Normalize foundationDate
   if (!formatted.foundationDate) {
-    if (formatted.creationDate && (formatted.creationDate._seconds || formatted.creationDate.seconds)) {
+    if (
+      formatted.creationDate &&
+      (formatted.creationDate._seconds || formatted.creationDate.seconds)
+    ) {
       formatted.foundationDate = {
         _seconds: formatted.creationDate._seconds || formatted.creationDate.seconds
       }
@@ -543,7 +576,13 @@ export async function addIssueComment(issueNumber, comment) {
 }
 
 /** Updates an issue's JSON submission while preserving the rest of its body. */
-export async function updateGitHubIssueEntry(issueNumber, issueBody, entryData, entryType, mediaChange = null) {
+export async function updateGitHubIssueEntry(
+  issueNumber,
+  issueBody,
+  entryData,
+  entryType,
+  mediaChange = null
+) {
   const token = import.meta.env.VITE_GITHUB_TOKEN
   const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
   const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
@@ -558,16 +597,21 @@ export async function updateGitHubIssueEntry(issueNumber, issueBody, entryData, 
   }
 
   const entryTypeLabel = entryType.charAt(0).toUpperCase() + entryType.slice(1)
-  let body = issueBody.replace(jsonBlock, (match, opening, closing) =>
-    `${opening}${JSON.stringify(entryData, null, 2)}${closing}`
-  ).replace(/^## New .* Submission$/m, `## New ${entryTypeLabel} Submission`)
+  let body = issueBody
+    .replace(
+      jsonBlock,
+      (match, opening, closing) => `${opening}${JSON.stringify(entryData, null, 2)}${closing}`
+    )
+    .replace(/^## New .* Submission$/m, `## New ${entryTypeLabel} Submission`)
 
   const replaceMediaSection = (source, heading, section) => {
     const pattern = new RegExp(`### ${heading}\\r?\\n[\\s\\S]*?(?=\\r?\\n### |$)`)
     if (pattern.test(source)) return source.replace(pattern, section)
     const insertionPoint = source.indexOf('### Submitted By')
     if (insertionPoint < 0) return `${source.trimEnd()}\n\n${section}\n`
-    return `${source.slice(0, insertionPoint).trimEnd()}\n\n${section}\n\n${source.slice(insertionPoint)}`
+    return `${source.slice(0, insertionPoint).trimEnd()}\n\n${section}\n\n${source.slice(
+      insertionPoint
+    )}`
   }
 
   if (mediaChange?.mode === 'upload') {
@@ -576,7 +620,11 @@ export async function updateGitHubIssueEntry(issueNumber, issueBody, entryData, 
       'Media File Metadata',
       `### Media File Metadata\n- **File Name:** \`${mediaChange.name}\`\n- **Target Path:** \`${mediaChange.path}\``
     )
-    body = replaceMediaSection(body, 'Media File Base64', `### Media File Base64\n\`\`\`base64\n${mediaChange.base64}\n\`\`\``)
+    body = replaceMediaSection(
+      body,
+      'Media File Base64',
+      `### Media File Base64\n\`\`\`base64\n${mediaChange.base64}\n\`\`\``
+    )
   } else if (mediaChange?.mode === 'url') {
     body = body
       .replace(/### Media File Metadata\r?\n[\s\S]*?(?=\r?\n### |$)/, '')
@@ -603,11 +651,17 @@ export async function updateGitHubIssueEntry(issueNumber, issueBody, entryData, 
   try {
     result = responseText ? JSON.parse(responseText) : null
   } catch {
-    throw new Error(`GitHub returned an unreadable response while updating issue #${issueNumber} (HTTP ${response.status}).`)
+    throw new Error(
+      `GitHub returned an unreadable response while updating issue #${issueNumber} (HTTP ${response.status}).`
+    )
   }
 
   if (!response.ok) {
-    throw new Error(`GitHub API error (${response.status}): ${result?.message || response.statusText || 'Request failed'}`)
+    throw new Error(
+      `GitHub API error (${response.status}): ${
+        result?.message || response.statusText || 'Request failed'
+      }`
+    )
   }
 
   return result
@@ -644,15 +698,23 @@ export async function fetchRepoFile(path) {
     try {
       data = responseText ? JSON.parse(responseText) : null
     } catch {
-      throw new Error(`GitHub returned an unreadable response while fetching ${path} (HTTP ${response.status}).`)
+      throw new Error(
+        `GitHub returned an unreadable response while fetching ${path} (HTTP ${response.status}).`
+      )
     }
 
     if (!response.ok) {
-      throw new Error(`GitHub API error (${response.status}): ${data?.message || response.statusText || 'Request failed'}`)
+      throw new Error(
+        `GitHub API error (${response.status}): ${
+          data?.message || response.statusText || 'Request failed'
+        }`
+      )
     }
 
     if (!data || !data.sha) {
-      throw new Error(`GitHub returned no file content for ${path}. Check that the repository and file path are configured correctly.`)
+      throw new Error(
+        `GitHub returned no file content for ${path}. Check that the repository and file path are configured correctly.`
+      )
     }
 
     let content
@@ -660,7 +722,7 @@ export async function fetchRepoFile(path) {
       // GitHub may wrap base64 content across multiple lines. Decode UTF-8 so
       // non-ASCII names and descriptions survive before parsing the JSON.
       const binaryContent = atob(data.content.replace(/\s/g, ''))
-      const bytes = Uint8Array.from(binaryContent, character => character.charCodeAt(0))
+      const bytes = Uint8Array.from(binaryContent, (character) => character.charCodeAt(0))
       content = new TextDecoder().decode(bytes)
     } else {
       // The Contents API omits `content` for files larger than 1 MB. Fetch
@@ -695,7 +757,7 @@ export async function fetchRepoFile(path) {
     if (!Array.isArray(jsonContent)) {
       throw new Error(`The repository file ${path} must contain a JSON array.`)
     }
-    
+
     return {
       content: jsonContent,
       sha: data.sha
@@ -823,18 +885,18 @@ export function extractBase64Image(body) {
 export function extractFileMetadata(body) {
   const nameMatch = body.match(/\*\*File Name:\*\* `([^`]+)`/)
   const pathMatch = body.match(/\*\*Target Path:\*\* `([^`]+)`/)
-  
+
   if (!nameMatch || !pathMatch) {
     return null
   }
-  
+
   return {
     name: nameMatch[1],
     path: pathMatch[1]
   }
 }
 
-export default { 
+export default {
   createGitHubIssue,
   fetchGitHubIssues,
   parseIssueBody,
