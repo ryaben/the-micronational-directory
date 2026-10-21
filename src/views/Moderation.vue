@@ -103,7 +103,7 @@ defineProps({
             id="moderationMicronations"
             ref="micronationsListModeration"
             :key="componentKey"
-            :class="{ 'fixed-height': fixedHeight }"
+            :class="{ 'fixed-height': fixedHeight, 'moderation-action-running': moderationAction }"
           >
             <DirectoryEntry
               v-for="item in micronationsModerationDirectory"
@@ -457,6 +457,7 @@ export default {
         .find((entry) => entry && entry.id === item.id)
     },
     selectEntry(item, type) {
+      if (this.moderationAction) return
       this.selectedEntry = this.findFullIssueEntry(item) || item
       this.selectedEntryName = item.name?.main || 'Selected entry'
       this.selectedEntryAuthor = item.author?.email || ''
@@ -473,6 +474,7 @@ export default {
       }).format(date)
     },
     openEntryProfile(item, type) {
+      if (this.moderationAction) return
       this.selectEntry(item, type)
       this.selectedProfileEntry = this.selectedEntry
       this.profileDraft = JSON.parse(JSON.stringify(this.selectedEntry))
@@ -671,10 +673,12 @@ export default {
 
       this.moderationAction = 'approve'
       const that = this
+      const isMicronation = entry.entryType
+        ? entry.entryType === 'micronation'
+        : this.selectedEntryType === 'Micronation'
 
       try {
         // Determine entry type and file paths
-        const isMicronation = this.selectedEntryType === 'Micronation'
         const jsonFilePath = isMicronation
           ? 'public/micronations.json'
           : 'public/organizations.json'
@@ -829,6 +833,16 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+}
+
+#moderationMicronations.moderation-action-running {
+  pointer-events: none;
+  cursor: wait;
+  opacity: 0.5;
+  filter: grayscale(0.75);
+  transition:
+    opacity 160ms ease,
+    filter 160ms ease;
 }
 
 .moderation-buttons {
