@@ -53961,5 +53961,61 @@
     },
     "createdAt": "2026-10-21T20:11:30Z",
     "id": "M2BgMTP2ummXxYJq0ztH"
+  },
+  {
+    "name": {
+      "main": "Catleone",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Catleone",
+          "title": "Королевство"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "flag": "/images/flags/Catleone.jpg",
+    "motto": "Pro me et meis (For myself and my own)",
+    "type": [
+      "Physical"
+    ],
+    "languages": [
+      "Russian",
+      "English"
+    ],
+    "capital": "Divanburg",
+    "currency": "bene",
+    "foundationDate": {
+      "seconds": 1764586680,
+      "_seconds": 1764586680
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "memberships": [],
+    "contactInfo": [
+      "contact@catleone.org ",
+      "citizenship@catleone.org",
+      "https://www.facebook.com/catleone.official",
+      "https://t.me/catleone_official"
+    ],
+    "websites": [
+      "https://catleone.org/",
+      "https://micronations-encyclopedia.fandom.com/wiki/Kingdom_of_Catleone",
+      "https://micronations.wiki/wiki/Draft:Kingdom_of_Catleone"
+    ],
+    "author": {
+      "name": "Catleone",
+      "email": "catleoneorg@gmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792158108
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:41:48Z",
+    "id": "bHh20KJkvacpjf5jnlR6"
   }
 ]
