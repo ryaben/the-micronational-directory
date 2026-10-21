@@ -277,16 +277,27 @@ defineProps({
                 {{ selectedEntry.aiReview.summary }}
               </p>
               <ul v-if="selectedEntry.aiReview.checks?.length" class="ai-review-checks">
-                <li v-for="(check, index) in selectedEntry.aiReview.checks" :key="`${check.criterion}-${index}`">
+                <li
+                  v-for="(check, index) in selectedEntry.aiReview.checks"
+                  :key="`${check.criterion}-${index}`"
+                  :class="`is-${check.status || 'uncertain'}`"
+                >
                   <span class="ai-review-status" :class="`is-${check.status || 'uncertain'}`">
                     {{ check.status || 'uncertain' }}
                   </span>
-                  <span><strong>{{ check.criterion }}</strong><template v-if="check.reason">: {{ check.reason }}</template></span>
+                  <span
+                    ><strong>{{ check.criterion }}</strong
+                    ><template v-if="check.reason">: {{ check.reason }}</template></span
+                  >
                 </li>
               </ul>
-              <p class="ai-review-triage">Triage: <strong>{{ selectedEntry.aiReview.verdict || 'needs_review' }}</strong></p>
+              <p class="ai-review-triage">
+                Triage: <strong>{{ selectedEntry.aiReview.verdict || 'needs_review' }}</strong>
+              </p>
             </template>
-            <p v-else class="ai-review-summary">No AI analysis was included with this submission.</p>
+            <p v-else class="ai-review-summary">
+              No AI analysis was included with this submission.
+            </p>
           </section>
 
           <div class="moderation-actions">
@@ -963,12 +974,35 @@ export default {
 .ai-review-checks {
   display: grid;
   gap: 8px;
+  list-style: none;
   margin: 10px 0;
-  padding-left: 18px;
+  padding: 0;
 }
 
 .ai-review-checks li {
-  padding-left: 2px;
+  position: relative;
+  padding-left: 22px;
+}
+
+.ai-review-checks li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 750;
+}
+
+.ai-review-checks li.is-pass::before {
+  content: "\2713";
+  color: var(--success-tone);
+}
+
+.ai-review-checks li.is-uncertain::before {
+  content: "?";
+  color: var(--color-muted);
+}
+
+.ai-review-checks li.is-fail::before {
+  content: "\2717";
+  color: var(--failure-tone);
 }
 
 .ai-review-status {
@@ -978,11 +1012,28 @@ export default {
   text-transform: capitalize;
 }
 
-.ai-review-status.is-pass { color: var(--success-tone); }
-.ai-review-status.is-fail { color: var(--failure-tone); }
-.ai-review-status.is-uncertain { color: var(--color-muted); }
+.ai-review-status.is-pass {
+  color: var(--success-tone);
+  background: color-mix(in srgb, var(--success-tone) 10%, var(--color-surface));
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+}
+.ai-review-status.is-fail {
+  color: var(--failure-tone);
+  background: color-mix(in srgb, var(--failure-tone) 10%, var(--color-surface));
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+}
+.ai-review-status.is-uncertain {
+  color: var(--color-muted);
+  background: color-mix(in srgb, var(--color-muted) 10%, var(--color-surface));
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+}
 
-.ai-review-triage { margin: 10px 0 0; }
+.ai-review-triage {
+  margin: 10px 0 0;
+}
 
 .moderation-actions {
   display: flex;

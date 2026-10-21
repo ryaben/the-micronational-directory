@@ -1,7 +1,7 @@
 <script setup>
-import NewEntryForm from '../components/NewEntryForm.vue';
-import store from '../store';
-import '@vuepic/vue-datepicker/dist/main.css';
+import NewEntryForm from '../components/NewEntryForm.vue'
+import store from '../store'
+import '@vuepic/vue-datepicker/dist/main.css'
 
 defineProps({
   theme: {
@@ -16,7 +16,7 @@ defineProps({
   supranationalMicronations: {
     type: Array,
     required: false,
-    default: store.getters.micronations.filter(element => element.supranational)
+    default: store.getters.micronations.filter((element) => element.supranational)
   },
   organizationsDirectory: {
     type: Array,
@@ -26,14 +26,16 @@ defineProps({
   visibleOrganizations: {
     type: Array,
     required: false,
-    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
+    default: store.getters.organizations.filter(
+      (element) => element.approved && element.searchDisplay && element.filterDisplay
+    )
   },
   user: {
     type: Object,
     required: true,
     default: {}
   }
-});
+})
 </script>
 
 <template>
@@ -41,9 +43,12 @@ defineProps({
     <div class="dropdown-info-box color-transition">
       <h3 @click="toggleDropdown">⚠️ Important notes on new entries and to add your own:</h3>
       <p>
-        Don't know what micronations to add? <a
+        Don't know what micronations to add?
+        <a
           href="https://docs.google.com/spreadsheets/d/1jwekLc1EpbVfznTbMrqiM8KUJW_ra3vywcMpiLTJrEs/edit?usp=sharing"
-          target="_blank">Check out this list with many sources that we've composed</a>.
+          target="_blank"
+          >Check out this list with many sources that we've composed</a
+        >.
       </p>
       <p>
         We invite the community to contribute to the directory and add entries to it.
@@ -51,61 +56,72 @@ defineProps({
       </p>
       <ul class="notes-list">
         <li>
-          Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases of
-          micronations/organizations that
-          promote Nazi symbology, adult 18+ content and/or any kind of illegal activity will be immediately rejected.
+          Please provide <b>truthful, appropriate and precise information</b>. Additionally, cases
+          of micronations/organizations that promote Nazi symbology, adult 18+ content and/or any
+          kind of illegal activity will be immediately rejected.
         </li>
         <li>
-          Micronations/organizations submitted should have <b>at least one (1) month of proven existence.</b> This way
-          we avoid
-          lightning entries that may only be games or premature/fake experiments.
+          Micronations/organizations submitted should have
+          <b>at least one (1) month of proven existence.</b> This way we avoid lightning entries
+          that may only be games or premature/fake experiments.
         </li>
         <li>
           It's <b>mandatory</b> that all entries have a website source of the
-          micronation/organization and/or (preferably
-          <b>and</b>) an info article on any wiki. This way, a veridical source for the information entered is
-          specified, and we can avoid entries that could be jokes, games, fake, misleading or cheating for contests.
+          micronation/organization and/or (preferably <b>and</b>) an info article on any wiki. This
+          way, a veridical source for the information entered is specified, and we can avoid entries
+          that could be jokes, games, fake, misleading or cheating for contests.
         </li>
         <li>
-          Physical and digital micronations can be included alike, as well as fictional countries as long as they also
-          demonstrate activity as a proper
-          micronation (news, diplomacy, activity) with imaginary elements (e.g., <a
-            href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank">Babar's Kingdom</a>
-          is not a valid case, while the <router-link :to="'/directory/Redonda'">Kingdom of Redonda</router-link>
-          or most of the micronations from <router-link
-            :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed are).
+          Physical and digital micronations can be included alike, as well as fictional countries as
+          long as they also demonstrate activity as a proper micronation (news, diplomacy, activity)
+          with imaginary elements (e.g.,
+          <a href="https://en.wikipedia.org/wiki/Babar%27s_Kingdom" target="_blank"
+            >Babar's Kingdom</a
+          >
+          is not a valid case, while the
+          <router-link :to="'/directory/Redonda'">Kingdom of Redonda</router-link> or most of the
+          micronations from
+          <router-link :to="'/organizations/Micras Cartography Society'">Micras</router-link> indeed
+          are).
         </li>
         <li>
           Ideally and whenever possible, please input the entry data in English. If not, then in the
-          micronation's/organization's main
-          official language.
+          micronation's/organization's main official language.
         </li>
         <li>
-          If a micronation's/organization's website is down or inactive, you can check it on the <b><a
-              href="http://web.archive.org/">Wayback
-              Machine</a></b> because it may have a past snapshot saved. If so, you can add the link the service
-          generates instead.
+          If a micronation's/organization's website is down or inactive, you can check it on the
+          <b><a href="http://web.archive.org/">Wayback Machine</a></b> because it may have a past
+          snapshot saved. If so, you can add the link the service generates instead.
         </li>
         <li>
-          All submissions will first <b>require approval from the administrator</b> (can take up to 72 hours) before
-          they are posted on the definitive public online directory.
+          All submissions will first <b>require approval from the administrator</b> (can take up to
+          72 hours) before they are posted on the definitive public online directory.
         </li>
       </ul>
-      <p>
-        Thanks for understanding and for helping to create this digital database museum!
-      </p>
+      <p>Thanks for understanding and for helping to create this digital database museum!</p>
 
-      <div class="entry-actions">
-        <button class="login-button short color-transition" :class="{ 'active': newMicronationView }"
-          :disabled="!user.emailVerified" @click="newMicronationView = true; newOrganizationView = false">
+      <div v-if="user.emailVerified" class="entry-actions">
+        <button
+          class="login-button short color-transition"
+          :class="{ active: newMicronationView }"
+          :disabled="!user.emailVerified"
+          @click="setEntryView('micronation')"
+        >
           Add new micronation
         </button>
-        <button class="login-button short color-transition" :class="{ 'active': newOrganizationView }"
-          :disabled="!user.emailVerified" @click="newOrganizationView = true; newMicronationView = false">
+        <button
+          class="login-button short color-transition"
+          :class="{ active: newOrganizationView }"
+          :disabled="!user.emailVerified"
+          @click="setEntryView('organization')"
+        >
           Add new organization
         </button>
-        <p v-if="!user.emailVerified" class="entry-availability-note">
-          Available to <router-link :to="'/login'">registered users with a verified email</router-link> only.
+      </div>
+      <div v-else class="entry-actions">
+        <p class="entry-availability-note">
+          Available to
+          <router-link :to="'/login'">registered users with a verified email</router-link> only.
         </p>
       </div>
 
@@ -120,7 +136,8 @@ defineProps({
           :organizations-directory="organizationsDirectory"
           :visible-organizations="visibleOrganizations"
           :theme="theme"
-          :form-placeholders="formPlaceholder" />
+          :form-placeholders="formPlaceholder"
+        />
       </Transition>
     </div>
   </section>
@@ -153,7 +170,13 @@ export default {
         newEntryEmails: [],
         newEntryWebsites: []
       }
-    };
+    }
+  },
+  methods: {
+    setEntryView(entryType) {
+      this.newMicronationView = entryType === 'micronation'
+      this.newOrganizationView = entryType === 'organization'
+    }
   }
 }
 </script>
@@ -199,7 +222,9 @@ export default {
 
 .entry-form-enter-active,
 .entry-form-leave-active {
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .entry-form-enter-from {

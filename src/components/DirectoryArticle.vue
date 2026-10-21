@@ -402,10 +402,6 @@ export default {
   row-gap: 2px;
 }
 
-.article-alt-label {
-  font-weight: 650;
-}
-
 .article-alt-name-item + .article-alt-name-item::before {
   content: '·';
   margin-right: 8px;

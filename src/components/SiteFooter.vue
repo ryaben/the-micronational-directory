@@ -1,6 +1,8 @@
 <script setup>
 import { version } from '../../package.json'
 import PreferenceControls from './PreferenceControls.vue'
+import XIcon from './icons/XIcon.vue'
+import EmailIcon from './icons/EmailIcon.vue'
 
 defineProps({
   theme: {
@@ -38,19 +40,11 @@ const emit = defineEmits(['update:theme', 'update:language'])
         rel="noopener noreferrer"
         aria-label="Follow The Micronational Directory on X (opens in a new tab)"
       >
-        <svg class="footer-x-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path
-            d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.1L5.7 22H2.5l7.3-8.4L1.9 2h6.5l4.5 6.6L18.9 2Zm-1.1 18h1.7L7.4 3.9H5.6L17.8 20Z"
-          />
-        </svg>
+        <XIcon class="footer-x-icon" aria-hidden="true" focusable="false" />
         <span>Follow <strong>@the_micro_direc</strong></span>
       </a>
       <a class="anchor-button" id="sendEmail" href="mailto:themicronationaldirectory@gmail.com">
-        <svg class="footer-email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path
-            d="M3.75 5.5h16.5A1.75 1.75 0 0 1 22 7.25v9.5a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 16.75v-9.5A1.75 1.75 0 0 1 3.75 5.5Zm.1 2 8.15 5.7 8.15-5.7H3.85Zm16.15 9V9.45l-7.43 5.2a1 1 0 0 1-1.14 0L4 9.45v7.1c0 .08.07.15.15.15h15.7c.08 0 .15-.07.15-.15Z"
-          />
-        </svg>
+        <EmailIcon class="footer-email-icon" aria-hidden="true" focusable="false" />
         <span>themicronationaldirectory@gmail.com</span>
       </a>
     </section>
