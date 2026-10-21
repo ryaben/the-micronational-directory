@@ -34,7 +34,7 @@ defineProps({
                         <b>{{ info.name.main }}</b>&nbsp;({{ info.name.mainAlt }})
                     </p>
                 </div>
-                <ProfileArticleActions v-if="!preview" :title="info.name.main" />
+                <ProfileArticleActions v-if="!preview" :title="info.name.main" :entry-id="info.id" entry-type="organizations" />
             </div>
 
             <div class="organization-article-content">

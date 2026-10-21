@@ -3,6 +3,9 @@ import SettingsSubcontainer from '../components/SettingsSubcontainer.vue'
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue'
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue'
 import store from '../store'
+import { useUserFavorites } from '../composables/userFavorites.js'
+
+const { currentUser } = useUserFavorites()
 
 defineProps({
   storeGetter: {
@@ -166,6 +169,32 @@ defineProps({
                     </optgroup>
                   </select>
                 </SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="filter-field filter-mode">
+                  <label>Show</label>
+                  <div class="filter-mode-options">
+                    <div>
+                      <input
+                        :id="`${storeGetter}-show-all`"
+                        type="radio"
+                        :name="`${storeGetter}-favorites-filter`"
+                        value="all"
+                        v-model="favoritesFilter"
+                      />
+                      <label :for="`${storeGetter}-show-all`">All</label>
+                    </div>
+                    <div>
+                      <input
+                        :id="`${storeGetter}-show-favorites`"
+                        type="radio"
+                        :name="`${storeGetter}-favorites-filter`"
+                        value="favorites"
+                        :disabled="!currentUser"
+                        v-model="favoritesFilter"
+                      />
+                      <label :for="`${storeGetter}-show-favorites`">Favorites only</label>
+                    </div>
+                  </div>
+                </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-action">
                   <button
                     id="applyFilters"
@@ -178,7 +207,7 @@ defineProps({
               </SettingsSubcontainer>
 
               <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" text="Sort">
-                <SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
                       type="radio"
@@ -202,7 +231,7 @@ defineProps({
                     <label for="sortZ-A">Name (Z-A)</label>
                   </div>
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
                       type="radio"
@@ -226,7 +255,7 @@ defineProps({
                     <label for="sortOldestAdded">Oldest added</label>
                   </div>
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
                       type="radio"
@@ -323,6 +352,8 @@ defineProps({
 </template>
 
 <script>
+import { favorites } from '../composables/userFavorites.js'
+
 export default {
   name: 'Settings-Bar',
   emits: ['updatedEntryWidth', 'viewModeChanged', 'loadedDirectory'],
@@ -339,6 +370,8 @@ export default {
       flagView: false,
       inputFilter: '',
       initialFilter: 'none',
+      favoritesFilter: 'all',
+      appliedFavoritesFilter: 'all',
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
@@ -398,7 +431,11 @@ export default {
         this.directoryLoaded = true
       }
       return this.workingDirectory.filter(
-        (element) => (this.showUnapproved || element.approved) && element.searchDisplay && element.filterDisplay
+        (element) =>
+          (this.showUnapproved || element.approved) &&
+          element.searchDisplay &&
+          element.filterDisplay &&
+          (this.appliedFavoritesFilter !== 'favorites' || favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
     },
     pagedElements() {
@@ -529,6 +566,7 @@ export default {
       }
     },
     applyFilters() {
+      this.appliedFavoritesFilter = this.favoritesFilter
       this.filterEntries()
       this.filterEntriesByLetter()
     },
@@ -782,7 +820,7 @@ export default {
   display: grid;
   width: fit-content;
   max-width: 100%;
-  grid-template-columns: 160px 160px max-content;
+  grid-template-columns: 160px 160px 190px max-content;
   align-items: center;
   gap: 18px;
 }
@@ -813,6 +851,21 @@ export default {
   min-width: 110px;
 }
 .settings-panel-filter :deep(.filter-action) {
+  margin: 0;
+}
+.settings-panel-filter :deep(.filter-mode-options) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.settings-panel-filter :deep(.filter-mode-options > div) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.settings-panel-filter :deep(.filter-mode-options input[type='radio']) {
+  flex: 0 0 16px;
   margin: 0;
 }
 
@@ -861,6 +914,9 @@ export default {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+.settings-panel :deep(.sort-radio-group > div + div) {
+  margin-top: 6px;
 }
 
 .directory-settings.floating {
@@ -974,7 +1030,7 @@ export default {
   }
   .settings-panel-filter :deep(.slot-container) {
     width: fit-content;
-    grid-template-columns: 130px 130px max-content;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
   }
   .settings-panel-filter :deep(.filter-field) {
@@ -988,6 +1044,13 @@ export default {
   .settings-panel-filter :deep(#filterInput) {
     width: 130px;
     max-width: 130px;
+  }
+  .settings-panel-filter :deep(.filter-mode) {
+    grid-column: 1 / -1;
+  }
+  .settings-panel-filter :deep(.filter-action) {
+    grid-column: 2;
+    justify-self: end;
   }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
@@ -1030,6 +1093,15 @@ export default {
   .settings-panel-filter :deep(.filter-action) {
     grid-column: 1 / -1;
     justify-self: end;
+  }
+  .settings-panel-filter :deep(.filter-mode) {
+    grid-column: 1 / -1;
+  }
+  .settings-panel-filter :deep(.filter-action) {
+    grid-column: 1 / -1;
+  }
+  .settings-panel-filter :deep(.filter-mode-options) {
+    flex-wrap: wrap;
   }
 }
 </style>

@@ -53,7 +53,7 @@ defineProps({
                         </div>
                     </div>
                 </div>
-                <ProfileArticleActions v-if="!preview" :title="info.name.main" />
+                <ProfileArticleActions v-if="!preview" :title="info.name.main" :entry-id="info.id" entry-type="micronations" />
             </div>
 
             <div class="directory-article-content">
@@ -159,8 +159,8 @@ export default {
             return cleanString;
         },
         googleMapsUrl() {
-            const latitude = this.info.location?._latitude;
-            const longitude = this.info.location?._longitude;
+            const latitude = this.info.location?.latitude;
+            const longitude = this.info.location?.longitude;
             const hasCoordinates = Number.isFinite(latitude) && Number.isFinite(longitude) &&
                 (latitude !== 0 || longitude !== 0);
             const query = hasCoordinates ? `${latitude},${longitude}` : this.info.name.main;

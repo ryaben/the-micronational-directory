@@ -3,6 +3,7 @@ import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import AnimateHeight from 'vue-animate-height';
 import store from '../store';
+import FavoriteToggle from './FavoriteToggle.vue';
 
 defineProps({
     width: {
@@ -62,6 +63,7 @@ const emit = defineEmits(['open-profile'])
     <div class="directory-entry-container"
         :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
         @click="toggleInfo">
+        <FavoriteToggle v-if="info.approved" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
 
@@ -206,6 +208,7 @@ export default {
 
 <style scoped>
 .directory-entry-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -31,6 +31,19 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const { randomBytes } = require('crypto');
+
+            const generateFirestoreStyleId = () => {
+              const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+              let id = '';
+              while (id.length < 20) {
+                for (const byte of randomBytes(32)) {
+                  if (byte < 248) id += alphabet[byte % 62];
+                  if (id.length === 20) break;
+                }
+              }
+              return id;
+            };
 
             const issueBody = context.payload.issue.body;
 
@@ -42,6 +55,8 @@ jobs:
             }
             const entryData = JSON.parse(jsonMatch[1]);
             entryData.approved = true; // Marcar como aprobado en el JSON
+            entryData.id = entryData.directoryId || generateFirestoreStyleId();
+            delete entryData.directoryId;
 
             // Detectar si es micronation u organization por etiquetas
             const labels = context.payload.issue.labels.map(l => l.name);
