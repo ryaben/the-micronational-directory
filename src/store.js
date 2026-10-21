@@ -52,7 +52,7 @@ const store = createStore({
                 data.forEach((item) => {
                     micronationsList.push({ pageDisplay: false, searchDisplay: true, filterDisplay: true, ...item });
 
-                    if (item.location && item.location._latitude !== 0 && item.location._longitude !== 0) {
+                    if (item.location && item.location.latitude !== 0 && item.location.longitude !== 0) {
                         physicalMicronationsList.push({ pageDisplay: false, searchDisplay: true, filterDisplay: true, ...item });
                     }
                 });

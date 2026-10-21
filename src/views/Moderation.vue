@@ -22,6 +22,18 @@ import {
   stableStringify
 } from '../utils/githubFunctions.js'
 
+async function firestoreStyleIdFromIssueNumber(issueNumber) {
+  const namespace = '6ba7b8109dad11d180b400c04fd430c8'
+  const namespaceBytes = new Uint8Array(namespace.match(/.{2}/g).map(byte => Number.parseInt(byte, 16)))
+  const issueBytes = new TextEncoder().encode(`tmd-entry:${issueNumber}`)
+  const input = new Uint8Array(namespaceBytes.length + issueBytes.length)
+  input.set(namespaceBytes)
+  input.set(issueBytes, namespaceBytes.length)
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-1', input))
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  return Array.from(digest, byte => alphabet[byte % 62]).join('')
+}
+
 defineProps({
   micronationsDirectory: {
     type: Array,
@@ -647,12 +659,21 @@ export default {
         // Prepare the entry data for the JSON file
         const entryForJson = { ...entry }
         delete entryForJson.id
+        entryForJson.id = entry.directoryId || await firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id)
+        delete entryForJson.directoryId
         delete entryForJson.issueNumber
         delete entryForJson.githubUrl
         delete entryForJson.issueBody
         delete entryForJson.entryType
         delete entryForJson.searchDisplay
         delete entryForJson.filterDisplay
+        if (isMicronation && entryForJson.location) {
+          const latitude = Number(entryForJson.location.latitude)
+          const longitude = Number(entryForJson.location.longitude)
+          if (Number.isFinite(latitude) && Number.isFinite(longitude)) {
+            entryForJson.location = { latitude, longitude }
+          }
+        }
         entryForJson.approved = true
 
         // Restore the original flag/logo path (not the data URL) for JSON file

@@ -14,6 +14,7 @@ import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
 import ModerationImageEditor from './ModerationImageEditor.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
+import { createFirestoreStyleId } from '../utils/firestoreStyleId.js'
 import imageCompression from 'browser-image-compression'
 import '@vuepic/vue-datepicker/dist/main.css'
 
@@ -766,8 +767,8 @@ export default {
       currentEmail: '',
       currentWebsite: '',
       locationPickerMarkerPosition: [
-        Number(location.longitude ?? location._longitude ?? 0),
-        Number(location.latitude ?? location._latitude ?? 0)
+        Number(location.longitude ?? 0),
+        Number(location.latitude ?? 0)
       ],
       renderedMapboxNewEntry: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
       physicalType: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
@@ -929,6 +930,7 @@ export default {
         try {
           // Prepare entry data
           const entryData = {
+            directoryId: createFirestoreStyleId(),
             name:
               this.entryType === 'micronation'
                 ? {

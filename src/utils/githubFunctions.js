@@ -1,6 +1,7 @@
 /**
  * GitHub API utility functions for creating issues with embedded Base64 media
  */
+import { createFirestoreStyleId } from './firestoreStyleId.js'
 
 /**
  * Converts entry data to the format expected in the JSON files
@@ -10,6 +11,7 @@
  */
 function formatEntryForJSON(entryData, entryType) {
   const formatted = {
+    directoryId: entryData.directoryId || createFirestoreStyleId(),
     name: entryData.name,
     motto: entryData.motto || '',
     languages: entryData.languages || [],
@@ -45,9 +47,11 @@ function formatEntryForJSON(entryData, entryType) {
     }
 
     if (entryData.location) {
+      const latitude = entryData.location.latitude
+      const longitude = entryData.location.longitude
       formatted.location = {
-        _latitude: entryData.location.latitude || 0,
-        _longitude: entryData.location.longitude || 0
+        latitude: Number(latitude ?? 0),
+        longitude: Number(longitude ?? 0)
       }
     }
   } else {

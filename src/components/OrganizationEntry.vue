@@ -2,6 +2,7 @@
 import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import AnimateHeight from 'vue-animate-height';
+import FavoriteToggle from './FavoriteToggle.vue';
 
 defineProps({
     width: {
@@ -30,6 +31,7 @@ const emit = defineEmits(['open-profile'])
 <template>
     <div class="directory-entry-container" :class="{ 'info-displayed': infoView }" :style="cssProps"
         @click="toggleInfo">
+        <FavoriteToggle v-if="info.approved" :entry-id="info.directoryId || info.id || ''" entry-type="organizations" />
         <img :src="info.logo" class="entry-logo" :style="{ height: logoHeight + 'px' }" alt="Logo">
 
         <div class="entry-info">
@@ -122,6 +124,7 @@ export default {
 
 <style scoped>
 .directory-entry-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

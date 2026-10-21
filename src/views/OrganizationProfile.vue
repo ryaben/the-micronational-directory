@@ -33,6 +33,7 @@ defineProps({
 
         <OrganizationArticle v-if="requestedOrganization.info !== undefined" id="entryPreview" class="info-displayed"
             :micronations-directory="micronationsDirectory" :info="{
+            id: requestedOrganization.info.id,
             name: {
                 main: requestedOrganization.info.name.main,
                 mainAlt: requestedOrganization.info.name.mainAlt

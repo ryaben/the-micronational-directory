@@ -1,9 +1,8 @@
 <script setup>
-import { db } from '../firebase/firestore.js';
-import { doc, updateDoc, arrayUnion, GeoPoint } from "firebase/firestore";
 import EntrySource from '../components/EntrySource.vue';
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import { notify } from "@kyvg/vue3-notification";
+import { fetchRepoFile, updateRepoFile } from '../utils/githubFunctions.js'
 
 defineProps({
     present: {
@@ -39,9 +38,9 @@ defineProps({
 
         <hr class="light-divider">
 
-        <p v-if="present && placemarkInfo.location._latitude === 0">An entry seems to exist on TMD but does not have any
+        <p v-if="present && placemarkInfo.location.latitude === 0">An entry seems to exist on TMD but does not have any
             location data:</p>
-        <p v-if="present && placemarkInfo.location._latitude !== 0">It seems that exists an entry on TMD that already
+        <p v-if="present && placemarkInfo.location.latitude !== 0">It seems that exists an entry on TMD that already
             contains location data:</p>
         <p v-if="!present">Seems that there is no entry for this micronation on TMD. But here is the location info!</p>
 
@@ -64,9 +63,11 @@ defineProps({
         creationDate: placemarkInfo.creationDate
     }" />
         <button v-if="present" class="login-button color-transition" style="width: auto; margin-top: 10px;"
+            :disabled="isSavingLocation"
             @click="saveLocation(placemarkInfo)">
-            <span v-if="placemarkInfo.location._latitude === 0">Save location on TMD</span>
-            <span v-if="placemarkInfo.location._latitude !== 0">Update location on TMD</span>
+            <span v-if="isSavingLocation">Saving location…</span>
+            <span v-else-if="placemarkInfo.location.latitude === 0">Save location on TMD</span>
+            <span v-else>Update location on TMD</span>
         </button>
     </div>
 </template>
@@ -79,21 +80,49 @@ export default {
     },
     data: () => {
         return {
-
+            isSavingLocation: false
         };
     },
     methods: {
         async saveLocation(micronation) {
-            const refId = doc(db, "micronations", micronation.id);
-            await updateDoc(refId, {
-                "location": new GeoPoint(micronation.micronationalMap.location.lat, micronation.micronationalMap.location.long),
-                "type": arrayUnion('Physical')
-            });
-            notify({
-                title: "Update successful",
-                text: `The location data was added to the entry ${micronation.name.main} on TMD.`,
-                type: "success"
-            });
+            this.isSavingLocation = true
+            try {
+                const jsonPath = 'public/micronations.json'
+                const { content, sha } = await fetchRepoFile(jsonPath)
+                const entry = content.find(item => item.id === micronation.id)
+                if (!entry) throw new Error('The micronation could not be found in the source JSON.')
+
+                const latitude = Number(micronation.micronationalMap.location.lat)
+                const longitude = Number(micronation.micronationalMap.location.long)
+                if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+                    throw new Error('The map location does not contain valid coordinates.')
+                }
+
+                entry.location = { latitude, longitude }
+                const types = Array.isArray(entry.type) ? entry.type : []
+                if (!types.includes('Physical')) types.push('Physical')
+                entry.type = types
+
+                await updateRepoFile(
+                    jsonPath,
+                    JSON.stringify(content, null, 2),
+                    sha,
+                    `Update map location: ${entry.name.main}`
+                )
+                notify({
+                    title: "Update successful",
+                    text: `The location data was added to the entry ${entry.name.main} in the source JSON.`,
+                    type: "success"
+                });
+            } catch (error) {
+                notify({
+                    title: "Could not update location",
+                    text: error.message || String(error),
+                    type: "error"
+                });
+            } finally {
+                this.isSavingLocation = false
+            }
         },
     }
 }
