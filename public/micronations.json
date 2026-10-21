@@ -53510,5 +53510,55 @@
     },
     "createdAt": "2026-10-21T15:26:41Z",
     "id": "L4oNb7bdj9gzlk3dbo7U"
+  },
+  {
+    "name": {
+      "main": "Beanwai",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "flag": "/images/flags/Beanwai.jpg",
+    "motto": "Semper simul, numquam soli (Always together, never alone)",
+    "type": [
+      "Physical"
+    ],
+    "languages": [
+      "English"
+    ],
+    "capital": "Fallen Timbers",
+    "currency": "Beanies",
+    "foundationDate": {
+      "seconds": 1644538380,
+      "_seconds": 1644538380
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "memberships": [],
+    "contactInfo": [
+      "beeandwai@gmail.com",
+      "beeandwai.com@outlook.com",
+      "https://www.facebook.com/people/Beanwai/61584215294132/",
+      "https://discord.gg/kT44YVFd/"
+    ],
+    "websites": [
+      "https://darkgoldenrod-mandrill-247001.hostingersite.com/",
+      "https://micronations.wiki/wiki/Draft:Beanwai",
+      "https://beeandwai.wixsite.com/beanwai"
+    ],
+    "author": {
+      "name": "Yvonne Chappell",
+      "email": "beeandwai@gmail.com"
+    },
+    "approved": true,
+    "creationDate": {
+      "_seconds": 1792157976
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-16T13:39:36Z",
+    "id": "O6AXr5lE3Ru9M5BH0Tax"
   }
 ]
