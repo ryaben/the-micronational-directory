@@ -53349,5 +53349,71 @@
     },
     "createdAt": "2026-10-21T14:05:01Z",
     "id": "7Hg1DFAfX90SprUyCWfw"
+  },
+  {
+    "name": {
+      "main": "San Donia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "San Donia",
+          "title": "Königreich"
+        },
+        {
+          "main": "San Donia",
+          "title": "Koninkrijk Van"
+        },
+        {
+          "main": "San Donia",
+          "title": "Reino De"
+        },
+        {
+          "main": "San Donia",
+          "title": "Kingdom of"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Freiheit für alle (Freedom for all)",
+    "languages": [
+      "English",
+      "German",
+      "Dutch",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://discord.com/invite/frk64JBezN",
+      "https://x.com/BauerAri19474"
+    ],
+    "websites": [
+      "https://sites.google.com/view/unitaryturisa/home?authuser=0&pli=1",
+      "https://micronations.wiki/wiki/Republic_of_San_Donia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/San Donia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Grenoble",
+    "currency": "Dones; de jure, United States dollar; de facto",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1604403180
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792593473
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-21T14:37:53Z",
+    "id": "oH4V4HiIJ5hrXaDGCsxU"
   }
 ]
