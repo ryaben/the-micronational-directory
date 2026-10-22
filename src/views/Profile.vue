@@ -156,7 +156,7 @@ function updatePagedEntries(entries) {
 
 async function loadUserIssueSubmissions() {
   try {
-    issueSubmissions.value = await fetchGitHubIssues(['new-entry', 'review-required'])
+    issueSubmissions.value = await fetchGitHubIssues(['new-entry', 'edit-entry', 'review-required'])
   } catch (error) {
     console.error('Unable to load the current user’s GitHub submissions:', error)
   }

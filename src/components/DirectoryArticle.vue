@@ -340,6 +340,7 @@ export default {
   font-size: 13px;
   font-weight: 650;
   cursor: pointer;
+  text-decoration: none;
   transition:
     background-color var(--transition-base) ease,
     border-color var(--transition-base) ease,

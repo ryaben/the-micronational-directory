@@ -28,6 +28,18 @@ const routes = [
     component: () => import("@/views/NewEntry.vue")
   },
   {
+    path: "/directory/edit/:entryId",
+    name: "EditMicronation",
+    component: () => import("@/views/EditEntry.vue"),
+    props: (route) => ({ entryId: route.params.entryId, entryType: "micronation" })
+  },
+  {
+    path: "/organizations/edit/:entryId",
+    name: "EditOrganization",
+    component: () => import("@/views/EditEntry.vue"),
+    props: (route) => ({ entryId: route.params.entryId, entryType: "organization" })
+  },
+  {
     path: "/moderation-panel",
     name: "ModerationPanel",
     redirect: { name: "ModerationHub" }

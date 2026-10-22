@@ -33,6 +33,8 @@ defineProps({
   },
   isModerationEditor: { type: Boolean, default: false },
   initialEntry: { type: Object, default: null },
+  directoryEdit: { type: Boolean, default: false },
+  editTargetId: { type: String, default: '' },
   initialImageMode: { type: String, default: 'url' },
   saving: { type: Boolean, default: false },
   imageProcessing: { type: Boolean, default: false },
@@ -680,14 +682,14 @@ const emit = defineEmits([
                   ref="flagURLInput"
                   @input="displayImage($event.target.value)"
                   placeholder="Input a direct link to an external image"
-                  required
+                  :required="!directoryEdit"
                 />
                 <input
                   v-if="flagRadio === 'file'"
                   type="file"
                   @input="previewImage"
                   accept="image/png"
-                  required
+                  :required="!directoryEdit"
                 />
                 <label for=""
                   >(if N/A or unobtainable:
@@ -720,8 +722,8 @@ const emit = defineEmits([
                       ? 'Saving corrections…'
                       : 'Save corrections'
                     : isSubmitting
-                    ? 'Submitting…'
-                    : 'Add new entry'
+                    ? directoryEdit ? 'Submitting edit…' : 'Submitting…'
+                    : directoryEdit ? 'Submit edit for approval' : 'Add new entry'
                 }}</span>
               </button>
             </div>
@@ -987,17 +989,19 @@ export default {
         })
       }
 
-      if (this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
+      if (this.directoryEdit || this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
         this.isSubmitting = true
         try {
           // Prepare entry data
           const entryData = {
-            id: createFirestoreStyleId(),
+            ...(this.directoryEdit ? JSON.parse(JSON.stringify(this.initialEntry || {})) : {}),
+            id: this.directoryEdit ? this.editTargetId : createFirestoreStyleId(),
             name:
               this.entryType === 'micronation'
                 ? {
                     main: this.formPlaceholders.newEntryName,
                     title: this.formPlaceholders.newEntryTitle,
+                    titleAlt: this.formPlaceholders.newEntryTitleAlt,
                     alt: [...(this.formPlaceholders.newEntryAltNames || [])]
                   }
                 : {
@@ -1018,12 +1022,12 @@ export default {
             entryData.currency = this.formPlaceholders.newEntryCurrency
             entryData.memberships = this.formPlaceholders.newEntryMemberships
 
-            if (this.physicalType) {
-              entryData.location = {
+            entryData.location = this.physicalType
+              ? {
                 latitude: this.locationPickerMarkerPosition[1],
                 longitude: this.locationPickerMarkerPosition[0]
               }
-            }
+              : null
 
             // Handle flag file
             const imageFile = await this.getImageFileForSubmission()
@@ -1039,7 +1043,7 @@ export default {
               const compressedFile = await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.flagFile = {
-                name: `${this.formPlaceholders.newEntryName}.png`,
+                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.png`,
                 data: base64Data
               }
             }
@@ -1058,7 +1062,7 @@ export default {
               const compressedFile = await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.logoFile = {
-                name: `${this.formPlaceholders.newEntryName}.png`,
+                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.png`,
                 data: base64Data
               }
             }
@@ -1100,7 +1104,7 @@ export default {
           }
 
           // Create GitHub issue
-          await createGitHubIssue(entryData, this.entryType)
+          await createGitHubIssue(entryData, this.entryType, this.directoryEdit ? { editTargetId: this.editTargetId } : {})
 
           this.emailNotice()
           this.successNotification()
@@ -1295,6 +1299,7 @@ export default {
       this.customMembership = ''
     },
     emailNotice() {
+      if (this.directoryEdit) return
       const that = this
       if (auth.currentUser && auth.currentUser.email !== 'themicronationaldirectory@gmail.com') {
         emailjs.send(
@@ -1326,8 +1331,10 @@ export default {
     },
     successNotification() {
       notify({
-        title: 'Submission successful',
-        text: 'The entry was successfully submitted! Now awaits approval from the admin (please allow up to 72 hours).',
+        title: this.directoryEdit ? 'Edit submitted' : 'Submission successful',
+        text: this.directoryEdit
+          ? 'Your proposed changes are awaiting moderator approval.'
+          : 'The entry was successfully submitted! Now awaits approval from the admin (please allow up to 72 hours).',
         type: 'success'
       })
     },

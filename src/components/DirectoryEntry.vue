@@ -39,6 +39,10 @@ defineProps({
         type: Boolean,
         default: false
     },
+    moderationLabel: {
+        type: String,
+        default: ''
+    },
     micronationsDirectory: {
         type: Array,
         required: false,
@@ -67,6 +71,7 @@ const emit = defineEmits(['open-profile'])
     <div class="directory-entry-container"
         :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
         @click="toggleInfo">
+        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" aria-label="Submission type">{{ moderationLabel }}</span>
         <FavoriteToggle v-if="info.approved" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
@@ -219,6 +224,30 @@ export default {
     margin: 0 3px 6px 3px;
     transition: transform var(--transition-base) ease, background-color var(--transition-base) ease, box-shadow var(--transition-base) ease;
     cursor: pointer;
+}
+
+.moderation-kind-chip {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.moderation-kind-chip.edit {
+  border-color: color-mix(in srgb, #a15ac4 35%, var(--color-border));
+  background: color-mix(in srgb, #a15ac4 10%, var(--color-surface));
+  color: color-mix(in srgb, #a15ac4 82%, var(--color-heading));
 }
 
 .directory-entry-container.info-displayed {
