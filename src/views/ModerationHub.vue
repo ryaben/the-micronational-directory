@@ -21,7 +21,7 @@ const props = defineProps({
 const route = useRoute();
 const router = useRouter();
 const sections = [
-  { text: 'User-made entries', target: 'submissions', display: true },
+  { text: 'User entries', target: 'submissions', display: true },
   { text: 'MediaWiki API reader', target: 'mediawiki', display: true },
   { text: 'Google My Maps processor', target: 'google-maps', display: true }
 ];

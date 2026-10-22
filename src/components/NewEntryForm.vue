@@ -1073,7 +1073,6 @@ export default {
           delete reviewEntry.author
           delete reviewEntry.flagFile
           delete reviewEntry.logoFile
-          let aiReviewWarning = ''
           try {
             const reviewResponse = await fetch('/api/ai-assistant', {
               method: 'POST',
@@ -1096,7 +1095,6 @@ export default {
             }
             entryData.aiReview = reviewPayload.review
           } catch (reviewError) {
-            aiReviewWarning = reviewError.message || 'Unknown AI review error.'
             console.warn(
               'AI preliminary review was unavailable; submitting without it.',
               reviewError
@@ -1109,13 +1107,6 @@ export default {
           this.emailNotice()
           this.successNotification()
           this.$emit('submission-success')
-          if (aiReviewWarning) {
-            notify({
-              title: 'AI preliminary review unavailable',
-              text: `Your entry was submitted, but the AI review could not be generated: ${aiReviewWarning}`,
-              type: 'warning'
-            })
-          }
         } catch (error) {
           console.error('Error submitting entry:', error)
           notify({
