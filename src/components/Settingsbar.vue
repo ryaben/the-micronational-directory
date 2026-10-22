@@ -278,7 +278,12 @@ defineProps({
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter :centered="true">
                   <div style="display: flex">
-                    <input id="fixedHeightCheckbox" type="checkbox" v-model="fixedHeight" />
+                    <input
+                      id="fixedHeightCheckbox"
+                      type="checkbox"
+                      v-model="fixedHeight"
+                      @change="updateFixedHeight"
+                    />
                     <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
                   </div>
                   <input
@@ -297,23 +302,25 @@ defineProps({
 
               <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" text="Flags">
                 <SettingsSubcontainerParameter :centered="true">
-                  <div style="display: flex">
-                    <input
-                      id="flagViewCheckbox"
-                      type="checkbox"
-                      v-model="flagView"
-                      @input="checkFlagView"
-                    />
-                    <label for="flagViewCheckbox" ref="fixedHeightLabel">Flag collage</label>
+                  <div class="flag-collage-controls">
+                    <div class="flag-collage-toggle">
+                      <input
+                        id="flagViewCheckbox"
+                        type="checkbox"
+                        v-model="flagView"
+                        @change="checkFlagView"
+                      />
+                      <label for="flagViewCheckbox">Flag collage</label>
+                    </div>
+                    <button
+                      id="generateCollage"
+                      class="login-button squared-button color-transition"
+                      :disabled="viewMode !== 'collage' || generatingCollage"
+                      @click="generateCollage"
+                    >
+                      {{ generatingCollage ? 'Generating…' : 'Generate' }}
+                    </button>
                   </div>
-                  <button
-                    id="generateCollage"
-                    class="login-button squared-button color-transition"
-                    :disabled="viewMode !== 'collage'"
-                    @click="generateCollage"
-                  >
-                    Generate
-                  </button>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
             </div>
@@ -343,11 +350,18 @@ defineProps({
 </template>
 
 <script>
+import { notify } from '@kyvg/vue3-notification'
 import { favorites } from '../composables/userFavorites.js'
 
 export default {
   name: 'Settings-Bar',
-  emits: ['updatedEntryWidth', 'viewModeChanged', 'loadedDirectory'],
+  emits: [
+    'updatedEntryWidth',
+    'updatedFixedHeight',
+    'updatedFixedHeightValue',
+    'viewModeChanged',
+    'loadedDirectory'
+  ],
   components: {
     SettingsSubcontainer,
     SettingsSubcontainerParameter,
@@ -359,6 +373,7 @@ export default {
       workingDirectory: [],
       activeSettingsTab: 'Pages',
       flagView: false,
+      generatingCollage: false,
       inputFilter: '',
       searchDebounce: null,
       initialFilter: 'none',
@@ -388,13 +403,24 @@ export default {
       immediate: true,
       handler(entries) {
         const query = this.normalizeString(this.inputFilter.toLowerCase())
-        this.workingDirectory = (entries || []).map(element => ({
+        this.workingDirectory = (entries || []).map((element) => ({
           ...element,
-          name: { ...element.name, mainAlt: element.name?.mainAlt || '', alt: element.name?.alt || [] },
-          searchDisplay: !query || [element.name.main, element.name.mainAlt, element.name.title, element.name.titleAlt,
-            ...(element.name.alt || []).flatMap(name => [name.main, name.title])]
-            .some(name => this.normalizeString((name || '').toLowerCase()).includes(query)),
-          filterDisplay: this.initialFilter === 'none' ||
+          name: {
+            ...element.name,
+            mainAlt: element.name?.mainAlt || '',
+            alt: element.name?.alt || []
+          },
+          searchDisplay:
+            !query ||
+            [
+              element.name.main,
+              element.name.mainAlt,
+              element.name.title,
+              element.name.titleAlt,
+              ...(element.name.alt || []).flatMap((name) => [name.main, name.title])
+            ].some((name) => this.normalizeString((name || '').toLowerCase()).includes(query)),
+          filterDisplay:
+            this.initialFilter === 'none' ||
             this.normalizeString(element.name.main.charAt(0)) === this.initialFilter
         }))
         if (this.directoryLoaded) {
@@ -436,12 +462,16 @@ export default {
           (this.showUnapproved || element.approved) &&
           element.searchDisplay &&
           element.filterDisplay &&
-          (this.favoritesFilter !== 'favorites' || favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
+          (this.favoritesFilter !== 'favorites' ||
+            favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
     },
     pagedElements() {
       const firstVisibleIndex = this.entriesPerPage * (this.currentPage - 1)
-      return this.visibleElements.slice(firstVisibleIndex, firstVisibleIndex + Number(this.entriesPerPage))
+      return this.visibleElements.slice(
+        firstVisibleIndex,
+        firstVisibleIndex + Number(this.entriesPerPage)
+      )
     },
     totalPages() {
       return Math.max(Math.ceil(this.visibleElements.length / this.entriesPerPage), 1)
@@ -502,7 +532,10 @@ export default {
             letters.push(that.normalizeString(element.name[propName].charAt(0)))
           }
         } else {
-          if ((that.showUnapproved || element.approved) && !letters.includes(that.normalizeString(element.name.charAt(0)))) {
+          if (
+            (that.showUnapproved || element.approved) &&
+            !letters.includes(that.normalizeString(element.name.charAt(0)))
+          ) {
             letters.push(that.normalizeString(element.name.charAt(0)))
           }
         }
@@ -520,9 +553,16 @@ export default {
       } else {
         this.workingDirectory.forEach(function (element) {
           const searchCurated = that.normalizeString(that.inputFilter.toLowerCase())
-          const names = [element.name.main, element.name.mainAlt, element.name.title, element.name.titleAlt,
-            ...(element.name.alt || []).flatMap(name => [name.main, name.title])]
-          const matches = names.some(name => that.normalizeString((name || '').toLowerCase()).includes(searchCurated))
+          const names = [
+            element.name.main,
+            element.name.mainAlt,
+            element.name.title,
+            element.name.titleAlt,
+            ...(element.name.alt || []).flatMap((name) => [name.main, name.title])
+          ]
+          const matches = names.some((name) =>
+            that.normalizeString((name || '').toLowerCase()).includes(searchCurated)
+          )
 
           if (!matches) {
             element.searchDisplay = false
@@ -531,7 +571,6 @@ export default {
           }
         })
       }
-
     },
     filterEntriesByLetter() {
       const that = this
@@ -549,14 +588,9 @@ export default {
           }
         })
       }
-
     },
     checkFlagView() {
-      if (this.flagView === true) {
-        this.$emit('viewModeChanged', 'micronations')
-      } else {
-        this.$emit('viewModeChanged', 'collage')
-      }
+      this.$emit('viewModeChanged', this.flagView ? 'collage' : 'micronations')
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -598,6 +632,10 @@ export default {
     },
     updateHeight() {
       this.$refs.fixedHeightLabel.innerHTML = this.fixedHeightValue + 'px'
+      this.$emit('updatedFixedHeightValue', Number(this.fixedHeightValue))
+    },
+    updateFixedHeight() {
+      this.$emit('updatedFixedHeight', this.fixedHeight)
     },
     finishedUpdatingHeight() {
       this.$refs.fixedHeightLabel.innerHTML = 'Fixed height'
@@ -606,16 +644,48 @@ export default {
       this.$emit('loadedDirectory', this.pagedElements)
     },
     async generateCollage() {
-      const [{ default: html2canvas }, { saveAs }] = await Promise.all([
-        import('html2canvas'),
-        import('file-saver')
-      ])
-      const canvas = await html2canvas(document.getElementById('micronationsList'), {
-        useCORS: true
-      })
-      canvas.toBlob(async function (blob) {
-        await saveAs(blob, 'flag-collage.png')
-      })
+      const collage = document.getElementById('micronationsList')
+      if (!collage || this.generatingCollage) return
+
+      this.generatingCollage = true
+      try {
+        const [{ default: html2canvas }, { saveAs }] = await Promise.all([
+          import('html2canvas'),
+          import('file-saver')
+        ])
+        await this.$nextTick()
+        await Promise.all(
+          Array.from(collage.querySelectorAll('img')).map(async (image) => {
+            if (image.complete) return
+            await new Promise((resolve) => {
+              image.addEventListener('load', resolve, { once: true })
+              image.addEventListener('error', resolve, { once: true })
+            })
+          })
+        )
+
+        const canvas = await html2canvas(collage, {
+          backgroundColor: getComputedStyle(collage).backgroundColor || '#ffffff',
+          scale: Math.max(2, window.devicePixelRatio || 1),
+          useCORS: true,
+          logging: false,
+          windowWidth: Math.max(document.documentElement.clientWidth, collage.scrollWidth),
+          windowHeight: Math.max(document.documentElement.clientHeight, collage.scrollHeight)
+        })
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
+        if (!blob) throw new Error('Could not create collage image')
+        saveAs(blob, 'flag-collage.png')
+        notify({ title: 'Flag collage generated', type: 'success' })
+      } catch (error) {
+        console.error('Could not generate flag collage:', error)
+        notify({
+          title: 'Could not generate flag collage',
+          text: 'Some flags may not allow export. Try again after the images have loaded.',
+          type: 'error'
+        })
+      } finally {
+        this.generatingCollage = false
+      }
     }
   },
   mounted() {
@@ -755,7 +825,7 @@ export default {
 }
 .settings-panel :deep(.setting-parameter-subcontainer > div) {
   align-items: center;
-  gap: 7px;
+  gap: 15px;
 }
 .settings-panel :deep(.setting-parameter-subcontainer input[type='radio']) {
   flex: 0 0 16px;
@@ -784,6 +854,29 @@ export default {
 }
 .settings-panel :deep(.settings-slider) {
   width: clamp(120px, 22vw, 240px);
+}
+.settings-panel :deep(.flag-collage-controls),
+.settings-panel :deep(.flag-collage-toggle) {
+  display: flex;
+  align-items: center;
+}
+.settings-panel :deep(.flag-collage-controls) {
+  gap: 12px;
+  flex-wrap: nowrap;
+  width: max-content;
+}
+.settings-panel :deep(.flag-collage-toggle) {
+  gap: 7px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.settings-panel :deep(#flagViewCheckbox) {
+  flex: 0 0 16px;
+  margin: 0;
+}
+.settings-panel :deep(#generateCollage) {
+  min-height: 36px;
+  white-space: nowrap;
 }
 .settings-panel :deep(.page-controls) {
   height: 38px;
@@ -863,6 +956,13 @@ export default {
 .settings-panel-filter :deep(.filter-mode-options input[type='radio']) {
   flex: 0 0 16px;
   margin: 0;
+}
+.settings-panel-flags :deep(.settings-subcontainer),
+.settings-panel-flags :deep(.slot-container) {
+  width: 100%;
+}
+.settings-panel-flags :deep(.slot-container) {
+  align-items: center;
 }
 
 .settings-panel-enter-active,

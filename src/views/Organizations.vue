@@ -15,12 +15,14 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
     <section class="site-section site-section--flush">
       <Settingsbar :view-mode="'organizations'" :store-getter="'organizations'"
         :elements-directory="organizationsDirectory" @loaded-directory="loadPagedOrganizations"
-        @updated-entry-width="updateOrganizationEntryWidth" />
+        @updated-entry-width="updateOrganizationEntryWidth" @updated-fixed-height="updateFixedHeight"
+        @updated-fixed-height-value="updateFixedHeightValue" />
       <div id="organizationsList" class="organizations-list" ref="organizationsList"
         :class="{ 'fixed-height': fixedHeight }">
         <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
           @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
           <OrganizationEntry v-for="(item, i) in pagedOrganizationsDirectory" :key="item.id || item.name.main" :width="organizationEntryWidth"
+            :fixed-height="fixedHeight" :fixed-height-value="fixedHeightValue"
             :logo-height="organizationEntryWidth * 0.6" :micronations-directory="micronationsDirectory" :info="{
         id: item.id,
         name: {
@@ -70,6 +72,12 @@ export default {
     updateOrganizationEntryWidth(payload) {
       this.organizationEntryWidth = payload;
     },
+    updateFixedHeight(payload) {
+      this.fixedHeight = payload;
+    },
+    updateFixedHeightValue(payload) {
+      this.fixedHeightValue = payload;
+    },
     loadPagedOrganizations(payload) {
       this.pagedOrganizationsDirectory = payload;
     }
@@ -84,6 +92,11 @@ export default {
   justify-content: left;
   flex-wrap: wrap;
   padding: 0 12px 9px 12px;
+}
+
+.organizations-list.fixed-height {
+  max-height: calc(v-bind('fixedHeightValue') * 1px);
+  overflow-y: auto;
 }
 
 </style>
