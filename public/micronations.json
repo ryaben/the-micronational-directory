@@ -54279,5 +54279,51 @@
     "createdAt": "2026-10-22T02:02:26Z",
     "isEdit": false,
     "id": "fAQ2x91x1rUDgo0oSCQh"
+  },
+  {
+    "name": {
+      "main": "Fergus",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Dulcius ex Asperis (Sweeter after Difficulties)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "bennieleeferg@hotmail.com"
+    ],
+    "websites": [
+      "https://kingdomoffergus.wordpress.com/",
+      "https://www.westarctica.wiki/index.php?title=Kingdom_of_Fergus"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Fergus.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1172444760
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792635271
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-22T02:14:31Z",
+    "isEdit": false,
+    "id": "qNuc0mrWgMd13QViYy9u"
   }
 ]
