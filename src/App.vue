@@ -9,11 +9,6 @@ import { auth } from './firebase/auth.js'
 import { initializeAnalytics } from './firebase/analytics.js'
 import { language, loadUserSettings, setLanguage, setTheme, theme } from './composables/userSettings.js'
 
-const routeThemeProps = (component) => {
-  const declaredProps = component?.props
-  const declaredNames = Array.isArray(declaredProps) ? declaredProps : Object.keys(declaredProps || {})
-  return declaredNames.includes('theme') ? { theme: theme.value } : {}
-}
 const applyTheme = (value) => (document.documentElement.dataset.theme = value)
 watch(theme, (value) => {
   localStorage.setItem('tmd-theme', value)
@@ -45,7 +40,7 @@ onMounted(() => {
         >
           <component
             :is="Component"
-            v-bind="routeThemeProps(Component)"
+            :theme="theme"
             @update:theme="setTheme"
           />
         </KeepAlive>
