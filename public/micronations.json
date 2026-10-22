@@ -54325,5 +54325,57 @@
     "createdAt": "2026-10-22T02:14:31Z",
     "isEdit": false,
     "id": "qNuc0mrWgMd13QViYy9u"
+  },
+  {
+    "name": {
+      "main": "Shiloh",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Shiloh Empire",
+          "title": ""
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/KingdomofShiloh"
+    ],
+    "websites": [
+      "https://shilohempire.com/",
+      "https://micronations.wiki/wiki/Kingdom_of_Shiloh",
+      "https://www.westarctica.wiki/index.php?title=Kingdom_of_Shiloh"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Shiloh.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1202947200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792636723
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-22T02:38:43Z",
+    "isEdit": false,
+    "id": "QiL3jicCiqkgz86DLOia"
   }
 ]
