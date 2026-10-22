@@ -13,11 +13,6 @@ defineProps({
     required: true,
     default: 'directory'
   },
-  viewMode: {
-    type: String,
-    required: true,
-    default: 'micronations'
-  },
   elementsDirectory: {
     type: Array,
     required: false,
@@ -307,7 +302,7 @@ defineProps({
                       <input
                         id="flagViewCheckbox"
                         type="checkbox"
-                        v-model="flagView"
+                        :checked="viewMode === 'collage'"
                         @change="checkFlagView"
                       />
                       <label for="flagViewCheckbox">Flag collage</label>
@@ -367,12 +362,12 @@ export default {
     SettingsSubcontainerParameter,
     SettingsSubcontainerTitle
   },
-  data: () => {
+  data() {
     return {
       directoryLoaded: false,
       workingDirectory: [],
       activeSettingsTab: 'Pages',
-      flagView: false,
+      viewMode: this.storeGetter,
       generatingCollage: false,
       inputFilter: '',
       searchDebounce: null,
@@ -590,7 +585,8 @@ export default {
       }
     },
     checkFlagView() {
-      this.$emit('viewModeChanged', this.flagView ? 'collage' : 'micronations')
+      this.viewMode = this.viewMode === 'collage' ? 'micronations' : 'collage'
+      this.$emit('viewModeChanged', this.viewMode)
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {

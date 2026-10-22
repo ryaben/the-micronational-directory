@@ -14,7 +14,7 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
   <div class="animation-error-avoider">
     <section class="site-section site-section--flush">
       <div class="directory-container">
-        <Settingsbar :view-mode="'micronations'" :store-getter="'micronations'"
+        <Settingsbar :store-getter="'micronations'"
           :elements-directory="micronationsDirectory" @loaded-directory="loadPagedMicronations"
           @view-mode-changed="updateViewMode" @updated-entry-width="updateEntryWidth"
           @updated-fixed-height="updateFixedHeight" @updated-fixed-height-value="updateFixedHeightValue" />

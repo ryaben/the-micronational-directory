@@ -13,7 +13,7 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
 <template>
   <div class="animation-error-avoider">
     <section class="site-section site-section--flush">
-      <Settingsbar :view-mode="'organizations'" :store-getter="'organizations'"
+      <Settingsbar :store-getter="'organizations'"
         :elements-directory="organizationsDirectory" @loaded-directory="loadPagedOrganizations"
         @updated-entry-width="updateOrganizationEntryWidth" @updated-fixed-height="updateFixedHeight"
         @updated-fixed-height-value="updateFixedHeightValue" />
@@ -80,6 +80,9 @@ export default {
     },
     loadPagedOrganizations(payload) {
       this.pagedOrganizationsDirectory = payload;
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
     }
   },
 }
