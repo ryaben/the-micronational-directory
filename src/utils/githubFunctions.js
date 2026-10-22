@@ -101,7 +101,7 @@ export function stableStringify(value) {
  * @param {string} entryType The type of entry ('micronation' or 'organization')
  * @returns {Promise<Object>} The response from GitHub API
  */
-export async function createGitHubIssue(entryData, entryType) {
+export async function createGitHubIssue(entryData, entryType, options = {}) {
   const token = import.meta.env.VITE_GITHUB_TOKEN
   const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
   const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
@@ -114,9 +114,12 @@ export async function createGitHubIssue(entryData, entryType) {
   const fileData = entryData.flagFile || entryData.logoFile
   const folder = entryType === 'micronation' ? 'flags' : 'logos'
   const formattedData = formatEntryForJSON(entryData, entryType)
+  if (options.editTargetId && entryData.creationDate) formattedData.creationDate = entryData.creationDate
   const mainName = entryData.name?.main || entryData.name || 'Unnamed'
 
-  const title = `New ${entryType} submission: ${mainName}`
+  const isEdit = !!options.editTargetId
+  const title = `${isEdit ? 'Edit' : 'New'} ${entryType} submission: ${mainName}`
+  if (isEdit) formattedData.editTargetId = options.editTargetId
 
   // Si la imagen viene en formato Data URI (data:image/png;base64,...), conservamos solo el hash base64
   let base64Content = ''
@@ -134,9 +137,9 @@ export async function createGitHubIssue(entryData, entryType) {
   }
 
   // Estructuramos el issue con marcadores claros para la GitHub Action
-  let body = `## New ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission
+  let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission
 
-A new ${entryType} submission is pending approval.
+${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`}
 
 ### Entry Data
 \`\`\`json
@@ -195,7 +198,7 @@ Add the label **\`approved\`** or close this issue with the **\`approved\`** lab
       body: JSON.stringify({
         title: title,
         body: body,
-        labels: [entryType, 'new-entry', 'review-required']
+        labels: [entryType, isEdit ? 'edit-entry' : 'new-entry', 'review-required']
       })
     })
 
@@ -384,6 +387,8 @@ export function convertIssueToEntry(issue) {
     createdAt: issue.created_at || null, // GitHub submission creation timestamp
     githubUrl: issue.html_url, // Link to the issue
     issueBody: issue.body, // Store the original issue body for image extraction
+    isEdit: !!issue.labels?.some((label) => label.name.toLowerCase() === 'edit-entry') || /^Edit (micronation|organization) submission/i.test(issue.title || ''),
+    editTargetId: entryData.editTargetId || null,
     approved: false, // Issues are always pending approval
     searchDisplay: true,
     filterDisplay: true,

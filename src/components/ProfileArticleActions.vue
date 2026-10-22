@@ -1,9 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebase/auth.js'
 import FavoriteToggle from './FavoriteToggle.vue'
 import ShareIcon from './icons/ShareIcon.vue'
 import CopyIcon from './icons/CopyIcon.vue'
 import CheckIcon from './icons/CheckIcon.vue'
+import EditIcon from './icons/EditIcon.vue'
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -11,6 +14,11 @@ const props = defineProps({
   entryType: { type: String, required: true }
 })
 const copied = ref(false)
+const loggedIn = ref(!!auth.currentUser)
+let unsubscribeAuth
+onMounted(() => { unsubscribeAuth = onAuthStateChanged(auth, user => { loggedIn.value = !!user }) })
+onUnmounted(() => unsubscribeAuth?.())
+const editRoute = `/${props.entryType === 'organizations' ? 'organizations' : 'directory'}/edit/${encodeURIComponent(props.entryId)}`
 
 async function copyProfileLink() {
   try {
@@ -50,6 +58,9 @@ async function shareProfile() {
 <template>
   <div class="profile-header-actions">
     <FavoriteToggle :entry-id="entryId" :entry-type="entryType" placement="profile" />
+    <router-link v-if="loggedIn && entryId" class="profile-header-action" :to="editRoute" aria-label="Suggest an edit" title="Suggest an edit">
+      <EditIcon aria-hidden="true" />
+    </router-link>
     <button class="profile-header-action share-profile-action" type="button" @click="shareProfile">
       <ShareIcon aria-hidden="true" />
     </button>

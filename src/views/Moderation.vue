@@ -116,6 +116,7 @@ defineProps({
               :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations"
               :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
               :info="{
                 id: item.id,
                 name: item.name,
@@ -144,6 +145,7 @@ defineProps({
               :flag-height="entryWidth * 0.6"
               :micronations-directory="micronationsDirectory"
               :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
               :info="{
                 id: item.id,
                 name: {
@@ -180,7 +182,7 @@ defineProps({
                 <div class="details-heading">
                   <div>
                     <span>Submission #{{ selectedProfileEntry.issueNumber }}</span>
-                    <h3>Full submission details</h3>
+                    <h3>{{ selectedProfileEntry.isEdit ? 'Proposed profile edits' : 'Full submission details' }}</h3>
                   </div>
                   <div class="details-heading-actions">
                     <a
@@ -230,10 +232,12 @@ defineProps({
         <div class="moderation-buttons">
           <header class="selection-header" :class="{ 'is-empty': !selectedEntry }">
             <div class="selection-header-topline">
-              <span class="selection-kicker">Submission review</span>
-              <span class="selection-status">{{
-                selectedEntry ? 'Pending' : 'Select an entry'
-              }}</span>
+              <div class="selection-label-group">
+                <span class="selection-kicker">Submission review</span>
+                <span v-if="selectedEntry" class="selection-kind" :class="selectedEntry.isEdit ? 'is-edit' : 'is-new'">
+                  {{ selectedEntry.isEdit ? 'Edit' : 'New' }}
+                </span>
+              </div>
             </div>
             <h3 class="selected-entry-name">{{ selectedEntryName }}</h3>
             <div class="selection-meta">
@@ -591,7 +595,7 @@ export default {
     async fetchPendingIssues() {
       this.loadingIssues = true
       try {
-        const issues = await fetchGitHubIssues(['new-entry', 'review-required'])
+        const issues = await fetchGitHubIssues(['new-entry', 'edit-entry', 'review-required'])
         this.githubIssues = issues
         this.forceRerender()
       } catch (error) {
@@ -704,6 +708,7 @@ export default {
           (await this.firestoreStyleIdFromIssueNumber(entry.issueNumber || entry.id))
         delete entryForJson.directoryEntryId
         delete entryForJson.directoryId
+        delete entryForJson.editTargetId
         delete entryForJson.issueNumber
         delete entryForJson.githubUrl
         delete entryForJson.issueBody
@@ -737,15 +742,27 @@ export default {
         const entrySignature = stableStringify(persistedEntry)
         // Keep approval retries idempotent: replace exact copies of this entry
         // instead of publishing another duplicate.
-        const updatedData = currentData.filter((item) => stableStringify(item) !== entrySignature)
-        updatedData.push(persistedEntry)
+        let updatedData
+        if (entry.isEdit) {
+          const targetId = entry.editTargetId || entry.directoryEntryId
+          const targetIndex = currentData.findIndex((item) => String(item.id) === String(targetId))
+          if (targetIndex < 0) throw new Error(`The directory entry ${targetId} no longer exists.`)
+          persistedEntry.id = currentData[targetIndex].id
+          persistedEntry.creationDate = currentData[targetIndex].creationDate || persistedEntry.creationDate
+          persistedEntry.author = currentData[targetIndex].author || persistedEntry.author
+          updatedData = [...currentData]
+          updatedData[targetIndex] = { ...currentData[targetIndex], ...persistedEntry }
+        } else {
+          updatedData = currentData.filter((item) => stableStringify(item) !== entrySignature)
+          updatedData.push(persistedEntry)
+        }
 
         // Update the JSON file
         await updateRepoFile(
           jsonFilePath,
           JSON.stringify(updatedData, null, 2),
           currentSha,
-          `Add approved ${entryTypeName}: ${entry.name.main}`
+          `${entry.isEdit ? 'Edit approved' : 'Add approved'} ${entryTypeName}: ${entry.name.main}`
         )
 
         // Upload image file if present
@@ -883,29 +900,36 @@ export default {
   margin-bottom: 10px;
 }
 
+.selection-label-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selection-kind {
+  padding: 3px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-heading);
+  background: var(--color-background-soft);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.selection-kind.is-edit {
+  border-color: color-mix(in srgb, #a15ac4 35%, var(--color-border));
+  color: color-mix(in srgb, #a15ac4 82%, var(--color-heading));
+  background: color-mix(in srgb, #a15ac4 9%, var(--color-surface));
+}
+
 .selection-kicker {
   color: var(--color-muted);
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-}
-
-.selection-status {
-  padding: 4px 9px;
-  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, var(--color-border));
-  border-radius: var(--radius-full);
-  color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 9%, var(--color-surface));
-  font-size: 11px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.selection-header.is-empty .selection-status {
-  color: var(--color-muted);
-  background: var(--color-background-soft);
-  border-color: var(--color-border);
 }
 
 .moderation-buttons .selected-entry-name {
