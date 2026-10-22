@@ -54103,5 +54103,94 @@
     "createdAt": "2026-10-22T01:09:49Z",
     "isEdit": false,
     "id": "7vp0kDfhEhsVdKYOE9P1"
+  },
+  {
+    "name": {
+      "main": "Nordale",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Cives! In nomine Rei Publicae, porro ite! (Citizens! In the name of the Republic, onwards!)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/Republic-of-Nordale-113468723852506/",
+      "republicofnordale2019@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Republic_of_Nordale",
+      "https://republicofnordale.weebly.com/",
+      "https://www.westarctica.wiki/index.php?title=Nordale"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Nordale.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Citrus Grove",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1559347200,
+      "_seconds": 1559347200
+    },
+    "creationDate": {
+      "_seconds": 1792633963
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "Submission meets all core requirements with valid name, age, sources, language, and coherent claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Republic of Nordale' is clear, properly formatted, and includes the main name and title as required."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2019-06-01 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Multiple relevant websites are provided, including a Micronations Wiki entry, an official Weebly site, and a Westarctica Wiki entry, meeting the source requirement."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as an official language, which is preferred and clearly defined."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The submission presents a coherent micronation profile with a motto, capital, and digital type, supported by the provided web sources indicating ongoing activity or documentation."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as currency, location, and memberships are empty or null, which is acceptable as they are not mandatory for approval."
+        }
+      ]
+    },
+    "createdAt": "2026-10-22T01:52:43Z",
+    "isEdit": false,
+    "id": "wcB934DgKWLL0npzEL5J"
   }
 ]
