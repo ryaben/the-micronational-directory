@@ -303,7 +303,7 @@ defineProps({
                     :disabled="generatingCollage"
                     @click="generateCollage"
                   >
-                    {{ generatingCollage ? 'Generating…' : 'Generate' }}
+                    {{ generatingCollage ? 'Generating…' : 'Generate\ncollage' }}
                   </button>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
@@ -869,10 +869,11 @@ export default {
 .settings-panel :deep(#generateCollage) {
   min-height: 36px;
   white-space: nowrap;
+  padding: 12px 18px;
 }
-.settings-panel :deep(.page-controls) {
+.settings-panel :deep(div.page-controls) {
   height: 38px;
-  gap: 7px;
+  gap: 5px;
 }
 .settings-panel :deep(.page-button) {
   flex: 0 0 34px;
@@ -1002,6 +1003,9 @@ export default {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+.settings-panel :deep(div.sort-radio-group > div) {
+  gap: 5px;
 }
 .settings-panel :deep(.sort-radio-group > div + div) {
   margin-top: 6px;
