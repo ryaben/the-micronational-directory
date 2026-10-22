@@ -1,41 +1,10 @@
 <script setup>
 import NewEntryForm from '../components/NewEntryForm.vue'
-import store from '../store'
+import { useDirectoryData } from '../composables/useDirectoryData.js'
 import '@vuepic/vue-datepicker/dist/main.css'
 
-defineProps({
-  theme: {
-    type: String,
-    default: 'dark'
-  },
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  supranationalMicronations: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations.filter((element) => element.supranational)
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  visibleOrganizations: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations.filter(
-      (element) => element.approved && element.searchDisplay && element.filterDisplay
-    )
-  },
-  user: {
-    type: Object,
-    required: true,
-    default: {}
-  }
-})
+const props = defineProps({ theme: { type: String, default: 'dark' } })
+const { micronationsDirectory, organizationsDirectory, visibleOrganizations, user } = useDirectoryData()
 </script>
 
 <template>
@@ -138,7 +107,7 @@ defineProps({
           :directory-data="newMicronationView ? micronationsDirectory : organizationsDirectory"
           :organizations-directory="organizationsDirectory"
           :visible-organizations="visibleOrganizations"
-          :theme="theme"
+          :theme="props.theme"
           :form-placeholders="formPlaceholder"
           @submission-success="resetEntryForm"
         />

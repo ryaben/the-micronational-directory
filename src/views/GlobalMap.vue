@@ -1,14 +1,8 @@
 <script setup>
 import LocationPicker from '../components/LocationPicker.vue';
-import store from '../store';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-  physicalMicronationsDirectory: {
-    type: Array,
-    required: true,
-    default: store.getters.physicalMicronations
-  }
-});
+const { physicalMicronationsDirectory } = useDirectoryData();
 </script>
 
 <template>

@@ -1,37 +1,10 @@
 <script setup>
 import DirectoryArticle from '../components/DirectoryArticle.vue';
 import store from '../store';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-    micronationName: {
-        id: String
-    },
-    micronationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations
-    },
-    micronationsApprovedDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations.filter(element => element.approved)
-    },
-    supranationalMicronations: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations.filter(element => element.supranational)
-    },
-    organizationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations
-    },
-    visibleOrganizations: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-    },
-});
+defineProps({ micronationName: String });
+const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations } = useDirectoryData();
 </script>
 
 <template>
@@ -80,20 +53,20 @@ export default {
         requestedMicronation() {
             const that = this;
             return {
-                info: this.micronationsApprovedDirectory.find(element => element.name.main === that.micronationName),
-                index: this.micronationsApprovedDirectory.findIndex(element => element.name.main === that.micronationName)
+                info: store.getters.micronations.filter(element => element.approved).find(element => element.name.main === that.micronationName),
+                index: store.getters.micronations.filter(element => element.approved).findIndex(element => element.name.main === that.micronationName)
             }
         },
         previousMicronation() {
             try {
-                return this.micronationsApprovedDirectory[this.requestedMicronation.index - 1].name.main;
+                return store.getters.micronations.filter(element => element.approved)[this.requestedMicronation.index - 1].name.main;
             } catch {
                 return false;
             }
         },
         nextMicronation() {
             try {
-                return this.micronationsApprovedDirectory[this.requestedMicronation.index + 1].name.main;
+                return store.getters.micronations.filter(element => element.approved)[this.requestedMicronation.index + 1].name.main;
             } catch {
                 return false;
             }

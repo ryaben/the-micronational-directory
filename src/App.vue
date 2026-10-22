@@ -9,6 +9,11 @@ import { auth } from './firebase/auth.js'
 import { initializeAnalytics } from './firebase/analytics.js'
 import { language, loadUserSettings, setLanguage, setTheme, theme } from './composables/userSettings.js'
 
+const routeThemeProps = (component) => {
+  const declaredProps = component?.props
+  const declaredNames = Array.isArray(declaredProps) ? declaredProps : Object.keys(declaredProps || {})
+  return declaredNames.includes('theme') ? { theme: theme.value } : {}
+}
 const applyTheme = (value) => (document.documentElement.dataset.theme = value)
 watch(theme, (value) => {
   localStorage.setItem('tmd-theme', value)
@@ -40,20 +45,8 @@ onMounted(() => {
         >
           <component
             :is="Component"
-            :theme="theme"
+            v-bind="routeThemeProps(Component)"
             @update:theme="setTheme"
-            :micronations-directory="micronationsDirectory"
-            :visible-micronations="visibleMicronations"
-            :supranational-micronations="supranationalMicronations"
-            :physical-micronations-directory="physicalMicronationsDirectory"
-            :micronations-approved-directory="micronationsApprovedDirectory"
-            :organizations-directory="organizationsDirectory"
-            :visible-organizations="visibleOrganizations"
-            :organizations-moderation-directory="organizationsModerationDirectory"
-            :organizations-approved-directory="organizationsApprovedDirectory"
-            :moderators-list="moderatorsList"
-            :user-is-moderator="userIsModerator"
-            :user="currentLoggedUser"
           />
         </KeepAlive>
       </Transition>
@@ -117,53 +110,15 @@ export default {
         )
       }))
     },
-    micronationsDirectory() {
-      return store.getters.micronations
-    },
-    visibleMicronations() {
-      return this.micronationsDirectory.filter(
-        (element) => element.approved && element.searchDisplay && element.filterDisplay
-      )
-    },
-    supranationalMicronations() {
-      return this.micronationsDirectory.filter((element) => element.supranational)
-    },
-    physicalMicronationsDirectory() {
-      return store.getters.physicalMicronations
-    },
-    organizationsDirectory() {
-      return store.getters.organizations
-    },
-    visibleOrganizations() {
-      return this.organizationsDirectory.filter(
-        (element) => element.approved && element.searchDisplay && element.filterDisplay
-      )
-    },
-    organizationsModerationDirectory() {
-      return this.organizationsDirectory.filter(
-        (element) => !element.approved && element.searchDisplay && element.filterDisplay
-      )
-    },
-    micronationsApprovedDirectory() {
-      return store.getters.micronations.filter((element) => element.approved)
-    },
-    organizationsApprovedDirectory() {
-      return store.getters.organizations.filter((element) => element.approved)
-    },
-    moderatorsList() {
-      return store.getters.moderators
-    },
     userIsModerator() {
-      return this.moderatorsList.includes(this.user.email)
-    },
-    currentLoggedUser() {
-      return this.user
+      return store.getters.moderators.includes(this.user.email)
     }
   },
   methods: {
     authListener() {
       onAuthStateChanged(auth, (user) => {
         this.user = user || { emailVerified: false }
+        store.commit('SET_USER', this.user)
         loadUserSettings(user)
       })
     }

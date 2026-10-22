@@ -6,6 +6,7 @@ const store = createStore({
         physicalMicronations: [],
         contests: [],
         organizations: [],
+        user: { emailVerified: false },
         moderators: [
             "themicronationaldirectory@gmail.com"
         ]
@@ -25,6 +26,9 @@ const store = createStore({
         },
         organizations(state) {
             return state.organizations;
+        },
+        user(state) {
+            return state.user;
         }
     },
     mutations: {
@@ -39,6 +43,9 @@ const store = createStore({
         },
         SET_ORGANIZATIONS(state, value) {
             state.organizations = value;
+        },
+        SET_USER(state, value) {
+            state.user = value || { emailVerified: false };
         }
     },
     actions: {

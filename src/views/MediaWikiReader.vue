@@ -5,48 +5,12 @@ import DirectoryEntry from '../components/DirectoryEntry.vue';
 import Sectionbar from '../components/Sectionbar.vue';
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import { Timestamp } from "firebase/firestore";
-import store from '../store';
 import { animateDirectoryCardEnter, animateDirectoryCardLeave, positionLeavingDirectoryCard } from '../utils/directoryCardTransitions.js';
 import axios from 'axios';
 import $ from 'jquery';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  supranationalMicronations: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations.filter(element => element.supranational)
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  visibleOrganizations: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-  },
-  moderatorsList: {
-    type: Array,
-    required: true,
-    default: store.getters.moderators
-  },
-  userIsModerator: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  user: {
-    type: Object,
-    required: true,
-    default: {}
-  }
-});
+const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations, user } = useDirectoryData();
 </script>
 
 <template>

@@ -1,27 +1,10 @@
 <script setup>
 import OrganizationArticle from '../components/OrganizationArticle.vue';
 import store from '../store';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-    organizationName: {
-        id: String
-    },
-    micronationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations
-    },
-    organizationsDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations
-    },
-    organizationsApprovedDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations.filter(element => element.approved)
-    }
-});
+defineProps({ organizationName: String });
+const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
 </script>
 
 <template>
@@ -71,20 +54,20 @@ export default {
         requestedOrganization() {
             const that = this;
             return {
-                info: this.organizationsApprovedDirectory.find(element => element.name.main === that.organizationName),
-                index: this.organizationsApprovedDirectory.findIndex(element => element.name.main === that.organizationName)
+                info: store.getters.organizations.filter(element => element.approved).find(element => element.name.main === that.organizationName),
+                index: store.getters.organizations.filter(element => element.approved).findIndex(element => element.name.main === that.organizationName)
             }
         },
         previousOrganization() {
             try {
-                return this.organizationsApprovedDirectory[this.requestedOrganization.index - 1].name.main;
+                return store.getters.organizations.filter(element => element.approved)[this.requestedOrganization.index - 1].name.main;
             } catch {
                 return false;
             }
         },
         nextOrganization() {
             try {
-                return this.organizationsApprovedDirectory[this.requestedOrganization.index + 1].name.main;
+                return store.getters.organizations.filter(element => element.approved)[this.requestedOrganization.index + 1].name.main;
             } catch {
                 return false;
             }

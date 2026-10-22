@@ -4,6 +4,7 @@ import OrganizationEntry from '../components/OrganizationEntry.vue'
 import NewEntryForm from '../components/NewEntryForm.vue'
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue'
 import store from '../store'
+import { useDirectoryData } from '../composables/useDirectoryData.js'
 import { notify } from '@kyvg/vue3-notification'
 import emailjs from 'emailjs-com'
 import {
@@ -23,45 +24,7 @@ import {
   stableStringify
 } from '../utils/githubFunctions.js'
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  supranationalMicronations: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations.filter((element) => element.supranational)
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  visibleOrganizations: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations.filter(
-      (element) => element.approved && element.searchDisplay && element.filterDisplay
-    )
-  },
-  moderatorsList: {
-    type: Array,
-    required: true,
-    default: store.getters.moderators
-  },
-  userIsModerator: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  user: {
-    type: Object,
-    required: true,
-    default: {}
-  }
-})
+const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations, userIsModerator } = useDirectoryData()
 </script>
 
 <template>
@@ -426,7 +389,7 @@ export default {
         return
       }
       if (
-        this.moderatorsList.some(
+        store.getters.moderators.some(
           (moderatorEmail) => moderatorEmail.toLowerCase() === authorEmail.toLowerCase()
         )
       ) {
