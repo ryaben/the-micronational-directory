@@ -11,6 +11,14 @@ defineProps({
         required: false,
         default: 180,
     },
+    fixedHeight: {
+        type: Boolean,
+        default: false
+    },
+    fixedHeightValue: {
+        type: Number,
+        default: 400
+    },
     info: {
         type: Object,
         required: true,
@@ -69,10 +77,10 @@ const emit = defineEmits(['open-profile'])
 
 <template>
     <div class="directory-entry-container"
-        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView }" :style="cssProps"
+        :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView, 'fixed-height': fixedHeight }" :style="cssProps"
         @click="toggleInfo">
         <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" aria-label="Submission type">{{ moderationLabel }}</span>
-        <FavoriteToggle v-if="info.approved" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
+        <FavoriteToggle v-if="info.approved && viewMode !== 'collage'" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
 
@@ -150,7 +158,8 @@ export default {
     computed: {
         cssProps() {
             return {
-                '--container-width': (this.width) + "px"
+                '--container-width': (this.width) + "px",
+                '--fixed-card-height': this.fixedHeightValue + 'px'
             }
         }
     },
@@ -204,6 +213,7 @@ export default {
         },
     }
 }
+
 </script>
 
 <style scoped>
@@ -224,6 +234,14 @@ export default {
     margin: 0 3px 6px 3px;
     transition: transform var(--transition-base) ease, background-color var(--transition-base) ease, box-shadow var(--transition-base) ease;
     cursor: pointer;
+}
+
+.directory-entry-container.fixed-height {
+    box-sizing: border-box;
+    height: var(--fixed-card-height);
+    min-height: var(--fixed-card-height);
+    max-height: var(--fixed-card-height);
+    overflow: auto;
 }
 
 .moderation-kind-chip {

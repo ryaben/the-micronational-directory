@@ -14,14 +14,16 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
   <div class="animation-error-avoider">
     <section class="site-section site-section--flush">
       <div class="directory-container">
-        <Settingsbar :view-mode="'micronations'" :store-getter="'micronations'"
+        <Settingsbar :store-getter="'micronations'"
           :elements-directory="micronationsDirectory" @loaded-directory="loadPagedMicronations"
-          @view-mode-changed="updateViewMode" @updated-entry-width="updateEntryWidth" />
+          @view-mode-changed="updateViewMode" @updated-entry-width="updateEntryWidth"
+          @updated-fixed-height="updateFixedHeight" @updated-fixed-height-value="updateFixedHeightValue" />
         <div id="micronationsList" class="micronations-list" ref="micronationsList"
-          :class="{ 'fixed-height': fixedHeight }">
+          :class="{ 'fixed-height': fixedHeight && viewMode !== 'collage' }">
           <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
             @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
             <DirectoryEntry v-for="(item, i) in pagedMicronationsDirectory" :key="item.id || item.name.main" :width="entryWidth"
+              :fixed-height="fixedHeight && viewMode !== 'collage'" :fixed-height-value="fixedHeightValue"
               :flag-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
               :supranational-micronations="supranationalMicronations" :info="{
@@ -90,6 +92,12 @@ export default {
     },
     updateEntryWidth(payload) {
       this.entryWidth = payload;
+    },
+    updateFixedHeight(payload) {
+      this.fixedHeight = payload;
+    },
+    updateFixedHeightValue(payload) {
+      this.fixedHeightValue = payload;
     },
     scrollToTop() {
       window.scrollTo(0, 0);
