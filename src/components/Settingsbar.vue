@@ -297,25 +297,14 @@ defineProps({
 
               <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" text="Flags">
                 <SettingsSubcontainerParameter :centered="true">
-                  <div class="flag-collage-controls">
-                    <div class="flag-collage-toggle">
-                      <input
-                        id="flagViewCheckbox"
-                        type="checkbox"
-                        :checked="viewMode === 'collage'"
-                        @change="checkFlagView"
-                      />
-                      <label for="flagViewCheckbox">Flag collage</label>
-                    </div>
-                    <button
-                      id="generateCollage"
-                      class="login-button squared-button color-transition"
-                      :disabled="viewMode !== 'collage' || generatingCollage"
-                      @click="generateCollage"
-                    >
-                      {{ generatingCollage ? 'Generating…' : 'Generate' }}
-                    </button>
-                  </div>
+                  <button
+                    id="generateCollage"
+                    class="login-button squared-button color-transition"
+                    :disabled="generatingCollage"
+                    @click="generateCollage"
+                  >
+                    {{ generatingCollage ? 'Generating…' : 'Generate\ncollage' }}
+                  </button>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
             </div>
@@ -584,10 +573,6 @@ export default {
         })
       }
     },
-    checkFlagView() {
-      this.viewMode = this.viewMode === 'collage' ? 'micronations' : 'collage'
-      this.$emit('viewModeChanged', this.viewMode)
-    },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
@@ -645,11 +630,17 @@ export default {
 
       this.generatingCollage = true
       try {
+        // Emitir evento para cambiar a modo bandera
+        this.$emit('viewModeChanged', 'collage')
+        await this.$nextTick()
+
         const [{ default: html2canvas }, { saveAs }] = await Promise.all([
           import('html2canvas'),
           import('file-saver')
         ])
         await this.$nextTick()
+
+        // Esperar a que las imágenes carguen
         await Promise.all(
           Array.from(collage.querySelectorAll('img')).map(async (image) => {
             if (image.complete) return
@@ -671,6 +662,9 @@ export default {
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
         if (!blob) throw new Error('Could not create collage image')
         saveAs(blob, 'flag-collage.png')
+
+        // Volver a la normalidad después de la descarga
+        this.$emit('viewModeChanged', 'micronations')
         notify({ title: 'Flag collage generated', type: 'success' })
       } catch (error) {
         console.error('Could not generate flag collage:', error)
@@ -679,6 +673,8 @@ export default {
           text: 'Some flags may not allow export. Try again after the images have loaded.',
           type: 'error'
         })
+        // Asegurar volver a la normalidad en caso de error
+        this.$emit('viewModeChanged', 'micronations')
       } finally {
         this.generatingCollage = false
       }
@@ -873,10 +869,11 @@ export default {
 .settings-panel :deep(#generateCollage) {
   min-height: 36px;
   white-space: nowrap;
+  padding: 12px 18px;
 }
-.settings-panel :deep(.page-controls) {
+.settings-panel :deep(div.page-controls) {
   height: 38px;
-  gap: 7px;
+  gap: 5px;
 }
 .settings-panel :deep(.page-button) {
   flex: 0 0 34px;
@@ -1006,6 +1003,9 @@ export default {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+.settings-panel :deep(div.sort-radio-group > div) {
+  gap: 5px;
 }
 .settings-panel :deep(.sort-radio-group > div + div) {
   margin-top: 6px;
