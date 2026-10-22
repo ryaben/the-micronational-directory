@@ -54325,5 +54325,159 @@
     "createdAt": "2026-10-22T02:14:31Z",
     "isEdit": false,
     "id": "qNuc0mrWgMd13QViYy9u"
+  },
+  {
+    "name": {
+      "main": "Shiloh",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Shiloh Empire",
+          "title": ""
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/KingdomofShiloh"
+    ],
+    "websites": [
+      "https://shilohempire.com/",
+      "https://micronations.wiki/wiki/Kingdom_of_Shiloh",
+      "https://www.westarctica.wiki/index.php?title=Kingdom_of_Shiloh"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Shiloh.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1202947200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792636723
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-22T02:38:43Z",
+    "isEdit": false,
+    "id": "QiL3jicCiqkgz86DLOia"
+  },
+  {
+    "name": {
+      "main": "Terra Excelsior Republic",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "República Terra Excelsior",
+          "title": "Federação Unida da"
+        },
+        {
+          "main": "Republik Terra Excelsior",
+          "title": "Vereinigte Föderation der"
+        }
+      ],
+      "title": "United Federation of the",
+      "titleAlt": ""
+    },
+    "motto": "Liberty, Comradery, Democracy",
+    "languages": [
+      "English",
+      "German",
+      "Portuguese"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/excelsior_gov/",
+      "chancellorofexcelsior@gmail.com",
+      "https://x.com/excelsiorgov",
+      "https://www.youtube.com/channel/UCr2WX9_jNuMfCBuHGk8EC4A"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/United_Federation_of_the_Terra_Excelsior_Republic",
+      "https://web.archive.org/web/20211229081002/https://excelsiorgov.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Terra Excelsior Republic.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Alis City",
+    "currency": "Excelsioran-Libertasian Mark",
+    "memberships": [
+      "Aequitas Pact"
+    ],
+    "foundationDate": {
+      "_seconds": 1598572800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792637558
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and language requirements but lacks a live official website and contains a spelling error in the motto.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'United Federation of the Terra Excelsior Republic' is clear, properly formatted, and includes the main name and title as required."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2020-08-28 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The submission provides a wiki link and an archived snapshot of the official site, but no live official website URL is provided. While archived snapshots are permitted for dead sites, the current status of the official site is not confirmed by a live link."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the official languages, which is preferred."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The motto contains a spelling error ('Comradery' instead of 'Comradery' or 'Comradeship'), and the location coordinates are 0,0 (null island), which is geographically infeasible for a physical micronation. These issues suggest a lack of precision or care in the submission details."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and memberships are provided. While the location coordinates are invalid, this is an optional field and does not mandate rejection, though it contributes to the uncertainty in factual claims."
+        }
+      ]
+    },
+    "createdAt": "2026-10-22T02:52:38Z",
+    "isEdit": false,
+    "id": "MMpl0meeNmTfvIyhVsyZ"
   }
 ]
