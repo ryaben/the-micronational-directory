@@ -4,26 +4,10 @@ import SettingsSubcontainer from '../components/SettingsSubcontainer.vue';
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue';
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
 import Settingsbar from '../components/Settingsbar.vue';
-import store from '../store';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 import { animateDirectoryCardEnter, animateDirectoryCardLeave, positionLeavingDirectoryCard } from '../utils/directoryCardTransitions.js';
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  visibleOrganizations: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-  }
-});
+const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
 </script>
 
 <template>
@@ -74,9 +58,6 @@ export default {
     }
   },
   computed: {
-    organizationsModerationDirectory() {
-      return this.organizationsDirectory.filter((element) => !element.approved && element.searchDisplay && element.filterDisplay);
-    },
   },
   components: {
     OrganizationEntry,

@@ -2,21 +2,13 @@
 import { computed, defineAsyncComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Sectionbar from '../components/Sectionbar.vue';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
 const Moderation = defineAsyncComponent(() => import('./Moderation.vue'));
 const MediaWikiReader = defineAsyncComponent(() => import('./MediaWikiReader.vue'));
 const MicronationalMapReader = defineAsyncComponent(() => import('./MicronationalMapReader.vue'));
 
-const props = defineProps({
-  micronationsDirectory: { type: Array, default: () => [] },
-  supranationalMicronations: { type: Array, default: () => [] },
-  organizationsDirectory: { type: Array, default: () => [] },
-  visibleOrganizations: { type: Array, default: () => [] },
-  organizationsModerationDirectory: { type: Array, default: () => [] },
-  moderatorsList: { type: Array, default: () => [] },
-  userIsModerator: { type: Boolean, default: false },
-  user: { type: Object, default: () => ({}) }
-});
+const { userIsModerator } = useDirectoryData();
 
 const route = useRoute();
 const router = useRouter();
@@ -38,28 +30,21 @@ function navigateToSection(target) {
 
 <template>
   <div class="moderation-hub">
-    <p v-if="!props.userIsModerator" class="moderation-access-denied">
+    <p v-if="!userIsModerator" class="moderation-access-denied">
       You don't have sufficient privileges to access moderation tools.
     </p>
     <Sectionbar v-else :sections="sections" :initial-selected-section="selectedSection"
       @section-change="navigateToSection">
       <template #submissions>
-        <Moderation :micronations-directory="props.micronationsDirectory"
-          :supranational-micronations="props.supranationalMicronations"
-          :organizations-directory="props.organizationsDirectory" :visible-organizations="props.visibleOrganizations"
-          :moderators-list="props.moderatorsList" :user-is-moderator="props.userIsModerator" :user="props.user" />
+        <Moderation />
       </template>
 
       <template #mediawiki>
-        <MediaWikiReader :micronations-directory="props.micronationsDirectory"
-          :supranational-micronations="props.supranationalMicronations"
-          :organizations-directory="props.organizationsDirectory" :visible-organizations="props.visibleOrganizations"
-          :moderators-list="props.moderatorsList" :user-is-moderator="props.userIsModerator" :user="props.user" />
+        <MediaWikiReader />
       </template>
 
       <template #google-maps>
-        <MicronationalMapReader :micronations-directory="props.micronationsDirectory"
-          :moderators-list="props.moderatorsList" :user-is-moderator="props.userIsModerator" :user="props.user" />
+        <MicronationalMapReader />
       </template>
     </Sectionbar>
   </div>

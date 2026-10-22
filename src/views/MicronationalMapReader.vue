@@ -1,33 +1,12 @@
 <script setup>
-import store from '../store';
 import PlacemarkEntry from '../components/PlacemarkEntry.vue';
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
 import { placemarksDirectory } from '../assets/googleMyMapsSources';
 import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  moderatorsList: {
-    type: Array,
-    required: true,
-    default: store.getters.moderators
-  },
-  userIsModerator: {
-    type: Boolean,
-    required: false,
-    default: false
-  },
-  user: {
-    type: Object,
-    required: true,
-    default: {}
-  },
-});
+const { micronationsDirectory, userIsModerator } = useDirectoryData();
 </script>
 
 <template>

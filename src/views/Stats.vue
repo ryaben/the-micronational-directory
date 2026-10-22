@@ -2,24 +2,9 @@
 import store from '../store';
 import EntriesRanking from '../components/EntriesRanking.vue';
 import ContestOverview from '../components/ContestOverview.vue';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-    micronationsApprovedDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.micronations.filter(element => element.approved)
-    },
-    organizationsApprovedDirectory: {
-        type: Array,
-        required: false,
-        default: store.getters.organizations.filter(element => element.approved)
-    },
-    user: {
-        type: Object,
-        required: true,
-        default: {}
-    },
-});
+const { micronationsApprovedDirectory, organizationsApprovedDirectory, user } = useDirectoryData();
 </script>
 
 <template>
@@ -120,13 +105,13 @@ export default {
             return store.getters.contests;
         },
         typeValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'type', 'descending');
+            return this.collectDirectoryValues(store.getters.micronations.filter(entry => entry.approved), 'type', 'descending');
         },
         languageValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'languages', 'descending');
+            return this.collectDirectoryValues(store.getters.micronations.filter(entry => entry.approved), 'languages', 'descending');
         },
         membershipValues() {
-            return this.collectDirectoryValues(this.micronationsApprovedDirectory, 'memberships', 'descending');
+            return this.collectDirectoryValues(store.getters.micronations.filter(entry => entry.approved), 'memberships', 'descending');
         },
         activeContest() {
             return this.findContest('BJdYq4eegJuYLwz3lfvd');

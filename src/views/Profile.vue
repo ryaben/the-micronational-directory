@@ -19,18 +19,14 @@ import OrganizationEntry from '../components/OrganizationEntry.vue'
 import Sectionbar from '../components/Sectionbar.vue'
 import Settingsbar from '../components/Settingsbar.vue'
 import PreferenceControls from '../components/PreferenceControls.vue'
-import store from '../store'
+import { useDirectoryData } from '../composables/useDirectoryData.js'
 import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js'
 import { language, setLanguage } from '../composables/userSettings.js'
 
-const props = defineProps({
+defineProps({
   theme: { type: String, default: 'dark' },
-  micronationsDirectory: { type: Array, default: () => store.getters.micronations },
-  organizationsDirectory: { type: Array, default: () => store.getters.organizations },
-  moderatorsList: { type: Array, default: () => store.getters.moderators },
-  userIsModerator: { type: Boolean, default: false },
-  user: { type: Object, default: () => ({}) }
 })
+const { micronationsDirectory, organizationsDirectory, moderatorsList, userIsModerator, user } = useDirectoryData()
 const emit = defineEmits(['update:theme'])
 
 const activeSection = ref('profile')
@@ -39,7 +35,7 @@ const profileSections = [
   { text: 'Update password', target: 'password', display: true },
   { text: 'Contributions', target: 'contributions', display: true }
 ]
-const currentUser = ref(auth.currentUser || props.user || {})
+const currentUser = ref(auth.currentUser || user.value || {})
 const pagedEntries = ref([])
 const issueSubmissions = ref([])
 const oldPassword = ref('')
@@ -56,9 +52,9 @@ const hasGoogleProvider = computed(
 )
 
 watch(
-  () => props.user,
-  (user) => {
-    if (user?.email) currentUser.value = user
+  user,
+  (currentUserValue) => {
+    if (currentUserValue?.email) currentUser.value = currentUserValue
   },
   { immediate: true }
 )
@@ -66,10 +62,10 @@ watch(
 const authoredEntries = computed(() => {
   const email = currentUser.value?.email?.toLowerCase()
   if (!email) return []
-  const micronations = props.micronationsDirectory
+  const micronations = micronationsDirectory.value
     .filter((entry) => entry.author?.email?.toLowerCase() === email)
     .map((entry) => ({ ...entry, entryType: 'micronation' }))
-  const organizations = props.organizationsDirectory
+  const organizations = organizationsDirectory.value
     .filter((entry) => entry.author?.email?.toLowerCase() === email)
     .map((entry) => ({ ...entry, entryType: 'organization' }))
   const issueEntries = issueSubmissions.value
@@ -82,10 +78,10 @@ const authoredEntries = computed(() => {
 })
 
 const approvedMicronations = computed(() =>
-  props.micronationsDirectory.filter((entry) => entry.approved)
+  micronationsDirectory.value.filter((entry) => entry.approved)
 )
 const approvedOrganizations = computed(() =>
-  props.organizationsDirectory.filter((entry) => entry.approved)
+  organizationsDirectory.value.filter((entry) => entry.approved)
 )
 const userContributions = computed(
   () =>
@@ -262,9 +258,9 @@ async function signOutCall() {
   router.push('/login')
 }
 
-onAuthStateChanged(auth, (user) => {
-  if (user) currentUser.value = user
-  else if (!props.user?.email && localStorage.getItem('firebase-auth-user') === null)
+onAuthStateChanged(auth, (authUser) => {
+  if (authUser) currentUser.value = authUser
+  else if (!user.value?.email && localStorage.getItem('firebase-auth-user') === null)
     router.push('/login')
 })
 

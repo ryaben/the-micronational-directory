@@ -1,39 +1,14 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue';
 import XPostCard from '../components/XPostCard.vue';
-import store from '../store';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({
-  micronationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations
-  },
-  micronationsApprovedDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations.filter(element => element.approved)
-  },
-  organizationsDirectory: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations
-  },
-  visibleOrganizations: {
-    type: Array,
-    required: false,
-    default: store.getters.organizations.filter(element => element.approved && element.searchDisplay && element.filterDisplay)
-  },
-  theme: {
-    type: String,
-    default: 'dark'
-  },
-  supranationalMicronations: {
-    type: Array,
-    required: false,
-    default: store.getters.micronations.filter(element => element.supranational)
-  }
+const props = defineProps({ theme: { type: String, default: 'dark' } });
+const { micronationsDirectory, micronationsApprovedDirectory, organizationsDirectory, visibleOrganizations, supranationalMicronations } = useDirectoryData();
+const randomEntry = computed(() => {
+  const entries = micronationsApprovedDirectory.value;
+  return entries.length ? entries[Math.floor(Math.random() * entries.length)] : undefined;
 });
 
 const postIds = [
@@ -65,7 +40,7 @@ onMounted(async () => {
   <section class="site-section">
     <div class="home-hero">
       <div class="hero-mark">
-        <img :src="theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'" alt="" width="48"
+        <img :src="props.theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'" alt="" width="48"
           height="47">
         <span>THE MICRONATIONAL DIRECTORY</span>
       </div>
@@ -164,18 +139,6 @@ onMounted(async () => {
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  computed: {
-    randomEntry() {
-      if (!this.micronationsApprovedDirectory.length) return undefined;
-      const randomInteger = Math.floor(Math.random() * this.micronationsApprovedDirectory.length);
-      return this.micronationsApprovedDirectory[randomInteger];
-    }
-  }
-}
-</script>
 
 <style scoped>
 .home-hero {
