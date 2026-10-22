@@ -195,15 +195,6 @@ defineProps({
                     </div>
                   </div>
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter class="filter-action">
-                  <button
-                    id="applyFilters"
-                    class="login-button squared-button color-transition"
-                    @click="applyFilters"
-                  >
-                    Apply
-                  </button>
-                </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
               <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" text="Sort">
@@ -369,9 +360,9 @@ export default {
       activeSettingsTab: 'Pages',
       flagView: false,
       inputFilter: '',
+      searchDebounce: null,
       initialFilter: 'none',
       favoritesFilter: 'all',
-      appliedFavoritesFilter: 'all',
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
@@ -383,6 +374,16 @@ export default {
     }
   },
   watch: {
+    inputFilter() {
+      clearTimeout(this.searchDebounce)
+      this.searchDebounce = setTimeout(() => this.applyFilters(), 300)
+    },
+    initialFilter() {
+      this.applyFilters()
+    },
+    favoritesFilter() {
+      this.applyFilters()
+    },
     elementsDirectory: {
       immediate: true,
       handler(entries) {
@@ -435,7 +436,7 @@ export default {
           (this.showUnapproved || element.approved) &&
           element.searchDisplay &&
           element.filterDisplay &&
-          (this.appliedFavoritesFilter !== 'favorites' || favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
+          (this.favoritesFilter !== 'favorites' || favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
     },
     pagedElements() {
@@ -531,7 +532,6 @@ export default {
         })
       }
 
-      this.setPage(1)
     },
     filterEntriesByLetter() {
       const that = this
@@ -550,7 +550,6 @@ export default {
         })
       }
 
-      this.setPage(1)
     },
     checkFlagView() {
       if (this.flagView === true) {
@@ -566,9 +565,9 @@ export default {
       }
     },
     applyFilters() {
-      this.appliedFavoritesFilter = this.favoritesFilter
       this.filterEntries()
       this.filterEntriesByLetter()
+      this.setPage(1)
     },
     normalizeString(string) {
       return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -624,6 +623,9 @@ export default {
     window.addEventListener('scroll', () => {
       that.scrollPosition = window.scrollY
     })
+  },
+  beforeUnmount() {
+    clearTimeout(this.searchDebounce)
   }
 }
 </script>
@@ -772,10 +774,6 @@ export default {
 .settings-panel :deep(.filter-field select) {
   width: 100%;
 }
-.settings-panel :deep(.filter-action) {
-  flex: 0 0 auto;
-  align-self: center;
-}
 .settings-panel :deep(.setting-parameter-subcontainer.border-left) {
   border: 0;
   padding: 0;
@@ -783,10 +781,6 @@ export default {
 .settings-panel :deep(#filterInput),
 .settings-panel :deep(#initialLetter) {
   width: 100%;
-}
-.settings-panel :deep(#applyFilters) {
-  height: 38px;
-  min-height: 38px;
 }
 .settings-panel :deep(.settings-slider) {
   width: clamp(120px, 22vw, 240px);
@@ -825,7 +819,7 @@ export default {
   display: grid;
   width: fit-content;
   max-width: 100%;
-  grid-template-columns: 160px 160px 190px max-content;
+  grid-template-columns: 160px 160px 190px;
   align-items: center;
   gap: 18px;
 }
@@ -854,9 +848,6 @@ export default {
 .settings-panel-filter :deep(#initialLetter) {
   width: 160px;
   min-width: 110px;
-}
-.settings-panel-filter :deep(.filter-action) {
-  margin: 0;
 }
 .settings-panel-filter :deep(.filter-mode-options) {
   display: flex;
@@ -985,10 +976,6 @@ export default {
   min-width: 0;
 }
 
-#applyFilters {
-  height: 42px;
-}
-
 .settings-slider {
   width: clamp(120px, 22vw, 240px);
 }
@@ -1053,10 +1040,6 @@ export default {
   .settings-panel-filter :deep(.filter-mode) {
     grid-column: 1 / -1;
   }
-  .settings-panel-filter :deep(.filter-action) {
-    grid-column: 2;
-    justify-self: end;
-  }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
   }
@@ -1095,14 +1078,7 @@ export default {
     max-width: 100%;
     min-width: 0;
   }
-  .settings-panel-filter :deep(.filter-action) {
-    grid-column: 1 / -1;
-    justify-self: end;
-  }
   .settings-panel-filter :deep(.filter-mode) {
-    grid-column: 1 / -1;
-  }
-  .settings-panel-filter :deep(.filter-action) {
     grid-column: 1 / -1;
   }
   .settings-panel-filter :deep(.filter-mode-options) {
