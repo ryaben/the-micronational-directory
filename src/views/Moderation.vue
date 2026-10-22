@@ -286,13 +286,18 @@ defineProps({
                   :key="`${check.criterion}-${index}`"
                   :class="`is-${check.status || 'uncertain'}`"
                 >
-                  <span class="ai-review-status" :class="`is-${check.status || 'uncertain'}`">
-                    {{ check.status || 'uncertain' }}
-                  </span>
-                  <span
-                    ><strong>{{ check.criterion }}</strong
-                    ><template v-if="check.reason">: {{ check.reason }}</template></span
-                  >
+                  <details class="ai-review-check">
+                    <summary>
+                      <span class="ai-review-indicator" :class="`is-${check.status || 'uncertain'}`" aria-hidden="true">
+                        {{ check.status === 'pass' ? '✓' : check.status === 'fail' ? '×' : '?' }}
+                      </span>
+                      <span class="ai-review-status" :class="`is-${check.status || 'uncertain'}`">
+                        {{ check.status || 'uncertain' }}
+                      </span>
+                      <strong>{{ check.criterion }}</strong>
+                    </summary>
+                    <p v-if="check.reason" class="ai-review-reason">{{ check.reason }}</p>
+                  </details>
                 </li>
               </ul>
               <p class="ai-review-triage">
@@ -1011,35 +1016,92 @@ export default {
 
 .ai-review-checks {
   display: grid;
-  gap: 8px;
+  gap: 4px;
   list-style: none;
   margin: 10px 0;
   padding: 0;
 }
 
 .ai-review-checks li {
-  position: relative;
-  padding-left: 22px;
+  min-width: 0;
 }
 
-.ai-review-checks li::before {
-  position: absolute;
-  left: 0;
-  font-weight: 750;
+.ai-review-check {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  transition:
+    border-color var(--transition-base) ease,
+    background-color var(--transition-base) ease;
 }
 
-.ai-review-checks li.is-pass::before {
-  content: "\2713";
+.ai-review-check[open] {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: var(--color-surface);
+}
+
+.ai-review-check summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 5px 10px;
+  color: var(--color-heading);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--transition-base) ease;
+}
+
+.ai-review-check summary::-webkit-details-marker {
+  display: none;
+}
+
+.ai-review-check summary:hover {
+  background: var(--navbar-tab-background-color-hover);
+}
+
+.ai-review-check summary::after {
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  content: '';
+  flex: 0 0 8px;
+  transform: rotate(-45deg);
+  transition: transform var(--transition-base) ease, border-color var(--transition-base) ease;
+}
+
+.ai-review-check[open] summary::after {
+  border-color: var(--color-accent);
+  transform: rotate(45deg);
+}
+
+.ai-review-check summary:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  outline-offset: 1px;
+}
+
+.ai-review-indicator {
+  display: inline-flex;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.ai-review-indicator.is-pass {
   color: var(--success-tone);
 }
 
-.ai-review-checks li.is-uncertain::before {
-  content: "?";
+.ai-review-indicator.is-uncertain {
   color: var(--color-muted);
 }
 
-.ai-review-checks li.is-fail::before {
-  content: "\2717";
+.ai-review-indicator.is-fail {
   color: var(--failure-tone);
 }
 
@@ -1067,6 +1129,13 @@ export default {
   background: color-mix(in srgb, var(--color-muted) 10%, var(--color-surface));
   padding: 1px 4px;
   border-radius: var(--radius-sm);
+}
+
+.ai-review-reason {
+  margin: 0;
+  padding: 2px 12px 11px 39px;
+  color: var(--color-text);
+  line-height: 1.55;
 }
 
 .ai-review-triage {
@@ -1214,10 +1283,31 @@ export default {
 
 #entryReject {
   background-color: var(--failure-tone);
+  border-color: var(--failure-tone);
+  color: #fff;
 }
 
 #entryApprove {
   background-color: var(--success-tone);
+  border-color: var(--success-tone);
+  color: #fff;
+}
+
+#entryReject:hover:not(:disabled),
+#entryApprove:hover:not(:disabled) {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+#entryReject:active:not(:disabled),
+#entryApprove:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+#entryReject:focus-visible,
+#entryApprove:focus-visible {
+  outline: 3px solid color-mix(in srgb, currentColor 45%, transparent);
+  outline-offset: 2px;
 }
 
 .loading-message {
