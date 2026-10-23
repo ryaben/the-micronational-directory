@@ -216,10 +216,7 @@ export default {
     font-size: 20px;
     font-weight: 700;
     margin: 0;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-heading) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
 }
 
 .article-text.article-alt-name {
@@ -325,6 +322,10 @@ export default {
     color: var(--color-muted);
     font-weight: 500;
     margin: 0;
+}
+
+.article-title .article-text.article-name {
+    color: var(--color-text);
 }
 
 .sources-container {

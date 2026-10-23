@@ -37,17 +37,19 @@ const navigate = (route) => {
         <MoreIcon />
       </button>
     </div>
-    <div v-if="expanded" class="mobile-nav-links">
-      <template v-for="item in buttons" :key="item.route">
-        <div class="mobile-nav-group">
-          <button class="mobile-nav-item" @click="navigate(item.route)">
-            <img :src="'/images/navbar-icons/' + (theme === 'light' ? item.icon.replace('.png', '-black.png') : item.icon)" alt="" />
-            <span>{{ item.text }}</span>
-          </button>
-          <button v-for="subitem in item.subButtons" :key="subitem.route" class="mobile-nav-subitem" @click="navigate(subitem.route)">{{ subitem.text.replace('\n', ' ') }}</button>
-        </div>
-      </template>
-    </div>
+    <Transition name="mobile-menu">
+      <div v-if="expanded" class="mobile-nav-links">
+        <template v-for="item in buttons" :key="item.route">
+          <div class="mobile-nav-group">
+            <button class="mobile-nav-item" @click="navigate(item.route)">
+              <img :src="'/images/navbar-icons/' + (theme === 'light' ? item.icon.replace('.png', '-black.png') : item.icon)" alt="" />
+              <span>{{ item.text }}</span>
+            </button>
+            <button v-for="subitem in item.subButtons" :key="subitem.route" class="mobile-nav-subitem" @click="navigate(subitem.route)">{{ subitem.text.replace('\n', ' ') }}</button>
+          </div>
+        </template>
+      </div>
+    </Transition>
   </nav>
   <nav class="navbar desktop-navbar" :class="{ 'directory-desktop-nav': mobileDirectory }">
     <div class="tabs-container">
@@ -156,6 +158,23 @@ export default {
     gap: 8px;
     padding: 10px 0 4px;
     border-top: 1px solid var(--color-border);
+  }
+  .mobile-menu-enter-active,
+  .mobile-menu-leave-active {
+    overflow: hidden;
+    transition: opacity 180ms ease, transform 180ms ease, max-height 220ms ease;
+  }
+  .mobile-menu-enter-from,
+  .mobile-menu-leave-to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  .mobile-menu-enter-to,
+  .mobile-menu-leave-from {
+    max-height: 70vh;
+    opacity: 1;
+    transform: translateY(0);
   }
   .mobile-nav-group { min-width: 0; }
   .mobile-nav-item, .mobile-nav-subitem {
