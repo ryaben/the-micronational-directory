@@ -54607,5 +54607,97 @@
     "createdAt": "2026-10-23T15:21:07Z",
     "isEdit": false,
     "id": "t2TVgkftNJp7SBO7f2h2"
+  },
+  {
+    "name": {
+      "main": "Birland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Birland Bring Us Together",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://x.com/birtawilgov",
+      "https://www.facebook.com/birtawil/",
+      "https://www.instagram.com/birland.birtawil",
+      "queeneden@birlandstate.org",
+      "+1 951-723-7665"
+    ],
+    "websites": [
+      "https://birlandgov.org/",
+      "https://birlandstate.org/",
+      "https://birland.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Birland-moderated-1792781226146.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Bartazuga",
+    "currency": "Birland Gold Pound",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1431702600,
+      "_seconds": 1431702600
+    },
+    "location": {
+      "latitude": 21.87132819879703,
+      "longitude": 33.748418078856275
+    },
+    "creationDate": {
+      "_seconds": 1792779294
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets name, age, language, and content criteria but lacks verifiable evidence of ongoing activity or valid sources to confirm factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Kingdom of Birland' is clear, properly formatted, and follows the micronation naming convention."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2015-05-15 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "While URLs are provided, there is no evidence within the submission that these links are live, official, or contain relevant information to support the entry's claims."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as a language, which satisfies the requirement for at least one official or de facto language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims to be a physical micronation with specific coordinates and currency, but provides no supporting evidence (news, diplomacy, or activity logs) to verify these claims or demonstrate ongoing activity."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are provided and do not conflict with guidelines; their presence is acceptable."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T18:14:54Z",
+    "isEdit": false,
+    "id": "QnNXF6p4jJZ1FsLmdDYG"
   }
 ]
