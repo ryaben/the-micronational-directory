@@ -9,6 +9,7 @@ import { animateDirectoryCardEnter, animateDirectoryCardLeave, positionLeavingDi
 import axios from 'axios';
 import $ from 'jquery';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
+import store from '../store.js';
 
 const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations, user } = useDirectoryData();
 </script>
@@ -337,11 +338,11 @@ export default {
       }
     },
     countMicronationsInBothSources(arrayComputed) {
-      const that = this;
       let micronationCounter = 0;
+      const directory = Array.isArray(store.getters.micronations) ? store.getters.micronations : [];
 
       arrayComputed.forEach(function (element) {
-        const check = that.micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt]
+        const check = directory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt]
           .some(name => name && element.name.includes(name)));
 
         if (check !== undefined) {
