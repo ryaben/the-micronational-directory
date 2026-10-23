@@ -22,10 +22,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <SiteHeader :theme="theme" />
-  <Navbar :buttons="navbarButtons" :theme="theme" />
+  <SiteHeader :theme="theme" class="site-header--mobile-nav" />
+  <Navbar :buttons="navbarButtons" :theme="theme" :mobile-directory="true" />
 
-  <main>
+  <main class="directory-mobile-main">
     <router-view v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
         <KeepAlive
@@ -127,6 +127,12 @@ export default {
 </script>
 
 <style>
+@media (max-width: 760px) {
+  #app:has(.directory-mobile-nav) { padding-top: 68px; }
+  main.directory-mobile-main,
+  footer.site-footer { margin-left: 0; }
+}
+
 nav {
   display: flex;
   justify-content: space-between;

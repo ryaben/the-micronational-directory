@@ -74,11 +74,9 @@ async function shareProfile() {
       type="button"
       @click="copyProfileLink"
       :aria-label="copied ? 'Link copied' : 'Copy profile link'"
-      :title="copied ? 'Link copied' : 'Copy profile link'"
     >
       <CopyIcon v-if="!copied" aria-hidden="true" />
       <CheckIcon v-else aria-hidden="true" />
-      <span class="copy-action-label">{{ copied ? 'Copied' : 'Copy link' }}</span>
     </button>
   </div>
 </template>

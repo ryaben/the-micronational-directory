@@ -203,10 +203,6 @@ export default {
     stroke-width: 1.8;
 }
 
-.copy-action-label {
-    display: none;
-}
-
 .profile-header-action:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
     outline-offset: 2px;
@@ -455,10 +451,6 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-    }
-
-    .copy-action-label {
-        display: inline;
     }
 
     .organization-logo-panel {

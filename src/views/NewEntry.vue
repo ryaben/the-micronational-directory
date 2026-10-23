@@ -188,7 +188,6 @@ export default {
 }
 
 .entry-availability-note {
-  display: flex;
   grid-column: 1 / -1;
   align-items: center;
   margin: 2px 0 0;

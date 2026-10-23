@@ -92,6 +92,13 @@
               created and regulated by themselves, and the publication of a ranking in that matter.
             </p>
           </div>
+          <div class="listing-entry">
+            <img class="museum-logo" src="/images/micronational-banknote-museum.png" alt="Micronational Banknote Museum logo" />
+            <p>
+              <a href="https://mnbanknotes.neocities.org/" target="_blank" rel="noopener noreferrer">Micronational Banknote Museum</a>,
+              an online museum and archive dedicated to micronational banknotes and the stories behind them.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -227,6 +234,12 @@ export default {
   max-width: 30%;
   object-fit: contain;
   margin-right: 0;
+}
+
+.listing-entry img.museum-logo {
+  padding: 4px;
+  border-radius: 6px;
+  background: #000;
 }
 
 .listing-entry p { min-width: 0; margin: 8px 0; }
