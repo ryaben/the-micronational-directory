@@ -54833,5 +54833,95 @@
     "createdAt": "2026-10-23T15:07:31Z",
     "isEdit": false,
     "id": "IdcaMnktC1QmCsjv9O4Y"
+  },
+  {
+    "name": {
+      "main": "Bearland",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Bearland Nation",
+          "title": ""
+        }
+      ],
+      "title": "Sovereign Nation of",
+      "titleAlt": ""
+    },
+    "motto": "A Litoribus Ad Cacumina Deus Nos Protegat (From The Shores To The Peaks May God Protect Us)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://bearlandmicronation.com/#contact"
+    ],
+    "websites": [
+      "https://bearlandmicronation.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Bearland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Bearland Bear",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1757203200
+    },
+    "location": {
+      "latitude": 81.07468,
+      "longitude": -86.81441
+    },
+    "creationDate": {
+      "_seconds": 1792781049
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronation status to confirm factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Sovereign Nation of Bearland' is clear, properly formatted, and includes a main name and title."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2025-09-07 is before the cutoff date 2026-09-23, satisfying the one-month existence requirement relative to the review date 2026-10-23."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "An official website URL (https://bearlandmicronation.com/) is provided."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the official language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the name and dates are coherent, the submission provides no specific evidence of news, diplomacy, or ongoing activity to support the claim of being an active micronation, making the truthfulness of its status uncertain based solely on the provided data."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as capital, currency, and location are provided or left empty without violating mandatory requirements; the presence of a currency and location does not conflict with guidance."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T18:44:09Z",
+    "isEdit": false,
+    "id": "uwCK5Y14VWuy6H3TPsS8"
   }
 ]
