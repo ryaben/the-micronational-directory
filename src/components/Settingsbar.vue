@@ -2,10 +2,22 @@
 import SettingsSubcontainer from '../components/SettingsSubcontainer.vue'
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue'
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue'
+import SettingsPagesIcon from './icons/SettingsPagesIcon.vue'
+import SettingsFilterIcon from './icons/SettingsFilterIcon.vue'
+import SettingsSortIcon from './icons/SettingsSortIcon.vue'
+import SettingsDisplayIcon from './icons/SettingsDisplayIcon.vue'
+import SettingsFlagsIcon from './icons/SettingsFlagsIcon.vue'
 import store from '../store'
 import { useUserFavorites } from '../composables/userFavorites.js'
 
 const { currentUser } = useUserFavorites()
+const tabIcons = {
+  Pages: SettingsPagesIcon,
+  Filter: SettingsFilterIcon,
+  Sort: SettingsSortIcon,
+  Display: SettingsDisplayIcon,
+  Flags: SettingsFlagsIcon
+}
 
 defineProps({
   storeGetter: {
@@ -64,9 +76,12 @@ defineProps({
             :id="`settings-tab-${tab.id}`"
             :aria-selected="activeSettingsTab === tab.id"
             :aria-controls="`settings-panel-${tab.id}`"
+            :aria-label="tab.label"
+            :title="tab.label"
             @click="activeSettingsTab = tab.id"
           >
-            {{ tab.label }}
+            <component :is="tabIcons[tab.id]" class="settings-tab-icon" />
+            <span class="settings-tab-label">{{ tab.label }}</span>
           </button>
         </div>
 
@@ -316,7 +331,7 @@ defineProps({
           class="matching-entries-container"
           aria-live="polite"
         >
-          <span>Matched<br />entries</span>
+          <span class="matching-entries-label">Matched entries</span>
           <strong>{{ visibleElements.length }}</strong>
         </div>
       </div>
@@ -593,16 +608,20 @@ export default {
       return first.localeCompare(second)
     },
     entryTimestamp(entry) {
+      // creationDate is the directory's original addition date. createdAt is
+      // the GitHub submission date and changes when an existing entry is edited.
+      const creationDate = entry.creationDate
+      if (creationDate?._seconds) return creationDate._seconds
+      if (creationDate?.seconds) return creationDate.seconds
+      const timestamp = new Date(creationDate || 0).getTime()
+      if (Number.isFinite(timestamp) && timestamp > 0) return timestamp / 1000
+
       if (entry.createdAt) {
         const addedAt = new Date(entry.createdAt).getTime()
         if (Number.isFinite(addedAt)) return addedAt / 1000
       }
 
-      const creationDate = entry.creationDate
-      if (creationDate?._seconds) return creationDate._seconds
-      if (creationDate?.seconds) return creationDate.seconds
-      const timestamp = new Date(creationDate || 0).getTime()
-      return Number.isFinite(timestamp) ? timestamp / 1000 : 0
+      return 0
     },
     updateZoom() {
       this.$refs.cardSizeLabel.innerHTML = this.entryWidth + 'px'
@@ -752,6 +771,10 @@ export default {
 }
 
 .settings-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   min-height: 36px;
   border: 1px solid var(--color-border);
   border-radius: 10px;
@@ -765,6 +788,12 @@ export default {
     background-color 0.18s ease,
     border-color 0.18s ease,
     transform 0.18s ease;
+}
+
+.settings-tab-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
 }
 
 .settings-tab:hover {
@@ -1087,26 +1116,83 @@ export default {
   }
   .settings-controls {
     width: 100%;
-    grid-template-columns: minmax(0, 1fr) 78px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
     column-gap: 8px;
   }
   .settings-controls.without-count {
     grid-template-columns: minmax(0, 1fr);
   }
   .settings-tabs {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    flex-wrap: nowrap;
+    gap: 4px;
   }
   .settings-tab {
-    padding: 6px 9px;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 6px 4px;
+  }
+  .settings-tab-label {
+    display: none;
+  }
+  .settings-tab-icon {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
   }
   .settings-panel-frame {
+    grid-column: 1;
+    grid-row: 2;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
     padding: 8px;
   }
-  .matching-entries-container {
-    min-height: 72px;
+  .settings-panel {
+    height: auto;
   }
+  .settings-panel :deep(.settings-subcontainer),
+  .settings-panel :deep(.slot-container) {
+    height: auto;
+  }
+  .settings-panel :deep(.slot-container) {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+  }
+  .settings-panel :deep(div.page-controls) {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .settings-panel-sort :deep(.slot-container) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .settings-panel-sort :deep(.setting-parameter-subcontainer) {
+    width: 100%;
+    margin: 0;
+  }
+  .settings-panel-pages :deep(.setting-parameter-subcontainer:first-child) {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .matching-entries-container {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    gap: 8px;
+    min-height: 48px;
+    margin-top: 8px;
+  }
+  .matching-entries-container br {
+    display: none;
+  }
+  .matching-entries-label { white-space: nowrap; }
   .settings-panel :deep(.slot-container) {
     align-items: stretch;
   }
@@ -1146,16 +1232,6 @@ export default {
 }
 
 @media (max-width: 400px) {
-  .settings-panel-frame {
-    height: 128px;
-    min-height: 128px;
-  }
-  .settings-controls {
-    grid-template-columns: minmax(0, 1fr) 68px;
-  }
-  .settings-tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .matching-entries-container {
     font-size: 11px;
   }

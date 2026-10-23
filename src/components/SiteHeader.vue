@@ -67,4 +67,8 @@ defineProps({
   letter-spacing: 0.015em;
   line-height: 1.1;
 }
+
+@media (max-width: 760px) {
+  .site-header--mobile-nav { display: none; }
+}
 </style>
