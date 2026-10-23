@@ -4,7 +4,7 @@ import store from '../store';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 
 defineProps({ micronationName: String });
-const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations } = useDirectoryData();
+const { micronationsDirectory, supranationalMicronations, visibleOrganizations } = useDirectoryData();
 </script>
 
 <template>
@@ -15,7 +15,6 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
         </div>
 
         <DirectoryArticle v-if="requestedMicronation.info !== undefined" id="entryPreview" class="info-displayed"
-            :micronations-directory="micronationsDirectory" :organizations-directory="organizationsDirectory"
             :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
             id: requestedMicronation.info.id,
             name: requestedMicronation.info.name,
