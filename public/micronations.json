@@ -54522,5 +54522,90 @@
     "createdAt": "2026-10-22T02:52:38Z",
     "isEdit": false,
     "id": "MMpl0meeNmTfvIyhVsyZ"
+  },
+  {
+    "name": {
+      "main": "Aeternia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "Home of Freedom, voice of the true!",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://x.com/AeternianEmpire",
+      "https://www.youtube.com/channel/UCDrNzww_0TJFZXt9bOrUqpA",
+      "https://www.instagram.com/aeternianempire/",
+      "aeternianempire@gmail.com"
+    ],
+    "websites": [
+      "https://aeternianempire.wixsite.com/imperialmarket/home",
+      "https://micronations.wiki/wiki/Empire_of_Aeternia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Aeternia.png",
+    "type": [
+      "Digital"
+    ],
+    "capital": "Aeternia",
+    "currency": "Imperial Note",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1471695480
+    },
+    "creationDate": {
+      "_seconds": 1792768867
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "The submission meets the name, age, source, and language requirements with no prohibited content detected.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Empire of Aeternia' is clearly formatted with a main name and title, suitable for a micronation entry."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2016-08-20 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Two relevant websites are provided: an official Wix site and a Micronations Wiki page, which serve as valid information sources."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the official language, which is preferred and clearly defined."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The claims are coherent, and the presence of a wiki page and social media links suggests ongoing activity consistent with a digital micronation."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are provided and do not conflict with guidance; missing optional fields like location are acceptable."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T15:21:07Z",
+    "isEdit": false,
+    "id": "t2TVgkftNJp7SBO7f2h2"
   }
 ]
