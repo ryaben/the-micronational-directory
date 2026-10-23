@@ -7888,7 +7888,2877 @@ export const placemarksDirectory = [
             "long": "-98.4346215"
         },
         "description": "2014 - 21 May 2015CurrentlyThe Imperial Federation of ZenraxLast Updated 5 Apr 2023"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Aeternia's Capital Territory: Vitae",
+        "location": {
+            "long": "-87.3661404",
+            "lat": "34.2998179",
+            "applicable": true
+        },
+        "description": "Leader: Emperor AP I                                                   Website: https://aeternianempire.wixsite.com/imperialmarket                                                              Youtube: https://www.youtube.com/channel/UCDrNzww_0TJFZXt9bOrUqpA                                     Contact: aeternianempire@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgSpziVFNhZAhtpq1mc1ZeXVf4FgfIQ61rSGDfqPAGtJYQe2NQSGQygn9lggYgmdG2H4DMjM1vv31ZFYYr-p_tA-cXAnjlPf0uV20dNNULvVZohOeDQdNsZrQUXU6AT81znv5qYQIhjXAt6FjBIZFJ9QYZFhwZ65ZNb_DNcV8KzSW_8g26JHAPKsc5OBowlAvDsVuN5GCQQFQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United State of Sabina",
+        "location": {
+            "long": "-97.6325",
+            "lat": "39.8245",
+            "applicable": true
+        },
+        "description": "Leaders:  Grant & Grongr                                            Website: https://sabina.glitch.me/",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZg7UOIC5CozLVE2KfRiuP-pl4a26ulvzhSYDSsMUQg2hCIwLW3JGLu00VZpgW9A47K-pcWn8rWsQuHpDxPPQ-I_4uCK_RKSfnMds6deV_NeWVIo700e_GqW68D-TqSLn4B6U5NP8kqN3RtMBrc9fW5jV0uigXCx6yX-MrK848RbjrNgeFWUoZ0TZIq1-XnFgmI9-hnq8tKaGA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Carthian Empire (Carthia)",
+        "location": {
+            "long": "-96.14",
+            "lat": "38.41",
+            "applicable": true
+        },
+        "description": "Leader: King Corvin I",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgTL3CwEB3bKdQViw9-35NSIt5Gh3fdpELl25GOccoezBlInxYGoosUqNGjdOq5kktc2jU0-n08TU6srtU6t1Z190w2jIkfw2T8AHKqepCtA_M1m9ITg0R0cIxN-pGOnaqaSXvj-TcrAYWn_DTIsR57pTxRuYL9VCei8EQACKVCRT4HlWtF74RoFi5tzGK02JhtNfC-grHt?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Ant",
+        "location": {
+            "long": "-98.014371",
+            "lat": "32.340209",
+            "applicable": true
+        },
+        "description": "Leader: Kason Watson",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjM-Am6fa82N-LAmUnWFS5oZ9uLwz_9ry53U4mJwRvB6slZmPG6aiYqhJ0HZqjDJsMzzC-YJdHYsKV6TfFndMz6BRBgGJfVPKQgkM5mIoOEUHsAdmsne_rbOQXSkyNsveEQ4nQpvY1iE-207GeVg7zm1NYxtKWIUTtwhvOyR-regyn9LZ4I2EsAs6hd0llSbRNSS0-asjGV9A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Wegmat",
+        "location": {
+            "long": "-87.8202778",
+            "lat": "41.8972222",
+            "applicable": true
+        },
+        "description": "Leader: Cole B.                                                              Website: https://micronations.wiki/wiki/Kingdom_of_Wegmat                                                                  ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj6UJD3fRb5J-8bfjXZnJSfBAqwAm6ECfaOZy8xFzaujmgs4K1wB2k8vfxkEZbop2pQOll8K8U5ZLErUHJ-I96UgvygKgMOMJrlk0DjnGNTbzXGqBAqtwCAxM1gfqXTcrUgimNS99tdJCRY-HPJAtvpKzxCukP7EhugOYAqTfLJwIYpFoQo6c4plf2exUM_ymIreAIPFLfs?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Illyrus",
+        "location": {
+            "long": "-94.669788",
+            "lat": "43.357705",
+            "applicable": true
+        },
+        "description": "Leader: Arbiter Xavier I",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZja62_O1wSWJdqClZsM14NqdwwMjqKICWG2lgsihw8UHcDBOskeNfDMJmYaO0ajoRLGeXjItl2chP21-uc6AXEzlPwz9ysblnV9u_TUrHzTO-7Hae1nr06j9oOebbEDqCdKyNBAD7-zGWITRCRDBxq0RRCzBoTJi3PMh6ZvHBE_DR_sdN23WHpv_ZGItPnZg_6HpAb6JUIlDA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Principality of Sealand",
+        "location": {
+            "long": "1.3395986",
+            "lat": "51.9043329",
+            "applicable": true
+        },
+        "description": "Leader: Micheal Bates",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhGKxn4cYREOMJnV-GK6uuOsHJ4hanO_Ne_I-NeqnNH6e8VmNhr3tT2hRhY0tMO4WWN4gtRsR4K1IwWr2a0y0CUXHcMmlA3-z-xWomBdFqiWExjptrbHOuazVr0ru-6hxLtdLMygWhCB4AvXF4foy2aoyQqwSITXtk3LhOnQKuTbnXSiaLnwoQI_4fIyUZGzn4X7iI8Ol2w-A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United Provinces of Natlin",
+        "location": {
+            "long": "-76.4588977",
+            "lat": "38.2408135",
+            "applicable": true
+        },
+        "description": "Leader: Jacob Dane Deceuninckvancapelle            Contact:  Natlingovernment@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhqUaupKYMe1SZPwXmgjqlGgUK_QEuKSSEMfbBoe2LGaLCIuP4U7QkjjQDolKAmkA0sCPl5IsHGnN2FYOvAwYI-lXJEt_HsD4fRSApZ-FDEaXJ1kEi-kSzygAyF6Wv-lC-h7d00vlGHdE6BU4MUIR1fRWIoTEW2XdtLeEb0gOp6cDKvDTecBJ9titFXPQJpztw_Qz6WWqKf?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Rodizia Empire",
+        "location": {
+            "long": "127.2485896",
+            "lat": "36.2745577",
+            "applicable": true
+        },
+        "description": "Leader:Emperor Luis Shanellio II",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjGFfn3u56Q-HQciagIu5hdxZWQow6sHFzgLLFeT_rCf8hTMbwmz9N_fQ0FEFuzMuQ4Ashw44ccbXuv225iiaWZAauIkypYb_Lx_CBP66Dbex7SRXU8NtUeAaFwOP0msMcMBHfPTey4vkWvNmK1FGaXqTjv3TNdABQbbEbP7FXrreUI2kuC_nXMvUaGk5pi5hPjuiOuTurR?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Craldonia",
+        "location": {
+            "long": "-0.32741980000003",
+            "lat": "53.7676236",
+            "applicable": true
+        },
+        "description": "Leader: Thomas Smith                                                Discord Channel: https://discord.gg/Q9VJyRQ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZg-PVqmVI2icNd0yu2nn7Z4KOZwiKS5mAQtvO7bvsn1xhpeO9021AjffDgKhzlDP8DrB3-eJ9v5z6GIFI2mo5wbvKB-hFxcjshkcl8kqNMxS7l_sliRRZw1fptlItFqY0yTPv89D9FG04YeyEAmMgkLz2fyOikJWbbndlrhgvXpf8RoXGu9MBqGwHin3vxO9yEV5QkjOleg0A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Gaia",
+        "location": {
+            "long": "-75.365635",
+            "lat": "39.972965",
+            "applicable": true
+        },
+        "description": "Leader: President Chloe Chloris",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiS1m5n5OEWNlZlhq7BY1fIzjPYraefQFNSoqGNA6p3o9UTd33i5wJUx-ONH8MxoK0NK9WClAFG6zToWMnVvP0mPcyPc61EaPObMn8rJNpuXcVSe7HXajkh9COFqzq4x1FRmseHm5iEMxlMEyfrS1EGaqlFnNU7nPz3dTsMvr20ky4552TE5JFL7XwZrc0h9a_iDsURJFiaRQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Kapreburg",
+        "location": {
+            "long": "-87.7158662",
+            "lat": "41.6299294",
+            "applicable": true
+        },
+        "description": "Leader: Tsar Jackson 1",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZij63apyX9drl3GmG24cg6S3KGlFbV2uAhASaSOfdgDprf_iI5FD_Rzv05sQW5gmqw3mwt0DWLEYd5tNwlZnB-3IKfz842-NLIlEnILlsvROJ6nOigalvPmzPaJSSlYehaZq1Azty_K3-a5kQlk2Y2v04kvo8v__0bWZwN7Uw4CTjaS-BJPoUW3L2XNZ0F1h-9mYGFv1rhb?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grey Kingdom",
+        "location": {
+            "long": "-66.0749259",
+            "lat": "45.3199808",
+            "applicable": true
+        },
+        "description": "Leader: King Ashton I                                                   Youtube:                  https://www.youtube.com/channel/UC5iHCKfulMW_mPaoBPKuV9Q?view_as=subscriber",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgQzmHfT9wQcrGJaeMTMStSO2wotD0Lis5nInHp3UD3TpNQlA2UpD5O_rqZAvcJyq_lmHIEMytk4SWcINKqFtpPF-unsm9V77SkkoxoLAf_18o_5gPyPm_ef_kZ5aX9KS11HXrgTQ-5CzaMWGhuF6kpJiF7kl2ufq4j34DkuXqdptFDQKAuHGDHfs2DwAhiRxybOzBqhxs1WA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Saugeen",
+        "location": {
+            "long": "-80.8185006",
+            "lat": "44.1763254",
+            "applicable": true
+        },
+        "description": "Leader: King Lucian                                                     ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj7vNlIx8LJJ7AZWqeGuRQRCKrGokhjhaJbL5VQoGaHZa4yknrLHBdosdPwGg5TnOU5QYiK_0Np8KbnX3Yzz8roGnJXIn097HdUFWbSeiYU56rFD8oL3a3SxDwy1gZ_OKfmL56XWJifr4FplDdHRn1Snr2IIYbda1vjIZecGeXwycCtUHc7UIugeosQzk9A4U5XueF0U-qxMw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Galicia-Trivensun",
+        "location": {
+            "long": "-7.863881",
+            "lat": "42.3357893",
+            "applicable": true
+        },
+        "description": "Leader: Prince Otto I",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgPcmodvmtnNynj8StvQqW8GVEKHJRN4w7GR42zL30kLTMxKop-1gYVP1GNyTeJ3S4efHtnC3iSHLTwXgfJyn2rOh3Raz90Lb-0sy5g_riCJKkSvq5JZXyfVQ7pSc_ezQ-mhi0pWGUrIFeIOKa_RdY1DvuFpV7zIoMK2RNcDSC-2FT-dRZ3Wl7VYsnMYIMowN2Z0GFLcCsvAQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Democratic Republic of Baliga",
+        "location": {
+            "long": "-1.4043509",
+            "lat": "50.9097004",
+            "applicable": true
+        },
+        "description": "Leader: President Benjamin of Baliga                 Email: peoplesrepublicofbaliga@gmail.com      Info: We were founded on the 2nd of February 2020. We used to be known as the Peoples Republic of Baliga. We have been carbon neutral since the 19th of November 2023. Our time zone is GMT and we do not do daylight savings. ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kussarian Empire",
+        "location": {
+            "long": "114.7000084",
+            "lat": "32.7000033",
+            "applicable": true
+        },
+        "description": "Leader: Empress Erinia Ayatomi Dracul Kussar",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjAnyCuXyC7Pu1HIkQibYY6eanFao8CHO2bLtHcc9OGPWQB-V24Lvm3bqq9jEuxfTu-Ljw_XXq6hiSWBhdlTevRq6mLOBk2Dqk-fRdsFM3cTMI1IfOq_edZOS_DxSbZu-BUQlDYirdRc5bfHLIS-SPfLG8V_HGZfY7_T8LRjY5sSerBHZDb7WKrAd9FkECkBaAoqJ-cvTPjIQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Tipidian Empire",
+        "location": {
+            "long": "-4.433177",
+            "lat": "55.865101",
+            "applicable": true
+        },
+        "description": "Leader: Kaiser Muchnieg I                                                                                                                                  Info: A new micronation still learning. Our main claim is small but hearts are bigger.                                                                                                                 Contact:  marceloabreu1099@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjbOwF1OwiJtj2-nUG37aCJphWkyBMrKZtceg88A3rw3EFumJ4LxVZNbAfVCGsUEQIP21l9EhEu3i62o4tkkNPne9Lv_Vnh-ujVVj2WTeKsBuuAF7vDNiAQuI-8L_gh8_zh1iRZblZ7u3JXgayOwkV4Dqqly5SqHWOAfr9xp0PbBx48DlB_0nh8d-SfcFWJ0GH1dxrH3Zn-jg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Waywood Territory",
+        "location": {
+            "long": "-1.778586",
+            "lat": "50.735777",
+            "applicable": true
+        },
+        "description": "Leader: Chief Raöul Halvar.                                Info: The Waywood Territory is a Micronation that strives for self sufficiency in an alternative way. Our territory is primarily woodland and our main export is eggs.                                               Contact Info: https://www.facebook.com/raoul.halvar",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi3E9heLJMN2KjH_v83M-SrV3KCMhSNYRA1PrN9wPdjjsBHWn2EmBBSpCzFa55e2ZAc-vnL1Kqrrw6RCxr1n7QlDDL3etE071LIxtSOc6KGJKaiIZ2HWq_AdPHYMZt9Tgy_nwg0qBCvJXRxWOkBEj15rDWFJsJzA34-tkzG62r32-ZuVg0Ubkz4zsWdIA37QvdVLTZTh55ARw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Johnny Land",
+        "location": {
+            "long": "-122.744173",
+            "lat": "47.369501",
+            "applicable": true
+        },
+        "description": "Leader: Roi(King) Johnny                                           Jonah: Goodman TerritoryMorgan: Southern TerritoryHudson: HudsonjikCooper: CoopaniaKeola: New Keola LandJohnny (also king aka me): Johnny Landin Johnny Land there is the Country of The Kingdom of Johnny Land and then the state where it all began (Johnny Land) where the capital Brithlaham is located                                     also I have a website for Johnny Land https://sites.google.com/view/kingdom-of-johnny-land-website/home?authuser=1                  email: johnyleefirstofjohnea@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhx8Qy_NFmgG12CBoI_RKNHuIH1uOtoDojBAFFsvEMNGC0UT3wfk7jk0dzQ92KTqA7tO1VQ98pPtL-H2rBOJdYnclX-JWiijtGw53glTW7dpsMof_s0Ga67lZQdEghplC2ZAND7m94FlsTKdXHZ99uqGbr3fa0zYW5aCHHD-EY1Fid394aWJxlBm3BZWybKjbiOUe576qQq6g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Aberland",
+        "location": {
+            "long": "-112.927134",
+            "lat": "49.749978",
+            "applicable": true
+        },
+        "description": "King's name: His Majesty, Connor ShawDescription: The Kingdom of Aberland is an ambitious Micronation located in Southern Alberta with hopes of one day possibly becoming a Macronation (pipe dreams, I know). The Kingdom of Aberland is the evolution of the now defunct Federation of Prairiland, now with more direction and foresight the Kingdom of Aberland shows great promise for the future.Coordinates: 49.749978, -112.927134Email: kingdomofaberland@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh2ueQ9eQoipyBp-EXApvv_6lOO2eEsLiqbZwfvftGdWx2CkFoFtJMNx3RPcyiuhHFBzJNlE8cikxjgNeqSKr3xDC-FI73XyEHJzO73Hj3ouw1pT2Unfji6VmtOFoWfX8ylw76HH0FV6oT3LhSmCRHGVvvCIGOn5oSGlR0JJ4bOim_5fpX41V_TCWFM_81AhU5-C3m7fuAK9A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Russia",
+        "location": {
+            "long": "-89.9957952",
+            "lat": "34.8239587",
+            "applicable": true
+        },
+        "description": "Leader Name: Ivan Romanov                                   Youtube Channel: https://youtu.be/CyF0mFVrJOM               Email Address: empireofRussiatsars@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZirw7PtJZErBD2U2JyNS_OvmBcjc8jeiUy6O_TwGKkrax0Q3kOA_GBl84CLhl3PAlHhU-8CxfldWfjFLi_Djiop6ixtLvo_NkkWYVKzMSFJgtNAQoOQJUABCRq_ydx-DkM7Gj93GdbR1xUVFaG65REahT4Lnv9tGhT4Ui1gWXHeXExOaP94Gv32qBztC5pw3IHzm90-0PHtcw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Tribe of Suli",
+        "location": {
+            "long": "-89.8295315",
+            "lat": "34.9617604",
+            "applicable": true
+        },
+        "description": "Leader: Chief Akecheta                                              Contact Info: thetribeofsuli@gmail.com   ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh46jL9cmxUzMCyVaipdAXrJrOKfSP3hl5PyZ0iALsKkGb_pjcQ5pyjrNqAUPQpOqA7rzTdbFfR0qzRKqcij4oT3iEgMPNL1JUPfJ3jPoLVl4flAdJaPqZFocU6aBZ1vE2mytR-HhQcz1oqISWrC2pgZrlWPzEn4-Jwfpl66Qj8Ofk9EPWrLRqf-g9iUOnnyk4lHq3xUY3Gmg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "In Progress",
+        "location": {
+            "long": "-86.32713318",
+            "lat": "39.84505384",
+            "applicable": true
+        },
+        "description": "",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZibzyBS-m0Zj39D9_HekyE-ou-XmUaRBHpSTujb6r13LmLLyWQLzNOInzx1pEHrGe_NndPaNWsXCSYk-JfunlvUItr0Gbhgu3wzX81u53ItxrHzvazuBpP6R9WrMBllg9-NG_DENfvotYYWf1xAKobPekCePWIfek-S3QopZ5bdoXHmIdWp_8qJc4sHNuHLneDyhk4fxkBA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Hadistan",
+        "location": {
+            "long": "68.357776",
+            "lat": "25.3959687",
+            "applicable": true
+        },
+        "description": "Leader: King AbdulRehman Ahmed                                                                                                                  Contact: a.rehman0364@gmail.com",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Holy Athérenon Empire",
+        "location": {
+            "long": "-2.4637136",
+            "lat": "36.834047",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Alejandro I                                       Website: https://imperiodivino.foroactivo.com/     Email:  siath.gob@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj6chLjDgRxLrRolm_0pOz7survxoizdUrLHHY9g1KcZ1gN2OxcszNls6qrxfrycg7mXJgCwIdn9VkCTSL4JhECGcp1j0MhTJKvczoU2QPEyG2CE6dS7iH5Un5r_1hj3t3k34UJqVAGdUx7Cuv10if12yVpV5Na67CN3DpgmmDwtRORmhEYedj0dtbWly8c0jgqOCmlul8qsg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The State of Argentoria",
+        "location": {
+            "long": "-82.5276",
+            "lat": "27.5217",
+            "applicable": true
+        },
+        "description": "Leaders: Prince Benson I & Head Judge Marshall Londono.                                                                                                                                                                                                                                                                  We are a Monarchy that possesses strong nationalism, and believe in rights for all as well as maintaining our identity.                                                                                                                                Contact:  argentorianleader@gmail.com                                                                                                                             ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj0-QItW3zJZVS8kFJfNgS8jhc9jihqP_o-Uiq8jjSoHGBHRO4IYgx1JY04eKSqzNVTU1LhceryYLHoJDn_Y9qyt0WcFtP_3zTI0jkgbCMJLTegb29wrS7P1igEbHSku8fLOycrd5gaeSmDPYUs37AIK9qYnO5sZFQ6rQJ64SQl6DGFlrXnYVZdMTRRdmJ69cSHQx0-2D56Hw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Khwarazmian Empire",
+        "location": {
+            "long": "-86.9535629",
+            "lat": "36.0796482",
+            "applicable": true
+        },
+        "description": "Leader: Sultan Khabibullokh                                                                                                                               Contact: Khabibullokhfilms@gmail.com         ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjBHHyjvbcqpZSSEt7YlPdZsw8Bvsodt84Wrx68hKi9qsGDX-duqQQzSvK2RvjXYHGPLpGeXvBnrzbz8R3A-Lp3Hu9NAMtXo2jV6QZiP4MSCI4lZtdINDkZgQAjSOotDLpjfh3Cgb9cLdo5LnrgcfKBI9c9F86R9vFhF6GoWsyMtrrIfXeKNUS10_KelWR7Bv55qaZg5xnvNA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Sæsceaðan Reice",
+        "location": {
+            "long": "-79.9310512",
+            "lat": "32.7764749",
+            "applicable": true
+        },
+        "description": "Leader: Captain Ray                                                    2nd In Command: Quartermaster Williams                                                                                      Contact Info: saxon_reach@hotmail.com                                                                                                       Description: Sæsceaðan Reice is a micronation with a strong seafaring heritage and is based upon the principles of liberty, equality, fraternity, direct democracy, and charity.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi_pd447h-rF2g-Cy4UddFue0zrvfBiZLbZS0SvNqM0E0cb_-XBvOvodteWhe3aOpILXLexsv5f49voT9y-bF5_tn9-c27Qvm3w48ESKgXWwQugsmRmieGsWveHmUtrDJR-Hd5w8HupCS-ApE5TrcjRBwv7jz2OO5z3jGUhtSrxphfIhaM8l0qWxAsJ4vAACIg_AOr2GseO?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Cherna",
+        "location": {
+            "long": "31.944242",
+            "lat": "52.736833",
+            "applicable": true
+        },
+        "description": "Leader: Keatin Monaghan                                         my contact info is cherna.business@gmail.com  we have a presidential democracy, our language is Russian.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgsPts0oBgKnWr1TcIO9rGwdGUvNrwwb6ZjwTpezim27IX4qDfX8ID0RZYd7F0IZmYJdPbY7-w7ajdCguWd6EcCknxyOr2x1figKYKsl0kzATAMRZDG0xSjmYeNUURo6e7j-a6zf9Ie9WzC55dL5roNhJyqDuLNrRq-dd0t6brdHvhgVf5QSrFRsBbs_73HQy65mJ-ryUW6?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Commonwealth of Dracul",
+        "location": {
+            "long": "-95.154434",
+            "lat": "29.582101",
+            "applicable": true
+        },
+        "description": "Leader: Drew Howie                                                                                                                                            Contact Info: (202) 350-1637services(at)draculgov.com                                         ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh9gc5-c_QZe1lAm3Rz2eW0f4i-37GawaQmvzmneoZP5zZQFSx3eZBvBNLos_WVQrf4J9VAqBRVAOAyyHwJRPS_aQTO6DDAsfmi7oqXJ0I7G3Qaymsf-dB31L_bPzrYecGYZDlNuW2CpTnTRDuQPIXQxKetkjN2jeakGQzFEvQIzDBS_hSmI7l37E7ekldxg0JnsGVsWJuXHQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of the Sheltered Coast",
+        "location": {
+            "long": "-71.0652873",
+            "lat": "42.3022319",
+            "applicable": true
+        },
+        "description": "Leader: President Blake Marshall                             Contact Info: Blake5944@gmail.com                      Discord: Blake of the Sheltered Coast #8297                                                                                               Description: Equal - opportunity micronation; American-Nordic culture",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiMfv14-jKcVIdCuiXATw71-tU23Pc3T2Th6FQJWXndSJvqz7y_qTCjj8398fHteINhMMXnrQ6005eGJllAjgy2eQ27bCkaKQ0KSczEmART640VGUEr-mGTwrMtbW_8MTjEnanlTnds4Fp6PCkpGYTlO75Hc1xThTK-AbFB3nX7ZAyDYqzyqyCvIdrW6m8mOpfG8HLfYAu8?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Milizmacht Reich",
+        "location": {
+            "long": "-89.7817777777778",
+            "lat": "34.7479166666667",
+            "applicable": true
+        },
+        "description": "Contact Info: Isaacezekiel733@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi8Ayq8kAoyElik-ZLcHnQghvg1gXhChA1aP5HYZMCW_5AaVm8ORvcW2Ql64aO2FXBwHQRvfuZJEjauLIZ4Y_hjplafG-LJGDk6ZLnZEzY_XEGU9Gte8XGlCGkMRyv435zCMvf1-z3MW6i3qJoCdfS6fiEiPM_L_M5DEE868hOPkpjWMPBVxsxfFBL-sUM2oiAvpwR8qCHR0g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "National Socialist Empire of New Prussia",
+        "location": {
+            "long": "-73.9712488",
+            "lat": "40.7830603",
+            "applicable": true
+        },
+        "description": "Leader: Chancellor DavidContact Info: Cindydarkprincess89@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi3tt2lL4tfptD2Fi6YrxlpYyuwwfAZPfhMG9QiLh8wxsx0LM15Yd-HIJhfWtz4EJ6SjQyNmRKAzJNK6OghyRKv3OCeUzeBP4qQIrILYhb9aULe1_liaTnAPvsFZD3XVDd5WrH4UC_r4lBhIvFB_2QnNA6I-zqFDiCIX9HOIHdoYqtD-LkjqLLfuMlw7z4-PEkDAl2fRkwrfw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Esnya",
+        "location": {
+            "long": "-0.1423811",
+            "lat": "38.5967059",
+            "applicable": true
+        },
+        "description": "Leader: President Michael Prieto Kivle                                      Contact Info: mikiv14@dnscb.no",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiXxX3owbM8VLnB2XV7anpXtEi6BfFiOvURProP0FG58zOXWfsSqN7c8q_Ihse0LJBua4Rnw4EccAQwWdwYK55MZHtxvP1ao0iWZbLCbG82W9A0zh5kgpnqgGBpdvlNNGatC3zHHaFxvv5Jr5UdbxAZOzuidcXDguzuGo6ln1WOdXPeEJGC_WaW3TOs_AGI_lVwwN3jmeWSoA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Pennsylvania Federation",
+        "location": {
+            "long": "-75.2479061",
+            "lat": "40.4107964",
+            "applicable": true
+        },
+        "description": "Leader: President RichRacc                                      Contact Info:  pennsylvaniafederation@gmail.com (Alt rowanx4@gmail.com),                            RichRacc#4134 On Discord.                                      Info: The flag is an homage to the Pennsylvania Naval flag. The nation is a successor state, as in it will maintain the status quo if something catastrophic happens or the government fails to respond to disaster (weather, chemical, etc).",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Luckistan",
+        "location": {
+            "long": "-80.7166952",
+            "lat": "35.2419718",
+            "applicable": true
+        },
+        "description": "Leader: Drew                                                                Contact Info:  drowdrew3@gmail.com                  Description: A Old Revolutionary Style Micronation That Wishes To Grow.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh4qdUi2PZD0c6iZopuRPRoPT8Pc1IpO1z81AuIUVWfzCxHTpwtcr9DFS9MLS7tD1D6UHGe8fZSoPeGXiBtGaSngzjLLjXNYdf8xO5Rs4fB-jgGtJxZcjjnqtxqc8p_49sr-GJnjywpMNtJ7bqa2QGkzm0ghzVXZrav7-n7d4mpkkjw0xk5ZvN-HSMlJhBRN9eecf-llZyFag?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "DPL Council Democracy of Truto",
+        "location": {
+            "long": "20.0326298",
+            "lat": "49.6423156",
+            "applicable": true
+        },
+        "description": "Leader: Jerzy Porymbo                                               Discord: DPL Council Democracy of Truto#0520                                                                   ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh1x31xMLldwPqhpJ1l-RIgUEaJU3Cq4Q-zoHGeYhXNrF4UxvSabUshigf_HzutjSecfxOk0taZqQSB9dNn-An85-6LQ5ksYWdOrX31pLDnMSWDB77G5pCK2y1AaWB0zdocPc8nDei982_U40vi4JbiIFNWKOHoZybR3KoLTGOM6mHbljVAnIY7p1eeIvVknIWCdUwVJmiF?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grand Principality of Begon",
+        "location": {
+            "long": "-79.462923",
+            "lat": "34.652276",
+            "applicable": true
+        },
+        "description": "Leaders Name: Grand Prince Christoph I (Christoph Billung)                                                       Email:         begonian.kaiserreich@Outlook.com                                                                                                        Info:                                                                              The Grand Principality of Begon is a self-declared semi-absolute monarchy that celebrates a vibrant combination of Scottish, German and Native American cultures.                 ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiC0jdEt9Idn09-mX_MoWH84Rl0vRyuHb8LRpzAf4OiC-or6sr57uo37AIw8bDV9w0gZVoPSUq2gSDMUVLWTbQyIh3t_Abgi1ccgc2zqBvKbfcp0LBzXNBN4zYXOi5AtNOh6jFl1hZvDwIyBbDyNs_rmP1mwwD1wQksJVCFwuM7QrVuk_Vjzr6Pbu-R613nFz4h-dMrsK39PQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Luxe",
+        "location": {
+            "long": "28.9752941",
+            "lat": "41.0128036",
+            "applicable": true
+        },
+        "description": "Leader: President Luca Mirante                                Email: Repubblicadiluxe@gmail.com                      Info: See our page on microwiki  ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgtFPOPCPH52GadcJs9WZDS_oPdmkR9R-DLpJbLkRcNP4_sOpgp0tDKOt5vIgSg30Qn4vnp0LN6-nER4KhaLT9eN_nB4Iym01gDkX5D64_Mu-ZC2siGWLyWlIkjzsnOVKoZkcJP053y1uB2S3T6QxSfgSlkqlYhdbIH8zmYL6uhPXdOeCRcgcuqjnFYrDlW5GgTZ6V7fYA_?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Sawdustistan",
+        "location": {
+            "long": "-82.49762",
+            "lat": "40.056429",
+            "applicable": true
+        },
+        "description": "Leader: Prime Minister Ethan Hendrickson            Email: sawdustistannationofficial@gmail.com                                                                                             Info: Founded in 2016 by a group of 4 friends. Originally created as an elaborate meme the country evolved into a fully modernized, semi-serious micronation with a permanent population of 56 (2021), a distinct culture, and a woodland capital serving as the rallying point for the community.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgMrJfH42c2QwZv6YRS9UpXEUorGfY3-A07knrMGVsfuz0BzlHSUdrAJZ-A4o3Ekb934BOQYNNXHyo8l6gBaxdJbiqLdHrcBJ6E5in0I32SoGecPDTP9p7rxVrqMZJKfENEEAlLM-QANzqCPZcxYGMfDZlsOeygKmeCeSrKOMkXyZEO1LxON7EefBmY36QtQayuyQt2yQxFFw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Empire of Fitticus",
+        "location": {
+            "long": "12.1089044",
+            "lat": "54.0704437",
+            "applicable": true
+        },
+        "description": "Leaders: His Imperial Majesty, Edward I and His Excellency, Adler Schneider and at last, Your Royal Highness Hans Vonburgen                                                                                                                   Email: giftfreedomrepublic@gmail.com                                                                                                       Info: We were founded on January 25, 2021 at the time my reign didn’t start due to building parliament my reign didn’t start until January 30th at the time we were finding a mature Prime Minister we found one his name was Joseph Maddox (Discord Username: r.i.p.) his term lasted for only one day, At the time we only had a population of 7 and we done a Voting poll of if we should impeach Maddox or not so then 3 people voting yes 0 or no. Then I had to pick a New Prime Minister we hired Adler Schneider (Kaiserreich of Muchristria) and we are soon doing a poll on which if we have a empire or not.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj3B5rzin7UK3CRoticbVP34aV2Xs3cZOfOuUesgy4Qz6uIjY3pIhqJ-5UaZltXTWgTI4wsfueDG7Lq1qR502kzG1Fr2XbLjE6OQILZuhECmNBRSsBYmtq8TmAqSMyeM0eZuoKGaLnl2Gpxm42woKu8Z9vkQVL3py7iaseBKVKsOQj4RBuS6cYVgloEONXnCsNCNK9LQhplWcI?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Heimatian Colonial Empire ",
+        "location": {
+            "long": "-98.0867",
+            "lat": "30.1902",
+            "applicable": true
+        },
+        "description": "Leader:  Supreme Chancellor Karl Frederick                                                                                                 Email: heimatianempire@gmail.com                                                                                                              Info: Founded on 25 October 2018 by Karl Frederick and Mark Terrace",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgh47RDaPBnjw-oJ7ElPtlp84gXqpdc5qT0OZHA3qGskvchPK8O-ESY-66wHokjTi4kbH4cBLxPqY3o9i_jCphv1hl1YrcJXJQjYjsPnbbPFIYArQByR5IrLDYChP8ZDwqWf8IXkejQn0xqXgy-Gk1c9k7rqv7R5d4ivLNUVF6aiKtmtkkCOYdmwjZFIkfLANhIOyvjkiPuVg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Valeria",
+        "location": {
+            "long": "-105.465889",
+            "lat": "50.567228",
+            "applicable": true
+        },
+        "description": "Leader: King Tye St. Dennis I of Royal House St. Dennis                                                                                                                                 Email: Valeria@diplomats.com king.tye@politician.com Valeria.gov@secretary.net rafvaleria@diplomats.com                                                                                                                                 Info: The Kingdom of Valeria was officially formed On February 14th, 2021, By King Tye I of Royal House St. Dennis. The Kingdom of Valeria is a micronation, landlocked by Canada. The Kingdom of Valeria is an Absolute Monarchy, using the Canadian Dollar (CAD)",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZin1XCGF8DpYxjlcFRitnoGDORbHTqaLi2985qUQ_OFowmZogk5G9_P9GcOzALjbIrK8MiU4vBjAO3qournL2upv5qO0J_7jO-DKsvpL2EBe25t_sdjZ2YZWeE3kRCiYLtCvb6OpWJ0o5tUXh1GjSY-oUO7kecmr07VgVKm0rd82SxLk_HFhTsFi2dBjiKDY_RL7x9c1yFi0A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federated States of Gapla",
+        "location": {
+            "long": "-117.791389465332",
+            "lat": "33.6713523864746",
+            "applicable": true
+        },
+        "description": "Leader: President Chelsea Chen                                                                                                                     Email: president@gaplagov.org                                                                                                                        Info: The Federated States of Gapla is a micronation founded on the 28th of February 2019 by Wyatt Seungri Baek.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhO2IWtNkRn3NXINHGmiWg96Xt9zlE9k9oU_VLuzyZy4IAIsjQzEfptis3bv9k-AXOciOcTmMDPaPsAwWefvbmkQHjmWpq0orwoCj_P1LXuSyKkxCBQftbzRyP_RIk1KbNrXH5R4nyIIQLzUWYV7nPr6FuvcIY3IjB277reU8TJn7QlnZlEJ0HwOOL_BSJLNdDcxfMvtArD?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Ambestan",
+        "location": {
+            "long": "23.6610482",
+            "lat": "56.5895689",
+            "applicable": true
+        },
+        "description": "Leader: Supreme Leader Kristiāns                                                                                                                   Email: glouriousambestan@gmail.com                                                                                                         Info: The Republic of Ambestan has been through many wars and was once occupied by Almendria",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhdAU6T5gBfL1ouVbMRXfe6KiV-yOGf7uY98zbfVPqTs0HfufIcW_O34D-QhTb-GzS8NnqmOYhboiNLnRPh-EKzQi8526HhAZmhIF2d5NYbENubFALQAvk0-EndVOu_ZfAzEa3AbgxLC4YOW0k9lT70tbeaGSv4UMNJPFUfmdG6OV5wYdtA88TYpqRP1iatvXkIfFljUmfx?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Salem",
+        "location": {
+            "long": "-80.0547626",
+            "lat": "37.2934681",
+            "applicable": true
+        },
+        "description": "Leader: King Kismet I                                                                                                                                         Email: Kingdomofsalem914@gmail.com                                                                                                     Info: Our king is a cat",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiaIB55WoSrgoGmsxrQPimoX5YAJfgIyrCG_YBT1OjUs9u-7W6sq6kGPpnUYe4O6ZkP6xMzFtlusk3mlYpLShlZCCCeaUzGDIYP77nETnCs6krPC_QKiJ1cda6kuH51Cxj7GzRTz-caiAZ8WF0PBaEoWjnE2zAglgqFCHAYQp6DTSLbPWJWKY-YODhmz6RHq9mFI5ccyP9C8w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Whitewind",
+        "location": {
+            "long": "-81.116009",
+            "lat": "40.8050295",
+            "applicable": true
+        },
+        "description": "Leader: King Tyler                                                                                                                                               Email: empireofwhitewind@gmail.com                                                                                                     Info: Founded Jan/18/21",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZghAeo5U5ClpM-tlSBC6jiqX9K9pgjRTNa4FO7cBCLbD0KA7pL0BKsfAoA_bpAwEWSljgqEUIvpo58LFjJ5_zfLbHbfHSDiB2QmO4Ks_StowD7lcImJ8j2fMgyvCezInvbw8YXCuhiY5R9P7ttX_h_wNAgu1u5hXTHqLGukR8Hn6jiws0bIGwpUFIB-3emV7QLwlddbeLpcag?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Military Dictatorship of Logostan",
+        "location": {
+            "long": "-78.0763937",
+            "lat": "40.2600787",
+            "applicable": true
+        },
+        "description": "Leader: Military dictator LJ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiC0JHUsftIGHyu6Lo7c3FY6PmlTJgc_xKi5SfNLoe0Wj3FVjbjQwcl1tIUcGD2h3z57apbwL5IISeiOPn1VT3t_8v3gvZBf4pu0skdVxIgwZgq2mwuCk8p1h0PNuE1rWvlSyfaXWX1029lMYKIFWoN8212YwkaErlroqD2OeoVCNX6ADXlz2tDdAQsbEGDt3hcoqw_NiyzLJA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Surdam",
+        "location": {
+            "long": "-110.7455",
+            "lat": "43.6198611111111",
+            "applicable": true
+        },
+        "description": "Leader: President Caldwell                                                                                                                               Email: cosmiccoding24@gmail.com                                                                                                             Info: We are researching in missile technology",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgf1wEqFHf2gJi9MC4VOQVYpIeHIx-1Hu8H3lfSGQ_zE4j54HDGV2Y5LmiZZEM0FcwCw5jslfkPXQe1zkWOmJRvF7kvBJilMe6iY-iv1d5zCQieK5RmhbnO5CBTCiwYYb9biXx6JWdGH5AkUabMCRK0_Xb1tDIMEa_kAhbYl_joSEWcXZ64bc0S2wMDNLtxBYh22mTy8lCE?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Southnor ",
+        "location": {
+            "long": "-104.546684",
+            "lat": "48.746237",
+            "applicable": true
+        },
+        "description": "Leader: President Kibbe                                             Email therepublicofsouthnor@gmail.com            Info: We are only a month old and a new nation",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhhYg2hqQnuzLWAeZu5hAkTu7HvdB-bJW5CFktzg8lbKgnHARBSfE7eU3-3S6yVjZrR8dGZbw_SQGtQbrV46rhiycP3Xo-QJzuCFRt1mAM6UrlDeR2egaAPiuCizy3XpvRpi4EZHCl-jngWjzJace-65BAVIZm8h9yjwaj7F5YvkRNI5AH71dN3EzN9A_0JpXOEnU9PXOETbg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Ambrosia Empire ",
+        "location": {
+            "long": "-118.4341312",
+            "lat": "34.2697924",
+            "applicable": true
+        },
+        "description": "Leader: Supreme leader chancellor Luke Mohr       Email Lem584lem@gmail.com                                Description: kingdom Empire of Archland was first called Empire Republic of Vidar in 2021 Apr,1 then on April 7 2021 it changed to Kingdom Empier of Archland in government is a dictatorship.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZidOKBEWDzY-iRM42cMzxSLsc8VOkqQhf52v6iBRcV7QSht0zid820XiqMYLzTrDfKEfHehIXCT1bgsIo_50pUt-O_Q36Wj_tuT93sU_ZMyPLvcPXRsZvlYlD2NMIXrCnOmMau9NGadS5A9YeA0zaQOYglQrX1htipbPajlVWPVMqz-vfo4VYmFL7VIQE2w4CnsGJdHqZY5Yw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Winter Empire",
+        "location": {
+            "long": "10.0667137",
+            "lat": "63.2477101",
+            "applicable": true
+        },
+        "description": "Leader:  Emperor Alexander tobias eriksen hansen 1st of the winter empire                                                                                                                      Contact:  alexander.tobias@outlook.com                                                                                                       Info: We are an absolute monarchy.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiggHkeC6Eo74xdiFyPyqaDNFk6NKsnVX8EaGiHVCgeoFib67FwYz6imHh3GdA7SgWuj3nVEya9CMA6bSgVx6-o2S_FXgGsQrfttLDKVeI_OgkV4prfO1kMfX-Aw1iwUGu5GGYCU5T4BHwrPw5p-73lo3Kx0WxUzG6nKvRrvuNRKEhzPkSCzUBR9dkPkbFFaXxZyz782yApkw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Vernonium",
+        "location": {
+            "long": "-90.8294002",
+            "lat": "43.5576968",
+            "applicable": true
+        },
+        "description": "Leader: King Noah I                                                                                                                                           Contact: ttvrevolution@gmail.com                                                                                                                  Info: Vernon declared Independence because we noticed that the United States' government had failed it's citizens.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjvDPQxirhNhPtiWO2foCrqCUcUCq4EuAwL1v_aKBRAW7BPf4d3Gql1WlrRBHgkWeI3peG14DDje8AeyfjNWV-gWti-TuxyzM7ZOl02jKKC4-EF3DB2PHWsYxbG5eGEMoqVNf-2kXDlUYtub4vJgSbJ7soQtKpkeluYnsq3vviqoNId4DLM9VtCypb5yfKtUViVJHMHtNWt?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Imperial Republic of Traverria",
+        "location": {
+            "long": "-122.624129",
+            "lat": "45.490872",
+            "applicable": true
+        },
+        "description": "Leader: HIE Emperor Andrew I and HIE Empress Aliya I                                                                                                                                                                     Contact: trevarriaofficial@gmail.com                                                                                                           Info: We are a small micronation with rich culture located in Oregon. We have a website at https://sites.google.com/view/theimperialrepublicoftraverria/homeOur YouTube Channel: https://www.youtube.com/channel/UCyqbj-ytfmYk4D6blzf2Shw",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjaB3zpdOD64KR5MqR6ODE9ilk6gu_lAkp14mkenPjLXZgj0Xk7Pg0S86R38B8aLn9o-j1ZCQbyxD04LMSbLrPlVO7neWhJKmKCEss-uN1wZ3MXUh1dcDEMnzx4JxUknU6WKZxL0OkmozSHO2QOK4mVCtSqwJdlD7WjLqZBBsshGpWzIyEamQnyviMnotM-ZO1WUUz1pPQi6g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Islamic Socialist Republic Of Recanesia",
+        "location": {
+            "long": "103.077216",
+            "lat": "3.083265",
+            "applicable": true
+        },
+        "description": "Leader: President Hamid                                                                                                                                   Email: muhammadamsyar1202@gmail.com                                                                                              Info: Rekaria was a country that became one of the factor of the new nation called recanesia, rekaria is a communist nation that did a coup in the first election for the second leader,ended up my election got sabotaged by the communist,and then i created a militia which is considered as a militant and a terrorist by rekaria. It's called \"Rekarian Anti-communist Army\" to overthrown the communist and became a republican nation,and then i had no choice but to leave rekaria and create a glorious socialist nation called Recanesia",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZg8m0wYwuwMG5V7NO0fC9xKAAJvx04rMMFV6OcagmmkWFZjnSW6b8E4mk8t39ca93y6IzqXH2PSAhjOrueonbgLE5ttbm4wFQcTBPAF6UUi49T9K4HNQHCGKW0ZCzUaPojlkjhuHtSqJlmFTX8piIgnOTgSnTYAXfR2PhhIGySyRAqDdB-GP3RzD3wIAR7eDGyTnxb3RTc3XQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Arkadelphia",
+        "location": {
+            "long": "-92.255356",
+            "lat": "34.81593",
+            "applicable": true
+        },
+        "description": "Leader: Prime Minister Joseph Hackley                                                                                                         Email:  republicofarkadelphia@gmail.com                                                                                                   Info: it is a nation that originally started as a flag redesign for the state of Arkansas then blossomed into a micro nation the official languages are English, Spanish, and Irish Gaelic.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgaeEPf2jseZ9B_aGDjNYgl-Et0GFlf1kKwERuk5wMqYrg5gRX4HaziBTWQ-GsW4_VhmghAD7uYSVfpZOekktLm4tqaoAGDXPLGm1xgklvwx7dIcJYpNsNappqIOS1st4-F4acTNWTtdZJZlbnrHjGnwBCkU5_kqPmhWEJ2IlVXpy3rEnFpZFAa5SkQKPUHLc8IK0LEZGAAXw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom Of Purcal",
+        "location": {
+            "long": "174.712031",
+            "lat": "-37.160688",
+            "applicable": true
+        },
+        "description": "Leaders: King Konnor The First Of The Kingdom Of Purcal, Prime minster Caleb                                                                                                                        Email: thekingdomofpurcal@gmail.com                                                                                                       Info: King: King Konnor The First Of The Kingdom Of PurcalPrime Minster: Caleb (2021)We are a constitutional monarchy so we have a monarch and a Prime Minster which is voted for. We have our own currency map flag and national anthem!Website: https://sites.google.com/view/the-kingdom-of-purcal/home?authuser=0The age is really unknown but when we became a realist micronation is on September the 6 2020!!!!!! ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Snagovian Federation",
+        "location": {
+            "long": "26.167799",
+            "lat": "44.728169",
+            "applicable": true
+        },
+        "description": "Leader: President Ștefan Marius Snagoveanu      Email: FederatiaSnagoveana@gmail.com                                                                                                     Description: Snagov is a micronation in a Romania which aims to promote and recover the forgotten history of the Snagovian people, protect the environment of the Snagov region, and unite the local unrecognized ancient Snagovian people towards liberty and glory. Remembering the struggle of our slavic ancestors in defending our homeland, and idolizing the glory of Vlad Țepeș.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Eritonian Empire/Eritonia",
+        "location": {
+            "long": "-41.5089708",
+            "lat": "-17.8608479",
+            "applicable": true
+        },
+        "description": "Leader: Empress Laura of Eritonia                          Email: theeritonianempire@gmail.com                  Description: Eritonia is a micronation located in southeast Brazil. Officially founded in august 8th 2021, Eritonia started as a conlang project in 2017, then the Empress thought it would be a nice idea to create a country for that language. One day she remembered that when she was a kid this country called Sealand was on the news, and she started to search more info about it, later finding out it was a micronation, and what was micronationalism. Within hours of searching for more info about the subject she saw a video about the country of Molossia.After four years of searching and studying about politics, geography, history and a whole lot of things involved in micronationalism she finally had the country and the language ready, so she officially started Eritonia, and then she went on to make social media accounts for the country. Nowadays Eritonia has dozens of allies and friends around the globe, even though it's a pretty new and small country.We now have three official languages (Eritonian, Portuguese and English), two official religions (Judaism and Christianism), as well as a congress, national animals and plants, and both the constitution and the currency are being developed. :)                                                                 ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhpu6FBBf5Zkzm38sQiRIRc1LSXjHsY1tWMbcRmYVMGW_rBmCy9_0H8YjwHgFYqIx5hARO9prYGtOMHdt2JZraoGy-WOceVp0dUZ99BQHtSbYqjSA90KWIjg2cJdCUsCfrbqt7arD-gXlrw-26EPIQbdG27plEuQWr-X-zx3f1tPA2rY-y218-FgRWasqFkIFEk0BJfuHWI?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Principality of Zealandia",
+        "location": {
+            "long": "176.8893347",
+            "lat": "-39.6707095",
+            "applicable": true
+        },
+        "description": "Leader: Prince Ryan                                                    Email: prince.zealandia@gmail.com                       Info: Zealandia, officially the Principality of Zealandia, is a New Zealand micronation landlocked within the city of Hastings, Hawke's Bay. The Principality was initially created in opposition to the Three Waters reform programme, rejecting the reforms of the Hawke's Bay Region, and declaring independence from New Zealand in spite of the programme. Since the declaration of independence the Principality of Zealandia has made efforts to diplomatic relations, so far being unsuccessful.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjJMQsIKGKfzeXUsPPJQnjnRT8VY92ztrHAP2Bj_vQnK_payc4_8wOrapkvZc9KV-Er8BeT8YFaCff1GS097jUmlVnj_oE_-qEfjm8yYuD4sZZGFi74LCj1ASDibVu7MVg3KhpCt2FEZ3W8fViA91pelIEKjtF6Mc8wJu4-7Yf7wf12VcWPgo7glClYvLtbYZABdtlGSMxb?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "DryLands",
+        "location": {
+            "long": "-6.9536496",
+            "lat": "52.3962876",
+            "applicable": true
+        },
+        "description": "Leader: President Ferbesto                                       Email: Ferbestomasz@gmail.com                          ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjD4tT6erMfAeqK5nf3bA8jtinPK44vuJQP0bURRvOuMEu-RqqqKC4kOJmHwXtjK63Vi7Xg2vsIiBNVBSwWbWr8-mgYo9Owsstw59PJWTRSLkTVSugJdhmrkeHYKNcxAplWNRdmKLYOEPur7Wk4bqN0zHJqsAqlpRivGtHiF_EM7OQG8zLKbWkt6QqwiUlHrn46AUsBtxOgpw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Democratic Republic of Ziberstein",
+        "location": {
+            "long": "17.747049",
+            "lat": "52.841701",
+            "applicable": true
+        },
+        "description": "Leader: President Paweł of Ziberstein                    Email: drziberstein@gmail.com                               Info:                                                                               In 2020, the nation was founded. (Though it has existed on the internet since 2018, became a real nation after.) It was called \"The Democratic People's Republic of Ziberstein\" (Pronounced Ziberschtein, not Ziber-stain) Its capital city was Ivelsteg. (Located in mid-eastern Ziberstein). Divided into 2 states and one oblask, Ziberstein became largely popular with micronations. Though, unfortunately, there was none near it. Therefore, it remained mostly cybernetic, even until today. Though it denies any cybernetic war. Shameful Creek war - 2021. A year after founding, and by the time the nation was in its prime, the Kingdom of the Creek, (now known as the CCR) declared war on Ziberstein after issues with politics. It was mainly caused by openness about Zibersteini Socialism. Though the war never ended, everyone forgot about it. Which lead the CCR and DRZ to have good relations again.Mild constitunional reforms - 2022Mild law reforms - 2022Planned recruitation of at least 10 people by 2023. Planned rewritten constitution by summer 2022. ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZipsb4QLjAOeCz4UJGYfm7bnB8TLtcRP0KyDYgBYnpOHFaTXnscAmlty1BjngICsTbWADzfYlJCe-OlXz-oq_4X7gxQonvZcJoP0cRccWVzZjf3XwgDJ858oUBQpiPr3QFvFBrvVO-MC_-fXlzmViTh8_1ooeVR9-K3ohycXSkvWpZcBXAbx_754cwI71uW58ncD38xqbOsVg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kingdom of Daxxia",
+        "location": {
+            "long": "-83.4637925",
+            "lat": "42.569224",
+            "applicable": true
+        },
+        "description": "Leader: King Daniel I                                                   Email: contact.kingdomofdaxxia@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi_FQvHtOJqvywGlnM1N3NxVVDGqKvXnjCCgjVciaInyTqP1eJH0iy3x47jVM06PpAWSsDarKrOJMEnTlaKRy72PMM5xetmA4UgDwwEOVBMsxU8w4U9yBh92k1domgD18nMaByXvpDPn690doJK2t9q7KcUr55Kw1idzSlAamfs5-2fbRtsZ4IJTjcsAgrGjs36uTUe5RpW?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Provinces of Flavonia",
+        "location": {
+            "long": "17.3061946",
+            "lat": "50.9546916",
+            "applicable": true
+        },
+        "description": "Leader: Tsar Ilków                                                      Email: theprovincesofflavonia@gmail.com            ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhA0YSTtt9tgV7sE-yBbqYEDddgQwRhqE7VMQNFcdcnUTFlFDzCBr_lqs0rV2LbiN3JIT2jVglYKfAWPzq4o5xUOJBVqZCztSEJV0oJYRxQawN4sb4uvbYG9gHlRxO96D23LRNmOmoZVRZKeoEF7CeTIm1AgZ0ZfsizUBRdtbqOBsLK01MgXfonROgYZr1tF1cu27BZHJ9W?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Taraxia",
+        "location": {
+            "long": "-117.5991533",
+            "lat": "33.8711121",
+            "applicable": true
+        },
+        "description": "Leader: Glorious Premier Bryan                              Email: therepublicoftaraxia@gmail.com                Info:                                                                              Our nation is fairly new and has had a peaceful history. We have our own currency, the Lumin, which is worth one USD. We have a democratic system for electing the Premier. The Council of Settlement is council which aids the Premier in decisions for the nations.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh3Hfgq_Qy1--BD7wNoaik-URihHavPKrj06wfYcJy_dddM4KSzDvlhRigwa13BLTxyrKVb32cHgrgIhNnh9xregqhJhVwADIXnIL921L9CEDKMI4-hQ3Pqhx4LDeYSPaz9jj0f4c6t1qBUZasTvYa2od5EfcJhxUfoXaw4czXKLXBqY_6UV9b5NNOHBf203xaVZmJueNAfkg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Sacred Saban States",
+        "location": {
+            "long": "-83.2009794",
+            "lat": "42.1190438",
+            "applicable": true
+        },
+        "description": "Leader: President TJ                                                  Email: sabatatgovernment@gmail.com                  Info:                                                                              Sabatat is a developing micronation inside the downriver region of Wayne County. We are open to active diplomacy and citizenship. We have 52 government members and seats.                                                                                                                  We are here to stop political greed!          ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZge0XuBwUIMdEE9nmSuCT9-A2kqPO7CoNejaDELNHxnW8bVy3DpFJqpHEzHvzAGDrAJWsa3r5L3xTkfQBE81eJoVHc7QgjMrpQC-0v1NtPyQSw0Oz4yQfPsH5oPh6fZHptOJeeKOkfYIRoP7YTIAxhBkAKe0PKX27y7RX2tzwe4pyyKEmROK2tH6ug8UqPsesyF9LN0gpzPYQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Elvadonia",
+        "location": {
+            "long": "-88.9937",
+            "lat": "40.4842",
+            "applicable": true
+        },
+        "description": "Leader: Empress Sierra Leach of Elvadonia          Email: aspenofzion@gmail.com                            Info:                                                                          The Empire of Elvadonia began as a small territory within the confines of an average home and expanded out to fill a much larger area of land encompassing mid Minnesota all the way down to the southern tip of the state of Florida. It is a Social-Imperialistic nation with an absolute monarchy.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh66ezodcylmJii1LlrZIBtVTWrewmfsuQJ0RvBMnzEs7yooZLTw8Wmqe9RfL_Rb91BfiUtRbzBRG3y49jTA-sKkTXub-QgU95AyD6Lw-fTyTime3cLogE8Tg7LtPoGvHOA7SWs6jjH4BcovaLasiKwR-x-qCZSC0qUIIByoGXZVzbAKXyHd-v0rlGWsE71S_uQ0oBhs599YQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Bear Republic ",
+        "location": {
+            "long": "-87.6214133",
+            "lat": "34.226488",
+            "applicable": true
+        },
+        "description": "Leader: President Noah Ward                                  Email: Noahward425@yahoo.com                        ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhGCZnsYLuFvm04aKRJamDxkKnvEauKTPHpMlNKceirufbwswZEYb2geWqNLp28XjxOTTH6MdIjdVvmbfeKyBsw9VM57ht9gSTeeRDmMezVgy2bJz3gy_PyagZutbPvjMtVIHJoj3E34wsyxprrtYXC-TY_k8vbipbDrlzLaeG7gK3oWdHWR5E4gpKKoS8tygzWeWAOp0Jo4A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "People’s Republic Of GabZilla",
+        "location": {
+            "long": "-71.0731162",
+            "lat": "41.9487077",
+            "applicable": true
+        },
+        "description": "Leader: Dictator Gabriel                                          Email: zeograhy@gmail.com                              Info: There was two cultures the Chicken eatersAnd the ZombiesA zombie named Zam-Mu-Jong came and United the group to Zallin Monarchy In 26 of may 1982 A person called Gabriel Came and started a revolution and won and named it People’s Republic Of GabZilla but they were poor and only Gabriel was rich then in 2013 Gabriel got shot in the head and Robert Was the Dictator. ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZi887Gc1yksFDR7WlhaGtEHXdj1ZwDOEDg3kt14Yr7rdBGQaR0eWMjW7z89IHCVc_0Z6R7utS5ByC7E97TjTTjTFnfnuigf16AVvhdVu3To_MfVkxLg9BpdqRi6fW9EiQ8IINIZE33SQ3Tn5Y96-r7eAtLsujMZqygPPtB0Ezlq1J559Yl7RbiB7OwHdv9op4PD6rc6f3ERcg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kingdom of Apalache",
+        "location": {
+            "long": "120.8125",
+            "lat": "14.8463",
+            "applicable": true
+        },
+        "description": "Leader: King Ernest I                                                Email: apalachegov@gmail.com                            Info:                                                                            The Kingdom of Apalache is a micronation that claims territories in the Philippine provinces of Pampanga, Bulacan, and the municipality of Subic. Our kingdom is based upon the belief that Bulakenyos and Kapampangans are superior and must have supreme authority over what we call \"The Greater Apalachenian Territories\"Discord Server: https://discord.gg/VrrcYYFPXN",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZino95v5euZYIv15ySbS8x2lhr0so5svxpUqp_C7YYS0in6MMI6GpNzCyL4oMnC7qfpN13qsY78yNuhH-AmfXAHTvGKFJf61V0rixRXg5uu3YCZSnofxJcjULlr5uJQLN_rUZbM57gq5xWpjI_AHkebG8L2inhIvUL7GYhfhHc-jUrF-rzUBqHa1MD3GiB5ScGjdfY0jblh6w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Thee United Empire ",
+        "location": {
+            "long": "-118.3302901",
+            "lat": "34.0900021",
+            "applicable": true
+        },
+        "description": "Leader: king maximilian portillo                              Email: eportillo0037@mymail.lausd.net                Info:                                                                              contact us in english or spanish all nations welcome we cannot do in person meetings",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgkXlJIrGU-V2jEUrKJAeJ5JNe-SOnycY8dL4qgUhjGgZpu9As1qJ9sCe7yezs5fTNy4sVJuuj82UHDWfKHpnBvJ148yWi0gIIKP9LJoq6YNxq71tZZw6TddO4pavNZ1j0IWeROLmNhluc9UvHECEOTutHvJykKhMv7numQH7Qs0i-fRikT1wLXRkbwuP5v48TOujMszd-bzg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Union of Shebuian Provinces ",
+        "location": {
+            "long": "-75.0577479",
+            "lat": "42.2643113",
+            "applicable": true
+        },
+        "description": "Leader: President Jack                                            Email: jackcosmic11@gmail.com                        Info:                                                                              Our location is not exactly accurate. We don’t want to give out info. It is close though.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiU-H6x1Sdko3GDtN9_ucTuek-80KolHAiFQnZzFFfUI9_Samv0w94f9Vi7xjJediGppfBPP23Ue80Sxxhy2QKHHHsvCvrMHPXhstEoX_mUT8WUQ7mDM6C2DvNtKKs4R2cTK2-aDOIzgBIOAIykYlSsgJNTPeJnu8Mzwf_u_dE1xbf3NfcU5uf-D6Fk9p5Hyd5VaNvaSIBmZg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Primario",
+        "location": {
+            "long": "-97.082",
+            "lat": "32.8371",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Christian                                      Email: emperador.de.primario@gmail.com          Info:                                                                            The Empire of Primario was founded on May 1st, 2018 for the purposes of promoting monarchism, Hispanic culture and advancement, and egalitarianism in the American Southwest.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh13jWiILz5m2vYULWt70CNO8E22s1OkDehS413jXA886Qpvl7mM5wVU4_Ei_W0heq5ZRN4B9O53_17okE_Bd_B9m4ymwAL6fv4OXz86lDjjC5AjlpNvRoFY-E2mI1XaywK3-Bo7TdvHpGlSoSK-ec5m38pbjjlJbEZWoCuU7hRqSGyF9nw72HqvQDx96jVoXL2gESatrQk_w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Oligarchy of Sorbenia",
+        "location": {
+            "long": "-81.47528",
+            "lat": "30.0823069",
+            "applicable": true
+        },
+        "description": "Leader: Oligarch Benjamin, Oligarch Soren, and Oligarch Nick                                                                Email: SorbeniaGovernment@gmail.com            Info:                                                                           We have been around since December 17th, 2021 and we continue to look towards the future. We are in the progress of getting private land and starting up an economy. We are also looking to expand, so if anyone would like to join our community please do contact us either through email or discord @StaccatoSteam20#1393. YouTube: https://www.youtube.com/channel/UCsPiXA-TpqOchdFwbzLtztA",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhjCVX24KGzPxMq7nWuhwYMTejSQ8buvR2QkUi4ldaLwY3Y3ya3-ywN3egfj4Fvt2JscEwkGu9BDMYqHQZgZEjvT1mASJ5RmL5A4DW09f3hHOOi2eID5Iu2ef0lw3D-n28CmjrADofCz40vbEvkBrlbwfIKDv-aZoYLYPIniUcDjsfB3AxVsFF6ucSddPF9uIQAPlED2vrvXg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United Balkan Republic",
+        "location": {
+            "long": "28.9784",
+            "lat": "41.0082",
+            "applicable": true
+        },
+        "description": "Leader: President Alesio Disha                              Email: alesiodisha112@gmail.com                       Info: Unity is Stonk",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhg1rjsiK234pNBsUlb483AFjjXSwj11_3KzhlS7xRcSFib9v6lssye_4S2p9ThEFGfuCF4HP8oAmFVixPUoPjFkJqy0mmBYcgpGfiRoYNI-O_3CyiCGEt0NUolaX8Hm5vRpisgIe1L57bHdra5VVnHwKc4MCZ8pDsK50CKZb-i_7WcLFw9_n98pDM7ipbXHFg4ZL5jOautrQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Rhodesian Republic",
+        "location": {
+            "long": "28.8987901",
+            "lat": "40.9929627",
+            "applicable": true
+        },
+        "description": "Leader: Admiral-General President Vidak Jovic    Email: vidakjovic@gmail.com                                Info:                                                                            Rhodesia was formed on 7.12.2021. as a Government in exile of original African State of Rhodesia, currency is Rhodesian Dollar and we drive on right side of road",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjD8cPXggkBbPzjDaEvFDFnQLR9OK-tJVnERq1IK09PeZ5if69WAtjVOS11FHLvz0FgaMahLyeHKcf_EWGvgoxTdgU8lw_OUpqZOf01ujMj4qBSK9ccejnxUoFz89KbgIPIhWLMVXwC1CmGs6F1rwc7GyoEDA5afgmqXfCmHabi44zl_THqOz00qV_pyZXv_ETXWEe_HNDngA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Medici",
+        "location": {
+            "long": "28.04094",
+            "lat": "-26.16966",
+            "applicable": true
+        },
+        "description": "Leader:  Great Generalissmo of Medici, Sebastiano Di Ravello                                              Email: sebastianodiravello15@gmail.com          Info:                                                                              Medici was established by my father in 1975, it was called Republic of Johanesburg, it was dissolved on on 15.3.2003. because of inactivity, then i revived it on 3.2.2019.  ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgoMeuq_YaNXSgrn5bm5avV1fZZUvCKaEP0la5Vpux2EBYr5PUWZG9ZHJABLoGY-plaPf8MIDH13jQiaGS-HFmdY4rIdhDVocnbR9sd-65vbwWzVJ4-NRES08JsAXgMPppswaPmwV7ba5NJi6uEHy4Xm4yZfYwOBn91kMwXaEC0o7C7VkVB2LXA8vHOmjetAOyGvJZvAt_k?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Constitutional Monarchy of Kikra'yaim",
+        "location": {
+            "long": "9.12977777777778",
+            "lat": "53.1013611111111",
+            "applicable": true
+        },
+        "description": "Leader: Monarch of Kirka'yaim Jonas S.              Email: kirkayaim@gmail.com                                Info:                                                                             The Constitutional Monarchy of Kirka'yaim stands for pluralism and acceptance for anybdy. Official languages are: English, Deutsch (German) and mando'a.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjHw11h4-Vzdo9YyfYs3DU89hmFiNAlVj2ZW4v3n3HwTis-dMlSCz_vhoP-JibuqR35uTxqXVGnRmHvu75FMjjpas7WAo-vJt8oGy7P7Vj27Y_pnoNoZTSSkhLitEuoPUSBygALzsW5HYHWxiwJint3zUxuLLmtXacMdDw315l5jc6ioCxgh1MXd75gHmIZ4uhWRFum4t0kog?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The United States of Kerban",
+        "location": {
+            "long": "18.1985843",
+            "lat": "49.1928607",
+            "applicable": true
+        },
+        "description": "Leader: President Peter Štefánik                           Email: peterstefanik713@gmail.com                   Info: Everything is on website: the-united-states-of-kerban0.webnode.cz/Google maps link doesn't always works. If it. Doesn't works please dm me on Instagram @kerbal_usk",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjhvr-WxWZNFi3TnMpa9GhLzaiwWrNGsefJSVQDGsdJD6isDV1-FeEu0GeysM3oelwLv5CO5Q1Pi97GgNDQwF18ay2QqYrsUOjx6IaTjGyn3JsNYfbfyOJC0PGIamMEApagDFV1NCYd7uSat9Y89S_BpRbm9MP9zvFY8UQ5ZmsTPKxHXtqvJ3i9KLW0tfTvaIB57ukwd7mKtQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Empire of Groceland",
+        "location": {
+            "long": "15.472962",
+            "lat": "49.817492",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Max Lon                                      Email: empireofgroceland@gmail.com              Info: This Micronation wad created in year 2018. Official languages: English, Czech amd Slovak.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiwM0WfsC5mdzdmMtVfejDs_UiF0ENbaRBCqnvE9wYT20T2TZLT4PUSwVRj3su6CrD1hPsqh9RkrRGemDJ4GdEUK0YVrCrdcVzJOx158AEPeeqyw98d6Fprn8j91RGdjokHqRaEEFVqFaB6IVZI5W39nLCGdEOhi2zgUMMlj2KKQbioAyYHh589VvuMGn_APghxoS4iDAks9g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Aletonia",
+        "location": {
+            "long": "-4.18197283233172",
+            "lat": "57.6942241823735",
+            "applicable": true
+        },
+        "description": "Leader: President Alan John Kubala                  Email: alankubala8@gmail.com                          Info: Republic of Aletonia was established on the 19th of December 2021 in the country of the United Kingdom.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjt0LIKM_m0t1KTky8fkUj4pFnB7eBdRzta_c0xXmxS0rxDouMOvxl0I5-neqXjeTsRE8FHT1Eq2Fmxg-_dkqVVRskxqe0FO76ZixR-5Drc4qsJ76U6QWfW8HiDqQ8gJKU-BR9jPZ_m5urVSLbRJPCsh4TSWTNPS0FpglVRUJPvW11kspk_jNQrBAEdWX2lqWWGY-M3M3JU?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Divine Light",
+        "location": {
+            "long": "77.2187",
+            "lat": "28.6324",
+            "applicable": true
+        },
+        "description": "Leader: St. Martin Luther                                          Email: martinlutherupa1@gmail.com                      Info: Divine Light with Divine Priniples for a Divine Nation",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjxYqBEDVfRfcbSvOGsBTFCpRVusg5crzRGIKcp9STKw3idfw0dQAYkR9XS_rnuA6NyzkxGkMhvKiQWonvKOi-QHE4kisNBR9a__7ux8urEF7ob8m8ZVhSsCfwa3-25EJqAFU5cbySjK2-OYdB7OZ0VWe8cWXFcKDBaCKq99sUXNwAr1kYkB-2KP6fQdfFYmjzcMz5Wj8wvGw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Principality of Sancratosia",
+        "location": {
+            "long": "-73.53837014448",
+            "lat": "45.4729927024824",
+            "applicable": true
+        },
+        "description": "Leader: Princess Cloe, Sovereign Princess of Sancratosia                                                                Email: info@sancratosia.org                                  Info: The Principality of Sancratosia is a sovereign and independent nation located in North America.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgpdF8SNzGNA6tCAeCTKceCluD3NodPrbqkMQzu-X6lVl60Fc-oVZj0jJ9HxWxL4NaS7BKAE_LbrEqTFazPkAMi_l65ybcLagoHbxR7LzZxikBCnk5UyFxyZHlgmJ6AxY9eqwdG5cGJnuB1Qf-XSOZiAFTu9C1hhEBc5nKQ5dKWm0pDRVt26JfIm4gvusGGODclvpb4iw2x?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Gorthian Federation ",
+        "location": {
+            "long": "-0.809916666666667",
+            "lat": "52.2836666666667",
+            "applicable": true
+        },
+        "description": "Leader: Dictator Dylan Jwanczuk                        Email: g.0r.thzj@gmail.com                                  Info: Federation of many Gorthian states. Twitter:@OfficalGorth Tiktok:GorthianFedaration",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjr0xBkhs0RLJ2VvbSZtH0VgmKmz01myEY2Hir3dFLjkNPAo8FNXBnJ9HcA5Bzv45SOBD9y0m7Ht6EqnWwK7YkQMuWIO0fQYfupncXZ7Vd2Zq0Gfn2uQ2PKoTOYNTzhxZiEQIvwLTOZdyf0AtFOmglijjhFSG8MNvplaaKF8T1CqAsEfJDp5a0y9x_L4SK-UECjndSrOMsQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Federation of Moaca",
+        "location": {
+            "long": "-81.96",
+            "lat": "31.59",
+            "applicable": true
+        },
+        "description": "Leader: Premier Rio                                                Email: officialmoaca@gmail.com                            Info: https://micronations.wiki/wiki/Federation_of_Moaca    ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhQi9Gt9Sk4jwb-PogidP3Av-SdpgwJovNsGzkEQttLQOI-WzdIgkw9YHTc4TRmmbJDl1DA_1zQkJTDzhl9YFE2M9Se0ldRaT6MVAD1WMGGYrnjOe2G3MShz928acQg-cXAGef8riYrbJlwmbNG8KgRqXuSv9Z2vrDCXN6ZbHZLUfZsyFptsY_-4UtkffCp-lU9_N75j8VQww?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Empire of Rakkaus ",
+        "location": {
+            "long": "-110.9926642",
+            "lat": "31.9160827",
+            "applicable": true
+        },
+        "description": "Leader: Emperor G.G.                                              Email: downsgrayson35@gmail.com                Info: The Empire of Rakkaus has been a Kingdom, Republic, and now finally a Empire. This nation was founded on December 26th 2020. This nation believes in peace and friendship between all micronations.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZg0kOlwgks-vT4XA9PUpkq6aDnbFF_PjM_r-AmwniTYfawPLtCbbHvD8LbskFK58yn_jgZ2leLu2lGkZV3_p4zsJQKpUQW5313KBLR0lwNC-eYGNRJf5Z2ImNlaRIrhpSLuP0-Z8vbrzVZd5QhQEq5q3nUHWxdAHGJOeHCCiBJY8dTqKk6lPgnWHvy0Co9l-xauNSacOFlQFQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Workers Communist Republic of Cretaria ",
+        "location": {
+            "long": "-76.5029581",
+            "lat": "43.0464738",
+            "applicable": true
+        },
+        "description": "Leader: President Mason Meade                               Email: Meademase09@gmail.com                          Info: We have gone through so much in 3 years the change from republic to empire republic again we hope to stay here for much longer then our imperial times stayed salute comrades and keep marching.                      ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjuTOcycGZpnol55-JD8uXaUsr1FEmm65yY2OsIIbSKSq1DAYAqi695nNfH-deBzhYZpZD5W8FLgcau2pCkZiIJDUzbR00EqzdSOsnkxJ28IbMPAcWTQE_jYIzDwKaed24dGB5Vi5vqtDKIJCCExyCfRgMVpS1OmSMoHFd-ZiQQxyNkiNuaAiU_zZPLz8o7QMoIP4ezdWWUrpJzVRBpspDow3m3yjyIzf0r6l_Fz2idn09VzEYmY3s47jFGDg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Empire of Demmonia",
+        "location": {
+            "long": "-4.0638704",
+            "lat": "55.7989731",
+            "applicable": true
+        },
+        "description": "Leader: His royal highness King Cameron the 1st, imperial ruler of the kingdom of Demmonia  Email: camz2008@icloud.com                              Info: We incorporate developing nations into the empire upon request and would love some allies.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjlNn8eRakJ217exSOZ-NPsCkYGEMxaS3cuWG0WQeI_ksqHc8gOPxMmeDd1ZmWqfV_XE4kUsmLyMMU5qMT94KsOtshAB8vmiOKDcIShLFMhzSEK-i_k36b72uTOBmvu9gTXHmHZzIvGxlTGrogLMSbe3o57QB1_qPrsl1Lz6QO5-wXT3s6MZmpqsz2l52N-6XlHC9seoNNl6w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Jamestown",
+        "location": {
+            "long": "-84.2650196",
+            "lat": "33.974298",
+            "applicable": true
+        },
+        "description": "Leader: King James                                                  Email: JPQStevens@gmail.com                            Info: We are a Kingdom for people sick of American Politics",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgm9yVG4WJ_wR190TNgPlUvRjloDerQaDGnbFELTMfIoy4Dr8nV-NwI5HU8MZkyTfCclM_nppU564we2r83pLU17KyLBWEay_6PO_4PvhAEqtORlo1Tua_50UVVaMo6DfiMSD68P_Hex4p5C9c0MvRfro-0_DrzlI7_XrEta4Gd___kGgEv24XH555jVR4KQAjbVVDTJIy71w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Lizu ",
+        "location": {
+            "long": "-90.4514938",
+            "lat": "35.9209056",
+            "applicable": true
+        },
+        "description": "Leader: Ethan Mcgaughey, Lizueni it, etc              Email: ethanmcgaughey3@gmail.com                Info: My country is a Christian nation",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiY6Cmde__RQjTszCSfq9-n7btDJef6lpQqYCVLcw_eADC5E8jCoe5ci2-RcCsTCy1SVj22P6ozh4zP7PvIyyIPmmfGNmItwoFugPmYdjOuVVFPeQi0q11aJu9kQEe92jcd4n_UeEHarhxcH8In3ocllEZo4DFlGOWYcmaOYxyY_UCgUYS5sgUbaC8dGYktXKLlLfJugMGT?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Socialist Republic of Hoku",
+        "location": {
+            "long": "-83.9084346",
+            "lat": "35.7642537",
+            "applicable": true
+        },
+        "description": "Leader: Tipton                                                          Email: brooktipton70@gmail.com                        Info: Discord is: !your average communist#0422",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiWF22j4EvblzZP22TsYwR6CjDU5BSeCxKWSu8KpftGzg4xOVUKLtWBn1qcAST36Mh9vQDcfSI0GNvdNAhDyE_NQyu6fzhMWgNfmkdBHxd47CT7BoQWPvuqv2ClVMxd9hL9hmoKMSeSmaNGqV9M_0uoKpMBG1IYgzlLCcQHYqtwAU3fp23RoD4tDZYinocKmSMorOenbbEMHA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Monarchy of Bale ",
+        "location": {
+            "long": "13.7851388888889",
+            "lat": "45.0401666666667",
+            "applicable": true
+        },
+        "description": "Leader: King Milic II                                                  Email: monarchyofbale@gmail.com                    Info: You can read about our great kingdom here - https://micronations.wiki/wiki/The_Monarchy_of_Bale",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgb4jHTeunvwFGygD2U6lnjouQnx_-KjooY-e0wjfIBrQa6Y60oqGmjHP2enqnKjJ701QFEogRTi5NQs1wpdYpxuRURS_jQSoCAtwL8SyFOtN05BYrztni37Sb-vo6ETHoDjVzIxRYv1tCMvnRDz-GKuOJYiMWDSH4brx_3gS9_5o5ZjlZi2ocbnafA8y0ZQ9W3ghBDcMmZ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Imperial State of Opluentia",
+        "location": {
+            "long": "-5.617993",
+            "lat": "54.473554",
+            "applicable": true
+        },
+        "description": "Leader: Emperor William VI                                    Email: officialopluentia@gmail.com                    ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZilZe0gwn2LS_CWa-0EZ26CRgDTILiCYlAEXfiuMkPpw3KsZxZPqi2DStrKYQ9OpUCPdb0G-StaRrdKjMzX82iAv5jZI9KUCgQC5XM5DoSKa7R1vESX4WbilqXA01iOACDFULjIvgmqE4pfZXiB33DvWOizQUFI_3zay_AG9K8YmlP3CpX9jWgz_W0-1N3cx8wVcHLOj2OuBA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "New Henlandic Republic",
+        "location": {
+            "long": "-80.782959",
+            "lat": "34.940912",
+            "applicable": true
+        },
+        "description": "Leader: President Henry the Cool                            Email: henrypoints1220@gmail.com                    Description: It was first founded known as Emland at August 17 of 2022, but at August 31 of 2022 it became Henland",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiaIW_crHo3M4zWY-9clb0r9EYS_Y92eDHjCeUxpYYtc6ubg-KAJFE6laLkY988EChn61pxoPflMOv9L-W85z4zEO3jFNmrHURd7mVrbaav-tfCUY-k1BWFmMhYFq3o_Ye22wDppfsOyR3ReIjSVg_pjWU2Dw2If6dUis6WvHSigHaTEzpEKL-5SrwE-l35332iRg4Rzu8kIeBY2T2ng6TSly37LiDQDEA-lIDlGTFDf2-0Gny3ccsB56lvSUDu?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Besonia ",
+        "location": {
+            "long": "-122.296736",
+            "lat": "37.519965",
+            "applicable": true
+        },
+        "description": "Leader: President Ran DB                                        Email: besoniagovt@gmail.com                            Description:                                          Independence: July 27 2022Website: besonia.orgPretty much it",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh6_tcaLQYLhLNFB06LH2RR59sOjxo5Q9o6bNi8lu2xX_LHh6H9o2E4naIn1cFmCKrk78TZoyUjWd5-vPW8YCyxtOYZW6GRGL81fXRXrGlRPIdx1X13mP-GPaHEt090VmSTg_1OKtGYDmmFRRfXtoO0aG8DuP32pb3xczlXKS78JRuwNbZIrbpRCPeUraIw9GDRNFll-Z1S3m5JsyybWcG5G849M_8sZyJ1AVPOeCzMjwrFGMtnqWTTgGXNSKV_?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Imperial Republic of Talbot",
+        "location": {
+            "long": "-76.17837",
+            "lat": "38.71687",
+            "applicable": true
+        },
+        "description": "Leader: Kansler Dawson                                            Email: theimperialrepublicoftalbot@gmail.com    Description: Founded 2023, January 2nd",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj6CamF_9PzT2CjKvk3RaCc5mV5RAI_PsxDYelc0RvDaEORugOO26qXZ5Ij64aJnWjl8F6lLeJxVrNW5ECVEnWvrD6gBMlXy_aSGQNCSxvqjSGAAOfM4dsJQ9sCW1KCYxHSUwXMAuB0m4PrdSxnu-Z_dmwo0qjiGnIjYDKbY_Kem0VBfqpxeyf4fapdvjLJ120tj34QxQe__pt9gI-7-g91GDVlMWjlzdjs-m0CQaZabQzA09lEyRj7AxTTNVn7?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Democratic People's Empire of Svoboda",
+        "location": {
+            "long": "-0.186296",
+            "lat": "53.58584",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Иссац                                     Email: 2ndempireofsvoboda@gmail.com              Description: We speak Russian and English, We drive on the left side of the road, we are a left-wing nation. We have multiple titles going from Emperor - Prime Minister - Main Ministers - Super-executives - Executives - Other MPs - High Citizen - Low Citizen. (NOTE: THESE ARE ONLY THE MAJOR ROLES, MINOR ONES EXCLUDED)",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhZSWSsgplk33S7fh2TOsu-0Fnwgrl0CDYXteZUVUKBx1LhzhTXTnzujEO9lmrx8LJqCyk4phKQDsO8vGqHsaTGOBhQkiH4TsIgrLCr_41GrtSmJvA24TNUHQ8OV2_Ub6gENkw1jekjZNQ3vc2Ys6RZiqk12UqUxkNCWGNofZeh42ZXmGVpD9M0iHdvgAXso0IAa3SpVI8tK2Okz2kmMbgRLANptxNhIVQTJWkA-gf-WGOSpYmNaWhZpIz6TC9E?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Principality of Potentia",
+        "location": {
+            "long": "-73.955188",
+            "lat": "40.821961",
+            "applicable": true
+        },
+        "description": "Leader: The Honorable Prince Gordon Bond         Email: principalityofpotentiagov@gmail.com       Description: Potentia is a free nation where everyone can express themselves and their opinions. Our motto is \"Per Volar Sunata\" or Born To Soar.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhfxij0SWeWWgHoBExQNMPqsU5A0HmKktUM1vA5vaUoOMviBj-sdEr1OK1N3OXrdRf41em9mp3i8x4xEauGBKKNuNolCu_UiJgWarSSouWwnI2RZeovGPI2ejzqt9ry8p6nNvqHsRVTy9lG7ewrI9YqalwhvD-kUJTs8GtkTcNJVxHKHuJ0RQ8lZaxRZB5ZpvEFIQKipILMDg1QeQCxmbYW4Vjsj1j_y2VUj97gLXLEl5A8Z3qN4jSgKU0IabRP?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Su'unuk",
+        "location": {
+            "long": "-122.718416",
+            "lat": "45.725052",
+            "applicable": true
+        },
+        "description": "Leader: President Alvin Jr                                          Email: alvinjrr1@gmail.com                                    Description: The Republic of Su'unuk is a ~30 ac micronation located in southern Washington and south of Salmon Creek. The capital, Taktakamah, has many landmarks. Including, Taktakama Bridge, Taktakama Gate, and Jotavah Creek. The land also provides many natural recources. Many plants, wood, vines, and clay can be found throughout. Our hardworking citizens help create an effortlessly beautiful paradise.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Socialist Republic of Cotter Menaceland",
+        "location": {
+            "long": "-90.52221",
+            "lat": "41.57483",
+            "applicable": true
+        },
+        "description": "Leader: President Roy Jackson                                 Email: cottermenacelandgov@gmail.com         Info: We are one of the only active micronations in Iowa. We work closely with local micronations as well as taking great pride in our own.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Principality of Hyeck ",
+        "location": {
+            "long": "-2.970721",
+            "lat": "56.462018",
+            "applicable": true
+        },
+        "description": "Leader: Prince William I                                            Email: hyeck@outlook.com                                      Info: Est. 2020",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The National Federation of Vail",
+        "location": {
+            "long": "-95.4719515",
+            "lat": "33.0609764",
+            "applicable": true
+        },
+        "description": "Leader: Head of State J. Lavender                        Email: jacksonlavenderlr@gmail.com                  Info: N/A for now",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Orlek",
+        "location": {
+            "long": "-74.2464912",
+            "lat": "41.4046381",
+            "applicable": true
+        },
+        "description": "Leader: President Caiden Polowin                        Email: republicoforlek@gmail.com                      Info: We are a micronation in Orange County, New York, US.Tiktok: @republicoforlek",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grand Monarchy of Osneau",
+        "location": {
+            "long": "-87.1364087674069",
+            "lat": "36.0598844738096",
+            "applicable": true
+        },
+        "description": "Leader: King Zander I of Osneau                          Email: thegrandmonarchyofosneau@gmail.com ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Turkopolis ",
+        "location": {
+            "long": "49.244852",
+            "lat": "39.376835",
+            "applicable": true
+        },
+        "description": "Leader: Nurlan Abilov                                              Email: lacrimosa1750@gmail.com                        Info: Est. 22.01.2018",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Avalonia",
+        "location": {
+            "long": "-87.6226",
+            "lat": "41.8826",
+            "applicable": true
+        },
+        "description": "Leader: President James II                                    Email: avaloniagov@gmail.com                            Info: The Republic of Avalonia, more commonly known as Avalonia, is a sovereign micronation situated within the United States. Avalonia claims territory in the North Peninsula of Wisconsin, as well as having an enclave in Chicago, Illinois. The Republic of Avalonia was founded on August 13, 2021, by the current President and Commander in Chief of the Avalonian Armed Forces (AAF), President James II. The Republic of Avalonia holds claim to a legally-owned area of over 2 acres, or around 90,000 ft² of territory, with the hopes of expansion within the near future. Avalonia also has an embassy within Lithuania. The main administrative office of Avalonia is located in downtown Chicago, with the Capital, City of Avalon, located within the Northern peninsula of Wisconsin. The Capital also hosts the AAF training facility, fit for advanced terrain infantry and naval training. The Republic of Avalonia is divided into two subdivisions, the Central Subdivision, and the Northern Subdivision.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Federal Republic of Katoni",
+        "location": {
+            "long": "10.773871",
+            "lat": "49.901776",
+            "applicable": true
+        },
+        "description": "Leader: Chancellor Yannik Dörr                              Email: yannikdoerr1907@gmail.com                Info: We are a state full of inspiration. Animals are very important for our citizens.We have a democracy.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Superb Federal Republic of Catzonia",
+        "location": {
+            "long": "-95.8547",
+            "lat": "36.2695",
+            "applicable": true
+        },
+        "description": "Leader: President Howard                                      Email: genisisreboot123@gmail.com                  Info: We are very cool",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Principality of new Mycenae",
+        "location": {
+            "long": "23.865452",
+            "lat": "38.131919",
+            "applicable": true
+        },
+        "description": "Leader: Anax Spyros Giantsoulis                          Email: new.mycinae@gmail.com                        Info: New Mycenae was founded in the 9th of October, 2021, by Spyros Giantsoulis, Anax of the principality(Anax meaning King in Linear B).",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Yuzoan Democratic Peoples Republic",
+        "location": {
+            "long": "-121.9836452",
+            "lat": "47.851359",
+            "applicable": true
+        },
+        "description": "Leader: Chairwoman Charlotte Masterson            Email: mastersoncharlotte83@gmail.com        Info: We are a nation that likes to help other nations so if you need help just say so.   ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of the Onyx Union",
+        "location": {
+            "long": "-82.452606",
+            "lat": "27.964157",
+            "applicable": true
+        },
+        "description": "Leader: President Onyx                                           Email: The.Real.Animator2008@Gmail.com     Info: This is a fairly new micronation!",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The United Provinces of Dogestan",
+        "location": {
+            "long": "-68.6010376960566",
+            "lat": "45.1219683793258",
+            "applicable": true
+        },
+        "description": "Leader: prime minister Atam/Gavin                     Email: atammann4@gmail.com                         Info: Dogestan was formed on August 8th 2020",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Phoenix empire",
+        "location": {
+            "long": "-108.7540762",
+            "lat": "48.4696666",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Patrick                                      Email: patlam990@gmail.com                            Info: We were created February of 2020 and have a population of 13 people",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "People's republic of Dihotomia",
+        "location": {
+            "long": "23.808484",
+            "lat": "38.025781",
+            "applicable": true
+        },
+        "description": "Leader: Georgios Alexiou                                    Email: deneimeakomaalkoolikos@gmail.com  Info: Dihotomia declared independence from Greece in March 2020. As of now, it has 6 permanent and 2 temporary citizens. It's national animal is the Dihotomian cat.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Rhodesian Republic",
+        "location": {
+            "long": "20.4611034",
+            "lat": "44.8228156",
+            "applicable": true
+        },
+        "description": "Leader: Admiral-General President Vidak Jovic   Email: vidakjovic@gmail.com                          Info: Rhodesia was formed on 7.12.2021. as a Government in exile of original African State of Rhodesia, currency is Rhodesian Dollar and we drive on right side of road",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Union of Shebuian Provinces ",
+        "location": {
+            "long": "-75.4578845",
+            "lat": "40.0813461",
+            "applicable": true
+        },
+        "description": "Leader: President Jack                                          Email: jackcosmic11@gmail.com                    ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Peoples Republic of Vallarosia",
+        "location": {
+            "long": "-82.5097021",
+            "lat": "27.240826",
+            "applicable": true
+        },
+        "description": "Leader: Chief General Secretary Ben Vaughan Email: benvaughan2007@icloud.com             Info: We are a representative democracy of which we support we the people we have a dictator ruler who will rule until he feels fit that the nation is ready that the chief general secretary will have a vote to see who is the next ruler we have a full government with elections. And we have a strong spot for diplomatic meetings and are open to all for wanting to visit",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kingdom of Areibourg",
+        "location": {
+            "long": "15.555955",
+            "lat": "38.182298",
+            "applicable": true
+        },
+        "description": "Leader: Pope Drewie                                              Email: Graypassalacqua@gmail.com                Info: Us citizens of Areibourg fought with honor against a guy who put music in class",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Federal Republic Of Capiz",
+        "location": {
+            "long": "7.1527427",
+            "lat": "50.7023051",
+            "applicable": true
+        },
+        "description": "Leader: President:Youssef Abdalah President2:Niall McCromick                                Email: unionoflmisrandcapiz@gmail.com         Info: We support Freedom",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Taosania",
+        "location": {
+            "long": "-0.0739807",
+            "lat": "51.3934066",
+            "applicable": true
+        },
+        "description": "Leader: Diego Constantine                                     Email: diegoperebrau@gmail.com                      Info: As a Micronation, Taosania strives to be the best it can be for its citizens, we solely think about our citizens first more than anything.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Socialist Republic of Libertas",
+        "location": {
+            "long": "-84.512",
+            "lat": "39.1031",
+            "applicable": true
+        },
+        "description": "Leader: General Secretary Devin A. Kneisel        Email: republicoflibertas.info@gmail.com        Info: The Socialist Republic of Libertas is a workers republic dedicated to spreading civil and workers rights to every corner of the world. We aim to give our citizens a home to learn and grow from each other and work towards a better world. We do so through peaceful acts and demonstrations to try and end the struggle of the individual and the working class.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Slowjamastan",
+        "location": {
+            "long": "-115.958612",
+            "lat": "33.125901",
+            "applicable": true
+        },
+        "description": "Leader: His Excellency, Randy Williams, Sultan of Slowjamastan                                                          Email: sultan@slowjamastan.org                       Info: Crocs are outlawed and anyone wearing them inside our borders risk severe punishment! ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of the People",
+        "location": {
+            "long": "129.6329",
+            "lat": "44.5514",
+            "applicable": true
+        },
+        "description": "Leader: Darius Jürisson                                        Email: darius.zhao@mail.ee                                Info: A landlocked nation founded by Darius Jürisson in October 7th, 2013 and remained inactive until recent renovations started in early July, 2022.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Beatus Cras",
+        "location": {
+            "long": "-96.6354638",
+            "lat": "32.957416",
+            "applicable": true
+        },
+        "description": "Leader: Lady Elizabeth                                          Email: eli@beatuscras.org                                 Info: Self-sufficiency oriented simulationist micronation founded in 2015.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "People's Republic of Kolavo",
+        "location": {
+            "long": "26.0992021",
+            "lat": "44.4440087",
+            "applicable": true
+        },
+        "description": "Leader: President                                                   Email: wheatleythemoron12@gmail.com        Info:  my micronation is christian communist",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Atomic Socialist Republic",
+        "location": {
+            "long": "-3.497",
+            "lat": "53.314",
+            "applicable": true
+        },
+        "description": "Leader: General Secretary Kailes                       Email: atomicwarrior6666@gmail.com           Info: No history although there is an official language not seen anywhere else at all (Aragraphic)",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kingdom of Ranzania",
+        "location": {
+            "long": "25.3076",
+            "lat": "45.605",
+            "applicable": true
+        },
+        "description": "Leader: King Răzvan Juncu                                  Email: kingdom.of.ranzania@gmail.com           Info: Ranzania, formally the Kingdom of Ranzania, is an East-European micronation that is landlocked inside the Romanian town of Poiana Mărului and also has an enclave in Vietnam's Ho Chi Minh City. Ranzania is anticipated to continue to flourish as a result of its expanding population, growing traditions, and ever-changing administration.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of United Ufaeaan States ",
+        "location": {
+            "long": "-77.85509",
+            "lat": "34.17566",
+            "applicable": true
+        },
+        "description": "Leader: The government of Ufaeaa is democratic so there are multiple (4)                                   Email: noahr1159@gmail.com                          Info: It is Awesome",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The United Provinces and Territories of the Cat Republic ",
+        "location": {
+            "long": "-83.1346478",
+            "lat": "42.4605917",
+            "applicable": true
+        },
+        "description": "Leader: Co-President Jonathan Kelly                    Email: copresidentjkcatrepublic@gmail.com     Info: Founded August 28th, 2012, the Cat Republic is a co-presidential democratic republic whose name started as a joke placeholder that never got changed and nestled itself into the nation’s cultural identity. The Cat Republic primarily takes interest in cataloging and preserving local wildlife, and has had some success in restoring and maintaining its local Monarch and Black Swallowtail Butterfly populations.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federated States of Astem ",
+        "location": {
+            "long": "30.217852",
+            "lat": "-31.066529",
+            "applicable": true
+        },
+        "description": "Leader: Chancellor Gabriel Kroll                        Email: scue.admissions@gmail.com               Info: The Federated States of Astem is a very pro-science and pro-education nation. Our nation operates a government in exile in the Republic of South Africa.You can check out our official website at: sites.google.com/view/fedgov-astem ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Asctumia Empire",
+        "location": {
+            "long": "22.722385",
+            "lat": "58.807644",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Stonelin                                    Email: federationgrand@gmail.com                 ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Paladonia",
+        "location": {
+            "long": "-119.7171193",
+            "lat": "49.7479325",
+            "applicable": true
+        },
+        "description": "Leader: President Goodwin                                  Email: theoceanchannel2@gmail.com             Info: founded on the 25th of February 2021. Paladonia was founded to preserve democracy in Hong Kong and was originally founded on cha know Chau island in Hong Kong. it has now expanded into Canada and looks to promote human rights and make a better more inclusive nation.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Christian Empire of Yiprussia",
+        "location": {
+            "long": "-74.9954201",
+            "lat": "40.0810839",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Sean                                         Email: sgtsean1222@gmail.com                       Info:We have had many forms of goverment. Communism, islam, Empires, Democracy and even communist islam, but yet we still treat others with total respect.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grand Duchy of Vinśen",
+        "location": {
+            "long": "-77.0397601",
+            "lat": "38.901602",
+            "applicable": true
+        },
+        "description": "Leader: Grand Supreme Duchy Vance            Email: grandduchyvance@gmail.com              Info: This country is based on a Catholic Religion",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of New Connecticut",
+        "location": {
+            "long": "-72.6527273760985",
+            "lat": "41.4682280830661",
+            "applicable": true
+        },
+        "description": "Leader: Secretary of State Ivy                           Email: zacharygrod@gmail.com                         Info: We are democratic and chill (with a stable military)    Please use my discord Z-D4WG",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Parliamentary Monarchy of Duckionary",
+        "location": {
+            "long": "13.4434607",
+            "lat": "48.4399785",
+            "applicable": true
+        },
+        "description": "Leader: Archduke Arthur I.                                Email: info@duckionary.com                              Info: Website: www.duckionary.com",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Gran-Imperium of Vatica",
+        "location": {
+            "long": "-87.4274109",
+            "lat": "38.630323",
+            "applicable": true
+        },
+        "description": "Leader: Holy Emperor, Mark A. Garretson III      Email: avery.garretson@gmail.com                  Info: We are a mighty Empire built in the great southern Indiana territory in the oldest city and county in Indiana. We are a heavily German culture and society that has territorial ambitions. We are a very Holy State with the only religion you can be being Roman/German Catholic. We are also part of a micronational alliance called the alliance of the Trident. ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Socialist Republic of Aurora",
+        "location": {
+            "long": "-115.1523822",
+            "lat": "36.2643621",
+            "applicable": true
+        },
+        "description": "Leader: President Aurora Palinstine                 Email: aurorapalinstine@gmail.com                 Info: The Socialist Republic of Aurora was founded by Aurora Palinstine on 6/22/2023 and since then has made a flag claim new land made diplomatic relations and made a currency named the Cushor.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Majonaisenland",
+        "location": {
+            "long": "11.5930287",
+            "lat": "49.9545913",
+            "applicable": true
+        },
+        "description": "Leader: Maxim                                                          Email: maximelixir0770@gmail.com                Info: Majonaisenland is a land in Central Europe with an area of 60m². This land is located in Bayreuth (Germany) near the Ordenskirche. This area is a separate state with the full name: ''Maximilist Federation Majonaisenland'' The state has a building in which everything a state needs is. This state is striving for independence and recognition, which it has received from many people. The official languages are Russian, Majonaise-Bayreuthisch and German. The country's capital city is called NWD and is the main room in the building. Thanks to the cooperation with the church, Majonaisenland is a more Christian state, but other religions are warmly welcome. The current head of state of the majonaise state is Maxim who has proven his power and knowledge several times in the virtual CountryLands in Rec Room. However, Majonaisenland also has several parties that are currently striving for Maxim's power. These include the Theocratic Party Majonaisenland. The governing party, however, bears the name Maximilist Majonaisian Party of NWD. The currency of this country is the Kovin. The founding of the virtual Majonaisenland was on December 28, 2017, while the creation of the real Majonaisenland took place on May 11, 2023. Both the license plate and the website URL are both owned by MJN which stands for MaJoNaise. Majonaisenland has numerous national songs including an anthem and listeners to these pieces are firmly convinced that these songs have Russian origins. Holidays of the Majonaise state are the foundation 12/28/2017, the coronation on 05/11/2023 and the day of victory on 03/14/2023 when the great power Ketchup was finally defeated in CountryLands after years of occupation.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of westland",
+        "location": {
+            "long": "-119.5530694",
+            "lat": "49.8776789",
+            "applicable": true
+        },
+        "description": "Leader: President lawrence                                Email: jzjbb226@gmail.com                        Info: Apparently this country will no longer be in this location in the future, well we are going to move somewhere but it going to be very hard since I live in Plains surrounded by semi-mountanious climate, if you have any questions please email jzjbb226@gmail.com. thank you!",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Imperial Federation of Schpecktenia",
+        "location": {
+            "long": "-89.947504",
+            "lat": "38.781242",
+            "applicable": true
+        },
+        "description": "Leader: President Rudolph Specht I                 Email: schpecktenia@gmail.com                    Info:  Schpecktenia, born from Rudolph Specht's fascination with Molossia, began as the \"Monarchy of Schpecktenia,\" led by King Rudolph I. Evolving into the Grand Empire of Schpecktenia under Emperor Rudolph I, territorial ambitions focused on Meadowen and Shadowfoxia. Ideological friction with the socialist nation Fort Woodchuck simmered, culminating in the anticipation of conflict.Personal criticism caused a decline, leading to \"The Dark Era.\" The Second Republic emerged on January 16th, 2023, igniting a rejuvenation under President Rudolph I. Shedding imperial aspirations, Schpecktenia embraced diplomacy, alliances, and economic stability.Collaboration flourished through the Organization of Great States (OGS) and the Malic Alliance Organization (MAO). Conflicts like the Schpecktenian Civil War showcased resilience and adaptability.The Third Empire focused on colonies, territories, and imperial protectorates. Innovations like the Shpek language and successful colonization efforts enriched Schpecktenia's identity. The Third Empire went into isolation at this time.In a brief period, Schpecktenia transitioned to the Meadowen Empire, mirroring the Grand Empire of Schpecktenia. Yet, Rudolph's waning motivation led to its relinquishment to Haltenburg. This led to Schpecktenia becoming Haltenburg's Client State, later the Regno d'Italia, marking a 'dark era' with inactivity.Reclaiming independence, Schpecktenia swiftly restructured its governance, fostering stronger ties with Liveno and implementing regions. While the Lackluster War resulted in a loss, Schpecktenia committed to a peaceful future. A conflict with New Prussia ended in a draw, resulting in the Treaty of Waldlania that mandated a non-aggression pact, trade, and territorial restoration, binding Schpecktenia to New Prussia's Reichspakt.Amidst diplomatic intricacies, conflicts, and internal changes, Schpecktenia emerged as a peaceful, reformed nation with a commitment to progress.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Riviera",
+        "location": {
+            "long": "-85.7585",
+            "lat": "38.2527",
+            "applicable": true
+        },
+        "description": "Leader: President, Aiden Baughman                 Email: Aidenbaughman11@icloud.com           ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United Holy Kingdom Of Ostwania",
+        "location": {
+            "long": "-88.065",
+            "lat": "35.5966666666667",
+            "applicable": true
+        },
+        "description": "Leader: His Highness, Sahmul III of Kahpis       Email: rstewart884@icloud.com                      Info: Ostwania is a very small micronation in Decaturville TN, it is a very small island in Lost Creek which dumps into the Beech River. ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Commonwealth of Tartistan ",
+        "location": {
+            "long": "-123.028472222222",
+            "lat": "38.4710555555556",
+            "applicable": true
+        },
+        "description": "Leader: Chancellor Ash Almanza                      Email: ashalmanza2007@gmail.com                 Info: The official ideology of Tartistan is Commbrewism (not to be confused with Communism) which centers around the idea of a society expressing its creativity through Wii Homebrew.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Ausburia",
+        "location": {
+            "long": "-82.6394016",
+            "lat": "30.1893883",
+            "applicable": true
+        },
+        "description": "Leader: Luke T                                                      Email: republicofausburia@gmail.com             Info: The Republic of Ausburia was founded on March 17, 2023.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Great Empire of United Ceed",
+        "location": {
+            "long": "-76.3757303",
+            "lat": "39.5586848",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Aidan                                    Email:  hehexd086@gmail.com                          Info: United Ceed was a state of Eastland and then one day the Ceed people revolted against Eastland and then months later a big war happen called the snowflake war where Scar-witch a and Eastland invaded turquoise and United Ceed and it ended with United Ceed on top and then every micronation collapsed so a new power took over Fox fire. Fox fire was made by the Billing company and then a election happen and then fox fire became the republic of fox fire so a civil war happened and the billing company took over for 2 months and then it collapsed. So then scar-witchan people took over for a little and then the feltic war happened where the ufa, blue army and new United Ceed wanted freedom and at the end there were 3 micronations left tiger land, Powu and United Ceed.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United Islamic Khizerkhelist Nation",
+        "location": {
+            "long": "71.9447923938387",
+            "lat": "30.291668335402",
+            "applicable": true
+        },
+        "description": "Leader; Khizer Arsalam                                         Email: usmaanniazi@gmail.com                      Info: Uikn full form United Islamic Khizerkhelist nation is located in Pakistan and follow Khizerkhelism",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Principality of Chrimate",
+        "location": {
+            "long": "27.209536926152",
+            "lat": "37.0858086087776",
+            "applicable": true
+        },
+        "description": "Leader: Fürst Muffin, Fürst Weiserich                Email: contact@chrimate.ch                              Info: Chrimate, formerly known as the Principality of Chrimate, is a micronation established on 17 July 2023.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Elasarian Kingdom",
+        "location": {
+            "long": "-98.2150851",
+            "lat": "32.6034242",
+            "applicable": true
+        },
+        "description": "Leader: High King Elijah Phantomheart              Email: elasariankingdom@gmail.com             Info: We started about a year or so ago and we are an absolute monarchy rule, The fashion is a mix of Lord of the Rings elves and Chinese historical drama clothing please email the High King for further questions.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Democratic States of Kalugan Republics",
+        "location": {
+            "long": "-93.286202",
+            "lat": "32.607556",
+            "applicable": true
+        },
+        "description": "Leader: Kaulya Dimitri Poltava                            Email: jacenflores27@gmail.com                     Info: Months before the DSKR formed, we had a commune, like a committee. We had a commissar as the leader. We had two of them. We had a couple of council meetings. After that, I decided to declare independence. After that happened, not a lot has truly happened, but history will have more in store for us.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Gretigo",
+        "location": {
+            "long": "0.8584836",
+            "lat": "52.8306878",
+            "applicable": true
+        },
+        "description": "Leader; President David Hummel                      Email: gretigo.gov@gmail.com                         ",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Nokomata\n",
+        "location": {
+            "long": "16.5926343",
+            "lat": "47.6516692",
+            "applicable": true
+        },
+        "description": "Leader; Stummer Áron                                       Email: stummeraron123@gmail.com                Info: We want a strong economy and military.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Democratic People's Socialist Republic of Krasnistan",
+        "location": {
+            "long": "-1.0739108",
+            "lat": "53.9614205",
+            "applicable": true
+        },
+        "description": "Leader: President                                                  Email: dpsrktriumvirate@gmail.com                Info: It has recently become a vassal to the Sovereign Order of the Silver Unicorn who have assumes the position of a caretaker government.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Oligarch State of Curnon",
+        "location": {
+            "long": "-78.8634945",
+            "lat": "35.8219306",
+            "applicable": true
+        },
+        "description": "Leader: Asa Grady. Main Leader                         Email: Curnon.Country@gmail.com                 Info: The Oligarch state of Curnon is a micronation located in North Carolina.Curnon is an LGTBQ friendly micronation, with all 3 of it's leeaders being LGTBQ. Curnon stands by, and advocates for Native American rights all across the America's.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Kingdom Of Blue Ridge",
+        "location": {
+            "long": "-78.090482",
+            "lat": "38.478912",
+            "applicable": true
+        },
+        "description": "Leader: King Gavin I                                            Email: theguywithnoemail51@gmail.com          Info: Know our history here: https://www.blueridgenation.org/",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grand Duchy Of Pullus",
+        "location": {
+            "long": "-111.654056591537",
+            "lat": "40.0110134753812",
+            "applicable": true
+        },
+        "description": "Leader: His Excellency Grand Duke Alphonse I   Email: Alec@Darlingappraising.com                 Info: Pullus was founded on July 24th, 2023. we currently have 16 citizens, 9 of which are chickens. Pullus is currently working on creating a good constitution, making Ministries, and making a economy (Chickens don't really buy or trade stuff, that's our main issue...). Our Chancellor is Little Big, who is a chicken.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United States of Zephyria",
+        "location": {
+            "long": "-95.1613945",
+            "lat": "29.5059368",
+            "applicable": true
+        },
+        "description": "Leader: Internal Leader Mason and External Leader Abdiel                                                           Email: defilippismason12@gmail.com            Info: We used to be the Republic of Valora, but the name was changed due to us getting more territories. Yersinia pestis is our national animal. Our government system is supposed to be 2 equal in power leaders, one deciding on internal matters and one on external matters, but a small imbalance of power exists where the internal leader can manage external matters if the external leader ddoesnt or if his judgement is bad.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Democratic Republic of Odengrad ",
+        "location": {
+            "long": "-121.721388888889",
+            "lat": "36.485",
+            "applicable": true
+        },
+        "description": "Leader: President Alexander Kotrodimos            Email: Kotrodimosa@gmail.com                       Info: Founded in 2024. The Democratic Republic of Odengrad exists for the sake of complete artistic, religious, and political freedom. Currently at war with the state of Prussia",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "landialand",
+        "location": {
+            "long": "-83.4731548",
+            "lat": "42.6578213",
+            "applicable": true
+        },
+        "description": "Leader: john petty                                               Email: landialand407@gmail.com                 Info: a war almost started with my nation and a gang",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Upra Questaria",
+        "location": {
+            "long": "-104.7144717",
+            "lat": "39.5034088",
+            "applicable": true
+        },
+        "description": "Leader: Curious President John                          Email: Isaiah.j.brady2004@gmail.com              Info: In my micronation we trade lifestyles important information and our currency.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "United Kingdom of New England and new Scotland and new Ireland",
+        "location": {
+            "long": "136.2091547",
+            "lat": "-30.0002315",
+            "applicable": true
+        },
+        "description": "Leader: King Andrew I                                         Email: Andrewcarter1988@icloud.com            Info: History can help us become better informed citizens",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "duchy of suslandia",
+        "location": {
+            "long": "-118.6167",
+            "lat": "34.21533",
+            "applicable": true
+        },
+        "description": "Leader; Duke Damian Garcia                             Email: suslandiaduke@gmail.com                    Info: Suslandia is a duchy in the United States and Mexico which it where suslandia Got their Independence in July 18 2023 it was found by Damian Garcia When he was 11 years old suslandia Went to war A lot by revolutions and Civil wars, it had a republic two times but The country is still a duchy.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Union of Alkaltostinian Soviet Socialist Republics",
+        "location": {
+            "long": "13.188996",
+            "lat": "51.2412039",
+            "applicable": true
+        },
+        "description": "Leader: President Vladimir Zarkarov                  Email: gov.uassr.official@gmail.com                 Info: Republic of Alkaltastan Created 2002, Turned into Republic of Alkaltostan 2012 had 2 Civilwars turned communist after Second Civilwar Transformed into a Union of Alkaltostinian Soviet Socialist Republics 2023S",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Brynasia",
+        "location": {
+            "long": "116.461666666667",
+            "lat": "5.9675",
+            "applicable": true
+        },
+        "description": "Leader: President Bryan Elmer                        Email: gusitinmotin@gmail.com                       Info: Brynasia is a micronation located in Malaysia. Brynasia has also joined two allies, notably Freedom Of Micronation and Christiany Organazation of Micronation. Brynasia became independent on June 30, 2017.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Erika Empire",
+        "location": {
+            "long": "-76.1783247",
+            "lat": "36.524793",
+            "applicable": true
+        },
+        "description": "Leader: Ze, Josiah                                                 Email: Erikan_Directory@outlook.com               Info: Erika is a nation that came from a great revolution in 2020. Erika has been through many wars but is now a stable economic nation as in 2024.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Union Of Penakar",
+        "location": {
+            "long": "-111.8810703",
+            "lat": "40.4023226",
+            "applicable": true
+        },
+        "description": "Leader: Chancellor Theo Pieper                         Email: unionofpenakar@gmail.com                   Info: We have a mascot, penguins. We love penguins and hold them in highest honor. Our leaders when entering office are chosen by the previous leader when their time is up. We do not endorse micronational war and try to keep peace any way we can. We do not have citizenship anyone who wants to join can as long as they respect our rules and people.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Democratic Union of New Pulaskia",
+        "location": {
+            "long": "-92.233744",
+            "lat": "34.804442",
+            "applicable": true
+        },
+        "description": "Leader: President Ayden Tucker                         Email: atucker042010@gmail.com                   Info: With its capital at Provinstadt (North Little Rock), New Pulaskia is a product of the Jaelandian War of 2021. This war shaped the nation’s early history, and since then it has been rocked by several crises, though it has weathered them well. Pulaskia is allied to the Republic of Hakoi and has a treat in the works for the Empire of Aglesia, and is a growing nation with a population of over 20. The Pulaskian government prefers digital contact with leaders not already known to the government, and is currently not open to tourism.",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Directions from 43.357705, -94.669788 to 43.357705, -94.669788",
+        "location": {
+            "long": 0,
+            "lat": 0,
+            "applicable": true
+        },
+        "description": "",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "43.357705, -94.669788",
+        "location": {
+            "long": "-94.6608224",
+            "lat": "43.3564762",
+            "applicable": true
+        },
+        "description": "",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "43.357705, -94.669788",
+        "location": {
+            "long": "-94.6608224",
+            "lat": "43.3564762",
+            "applicable": true
+        },
+        "description": "",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Blazetopia",
+        "location": {
+            "long": "120.7104793",
+            "lat": "15.0086826",
+            "applicable": true
+        },
+        "description": "Leader: Jhurysse Magtoto, Lider Supremo de Blazetopia                                                                                                                                                              Contact Info: Facebook: Jhurysse magtoto IIInstagram: Republic of Blazetopia                                                                                                                     Description: Blazetopia is a military Dictatorship regime located in Pampanga, Philippines. The Republic of Blazetopia is also known as \"Land of the black cat soldiers\".",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZispuL0UpbP5oulNBxUC1R6HLhLe9u9mhYAh9XvHUdIR3BtvsXwQdHNaZ7xs5aGILgdr2_GZSiRVQRz1LlN9hcxPRRqJ0z_tSbOAoyZJLFZi0ddfhge7LtcuR-NkbsqJTl5yLzPpCV7QMetYckEXazf2GVmddiQsIbMC0G3CKYv-pAnsdQ6DBAhaLgobjOKkibfEgODZnPSHg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Dan Army Republic",
+        "location": {
+            "long": "-85.5224297",
+            "lat": "45.7453875",
+            "applicable": true
+        },
+        "description": "Leader: President Daniel Maloney                             Contact Info: klmboeing60@gmail.com                 Microwiki: https://micronations.wiki/wiki/Dan_Army_Republic",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhl5jlDEow22CVhzCEKXS9QXbbohyisStKUOsGl7vx7fCJp2j0uiS4a_xmj2V0JrHny7N1jJPYknGF7n43O83yL3rNM5aAQ-cEw7Nqip9-iQQEn0eyFRFhDFUDG72N4Hqd0NsdjsmpgXbuyizCmLLpb1uhhmgHAYU4UZHz4nqRmYx2ZiVqOTLHeK_MqGsHl_qCTNb1TtTIAGg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Federal Republic of Bogdan",
+        "location": {
+            "long": "-122.870928",
+            "lat": "47.068846",
+            "applicable": true
+        },
+        "description": "The name of the leader is Andrii Pryymakpeople can contact me of Discord Andrii#6256Bogdan is a Federal Republic. It is led by president Andrii. Bogdan wants to start trade soon. its allies are Greenia URM and Johnny land.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiU1TGLXczaji-GHpNbM1inAhAgYQodvUvCZ_CsDKTl00i3diUb-o2gkOiJ-HN1F6hZjAJq7bBfHwF3kz-bsgDz9nDUdHJXlN8WINZT45H4t1KLoTmpPSPKoF3pFsUJZZa7zHQatjopxtUcXef36tt4Ww8F1oYKXLhYih-IUGSkiAOAEn7QgVyKgWGwKwYn-34FL_krV52QEA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Democratic Republic of Houseistan",
+        "location": {
+            "long": "-78.2150757",
+            "lat": "36.3524809",
+            "applicable": true
+        },
+        "description": "Leader name:Logan MedlinEmail:Threeroomskingdom@gmail.com                Additional info: https://micronations.wiki/wiki/Democratic_Republic_of_Houseistan",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgtWlJyfYRQCnZSMb2fM4spn1DhCBWS2xxjTU3nVrwnvlXTZ8C0wlw-ZWdBz0T-2UilDDFO-nPgAohKHmRYU4az9um1o1fwPZdMmk3BcB2htCZ0x8h9SmvWiasnBDCAD2_RIf2RMRh3iw4tnMyQVaRjkJmOpB14wW46TDryJCKBrOmgipMC9G6_AU75GlvMirijn_YEwutU4g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "République de Nouvel Acadiane (Republic of New Acadiana)",
+        "location": {
+            "long": "-64.2986833333333",
+            "lat": "45.1050388888889",
+            "applicable": true
+        },
+        "description": "We don't have one leader, we have a leadership Council, however I do most of the PR and talking in said council. I and Directeur VauxAcadiana is a liberation movement, much like the free Quebec movement we seek to free the eastern Canadian provinces of new Brunswick and nova Scotia. We Invite all Acadians (2 million spread from eastern Canada to Louisiana) to join us and we wait to grow from that. We have 6 citizens whom all identify as Acadian and want to spread our message to fellow Acadians. Acadia was started in 1604 by Dugua sieur de mons (our first govenor from France). The English later took the Acadian land away and in the process raped and enslaved those who didn't flee or swear loyalty to their monarch. Now today nova Scotia and new Brunswick are some of Canada's poorest areas because the Canadian government still oopresses the local economy making it illegal to fish dispite fishing being the main source of income for the acadians in the area.People can contact us through our website : acadiana.ga* www.acadiana.ga",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiKX-dyw1mdXNqpSnIlI6-cwIL7SKuKN8LO1kLbKqDha9qVptp0x9LobTc3-7LEGH4knxWAL36-ss71nESd_5lyBgQETlna46BcdLnG9MljPoJGlaI2qQptb2tbzROk4MeFMpNQo6R_62tQV8umrucEWNIWMslOLiiwX7CbOZZJvKpr9atlRcjRabJgra5W9FvRvXliuH-f?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federation Republic of Amerito",
+        "location": {
+            "long": "-1.890401",
+            "lat": "52.486243",
+            "applicable": true
+        },
+        "description": "Leader: Prime minister Loli",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgxUKAGHdbOzw9IDwRDuI33waFJcMGIxe54CY9WyPcGSP7VciHjl1DW-O5vcA8vztJliku1ugmelBxMUOcyzkR2n1ND83HPHgrG4I3FeM20j-lA0I_atgGqeStQ_YgUY38C1rBPUgYZNqku9pAjiiaCHLRmHK6CaUzlRZJ7KO8W-58Y2EbF-ip_2skKu_1h6v5e6QTeUqmwxQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "People's Republic of Ponderosa Hills",
+        "location": {
+            "long": "-120.2",
+            "lat": "38",
+            "applicable": true
+        },
+        "description": "Leader: Premier Leon Montan",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhWvrzUHgWu2Di3-ki7n_slhvnhEK6wFKUQxBrvGZyIGkO3HQISIPeenl42XggjwrCoHfaqNSewwjV0LeDZmejMIXDNsP50OF1qleYpTQpWT_J7BLO58IYdRsAddgOnXD5UJr7cVAQcEPI0uGhTuM9YiTwucHc-TStrionXNJaGJOJ_a-73Nax7BHJf3-6m_y3chcFolNGa?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Larcon",
+        "location": {
+            "long": "-86.0406",
+            "lat": "33.8515",
+            "applicable": true
+        },
+        "description": "Leader: Drayden McDonald                                        Contact Info: officiallarcon@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZj0R3w_5wUF4V78mLJ8vmgJ_H7YlAY93zUKVcADP3DqkdRfkJgSLtrszPB0E_UEaIjAGWa9CdDkW9pzvcgZ0iL-QZYZQGITggJIhtbol3so8CZSz_bcDyZ8fzMt9ssPpI53KvuGOOQmmyZJucmLiP8zcCjB_hb9sTxbbgrhCY-Lp0Fqk5te26PdC2GyaRRVRm1u5Bg37MI1vw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Seongmyeong (ROS)",
+        "location": {
+            "long": "129.084364",
+            "lat": "35.1365596",
+            "applicable": true
+        },
+        "description": "Leader: President Kim-sun woo                                ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZheHDKtI-H1pd3_-8d5HiJM7mJMS3epRG3BJaNITjeD1MDOSXxKxpCwHcgrhGA8Vvzq4Fwg29z2w29KljaXTsC7qjR5pBUV50TXxRw68slW1CqosS73foKJxeSC6hvx2b8lVu8IIhNimJK_jbA00zDeyv7DZHjzAafsHw3UyKKEUXYe-YxBhk3KWMfemnRHkxGdFpB68rAyRg?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Azma Republic",
+        "location": {
+            "long": "48.669536",
+            "lat": "39.038542",
+            "applicable": true
+        },
+        "description": "Dictator: I.FMACurrency: ACS(Azma Coin) Email: azmacumhuriyeti@gmail.comOrtefma07@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh1hpJpjTtmz5XXH5mCcNHlcxOpOfjP6NzNrTRUKUWCnHr90SSMwQWY_F2YCyuIw_0sUfmsYOQ9Cm7VVGdMDH0gjO5UIBDyugrLJOCtGiXW_2I7wv_HiLoDK7i0WYBCwQqIuYgiWf_03n8_SEgxvdf1LcJEYf7WOZzQP4oXLO4mwYIAeT0a8w20KNPmNf3a0ctGih8cwiOGfQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Khalisnasia",
+        "location": {
+            "long": "127.1199201",
+            "lat": "35.812111",
+            "applicable": true
+        },
+        "description": "Leader: Prime minister Jang-Hyun joon",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZia4nTPB0KEMv2msG4Iy8vLcJD-wrmnnCC6rEYUMmrl5ilbgjrQdrUuTipkF4Y29sPh2IMIU9P6FGV0li1_p5vXMUfdXegOnHPVTWCXLzacRVLmxXvwWlEtjDZQOuwxoHUqMKtaux_f3YjIjN_6DPxOn2s6L6u3ExEroMq9AvIYaWxWqH1zrdMYZhba6myydyLrtdvZglG9?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Scotlia",
+        "location": {
+            "long": "129.3313364",
+            "lat": "36.0348349",
+            "applicable": true
+        },
+        "description": "Leader: President Oh Seok Hwan",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjPiW7D52bn6lA724ra2i6Tx_7WpOJK6ESzf0PTA_k2NyaOgtZWJCdgvOBh82znClxQnuDgS2_NV3808Go3eMkLQIvp77ZR83bvh9s1x92QL9PpFz_Jq0FLTbtHtwlVIcS0d324UEUY1i0ADetKUvNFy8drtqXDThPo3mzOHe80r3HHG3EMJObYvy0gHPoKomjPkBcb6XmM?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The People's Democratic Republic of Kortosh",
+        "location": {
+            "long": "126.5311884",
+            "lat": "33.4996213",
+            "applicable": true
+        },
+        "description": "Leader: President Sergey Damdinsuren                   ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhpsYu-Hauc8Oy0UNCLoZ484TvpaRHilxMvP8ZTFezgaXZzuarY5nO96AiI5hRBZG8Je21ierGGafLcfwPRX4HNFLWs1DkSXMMxOas5ZaHJ2NQsBFgKeehaVJTnDa04Aj8VQ-N7b9smwj0nkm0PaFskLMHmAmYP143zTix5aVnXpM6RLaziCgGEE73YcqzwnBYgWhBBje3b?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Republic of Molossia",
+        "location": {
+            "long": "-119.539598",
+            "lat": "39.3229068",
+            "applicable": true
+        },
+        "description": "Leader: President Kevin Baugh",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiPfOlALJm6KGmaY4mWfLoGc433q7stI-JtDVdeKcAzb-bzPWkLq4bm_CYh8tc4M1xtHMezM2E5JRZMD-nWTNgVdUwg88S8ECV-04xbp05MrwEhl1XTgIuA8GA6esE6QDD-kaD6kxnhZBrZ3LA_-n8P1OPeCp9gXzoBAah6pI3ed6WuA6ar9kdK0j3WFqUF3GxJrAqdPtIk?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The People's Republic of Parkastopia",
+        "location": {
+            "long": "-88.2523096",
+            "lat": "30.7906098",
+            "applicable": true
+        },
+        "description": "Leader: General Secretary Parker Berzett                                                                                                         Info: A Marxist/socialist Micronation primarily rooted in its Youtube Channel as well as agricultural pursuits.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiv_hvaYbCIeL-Py4FF1craQxpf6DmFG6V7_ApwbuU2azE3Wf2XSCM9PzJ0WmpW8oZD3iXpOh7OF17M9gDMhhQqHBL797l2FXdlUNZpngONpmqoBuaX4A9I61-AjJNl6VZk8WMhI_BaFxQbydB2GY7R1XNAYViVS5Bgs6DBcn_hD8uJsA890K57iUi_GVOm1wht8heFraL1MA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federal Republics of Ohio",
+        "location": {
+            "long": "-82.990903",
+            "lat": "39.878521",
+            "applicable": true
+        },
+        "description": "Leader: Nathen WilliamsInfo: were usually peaceful and has pledge full neutrality in ideological wars, we would like to ally to everyone but if they threaten us, we will not ally with them",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZh6wkpPc2qxVsczLmIuZ7Ezk6aQgKCdM_PyJ0KOvP0H6KPstZzKyXwwb1zYsstXig13qKGHf9geLI42uJoPD88EJDxCVY4eUUDH8WaaqtNZeF32lCp4yoi-bE5HnEU7HQGT7fXR7XUg1jodBTbD672cv6MGDKNe4g2IvdK7viAmimCqTg1hjp8GuIJAyGIuxJOiWppS7k0NNQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Luchijan",
+        "location": {
+            "long": "-77.4605399",
+            "lat": "38.3031837",
+            "applicable": true
+        },
+        "description": "Leader: President Luke                                               Contact Info: kingofinfinityland@gmail.com,         Hyped#0850 on Discord",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgXiizDpFaDIp9bJVi3HRVDeKw2USg9ZySGt5w--3VHhAOQoiCxwAowAH5kP0BvrYkPdhPNbAQgZKYMdT2nsfvlOVpTWL0Esi_5jQ8oc6G5QRr_C-sjGhSGO51QNJcafObIC-1U6UyBYwhvQDv8JHFZzZT288MPrnJO-9GyPMHffS0nqufKXqTSvFwah-RybbbYsxPx7AZu?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Bradonian State",
+        "location": {
+            "long": "-97.6788934",
+            "lat": "30.508235",
+            "applicable": true
+        },
+        "description": "Leader: His Governor-General Zoran Rakocevic                                                                                             Email: bradoniannational@gmail.com        ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgp4fUNw0rW3qQO06vG27xE8oJTfPTAd7O65drUuBRZKPTwwOtNtP2cqkkkprEwiY0lA4oF0kRyxkDfdP7Qw20-FS5duJgMM7h38GagCogZLThJH-3bW5JZxDdvEi0kQ1dyUw2U9z0tjE8CAKoqU1hI-7pMT4ucBxnUT8xIW5rFMkDnlROjugr-3wQQ1wqahQBpVvIBVCtLeA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Grand Republic of Pigiztan \n",
+        "location": {
+            "long": "-81.1406594",
+            "lat": "33.8504735",
+            "applicable": true
+        },
+        "description": "Leaders Name: President Quentin Dosovana                                                                                                Contact Info: Epic Filmmaker on discord #5915",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZidotdlSxLHkh0J0159wcZ5AMtIdLUZP_4B3md7hRMe1EpG2x2X6qw4-xHN9lCsbs2AqV6Btyha96JkV_ppJ_ifSexG9NWmZVjL9NA7J7gyZAObM7tKeoJbVSuezMeyBw4c-Hl-eyg9AcQhP5NHQhNQ2jTGLZKjUdaEDonLNX3LmSAsrV10Tg95kBuXeMlgePSXKY0QXSBNWw?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Nueva Ecosia",
+        "location": {
+            "long": "-4.771983",
+            "lat": "55.956476",
+            "applicable": true
+        },
+        "description": "Leaders Name: His Majesty King Niall I                                                                                                          Email: niall.daisley7@gmail.com                               ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgiJcUPCqET6WAwXC7cS1YIQF9X4Vc-cEgoBnV4EAwOZ53en2cIxvhmWFIz9u0jzSLRQv6zNHDEBjWl54tNI_TPN23YC_T9T2TSw8NI0h3ChL4kEVkZqFF7_5CsGaXkiuLByHfKPObCUSgH-b2o79pSI3TJNwNPVqW5onNvj3yctMeTgM8dm2CZjlsbJnpnzVbT35DXWGHYng?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Micronation of the Avigation Vision of Radiator",
+        "location": {
+            "long": "77",
+            "lat": "28",
+            "applicable": true
+        },
+        "description": "Leaders Name: H.E. The Founder Vishwam Khandelwal                                                                                                                                                          Email: gov.avr2020@gmail.com                                                                                                                      ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjfX3yFX4GeISKdog-_OeeWIIDYulZ3F54BvdipCN9fTUYiVTN0Hl8sUK_l1O_rMtnaHITZMRtho3WN8PJf2-5eVjnx1R933V-0C8KrLKAUtTaqf_kB-rOiLZzAW-5sMLc9erBFLeSCzq0LqOnkLYZFmHCqBGNH_6nqPm5wjMhbVwRJlns6ZXoRQedW30mpwBtbOh-0blwKiQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Melungeon",
+        "location": {
+            "long": "-82.6038888888889",
+            "lat": "37.1513888888889",
+            "applicable": true
+        },
+        "description": "Leaders Name: President Evan Scott Vaughn                                                                                                Email: cryptolimbo301@gmail.com                                                                                                                ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgh2xx3MskbOuVAG4gH1NSFwbHEoSSolNHCMPPXKZ0c-7oHkz0Ew2oJeQInOYCZczLVCqxfxKvvY5V_-xJrinARKtJTiZ8jJskL6EaFQfrJ3lOmXM40w-aVMoo0wNcscNR1wxQv2TREC-1ySDAwaN8kADq1SuCO0sEaiJXfGLTZIHYDjaO4PsX08qm0qBbk1USjzospT0t1ZQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of lowton ",
+        "location": {
+            "long": "-0.563444444444445",
+            "lat": "53.2071944444444",
+            "applicable": true
+        },
+        "description": "Leader's Name: President Chris                                                                                                                        Email: Republicoflowton@gmail.com                      ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiA2RIhd2ocFLKzZICbFiqBN14d6c3OkQxCoFC_AJCjUA_-dQDNh4B6Ehb8kEo_0Z_qNUFpr-VOMXbUJEtM06DSU0oHaQ2wZR7KX0mU_KB-BUYSlkhb1Prj83VZ8Dlh2EkJIacz6DtiRNCIGR0dR3JBRK6Lk0EoO9JHag3hEr2xhhepzRzzKfDaZl8zRp5t7SmHaP_wQQNrpQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Republic of Ashland ",
+        "location": {
+            "long": "-0.004546",
+            "lat": "53.361984",
+            "applicable": true
+        },
+        "description": "Leaders Name: President Ash                                                                                                                          Email: atkkillayt@gmail.com                                      ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZg2EgRTNDSDIp83BUg_U6zcpoX5quGdT20kUyAF830cqTyHNQMwap5VaePB1J14PNEG8_jwclnuuWKX2bGpNSu9hKuUSbIq8n1LntQUrqgYhAPH7rryX27sklr7fcPXYWhUE9GyKEgQGUWl3xKJkcx1lynABbpzcszE35ZL5fAgqnZn3SEZ_LkqwP4QDc1tHp6x91YKwlb1_A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Lakeland",
+        "location": {
+            "long": "-92.023912",
+            "lat": "47.790712",
+            "applicable": true
+        },
+        "description": "Leaders Name: President Pederson                                                                                                                Email: LakelandFederation@gmail.com                                                                                                          Info: Lakeland's primary goals are to maintain the natural habitat for wildlife in our territories and keep the land open to the public for future generations.              ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZgaEiqkK3lpJa7joBURdXbR9heh8nzT5MPZheyYdkvev8lNk73KpHM-m902NhDOD_4iEisxQKX9SD8Ar9Oaav-h6FnIGIMA8N9V-Y6fD8LcD0IL14zwmKNLN1695R8670ubkzhDsnVXA6S3gtLobwXSaPqM-9_Siq-fMv_WY0m8PsRKcrovUkc1jr-ZZTn7zUcLVxRIJHi6xQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federation of Democratic Lemming\n",
+        "location": {
+            "long": "22.1689264",
+            "lat": "60.4859122",
+            "applicable": true
+        },
+        "description": "Leaders Name: President Of The Democratic Lemming                                                                                                                                                              Email: ahvamaaonni@gmail.com                                                                                                                    ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjXRrUE2LcNWZ-QhwsntNrTnDqA1N2dOckVWCRxlgVjsnFedUX3Ay9-pbPilm1u1LP8LdWQf2Y61Nes72koWA5qFJktp3z2RbA01vngi-MitnqHqmxiAy2z0OcY7wfGLvNsxiWFNeUD2vwxTJDC0zUeyxHemTnLqK_t08YCTOdrUo4oFWXGH1gGFCZ535FS1SwKZBmVzDBe7w?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Volaria",
+        "location": {
+            "long": "-85.6680863",
+            "lat": "42.9633599",
+            "applicable": true
+        },
+        "description": "Leaders Name: King Cooper I                                    Email: trimania4eva@gmail.com                                Info: trimania is now defuct as it is now volaria",
+        "flag": ""
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Stabushire",
+        "location": {
+            "long": "24.125396",
+            "lat": "56.957906",
+            "applicable": true
+        },
+        "description": "Leaders Name: Lord Riko Watterton of Stabushire                                                                                                                                                            Email: riko.vanags@gmail.com                                 ",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZinVwvbeZMoAV7eatrzv4l8AjtCub66Ae64PdzEkKIyD9gvMEViz0Sfkvw8Nza-8Q4MK2XU6YhkmYeACSG8tgNAqEMINMCyRkgcVxLvVahq9Oxo0paJqgAg4hr-LfyIfCbt0QL7_Rne3sjgFd6PMr8oeMw1UGcmBy8Xzu-z36egD50FgZrL2Evs-C436lhJXwt-mhp-q22EEQ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Federal Republic of Nabuzje",
+        "location": {
+            "long": "31.994583",
+            "lat": "46.975033",
+            "applicable": true
+        },
+        "description": "Leaders Name: The President Artyom Slobodyanikov                                                                                                                                                      Email: republic.nabuzje@gmail.com                                                                                                               Info: https://www.instagram.com/nabuzje_24/ - for more information you can visit our official account on Instagram.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZjLv7BO0soZ13mefR2DDbXQfzqy7-QXrfOlIZM-8SFhEwm_Rxe8OQcI8f-Py5JqC3UE5vBNdpF_toVyl2FkAKq4oA02yi_uU3XQhqpgf2vDgoWoXIiGHHxyIbb6muSedjNX1LCaIMjERd7DtQo59C_ux3FqWzDXeMPRW_v6gwP_VlSDyfI1ZnR_qU6bCpCzdLhhvTyy1YfZ?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Democratic Republic of Velavia",
+        "location": {
+            "long": "44.3660671",
+            "lat": "33.315241",
+            "applicable": true
+        },
+        "description": "Leader: Chairman Ali                                                                                                                                         Email:  alihadiya2010@gmail.com                                                                                                                  Info: in 2020 feb 28 my nation gained independence and declared our new nation ail then changed to velavia, but then our nemesis came and gained independence from velavia called kingdom of oran and the ruler is my brother, we battled for land and he decided to abdicate, but he ripped the papers of the sign and gained his land back instead of the capital, to this day we still fight over the velavian land.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZiltjg0hKDd-74t13800RMacxbpWI8Co3bZtJD-_SuNEK7tTtxCxoPBKxiV772NFhYs_oxBYEjcSRj5P34yhhwoTqhb79leQYTTuogmBtrW_7XQ32EqCzyukUIhU8jqTRCZDia8za-dx_87vEN7IVVDoiLlKqFSeqyV9ew8w2CoaMz-LMA6A9LwunUPJw_-P5sO6IdPHNGY3A?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Peninsula of Perpetua",
+        "location": {
+            "long": "-76.75745",
+            "lat": "37.2272856",
+            "applicable": true
+        },
+        "description": "Leader: Queen Marionette                                                                                                                                  Contact Info (Discord Preferred):                              Discord: bb_phrog#1996                                            Email: kingofexcelsior@gmail.com",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhJLRj94chnZUXy6cLnNoX_vCPNHnm9N_WZvUYoZJbddvT2gt8zFM3pA27iwr5JP3fNGIyn988aG1RBBLqucxAksziHM7iiqN5TeGLDR42CLNOWtK63sJ_fIIs5gjX6m1688HccDcAu5WPckLvBun8csJ35q-G4fkLKUDwDAmGqZrXwV_cmDzUiZKplbCkU9fiyXO-7pfLA2g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "Lakeshore Republic",
+        "location": {
+            "long": "-82.365965",
+            "lat": "43.016595",
+            "applicable": true
+        },
+        "description": "Leader:  King Lajeunesse II                                                                                                                               Contact: lakeshorerepublic@gmail.com                                                                                                       Info: Founded on the 27th of April, 2021. We're a Semi-Presidential Republic, and a Monarchy at the same time. Meaning, we have a King, President, and a Prime Minister.",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhdcxJLyKyhvjac72hY-TjEsshRT2Lx9sXU9TGoECJg3lgnqoM1Kgac16-wRQ9_RbCRMczAI8BExIQJN09VNw1dZve_kXgNfGEh9cmoVUyznYAKRbTdtcyxEvAFbRcZx39O4gknZy-sW9Q0G43S078pMsFbvJsXLRbCHTLWNbUfLzl8joqm7NzV767iP6pD0CrS-klBr926kA?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Sanctimonia\n",
+        "location": {
+            "long": "74.0056666666667",
+            "lat": "40.7038305555556",
+            "applicable": true
+        },
+        "description": "Leader: Emperor Vicber                                                                                                                                     Contact: victor@davber.com                                                                                                                           Info: An official Micronation run by a Scotch Lord. Our Micronation has been very isolated and is very medieval, so if you would like to join feel free to come. We try to expand and one day we will be a very powerful micronation. We make History videos about the military and government and how Sanctimonia incorporates them. We have territories in Switzerland near Lake Geneva and we also have territories in Scotland. We fought Glamrockia and liberated Pigiztan with the help of the Southnor and Vanguard Militaries. We helped fend off the Saintus from Bushistan. YouTube Channel: https://www.youtube.com/channel/UCkI1tKSeNi_VH32puRbGcow Official Website: https://www.sanctimonia.io/",
+        "flag": "https://mymaps.usercontent.google.com/hostedimage/m/*/3ABkJAZhRNxMoktHf8jskv8apqub_grFSUIYNdVNpqMRBd6rDKvpZeiDFLXRKXkX48hF9esT9L5KyMAIbLmUZ5VK_GCfXVFpoBS7aSRgZ3ot16otYd03Pao-ybcW5PhHKKfxpEg1O1wVqzy7RaObkwvVf1e2q1NGBPR5BAdPisc5_E-tuZVazIhIPqgS6lHBtIE6fCTOEq6CIMfXf4g?fife=s16383"
+    },
+    {
+        "source": {
+            "url": "https://www.google.com/maps/d/u/0/viewer?mid=1GRWMzmH1eoA4ZhXqnkJ4wPXtEriYQ-V8&femb=1&ll=51.75553864666119%2C20.905674497284206&z=5",
+            "name": "Micronations"
+        },
+        "name": "The Kingdom of Jamestown",
+        "location": {
+            "long": "-76.77619",
+            "lat": "37.21642",
+            "applicable": true
+        },
+        "description": "Leader: King James I                                        Email: JPQStevens@gmail.com                        Info: My country came into existence due to the political climate that the United States is currently experiencing. My nation offers the American people a place to immigrate to; to escape the political divisiveness of their nation. Clearly, a two-party democratic system does not work for us, so why not go back to our roots! A Constitutional Monarchy with a sprinkle of Direct Democracy on top! My country will bring out the best in people! To hell with them! For us!",
+        "flag": ""
     }
 ]
 
-export default {placemarksDirectory};
+export default { placemarksDirectory };

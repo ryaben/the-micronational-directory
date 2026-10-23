@@ -5,8 +5,91 @@ import { placemarksDirectory } from '../assets/googleMyMapsSources';
 import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
+import { computed, ref } from 'vue';
 
 const { micronationsDirectory, userIsModerator } = useDirectoryData();
+const KMLfile = ref('');
+const KMLlink = ref('');
+
+const directory = computed(() => Array.isArray(micronationsDirectory.value) ? micronationsDirectory.value : []);
+
+const micronationsCompareSources = computed(() => {
+  const present = [];
+  const missing = [];
+
+  placemarksDirectory.forEach((element) => {
+    const check = directory.value.find((mic) => [
+      mic.name?.main,
+      ...(mic.name?.alt || []).map((name) => name.main),
+      mic.name?.mainAlt
+    ].some((name) => name && normalizeString(element.name).includes(normalizeString(name))));
+
+    if (check) {
+      present.push({ ...check, micronationalMap: element });
+    } else {
+      missing.push({ micronationalMap: element });
+    }
+  });
+
+  return { present, missing };
+});
+
+const placemarkSources = computed(() => {
+  const sources = new Map();
+  placemarksDirectory.forEach((element) => {
+    if (!sources.has(element.source.name)) {
+      sources.set(element.source.name, element.source.url);
+    }
+  });
+  return [...sources].map(([name, url]) => ({ name, url }));
+});
+
+function normalizeString(string = '') {
+  return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+async function processKML() {
+  const cleanKML = KMLfile.value.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '').replace(/\n {8}/g, '').replace(/ {4}/g, '');
+  const documentData = {
+    name: $(cleanKML).find('Document name:eq(0)').text(),
+    url: KMLlink.value
+  };
+  const placemarksArray = [];
+
+  $(cleanKML).find('Placemark').each(function () {
+    const checkName = $(this).find('name').text().replace(/>/g, '');
+    const coordinates = $(this).find('Point coordinates').text().split(',');
+    const checkFlag = $(this).find('description img').prop('src');
+
+    placemarksArray.push({
+      source: { url: documentData.url, name: documentData.name },
+      name: checkName || '',
+      location: {
+        long: coordinates[0]?.trim() || 0,
+        lat: coordinates[1]?.trim() || 0,
+        applicable: !/non-territorial/i.test($(this).find('description').text())
+      },
+      description: $(this).find('description').text().replace(/>/g, ''),
+      flag: checkFlag || ''
+    });
+  });
+
+  const { saveAs } = await import('file-saver');
+  const fileName = normalizeString(documentData.name || 'google-my-maps-placemarks')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '') || 'google-my-maps-placemarks';
+  const jsonFile = new Blob([JSON.stringify(placemarksArray, null, 2)], {
+    type: 'application/json;charset=utf-8'
+  });
+  saveAs(jsonFile, `${fileName}.json`);
+
+  notify({
+    title: "Processing complete",
+    text: `Processed ${placemarksArray.length} placemarks and downloaded ${fileName}.json. Add the elements to googleMyMapsSources.js.`,
+    type: "success"
+  });
+}
 </script>
 
 <template>
@@ -89,100 +172,6 @@ const { micronationsDirectory, userIsModerator } = useDirectoryData();
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  components: {
-    PlacemarkEntry
-  },
-  data() {
-    return {
-      KMLfile: '',
-      KMLlink: ''
-    }
-  },
-  computed: {
-    micronationsCompareSources() {
-      const that = this;
-      let presentArray = [];
-      let missingArray = []
-
-      placemarksDirectory.forEach(function (element) {
-        const check = that.micronationsDirectory.find(mic => [mic.name.main, ...(mic.name.alt || []).map(name => name.main), mic.name.mainAlt]
-          .some(name => name && that.normalizeString(element.name).includes(that.normalizeString(name))));
-
-        if (check !== undefined) {
-          presentArray.push({
-            ...check,
-            micronationalMap: element
-          });
-        } else {
-          missingArray.push({
-            ...check,
-            micronationalMap: element
-          });
-        }
-      });
-
-      return { present: presentArray, missing: missingArray };
-    },
-    placemarkSources() {
-      let sources = [{ url: 'url', name: 'name' }];
-
-      placemarksDirectory.forEach(function (element) {
-        if (sources.find(el => el.name === element.source.name) === undefined) {
-          sources.push({ url: element.source.url, name: element.source.name })
-        }
-      });
-
-      sources.shift();
-      return sources;
-    }
-  },
-  methods: {
-    async processKML() {
-      const cleanKML = this.KMLfile.replace(/<!\[CDATA\[/g, '').replace(/\]\]>/g, '').replace(/\n {8}/g, '').replace(/ {4}/g, '');
-      const documentData = {
-        name: $(cleanKML).find('Document name:eq(0)').text(),
-        url: this.KMLlink
-      }
-      let placemarksArray = [];
-
-      $(cleanKML).find('Placemark').each(function (i, obj) {
-        const checkName = $(this).find('name').text().replace(/>/g, '');
-        const checkLong = $(this).find('Point coordinates').text().split(',')[0].trim();
-        const checkLat = $(this).find('Point coordinates').text().split(',')[1];
-        const checkFlag = $(this).find('description img').prop('src');
-
-        placemarksArray.push({
-          source: {
-            url: documentData.url,
-            name: documentData.name
-          },
-          name: checkName !== undefined ? checkName : '',
-          location: {
-            long: checkLong !== undefined ? checkLong : 0,
-            lat: checkLat !== undefined ? checkLat : 0,
-            applicable: $(this).find('description').text().search(/non-territorial/i) === -1 ? true : false
-          },
-          description: $(this).find('description').text().replace(/>/g, ''),
-          flag: checkFlag !== undefined ? checkFlag : '',
-        });
-      });
-
-      console.log(placemarksArray);
-      notify({
-        title: "Processing complete",
-        text: `All placemarks from the KML file have been processed. Check the console to download the array and add the elements to googleMyMapsSources.js.`,
-        type: "success"
-      });
-    },
-    normalizeString(string) {
-      return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-  }
-}
-</script>
 
 <style scoped>
 #actionPanel {
