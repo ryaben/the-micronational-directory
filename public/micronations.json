@@ -55927,5 +55927,100 @@
     "createdAt": "2026-10-24T21:52:14Z",
     "isEdit": false,
     "id": "5pjfFJSRgyZP3tubT6C9"
+  },
+  {
+    "name": {
+      "main": "Pearson Republic",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Republic of the Pearson",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Spanish",
+      "Esperanto"
+    ],
+    "contactInfo": [
+      "https://www.youtube.com/@pearsonrepublicgovernment"
+    ],
+    "websites": [
+      "https://sites.google.com/view/pearson-republic-government/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Pearson Republic.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Skinkston",
+    "currency": "Puro",
+    "memberships": [
+      "Micronational Assembly",
+      "Space Cooperation Treaty"
+    ],
+    "foundationDate": {
+      "_seconds": 1552244340
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792879439
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronational existence to confirm factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The official name 'Pearson Republic' is clear, properly formatted, and distinct from the alternative name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2019-03-10 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "A relevant website URL (https://sites.google.com/view/pearson-republic-government/) is provided as a source."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as an official language, which is preferred and clearly defined."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the name and date are consistent, the submission provides no specific evidence of news, diplomacy, or ongoing activity to verify the entity's active status as a micronation, making the truthfulness of its existence claims uncertain based solely on the provided data."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, flag, and specific location coordinates are not mandatory; the provided data does not violate guidance by omitting them or providing incoherent optional data."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T22:03:59Z",
+    "isEdit": false,
+    "id": "XrBQk9CWkUOSfgoXODMD"
   }
 ]
