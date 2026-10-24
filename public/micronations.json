@@ -55587,7 +55587,7 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "approved": true,
-    "flag": "/images/flags/Moadu.png",
+    "flag": "/images/flags/Moadu-1792882061727.jpg",
     "type": [
       "Digital"
     ],
@@ -55641,9 +55641,12 @@
         }
       ]
     },
-    "createdAt": "2026-10-24T20:38:28Z",
-    "isEdit": false,
-    "id": "HO6MCt1JgkkCVXWY4YRX"
+    "createdAt": "2026-10-24T22:47:44Z",
+    "isEdit": true,
+    "id": "HO6MCt1JgkkCVXWY4YRX",
+    "uncertain": [
+      "foundationDate"
+    ]
   },
   {
     "name": {
