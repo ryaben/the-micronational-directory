@@ -372,9 +372,11 @@ export function convertIssueToEntry(issue) {
 
   let imageDataUrl = null
   if (base64Image) {
-    // Determine image type from file extension or default to png
-    const extension = fileMetadata?.name?.split('.').pop() || 'png'
-    imageDataUrl = `data:image/${extension};base64,${base64Image}`
+    // Rebuild the data URL from the stored extension; JPEG uses the MIME subtype
+    // "jpeg" even when its filename extension is "jpg".
+    const extension = fileMetadata?.name?.split('.').pop()?.toLowerCase() || 'png'
+    const mimeSubtype = extension === 'jpg' ? 'jpeg' : extension
+    imageDataUrl = `data:image/${mimeSubtype};base64,${base64Image}`
   }
 
   // Add issue metadata
