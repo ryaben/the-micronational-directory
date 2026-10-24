@@ -55336,7 +55336,7 @@
     },
     "aiReview": {
       "verdict": "needs_review",
-      "summary": "Submission meets age and naming criteria but lacks sufficient evidence of ongoing activity or current official presence to confirm factual claims.",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of current activity to confirm factual claims.",
       "checks": [
         {
           "criterion": "clear_name",
@@ -55375,9 +55375,12 @@
         }
       ]
     },
-    "createdAt": "2026-10-24T20:16:26Z",
-    "isEdit": false,
-    "id": "uwqyPf4C0BcUKimZMII3"
+    "createdAt": "2026-10-24T22:57:55Z",
+    "isEdit": true,
+    "id": "uwqyPf4C0BcUKimZMII3",
+    "uncertain": [
+      "foundationDate"
+    ]
   },
   {
     "name": {
