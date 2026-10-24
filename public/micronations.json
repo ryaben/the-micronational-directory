@@ -55115,5 +55115,93 @@
     "createdAt": "2026-10-23T19:07:59Z",
     "isEdit": false,
     "id": "HABIMM2STj8S8tkaZcDj"
+  },
+  {
+    "name": {
+      "main": "Mattonia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Unitas in Diversitate, Dispensatio in Natura",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.youtube.com/@mattonia-official",
+      "https://www.instagram.com/kingdomofmattonia/",
+      "kingdomofmattonia@gmail.com",
+      "mfa.mattonia@gmail.com"
+    ],
+    "websites": [
+      "https://kingdomofmattonia.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Mattonia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Liberejo",
+    "currency": "Mattonian Timber",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1713992580
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792800427
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronational existence beyond contact details.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Kingdom of Mattonia' is clear, properly formatted, and includes a title and main name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2024-04-24 is significantly older than the one-month cutoff of 2026-09-24, satisfying the age threshold."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "An official website URL (https://kingdomofmattonia.org/) is provided, meeting the requirement for at least one relevant information source."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as an official language, which is preferred and acceptable."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the claims are internally coherent, the submission provides only contact info and a website URL without specific evidence of ongoing activity (news, diplomacy, etc.) to verify the micronation's active status as required for fictional/physical entries."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are provided where applicable, and their absence or presence does not violate mandatory requirements."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T00:07:07Z",
+    "isEdit": false,
+    "id": "xqOXnG4DTTo37iadd6Y8"
   }
 ]
