@@ -55378,5 +55378,98 @@
     "createdAt": "2026-10-24T20:16:26Z",
     "isEdit": false,
     "id": "uwqyPf4C0BcUKimZMII3"
+  },
+  {
+    "name": {
+      "main": "Delvera",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Delvera",
+          "title": "State of"
+        }
+      ],
+      "title": "Grand Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "Consul@Delvera.org"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20211208131424/http://www.delvera.org/",
+      "https://karniaruthenia.miraheze.org/wiki/State_of_Delvera"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Delvera.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "Karnia-Ruthenia"
+    ],
+    "foundationDate": {
+      "_seconds": 1369844520
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792783695
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "The submission meets all core requirements with valid dates, sources, and language, though factual claims require further verification.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Grand Republic of Delvera' is clearly formatted with a main name and title."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2013-05-29 is well before the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Two relevant sources are provided: an archived official website and a wiki page."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the official language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the name and dates are consistent, the specific claims about activity and status rely on user-provided data which cannot be independently verified in this triage step."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are empty, which is acceptable as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T19:28:15Z",
+    "isEdit": false,
+    "id": "muxEstaD8UuVswHcmvXy"
   }
 ]
