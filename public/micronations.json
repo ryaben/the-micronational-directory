@@ -56154,5 +56154,54 @@
     "createdAt": "2026-10-24T22:15:09Z",
     "isEdit": false,
     "id": "x0ylewd984jN3t05LGPA"
+  },
+  {
+    "name": {
+      "main": "RedCliff",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Federal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Better govern the people",
+    "languages": [
+      "English",
+      "Navajo",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://discord.gg/NtA2Truztp"
+    ],
+    "websites": [
+      "https://sites.google.com/view/redcliffrepublic/redcliff",
+      "https://micronations.wiki/wiki/Federal_Republic_of_RedCliff"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/RedCliff.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "RedCliff Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1748736000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792883976
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-24T23:19:36Z",
+    "isEdit": false,
+    "id": "fdQXc2ml2OowHagrNNmg"
   }
 ]
