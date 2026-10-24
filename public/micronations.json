@@ -55021,5 +55021,99 @@
     "createdAt": "2026-10-23T19:02:22Z",
     "isEdit": false,
     "id": "fz42Jdl1isZ7LGo60416"
+  },
+  {
+    "name": {
+      "main": "Cordinar",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Cordinar",
+          "title": "Grand-Duché du"
+        }
+      ],
+      "title": "Grand Duchy of",
+      "titleAlt": ""
+    },
+    "motto": "Virtus, Caritas, Porbitas (Virtue, Charity, Honesty)",
+    "languages": [
+      "French",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/cordinargov/",
+      "cordinargov@gmail.com",
+      "https://x.com/CordinarGov",
+      "https://www.youtube.com/channel/UCtTJSHwKoB9jaI2u8Pu4Fog/featured"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Grand_Duchy_of_Cordinar"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Cordinar.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Ducaillaud",
+    "currency": "Cordinari Ace",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1603152000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792782479
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "The submission meets all mandatory criteria for name clarity, age, sources, language, and content safety, with no prohibited content detected.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The official name 'Grand Duchy of Cordinar' is clearly formatted with a title and main name, and an alternative name is provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2020-10-20 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "A relevant information source website (micronations.wiki) is provided, which is an acceptable source for micronation data."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "At least one official language is listed, including English, which is preferred."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The claims are coherent and supported by the provided source; no contradictions or fictional inconsistencies are evident in the data."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are provided where applicable, and their absence or presence does not violate mandatory requirements."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T19:07:59Z",
+    "isEdit": false,
+    "id": "HABIMM2STj8S8tkaZcDj"
   }
 ]
