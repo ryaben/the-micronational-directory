@@ -5,6 +5,7 @@ import MemberSource from '../components/MemberSource.vue';
 import ProfileArticleActions from './ProfileArticleActions.vue';
 import ProfileArticleNavigation from './ProfileArticleNavigation.vue';
 import ProfileDataCell from './ProfileDataCell.vue';
+import UncertaintyToggle from './UncertaintyToggle.vue';
 import store from '../store';
 
 defineProps({
@@ -31,7 +32,7 @@ defineProps({
             <div class="article-title">
                 <div class="article-full-name">
                     <p class="article-text article-name">
-                        <b>{{ info.name.main }}</b>&nbsp;({{ info.name.mainAlt }})
+                        <b>{{ info.name.main }}</b><UncertaintyToggle v-if="info.uncertain?.includes('name.main')" :active="true" disabled />&nbsp;({{ info.name.mainAlt }}<UncertaintyToggle v-if="info.uncertain?.includes('name.mainAlt')" :active="true" disabled />)
                     </p>
                 </div>
                 <ProfileArticleActions v-if="!preview" :title="info.name.main" :entry-id="info.id" entry-type="organizations" />
@@ -39,6 +40,7 @@ defineProps({
 
             <div class="organization-article-content">
                 <div class="organization-logo-panel">
+                    <UncertaintyToggle v-if="info.uncertain?.includes('logo')" :active="true" disabled />
                     <img :src="info.logo" class="article-logo" alt="Logo">
                 </div>
 
@@ -46,16 +48,16 @@ defineProps({
                     <div class="organization-data-grid">
                     <ProfileDataCell variant="organization">
                         <span class="organization-data-label">Organization motto</span>
-                        <span class="organization-data-value" v-if="info.motto !== ''"><span class="italicized">"{{ info.motto }}"</span></span>
-                        <span class="organization-data-value" v-else>No motto.</span>
+                        <span class="organization-data-value" v-if="info.motto !== ''"><span class="italicized">"{{ info.motto }}"</span><UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
+                        <span class="organization-data-value" v-else>No motto.<UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
                         <span class="organization-data-label">Foundation</span>
-                        <span class="organization-data-value">{{ cleanTimestamp(info.foundationDate) }}</span>
+                        <span class="organization-data-value">{{ cleanTimestamp(info.foundationDate) }}<UncertaintyToggle v-if="info.uncertain?.includes('foundationDate')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
                         <span class="organization-data-label">Languages</span>
-                        <span class="organization-data-value"><span v-for="(language, i) in info.languages" :key="i">{{ language }}<span v-if="i !== info.languages.length - 1">, </span><span v-else>.</span></span></span>
+                        <span class="organization-data-value"><span v-for="(language, i) in info.languages" :key="i">{{ language }}<span v-if="i !== info.languages.length - 1">, </span><span v-else>.</span></span><UncertaintyToggle v-if="info.uncertain?.includes('languages')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
                         <span class="organization-data-label">Contact media</span>
@@ -66,6 +68,7 @@ defineProps({
                                     :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
                                     :icon="checkIcon(contact, info.name.main)" />
                             </div>
+                            <UncertaintyToggle v-if="info.uncertain?.includes('contactInfo')" :active="true" disabled />
                         </div>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
@@ -76,6 +79,7 @@ defineProps({
                                     :href="website" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
                                     :icon="checkIcon(website, info.name.main)" />
                             </div>
+                            <UncertaintyToggle v-if="info.uncertain?.includes('websites')" :active="true" disabled />
                         </div>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">

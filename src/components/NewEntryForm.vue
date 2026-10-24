@@ -13,6 +13,7 @@ import SelectedElement from '../components/SelectedElement.vue'
 import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
 import ModerationImageEditor from './ModerationImageEditor.vue'
+import UncertaintyToggle from './UncertaintyToggle.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
 import { createFirestoreStyleId } from '../utils/firestoreStyleId.js'
 import imageCompression from 'browser-image-compression'
@@ -106,7 +107,9 @@ const emit = defineEmits([
       <div class="new-entry-content">
         <p v-if="!isModerationEditor" class="new-entry-intro">
           Please, carefully read instructions for all fields. Fields with an asterisk (*) are
-          mandatory to fill, the others can be blank. <br />Help us save moderation efforts!
+          mandatory to fill, the others can be blank. <br />Help us save moderation efforts!<br>
+          Mark a field with <UncertaintyToggle :active="true" disabled style="margin: 3px;" /> when its value is uncertain or lacks precise confirmation. This note
+          will be included with the submission for moderators.<br>
           <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
           check the preview on the right.
         </p>
@@ -206,17 +209,20 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 0 ? '' : activateTooltip(0, 'Name', $event)"
               />
             </label>
-            <input
-              type="text"
-              id="newEntryName"
-              v-model="formPlaceholders.newEntryName"
-              required
-              :placeholder="
-                entryType === 'micronation'
-                  ? `E.g. 'Sealand' (just the short form)`
-                  : `E.g. League of Micronations (full name)`
-              "
-            />
+            <div class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('name.main')" @toggle="toggleUncertain('name.main')" />
+              <input
+                type="text"
+                id="newEntryName"
+                v-model="formPlaceholders.newEntryName"
+                required
+                :placeholder="
+                  entryType === 'micronation'
+                    ? `E.g. 'Sealand' (just the short form)`
+                    : `E.g. League of Micronations (full name)`
+                "
+              />
+            </div>
 
             <label
               v-if="entryType === 'micronation'"
@@ -231,13 +237,15 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 1 ? '' : activateTooltip(1, 'Title', $event)"
               />
             </label>
-            <input
-              v-if="entryType === 'micronation'"
-              type="text"
-              id="newEntryTitle"
-              v-model="formPlaceholders.newEntryTitle"
-              placeholder="E.g. 'Principality of' (just the descriptive name only)"
-            />
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('name.title')" @toggle="toggleUncertain('name.title')" />
+              <input
+                type="text"
+                id="newEntryTitle"
+                v-model="formPlaceholders.newEntryTitle"
+                placeholder="E.g. 'Principality of' (just the descriptive name only)"
+              />
+            </div>
 
             <label
               v-if="entryType !== 'micronation'"
@@ -254,17 +262,19 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <input
-              v-if="entryType !== 'micronation'"
-              type="text"
-              id="newEntryNameAlt"
-              v-model="formPlaceholders.newEntryNameAlt"
-              :placeholder="
-                entryType === 'micronation'
-                  ? 'Second option for name, e.g. in another language'
-                  : 'Acronym of the organization, e.g. LoM'
-              "
-            />
+            <div v-if="entryType !== 'micronation'" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('name.mainAlt')" @toggle="toggleUncertain('name.mainAlt')" />
+              <input
+                type="text"
+                id="newEntryNameAlt"
+                v-model="formPlaceholders.newEntryNameAlt"
+                :placeholder="
+                  entryType === 'micronation'
+                    ? 'Second option for name, e.g. in another language'
+                    : 'Acronym of the organization, e.g. LoM'
+                "
+              />
+            </div>
 
             <template v-if="entryType === 'micronation'">
               <label for="newEntryAltNameMain" class="new-entry-form-text">
@@ -276,7 +286,9 @@ const emit = defineEmits([
                   @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)"
                 />
               </label>
-              <div class="new-entry-option-container alternative-name-fields">
+              <div class="uncertainty-field-control">
+                <UncertaintyToggle :active="isUncertain('name.alt')" @toggle="toggleUncertain('name.alt')" />
+                <div class="new-entry-option-container alternative-name-fields">
                 <div class="alternative-name-inputs">
                   <input
                     id="newEntryAltNameMain"
@@ -305,6 +317,7 @@ const emit = defineEmits([
                     @remove-element="removeAlternativeName(i)"
                   />
                 </div>
+                </div>
               </div>
             </template>
 
@@ -317,12 +330,15 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 4 ? '' : activateTooltip(4, 'Motto', $event)"
               />
             </label>
-            <input
-              type="text"
-              id="newEntryMotto"
-              v-model="formPlaceholders.newEntryMotto"
-              placeholder="E.g. 'In God we trust' (add without quotes)"
-            />
+            <div class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('motto')" @toggle="toggleUncertain('motto')" />
+              <input
+                type="text"
+                id="newEntryMotto"
+                v-model="formPlaceholders.newEntryMotto"
+                placeholder="E.g. 'In God we trust' (add without quotes)"
+              />
+            </div>
 
             <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory">
               Type*
@@ -333,7 +349,9 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 5 ? '' : activateTooltip(5, 'Type', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="new-entry-type">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('type')" @toggle="toggleUncertain('type')" />
+              <div class="new-entry-type">
               <input
                 type="checkbox"
                 id="typePhysical"
@@ -361,6 +379,7 @@ const emit = defineEmits([
                 value="fictional"
               />
               <label for="typeFictional">Fictional</label>
+              </div>
             </div>
 
             <label for="newEntryLanguages" class="new-entry-form-text mandatory">
@@ -374,6 +393,8 @@ const emit = defineEmits([
                 "
               />
             </label>
+            <div class="uncertainty-field-control">
+            <UncertaintyToggle :active="isUncertain('languages')" @toggle="toggleUncertain('languages')" />
             <div class="new-entry-option-container">
               <div class="new-entry-select-controls">
                 <select
@@ -407,6 +428,7 @@ const emit = defineEmits([
                 />
               </div>
             </div>
+            </div>
 
             <label
               v-if="entryType === 'micronation'"
@@ -421,13 +443,15 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 7 ? '' : activateTooltip(7, 'Capital', $event)"
               />
             </label>
-            <input
-              v-if="entryType === 'micronation'"
-              type="text"
-              id="newEntryCapital"
-              v-model="formPlaceholders.newEntryCapital"
-              placeholder="City, place or building officiating as capital"
-            />
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('capital')" @toggle="toggleUncertain('capital')" />
+              <input
+                type="text"
+                id="newEntryCapital"
+                v-model="formPlaceholders.newEntryCapital"
+                placeholder="City, place or building officiating as capital"
+              />
+            </div>
 
             <label
               v-if="entryType === 'micronation'"
@@ -442,13 +466,15 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 8 ? '' : activateTooltip(8, 'Currency', $event)"
               />
             </label>
-            <input
-              v-if="entryType === 'micronation'"
-              type="text"
-              id="newEntryCurrency"
-              v-model="formPlaceholders.newEntryCurrency"
-              placeholder="Official currency of the micronation, just name and not symbol"
-            />
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('currency')" @toggle="toggleUncertain('currency')" />
+              <input
+                type="text"
+                id="newEntryCurrency"
+                v-model="formPlaceholders.newEntryCurrency"
+                placeholder="Official currency of the micronation, just name and not symbol"
+              />
+            </div>
 
             <label for="newEntryFoundation" class="new-entry-form-text mandatory">
               Foundation*
@@ -459,6 +485,8 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 9 ? '' : activateTooltip(9, 'Foundation', $event)"
               />
             </label>
+            <div class="uncertainty-field-control">
+            <UncertaintyToggle :active="isUncertain('foundationDate')" @toggle="toggleUncertain('foundationDate')" />
             <VueDatePicker
               v-model="foundationDate"
               :enable-time-picker="false"
@@ -471,6 +499,7 @@ const emit = defineEmits([
               :required="true"
               :max-date="new Date()"
             />
+            </div>
 
             <label
               v-if="entryType === 'micronation'"
@@ -485,7 +514,9 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" v-show="physicalType">
+            <div v-if="entryType === 'micronation'" v-show="physicalType" class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('location')" @toggle="toggleUncertain('location')" />
+              <div>
               <p class="new-entry-location-note">
                 Drag the pin to the micronation's location. Leave it at the default location (0, 0)
                 if unknown.
@@ -500,6 +531,7 @@ const emit = defineEmits([
                 :initial-position="locationPickerMarkerPosition"
                 @dragged-marker="draggedMarker"
               />
+              </div>
             </div>
 
             <label
@@ -515,7 +547,9 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="new-entry-option-container">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <UncertaintyToggle :active="isUncertain('memberships')" @toggle="toggleUncertain('memberships')" />
+            <div class="new-entry-option-container">
               <div class="new-entry-select-controls">
                 <select
                   name="newEntryMemberships"
@@ -556,6 +590,7 @@ const emit = defineEmits([
                 />
               </div>
             </div>
+            </div>
 
             <label for="newEntryEmails" class="new-entry-form-text mandatory">
               Contact media*
@@ -568,6 +603,8 @@ const emit = defineEmits([
                 "
               />
             </label>
+            <div class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('contactInfo')" @toggle="toggleUncertain('contactInfo')" />
             <div class="new-entry-option-container">
               <div style="display: flex">
                 <input
@@ -596,6 +633,7 @@ const emit = defineEmits([
                 />
               </div>
             </div>
+            </div>
 
             <label for="newEntryWebsites" class="new-entry-form-text mandatory">
               Info sources*
@@ -608,6 +646,8 @@ const emit = defineEmits([
                 "
               />
             </label>
+            <div class="uncertainty-field-control">
+              <UncertaintyToggle :active="isUncertain('websites')" @toggle="toggleUncertain('websites')" />
             <div class="new-entry-option-container">
               <div style="display: flex">
                 <input
@@ -636,6 +676,7 @@ const emit = defineEmits([
                 />
               </div>
             </div>
+            </div>
 
             <label for="newEntryFlag" class="new-entry-form-text mandatory">
               {{ entryType === 'micronation' ? 'Flag*' : 'Logo*' }}
@@ -646,7 +687,9 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)"
               />
             </label>
-            <div class="flag-preview-container">
+            <div class="uncertainty-field-control flag-input-control">
+              <UncertaintyToggle :active="isUncertain(entryType === 'micronation' ? 'flag' : 'logo')" @toggle="toggleUncertain(entryType === 'micronation' ? 'flag' : 'logo')" />
+            <div class="new-entry-option-container flag-preview-container">
               <img
                 v-if="isModerationEditor && editImageValue"
                 :src="editImageValue"
@@ -698,6 +741,7 @@ const emit = defineEmits([
                   >)
                 </label>
               </template>
+            </div>
             </div>
 
             <div class="wide-row">
@@ -836,6 +880,7 @@ export default {
       ],
       renderedMapboxNewEntry: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
       physicalType: !!this.isModerationEditor && (entry.type || []).includes('Physical'),
+      uncertainFields: Array.isArray(entry.uncertain) ? [...entry.uncertain] : [],
       tooltipDisplay: false,
       tooltipPosition: {
         x: 0,
@@ -910,6 +955,14 @@ export default {
     }
   },
   methods: {
+    isUncertain(field) {
+      return this.uncertainFields.includes(field)
+    },
+    toggleUncertain(field) {
+      this.uncertainFields = this.isUncertain(field)
+        ? this.uncertainFields.filter((item) => item !== field)
+        : [...this.uncertainFields, field]
+    },
     async addEntry() {
       const that = this
 
@@ -951,6 +1004,7 @@ export default {
           languages: [...this.formPlaceholders.newEntryLanguages],
           contactInfo: [...this.formPlaceholders.newEntryEmails],
           websites: [...this.formPlaceholders.newEntryWebsites],
+          uncertain: [...this.uncertainFields],
           foundationDate: this.foundationDate
             ? { seconds: Math.floor(new Date(this.foundationDate).getTime() / 1000) }
             : null
@@ -1012,6 +1066,7 @@ export default {
             languages: this.formPlaceholders.newEntryLanguages,
             contactInfo: this.formPlaceholders.newEntryEmails,
             websites: this.formPlaceholders.newEntryWebsites,
+            uncertain: [...this.uncertainFields],
             author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
             foundationDate: this.foundationDate
           }
@@ -1728,6 +1783,28 @@ export default {
   font-size: 14px;
   font-weight: 700;
   color: var(--color-heading);
+}
+
+.uncertainty-field-control {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+}
+
+.uncertainty-field-control > input,
+.uncertainty-field-control > .new-entry-option-container,
+.uncertainty-field-control > .new-entry-type,
+.uncertainty-field-control > .vue-datepicker,
+.uncertainty-field-control > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.uncertainty-field-control :deep(.uncertainty-toggle) {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .new-entry-location-note {

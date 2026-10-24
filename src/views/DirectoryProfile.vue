@@ -29,6 +29,7 @@ const { micronationsDirectory, supranationalMicronations, visibleOrganizations }
             memberships: requestedMicronation.info.memberships,
             contactInfo: requestedMicronation.info.contactInfo,
             websites: requestedMicronation.info.websites,
+            uncertain: requestedMicronation.info.uncertain,
             approved: true,
             author: requestedMicronation.info.author.name,
             creationDate: requestedMicronation.info.creationDate,
