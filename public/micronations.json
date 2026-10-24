@@ -55203,5 +55203,91 @@
     "createdAt": "2026-10-24T00:07:07Z",
     "isEdit": false,
     "id": "xqOXnG4DTTo37iadd6Y8"
+  },
+  {
+    "name": {
+      "main": "Amandium",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Nation of",
+      "titleAlt": ""
+    },
+    "motto": "Humanitas Excellentiam Scientiae",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/amandium/",
+      "https://www.youtube.com/user/NationofAmandium",
+      "+1 312-970-1418",
+      "government@amandium.org"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20231004205604/http://www.amandium.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Amandium.png",
+    "type": [
+      "Digital"
+    ],
+    "capital": "Amandium",
+    "currency": "Amanz",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1292599920,
+      "_seconds": 1292599920
+    },
+    "creationDate": {
+      "_seconds": 1792780383
+    },
+    "location": null,
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity or valid current sources.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Nation of Amandium' is clearly formatted with a main name and title."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2011-01-01 is well before the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The only provided website is a Wayback Machine wildcard link to a 2013 snapshot. While archived snapshots are permitted for dead sites, there is no evidence of current activity or a live official site, making the source's relevance and currency uncertain."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the official language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims to be a 'Digital' micronation with a currency and contact info, but provides no evidence of ongoing activity, news, or diplomacy beyond a 2013 archived website and social media links that cannot be verified for current activity. The truthfulness of the claims is not supported by sufficient evidence in the submission."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and location are empty or null, which is acceptable as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T18:33:03Z",
+    "isEdit": false,
+    "id": "ll5mKG0O7rZ82CkHvFYh"
   }
 ]
