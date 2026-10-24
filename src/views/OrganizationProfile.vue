@@ -27,6 +27,7 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
             foundationDate: requestedOrganization.info.foundationDate,
             contactInfo: requestedOrganization.info.contactInfo,
             websites: requestedOrganization.info.websites,
+            uncertain: requestedOrganization.info.uncertain,
             approved: true,
             author: requestedOrganization.info.author.name,
             creationDate: requestedOrganization.info.creationDate,

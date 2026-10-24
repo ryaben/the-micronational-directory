@@ -5,6 +5,7 @@ import MemberSource from '../components/MemberSource.vue'
 import ProfileArticleActions from './ProfileArticleActions.vue'
 import ProfileArticleNavigation from './ProfileArticleNavigation.vue'
 import ProfileDataCell from './ProfileDataCell.vue'
+import UncertaintyToggle from './UncertaintyToggle.vue'
 import store from '../store'
 
 const alternativeNames = (name) =>
@@ -54,12 +55,13 @@ defineProps({
           />
           <div class="article-name-group">
             <p class="article-text article-name">
-              <b>{{ info.name.main }}</b
-              ><span v-if="info.name.title !== ''">,</span>
-              {{ info.name.title }}
+              <b>{{ info.name.main }}</b><UncertaintyToggle v-if="info.uncertain?.includes('name.main')" :active="true" disabled />
+              <span v-if="info.name.title !== ''">,</span>
+              {{ info.name.title }}<UncertaintyToggle v-if="info.uncertain?.includes('name.title')" :active="true" disabled />
             </p>
             <div v-if="alternativeNames(info.name).length" class="article-text article-alt-name">
               <span class="article-alt-label">Also:</span>
+              <UncertaintyToggle v-if="info.uncertain?.includes('name.alt')" :active="true" disabled />
               <span
                 v-for="(alt, i) in alternativeNames(info.name)"
                 :key="i"
@@ -81,6 +83,7 @@ defineProps({
 
       <div class="directory-article-content">
         <div class="article-column flag">
+          <UncertaintyToggle v-if="info.uncertain?.includes('flag')" :active="true" disabled />
           <img :src="info.flag" class="article-flag" alt="Flag" />
         </div>
 
@@ -88,39 +91,39 @@ defineProps({
           <ProfileDataCell variant="directory">
             <span class="data-label">National motto</span>
             <span class="data-value" v-if="info.motto !== ''"
-              ><span class="italicized">"{{ info.motto }}"</span></span
+              ><span class="italicized">"{{ info.motto }}"</span><UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span
             >
-            <span class="data-value" v-else>No motto.</span>
+            <span class="data-value" v-else>No motto.<UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Foundation</span>
-            <span class="data-value">{{ cleanTimestamp(info.foundationDate) }}</span>
+            <span class="data-value">{{ cleanTimestamp(info.foundationDate) }}<UncertaintyToggle v-if="info.uncertain?.includes('foundationDate')" :active="true" disabled /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Micronation type</span>
-            <span class="data-value"
-              ><span v-for="(type, i) in info.type" :key="i"
+            <span class="data-value">
+              <span v-for="(type, i) in info.type" :key="i"
                 >{{ type }}<span v-if="i !== info.type.length - 1">, </span
-                ><span v-else>.</span></span
-              ></span
-            >
+                ><span v-else>.</span></span>
+              <UncertaintyToggle v-if="info.uncertain?.includes('type')" :active="true" disabled />
+            </span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Capital</span>
-            <span class="data-value">{{ info.capital ? info.capital + '.' : 'None.' }}</span>
+            <span class="data-value">{{ info.capital ? info.capital + '.' : 'None.' }}<UncertaintyToggle v-if="info.uncertain?.includes('capital')" :active="true" disabled /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Languages</span>
-            <span class="data-value"
-              ><span v-for="(language, i) in info.languages" :key="i"
+            <span class="data-value">
+              <span v-for="(language, i) in info.languages" :key="i"
                 >{{ language }}<span v-if="i !== info.languages.length - 1">, </span
-                ><span v-else>.</span></span
-              ></span
-            >
+                ><span v-else>.</span></span>
+              <UncertaintyToggle v-if="info.uncertain?.includes('languages')" :active="true" disabled />
+            </span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Currency</span>
-            <span class="data-value">{{ info.currency ? info.currency + '.' : 'None.' }}</span>
+            <span class="data-value">{{ info.currency ? info.currency + '.' : 'None.' }}<UncertaintyToggle v-if="info.uncertain?.includes('currency')" :active="true" disabled /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
             <span class="data-label">Historical memberships</span>
@@ -139,6 +142,7 @@ defineProps({
                   :icon="'flag'"
                 />
               </div>
+              <UncertaintyToggle v-if="info.uncertain?.includes('memberships')" :active="true" disabled />
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
@@ -157,6 +161,7 @@ defineProps({
                   :icon="checkIcon(contact, info.name.main)"
                 />
               </div>
+              <UncertaintyToggle v-if="info.uncertain?.includes('contactInfo')" :active="true" disabled />
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
@@ -174,6 +179,7 @@ defineProps({
                   :icon="checkIcon(website, info.name.main)"
                 />
               </div>
+              <UncertaintyToggle v-if="info.uncertain?.includes('websites')" :active="true" disabled />
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">

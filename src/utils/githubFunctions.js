@@ -21,6 +21,10 @@ function formatEntryForJSON(entryData, entryType) {
     approved: false
   }
 
+  if (Array.isArray(entryData.uncertain)) {
+    formatted.uncertain = entryData.uncertain
+  }
+
   if (entryType === 'micronation') {
     if (entryData.flagFile) {
       formatted.flag = `/images/flags/${entryData.flagFile.name}`
@@ -139,7 +143,7 @@ export async function createGitHubIssue(entryData, entryType, options = {}) {
   // Estructuramos el issue con marcadores claros para la GitHub Action
   let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission
 
-${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`}
+${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`} Fields listed in the "uncertain" array have uncertain values or lack precise confirmation.
 
 ### Entry Data
 \`\`\`json
