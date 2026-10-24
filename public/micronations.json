@@ -55561,5 +55561,88 @@
     "createdAt": "2026-10-24T20:25:12Z",
     "isEdit": false,
     "id": "5eY5yUKzoba5zzKM9wTb"
+  },
+  {
+    "name": {
+      "main": "Moadu",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Unitary State of",
+      "titleAlt": ""
+    },
+    "motto": "Superbia et Potentia",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "moadu.gov@gmail.com",
+      "https://www.instagram.com/moadu.gov.offical/",
+      "https://x.com/USoMoadu_Gov"
+    ],
+    "websites": [
+      "https://discord.gg/rsuSJNsUCt"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Moadu.png",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "Snool",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1667324160
+    },
+    "creationDate": {
+      "_seconds": 1792874308
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and language requirements but lacks a dedicated official website, relying instead on social media and Discord links.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Unitary State of Moadu' is clearly formatted with a main name and title."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "Foundation date 2022-11-01 is well before the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The provided URL is a Discord invite link, not a traditional official website. While it serves as a source, the guidance prefers official websites, and the presence of a typo in the Instagram handle ('offical') raises minor concerns about the quality of provided sources."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is preferred and valid."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims to be a 'Digital' micronation. Without access to the content of the Discord or social media links to verify ongoing activity (news, diplomacy), it is uncertain if the claims of existence are supported by sufficient evidence of activity."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is evident in the provided metadata."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as capital, location, and memberships are empty or null, which is acceptable as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T20:38:28Z",
+    "isEdit": false,
+    "id": "HO6MCt1JgkkCVXWY4YRX"
   }
 ]
