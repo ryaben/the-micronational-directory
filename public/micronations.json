@@ -54923,5 +54923,103 @@
     "createdAt": "2026-10-23T18:44:09Z",
     "isEdit": false,
     "id": "uwCK5Y14VWuy6H3TPsS8"
+  },
+  {
+    "name": {
+      "main": "Calsahara",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Calsahara",
+          "title": "Realm of"
+        },
+        {
+          "main": "Calsahara",
+          "title": "Westarctican Colony of"
+        }
+      ],
+      "title": "Imperial Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "From nothing, something!",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "calsaharaenvoy@gmail.com"
+    ],
+    "websites": [
+      "https://travisdmchenry.wixsite.com/calsahara",
+      "https://micronations.wiki/wiki/Colony_of_Calsahara",
+      "https://www.westarctica.wiki/index.php/Colony_of_Calsahara"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Calsahara.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Otisburg",
+    "currency": "Colonial Bulgur",
+    "memberships": [
+      "Westarctica"
+    ],
+    "foundationDate": {
+      "_seconds": 1259020800
+    },
+    "location": {
+      "latitude": 35.27,
+      "longitude": -119.95
+    },
+    "creationDate": {
+      "_seconds": 1792782142
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "Submission meets basic structural and age requirements with provided sources, pending final verification of activity.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Imperial Kingdom of Calsahara' is clearly formatted with a main name and title, and alternative names are provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2009-11-24 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Three URLs are provided, including an official Wix site and two wiki entries (Micronations Wiki and Westarctica Wiki), which serve as relevant information sources."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is preferred and clearly defined."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the claims are coherent and the entity appears to be part of the Westarctica micronational community, the submission does not include direct evidence of ongoing activity (such as recent news or diplomatic logs) to fully verify the 'truthful and supported by evidence' criterion beyond the existence of the websites."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with guidance; their presence is acceptable."
+        }
+      ]
+    },
+    "createdAt": "2026-10-23T19:02:22Z",
+    "isEdit": false,
+    "id": "fz42Jdl1isZ7LGo60416"
   }
 ]
