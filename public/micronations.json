@@ -56022,5 +56022,90 @@
     "createdAt": "2026-10-24T22:03:59Z",
     "isEdit": false,
     "id": "XrBQk9CWkUOSfgoXODMD"
+  },
+  {
+    "name": {
+      "main": "Penzagrial",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Union of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Tagalog"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://www.youtube.com/@penzagrialofficial7202",
+      "https://www.instagram.com/penzagrial_official/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Penzagrial.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Prod",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1535137800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792880109
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and naming criteria but lacks verifiable official web presence and sufficient evidence of ongoing micronational activity.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Union of Penzagrial' is clear, properly formatted, and follows the micronation naming convention."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2018-08-24 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The provided URLs are social media profiles (YouTube, Instagram) rather than an official website or relevant wiki/news source. While social media can serve as evidence of activity, the guidance prefers official websites or specific data sources, and the content of these links is not verifiable from the submission alone."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the languages, which is preferred and acceptable."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims a physical type and a currency ('Prod'), but provides no evidence (news, diplomacy, or ongoing activity details) to support these claims or demonstrate active micronational status beyond the existence of social media handles."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and memberships are empty, which is acceptable as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T22:15:09Z",
+    "isEdit": false,
+    "id": "x0ylewd984jN3t05LGPA"
   }
 ]
