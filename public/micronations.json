@@ -40240,7 +40240,7 @@
       "English"
     ],
     "contactInfo": [
-      "https://micronations.wiki/wiki/Talk:Kingdom_of_Quixotica"
+      "kingofquixotica@gmail.com"
     ],
     "author": {
       "name": "The Micronational Directory",
@@ -40253,28 +40253,75 @@
       "_seconds": 1718342405,
       "_nanoseconds": 0
     },
-    "memberships": "",
+    "memberships": [],
     "foundationDate": {
-      "_seconds": 1491963420,
-      "_nanoseconds": 0
+      "seconds": 1491877020,
+      "_seconds": 1491877020
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Quixotica",
-      "title": "Republic of"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Quixotica",
+          "title": "Kingdom of"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
     },
     "motto": "Solus Mortuus est Cum Pisces Ire Flow (Only Dead Fish Go With the Flow)",
     "currency": "Article of Credit",
-    "location": {
-      "latitude": 0,
-      "longitude": 0
-    },
+    "location": null,
     "websites": [
       "https://micronations.wiki/wiki/Kingdom_of_Quixotica"
     ],
     "approved": true,
-    "id": "nP9ZVGlyTKWjP9lXNfRs"
+    "id": "nP9ZVGlyTKWjP9lXNfRs",
+    "uncertain": [],
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "The submission meets all mandatory criteria for name clarity, age, source availability, language, and content safety.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Republic of Quixotica' is clearly formatted with a distinct title and main name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2017-04-12 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "A relevant wiki source (micronations.wiki) is provided, which is acceptable per guidance for data verification."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is preferred and valid."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The claims are coherent, and the provided wiki source supports the existence of the entity as a micronation."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as capital, currency, and motto are provided and do not conflict with guidance; missing optional fields are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T23:09:46Z",
+    "isEdit": true
   },
   {
     "capital": "Kaiserstadt",
