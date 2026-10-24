@@ -688,7 +688,7 @@ const emit = defineEmits([
                   v-if="flagRadio === 'file'"
                   type="file"
                   @input="previewImage"
-                  accept="image/png"
+                  accept="image/*"
                   :required="!directoryEdit"
                 />
                 <label for=""
@@ -857,7 +857,7 @@ export default {
         "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
         'Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.',
         'Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.',
-        'Upload a PNG or provide a direct image URL. External PNG, JPEG, and WebP images are downloaded and converted to PNG when submitted, then compressed to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
+        'Upload an image or provide a direct image URL. Images are compressed in their original format to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
       ],
       activeTooltipText: 0
     }
@@ -1038,12 +1038,14 @@ export default {
                 maxSizeMB: 0.035,
                 maxWidthOrHeight: 2560,
                 useWebWorker: true,
-                fileType: 'image/png'
+                fileType: imageFile.type
               }
-              const compressedFile = await imageCompression(imageFile, options)
+              const compressedFile = imageFile.size <= 35 * 1024
+                ? imageFile
+                : await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.flagFile = {
-                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.png`,
+                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.${this.getImageExtension(imageFile)}`,
                 data: base64Data
               }
             }
@@ -1057,12 +1059,14 @@ export default {
                 maxSizeMB: 0.035,
                 maxWidthOrHeight: 2560,
                 useWebWorker: true,
-                fileType: 'image/png'
+                fileType: imageFile.type
               }
-              const compressedFile = await imageCompression(imageFile, options)
+              const compressedFile = imageFile.size <= 35 * 1024
+                ? imageFile
+                : await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.logoFile = {
-                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.png`,
+                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.${this.getImageExtension(imageFile)}`,
                 data: base64Data
               }
             }
@@ -1385,11 +1389,18 @@ export default {
       const response = await fetch(parsedUrl.href)
       if (!response.ok) throw new Error(`Could not download the image (HTTP ${response.status}).`)
       const blob = await response.blob()
-      if (!['image/png', 'image/jpeg', 'image/webp'].includes(blob.type) || !blob.size) {
-        throw new Error('The URL must return a PNG, JPEG, or WebP image.')
+      if (!blob.type.startsWith('image/') || !blob.size) {
+        throw new Error('The URL must return a valid image.')
       }
       const extension = blob.type === 'image/jpeg' ? 'jpg' : blob.type.split('/')[1].split('+')[0]
       return new File([blob], `image.${extension || 'png'}`, { type: blob.type })
+    },
+    getImageExtension(file) {
+      const sourceExtension = file.name?.match(/\.([^.]+)$/)?.[1]?.toLowerCase()
+      if (sourceExtension) return sourceExtension
+
+      const subtype = file.type?.split('/')[1]?.toLowerCase() || 'png'
+      return subtype === 'jpeg' ? 'jpg' : subtype.replace(/\+.*/, '')
     },
     previewImage(event) {
       this.flagSource = event.target.files[0]
