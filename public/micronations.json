@@ -56290,5 +56290,93 @@
     "createdAt": "2026-10-24T23:30:15Z",
     "isEdit": false,
     "id": "KzxOOYpmRpp0gMq4z1y3"
+  },
+  {
+    "name": {
+      "main": "Timucua",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Native American Tribal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "republicoftimucua@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Native_American_Tribal_Republic_of_Timucua",
+      "https://web.archive.org/web/20251020221055/https://www.republicoftimucua.synthasite.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Timucua.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Ossachite",
+    "currency": "Timucua Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1217548800,
+      "_seconds": 1217548800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792885211
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity to confirm factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name is clearly formatted with a main name 'Timucua' and a title 'Native American Tribal Republic of', forming a coherent official name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2008-08-01 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Two URLs are provided: a Micronations Wiki page and an archived snapshot of an official website, meeting the requirement for at least one relevant source."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is a valid official or de facto language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the name and date are consistent, the submission provides no specific evidence of ongoing activity (news, diplomacy, etc.) to support the claim that it is an active micronation, only static metadata and links."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "The submission contains no references to Nazi symbolism, adult sexual content, or illegal activity."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and memberships are empty, which is permissible as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T23:40:11Z",
+    "isEdit": false,
+    "id": "dcUKytPsJYMjm8O1wK3J"
   }
 ]
