@@ -55817,5 +55817,109 @@
     "createdAt": "2026-10-24T20:51:10Z",
     "isEdit": false,
     "id": "i4aG4gX90x7TXlPW3OEr"
+  },
+  {
+    "name": {
+      "main": "New Rizalia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "New Rizalya",
+          "title": "Republika ng"
+        },
+        {
+          "main": "Nueva Rizalia",
+          "title": "República de"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Peace, Freedom, Justice",
+    "languages": [
+      "English",
+      "Filipino",
+      "Spanish",
+      "Hiligaynon",
+      "Cuyonon",
+      "Calamian Tagbanwa"
+    ],
+    "contactInfo": [
+      "newrizaliagov@gmail.com",
+      "https://www.instagram.com/nationalmuseumofnewrizalia",
+      "https://www.youtube.com/channel/UCX9VE3u8KFUW0XHmNmYg8Lw"
+    ],
+    "websites": [
+      "https://newrizalia-gov.weebly.com/",
+      "https://micronations.wiki/wiki/Republic_of_New_Rizalia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/New Rizalia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Entrada Ventana",
+    "currency": "New Rizaline dollar, United States dollar",
+    "memberships": [
+      "Grand Unified Micronational"
+    ],
+    "foundationDate": {
+      "_seconds": 1512172800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792878734
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "Submission meets basic structural and age requirements with provided sources, though factual verification of activity is limited to the provided links.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Republic of New Rizalia' is clearly formatted with a title and main name, and alternative names are provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2017-12-02 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Two websites are provided: an official government site (weebly) and a relevant wiki page (micronations.wiki)."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the official languages, which is preferred."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "While the submission is coherent, the evidence of ongoing activity relies solely on the provided URLs. Without verifying the content of these links, it is uncertain if the micronation demonstrates sufficient activity (news, diplomacy) to be considered factual and active."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is mentioned in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with the guidance. The location coordinates are zero, which is a placeholder, but this is an optional field and does not mandate rejection."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T21:52:14Z",
+    "isEdit": false,
+    "id": "5pjfFJSRgyZP3tubT6C9"
   }
 ]
