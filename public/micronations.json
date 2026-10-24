@@ -55730,5 +55730,92 @@
     "createdAt": "2026-10-24T20:43:45Z",
     "isEdit": false,
     "id": "GTkDN93tN7ooksJflCOd"
+  },
+  {
+    "name": {
+      "main": "New Dorchester",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "TonyB0418@gmail.com"
+    ],
+    "websites": [
+      "https://www.facebook.com/KINGDOMOFNEWDORCHESTER/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/New Dorchester.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Dollar",
+    "memberships": [
+      "League of Christian Micronations"
+    ],
+    "foundationDate": {
+      "_seconds": 1587232020
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792875070
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and naming criteria but lacks sufficient evidence of ongoing activity or independent sources to confirm factual claims.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Kingdom of New Dorchester' is clearly formatted with a title and main name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2020-04-18 is well before the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "Only a Facebook page is provided. While it serves as a source, it is a social media profile rather than a dedicated official website, and no archived snapshots or independent verification are included to confirm the site's active status or content."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is a valid official or de facto language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims physical existence and membership in the League of Christian Micronations, but provides no evidence (news, diplomacy, or activity logs) to support these claims beyond the existence of a social media page. The location coordinates are 0,0, which is in the ocean, contradicting the 'Physical' type claim without further clarification."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and flag are empty, which is acceptable as they are not mandatory. The provided fields (currency, memberships) are coherent with the micronation context."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T20:51:10Z",
+    "isEdit": false,
+    "id": "i4aG4gX90x7TXlPW3OEr"
   }
 ]
