@@ -55471,5 +55471,95 @@
     "createdAt": "2026-10-23T19:28:15Z",
     "isEdit": false,
     "id": "muxEstaD8UuVswHcmvXy"
+  },
+  {
+    "name": {
+      "main": "Gitania",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Gitani Republiš",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/GitaniaRepublic"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20150910052355/http://gitania.wikia.com/wiki/Republic_of_Gitania_Wiki"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "flag": "/images/flags/Gitania.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Übe",
+    "currency": "Ken",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1249084800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792873512
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and naming criteria but lacks sufficient evidence of ongoing activity or valid current sources for a clear approval.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Republic of Gitania' is clear, properly formatted, and includes an alternative name."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2009-08-01 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The provided source is an archived snapshot of a Wiki from 2015. While it serves as a source, the age of the archive and the nature of the platform (Wiki) make it difficult to confirm current active status or official standing without more recent evidence."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as an official language, which is preferred and clearly stated."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims a physical type and specific details (capital, currency), but the only provided evidence is a 2015 archive. There is no recent evidence (news, diplomacy, activity) to support the claim that this micronation is currently active or that these details remain accurate."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, memberships, and contact methods are either provided or left empty; their absence does not violate mandatory requirements."
+        }
+      ]
+    },
+    "createdAt": "2026-10-24T20:25:12Z",
+    "isEdit": false,
+    "id": "5eY5yUKzoba5zzKM9wTb"
   }
 ]
