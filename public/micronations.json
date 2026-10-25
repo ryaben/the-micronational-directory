@@ -56481,5 +56481,56 @@
     "createdAt": "2026-10-25T01:56:16Z",
     "isEdit": false,
     "id": "p4qvUHJUaoaByxiOWpUC"
+  },
+  {
+    "name": {
+      "main": "Aetosia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Fiat Lux (Let there be light)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://twitter.com/aetosia",
+      "https://discord.gg/Hj4VUmF"
+    ],
+    "websites": [
+      "https://aetosia.com/",
+      "https://micronations.wiki/wiki/Republic_of_Aetosia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "location"
+    ],
+    "flag": "https://cdn.micro.wiki/en/thumb/c/cc/Flag_Aetosia_National_Official.png/250px-Flag_Aetosia_National_Official.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Saint William of Foggia",
+    "currency": "Euro",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1556236800,
+      "_seconds": 1556236800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792901679
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-25T04:14:39Z",
+    "isEdit": false,
+    "id": "G7BoPtTmwQN5JuukWbFX"
   }
 ]
