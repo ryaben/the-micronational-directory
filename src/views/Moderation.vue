@@ -725,27 +725,24 @@ export default {
           updatedData.push(persistedEntry)
         }
 
-        // Update the JSON file
+        // Publish the media before adding a JSON reference to it. If GitHub
+        // rejects the upload (for example, during a burst of approvals), stop
+        // here so the directory never publishes an entry with a missing image.
+        if (base64Image && fileMetadata) {
+          await createRepoFile(
+            fileMetadata.path,
+            base64Image,
+            `Add ${entryTypeName} image: ${fileMetadata.name}`
+          )
+        }
+
+        // Commit the directory reference only after its image is available.
         await updateRepoFile(
           jsonFilePath,
           JSON.stringify(updatedData, null, 2),
           currentSha,
           `${entry.isEdit ? 'Edit approved' : 'Add approved'} ${entryTypeName}: ${entry.name.main}`
         )
-
-        // Upload image file if present
-        if (base64Image && fileMetadata) {
-          try {
-            await createRepoFile(
-              fileMetadata.path,
-              base64Image,
-              `Add ${entryTypeName} image: ${fileMetadata.name}`
-            )
-          } catch (imageError) {
-            console.error('Error creating image file:', imageError)
-            // Continue with the approval even if image fails
-          }
-        }
 
         // Add approval comment to the GitHub issue
         const comment = `**Entry Approved**\n\n${
