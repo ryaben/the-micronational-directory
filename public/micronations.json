@@ -56840,5 +56840,54 @@
     "createdAt": "2026-10-25T15:15:27Z",
     "isEdit": false,
     "id": "oC0vEOYjEhXQ9AB6JVA6"
+  },
+  {
+    "name": {
+      "main": "Bubrium",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/kZwnkecw",
+      "https://twitter.com/Bubrium/status/1647909523347128323",
+      "bubriumking@gmail.com"
+    ],
+    "websites": [
+      "https://bubrium.wordpress.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate",
+      "location"
+    ],
+    "flag": "https://bubrium.wordpress.com/wp-content/uploads/2023/02/20221228_224848-1.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1675987200,
+      "_seconds": 1675987200
+    },
+    "location": null,
+    "creationDate": {
+      "_seconds": 1792955382
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-25T19:09:42Z",
+    "isEdit": false,
+    "id": "MwkeKPM0e91jSaBN73Cb"
   }
 ]
