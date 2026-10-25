@@ -56,6 +56,16 @@ function findZipEntries(zip) {
   return entries
 }
 
+function scriptOutputFromActionsLog(text) {
+  const lines = text.split(/\r?\n/)
+  const commandGroup = lines.findIndex(line => /##\[group\]Run /.test(line))
+  const groupEnd = commandGroup < 0 ? -1 : lines.findIndex((line, index) => index > commandGroup && /##\[endgroup\]/.test(line))
+  const outputLines = lines.slice(groupEnd >= 0 ? groupEnd + 1 : 0)
+    .map(line => line.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s?/, ''))
+    .filter(line => line && !/##\[error\]Process completed with exit code/.test(line))
+  return outputLines.join('\n').trim()
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST' && req.method !== 'GET') {
     res.setHeader('Allow', 'GET, POST')
@@ -109,7 +119,12 @@ module.exports = async function handler(req, res) {
       const logResponse = await github(`/repos/${repository}/actions/runs/${runId}/logs`)
       if (logResponse.ok) {
         const archive = Buffer.from(await logResponse.arrayBuffer())
-        logs = findZipEntries(archive).map(entry => `--- ${entry.name} ---\n${entry.text}`).join('\n')
+        const entries = findZipEntries(archive)
+        const usefulEntries = entries.filter(entry => /research source and open review issues|validate required secrets/i.test(entry.name))
+        logs = (usefulEntries.length ? usefulEntries : entries)
+          .map(entry => scriptOutputFromActionsLog(entry.text))
+          .filter(Boolean)
+          .join('\n')
         if (logs.length > 120000) logs = `${logs.slice(-120000)}\n[Older output truncated]`
       }
     }

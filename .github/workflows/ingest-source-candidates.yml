@@ -45,6 +45,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Validate required secrets
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          if [ -z "$GROQ_API_KEY" ]; then
+            echo "::error::Missing GROQ_API_KEY repository secret. Add it in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
       - name: Research source and open review issues
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
