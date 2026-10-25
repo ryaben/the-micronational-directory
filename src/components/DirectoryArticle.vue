@@ -15,6 +15,17 @@ const alternativeNames = (name) =>
     ? [{ main: name.mainAlt || '', title: name.titleAlt || '' }]
     : []
 
+const hasGoogleMapsLocation = (info) => {
+  const latitude = info.location?.latitude
+  const longitude = info.location?.longitude
+  return (
+    info.type?.includes('Physical') &&
+    Number.isFinite(latitude) &&
+    Number.isFinite(longitude) &&
+    (latitude !== 0 || longitude !== 0)
+  )
+}
+
 defineProps({
   info: {
     type: Object,
@@ -46,6 +57,7 @@ defineProps({
       <div class="article-title">
         <div class="article-full-name">
           <EntrySource
+            v-if="hasGoogleMapsLocation(info)"
             class="entry-source gmaps"
             :flag-source="info.flag"
             :size="36"

@@ -682,6 +682,8 @@ export default {
         delete entryForJson.githubUrl
         delete entryForJson.issueBody
         delete entryForJson.entryType
+        // AI triage belongs to the GitHub review issue, not the public directory data.
+        delete entryForJson.aiReview
         delete entryForJson.searchDisplay
         delete entryForJson.filterDisplay
         if (isMicronation && entryForJson.location) {

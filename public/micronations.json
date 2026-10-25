@@ -4747,47 +4747,6 @@
       "_nanoseconds": 0
     },
     "id": "xJFwTO3KKKdVmfxxYJEv",
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and format requirements but lacks sufficient evidence of micronation activity to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'República Independiente de Arekipa' is clearly formatted with a title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2002-06-19 is older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A website URL (https://arekipa.wordpress.com/) is provided as a source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "Spanish is listed as an official language, which is a valid de facto language for the region."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a micronation ('República Independiente'), but the provided website is a generic WordPress site without visible evidence of micronation-specific activity (diplomacy, news, governance) in the submission data itself. The name 'Arekipa' refers to a real city in Peru, raising questions about whether this is a fictional micronation or a misrepresentation, requiring further review of the linked content."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is evident in the provided metadata."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields like motto, currency, and location are empty or null, which is acceptable as they are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T18:34:29Z",
     "isEdit": true
   },
@@ -40279,47 +40238,6 @@
     "approved": true,
     "id": "nP9ZVGlyTKWjP9lXNfRs",
     "uncertain": [],
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "The submission meets all mandatory criteria for name clarity, age, source availability, language, and content safety.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of Quixotica' is clearly formatted with a distinct title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2017-04-12 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A relevant wiki source (micronations.wiki) is provided, which is acceptable per guidance for data verification."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is preferred and valid."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The claims are coherent, and the provided wiki source supports the existence of the entity as a micronation."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital, currency, and motto are provided and do not conflict with guidance; missing optional fields are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T23:09:46Z",
     "isEdit": true
   },
@@ -51438,47 +51356,6 @@
     ],
     "approved": true,
     "id": "5K80M05nZvBeAvTpixmm",
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronational activity to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of Wellsland' is clearly formatted with a title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2023-10-20 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A website URL (https://sites.google.com/view/republicofwellsland) is provided as a relevant information source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and dates are coherent, the submission provides no specific evidence of news, diplomacy, or ongoing activity to support the claim that it is an active micronation, only a static website link and social media handle."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, currency, and location are empty, which is acceptable as they are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-22T18:23:01Z",
     "isEdit": true
   },
@@ -53550,7 +53427,6 @@
     "creationDate": {
       "_seconds": 1792593473
     },
-    "aiReview": null,
     "createdAt": "2026-10-21T14:37:53Z",
     "id": "oH4V4HiIJ5hrXaDGCsxU"
   },
@@ -53605,47 +53481,6 @@
     "creationDate": {
       "_seconds": 1792596401
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and naming criteria but lacks a dedicated official website and sufficient evidence of active micronational operations.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of Pathumnesia' is clearly formatted with a title and main name, and an alternative name is provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2024-03-27 is prior to the cutoff date 2026-09-21, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided website is a draft page on micronations.wiki, which is a community wiki rather than an official website. While it serves as a source, the guidance prefers official sites, and a draft status may indicate insufficient established presence."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "Thai is listed as the official language, which is a valid de facto language for the entity."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission lists social media links and a wiki draft, but does not provide specific evidence of ongoing micronational activity (such as news, diplomacy, or governance) within the JSON data itself. The claims are coherent but lack direct evidentiary support in the provided fields."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not conflict with guidance. The location coordinates are zero, which is a data quality issue but not a mandatory field failure."
-        }
-      ]
-    },
     "createdAt": "2026-10-21T15:26:41Z",
     "id": "L4oNb7bdj9gzlk3dbo7U"
   },
@@ -53695,7 +53530,6 @@
     "creationDate": {
       "_seconds": 1792157976
     },
-    "aiReview": null,
     "createdAt": "2026-10-16T13:39:36Z",
     "id": "O6AXr5lE3Ru9M5BH0Tax"
   },
@@ -53750,47 +53584,6 @@
     "creationDate": {
       "_seconds": 1792601418
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "Submission meets basic structural and age requirements with provided sources, pending final verification of factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name is clearly formatted with a main name 'Alkanuit' and a title 'Great Federal Commonwealth and Empire of', which is acceptable for a micronation."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2023-02-05 is significantly older than the cutoff date 2026-09-21, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Three relevant websites are provided, including an official site, a wiki entry, and a news site, meeting the requirement for at least one source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred and satisfies the requirement."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the submission is coherent, the truthfulness of specific claims (e.g., capital 'Christland', currency) cannot be fully verified without accessing the provided links, which is not done in this triage step."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not violate any guidance; their presence is acceptable."
-        }
-      ]
-    },
     "createdAt": "2026-10-21T16:50:18Z",
     "id": "3eCCYDgEmdG486yuq5Ew"
   },
@@ -53838,47 +53631,6 @@
     },
     "creationDate": {
       "_seconds": 1792607237
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity for a fictional micronation.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of Auritania' is clearly formatted with a title and main name, and an alternative name is provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2010-02-27 is significantly older than the cutoff date 2026-09-21, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A relevant wiki source (micronations.wiki) is provided, which is an acceptable type of source for micronation data."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the languages, which is preferred and acceptable."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The entry is marked as 'Fictional'. While the name and dates are coherent, the submission does not provide specific evidence of ongoing activity (news, diplomacy, or recent updates) to support its status as an active micronation, only a static wiki link and a Reddit user profile."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not violate any guidance; their presence is acceptable."
-        }
-      ]
     },
     "createdAt": "2026-10-21T18:27:17Z",
     "id": "gFUrYsW7zuBhrur20b3M"
@@ -53943,7 +53695,6 @@
     "creationDate": {
       "_seconds": 1792158161
     },
-    "aiReview": null,
     "createdAt": "2026-10-16T13:42:41Z",
     "id": "pbsuDZFPuWiIMcvXtkKf"
   },
@@ -53996,7 +53747,6 @@
     "creationDate": {
       "_seconds": 1792158148
     },
-    "aiReview": null,
     "createdAt": "2026-10-16T13:42:28Z",
     "id": "uFsph68Oc1EdE7Nidyuu"
   },
@@ -54056,47 +53806,6 @@
     "creationDate": {
       "_seconds": 1792613490
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "The submission meets all triage criteria with valid naming, sufficient age, sources, and language data.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The official name 'Republic of Eslanda' is clearly formatted with a main name and title, and alternative names are provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2011-09-29 is significantly older than the cutoff date 2026-09-21, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Multiple relevant sources are provided, including a wiki page, an active-looking domain, and an archived snapshot of the original site."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred for directory submissions."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The claims are coherent, specifying a physical type, specific location coordinates, and membership in a known micronation organization, supported by the provided web sources."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto are empty, which is acceptable as they are not mandatory; required fields like name, date, and sources are present."
-        }
-      ]
-    },
     "createdAt": "2026-10-21T20:11:30Z",
     "id": "M2BgMTP2ummXxYJq0ztH"
   },
@@ -54152,7 +53861,6 @@
     "creationDate": {
       "_seconds": 1792158108
     },
-    "aiReview": null,
     "createdAt": "2026-10-16T13:41:48Z",
     "id": "bHh20KJkvacpjf5jnlR6"
   },
@@ -54196,47 +53904,6 @@
     },
     "creationDate": {
       "_seconds": 1792631389
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks evidence of activity for a fictional micronation.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Caputia' is clear and properly formatted as the main name for a micronation."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2017-10-25 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two websites are provided: an official domain (caputia.net) and a relevant wiki entry (micras.org), meeting the requirement for at least one relevant source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "Multiple languages are listed, including 'Common Tongue' and 'Alexandrian Fransch', satisfying the requirement for at least one official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The entry is marked as 'Fictional'. While the name and dates are coherent, the submission does not provide specific evidence of ongoing activity (news, diplomacy) required to support the claims of a fictional micronation's existence in the directory context."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and do not violate any guidance; their presence is acceptable."
-        }
-      ]
     },
     "createdAt": "2026-10-22T01:09:49Z",
     "isEdit": false,
@@ -54286,47 +53953,6 @@
       "latitude": 0,
       "longitude": 0
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "Submission meets all core requirements with valid name, age, sources, language, and coherent claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of Nordale' is clear, properly formatted, and includes the main name and title as required."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2019-06-01 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Multiple relevant websites are provided, including a Micronations Wiki entry, an official Weebly site, and a Westarctica Wiki entry, meeting the source requirement."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred and clearly defined."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The submission presents a coherent micronation profile with a motto, capital, and digital type, supported by the provided web sources indicating ongoing activity or documentation."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as currency, location, and memberships are empty or null, which is acceptable as they are not mandatory for approval."
-        }
-      ]
-    },
     "createdAt": "2026-10-22T01:52:43Z",
     "isEdit": false,
     "id": "wcB934DgKWLL0npzEL5J"
@@ -54373,47 +53999,6 @@
     "creationDate": {
       "_seconds": 1792634546
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity or official status to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Beatus Cras' is provided as the main name, which is clear and properly formatted for a micronation entry."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2015-04-24 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two websites are provided: an official domain (beatuscras.org) and a wiki page (westarctica.wiki), meeting the requirement for at least one relevant information source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is a valid official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and dates are coherent, the submission provides no specific evidence of ongoing activity, diplomacy, or news to support the claim that it is an active micronation. The type is listed as 'Physical' but no location coordinates are provided (0,0), which is inconsistent with a physical micronation claim without further context."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "The motto 'Making tomorrow better by doing things today' and other provided fields do not contain Nazi symbolism, adult sexual content, or illegal activity."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital, memberships, and location coordinates are empty or zero, but this is permissible as they are not mandatory. The provided fields (motto, currency, contact info) are present and formatted correctly."
-        }
-      ]
-    },
     "createdAt": "2026-10-22T02:02:26Z",
     "isEdit": false,
     "id": "fAQ2x91x1rUDgo0oSCQh"
@@ -54459,7 +54044,6 @@
     "creationDate": {
       "_seconds": 1792635271
     },
-    "aiReview": null,
     "createdAt": "2026-10-22T02:14:31Z",
     "isEdit": false,
     "id": "qNuc0mrWgMd13QViYy9u"
@@ -54511,7 +54095,6 @@
     "creationDate": {
       "_seconds": 1792636723
     },
-    "aiReview": null,
     "createdAt": "2026-10-22T02:38:43Z",
     "isEdit": false,
     "id": "QiL3jicCiqkgz86DLOia"
@@ -54573,47 +54156,6 @@
     "creationDate": {
       "_seconds": 1792637558
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and language requirements but lacks a live official website and contains a spelling error in the motto.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'United Federation of the Terra Excelsior Republic' is clear, properly formatted, and includes the main name and title as required."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2020-08-28 is significantly older than the cutoff date 2026-09-22, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The submission provides a wiki link and an archived snapshot of the official site, but no live official website URL is provided. While archived snapshots are permitted for dead sites, the current status of the official site is not confirmed by a live link."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The motto contains a spelling error ('Comradery' instead of 'Comradery' or 'Comradeship'), and the location coordinates are 0,0 (null island), which is geographically infeasible for a physical micronation. These issues suggest a lack of precision or care in the submission details."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided. While the location coordinates are invalid, this is an optional field and does not mandate rejection, though it contributes to the uncertainty in factual claims."
-        }
-      ]
-    },
     "createdAt": "2026-10-22T02:52:38Z",
     "isEdit": false,
     "id": "MMpl0meeNmTfvIyhVsyZ"
@@ -54657,47 +54199,6 @@
     },
     "creationDate": {
       "_seconds": 1792768867
-    },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "The submission meets the name, age, source, and language requirements with no prohibited content detected.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Empire of Aeternia' is clearly formatted with a main name and title, suitable for a micronation entry."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2016-08-20 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two relevant websites are provided: an official Wix site and a Micronations Wiki page, which serve as valid information sources."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the official language, which is preferred and clearly defined."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The claims are coherent, and the presence of a wiki page and social media links suggests ongoing activity consistent with a digital micronation."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are provided and do not conflict with guidance; missing optional fields like location are acceptable."
-        }
-      ]
     },
     "createdAt": "2026-10-23T15:21:07Z",
     "isEdit": false,
@@ -54750,47 +54251,6 @@
     "creationDate": {
       "_seconds": 1792779294
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets name, age, language, and content criteria but lacks verifiable evidence of ongoing activity or valid sources to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of Birland' is clear, properly formatted, and follows the micronation naming convention."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2015-05-15 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "While URLs are provided, there is no evidence within the submission that these links are live, official, or contain relevant information to support the entry's claims."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as a language, which satisfies the requirement for at least one official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a physical micronation with specific coordinates and currency, but provides no supporting evidence (news, diplomacy, or activity logs) to verify these claims or demonstrate ongoing activity."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are provided and do not conflict with guidelines; their presence is acceptable."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T18:14:54Z",
     "isEdit": false,
     "id": "QnNXF6p4jJZ1FsLmdDYG"
@@ -54835,47 +54295,6 @@
     },
     "creationDate": {
       "_seconds": 1792768051
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and language requirements but lacks sufficient evidence of ongoing activity or valid current sources to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of Amethonia' is clearly formatted with a title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2011-02-12 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided website is an archived snapshot from 2020. While archived sites are permitted for dead links, the recency of the archive relative to the review date (2026) and the lack of other active sources make it difficult to confirm the entity's current operational status or validity without further evidence."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a physical micronation but provides no evidence of ongoing activity, diplomacy, or news since the 2020 archive. The claims are coherent in structure but lack supporting evidence of current existence or activity."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital, currency, and location are either provided or left blank; their absence does not violate mandatory requirements."
-        }
-      ]
     },
     "createdAt": "2026-10-23T15:07:31Z",
     "isEdit": false,
@@ -54925,47 +54344,6 @@
     },
     "creationDate": {
       "_seconds": 1792781049
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronation status to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Sovereign Nation of Bearland' is clear, properly formatted, and includes a main name and title."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2025-09-07 is before the cutoff date 2026-09-23, satisfying the one-month existence requirement relative to the review date 2026-10-23."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "An official website URL (https://bearlandmicronation.com/) is provided."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the official language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and dates are coherent, the submission provides no specific evidence of news, diplomacy, or ongoing activity to support the claim of being an active micronation, making the truthfulness of its status uncertain based solely on the provided data."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital, currency, and location are provided or left empty without violating mandatory requirements; the presence of a currency and location does not conflict with guidance."
-        }
-      ]
     },
     "createdAt": "2026-10-23T18:44:09Z",
     "isEdit": false,
@@ -55024,47 +54402,6 @@
     "creationDate": {
       "_seconds": 1792782142
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "Submission meets basic structural and age requirements with provided sources, pending final verification of activity.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Imperial Kingdom of Calsahara' is clearly formatted with a main name and title, and alternative names are provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2009-11-24 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Three URLs are provided, including an official Wix site and two wiki entries (Micronations Wiki and Westarctica Wiki), which serve as relevant information sources."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is preferred and clearly defined."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the claims are coherent and the entity appears to be part of the Westarctica micronational community, the submission does not include direct evidence of ongoing activity (such as recent news or diplomatic logs) to fully verify the 'truthful and supported by evidence' criterion beyond the existence of the websites."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with guidance; their presence is acceptable."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T19:02:22Z",
     "isEdit": false,
     "id": "fz42Jdl1isZ7LGo60416"
@@ -55118,47 +54455,6 @@
     "creationDate": {
       "_seconds": 1792782479
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "The submission meets all mandatory criteria for name clarity, age, sources, language, and content safety, with no prohibited content detected.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The official name 'Grand Duchy of Cordinar' is clearly formatted with a title and main name, and an alternative name is provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2020-10-20 is significantly older than the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A relevant information source website (micronations.wiki) is provided, which is an acceptable source for micronation data."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "At least one official language is listed, including English, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The claims are coherent and supported by the provided source; no contradictions or fictional inconsistencies are evident in the data."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are provided where applicable, and their absence or presence does not violate mandatory requirements."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T19:07:59Z",
     "isEdit": false,
     "id": "HABIMM2STj8S8tkaZcDj"
@@ -55206,47 +54502,6 @@
     "creationDate": {
       "_seconds": 1792800427
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronational existence beyond contact details.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of Mattonia' is clear, properly formatted, and includes a title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2024-04-24 is significantly older than the one-month cutoff of 2026-09-24, satisfying the age threshold."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "An official website URL (https://kingdomofmattonia.org/) is provided, meeting the requirement for at least one relevant information source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred and acceptable."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the claims are internally coherent, the submission provides only contact info and a website URL without specific evidence of ongoing activity (news, diplomacy, etc.) to verify the micronation's active status as required for fictional/physical entries."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are provided where applicable, and their absence or presence does not violate mandatory requirements."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T00:07:07Z",
     "isEdit": false,
     "id": "xqOXnG4DTTo37iadd6Y8"
@@ -55292,47 +54547,6 @@
       "_seconds": 1792780383
     },
     "location": null,
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity or valid current sources.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Nation of Amandium' is clearly formatted with a main name and title."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2011-01-01 is well before the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The only provided website is a Wayback Machine wildcard link to a 2013 snapshot. While archived snapshots are permitted for dead sites, there is no evidence of current activity or a live official site, making the source's relevance and currency uncertain."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the official language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a 'Digital' micronation with a currency and contact info, but provides no evidence of ongoing activity, news, or diplomacy beyond a 2013 archived website and social media links that cannot be verified for current activity. The truthfulness of the claims is not supported by sufficient evidence in the submission."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and location are empty or null, which is acceptable as they are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T18:33:03Z",
     "isEdit": false,
     "id": "ll5mKG0O7rZ82CkHvFYh"
@@ -55380,47 +54594,6 @@
     },
     "creationDate": {
       "_seconds": 1792872986
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of current activity to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Grand Duchy of Greifenberg' is clearly formatted with a title and main name, and an alternative name is provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2005-10-27 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "An archived snapshot of the official website is provided, which serves as a relevant information source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English and German are listed as languages, with English being a preferred language for the directory."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and date are consistent, the only provided source is a 2012 archive. There is no evidence in the submission of current activity, diplomacy, or news to support the claim that the micronation is currently active or that the details are up-to-date."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the submitted data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital and location are empty or null, which is acceptable as they are not mandatory. The provided fields (motto, currency, memberships) are coherent."
-        }
-      ]
     },
     "createdAt": "2026-10-24T22:57:55Z",
     "isEdit": true,
@@ -55477,47 +54650,6 @@
     "creationDate": {
       "_seconds": 1792783695
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "The submission meets all core requirements with valid dates, sources, and language, though factual claims require further verification.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Grand Republic of Delvera' is clearly formatted with a main name and title."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2013-05-29 is well before the cutoff date 2026-09-23, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two relevant sources are provided: an archived official website and a wiki page."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the official language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and dates are consistent, the specific claims about activity and status rely on user-provided data which cannot be independently verified in this triage step."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are empty, which is acceptable as they are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-23T19:28:15Z",
     "isEdit": false,
     "id": "muxEstaD8UuVswHcmvXy"
@@ -55567,47 +54699,6 @@
     "creationDate": {
       "_seconds": 1792873512
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and naming criteria but lacks sufficient evidence of ongoing activity or valid current sources for a clear approval.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of Gitania' is clear, properly formatted, and includes an alternative name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2009-08-01 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided source is an archived snapshot of a Wiki from 2015. While it serves as a source, the age of the archive and the nature of the platform (Wiki) make it difficult to confirm current active status or official standing without more recent evidence."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred and clearly stated."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims a physical type and specific details (capital, currency), but the only provided evidence is a 2015 archive. There is no recent evidence (news, diplomacy, activity) to support the claim that this micronation is currently active or that these details remain accurate."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, memberships, and contact methods are either provided or left empty; their absence does not violate mandatory requirements."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T20:25:12Z",
     "isEdit": false,
     "id": "5eY5yUKzoba5zzKM9wTb"
@@ -55649,47 +54740,6 @@
     },
     "creationDate": {
       "_seconds": 1792874308
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and language requirements but lacks a dedicated official website, relying instead on social media and Discord links.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Unitary State of Moadu' is clearly formatted with a main name and title."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "Foundation date 2022-11-01 is well before the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided URL is a Discord invite link, not a traditional official website. While it serves as a source, the guidance prefers official websites, and the presence of a typo in the Instagram handle ('offical') raises minor concerns about the quality of provided sources."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is preferred and valid."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a 'Digital' micronation. Without access to the content of the Discord or social media links to verify ongoing activity (news, diplomacy), it is uncertain if the claims of existence are supported by sufficient evidence of activity."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is evident in the provided metadata."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as capital, location, and memberships are empty or null, which is acceptable as they are not mandatory."
-        }
-      ]
     },
     "createdAt": "2026-10-24T22:47:44Z",
     "isEdit": true,
@@ -55739,47 +54789,6 @@
     "creationDate": {
       "_seconds": 1792874625
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity or diplomatic engagement to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Sultanate of Nbeiri' is clearly formatted with a main name and title."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2008-04-25 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A website URL (https://nbeiri.wordpress.com/) is provided as a relevant information source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and dates are coherent, there is no evidence in the submission (such as news, diplomacy, or activity logs) to support the claim of ongoing micronation activity beyond the initial founding date. The provided social media links are not verified for content."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields like motto, capital, and currency are provided and do not conflict with guidance; missing optional fields are not mandatory."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T20:43:45Z",
     "isEdit": false,
     "id": "GTkDN93tN7ooksJflCOd"
@@ -55825,47 +54834,6 @@
     },
     "creationDate": {
       "_seconds": 1792875070
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and naming criteria but lacks sufficient evidence of ongoing activity or independent sources to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Kingdom of New Dorchester' is clearly formatted with a title and main name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2020-04-18 is well before the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "Only a Facebook page is provided. While it serves as a source, it is a social media profile rather than a dedicated official website, and no archived snapshots or independent verification are included to confirm the site's active status or content."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is a valid official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims physical existence and membership in the League of Christian Micronations, but provides no evidence (news, diplomacy, or activity logs) to support these claims beyond the existence of a social media page. The location coordinates are 0,0, which is in the ocean, contradicting the 'Physical' type claim without further clarification."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is present in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and flag are empty, which is acceptable as they are not mandatory. The provided fields (currency, memberships) are coherent with the micronation context."
-        }
-      ]
     },
     "createdAt": "2026-10-24T20:51:10Z",
     "isEdit": false,
@@ -55930,47 +54898,6 @@
     "creationDate": {
       "_seconds": 1792878734
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "Submission meets basic structural and age requirements with provided sources, though factual verification of activity is limited to the provided links.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of New Rizalia' is clearly formatted with a title and main name, and alternative names are provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2017-12-02 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two websites are provided: an official government site (weebly) and a relevant wiki page (micronations.wiki)."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the submission is coherent, the evidence of ongoing activity relies solely on the provided URLs. Without verifying the content of these links, it is uncertain if the micronation demonstrates sufficient activity (news, diplomacy) to be considered factual and active."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is mentioned in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with the guidance. The location coordinates are zero, which is a placeholder, but this is an optional field and does not mandate rejection."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T21:52:14Z",
     "isEdit": false,
     "id": "5pjfFJSRgyZP3tubT6C9"
@@ -56025,47 +54952,6 @@
     "creationDate": {
       "_seconds": 1792879439
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of active micronational existence to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The official name 'Pearson Republic' is clear, properly formatted, and distinct from the alternative name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2019-03-10 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "A relevant website URL (https://sites.google.com/view/pearson-republic-government/) is provided as a source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as an official language, which is preferred and clearly defined."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and date are consistent, the submission provides no specific evidence of news, diplomacy, or ongoing activity to verify the entity's active status as a micronation, making the truthfulness of its existence claims uncertain based solely on the provided data."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, flag, and specific location coordinates are not mandatory; the provided data does not violate guidance by omitting them or providing incoherent optional data."
-        }
-      ]
-    },
     "createdAt": "2026-10-24T22:03:59Z",
     "isEdit": false,
     "id": "XrBQk9CWkUOSfgoXODMD"
@@ -56109,47 +54995,6 @@
     },
     "creationDate": {
       "_seconds": 1792880109
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and naming criteria but lacks verifiable official web presence and sufficient evidence of ongoing micronational activity.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Union of Penzagrial' is clear, properly formatted, and follows the micronation naming convention."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2018-08-24 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided URLs are social media profiles (YouTube, Instagram) rather than an official website or relevant wiki/news source. While social media can serve as evidence of activity, the guidance prefers official websites or specific data sources, and the content of these links is not verifiable from the submission alone."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the languages, which is preferred and acceptable."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims a physical type and a currency ('Prod'), but provides no evidence (news, diplomacy, or ongoing activity details) to support these claims or demonstrate active micronational status beyond the existence of social media handles."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and memberships are empty, which is acceptable as they are not mandatory."
-        }
-      ]
     },
     "createdAt": "2026-10-24T22:15:09Z",
     "isEdit": false,
@@ -56199,7 +55044,6 @@
     "creationDate": {
       "_seconds": 1792883976
     },
-    "aiReview": null,
     "createdAt": "2026-10-24T23:19:36Z",
     "isEdit": false,
     "id": "fdQXc2ml2OowHagrNNmg"
@@ -56245,47 +55089,6 @@
     },
     "creationDate": {
       "_seconds": 1792884615
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks verifiable evidence of ongoing activity or valid sources to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Nation of Terrexa' is clearly formatted with a main name and title, adhering to micronation naming conventions."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2011-07-05 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement based on the provided date comparison."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "Two URLs are provided, but their validity, content relevance, or accessibility cannot be verified from the submission data alone. Without evidence that these sites are live and contain relevant information, the source requirement remains unconfirmed."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is a preferred and valid official language for micronations."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the claims are internally coherent, there is no provided evidence (such as news, diplomatic records, or activity logs) to support the assertion that this is an active micronation rather than a fictional or dormant entity. The location coordinates (0,0) are also suspicious and lack supporting evidence."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are provided and do not conflict with guidance. The absence of other optional fields is acceptable."
-        }
-      ]
     },
     "createdAt": "2026-10-24T23:30:15Z",
     "isEdit": false,
@@ -56333,47 +55136,6 @@
     },
     "creationDate": {
       "_seconds": 1792885211
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets basic structural and age requirements but lacks sufficient evidence of ongoing activity to confirm factual claims.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name is clearly formatted with a main name 'Timucua' and a title 'Native American Tribal Republic of', forming a coherent official name."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2008-08-01 is significantly older than the cutoff date 2026-09-24, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Two URLs are provided: a Micronations Wiki page and an archived snapshot of an official website, meeting the requirement for at least one relevant source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is a valid official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "While the name and date are consistent, the submission provides no specific evidence of ongoing activity (news, diplomacy, etc.) to support the claim that it is an active micronation, only static metadata and links."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "The submission contains no references to Nazi symbolism, adult sexual content, or illegal activity."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and memberships are empty, which is permissible as they are not mandatory."
-        }
-      ]
     },
     "createdAt": "2026-10-24T23:40:11Z",
     "isEdit": false,
@@ -56423,7 +55185,6 @@
     "creationDate": {
       "_seconds": 1792888118
     },
-    "aiReview": null,
     "createdAt": "2026-10-25T00:28:38Z",
     "isEdit": false,
     "id": "UsiRt7TDN7UoGNyMczus"
@@ -56477,7 +55238,6 @@
     "creationDate": {
       "_seconds": 1792893376
     },
-    "aiReview": null,
     "createdAt": "2026-10-25T01:56:16Z",
     "isEdit": false,
     "id": "p4qvUHJUaoaByxiOWpUC"
@@ -56528,7 +55288,6 @@
     "creationDate": {
       "_seconds": 1792901679
     },
-    "aiReview": null,
     "createdAt": "2026-10-25T04:14:39Z",
     "isEdit": false,
     "id": "G7BoPtTmwQN5JuukWbFX"
@@ -56606,47 +55365,6 @@
     "creationDate": {
       "_seconds": 1792938476
     },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and source requirements but requires verification of activity for a fictional micronation.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Federal Republic of Los Bay Petros' is clearly formatted with a title and main name, and alternative names are provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2009-10-14 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Multiple relevant sources are provided, including a wiki page, a fandom page, and an archived snapshot of an official website."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as one of the official languages, which is preferred."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The entry is marked as 'Fictional'. While sources exist, the submission does not explicitly demonstrate ongoing activity (news, diplomacy) in the provided JSON fields to confirm it is an active micronation rather than a dormant or purely fictional project. Verification of current activity is needed."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is detected in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and appear coherent with the micronation's profile."
-        }
-      ]
-    },
     "createdAt": "2026-10-25T14:27:56Z",
     "isEdit": false,
     "id": "3Og2xzBssGDOox9FgFwk"
@@ -56699,47 +55417,6 @@
     },
     "creationDate": {
       "_seconds": 1792940944
-    },
-    "aiReview": {
-      "verdict": "needs_review",
-      "summary": "Submission meets age and language criteria but lacks sufficient evidence of active micronation status and has a potentially invalid website URL.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The name 'Republic of Sree Gurusia' is clearly formatted with a title and main name, and an alternative name is provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2003-09-12 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement based on the provided date."
-        },
-        {
-          "criterion": "source_website",
-          "status": "uncertain",
-          "reason": "The provided website 'https://sreegurussia.weebly.com/' appears to contain a typo ('sreegurussia' vs 'Sree Gurusia') and may be dead or incorrect. The Facebook link is a social media profile, not necessarily an official website or reliable source for verifying micronation status without further context."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "English is listed as the language, which is preferred and acceptable."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "uncertain",
-          "reason": "The submission claims to be a 'Physical' micronation but provides no evidence of activity, diplomacy, or news. The location coordinates are 0,0 (null island), which is suspicious. Without verifiable evidence of ongoing activity, the claims cannot be confirmed as truthful or precise."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is evident in the provided data."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, and currency are either empty or provided. The absence of these fields does not violate the guidance as they are not mandatory."
-        }
-      ]
     },
     "createdAt": "2026-10-25T15:09:04Z",
     "isEdit": false,
@@ -56796,47 +55473,6 @@
     "creationDate": {
       "_seconds": 1792941327
     },
-    "aiReview": {
-      "verdict": "approve_candidate",
-      "summary": "Submission meets all triage criteria with valid name, age, sources, and language data.",
-      "checks": [
-        {
-          "criterion": "clear_name",
-          "status": "pass",
-          "reason": "The official name 'Republic of Tairan' is clearly formatted with a main name and title, and alternative names are provided."
-        },
-        {
-          "criterion": "minimum_existence_one_month",
-          "status": "pass",
-          "reason": "The foundation date 2013-09-26 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement."
-        },
-        {
-          "criterion": "source_website",
-          "status": "pass",
-          "reason": "Multiple relevant websites are provided, including a Micronations Wiki entry and official site links, meeting the requirement for at least one source."
-        },
-        {
-          "criterion": "official_language",
-          "status": "pass",
-          "reason": "German and Chinese are listed as languages, satisfying the requirement for at least one official or de facto language."
-        },
-        {
-          "criterion": "coherent_factual_claims",
-          "status": "pass",
-          "reason": "The claims are coherent, including a specific capital, currency, and membership in a micronational community, supported by the provided wiki and site links."
-        },
-        {
-          "criterion": "prohibited_content",
-          "status": "pass",
-          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
-        },
-        {
-          "criterion": "optional_field_guidance",
-          "status": "pass",
-          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with guidance; their presence is acceptable."
-        }
-      ]
-    },
     "createdAt": "2026-10-25T15:15:27Z",
     "isEdit": false,
     "id": "oC0vEOYjEhXQ9AB6JVA6"
@@ -56885,7 +55521,6 @@
     "creationDate": {
       "_seconds": 1792955382
     },
-    "aiReview": null,
     "createdAt": "2026-10-25T19:09:42Z",
     "isEdit": false,
     "id": "MwkeKPM0e91jSaBN73Cb"
