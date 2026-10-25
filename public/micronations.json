@@ -56744,5 +56744,101 @@
     "createdAt": "2026-10-25T15:09:04Z",
     "isEdit": false,
     "id": "uQXirjl2bkvpOdiZIIYA"
+  },
+  {
+    "name": {
+      "main": "Tairan",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Taireich",
+          "title": "Republik"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Einigkeit und Recht und Freiheit (Unity and Justice and Freedom)",
+    "languages": [
+      "German",
+      "Chinese"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/RepublikTaireich"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Republic_of_Tairan",
+      "https://sites.google.com/view/republiktaireich/%E9%A6%96%E9%A0%81",
+      "https://zhmicronations.miraheze.org/wiki/%E8%87%BA%E6%9C%97%E5%85%B1%E5%92%8C%E5%9C%8B"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Tairan.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Zarklovina, Berlin, West Bade",
+    "currency": "Taireiches Mark",
+    "memberships": [
+      "Taiwanese Micronational Community"
+    ],
+    "foundationDate": {
+      "_seconds": 1380153600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792941327
+    },
+    "aiReview": {
+      "verdict": "approve_candidate",
+      "summary": "Submission meets all triage criteria with valid name, age, sources, and language data.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The official name 'Republic of Tairan' is clearly formatted with a main name and title, and alternative names are provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2013-09-26 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Multiple relevant websites are provided, including a Micronations Wiki entry and official site links, meeting the requirement for at least one source."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "German and Chinese are listed as languages, satisfying the requirement for at least one official or de facto language."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "pass",
+          "reason": "The claims are coherent, including a specific capital, currency, and membership in a micronational community, supported by the provided wiki and site links."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No content promoting Nazi symbolism, adult sexual content, or illegal activity is present in the submission."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and location are provided and do not conflict with guidance; their presence is acceptable."
+        }
+      ]
+    },
+    "createdAt": "2026-10-25T15:15:27Z",
+    "isEdit": false,
+    "id": "oC0vEOYjEhXQ9AB6JVA6"
   }
 ]
