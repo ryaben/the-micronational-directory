@@ -56427,5 +56427,59 @@
     "createdAt": "2026-10-25T00:28:38Z",
     "isEdit": false,
     "id": "UsiRt7TDN7UoGNyMczus"
+  },
+  {
+    "name": {
+      "main": "Ister Princedom",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "懿德公國",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "民主 自由 公義 獨立 (Democracy, freedom, justice, independence)",
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/PrinceLAMHOKIT/",
+      "lhkprince@gmail.com"
+    ],
+    "websites": [
+      "https://istergov.info/",
+      "https://zh.micronations.wiki/wiki/%E6%87%BF%E5%BE%B7%E5%85%AC%E5%9C%8B"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Ister Princedom.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Isterian Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1568246400
+    },
+    "location": {
+      "latitude": 45.7725,
+      "longitude": 18.8876
+    },
+    "creationDate": {
+      "_seconds": 1792893376
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-25T01:56:16Z",
+    "isEdit": false,
+    "id": "p4qvUHJUaoaByxiOWpUC"
   }
 ]
