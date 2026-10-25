@@ -56650,5 +56650,99 @@
     "createdAt": "2026-10-25T14:27:56Z",
     "isEdit": false,
     "id": "3Og2xzBssGDOox9FgFwk"
+  },
+  {
+    "name": {
+      "main": "Sree Gurusia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Sree Gurusian Ganarajyam",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/Sreegurusia/",
+      "sreeguru12@gmail.com"
+    ],
+    "websites": [
+      "https://sreegurussia.weebly.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "type"
+    ],
+    "flag": "/images/flags/Sree Gurusia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Phierie",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1063368240
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792940944
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and language criteria but lacks sufficient evidence of active micronation status and has a potentially invalid website URL.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Republic of Sree Gurusia' is clearly formatted with a title and main name, and an alternative name is provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2003-09-12 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement based on the provided date."
+        },
+        {
+          "criterion": "source_website",
+          "status": "uncertain",
+          "reason": "The provided website 'https://sreegurussia.weebly.com/' appears to contain a typo ('sreegurussia' vs 'Sree Gurusia') and may be dead or incorrect. The Facebook link is a social media profile, not necessarily an official website or reliable source for verifying micronation status without further context."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as the language, which is preferred and acceptable."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The submission claims to be a 'Physical' micronation but provides no evidence of activity, diplomacy, or news. The location coordinates are 0,0 (null island), which is suspicious. Without verifiable evidence of ongoing activity, the claims cannot be confirmed as truthful or precise."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is evident in the provided data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, and currency are either empty or provided. The absence of these fields does not violate the guidance as they are not mandatory."
+        }
+      ]
+    },
+    "createdAt": "2026-10-25T15:09:04Z",
+    "isEdit": false,
+    "id": "uQXirjl2bkvpOdiZIIYA"
   }
 ]
