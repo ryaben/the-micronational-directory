@@ -1303,9 +1303,15 @@ export default {
           .normalize('NFKC')
           .toLocaleLowerCase()
           .match(/[\p{L}\p{N}]+/gu)
-          ?.join(' ') || ''
+          || []
 
-      return normalize(existingName) === normalize(query)
+      const existingWords = normalize(existingName)
+      const queryWords = normalize(query)
+      if (!queryWords.length || queryWords.length > existingWords.length) return false
+
+      return existingWords.some((_, index) =>
+        queryWords.every((word, queryIndex) => existingWords[index + queryIndex] === word)
+      )
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
