@@ -7,6 +7,7 @@ import { useDirectoryData } from '../composables/useDirectoryData.js';
 const Moderation = defineAsyncComponent(() => import('./Moderation.vue'));
 const MediaWikiReader = defineAsyncComponent(() => import('./MediaWikiReader.vue'));
 const MicronationalMapReader = defineAsyncComponent(() => import('./MicronationalMapReader.vue'));
+const SourceResearchConsole = defineAsyncComponent(() => import('../components/SourceResearchConsole.vue'));
 
 const { userIsModerator } = useDirectoryData();
 
@@ -14,6 +15,7 @@ const route = useRoute();
 const router = useRouter();
 const sections = [
   { text: 'User entries', target: 'submissions', display: true },
+  { text: 'AI source research', target: 'source-research', display: true },
   { text: 'MediaWiki API reader', target: 'mediawiki', display: true },
   { text: 'Google My Maps processor', target: 'google-maps', display: true }
 ];
@@ -45,6 +47,12 @@ function navigateToSection(target) {
 
       <template #google-maps>
         <MicronationalMapReader />
+      </template>
+
+      <template #source-research>
+        <section class="site-section site-section--flush site-section--flat-top">
+          <SourceResearchConsole />
+        </section>
       </template>
     </Sectionbar>
   </div>

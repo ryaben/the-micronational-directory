@@ -38,20 +38,25 @@ async function selectFile(event) {
   uploading.value = true;
   emit('image-processing', true);
   try {
-    const compressed = await imageCompression(file, {
-      maxSizeMB: 0.03,
-      maxWidthOrHeight: 1920,
-      useWebWorker: true,
-      initialQuality: 0.7
-    });
-    const base64 = await fileToBase64(compressed);
+    if (!file.type.startsWith('image/')) throw new Error('Choose a valid image file.');
+    const processedFile = file.size <= 35 * 1024
+      ? file
+      : await imageCompression(file, {
+        maxSizeMB: 0.035,
+        maxWidthOrHeight: 2560,
+        useWebWorker: true,
+        fileType: file.type
+      });
+    const base64 = await fileToBase64(processedFile);
     if (base64.length > 50000) {
-      throw new Error('The compressed image is too large for a GitHub issue. Choose a smaller PNG.');
+      throw new Error('The image is too large for a GitHub issue. Choose a smaller image.');
     }
     const safeName = props.imageName.trim().replace(/[^\p{L}\p{N}._-]+/gu, '-').replace(/^-+|-+$/g, '') || 'entry';
-    const fileName = `${safeName}-moderated-${Date.now()}.png`;
+    const sourceExtension = file.name.match(/\.([^.]+)$/)?.[1]?.toLowerCase() || file.type.split('/')[1]?.replace(/\+.*/, '').toLowerCase() || 'png';
+    const extension = sourceExtension === 'jpeg' ? 'jpg' : sourceExtension;
+    const fileName = `${safeName}-moderated-${Date.now()}.${extension}`;
     const folder = props.assetType === 'logo' ? 'logos' : 'flags';
-    const previewUrl = `data:image/png;base64,${base64}`;
+    const previewUrl = `data:${processedFile.type || file.type};base64,${base64}`;
     emit('update:modelValue', previewUrl);
     emit('image-change', {
       mode: 'upload',
@@ -77,9 +82,9 @@ async function selectFile(event) {
       <label><input v-model="mode" type="radio" value="url"> External URL</label>
     </div>
     <input v-if="mode === 'url'" type="text" inputmode="url" :value="externalUrl" :placeholder="`Direct URL or repository path to ${assetType}`" @input="externalUrl = $event.target.value; updateUrl()">
-    <input v-else type="file" accept="image/png" :disabled="uploading" @change="selectFile">
+    <input v-else type="file" accept="image/*" :disabled="uploading" @change="selectFile">
     <small v-if="uploading">Compressing image…</small>
-    <small v-else>PNG only. The image is compressed before it is saved to the issue.</small>
+    <small v-else>Image files are accepted. Files up to 35 KB are kept as uploaded; larger files are compressed before being saved to the issue.</small>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 # GitHub Integration Setup
 
-This document explains how to set up GitHub API integration for automatic issue creation when new micronation or organization entries are submitted.
+This document explains how to set up the server-side GitHub API integration used by submissions, moderation, and source research.
 
 ## Overview
 
@@ -13,31 +13,23 @@ When a user submits a new micronation or organization entry, the system creates 
 1. Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
 2. Click "Generate new token (classic)"
 3. Give it a descriptive name (e.g., "Micronational Directory - Issue Creator")
-4. Select the following scopes:
-   - `repo` (Full control of private repositories) - or if using a public repo, just `public_repo`
+4. For a fine-grained token, grant this repository **Actions: Read and write**, **Contents: Read and write**, and **Issues: Read and write**. A classic token needs `repo` and `workflow` scopes.
 5. Click "Generate token"
 6. **Important**: Copy the token immediately - you won't be able to see it again
 
-### 2. Configure Environment Variables
+### 2. Configure the server environment
 
-Add the following variables to your `.env` file (or create one if it doesn't exist):
+Set the token in `.env` for local development and as a server-only environment variable in Vercel:
 
 ```env
-VITE_GITHUB_TOKEN=your_github_token_here
-VITE_GITHUB_REPO_OWNER=your_github_username
-VITE_GITHUB_REPO_NAME=your_repository_name
+GITHUB_WORKFLOW_TOKEN=your_github_token_here
 ```
 
-Example:
-```env
-VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-VITE_GITHUB_REPO_OWNER=johndoe
-VITE_GITHUB_REPO_NAME=the-micronational-directory
-```
+The repository is configured in server code as `ryaben/the-micronational-directory`. Do not use a `VITE_` prefix: the frontend now calls same-origin server endpoints, so the token remains private.
 
 ### 3. Verify Configuration
 
-After setting up the environment variables, restart your development server:
+After setting up the environment variable, restart your development server:
 
 ```bash
 npm run dev

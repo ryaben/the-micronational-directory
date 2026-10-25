@@ -14951,7 +14951,7 @@ export const microWikiMicronations = [{
 }, {
     "capital": "Saint William of Foggia",
     "currency": "Euro € (de facto)",
-    "motto": "{{inactive}}\n{{Infobox country",
+    "motto": "Fiat Lux (Let there be light)",
     "contactInfo": ["{{inactive}}\n{{Infobox country"],
     "websites": ["https://micronations.wiki/wiki/Republic of Aetosia", "https://aetosia.com/ Official Website"],
     "name": "Republic of Aetosia",

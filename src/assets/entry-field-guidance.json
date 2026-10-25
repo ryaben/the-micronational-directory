@@ -1,0 +1,29 @@
+{
+  "micronation": {
+    "name": "Use the shortest, most common proper name, preferably in an official language or English. Examples: Sealand, Hutt River, Denmark.",
+    "title": "Store the descriptive part of the full name separately from the main name, such as 'Principality of' or 'Republic of'. Leave it blank when the name has no separate title. Do not include a leading 'The'.",
+    "alternativeNames": "Include other official or commonly used names, including names in other languages. Store each as an object with main and optional title fields.",
+    "alternativeTitle": "If an alternative name has a descriptive title, preserve that title separately and in the same language as the alternative name.",
+    "motto": "Use the official national motto without quotation marks. Preserve its original language and add an English translation in parentheses when available.",
+    "type": "Classify by the nature of the claim: Physical for claims to real-world territory or places, Digital for entities existing only online without real-world land claims, and Fictional for claims in simulated or fantasy worlds. Multiple types may apply.",
+    "languages": "List official, national, or recognized languages. If none are stated, use the de facto language or the language used by representatives in their public sources, and mark it uncertain when inferred.",
+    "capital": "List the place or places that officially serve as the capital, including fictional or digital places. Keep multiple capitals as separate comma-delimited names.",
+    "currency": "List currencies legally adopted or purported, including physical, digital, or macronational currencies. Do not append currency symbols in parentheses.",
+    "foundationDate": "Use the full foundation date when supported. For a year-only date use January 1 of that year; for a month and year use the first day of that month. Mark foundationDate uncertain whenever day or month precision is missing.",
+    "location": "For physical claims, place a point at the claimed territory, capital, or approximate leader location when evidence supports it. Do not invent coordinates. Leave the default point (0, 0) and mark the field uncertain when no defensible location is available.",
+    "memberships": "Include current and historical memberships in supramicronational organizations, regardless of member status. Also include constituent nations when relevant. Use the directory's canonical organization names when identifiable.",
+    "contactInfo": "Include public communication channels such as email, social profiles as full URLs, forums, and chat or group invitation links. Do not treat an informational article as a contact method.",
+    "websites": "Include sources that support the entry: official sites when available, plus relevant wiki, news, and other informational pages. For a dead site, use a Wayback snapshot URL only when a snapshot is found. Keep source URLs even when they do not provide an official site.",
+    "flag": "Use a direct image URL only when it is clearly the current, prevalent national/state/civil flag. Do not infer a flag from unrelated imagery. Prefer an empty value when the image or current status is unclear."
+  },
+  "organization": {
+    "name": "Use the organization's full official name as the main name.",
+    "acronym": "Use the official or commonly used acronym, if one is explicitly supported. Do not invent an abbreviation.",
+    "motto": "Use the official motto without quotation marks. Preserve its original language and add an English translation in parentheses when available.",
+    "languages": "List official or working languages stated by the organization. Do not infer languages solely from the language of one source.",
+    "foundationDate": "Use the full foundation date when supported. For a year-only date use January 1 of that year; for a month and year use the first day of that month. Mark foundationDate uncertain whenever day or month precision is missing.",
+    "contactInfo": "Include public communication channels such as email, social profiles as full URLs, forums, and chat or group invitation links. Do not treat an informational article as a contact method.",
+    "websites": "Include the official website when available and relevant wiki, news, and other informational pages that support the entry. For a dead site, use a Wayback snapshot URL only when a snapshot is found.",
+    "logo": "Use a direct image URL only when it is clearly the current official logo. Do not infer a logo from unrelated imagery. Prefer an empty value when the image or current status is unclear."
+  }
+}

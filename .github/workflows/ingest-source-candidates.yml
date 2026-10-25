@@ -1,0 +1,57 @@
+name: Research micronations from local sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_source:
+        description: Local source dataset to research
+        required: true
+        default: microwiki
+        type: choice
+        options:
+          - microwiki
+          - micronaciones_fandom
+          - micraswiki
+          - google_mymaps
+      candidate_offset:
+        description: Zero-based starting position in the selected local source
+        required: true
+        default: 0
+        type: number
+      max_entries:
+        description: Maximum number of candidate issues to create (1–5)
+        required: true
+        default: 3
+        type: number
+      candidate_names:
+        description: Optional names, one per line; must match names or titles in the selected local source
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: source-research-ingestion
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Research source and open review issues
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CANDIDATE_SOURCE: ${{ inputs.candidate_source }}
+          CANDIDATE_OFFSET: ${{ inputs.candidate_offset }}
+          MAX_ENTRIES: ${{ inputs.max_entries }}
+          CANDIDATE_NAMES: ${{ inputs.candidate_names }}
+        run: node scripts/ingest-micronation-sources.mjs

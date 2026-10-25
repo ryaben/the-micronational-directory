@@ -189,7 +189,7 @@ main {
 .site-section--flush {
   padding: 0;
 }
-.site-section--flat-top {
+.site-section.site-section--flat-top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

@@ -16,6 +16,8 @@ import ModerationImageEditor from './ModerationImageEditor.vue'
 import UncertaintyToggle from './UncertaintyToggle.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
 import { createFirestoreStyleId } from '../utils/firestoreStyleId.js'
+import { buildTooltipTexts } from '../utils/entryFieldGuidance.js'
+import { matchesWholeWords as matchWholeNameWords, micronationNameVariants } from '../utils/nameMatching.mjs'
 import imageCompression from 'browser-image-compression'
 import ChevronDownIcon from './icons/ChevronDownIcon.vue'
 import '@vuepic/vue-datepicker/dist/main.css'
@@ -734,6 +736,7 @@ const emit = defineEmits([
                   accept="image/*"
                   :required="!directoryEdit"
                 />
+                <small v-if="imagePreviewError" class="flag-image-error" role="alert">{{ imagePreviewError }}</small>
                 <label for=""
                   >(if N/A or unobtainable:
                   <a href="/images/missing-flag.png" target="_blank"
@@ -860,11 +863,12 @@ export default {
           : new Date(foundationDate),
       flagSource: '',
       flagPreview: entry.flag || entry.logo || '',
+      imagePreviewError: '',
       editImageValue: entry.flag || entry.logo || '',
       flagRadio: 'file',
       passedRecaptcha: false,
       isSubmitting: false,
-      aiPanelOpen: true,
+      aiPanelOpen: false,
       aiSourceText: '',
       aiSourceFile: null,
       aiBusy: false,
@@ -887,23 +891,7 @@ export default {
         y: 0
       },
       tooltipTitle: '',
-      tooltipTexts: [
-        "This should be the most common, shortest variant of the name, barely the proper name itself. Take 'Sealand', 'Hutt River' or 'Denmark' as examples. Ideally, use the main official language version or an English one if available.",
-        "Here, the descriptive rest of the full name's composition should be added, excluding the main name added above. Barely 'Principality of' or 'Republic of' are some examples of proper cases. There may be some cases, like 'Athenian Republic', in which this field remains blank and only 'Name' is filled. Avoid adding 'The' and words that serve the same meaning at the beginning.",
-        'Other official or commonly used names, including names in other languages. Add the corresponding title when applicable.',
-        "Same as 'Title', but input it in another language. To follow above's example, 'Respubliko de la' could be placed here.",
-        'Official, national motto. Be sure to NOT add quotes of any kind. The proper way to populate the field is placing the motto in whatever language it is, and then adding the English translation between parenthesis if available. For instance, a valid input is: Vivat Rex (Long Live the King).',
-        "The 'Type' of the micronation applies in regard of its kind of (non) territorial claim. Micronations that claim territory on Earth or other real-world elements are 'Physical', the ones that exist solely on the Internet and don't have actual land pretensions are 'Digital', while cases that live on simulated or fantasy worlds are 'Fictional'. More than one type can be checked, for sure.",
-        "Official languages spoken. Can be also extended to other national and/or recognized languages. If there isn't any, place the de facto language or the one used by representatives on websites and social media.",
-        "Physical, digital or fictional city or any kind of place officiating as the micronation's capital. If there's more than one, then add all of them separated by commas.",
-        "Currency (or currencies) legally adopted and accepted, they could be purported as well, either physical and digital. Some micronations even include macronational fiat currencies, and they are applicable as well. If there's more than one, then add all of them separated by commas. DO NOT include their symbols between parenthesis, e.g. (K$).",
-        "The full foundation date. If there's not enough information to input a full date, select the first day of the available timespan data and mark data as uncertain. For instance, if it's only known that it was founded on 1997, input January 1, 1997. If a foundation is stated on August, 2004, select August 1, 2004.",
-        "The micronation's location of its territorial claims. There is no possibility for selecting polygonal ranges, only geopoint pins. So, for large territorial claims, you can mark the capital or even the leader's approximate location. In any case not applicable, just leave the blue pin as is.",
-        "Supramicronational organizations that this micronation is currently a member of AND also was a member of in the past. There is no possibility to indicate membership type, so full members, partial members, observer members and any other kind of distinctive cases should be added alike. On the 'Other' subfield you can add organizations that are not present on our directory, and also the main name of another micronation in case this one is a constituent country/nation.",
-        'Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.',
-        'Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.',
-        'Upload an image or provide a direct image URL. Images are compressed in their original format to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.'
-      ],
+      tooltipTexts: buildTooltipTexts(),
       activeTooltipText: 0
     }
   },
@@ -945,11 +933,7 @@ export default {
       if (this.entryType !== 'micronation' || !enteredName) return null
       return (
         this.directoryData.find((entry) =>
-          [
-            entry.name?.main,
-            ...(entry.name?.alt || []).map((name) => name.main),
-            entry.name?.mainAlt
-          ].some((name) => this.matchesWholeWords(name, enteredName))
+          micronationNameVariants(entry.name).some((name) => this.matchesWholeWords(name, enteredName))
         ) || null
       )
     }
@@ -1230,44 +1214,114 @@ export default {
         const payload = await response.json()
         if (!response.ok) throw new Error(payload.error || 'AI extraction failed.')
 
-        const entry = payload.entry || {}
+        const entry =
+          payload.entry && typeof payload.entry === 'object' && !Array.isArray(payload.entry)
+            ? payload.entry
+            : {}
+        let populatedFields = 0
         const name = typeof entry.name === 'string' ? { main: entry.name } : entry.name || {}
-        if (name.main) this.formPlaceholders.newEntryName = name.main
-        if (this.entryType === 'micronation') {
-          if (name.title != null) this.formPlaceholders.newEntryTitle = name.title
-          if (Array.isArray(name.alt)) this.formPlaceholders.newEntryAltNames = name.alt
-          if (entry.capital != null) this.formPlaceholders.newEntryCapital = entry.capital
-          if (entry.currency != null) this.formPlaceholders.newEntryCurrency = entry.currency
-          if (Array.isArray(entry.memberships))
-            this.formPlaceholders.newEntryMemberships = entry.memberships
-          if (Array.isArray(entry.type)) {
-            this.formPlaceholders.newEntryTypePhysical = entry.type.includes('Physical')
-            this.formPlaceholders.newEntryTypeDigital = entry.type.includes('Digital')
-            this.formPlaceholders.newEntryTypeFictional = entry.type.includes('Fictional')
-            this.physicalType = this.formPlaceholders.newEntryTypePhysical
-            if (this.physicalType) this.renderedMapboxNewEntry = true
-          }
-        } else if (name.mainAlt != null) {
-          this.formPlaceholders.newEntryNameAlt = name.mainAlt
+        if (typeof name.main === 'string' && name.main.trim()) {
+          this.formPlaceholders.newEntryName = name.main.trim()
+          populatedFields++
         }
-        if (entry.motto != null) this.formPlaceholders.newEntryMotto = entry.motto
-        if (Array.isArray(entry.languages))
-          this.formPlaceholders.newEntryLanguages = entry.languages
-        if (Array.isArray(entry.contactInfo))
-          this.formPlaceholders.newEntryEmails = entry.contactInfo
-        if (Array.isArray(entry.websites)) this.formPlaceholders.newEntryWebsites = entry.websites
+        if (this.entryType === 'micronation') {
+          if (typeof name.title === 'string' && name.title.trim()) {
+            this.formPlaceholders.newEntryTitle = name.title.trim()
+            populatedFields++
+          }
+          if (Array.isArray(name.alt)) {
+            const altNames = name.alt
+              .map((item) => (typeof item === 'string' ? { main: item, title: '' } : item))
+              .filter((item) => item && typeof item.main === 'string' && item.main.trim())
+            if (altNames.length) {
+              this.formPlaceholders.newEntryAltNames = altNames
+              populatedFields++
+            }
+          }
+          if (typeof entry.capital === 'string' && entry.capital.trim()) {
+            this.formPlaceholders.newEntryCapital = entry.capital.trim()
+            populatedFields++
+          }
+          if (typeof entry.currency === 'string' && entry.currency.trim()) {
+            this.formPlaceholders.newEntryCurrency = entry.currency.trim()
+            populatedFields++
+          }
+          if (Array.isArray(entry.memberships)) {
+            const memberships = entry.memberships.filter((item) => typeof item === 'string' && item.trim())
+            if (memberships.length) {
+              this.formPlaceholders.newEntryMemberships = memberships
+              populatedFields++
+            }
+          }
+          if (Array.isArray(entry.type)) {
+            const types = entry.type.filter((type) => ['Physical', 'Digital', 'Fictional'].includes(type))
+            if (types.length) {
+              this.formPlaceholders.newEntryTypePhysical = types.includes('Physical')
+              this.formPlaceholders.newEntryTypeDigital = types.includes('Digital')
+              this.formPlaceholders.newEntryTypeFictional = types.includes('Fictional')
+              this.physicalType = this.formPlaceholders.newEntryTypePhysical
+              if (this.physicalType) this.renderedMapboxNewEntry = true
+              populatedFields++
+            }
+          }
+        } else if (typeof name.mainAlt === 'string' && name.mainAlt.trim()) {
+          this.formPlaceholders.newEntryNameAlt = name.mainAlt.trim()
+          populatedFields++
+        }
+        if (typeof entry.motto === 'string' && entry.motto.trim()) {
+          this.formPlaceholders.newEntryMotto = entry.motto.trim()
+          populatedFields++
+        }
+        if (Array.isArray(entry.languages)) {
+          const languages = entry.languages.filter((item) => typeof item === 'string' && item.trim())
+          if (languages.length) {
+            this.formPlaceholders.newEntryLanguages = languages
+            populatedFields++
+          }
+        }
+        if (Array.isArray(entry.contactInfo)) {
+          const contacts = entry.contactInfo.filter((item) => typeof item === 'string' && item.trim())
+          if (contacts.length) {
+            this.formPlaceholders.newEntryEmails = contacts
+            populatedFields++
+          }
+        }
+        if (Array.isArray(entry.websites)) {
+          const websites = entry.websites.filter((item) => typeof item === 'string' && item.trim())
+          if (websites.length) {
+            this.formPlaceholders.newEntryWebsites = websites
+            populatedFields++
+          }
+        }
         if (entry.foundationDate) {
           const date = new Date(entry.foundationDate)
-          if (!Number.isNaN(date.getTime())) this.foundationDate = date
+          if (!Number.isNaN(date.getTime())) {
+            this.foundationDate = date
+            populatedFields++
+          }
         }
 
         const imageUrl = this.entryType === 'micronation' ? entry.flag : entry.logo
-        if (imageUrl) {
+        if (typeof imageUrl === 'string' && imageUrl.trim()) {
           this.flagRadio = 'url'
-          this.formPlaceholders.newEntryFlag = imageUrl
-          await this.displayImage(imageUrl)
+          this.formPlaceholders.newEntryFlag = imageUrl.trim()
+          await this.displayImage(imageUrl.trim())
+          populatedFields++
         }
 
+        if (!populatedFields) {
+          notify({
+            title: 'AI assistant',
+            text: 'The AI returned no valid fields to fill in. Check the text or file and try again.',
+            type: 'error'
+          })
+          return
+        }
+
+        this.uncertainFields = [...new Set([
+          ...this.uncertainFields,
+          ...(Array.isArray(entry.uncertain) ? entry.uncertain : [])
+        ])]
         notify({
           title: 'AI suggestions ready',
           text: 'Review every suggested value and correct anything inaccurate.',
@@ -1287,31 +1341,13 @@ export default {
       const normalizedName = value.trim().toLocaleLowerCase()
       return this.directoryData.find((entry) => {
         if (this.entryType === 'micronation') {
-          return [
-            entry.name?.main,
-            ...(entry.name?.alt || []).map((name) => name.main),
-            entry.name?.mainAlt
-          ].some((name) => this.matchesWholeWords(name, normalizedName))
+          return micronationNameVariants(entry.name).some((name) => this.matchesWholeWords(name, normalizedName))
         }
         return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
     },
     matchesWholeWords(existingName, query) {
-      if (!existingName || !query) return false
-      const normalize = (value) =>
-        value
-          .normalize('NFKC')
-          .toLocaleLowerCase()
-          .match(/[\p{L}\p{N}]+/gu)
-          || []
-
-      const existingWords = normalize(existingName)
-      const queryWords = normalize(query)
-      if (!queryWords.length || queryWords.length > existingWords.length) return false
-
-      return existingWords.some((_, index) =>
-        queryWords.every((word, queryIndex) => existingWords[index + queryIndex] === word)
-      )
+      return matchWholeNameWords(existingName, query)
     },
     async checkRecaptcha(value) {
       this.passedRecaptcha = value
@@ -1468,6 +1504,7 @@ export default {
       this.flagPreview = URL.createObjectURL(this.flagSource)
     },
     async displayImage(value) {
+      this.imagePreviewError = ''
       if (!value) {
         this.flagSource = ''
         this.flagPreview = ''
@@ -1477,8 +1514,8 @@ export default {
         const file = await this.getImageFileForSubmission()
         this.flagSource = file
         this.flagPreview = URL.createObjectURL(file)
-      } catch {
-        // Submission performs the authoritative fetch and reports a useful error.
+      } catch (error) {
+        this.imagePreviewError = `The image could not be loaded for the preview (${error.message || 'network or CORS restriction'}). Upload the image as a local file instead, or use a direct URL that allows downloading.`
       }
     }
   }
@@ -1953,6 +1990,11 @@ div.new-entry-type {
 .flag-preview-container > label {
   color: var(--color-muted);
   font-size: 13px;
+}
+
+.flag-image-error {
+  color: var(--color-danger, #c0392b);
+  font-size: 12px;
 }
 
 .flag-radio {

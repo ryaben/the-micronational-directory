@@ -1,7 +1,7 @@
 <script setup>
 import PlacemarkEntry from '../components/PlacemarkEntry.vue';
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue';
-import { placemarksDirectory } from '../assets/googleMyMapsSources';
+import { placemarksDirectory } from '../assets/sources/googleMyMapsSources.js';
 import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
@@ -86,7 +86,7 @@ async function processKML() {
 
   notify({
     title: "Processing complete",
-    text: `Processed ${placemarksArray.length} placemarks and downloaded ${fileName}.json. Add the elements to googleMyMapsSources.js.`,
+    text: `Processed ${placemarksArray.length} placemarks and downloaded ${fileName}.json. Add the elements to src/assets/sources/googleMyMapsSources.js.`,
     type: "success"
   });
 }

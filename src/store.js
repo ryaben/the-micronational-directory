@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import moderators from './assets/moderators.json';
 
 const store = createStore({
     state: {
@@ -7,9 +8,7 @@ const store = createStore({
         contests: [],
         organizations: [],
         user: { emailVerified: false },
-        moderators: [
-            "themicronationaldirectory@gmail.com"
-        ]
+        moderators
     },
     getters: {
         micronations(state) {

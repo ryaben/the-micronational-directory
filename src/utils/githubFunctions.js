@@ -1,89 +1,27 @@
 /**
  * GitHub API utility functions for creating issues with embedded Base64 media
  */
-import { createFirestoreStyleId } from './firestoreStyleId.js'
+import { auth } from '../firebase/auth.js'
 
-/**
- * Converts entry data to the format expected in the JSON files
- * @param {Object} entryData The raw entry data from the form
- * @param {string} entryType The type of entry ('micronation' or 'organization')
- * @returns {Object} The formatted entry data
- */
-function formatEntryForJSON(entryData, entryType) {
-  const formatted = {
-    id: entryData.id || entryData.directoryId || createFirestoreStyleId(),
-    name: entryData.name,
-    motto: entryData.motto || '',
-    languages: entryData.languages || [],
-    contactInfo: entryData.contactInfo || [],
-    websites: entryData.websites || [],
-    author: entryData.author || { name: 'Unknown', email: 'Unknown' },
-    approved: false
-  }
-
-  if (Array.isArray(entryData.uncertain)) {
-    formatted.uncertain = entryData.uncertain
-  }
-
-  if (entryType === 'micronation') {
-    if (entryData.flagFile) {
-      formatted.flag = `/images/flags/${entryData.flagFile.name}`
-    } else {
-      formatted.flag = entryData.flag || ''
-    }
-    formatted.type = entryData.type || []
-    formatted.capital = entryData.capital || ''
-    formatted.currency = entryData.currency || ''
-    formatted.memberships = entryData.memberships || ''
-
-    formatted.foundationDate = normalizeDate(entryData.foundationDate)
-
-    if (entryData.location) {
-      const latitude = entryData.location.latitude
-      const longitude = entryData.location.longitude
-      formatted.location = {
-        latitude: Number(latitude ?? 0),
-        longitude: Number(longitude ?? 0)
-      }
-    }
-  } else {
-    if (entryData.logoFile) {
-      formatted.logo = `/images/logos/${entryData.logoFile.name}`
-    } else {
-      formatted.logo = entryData.logo || ''
-    }
-
-    formatted.foundationDate = normalizeDate(entryData.foundationDate)
-  }
-
-  // This is the directory submission date, separate from the founding date.
-  formatted.creationDate = { _seconds: Math.floor(Date.now() / 1000) }
-
-  return formatted
+async function githubServerRequest(action, payload = {}) {
+  const token = await auth.currentUser?.getIdToken()
+  if (!token) throw new Error('Sign in with a verified email to use GitHub features.')
+  return fetch('/api/github', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, ...payload })
+  })
 }
 
-function normalizeDate(value) {
-  if (!value) return { _seconds: 0 }
-  if (value._seconds != null) return { _seconds: Number(value._seconds) }
-  if (value.seconds != null) return { _seconds: Number(value.seconds) }
-  const date = new Date(value)
-  return { _seconds: Number.isFinite(date.getTime()) ? Math.floor(date.getTime() / 1000) : 0 }
+async function githubServerData(action, payload = {}) {
+  const response = await githubServerRequest(action, payload)
+  const data = await response.json().catch(() => ({}))
+  if (!response.ok) throw new Error(data.message || data.error || `GitHub operation failed (HTTP ${response.status}).`)
+  return data
 }
 
 export function getPublicAssetPath(repositoryPath) {
   return repositoryPath?.replace(/^public(?=\/)/, '') || ''
-}
-
-function encodeBase64Utf8(value) {
-  const bytes = new TextEncoder().encode(value)
-  const chunks = []
-  const chunkSize = 0x8000
-
-  for (let index = 0; index < bytes.length; index += chunkSize) {
-    chunks.push(String.fromCharCode(...bytes.subarray(index, index + chunkSize)))
-  }
-
-  return btoa(chunks.join(''))
 }
 
 export function stableStringify(value) {
@@ -100,118 +38,11 @@ export function stableStringify(value) {
 }
 
 /**
- * Creates a GitHub issue containing the entry JSON and Base64 encoded file
- * @param {Object} entryData The entry data from the form
- * @param {string} entryType The type of entry ('micronation' or 'organization')
- * @returns {Promise<Object>} The response from GitHub API
+ * Creates an entry submission issue using the same service as the source research workflow.
  */
 export async function createGitHubIssue(entryData, entryType, options = {}) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const fileData = entryData.flagFile || entryData.logoFile
-  const folder = entryType === 'micronation' ? 'flags' : 'logos'
-  const formattedData = formatEntryForJSON(entryData, entryType)
-  if (options.editTargetId && entryData.creationDate) formattedData.creationDate = entryData.creationDate
-  const mainName = entryData.name?.main || entryData.name || 'Unnamed'
-
-  const isEdit = !!options.editTargetId
-  const title = `${isEdit ? 'Edit' : 'New'} ${entryType} submission: ${mainName}`
-  if (isEdit) formattedData.editTargetId = options.editTargetId
-
-  // Si la imagen viene en formato Data URI (data:image/png;base64,...), conservamos solo el hash base64
-  let base64Content = ''
-  if (fileData && fileData.data) {
-    base64Content = fileData.data.includes(',') ? fileData.data.split(',')[1] : fileData.data
-    const MAX_BASE64_LENGTH = 50000 // ~37 KB (Límite seguro para el body de GitHub)
-    if (base64Content.length > MAX_BASE64_LENGTH) {
-      console.warn(
-        `The image's Base64 data exceeds the allowed limit (${base64Content.length} characters).`
-      )
-      throw new Error(
-        'The attached image is too large. Please upload a smaller image (maximum ~35 KB).'
-      )
-    }
-  }
-
-  // Estructuramos el issue con marcadores claros para la GitHub Action
-  let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission
-
-${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`} Fields listed in the "uncertain" array have uncertain values or lack precise confirmation.
-
-### Entry Data
-\`\`\`json
-${JSON.stringify(formattedData, null, 2)}
-\`\`\`
-`
-
-  if (fileData && base64Content) {
-    body += `
-### Media File Metadata
-- **File Name:** \`${fileData.name}\`
-- **Target Path:** \`public/images/${folder}/${fileData.name}\`
-
-### Media File Base64
-\`\`\`base64
-${base64Content}
-\`\`\`
-`
-  }
-
-  if (entryData.aiReview) {
-    body += `\n### AI preliminary review (not a final moderation decision)\n- **Triage:** ${
-      entryData.aiReview.verdict || 'needs_review'
-    }\n- **Summary:** ${entryData.aiReview.summary || 'No summary provided.'}\n\n${(
-      entryData.aiReview.checks || []
-    )
-      .map(
-        (check) =>
-          `- **${check.status || 'uncertain'} — ${check.criterion || 'Criterion'}:** ${
-            check.reason || ''
-          }`
-      )
-      .join('\n')}\n\n<!-- AI_REVIEW_JSON\n${JSON.stringify(entryData.aiReview)}\n-->\n`
-  }
-
-  body += `
-### Submitted By
-- **Name:** ${entryData.author?.name || 'Unknown'}
-- **Email:** ${entryData.author?.email || 'Unknown'}
-
----
-### ⚙️ Approval Instructions
-Add the label **\`approved\`** or close this issue with the **\`approved\`** label applied to automatically commit the image and update the JSON file.
-`
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues`
-
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        title: title,
-        body: body,
-        labels: [entryType, isEdit ? 'edit-entry' : 'new-entry', 'review-required']
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('createIssue', { entryData, entryType, options })
   } catch (error) {
     console.error('Error creating GitHub issue:', error)
     throw error
@@ -219,63 +50,14 @@ Add the label **\`approved\`** or close this issue with the **\`approved\`** lab
 }
 
 /**
- * Fetches GitHub issues with specific labels, paginating to retrieve all results
- * @param {Array} labels Labels to filter by (e.g., ['new-entry', 'review-required'])
- * @returns {Promise<Array>} Array of issues
+ * Fetches open GitHub issues, paginating through results and optionally filtering by labels.
+ * @param {Array<string>|string} labels Labels to match (any matching label includes the issue).
+ * @returns {Promise<Array<Object>>} Matching non-pull-request issues.
  */
 export async function fetchGitHubIssues(labels = ['new-entry', 'review-required']) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
   const labelList = Array.isArray(labels) ? labels : labels ? [labels] : []
-  let allIssues = []
-  let page = 1
-
   try {
-    while (true) {
-      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues?state=open&per_page=100&page=${page}`
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          Authorization: `token ${token}`,
-          Accept: 'application/vnd.github.v3+json'
-        }
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(`GitHub API error: ${errorData.message}`)
-      }
-
-      const issues = await response.json()
-      if (!issues || issues.length === 0) {
-        break
-      }
-
-      // Filter out pull requests (GitHub API /issues returns PRs as well)
-      const nonPrIssues = issues.filter((issue) => !issue.pull_request)
-      allIssues = allIssues.concat(nonPrIssues)
-
-      if (issues.length < 100) {
-        break
-      }
-      page++
-    }
-
-    // Filter by labels if specified (matches if the issue has any of the specified labels)
-    if (labelList.length > 0) {
-      return allIssues.filter(
-        (issue) => issue.labels && issue.labels.some((label) => labelList.includes(label.name))
-      )
-    }
-
-    return allIssues
+    return await githubServerData('fetchIssues', { labels: labelList })
   } catch (error) {
     console.error('Error fetching GitHub issues:', error)
     throw error
@@ -490,36 +272,8 @@ export function convertIssueToEntry(issue) {
  * @returns {Promise<Object>} The response from GitHub API
  */
 export async function addIssueLabel(issueNumber, label) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/labels`
-
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        labels: [label]
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('addIssueLabel', { issueNumber, label })
   } catch (error) {
     console.error('Error adding label to issue:', error)
     throw error
@@ -532,36 +286,8 @@ export async function addIssueLabel(issueNumber, label) {
  * @returns {Promise<Object>} The response from GitHub API
  */
 export async function closeIssue(issueNumber) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}`
-
   try {
-    const response = await fetch(url, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        state: 'closed'
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('closeIssue', { issueNumber })
   } catch (error) {
     console.error('Error closing issue:', error)
     throw error
@@ -575,36 +301,8 @@ export async function closeIssue(issueNumber) {
  * @returns {Promise<Object>} The response from GitHub API
  */
 export async function addIssueComment(issueNumber, comment) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}/comments`
-
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        body: comment
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('addIssueComment', { issueNumber, comment })
   } catch (error) {
     console.error('Error adding comment to issue:', error)
     throw error
@@ -619,14 +317,6 @@ export async function updateGitHubIssueEntry(
   entryType,
   mediaChange = null
 ) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    throw new Error('GitHub credentials not configured')
-  }
-
   const jsonBlock = /(```json\s*\r?\n)[\s\S]*?(\r?\n```)/
   if (!jsonBlock.test(issueBody || '')) {
     throw new Error('Could not find the submission JSON block in the GitHub issue.')
@@ -667,40 +357,11 @@ export async function updateGitHubIssueEntry(
       .replace(/### Media File Base64\r?\n[\s\S]*?(?=\r?\n### |$)/, '')
       .replace(/\n{3,}/g, '\n\n')
   }
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/issues/${issueNumber}`
-
-  const response = await fetch(url, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `token ${token}`,
-      Accept: 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      title: `New ${entryType} submission: ${entryData.name?.main || 'Unnamed'}`,
-      body
-    })
+  return githubServerData('updateIssue', {
+    issueNumber,
+    title: `New ${entryType} submission: ${entryData.name?.main || 'Unnamed'}`,
+    body
   })
-
-  const responseText = await response.text()
-  let result
-  try {
-    result = responseText ? JSON.parse(responseText) : null
-  } catch {
-    throw new Error(
-      `GitHub returned an unreadable response while updating issue #${issueNumber} (HTTP ${response.status}).`
-    )
-  }
-
-  if (!response.ok) {
-    throw new Error(
-      `GitHub API error (${response.status}): ${
-        result?.message || response.statusText || 'Request failed'
-      }`
-    )
-  }
-
-  return result
 }
 
 /**
@@ -709,25 +370,8 @@ export async function updateGitHubIssueEntry(
  * @returns {Promise<Object>} The file content and SHA
  */
 export async function fetchRepoFile(path) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
-
   try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json'
-      }
-    })
+    const response = await githubServerRequest('getRepoFile', { path })
 
     const responseText = await response.text()
     let data
@@ -763,13 +407,7 @@ export async function fetchRepoFile(path) {
     } else {
       // The Contents API omits `content` for files larger than 1 MB. Fetch
       // the blob by SHA using GitHub's raw media type in that case.
-      const blobUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/blobs/${data.sha}`
-      const blobResponse = await fetch(blobUrl, {
-        headers: {
-          Authorization: `token ${token}`,
-          Accept: 'application/vnd.github.raw'
-        }
-      })
+      const blobResponse = await githubServerRequest('getRepoBlob', { sha: data.sha })
       if (!blobResponse.ok) {
         const blobError = await blobResponse.text()
         let message = blobResponse.statusText || 'Request failed'
@@ -780,7 +418,9 @@ export async function fetchRepoFile(path) {
         }
         throw new Error(`GitHub API error (${blobResponse.status}): ${message}`)
       }
-      content = await blobResponse.text()
+      const blob = await blobResponse.json()
+      const binary = atob(String(blob.content || '').replace(/\s/g, ''))
+      content = new TextDecoder().decode(Uint8Array.from(binary, character => character.charCodeAt(0)))
     }
 
     let jsonContent
@@ -813,41 +453,8 @@ export async function fetchRepoFile(path) {
  * @returns {Promise<Object>} The response from GitHub API
  */
 export async function updateRepoFile(path, content, sha, commitMessage) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
-
-  // GitHub expects base64 encoded UTF-8. btoa(content) fails for Unicode.
-  const base64Content = encodeBase64Utf8(content)
-
   try {
-    const response = await fetch(url, {
-      method: 'PUT',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: commitMessage,
-        content: base64Content,
-        sha: sha
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('updateRepoFile', { path, content, sha, commitMessage })
   } catch (error) {
     console.error('Error updating repo file:', error)
     throw error
@@ -862,37 +469,8 @@ export async function updateRepoFile(path, content, sha, commitMessage) {
  * @returns {Promise<Object>} The response from GitHub API
  */
 export async function createRepoFile(path, content, commitMessage) {
-  const token = import.meta.env.VITE_GITHUB_TOKEN
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-
-  if (!token || !repoOwner || !repoName) {
-    console.error('GitHub credentials not configured')
-    throw new Error('GitHub credentials not configured')
-  }
-
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`
-
   try {
-    const response = await fetch(url, {
-      method: 'PUT',
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: commitMessage,
-        content: content
-      })
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(`GitHub API error: ${errorData.message}`)
-    }
-
-    return await response.json()
+    return await githubServerData('createRepoFile', { path, content, commitMessage })
   } catch (error) {
     console.error('Error creating repo file:', error)
     throw error
