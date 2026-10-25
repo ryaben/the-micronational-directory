@@ -165,10 +165,10 @@ export default {
       this.loadedSources[source] = 'loading';
       try {
         if (source === 'micras') {
-          const { micrasWikiMicronations } = await import('../assets/micrasWikiSources.js');
+          const { micrasWikiMicronations } = await import('../assets/sources/micrasWikiSources.js');
           this.micrasArray = [...micrasWikiMicronations];
         } else if (source === 'microwiki') {
-          const { microWikiMicronations } = await import('../assets/microWikiSources.js');
+          const { microWikiMicronations } = await import('../assets/sources/microWikiSources.js');
           this.microWikiArray = [...microWikiMicronations];
         }
         this.loadedSources[source] = 'loaded';
