@@ -120,6 +120,37 @@ module.exports = async function handler(req, res) {
         })
         break
       }
+      case 'importExternalImage': {
+        let imageUrl
+        try { imageUrl = new URL(String(input.url || '')) } catch { throw new Error('Enter a valid external image URL.') }
+        if (imageUrl.protocol !== 'https:' || imageUrl.username || imageUrl.password
+          || !imageUrl.hostname || imageUrl.hostname === 'localhost' || imageUrl.hostname.endsWith('.localhost')
+          || imageUrl.hostname.endsWith('.local') || /^127\.|^10\.|^192\.168\.|^169\.254\.|^172\.(?:1[6-9]|2\d|3[01])\./.test(imageUrl.hostname)
+          || imageUrl.hostname === '::1' || imageUrl.hostname === '[::1]') {
+          throw new Error('Only public HTTPS image URLs can be imported.')
+        }
+        const assetType = input.entryType === 'organization' ? 'logos' : input.entryType === 'micronation' ? 'flags' : ''
+        if (!assetType) throw new Error('Invalid entry type for image import.')
+        const response = await fetch(imageUrl, { redirect: 'error', signal: AbortSignal.timeout(15000) })
+        if (!response.ok) throw new Error(`Could not fetch the external image (HTTP ${response.status}).`)
+        const mimeType = (response.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
+        const extensions = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' }
+        const extension = extensions[mimeType]
+        if (!extension) throw new Error('The external URL did not return a supported JPEG, PNG, WebP, or GIF image.')
+        const declaredLength = Number(response.headers.get('content-length') || 0)
+        if (declaredLength > 5 * 1024 * 1024) throw new Error('The external image exceeds the 5 MB import limit.')
+        const bytes = Buffer.from(await response.arrayBuffer())
+        if (!bytes.length || bytes.length > 5 * 1024 * 1024) throw new Error('The external image is empty or exceeds the 5 MB import limit.')
+        const namePart = String(input.name || 'entry').normalize('NFKC').replace(/[^\p{L}\p{N}._-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'entry'
+        const uniquePart = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
+        const path = `public/images/${assetType}/${namePart}-${uniquePart}.${extension}`
+        result = await github(`contents/${path}`, 'PUT', {
+          message: `Import ${assetType === 'flags' ? 'micronation flag' : 'organization logo'}: ${namePart}`.slice(0, 200),
+          content: bytes.toString('base64')
+        })
+        if (result.status >= 400) return reply(res, result.status, result.data)
+        return reply(res, 200, { path })
+      }
       default:
         return reply(res, 400, { error: 'Unknown GitHub operation.' })
     }

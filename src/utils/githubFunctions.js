@@ -477,6 +477,11 @@ export async function createRepoFile(path, content, commitMessage) {
   }
 }
 
+/** Imports a public external image into the repository's flags or logos folder. */
+export async function importExternalImage(url, entryType, name) {
+  return await githubServerData('importExternalImage', { url, entryType, name })
+}
+
 /**
  * Extracts base64 image data from a GitHub issue body
  * @param {string} body The issue body
@@ -522,6 +527,7 @@ export default {
   fetchRepoFile,
   updateRepoFile,
   createRepoFile,
+  importExternalImage,
   extractBase64Image,
   extractFileMetadata,
   getPublicAssetPath
