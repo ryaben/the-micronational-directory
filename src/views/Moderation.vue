@@ -18,6 +18,7 @@ import {
   updateRepoFile,
   updateGitHubIssueEntry,
   createRepoFile,
+  importExternalImage,
   extractBase64Image,
   extractFileMetadata,
   getPublicAssetPath,
@@ -698,11 +699,19 @@ export default {
 
         // Restore the original flag/logo path (not the data URL) for JSON file
         if (fileMetadata) {
+          if (!base64Image) throw new Error('The issue includes an image path but no image data. Edit the image before approving this entry.')
           if (isMicronation) {
             entryForJson.flag = getPublicAssetPath(fileMetadata.path)
           } else {
             entryForJson.logo = getPublicAssetPath(fileMetadata.path)
           }
+        }
+
+        const imageField = isMicronation ? 'flag' : 'logo'
+        const imageValue = String(entryForJson[imageField] || '').trim()
+        if (!fileMetadata && /^https?:\/\//i.test(imageValue)) {
+          const imported = await importExternalImage(imageValue, entryTypeName, entry.name.main)
+          entryForJson[imageField] = getPublicAssetPath(imported.path)
         }
 
         // Match the JSON representation GitHub will store, excluding undefined fields.
