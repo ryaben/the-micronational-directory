@@ -56378,5 +56378,54 @@
     "createdAt": "2026-10-24T23:40:11Z",
     "isEdit": false,
     "id": "dcUKytPsJYMjm8O1wK3J"
+  },
+  {
+    "name": {
+      "main": "Yorkland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Commonwealth of",
+      "titleAlt": ""
+    },
+    "motto": "Laus tibi Domine Jesu Christe, Rex sine fine",
+    "languages": [
+      "English",
+      "Yorkish",
+      "Beclaphic"
+    ],
+    "contactInfo": [
+      "https://www.reddit.com/message/compose?to=r/Yorkland"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Commonwealth_of_Yorkland",
+      "https://www.reddit.com/r/Yorkland/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Yorkland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "New Hamsterdam",
+    "currency": "Yorkish Pound",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1655510400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792888118
+    },
+    "aiReview": null,
+    "createdAt": "2026-10-25T00:28:38Z",
+    "isEdit": false,
+    "id": "UsiRt7TDN7UoGNyMczus"
   }
 ]
