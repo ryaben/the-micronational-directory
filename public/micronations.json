@@ -56532,5 +56532,123 @@
     "createdAt": "2026-10-25T04:14:39Z",
     "isEdit": false,
     "id": "G7BoPtTmwQN5JuukWbFX"
+  },
+  {
+    "name": {
+      "main": "Los Bay Petros",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Лос-Бэй Петрос",
+          "title": "Федеративная Республика"
+        },
+        {
+          "main": "Los Bay Petros",
+          "title": "Bundesrepublik"
+        },
+        {
+          "main": "ロサンゼルスベイペトロス",
+          "title": "連邦共和国"
+        },
+        {
+          "main": "Lus Baye Pitrius",
+          "title": "Respubika Federatsiyy"
+        },
+        {
+          "main": "Los Bay Petros'ye",
+          "title": "Federal Cumhuriyeti"
+        }
+      ],
+      "title": "Federal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Seluruh rakyat, bersatu! (All the people, unite!)",
+    "languages": [
+      "English",
+      "Indonesian",
+      "Russian"
+    ],
+    "contactInfo": [
+      "federalrepublicoflbp@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Federal_Republic_of_Los_Bay_Petros",
+      "https://umnations.fandom.com/wiki/Federal_Republic_of_Los_Bay_Petros",
+      "https://web.archive.org/web/20130806010832/http://federalrepublicoflbp.wix.com:80/frlosbaypetros"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Los Bay Petros.png",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Bayrschstein Capital Territory, Labstadt",
+    "currency": "Los Bay Petrosian Ruble, Indonesian Rupiah, Urtas",
+    "memberships": [
+      "Micronational Cartography Society",
+      "League of Countries",
+      "Association of Indonesian Micronations",
+      "World Micronational Alliance",
+      "Micronational Association of Southeast Asia"
+    ],
+    "foundationDate": {
+      "_seconds": 1255478400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1792938476
+    },
+    "aiReview": {
+      "verdict": "needs_review",
+      "summary": "Submission meets age and source requirements but requires verification of activity for a fictional micronation.",
+      "checks": [
+        {
+          "criterion": "clear_name",
+          "status": "pass",
+          "reason": "The name 'Federal Republic of Los Bay Petros' is clearly formatted with a title and main name, and alternative names are provided."
+        },
+        {
+          "criterion": "minimum_existence_one_month",
+          "status": "pass",
+          "reason": "The foundation date 2009-10-14 is significantly older than the cutoff date 2026-09-25, satisfying the one-month existence requirement."
+        },
+        {
+          "criterion": "source_website",
+          "status": "pass",
+          "reason": "Multiple relevant sources are provided, including a wiki page, a fandom page, and an archived snapshot of an official website."
+        },
+        {
+          "criterion": "official_language",
+          "status": "pass",
+          "reason": "English is listed as one of the official languages, which is preferred."
+        },
+        {
+          "criterion": "coherent_factual_claims",
+          "status": "uncertain",
+          "reason": "The entry is marked as 'Fictional'. While sources exist, the submission does not explicitly demonstrate ongoing activity (news, diplomacy) in the provided JSON fields to confirm it is an active micronation rather than a dormant or purely fictional project. Verification of current activity is needed."
+        },
+        {
+          "criterion": "prohibited_content",
+          "status": "pass",
+          "reason": "No Nazi symbolism, adult sexual content, or illegal activity is detected in the provided data."
+        },
+        {
+          "criterion": "optional_field_guidance",
+          "status": "pass",
+          "reason": "Optional fields such as motto, capital, currency, and memberships are provided and appear coherent with the micronation's profile."
+        }
+      ]
+    },
+    "createdAt": "2026-10-25T14:27:56Z",
+    "isEdit": false,
+    "id": "3Og2xzBssGDOox9FgFwk"
   }
 ]
