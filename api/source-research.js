@@ -115,13 +115,23 @@ module.exports = async function handler(req, res) {
     const jobsResponse = await github(`/repos/${repository}/actions/runs/${runId}/jobs?per_page=20`)
     const jobsData = await jobsResponse.json()
     let logs = ''
-    if (run.status === 'completed') {
+    const researchJob = (jobsData.jobs || []).find(job => (job.steps || []).some(step => /research source and open review issues/i.test(step.name)))
+    const researchStepIndex = researchJob?.steps?.findIndex(step => /research source and open review issues/i.test(step.name)) ?? -1
+    if (researchJob && researchStepIndex >= 0) {
+      try {
+        const stepLogResponse = await github(`/repos/${repository}/actions/jobs/${researchJob.id}/steps/${researchStepIndex}/logs`)
+        if (stepLogResponse.ok) logs = scriptOutputFromActionsLog(await stepLogResponse.text())
+      } catch {
+        // GitHub may not have published this step's live log yet.
+      }
+    }
+    if (!logs && run.status === 'completed') {
       const logResponse = await github(`/repos/${repository}/actions/runs/${runId}/logs`)
       if (logResponse.ok) {
         const archive = Buffer.from(await logResponse.arrayBuffer())
         const entries = findZipEntries(archive)
         const usefulEntries = entries.filter(entry => /research source and open review issues|validate required secrets/i.test(entry.name))
-        logs = (usefulEntries.length ? usefulEntries : entries)
+        logs = usefulEntries
           .map(entry => scriptOutputFromActionsLog(entry.text))
           .filter(Boolean)
           .join('\n')

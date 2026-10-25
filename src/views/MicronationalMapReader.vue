@@ -12,6 +12,7 @@ const KMLfile = ref('');
 const KMLlink = ref('');
 
 const directory = computed(() => Array.isArray(micronationsDirectory.value) ? micronationsDirectory.value : []);
+const hasApplicableLocation = (placemark) => placemark?.location?.applicable === true;
 
 const micronationsCompareSources = computed(() => {
   const present = [];
@@ -37,8 +38,10 @@ const micronationsCompareSources = computed(() => {
 const placemarkSources = computed(() => {
   const sources = new Map();
   placemarksDirectory.forEach((element) => {
-    if (!sources.has(element.source.name)) {
-      sources.set(element.source.name, element.source.url);
+    const name = element?.source?.name;
+    const url = element?.source?.url;
+    if (name && url && !sources.has(name)) {
+      sources.set(name, url);
     }
   });
   return [...sources].map(([name, url]) => ({ name, url }));
@@ -104,7 +107,7 @@ async function processKML() {
           <p class="workspace-description">Process KML files from Google My Maps into micronation placemarks. Compare their coordinates and descriptions with directory entries, then identify entries that need location information.</p>
         </template>
         <template #summary>
-          <strong class="summary-count">{{ placemarksDirectory.filter(mic => mic.location.applicable).length }}</strong>
+          <strong class="summary-count">{{ placemarksDirectory.filter(hasApplicableLocation).length }}</strong>
           <span>placemarks have an applicable location</span>
         </template>
 
@@ -127,14 +130,14 @@ async function processKML() {
         <section class="map-result-group">
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      micro.micronationalMap.location.applicable && micro.location.latitude === 0).length }}</span> micronations from
+      hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude === 0).length }}</span> micronations from
           the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b
             style="color: red;">DOES
             NOT</b> have location info:
         </p>
         <div class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location.latitude === 0)"
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => hasApplicableLocation(mic.micronationalMap) && mic.location?.latitude === 0)"
             :key="i" :present="true" :placemark-info="item" />
         </div>
         </section>
@@ -142,14 +145,14 @@ async function processKML() {
         <section class="map-result-group">
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      micro.micronationalMap.location.applicable && micro.location.latitude !== 0).length }}</span> micronations from
+      hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude !== 0).length }}</span> micronations from
           the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has
           preexisting
           location info:
         </p>
         <div class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => mic.micronationalMap.location.applicable && mic.location.latitude !== 0)"
+            v-for="(item, i) in micronationsCompareSources.present.filter(mic => hasApplicableLocation(mic.micronationalMap) && mic.location?.latitude !== 0)"
             :key="i" :present="true" :placemark-info="item" />
         </div>
         </section>
@@ -157,12 +160,12 @@ async function processKML() {
         <section class="map-result-group">
         <p class="list-description">
           The following <span class="underlined">{{ micronationsCompareSources.missing.filter(micro =>
-      micro.micronationalMap.location.applicable).length }}</span> micronations from the map most likely don't yet
+      hasApplicableLocation(micro.micronationalMap)).length }}</span> micronations from the map most likely don't yet
           have an entry on TMD:
         </p>
         <div class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.missing.filter(micro => micro.micronationalMap.location.applicable)"
+            v-for="(item, i) in micronationsCompareSources.missing.filter(micro => hasApplicableLocation(micro.micronationalMap))"
             :key="i" :present="false" :placemark-info="item" />
         </div>
         </section>
@@ -224,7 +227,7 @@ async function processKML() {
 .micronations-list {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
   gap: 12px;
 }
 
