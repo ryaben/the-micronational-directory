@@ -56021,5 +56021,59 @@
     "createdAt": "2026-10-26T21:39:46Z",
     "isEdit": false,
     "id": "74Wy8tlZSed36HtZ94sJ"
+  },
+  {
+    "name": {
+      "main": "Berry Empire",
+      "mainAlt": "",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "empire@duck.com",
+      "https://www.instagram.com/berryempire_gov",
+      "https://discord.com/invite/GPzvUDccRX"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20250717062005/https://berryempire.cupertinoalliance.ca/",
+      "https://micronations.wiki/wiki/Berry_Empire"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Berry Empire.png",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "capital": "The Sand Well",
+    "currency": "Berry",
+    "memberships": [
+      "International Aerospace Community",
+      "Cupertino Alliance",
+      "Pan European Trade Organization",
+      "Organization of European Micronations"
+    ],
+    "foundationDate": {
+      "_seconds": 1607731200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793051550
+    },
+    "createdAt": "2026-10-26T21:52:30Z",
+    "isEdit": false,
+    "id": "BoYdFyiobLyDGswia9A4"
   }
 ]
