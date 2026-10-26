@@ -33,7 +33,9 @@ function validIssueNumber(value) {
 
 function validFilePath(value) {
   if (JSON_FILES.has(value)) return value
-  if (/^public\/images\/(?:flags|logos)\/[\p{L}\p{N}._-]+\.(?:png|jpe?g|webp|gif|svg)$/iu.test(String(value))) return value
+  // Existing submissions can use the entry name as the uploaded image name,
+  // which may contain spaces. Keep the allowlist limited to one safe filename.
+  if (/^public\/images\/(?:flags|logos)\/[\p{L}\p{N}._-]+(?: [\p{L}\p{N}._-]+)*\.(?:png|jpe?g|webp|gif|svg)$/iu.test(String(value))) return value
   throw new Error('This repository file path is not allowed.')
 }
 
