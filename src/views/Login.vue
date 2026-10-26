@@ -30,7 +30,7 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
       >
         <img
           class="welcome-mark"
-          src="/images/plain-logo1.png"
+          src="/images/brand/plain-logo1.png"
           alt="The Micronational Directory logo"
         />
         <h1>Small nations.<br /><span>Big stories.</span></h1>

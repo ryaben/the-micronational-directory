@@ -20,10 +20,22 @@ const output = ref('Ready. Choose a source and start the research workflow.\n')
 const error = ref('')
 let pollTimer
 const tooltips = {
-  source: { title: 'Source', text: 'Choose which local scrape to use as the starting index. Each source has its own article links and available fields.' },
-  offset: { title: 'Starting offset', text: 'Zero-based position in the selected source. Use this to continue from a later candidate; it is ignored when candidate names are provided.' },
-  maxEntries: { title: 'Maximum candidates', text: 'Upper limit for how many candidates this run will research and submit as GitHub issues. Each issue still needs moderator review.' },
-  candidateNames: { title: 'Candidate names', text: 'Optional: enter one name per line. Names must match candidates in the selected local source. When provided, the offset is ignored.' }
+  source: {
+    title: 'Source',
+    text: 'Choose which local scrape to use as the starting index. Each source has its own article links and available fields.'
+  },
+  offset: {
+    title: 'Starting offset',
+    text: 'Zero-based position in the selected source. Use this to continue from a later candidate; it is ignored when candidate names are provided.'
+  },
+  maxEntries: {
+    title: 'Maximum candidates',
+    text: 'Upper limit for how many candidates this run will research and submit as GitHub issues. Each issue still needs moderator review.'
+  },
+  candidateNames: {
+    title: 'Candidate names',
+    text: 'Optional: enter one name per line. Names must match candidates in the selected local source. When provided, the offset is ignored.'
+  }
 }
 const activeTooltip = ref(null)
 const tooltipPosition = ref({ x: 0, y: 0 })
@@ -42,7 +54,10 @@ async function apiRequest(method, url, body) {
   if (!token) throw new Error('Sign in with a moderator account to run source research.')
   const response = await fetch(url, {
     method,
-    headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...(body ? { 'Content-Type': 'application/json' } : {})
+    },
     ...(body ? { body: JSON.stringify(body) } : {})
   })
   const result = await response.json().catch(() => ({}))
@@ -83,16 +98,27 @@ async function start() {
 async function poll() {
   if (!run.value?.runId) return
   try {
-    const result = await apiRequest('GET', `/api/source-research?runId=${encodeURIComponent(run.value.runId)}`)
+    const result = await apiRequest(
+      'GET',
+      `/api/source-research?runId=${encodeURIComponent(run.value.runId)}`
+    )
     run.value = result
     if (result.logs) output.value = result.logs
     else {
-      const steps = (result.jobs || []).flatMap(job => job.steps.map(step => `${step.name}: ${step.conclusion || step.status}`))
-      output.value = `Workflow run #${result.runId}\nStatus: ${result.status}${result.conclusion ? ` (${result.conclusion})` : ''}\n${result.runUrl}\n${steps.length ? `${steps.join('\n')}\n` : ''}GitHub Actions is running the research. Full script output will appear here when the run finishes.\n`
+      const steps = (result.jobs || []).flatMap((job) =>
+        job.steps.map((step) => `${step.name}: ${step.conclusion || step.status}`)
+      )
+      output.value = `Workflow run #${result.runId}\nStatus: ${result.status}${
+        result.conclusion ? ` (${result.conclusion})` : ''
+      }\n${result.runUrl}\n${
+        steps.length ? `${steps.join('\n')}\n` : ''
+      }GitHub Actions is running the research. Full script output will appear here when the run finishes.\n`
     }
     if (result.status === 'completed') {
       running.value = false
-      if (!result.logs) output.value += '\nWorkflow finished; logs are not available yet. Open the run link to inspect them.\n'
+      if (!result.logs)
+        output.value +=
+          '\nWorkflow finished; logs are not available yet. Open the run link to inspect them.\n'
       return
     }
     pollTimer = setTimeout(poll, 5000)
@@ -109,57 +135,101 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
 <template>
   <section class="source-research-console">
     <Transition name="fade">
-      <HelpTooltip v-if="activeTooltip" :title="activeTooltip.title" :help-text="activeTooltip.text"
-        :position="tooltipPosition" @closed-tooltip="activeTooltip = null" />
+      <HelpTooltip
+        v-if="activeTooltip"
+        :title="activeTooltip.title"
+        :help-text="activeTooltip.text"
+        :position="tooltipPosition"
+        @closed-tooltip="activeTooltip = null"
+      />
     </Transition>
     <header class="research-notes">
       <div class="research-notes-copy">
-        <p>Run the existing research workflow and create review issues. Every issue still requires human moderation.</p>
+        <p>
+          Run the existing research workflow and create review issues. Every issue still requires
+          human moderation.
+        </p>
       </div>
-      <a v-if="run?.runUrl" :href="run.runUrl" target="_blank" rel="noopener noreferrer">Open GitHub Actions ↗</a>
+      <a v-if="run?.runUrl" :href="run.runUrl" target="_blank" rel="noopener noreferrer"
+        >Open GitHub Actions ↗</a
+      >
     </header>
 
     <div class="workflow-layout">
       <form class="research-controls" @submit.prevent="start">
         <div class="required-parameters">
-          <label>Source
-            <button type="button" class="tooltip-activator" aria-label="Help: source" @click="openTooltip('source', $event)">
-              <img src="/images/info.png" alt="">
+          <label
+            >Source
+            <button
+              type="button"
+              class="tooltip-activator"
+              aria-label="Help: source"
+              @click="openTooltip('source', $event)"
+            >
+              <img src="/images/info.png" alt="" />
             </button>
             <select v-model="source" :disabled="running">
-              <option v-for="item in sources" :key="item.id" :value="item.id">{{ item.label }}</option>
+              <option v-for="item in sources" :key="item.id" :value="item.id">
+                {{ item.label }}
+              </option>
             </select>
           </label>
-          <label>Starting offset
-            <button type="button" class="tooltip-activator" aria-label="Help: starting offset" @click="openTooltip('offset', $event)">
-              <img src="/images/info.png" alt="">
+          <label
+            >Starting offset
+            <button
+              type="button"
+              class="tooltip-activator"
+              aria-label="Help: starting offset"
+              @click="openTooltip('offset', $event)"
+            >
+              <img src="/images/info.png" alt="" />
             </button>
-            <input v-model.number="offset" type="number" min="0" step="1" :disabled="running">
+            <input v-model.number="offset" type="number" min="0" step="1" :disabled="running" />
           </label>
-          <label>Maximum candidates
-            <button type="button" class="tooltip-activator" aria-label="Help: maximum candidates" @click="openTooltip('maxEntries', $event)">
-              <img src="/images/info.png" alt="">
+          <label
+            >Maximum candidates
+            <button
+              type="button"
+              class="tooltip-activator"
+              aria-label="Help: maximum candidates"
+              @click="openTooltip('maxEntries', $event)"
+            >
+              <img src="/images/info.png" alt="" />
             </button>
-            <select v-model.number="maxEntries" :disabled="running">
-              <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-            </select>
+            <input v-model.number="maxEntries" type="number" min="1" step="1" :disabled="running" />
           </label>
         </div>
-        <label class="candidate-names">Candidate names (optional; one per line)
-          <button type="button" class="tooltip-activator" aria-label="Help: candidate names" @click="openTooltip('candidateNames', $event)">
-            <img src="/images/info.png" alt="">
+        <label class="candidate-names"
+          >Candidate names (optional; one per line)
+          <button
+            type="button"
+            class="tooltip-activator"
+            aria-label="Help: candidate names"
+            @click="openTooltip('candidateNames', $event)"
+          >
+            <img src="/images/info.png" alt="" />
           </button>
-          <textarea v-model="candidateNames" rows="5" maxlength="5000" placeholder="Republic of Aetosia"
-            :disabled="running" />
+          <textarea
+            v-model="candidateNames"
+            rows="5"
+            maxlength="5000"
+            placeholder="Republic of Aetosia"
+            :disabled="running"
+          />
         </label>
-        <button type="submit" class="login-button short start-research-button" :disabled="busy || running">
+        <button
+          type="submit"
+          class="login-button short start-research-button"
+          :disabled="busy || running"
+        >
           {{ busy ? 'Starting…' : running ? 'Research running…' : 'Start research' }}
         </button>
       </form>
 
-      <div class="terminal-heading"><strong>Workflow terminal</strong><span v-if="running"
-          class="terminal-running">RUNNING</span><span v-else-if="run?.status === 'completed'">{{ run.conclusion ||
-            'COMPLETED' }}</span>
+      <div class="terminal-heading">
+        <strong>Workflow terminal</strong
+        ><span v-if="running" class="terminal-running">RUNNING</span
+        ><span v-else-if="run?.status === 'completed'">{{ run.conclusion || 'COMPLETED' }}</span>
         <pre class="terminal-output" aria-live="polite">{{ output }}</pre>
         <p v-if="error" class="console-error" role="alert">{{ error }}</p>
       </div>
@@ -183,7 +253,7 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
 
 .workflow-layout {
   display: grid;
-  grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
   align-items: stretch;
   gap: 20px;
 }
@@ -191,7 +261,7 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
 .research-notes {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
   min-height: 54px;
@@ -319,7 +389,11 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
   border-radius: var(--radius-lg);
   color: #d8e0ec;
   background: #111822;
-  font: 12px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace;
+  font:
+    12px/1.55 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }

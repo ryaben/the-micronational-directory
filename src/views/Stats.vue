@@ -50,23 +50,19 @@ const { micronationsApprovedDirectory, organizationsApprovedDirectory, user } = 
                 :start-timestamp="(activeContest.startDate.seconds || activeContest.startDate._seconds)" :end-timestamp="(activeContest.endDate.seconds || activeContest.endDate._seconds)" />
             </div> -->
         <div class="tables-container">
-            <div class="ranking-container">
+            <div class="ranking-container ranking-panel">
                 <div class="stats-container contest-history">
                     <div class="scrollable-container statistics-table directory">
-                        <p class="table-header">Event</p>
-                        <p class="table-header">Start date</p>
-                        <p class="table-header">End date</p>
+                        <div class="table-header-row">
+                            <p class="table-header">Event</p>
+                            <p class="table-header">Start date</p>
+                            <p class="table-header">End date</p>
+                        </div>
 
                         <div v-for="(contest, i) in contestsList" :key="i"
-                            class="table-values-container clickable first" @click="selectedContest = contest">
+                            class="table-row clickable" @click="selectedContest = contest">
                             <p class="table-value">{{ contest.name }}</p>
-                        </div>
-                        <div v-for="(contest, i) in contestsList" :key="i"
-                            class="table-values-container clickable second" @click="selectedContest = contest">
                             <p class="table-value">{{ new Date((contest.startDate.seconds || contest.startDate._seconds) * 1000).toDateString() }}</p>
-                        </div>
-                        <div v-for="(contest, i) in contestsList" :key="i"
-                            class="table-values-container clickable third" @click="selectedContest = contest">
                             <p class="table-value">{{ new Date((contest.endDate.seconds || contest.endDate._seconds) * 1000).toDateString() }}</p>
                         </div>
                     </div>
@@ -191,13 +187,14 @@ export default {
 .ranking-container :deep(.container-title) { min-height:2.5em; margin:0 0 14px; font-size:19px; }
 .ranking-container :deep(.contributors-ranking) { max-height:390px; border-radius:var(--radius-lg); background:var(--color-surface); }
 .contest-history h2 { margin-top:0; font-size:19px; }
-.statistics-table.directory { display:grid; grid-template-columns:1.3fr 1fr 1fr; grid-template-rows:min-content; min-height:0; max-height:390px; }
-.table-header { position:sticky; top:0; z-index:1; margin:0; padding:10px 6px; background:var(--color-background-mute); color:var(--color-heading); font-size:13px; font-weight:700; text-align:center; }
-.table-values-container { display:flex; flex-direction:column; align-items:center; height:fit-content; }
-.table-values-container:nth-of-type(even),.table-header:nth-of-type(even) { border-right:1px solid var(--color-border); border-left:1px solid var(--color-border); }
-.table-values-container.clickable { cursor:pointer; }
-.table-values-container.clickable:hover { background:var(--navbar-tab-background-color-hover); }
+.statistics-table.directory { display:flex; flex-direction:column; min-height:0; max-height:390px; }
+.table-header-row { display:grid; grid-template-columns:1.3fr 1fr 1fr; position:sticky; top:0; z-index:1; }
+.table-header { margin:0; padding:10px 6px; background:var(--color-background-mute); color:var(--color-heading); font-size:13px; font-weight:700; text-align:center; }
+.table-header:nth-of-type(even) { border-right:1px solid var(--color-border); border-left:1px solid var(--color-border); }
+.table-row { display:grid; grid-template-columns:1.3fr 1fr 1fr; cursor:pointer; }
+.table-row:hover { background:var(--navbar-tab-background-color-hover); }
 .table-value { display:flex; align-items:center; justify-content:center; width:100%; min-height:44px; margin:0; padding:8px; border-bottom:1px solid var(--color-border); text-align:center; font-size:13px; }
+.table-value:nth-of-type(even) { border-right:1px solid var(--color-border); border-left:1px solid var(--color-border); }
 .contests-section > .tables-container > .ranking-container { flex:1; }
 @media (max-width:760px) { .stats-page { gap:22px; } .stats-overview { grid-template-columns:repeat(2,minmax(0,1fr)); } .overview-note { grid-column:1 / -1; min-height:auto; } .section-heading { align-items:start; flex-direction:column; gap:6px; } .section-heading > p { text-align:left; white-space:normal; } .contests-section > .tables-container { flex-direction:column; } }
 @media (max-width:500px) { .stats-overview { gap:9px; } .overview-card { min-height:110px; padding:14px; } .overview-value { font-size:27px; } .ranking-panel,.contest-history { padding:12px; } .ranking-container :deep(.container-title) { font-size:17px; } }

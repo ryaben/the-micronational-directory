@@ -22,7 +22,7 @@ const emit = defineEmits(['update:theme', 'update:language'])
   <footer class="site-section site-footer" aria-label="Site information and settings">
     <section class="footer-brand" aria-label="About this site">
       <img
-        :src="theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'"
+        :src="theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'"
         alt="TMD logo"
       />
       <p class="footer-name">The Micronational Directory</p>
