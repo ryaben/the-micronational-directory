@@ -13702,7 +13702,7 @@
   },
   {
     "capital": "Deux-Acren",
-    "flag": "/images/flags/Deux-Acren.jpg",
+    "flag": "/images/flags/Deux-Acren-1793046537674.png",
     "languages": [
       "English",
       "French"
@@ -13723,8 +13723,7 @@
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 1567362840,
-      "_nanoseconds": 0
+      "_seconds": 1567362840
     },
     "motto": "Ab origine fidelis",
     "currency": "",
@@ -13738,15 +13737,24 @@
     ],
     "name": {
       "main": "Deux-Acren",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Deux-Acren",
+          "title": "Principauté de"
+        }
+      ],
       "title": "Principality of",
-      "titleAlt": "Principauté de",
-      "mainAlt": "Deux-Acren"
+      "titleAlt": "Principauté de"
     },
     "approved": true,
     "memberships": [
       "OMF"
     ],
-    "id": "PMiiY51wNIr25RDVYCJI"
+    "id": "PMiiY51wNIr25RDVYCJI",
+    "uncertain": [],
+    "createdAt": "2026-10-26T20:28:59Z",
+    "isEdit": true
   },
   {
     "capital": "Puertudeva",
