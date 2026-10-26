@@ -129,7 +129,7 @@ export default {
             const seconds = timestamp?._seconds ?? timestamp?.seconds;
             const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp);
             if (Number.isNaN(date.getTime())) return 'Unknown';
-            return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
+            return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(date);
         },
     }
 }

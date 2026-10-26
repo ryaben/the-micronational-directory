@@ -127,7 +127,7 @@ export default {
             const seconds = date?._seconds ?? date?.seconds;
             const parsedDate = seconds != null ? new Date(seconds * 1000) : new Date(date);
             if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
-            return parsedDate.getFullYear();
+            return parsedDate.getUTCFullYear();
         },
         toggleInfo() {
             if (this.alwaysExpanded) return;

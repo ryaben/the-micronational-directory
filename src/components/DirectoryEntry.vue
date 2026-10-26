@@ -179,7 +179,7 @@ export default {
                 ? new Date(seconds * 1000)
                 : new Date(date);
             if (Number.isNaN(parsedDate.getTime())) return 'Unknown';
-            return parsedDate.getFullYear();
+            return parsedDate.getUTCFullYear();
         },
         findOrg(name) {
             const orgQuery = this.visibleOrganizations.find(org => org.name.main === name || org.name.mainAlt === name);
