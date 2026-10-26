@@ -140,9 +140,7 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
             <button type="button" class="tooltip-activator" aria-label="Help: maximum candidates" @click="openTooltip('maxEntries', $event)">
               <img src="/images/info.png" alt="">
             </button>
-            <select v-model.number="maxEntries" :disabled="running">
-              <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-            </select>
+            <input v-model.number="maxEntries" type="number" min="1" step="1" :disabled="running">
           </label>
         </div>
         <label class="candidate-names">Candidate names (optional; one per line)

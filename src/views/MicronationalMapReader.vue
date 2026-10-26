@@ -13,6 +13,10 @@ const KMLlink = ref('');
 
 const directory = computed(() => Array.isArray(micronationsDirectory.value) ? micronationsDirectory.value : []);
 const hasApplicableLocation = (placemark) => placemark?.location?.applicable === true;
+const pageSize = 12;
+const noLocationPage = ref(1);
+const hasLocationPage = ref(1);
+const missingEntryPage = ref(1);
 
 const micronationsCompareSources = computed(() => {
   const present = [];
@@ -46,6 +50,36 @@ const placemarkSources = computed(() => {
   });
   return [...sources].map(([name, url]) => ({ name, url }));
 });
+
+const entriesWithoutLocation = computed(() => micronationsCompareSources.value.present.filter(
+  (micro) => hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude === 0
+));
+const entriesWithLocation = computed(() => micronationsCompareSources.value.present.filter(
+  (micro) => hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude !== 0
+));
+const entriesMissingFromDirectory = computed(() => micronationsCompareSources.value.missing.filter(
+  (micro) => hasApplicableLocation(micro.micronationalMap)
+));
+
+function pageItems(items, page) {
+  return items.slice((page - 1) * pageSize, page * pageSize);
+}
+
+function pageCount(items) {
+  return Math.max(1, Math.ceil(items.length / pageSize));
+}
+
+function changePage(pageName, items, direction) {
+  const pageRef = { noLocationPage, hasLocationPage, missingEntryPage }[pageName];
+  pageRef.value = Math.min(pageCount(items), Math.max(1, pageRef.value + direction));
+}
+
+function setPage(pageName, items, value) {
+  const pageRef = { noLocationPage, hasLocationPage, missingEntryPage }[pageName];
+  const requestedPage = Number(value);
+  if (!Number.isFinite(requestedPage)) return;
+  pageRef.value = Math.min(pageCount(items), Math.max(1, Math.trunc(requestedPage)));
+}
 
 function normalizeString(string = '') {
   return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -128,46 +162,60 @@ async function processKML() {
         <template #main>
         <div class="map-results">
         <section class="map-result-group">
-        <p class="list-description">
-          The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude === 0).length }}</span> micronations from
-          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that <b
-            style="color: red;">DOES
-            NOT</b> have location info:
-        </p>
-        <div class="micronations-list">
-          <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => hasApplicableLocation(mic.micronationalMap) && mic.location?.latitude === 0)"
-            :key="i" :present="true" :placemark-info="item" />
+        <div class="list-heading">
+          <div><h3>Directory entries missing location</h3><p>{{ entriesWithoutLocation.length }} placemarks match entries without location data.</p></div>
+          <div class="pagination" v-if="entriesWithoutLocation.length > pageSize" aria-label="Pagination for entries missing location">
+            <button type="button" class="page-arrow" :disabled="noLocationPage <= 1" aria-label="Previous page" @click="changePage('noLocationPage', entriesWithoutLocation, -1)">←</button>
+            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesWithoutLocation)" :value="noLocationPage" @change="setPage('noLocationPage', entriesWithoutLocation, $event.target.value)"></label>
+            <span>of {{ pageCount(entriesWithoutLocation) }}</span>
+            <button type="button" class="page-arrow" :disabled="noLocationPage >= pageCount(entriesWithoutLocation)" aria-label="Next page" @click="changePage('noLocationPage', entriesWithoutLocation, 1)">→</button>
+          </div>
         </div>
+        <Transition name="page-transition" mode="out-in">
+          <div :key="noLocationPage" class="micronations-list">
+          <PlacemarkEntry
+            v-for="(item, i) in pageItems(entriesWithoutLocation, noLocationPage)"
+            :key="i" :present="true" :placemark-info="item" />
+          </div>
+        </Transition>
         </section>
 
         <section class="map-result-group">
-        <p class="list-description">
-          The following <span class="underlined">{{ micronationsCompareSources.present.filter(micro =>
-      hasApplicableLocation(micro.micronationalMap) && micro.location?.latitude !== 0).length }}</span> micronations from
-          the map seem to be <b style="color: var(--success-tone);">present</b> with an entry on TMD that already has
-          preexisting
-          location info:
-        </p>
-        <div class="micronations-list">
-          <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.present.filter(mic => hasApplicableLocation(mic.micronationalMap) && mic.location?.latitude !== 0)"
-            :key="i" :present="true" :placemark-info="item" />
+        <div class="list-heading">
+          <div><h3>Directory entries with location</h3><p>{{ entriesWithLocation.length }} placemarks match entries that already have location data.</p></div>
+          <div class="pagination" v-if="entriesWithLocation.length > pageSize" aria-label="Pagination for entries with location">
+            <button type="button" class="page-arrow" :disabled="hasLocationPage <= 1" aria-label="Previous page" @click="changePage('hasLocationPage', entriesWithLocation, -1)">←</button>
+            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesWithLocation)" :value="hasLocationPage" @change="setPage('hasLocationPage', entriesWithLocation, $event.target.value)"></label>
+            <span>of {{ pageCount(entriesWithLocation) }}</span>
+            <button type="button" class="page-arrow" :disabled="hasLocationPage >= pageCount(entriesWithLocation)" aria-label="Next page" @click="changePage('hasLocationPage', entriesWithLocation, 1)">→</button>
+          </div>
         </div>
+        <Transition name="page-transition" mode="out-in">
+          <div :key="hasLocationPage" class="micronations-list">
+          <PlacemarkEntry
+            v-for="(item, i) in pageItems(entriesWithLocation, hasLocationPage)"
+            :key="i" :present="true" :placemark-info="item" />
+          </div>
+        </Transition>
         </section>
 
         <section class="map-result-group">
-        <p class="list-description">
-          The following <span class="underlined">{{ micronationsCompareSources.missing.filter(micro =>
-      hasApplicableLocation(micro.micronationalMap)).length }}</span> micronations from the map most likely don't yet
-          have an entry on TMD:
-        </p>
-        <div class="micronations-list">
+        <div class="list-heading">
+          <div><h3>Placemark without a directory entry</h3><p>{{ entriesMissingFromDirectory.length }} placemarks have no matching TMD entry.</p></div>
+          <div class="pagination" v-if="entriesMissingFromDirectory.length > pageSize" aria-label="Pagination for unmatched placemarks">
+            <button type="button" class="page-arrow" :disabled="missingEntryPage <= 1" aria-label="Previous page" @click="changePage('missingEntryPage', entriesMissingFromDirectory, -1)">←</button>
+            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesMissingFromDirectory)" :value="missingEntryPage" @change="setPage('missingEntryPage', entriesMissingFromDirectory, $event.target.value)"></label>
+            <span>of {{ pageCount(entriesMissingFromDirectory) }}</span>
+            <button type="button" class="page-arrow" :disabled="missingEntryPage >= pageCount(entriesMissingFromDirectory)" aria-label="Next page" @click="changePage('missingEntryPage', entriesMissingFromDirectory, 1)">→</button>
+          </div>
+        </div>
+        <Transition name="page-transition" mode="out-in">
+          <div :key="missingEntryPage" class="micronations-list">
           <PlacemarkEntry
-            v-for="(item, i) in micronationsCompareSources.missing.filter(micro => hasApplicableLocation(micro.micronationalMap))"
+            v-for="(item, i) in pageItems(entriesMissingFromDirectory, missingEntryPage)"
             :key="i" :present="false" :placemark-info="item" />
-        </div>
+          </div>
+        </Transition>
         </section>
       </div>
         </template>
@@ -216,8 +264,129 @@ async function processKML() {
   border-bottom: 1px solid var(--color-border);
 }
 
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+}
+
+.list-heading h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.list-heading p {
+  margin: 0;
+  color: var(--color-muted, #aab4c2);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+.pagination button {
+  padding: 5px 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.pagination button:not(:disabled):hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+}
+
+.pagination button:not(:disabled):active {
+  transform: translateY(0) scale(0.94);
+  box-shadow: none;
+}
+
+.pagination button:focus-visible,
+.pagination input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.pagination .page-arrow {
+  min-width: 34px;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.pagination input {
+  width: 52px;
+  padding: 5px 4px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: inherit;
+  background: transparent;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: opacity 150ms ease;
+}
+
+.page-transition-enter-from,
+.page-transition-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagination button,
+  .page-transition-enter-active,
+  .page-transition-leave-active {
+    transition-duration: 0.01ms;
+  }
+}
+
+.pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
 .micronations-list {
   min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .list-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination {
+    justify-content: flex-start;
+  }
 }
 
 #KMLfile {
