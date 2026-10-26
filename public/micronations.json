@@ -55858,5 +55858,54 @@
     "createdAt": "2026-10-26T19:57:22Z",
     "isEdit": false,
     "id": "b1tjHmRxt9FujM3DP5r4"
+  },
+  {
+    "name": {
+      "main": "Armorique",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Empire Iroisien d'",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "diplomatie.iroise@gmail.com"
+    ],
+    "websites": [
+      "http://empire-iroise.wifeo.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Armorique.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Nevez Ys",
+    "currency": "Ir Impérial",
+    "memberships": [
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1415120460
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793045255
+    },
+    "createdAt": "2026-10-26T20:07:35Z",
+    "isEdit": false,
+    "id": "RhSpvIvLo50ZQIr6Jmqk"
   }
 ]
