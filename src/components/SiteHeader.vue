@@ -12,7 +12,7 @@ defineProps({
     <a href="/" class="logo-link" aria-label="The Micronational Directory home">
       <img
         id="logo"
-        :src="theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'"
+        :src="theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'"
         alt=""
       />
       <hr class="brand-divider" :class="{ 'brand-divider--light': theme === 'light' }" />

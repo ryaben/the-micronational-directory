@@ -40,7 +40,7 @@ onMounted(async () => {
   <section class="site-section">
     <div class="home-hero">
       <div class="hero-mark">
-        <img :src="props.theme === 'light' ? '/images/plain-logo1-black.png' : '/images/plain-logo1.png'" alt="" width="48"
+        <img :src="props.theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'" alt="" width="48"
           height="47">
         <span>THE MICRONATIONAL DIRECTORY</span>
       </div>

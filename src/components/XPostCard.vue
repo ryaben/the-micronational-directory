@@ -11,7 +11,7 @@ const formatDate = value => value
 <template>
   <article class="x-post-card">
     <header class="x-post-header">
-      <img class="x-post-avatar" src="/images/black-logo1-mini.png" alt="">
+      <img class="x-post-avatar" src="/images/brand/black-logo1-mini.png" alt="">
       <div class="x-post-author">
         <strong>The Micronational Directory</strong>
         <span>@the_micro_direc<span v-if="formatDate(post.createdAt)"> · {{ formatDate(post.createdAt) }}</span></span>

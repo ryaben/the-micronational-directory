@@ -46,7 +46,7 @@
         <h3 class="large-margin">Special thanks to</h3>
         <div class="scrollable-container about-list">
           <div class="listing-entry">
-            <img src="/images/microflag.png" alt="MicroFlag" />
+            <img src="/images/about-us/special-thanks/microflag.png" alt="MicroFlag" />
             <p>
               <a href="https://microflag.net/" target="_blank">MicroFlag</a>,
               for cooperating and setting up a partnership with us in order to offer prizes for our users during events
@@ -54,7 +54,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/lflugo.jpg" alt="lflugo" />
+            <img src="/images/about-us/special-thanks/lflugo.jpg" alt="lflugo" />
             <p>
               <span class="underlined">Luis Felipe Lugo</span> (<b>lflugo</b>),
               for contributing 50+ entries in our Directory, focusing mainly in Spanish-speaking and OMU micronations.
@@ -68,7 +68,7 @@
         <h3 class="large-margin">Similar projects we recommend</h3>
         <div class="scrollable-container about-list">
           <div class="listing-entry">
-            <img src="/images/microwiki-full.png" alt="MicroWiki" />
+            <img src="/images/about-us/similar-projects/microwiki-full.png" alt="MicroWiki" />
             <p>
               <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a>,
               the largest online encyclopædia about micronations, small and often rather eccentric
@@ -77,7 +77,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/microflagarchive.png" alt="Micro Flag Archive" />
+            <img src="/images/about-us/similar-projects/microflagarchive.png" alt="Micro Flag Archive" />
             <p>
               <a href="https://sites.google.com/view/micro-flag-archive" target="_blank">Micro Flag Archive</a>,
               an Obscurian initiative that provides an online archive for all micronational state symbols. It's
@@ -85,7 +85,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/TAM.png" alt="Tutmonda Alianco de Mikronacioj" />
+            <img src="/images/about-us/similar-projects/TAM.png" alt="Tutmonda Alianco de Mikronacioj" />
             <p>
               <a href="http://mikronacioj.org/" target="_blank">Tutmonda Alianco de Mikronacioj</a>,
               an institution that aims to recognize serious micronational projects based on a qualification system
@@ -93,7 +93,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img class="museum-logo" src="/images/micronational-banknote-museum.png" alt="Micronational Banknote Museum logo" />
+            <img class="museum-logo" src="/images/about-us/similar-projects/micronational-banknote-museum.png" alt="Micronational Banknote Museum logo" />
             <p>
               <a href="https://mnbanknotes.neocities.org/" target="_blank" rel="noopener noreferrer">Micronational Banknote Museum</a>,
               an online museum and archive dedicated to micronational banknotes and the stories behind them.
@@ -108,7 +108,7 @@
         <h3 class="large-margin">TMD is featured in</h3>
         <div class="scrollable-container about-list">
           <div class="listing-entry">
-            <img src="/images/micronaciones.png" alt="Micronaciones.com" />
+            <img src="/images/about-us/featured-in/micronaciones.png" alt="Micronaciones.com" />
             <p>
               <a href="https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/"
                 target="_blank">News article</a>
@@ -118,7 +118,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/daily-star.png" alt="The Daily Star" />
+            <img src="/images/about-us/featured-in/daily-star.png" alt="The Daily Star" />
             <p>
               <a href="https://coiningoverment.blogspot.com/2023/08/your-go-to-micronational-news-source_25.html"
                 target="_blank">News article</a>
@@ -128,7 +128,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/moriel-prensa.png" alt="Moriel Prensa" />
+            <img src="/images/about-us/featured-in/moriel-prensa.png" alt="Moriel Prensa" />
             <p>
               <a href="http://morielpress.blogspot.com/2023/08/avanza-el-desarrollo-del-proyecto.html"
                 target="_blank">News article</a>
@@ -138,7 +138,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/la-gaceta-eldorado.png" alt="La Gaceta El Dorado" />
+            <img src="/images/about-us/featured-in/la-gaceta-eldorado.png" alt="La Gaceta El Dorado" />
             <p>
               <a href="https://lagaceta-eldorado.blogspot.com/2023/09/el-dorado-comienza-participacion-activa.html"
                 target="_blank">News article</a>
@@ -147,7 +147,7 @@
             </p>
           </div>
           <div class="listing-entry">
-            <img src="/images/batyrtimes.png" alt="Batyr Times" />
+            <img src="/images/about-us/featured-in/batyrtimes.png" alt="Batyr Times" />
             <p>
               <a href="https://www.hasanistan.world/2023/11/batyr-times-interviews-micronational.html"
                 target="_blank">Interview article</a>
@@ -158,7 +158,7 @@
           </div>
           <hr class="divider">
           <div class="listing-entry">
-            <img src="/images/dove-archives.png" alt="Dove Archives" />
+            <img src="/images/about-us/featured-in/dove-archives.png" alt="Dove Archives" />
             <p>
               <a href="https://www.dovearchives.wiki/wiki/The_Micronational_Directory" target="_blank">Encyclopedic
                 article</a>
