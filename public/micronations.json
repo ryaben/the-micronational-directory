@@ -55907,5 +55907,54 @@
     "createdAt": "2026-10-26T20:07:35Z",
     "isEdit": false,
     "id": "RhSpvIvLo50ZQIr6Jmqk"
+  },
+  {
+    "name": {
+      "main": "Austrasie",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principauté",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/principauteaustrasie/",
+      "principauteaustrasie@gmail.com",
+      "gouvernementaustrasie@gmail.com"
+    ],
+    "websites": [
+      "https://principauteaustrasie.blogspot.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Austrasie.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Brabant Wallon",
+    "currency": "",
+    "memberships": [
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1434412800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793046320
+    },
+    "createdAt": "2026-10-26T20:25:20Z",
+    "isEdit": false,
+    "id": "Jh7LWs4XDIgSpjjzbJur"
   }
 ]
