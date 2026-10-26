@@ -55964,5 +55964,62 @@
     "createdAt": "2026-10-26T20:25:20Z",
     "isEdit": false,
     "id": "Jh7LWs4XDIgSpjjzbJur"
+  },
+  {
+    "name": {
+      "main": "Frya Nordland Territories",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "FNT",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "German",
+      "French"
+    ],
+    "contactInfo": [
+      "fnt@fnt.bernhard-krauth.de",
+      "https://www.facebook.com/people/Frya-Nordland-Territories/100064763284499/"
+    ],
+    "websites": [
+      "http://www.fnt.bernhard-krauth.de/",
+      "https://jules-verne-club.de/BKK/FNT/index.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Frya Nordland Territories.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Calculated Nord",
+    "memberships": [
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "seconds": 1589155200,
+      "_seconds": 1589155200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793050786
+    },
+    "createdAt": "2026-10-26T21:39:46Z",
+    "isEdit": false,
+    "id": "74Wy8tlZSed36HtZ94sJ"
   }
 ]
