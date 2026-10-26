@@ -55803,5 +55803,60 @@
     "createdAt": "2026-10-26T19:16:36Z",
     "isEdit": false,
     "id": "Gpi24z6vPLpzWz7HLVk1"
+  },
+  {
+    "name": {
+      "main": "Espoir",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Hope Kingdom",
+          "title": ""
+        }
+      ],
+      "title": "Royaume de l'",
+      "titleAlt": ""
+    },
+    "motto": "Ensemble nous ne faisons qu'un !",
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "royaumeesporien@hotmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Hope_Kingdom",
+      "https://adrienvnier.wixsite.com/royaumedelespoir",
+      "https://assoauroyaume24.webador.fr/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Espoir.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Esporia",
+    "currency": "Espoir",
+    "memberships": [
+      "L'Ecologie des Sept",
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1588636800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793044642
+    },
+    "createdAt": "2026-10-26T19:57:22Z",
+    "isEdit": false,
+    "id": "b1tjHmRxt9FujM3DP5r4"
   }
 ]
