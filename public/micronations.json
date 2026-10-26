@@ -55748,5 +55748,60 @@
     "createdAt": "2026-10-26T19:00:01Z",
     "isEdit": false,
     "id": "evc6A6wu6bN7mjqSgmbl"
+  },
+  {
+    "name": {
+      "main": "Anthophilia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Anthophilia",
+          "title": "Principauté d'"
+        }
+      ],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "La Terre de défenseurs de la Nature",
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "https://fr.pinterest.com/danthophilia/",
+      "principaute.anthophilia@gmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20221204025844/https://principaute-anthophilia.jimdosite.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto"
+    ],
+    "flag": "/images/flags/Anthophilia.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Mel",
+    "memberships": [
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1596557460
+    },
+    "location": {
+      "latitude": 48.133102,
+      "longitude": 3.311209
+    },
+    "creationDate": {
+      "_seconds": 1793042196
+    },
+    "createdAt": "2026-10-26T19:16:36Z",
+    "isEdit": false,
+    "id": "Gpi24z6vPLpzWz7HLVk1"
   }
 ]
