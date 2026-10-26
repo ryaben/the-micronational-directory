@@ -51283,14 +51283,19 @@
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 1584234420,
-      "_nanoseconds": 0
+      "_seconds": 1584234420
     },
     "name": {
-      "mainAlt": "Wellmoore",
-      "titleAlt": "Reino de",
       "main": "Wellmoore",
-      "title": "Kingdom of"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Wellmoore",
+          "title": "Reino de"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": "Reino de"
     },
     "motto": "Orgulho, Honra, Justiça (Pride, Honour, Justice)",
     "currency": "Uvode",
@@ -51300,7 +51305,7 @@
     },
     "websites": [
       "https://micronations.wiki/wiki/Kingdom_of_Wellmoore",
-      "https://thekingdomofwellmoore.blogspot.com/"
+      "https://web.archive.org/web/20231217195058/https://thekingdomofwellmoore.blogspot.com/"
     ],
     "approved": true,
     "memberships": [
@@ -51310,7 +51315,10 @@
       "IAC",
       "New Organization of Free Nations"
     ],
-    "id": "qlN4Tlajag63B72bXbHV"
+    "id": "qlN4Tlajag63B72bXbHV",
+    "uncertain": [],
+    "createdAt": "2026-10-26T17:02:07Z",
+    "isEdit": true
   },
   {
     "capital": "",
