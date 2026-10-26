@@ -55580,9 +55580,9 @@
     "capital": "Merdeka Capital District",
     "currency": "Khoo, New Taiwan Dollar",
     "memberships": [
-      "Taiwanese Micronations Alliance",
       "Union of Micronations",
-      "Zarklovina Mutual Defence Organisation"
+      "Zarklovina Mutual Defence Organisation",
+      "Taiwanese Micronational Alliance (福爾摩沙微國家共同體)"
     ],
     "foundationDate": {
       "_seconds": 1530403200
@@ -55594,8 +55594,8 @@
     "creationDate": {
       "_seconds": 1793035969
     },
-    "createdAt": "2026-10-26T17:32:49Z",
-    "isEdit": false,
+    "createdAt": "2026-10-26T17:37:53Z",
+    "isEdit": true,
     "id": "THcflTcFtlbj1eGVhZSW"
   }
 ]
