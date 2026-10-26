@@ -55532,5 +55532,70 @@
     "createdAt": "2026-10-25T19:09:42Z",
     "isEdit": false,
     "id": "MwkeKPM0e91jSaBN73Cb"
+  },
+  {
+    "name": {
+      "main": "Terwas",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "特維斯共和國",
+          "title": ""
+        },
+        {
+          "main": "Republik Terwassia",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Taiwanese Mandarin",
+      "Indonesian"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/p/%E7%89%B9%E7%B6%AD%E6%96%AF%E5%85%B1%E5%92%8C%E5%9C%8B-Republic-of-Terwas-100066452566341/",
+      "https://x.com/terwasraya",
+      "https://www.instagram.com/terwas_0807/"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Republic_of_Terwas",
+      "https://sites.google.com/view/terwas87/",
+      "https://ministate.miraheze.org/wiki/%E7%89%B9%E7%B6%AD%E6%96%AF%E5%85%B1%E5%92%8C%E5%9C%8B"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Terwas.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Merdeka Capital District",
+    "currency": "Khoo, New Taiwan Dollar",
+    "memberships": [
+      "Taiwanese Micronations Alliance",
+      "Union of Micronations",
+      "Zarklovina Mutual Defence Organisation"
+    ],
+    "foundationDate": {
+      "_seconds": 1530403200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793035969
+    },
+    "createdAt": "2026-10-26T17:32:49Z",
+    "isEdit": false,
+    "id": "THcflTcFtlbj1eGVhZSW"
   }
 ]
