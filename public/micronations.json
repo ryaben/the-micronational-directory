@@ -55597,5 +55597,48 @@
     "createdAt": "2026-10-26T17:37:53Z",
     "isEdit": true,
     "id": "THcflTcFtlbj1eGVhZSW"
+  },
+  {
+    "name": {
+      "main": "Yangina",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Union of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Yanginese"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://gov-yg.weebly.com/index.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "type",
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Yangina.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "Qierwen",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1309478400
+    },
+    "creationDate": {
+      "_seconds": 1793036976
+    },
+    "createdAt": "2026-10-26T17:49:36Z",
+    "isEdit": false,
+    "id": "aMw1iJbOAoyY6wbKNwor"
   }
 ]
