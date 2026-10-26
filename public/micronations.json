@@ -56128,5 +56128,58 @@
     "createdAt": "2026-10-26T23:22:14Z",
     "isEdit": false,
     "id": "4p1DXSKfA9EIyMzeD5ZU"
+  },
+  {
+    "name": {
+      "main": "Buddendorf",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Buddendorf",
+          "title": "Królestwo"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Niech żyje Król! Niech żyje Wolność! (Long live the King! Long live Freedom!)",
+    "languages": [
+      "Polish",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/kbuddendorf/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20251007085557/https://www.buddendorf.org/",
+      "https://micronations.wiki/wiki/Kingdom_of_Buddendorf",
+      "https://krolestwobuddendorfbu.blogspot.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Buddendorf.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Flamania",
+    "currency": "Buddendorfian Corona",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1721606400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793057374
+    },
+    "createdAt": "2026-10-26T23:29:34Z",
+    "isEdit": false,
+    "id": "lOpYgDJjab75sAuZjerw"
   }
 ]
