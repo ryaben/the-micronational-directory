@@ -56075,5 +56075,58 @@
     "createdAt": "2026-10-26T21:52:30Z",
     "isEdit": false,
     "id": "BoYdFyiobLyDGswia9A4"
+  },
+  {
+    "name": {
+      "main": "Flaschenhals",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Bottleneck",
+          "title": "Free State of"
+        }
+      ],
+      "title": "Freistaat",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "German"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/profile.php?id=100076425623692",
+      "kurier@freistaat-flaschenhals.de"
+    ],
+    "websites": [
+      "https://www.freistaatflaschenhals.de/",
+      "https://en.wikipedia.org/wiki/Free_State_of_Bottleneck",
+      "https://de.wikipedia.org/wiki/Freistaat_Flaschenhals"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Flaschenhals.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Lorch am Rhein",
+    "currency": "Freistaattaler, German mark, French franc",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": -1608608520
+    },
+    "location": {
+      "latitude": 50.043889,
+      "longitude": 7.803889
+    },
+    "creationDate": {
+      "_seconds": 1793056934
+    },
+    "createdAt": "2026-10-26T23:22:14Z",
+    "isEdit": false,
+    "id": "4p1DXSKfA9EIyMzeD5ZU"
   }
 ]
