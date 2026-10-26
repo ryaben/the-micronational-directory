@@ -56181,5 +56181,56 @@
     "createdAt": "2026-10-26T23:29:34Z",
     "isEdit": false,
     "id": "lOpYgDJjab75sAuZjerw"
+  },
+  {
+    "name": {
+      "main": "Canited",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Canited",
+          "title": "Democratic Federation Republic of"
+        }
+      ],
+      "title": "Demokratische Föderationsrepublik",
+      "titleAlt": ""
+    },
+    "motto": "Live the Life you want!",
+    "languages": [
+      "German",
+      "English"
+    ],
+    "contactInfo": [
+      "dfrcanited@gmail.com"
+    ],
+    "websites": [
+      "https://x.com/Canited_DFR"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto",
+      "flag",
+      "type"
+    ],
+    "flag": "/images/flags/Canited.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "Canru",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1636144560
+    },
+    "creationDate": {
+      "_seconds": 1793058071
+    },
+    "createdAt": "2026-10-26T23:41:11Z",
+    "isEdit": false,
+    "id": "Quj283uFLRV47xF1MoSU"
   }
 ]
