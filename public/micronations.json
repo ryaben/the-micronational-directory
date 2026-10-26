@@ -56213,7 +56213,6 @@
     "approved": true,
     "uncertain": [
       "motto",
-      "flag",
       "type"
     ],
     "flag": "/images/flags/Canited.jpg",
@@ -56229,8 +56228,8 @@
     "creationDate": {
       "_seconds": 1793058071
     },
-    "createdAt": "2026-10-26T23:41:11Z",
-    "isEdit": false,
+    "createdAt": "2026-10-26T23:45:39Z",
+    "isEdit": true,
     "id": "Quj283uFLRV47xF1MoSU"
   }
 ]
