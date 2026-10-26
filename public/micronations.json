@@ -55640,5 +55640,61 @@
     "createdAt": "2026-10-26T17:49:36Z",
     "isEdit": false,
     "id": "aMw1iJbOAoyY6wbKNwor"
+  },
+  {
+    "name": {
+      "main": "Zakistan",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Zakistan",
+          "title": "Principauté du"
+        }
+      ],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "PAX. UNITAS. PROGRESSUS",
+    "languages": [
+      "English",
+      "French",
+      "Arabic"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/zakistangov/",
+      "https://www.youtube.com/@Zakistan_official",
+      "https://www.reddit.com/r/Zakistan",
+      "diplomacy@principalityofzakistan.com"
+    ],
+    "websites": [
+      "https://zakistan.wixsite.com/zakistan",
+      "https://zakistan.wixstudio.com/zakistanevisa",
+      "https://web.archive.org/web/20260614034333/https://zakistangov.org/",
+      "https://web.archive.org/web/20260314173959/https://www.principalityofzakistan.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "type"
+    ],
+    "flag": "/images/flags/Zakistan.png",
+    "type": [
+      "Digital"
+    ],
+    "capital": "Oakpolis",
+    "currency": "Zephyr Sterling",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1699456740
+    },
+    "creationDate": {
+      "_seconds": 1793039132
+    },
+    "createdAt": "2026-10-26T18:25:32Z",
+    "isEdit": false,
+    "id": "V5icSjxbWpDceJsQvMbg"
   }
 ]
