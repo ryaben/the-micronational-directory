@@ -55696,5 +55696,57 @@
     "createdAt": "2026-10-26T18:25:32Z",
     "isEdit": false,
     "id": "V5icSjxbWpDceJsQvMbg"
+  },
+  {
+    "name": {
+      "main": "Aelite",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Aelite",
+          "title": "Království"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Czech"
+    ],
+    "contactInfo": [
+      "info@aelite.cz",
+      "+420 606 688 665",
+      "https://www.facebook.com/darekstoleti/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20170630142656/http://aelite.cz/index.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Aelite.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Lunar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1183823520
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793041201
+    },
+    "createdAt": "2026-10-26T19:00:01Z",
+    "isEdit": false,
+    "id": "evc6A6wu6bN7mjqSgmbl"
   }
 ]
