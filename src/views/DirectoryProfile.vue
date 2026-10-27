@@ -33,6 +33,7 @@ const { micronationsDirectory, supranationalMicronations, visibleOrganizations }
             approved: true,
             author: requestedMicronation.info.author.name,
             creationDate: requestedMicronation.info.creationDate,
+            editHistory: requestedMicronation.info.editHistory,
             previous: previousMicronation,
             next: nextMicronation
         }" />
