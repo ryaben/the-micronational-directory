@@ -2,10 +2,15 @@
 import store from '../store';
 
 defineProps({
+    titleKey: {
+        type: String,
+        required: false,
+        default: "ranking.entries"
+    },
     title: {
         type: String,
         required: false,
-        default: "Entries ranking"
+        default: ""
     },
     directory: {
         type: String,
@@ -47,7 +52,7 @@ defineProps({
 
 <template>
     <div class="stats-container">
-        <h2 class="container-title">{{ title }}</h2>
+        <h2 class="container-title">{{ title || $t(titleKey) }}</h2>
         <div v-if="tmdEntry" class="contributor-entry special">
             <p class="contributor-name">The Micronational Directory Team</p>
             <p class="contributor-contributions">{{ TMDContributions }}&nbsp;({{ TMDContributionsPercentage }}%)</p>
@@ -55,10 +60,9 @@ defineProps({
         <div class="scrollable-container contributors-ranking">
             <div v-for="(contributor, i) in contributorsList.filter(contrib => contrib.contributions > 0)" :key="i" class="contributor-entry"
                 :class="{ 'current-user': contributor.email === currentUserEmail, 'hidden': contributor.email === 'themicronationaldirectory@gmail.com' }">
-                <p class="contributor-rank" :aria-label="`Rank ${i + 1}`">{{ i + 1 }}</p>
+                <p class="contributor-rank" :aria-label="$t('ranking.rank', { rank: i + 1 })">{{ i + 1 }}</p>
                 <p class="contributor-name">{{ contributor.name }}<span
-                        v-if="contributor.email === currentUserEmail">&nbsp;(it's
-                        you!)</span></p>
+                        v-if="contributor.email === currentUserEmail">&nbsp;{{ $t('ranking.you') }}</span></p>
                 <p class="contributor-contributions">{{ contributor.contributions }}</p>
             </div>
         </div>

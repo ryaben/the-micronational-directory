@@ -11,7 +11,7 @@ const { micronationsDirectory, supranationalMicronations, visibleOrganizations }
     <div class="animation-error-avoider">
         <div v-show="micronationsDirectory.length === 0" class="loading-image-container">
             <img class="loading-image" src="/images/loading.gif" alt="Loading">
-            <label>Loading Directory...</label>
+            <label>{{ $t('common.loadingDirectory') }}</label>
         </div>
 
         <DirectoryArticle v-if="requestedMicronation.info !== undefined" id="entryPreview" class="info-displayed"

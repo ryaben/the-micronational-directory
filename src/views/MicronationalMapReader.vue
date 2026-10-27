@@ -6,6 +6,7 @@ import { notify } from "@kyvg/vue3-notification";
 import $ from 'jquery';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 import { computed, ref } from 'vue';
+import { translate } from '../i18n.js';
 
 const { micronationsDirectory, userIsModerator } = useDirectoryData();
 const KMLfile = ref('');
@@ -122,8 +123,8 @@ async function processKML() {
   saveAs(jsonFile, `${fileName}.json`);
 
   notify({
-    title: "Processing complete",
-    text: `Processed ${placemarksArray.length} placemarks and downloaded ${fileName}.json. Add the elements to src/assets/sources/googleMyMapsSources.js.`,
+    title: translate('mapReader.processingCompleteTitle'),
+    text: translate('mapReader.processingCompleteText', { count: placemarksArray.length, fileName }),
     type: "success"
   });
 }
@@ -132,30 +133,30 @@ async function processKML() {
 <template>
   <section class="site-section site-section--flush site-section--flat-top">
     <div id="notEnoughPrivileges" v-if="!userIsModerator" v-show="micronationsDirectory.length !== 0">
-      You don't have sufficient privileges in order to work with stored placemarks.
+      {{ $t('mapReader.noPrivileges') }}
     </div>
 
     <div v-if="userIsModerator" id="responseText">
       <ModerationToolWorkspace>
         <template #description>
-          <p class="workspace-description">Process KML files from Google My Maps into micronation placemarks. Compare their coordinates and descriptions with directory entries, then identify entries that need location information.</p>
+          <p class="workspace-description">{{ $t('mapReader.description') }}</p>
         </template>
         <template #summary>
           <strong class="summary-count">{{ placemarksDirectory.filter(hasApplicableLocation).length }}</strong>
-          <span>placemarks have an applicable location</span>
+          <span>{{ $t('mapReader.applicableLocationCount') }}</span>
         </template>
 
         <template #support>
           <div id="addedSources">
-            <h3>Source maps</h3>
+            <h3>{{ $t('mapReader.sourceMaps') }}</h3>
             <p v-for="(source, i) in placemarkSources" :key="i"><a :href="source.url">{{ source.name }}</a></p>
           </div>
           <form class="panel-section" @submit.prevent>
-            <h3>Import a map</h3>
-          <input v-model="KMLlink" id="KMLlink" type="url" placeholder="Paste the map's URL here">
+            <h3>{{ $t('mapReader.importMap') }}</h3>
+          <input v-model="KMLlink" id="KMLlink" type="url" :placeholder="$t('mapReader.mapUrlPlaceholder')">
           <textarea v-model="KMLfile" id="KMLfile" name="KMLfile" cols="30" rows="10"
-            placeholder="Paste the entire content of the KML file here."></textarea>
-          <button class="login-button color-transition short" @click="processKML">Process KML file</button>
+            :placeholder="$t('mapReader.kmlPlaceholder')"></textarea>
+          <button class="login-button color-transition short" @click="processKML">{{ $t('mapReader.processKml') }}</button>
         </form>
         </template>
 
@@ -163,12 +164,12 @@ async function processKML() {
         <div class="map-results">
         <section class="map-result-group">
         <div class="list-heading">
-          <div><h3>Directory entries missing location</h3><p>{{ entriesWithoutLocation.length }} placemarks match entries without location data.</p></div>
-          <div class="pagination" v-if="entriesWithoutLocation.length > pageSize" aria-label="Pagination for entries missing location">
-            <button type="button" class="page-arrow" :disabled="noLocationPage <= 1" aria-label="Previous page" @click="changePage('noLocationPage', entriesWithoutLocation, -1)">←</button>
-            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesWithoutLocation)" :value="noLocationPage" @change="setPage('noLocationPage', entriesWithoutLocation, $event.target.value)"></label>
-            <span>of {{ pageCount(entriesWithoutLocation) }}</span>
-            <button type="button" class="page-arrow" :disabled="noLocationPage >= pageCount(entriesWithoutLocation)" aria-label="Next page" @click="changePage('noLocationPage', entriesWithoutLocation, 1)">→</button>
+          <div><h3>{{ $t('mapReader.withoutLocationHeading') }}</h3><p>{{ $t('mapReader.withoutLocationSummary', { count: entriesWithoutLocation.length }) }}</p></div>
+          <div class="pagination" v-if="entriesWithoutLocation.length > pageSize" :aria-label="$t('mapReader.withoutLocationPagination')">
+            <button type="button" class="page-arrow" :disabled="noLocationPage <= 1" :aria-label="$t('common.previous')" @click="changePage('noLocationPage', entriesWithoutLocation, -1)">←</button>
+            <label><span class="sr-only">{{ $t('reader.page') }}</span><input type="number" min="1" :max="pageCount(entriesWithoutLocation)" :value="noLocationPage" @change="setPage('noLocationPage', entriesWithoutLocation, $event.target.value)"></label>
+            <span>{{ $t('reader.of') }} {{ pageCount(entriesWithoutLocation) }}</span>
+            <button type="button" class="page-arrow" :disabled="noLocationPage >= pageCount(entriesWithoutLocation)" :aria-label="$t('common.next')" @click="changePage('noLocationPage', entriesWithoutLocation, 1)">→</button>
           </div>
         </div>
         <Transition name="page-transition" mode="out-in">
@@ -182,12 +183,12 @@ async function processKML() {
 
         <section class="map-result-group">
         <div class="list-heading">
-          <div><h3>Directory entries with location</h3><p>{{ entriesWithLocation.length }} placemarks match entries that already have location data.</p></div>
-          <div class="pagination" v-if="entriesWithLocation.length > pageSize" aria-label="Pagination for entries with location">
-            <button type="button" class="page-arrow" :disabled="hasLocationPage <= 1" aria-label="Previous page" @click="changePage('hasLocationPage', entriesWithLocation, -1)">←</button>
-            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesWithLocation)" :value="hasLocationPage" @change="setPage('hasLocationPage', entriesWithLocation, $event.target.value)"></label>
-            <span>of {{ pageCount(entriesWithLocation) }}</span>
-            <button type="button" class="page-arrow" :disabled="hasLocationPage >= pageCount(entriesWithLocation)" aria-label="Next page" @click="changePage('hasLocationPage', entriesWithLocation, 1)">→</button>
+          <div><h3>{{ $t('mapReader.withLocationHeading') }}</h3><p>{{ $t('mapReader.withLocationSummary', { count: entriesWithLocation.length }) }}</p></div>
+          <div class="pagination" v-if="entriesWithLocation.length > pageSize" :aria-label="$t('mapReader.withLocationPagination')">
+            <button type="button" class="page-arrow" :disabled="hasLocationPage <= 1" :aria-label="$t('common.previous')" @click="changePage('hasLocationPage', entriesWithLocation, -1)">←</button>
+            <label><span class="sr-only">{{ $t('reader.page') }}</span><input type="number" min="1" :max="pageCount(entriesWithLocation)" :value="hasLocationPage" @change="setPage('hasLocationPage', entriesWithLocation, $event.target.value)"></label>
+            <span>{{ $t('reader.of') }} {{ pageCount(entriesWithLocation) }}</span>
+            <button type="button" class="page-arrow" :disabled="hasLocationPage >= pageCount(entriesWithLocation)" :aria-label="$t('common.next')" @click="changePage('hasLocationPage', entriesWithLocation, 1)">→</button>
           </div>
         </div>
         <Transition name="page-transition" mode="out-in">
@@ -201,12 +202,12 @@ async function processKML() {
 
         <section class="map-result-group">
         <div class="list-heading">
-          <div><h3>Placemark without a directory entry</h3><p>{{ entriesMissingFromDirectory.length }} placemarks have no matching TMD entry.</p></div>
-          <div class="pagination" v-if="entriesMissingFromDirectory.length > pageSize" aria-label="Pagination for unmatched placemarks">
-            <button type="button" class="page-arrow" :disabled="missingEntryPage <= 1" aria-label="Previous page" @click="changePage('missingEntryPage', entriesMissingFromDirectory, -1)">←</button>
-            <label><span class="sr-only">Page number</span><input type="number" min="1" :max="pageCount(entriesMissingFromDirectory)" :value="missingEntryPage" @change="setPage('missingEntryPage', entriesMissingFromDirectory, $event.target.value)"></label>
-            <span>of {{ pageCount(entriesMissingFromDirectory) }}</span>
-            <button type="button" class="page-arrow" :disabled="missingEntryPage >= pageCount(entriesMissingFromDirectory)" aria-label="Next page" @click="changePage('missingEntryPage', entriesMissingFromDirectory, 1)">→</button>
+          <div><h3>{{ $t('mapReader.missingHeading') }}</h3><p>{{ entriesMissingFromDirectory.length }} {{ $t('mapReader.missingBody') }}</p></div>
+          <div class="pagination" v-if="entriesMissingFromDirectory.length > pageSize" :aria-label="$t('mapReader.missingPagination')">
+            <button type="button" class="page-arrow" :disabled="missingEntryPage <= 1" :aria-label="$t('common.previous')" @click="changePage('missingEntryPage', entriesMissingFromDirectory, -1)">←</button>
+            <label><span class="sr-only">{{ $t('reader.page') }}</span><input type="number" min="1" :max="pageCount(entriesMissingFromDirectory)" :value="missingEntryPage" @change="setPage('missingEntryPage', entriesMissingFromDirectory, $event.target.value)"></label>
+            <span>{{ $t('reader.of') }} {{ pageCount(entriesMissingFromDirectory) }}</span>
+            <button type="button" class="page-arrow" :disabled="missingEntryPage >= pageCount(entriesMissingFromDirectory)" :aria-label="$t('common.next')" @click="changePage('missingEntryPage', entriesMissingFromDirectory, 1)">→</button>
           </div>
         </div>
         <Transition name="page-transition" mode="out-in">

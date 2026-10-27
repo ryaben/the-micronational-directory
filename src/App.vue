@@ -14,9 +14,13 @@ watch(theme, (value) => {
   localStorage.setItem('tmd-theme', value)
   applyTheme(value)
 })
-watch(language, (value) => localStorage.setItem('tmd-language', value))
+watch(language, (value) => {
+  localStorage.setItem('tmd-language', value)
+  document.documentElement.lang = value
+})
 onMounted(() => {
   applyTheme(theme.value)
+  document.documentElement.lang = language.value
   initializeAnalytics().catch((error) => console.warn('Firebase Analytics could not initialize:', error))
 })
 </script>
@@ -63,34 +67,34 @@ export default {
     return {
       user: {},
       navigationButtons: [
-        { text: 'Home', icon: 'home.png', route: 'Home' },
+        { text: 'nav.home', icon: 'home.png', route: 'Home' },
         {
-          text: 'Directory',
+          text: 'nav.directory',
           icon: 'directory.png',
           route: 'Directory',
           subButtons: [
-            { text: 'Micronations', route: 'Directory' },
-            { text: 'Organizations', route: 'Organizations' },
-            { text: 'World map', route: 'GlobalMap' },
-            { text: 'New entry', route: 'NewEntry' },
-            { text: 'Moderation', route: 'ModerationPanel', requiresModerator: true }
+            { text: 'nav.micronations', route: 'Directory' },
+            { text: 'nav.organizations', route: 'Organizations' },
+            { text: 'nav.map', route: 'GlobalMap' },
+            { text: 'nav.newEntry', route: 'NewEntry' },
+            { text: 'nav.moderation', route: 'ModerationPanel', requiresModerator: true }
           ]
         },
         {
-          text: 'Stats',
+          text: 'nav.stats',
           icon: 'stats.png',
           route: 'Stats',
-          subButtons: [{ text: 'Rankings and\ncontests', route: 'Stats' }]
+          subButtons: [{ text: 'nav.rankings', route: 'Stats' }]
         },
-        { text: 'Account', icon: 'profile.png', route: 'Account' },
+        { text: 'nav.account', icon: 'profile.png', route: 'Account' },
         {
-          text: 'Info',
+          text: 'nav.info',
           icon: 'about.png',
           route: 'About',
           subButtons: [
-            { text: 'About us', route: 'About' },
-            { text: 'Donate', route: 'Donate' },
-            { text: 'Contests T&C', route: 'TermsOfContests' }
+            { text: 'nav.about', route: 'About' },
+            { text: 'nav.donate', route: 'Donate' },
+            { text: 'nav.terms', route: 'TermsOfContests' }
           ]
         }
       ]
@@ -100,9 +104,10 @@ export default {
     navbarButtons() {
       return this.navigationButtons.map((button) => ({
         ...button,
-        subButtons: (button.subButtons || []).filter((subButton) =>
-          !subButton.requiresModerator || this.userIsModerator
-        )
+        text: this.$t(button.text),
+        subButtons: (button.subButtons || [])
+          .filter((subButton) => !subButton.requiresModerator || this.userIsModerator)
+          .map((subButton) => ({ ...subButton, text: this.$t(subButton.text) }))
       }))
     },
     userIsModerator() {

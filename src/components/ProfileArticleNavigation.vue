@@ -13,9 +13,9 @@ defineProps({
 
 <template>
   <div class="article-profiles-control">
-    <span v-if="!previous">This is the first entry.</span>
+    <span v-if="!previous">{{ $t('common.firstEntry') }}</span>
     <router-link v-else :to="`${routeBase}/${previous}`" class="profile-option login-button color-transition">
-      <span class="profile-option-label">← Previous</span>
+      <span class="profile-option-label">← {{ $t('common.previous') }}</span>
       <span class="profile-option-name">{{ previous }}</span>
     </router-link>
     <ContributionHistoryDropdown
@@ -24,9 +24,9 @@ defineProps({
       :edit-history="editHistory"
     />
     <router-link v-if="next" :to="`${routeBase}/${next}`" class="profile-option login-button color-transition">
-      <span class="profile-option-label">Next →</span>
+      <span class="profile-option-label">{{ $t('common.next') }} →</span>
       <span class="profile-option-name">{{ next }}</span>
     </router-link>
-    <span v-else>This is the last entry.</span>
+    <span v-else>{{ $t('common.lastEntry') }}</span>
   </div>
 </template>

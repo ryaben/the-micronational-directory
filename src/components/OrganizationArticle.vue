@@ -47,22 +47,22 @@ defineProps({
                 <div class="organization-info-table">
                     <div class="organization-data-grid">
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Organization motto</span>
+                        <span class="organization-data-label">{{ $t('organization.motto') }}</span>
                         <span class="organization-data-value" v-if="info.motto !== ''"><span class="italicized">"{{ info.motto }}"</span><UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
-                        <span class="organization-data-value" v-else>No motto.<UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
+                        <span class="organization-data-value" v-else>{{ $t('organization.noMotto') }}<UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Foundation</span>
+                        <span class="organization-data-label">{{ $t('organization.foundation') }}</span>
                         <span class="organization-data-value">{{ cleanTimestamp(info.foundationDate) }}<UncertaintyToggle v-if="info.uncertain?.includes('foundationDate')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Languages</span>
+                        <span class="organization-data-label">{{ $t('organization.languages') }}</span>
                         <span class="organization-data-value"><span v-for="(language, i) in info.languages" :key="i">{{ language }}<span v-if="i !== info.languages.length - 1">, </span><span v-else>.</span></span><UncertaintyToggle v-if="info.uncertain?.includes('languages')" :active="true" disabled /></span>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Contact media</span>
+                        <span class="organization-data-label">{{ $t('organization.contact') }}</span>
                         <div class="organization-data-value">
-                            <span v-if="!info.contactInfo.length">N/A.</span>
+                            <span v-if="!info.contactInfo.length">{{ $t('organization.na') }}</span>
                             <div v-else class="sources-container">
                                 <EntrySource class="entry-source" v-for="(contact, i) in info.contactInfo" :key="i"
                                     :href="contact" :flag-source="info.logo" :size="46" :micronation-name="info.name.main"
@@ -72,7 +72,7 @@ defineProps({
                         </div>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Info sources</span>
+                        <span class="organization-data-label">{{ $t('organization.sources') }}</span>
                         <div class="organization-data-value">
                             <div class="sources-container">
                                 <EntrySource class="entry-source" v-for="(website, i) in info.websites" :key="i"
@@ -83,7 +83,7 @@ defineProps({
                         </div>
                     </ProfileDataCell>
                     <ProfileDataCell variant="organization">
-                        <span class="organization-data-label">Try more info at</span>
+                        <span class="organization-data-label">{{ $t('organization.tryMore') }}</span>
                         <div class="organization-data-value">
                             <div class="sources-container">
                                 <EntrySource class="entry-source" :flag-source="info.logo" :size="46"
@@ -95,13 +95,13 @@ defineProps({
                     </div>
 
                     <div class="organization-members-panel">
-                        <div class="organization-members-heading">Historical members</div>
+                        <div class="organization-members-heading">{{ $t('organization.members') }}</div>
                         <div v-if="getMembers.length" class="sources-container members">
                             <MemberSource class="member-source" v-for="(member, i) in getMembers" :key="i"
                                 :href="'/directory/' + member.name.main" :flag-source="member.flag" :width="60"
                                 :height="40" :micronation-name="member.name.main" :icon="'flag'" />
                         </div>
-                        <div v-else class="organization-empty-members">No historical members.</div>
+                        <div v-else class="organization-empty-members">{{ $t('organization.noMembers') }}</div>
                     </div>
                 </div>
             </div>
@@ -113,6 +113,8 @@ defineProps({
 </template>
 
 <script>
+import { formatDate } from '../i18n.js'
+
 export default {
     name: 'OrganizationArticle',
     components: {
@@ -126,10 +128,7 @@ export default {
     },
     methods: {
         cleanTimestamp(timestamp) {
-            const seconds = timestamp?._seconds ?? timestamp?.seconds;
-            const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp);
-            if (Number.isNaN(date.getTime())) return 'Unknown';
-            return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(date);
+            return formatDate(timestamp);
         },
     }
 }

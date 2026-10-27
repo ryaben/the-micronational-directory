@@ -12,7 +12,7 @@ defineProps({
 
 <template>
   <SourceLink :icon="icon" :image="flagSource" :href="href" :width="size" :height="size"
-    :label="`${icon} source for ${micronationName}`" />
+    :label="$t('source.label', { icon, name: micronationName })" />
 </template>
 
 <script>

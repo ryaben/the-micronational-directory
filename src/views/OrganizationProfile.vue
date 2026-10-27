@@ -11,7 +11,7 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
     <div class="animation-error-avoider">
         <div v-show="organizationsDirectory.length === 0" class="loading-image-container">
             <img class="loading-image" src="/images/loading.gif" alt="Loading">
-            <label>Loading Directory...</label>
+            <label>{{ $t('common.loadingDirectory') }}</label>
         </div>
 
         <OrganizationArticle v-if="requestedOrganization.info !== undefined" id="entryPreview" class="info-displayed"

@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <SourceLink :icon="icon" :image="flagSource" :href="href" :width="width" :height="height"
-    internal member-style :label="micronationName || 'Membership'" />
+    internal member-style :label="micronationName || $t('source.unknownMembership')" />
 </template>
 
 <script>

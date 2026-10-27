@@ -1,5 +1,6 @@
 <script setup>
 import { nextTick, onBeforeUnmount, ref } from 'vue'
+import { formatDate } from '../i18n.js'
 
 const props = defineProps({
   author: { type: [String, Object], default: '' },
@@ -13,16 +14,7 @@ const trigger = ref(null)
 const popover = ref(null)
 const popoverStyle = ref({})
 
-function cleanTimestamp(timestamp) {
-  const seconds = timestamp?._seconds ?? timestamp?.seconds
-  const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp)
-  if (Number.isNaN(date.getTime())) return 'Unknown'
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  }).format(date)
-}
+const cleanTimestamp = formatDate
 
 function displayAuthor(value) {
   return typeof value === 'object' ? value?.name || 'Unknown' : value || 'Unknown'
@@ -74,7 +66,7 @@ onBeforeUnmount(() => {
       aria-haspopup="true"
       @click="toggleHistory"
     >
-      <span>Submitted by <b>{{ displayAuthor(props.author) }}</b> on {{ cleanTimestamp(props.creationDate) }}.</span>
+      <span>{{ $t('history.submitted') }} <b>{{ displayAuthor(props.author) }}</b> {{ $t('history.on') }} {{ cleanTimestamp(props.creationDate) }}.</span>
       <svg class="contribution-history-chevron" :class="{ 'is-open': historyOpen }" viewBox="0 0 16 16" aria-hidden="true">
         <path d="m3.5 6 4.5 4 4.5-4" />
       </svg>
@@ -90,11 +82,11 @@ onBeforeUnmount(() => {
           role="region"
           aria-label="Edit history"
         >
-          <h3>Edit history</h3>
-          <p v-if="!editHistory.length" class="contribution-history-empty">No edits have been recorded.</p>
+          <h3>{{ $t('history.editHistory') }}</h3>
+          <p v-if="!editHistory.length" class="contribution-history-empty">{{ $t('history.noEdits') }}</p>
           <ol v-else>
             <li v-for="(edit, index) in [...editHistory].reverse()" :key="edit.issueNumber || `${edit.date}-${index}`">
-              <span>Edited by <b>{{ displayAuthor(edit.author) }}</b></span>
+              <span>{{ $t('history.editedBy') }} <b>{{ displayAuthor(edit.author) }}</b></span>
               <time>{{ cleanTimestamp(edit.date) }}</time>
             </li>
           </ol>

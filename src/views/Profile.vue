@@ -22,6 +22,7 @@ import PreferenceControls from '../components/PreferenceControls.vue'
 import { useDirectoryData } from '../composables/useDirectoryData.js'
 import { convertIssueToEntry, fetchGitHubIssues } from '../utils/githubFunctions.js'
 import { language, setLanguage } from '../composables/userSettings.js'
+import { formatDate, translate } from '../i18n.js'
 
 defineProps({
   theme: { type: String, default: 'dark' },
@@ -30,11 +31,11 @@ const { micronationsDirectory, organizationsDirectory, moderatorsList, userIsMod
 const emit = defineEmits(['update:theme'])
 
 const activeSection = ref('profile')
-const profileSections = [
-  { text: 'Account data', target: 'profile', display: true },
-  { text: 'Update password', target: 'password', display: true },
-  { text: 'Contributions', target: 'contributions', display: true }
-]
+const profileSections = computed(() => [
+  { text: translate('profile.accountData'), target: 'profile', display: true },
+  { text: translate('profile.updatePassword'), target: 'password', display: true },
+  { text: translate('profile.contributions'), target: 'contributions', display: true }
+])
 const currentUser = ref(auth.currentUser || user.value || {})
 const pagedEntries = ref([])
 const issueSubmissions = ref([])
@@ -129,21 +130,16 @@ function entryInfo(entry) {
     memberships: entry.memberships || [],
     contactInfo: entry.contactInfo || [],
     websites: entry.websites || [],
+    uncertain: entry.uncertain || [],
     author: entry.author,
     approved: entry.approved,
-    creationDate: entry.creationDate
+    creationDate: entry.creationDate,
+    editHistory: Array.isArray(entry.editHistory) ? entry.editHistory : []
   }
 }
 
 function formatFoundationDate(date) {
-  if (!date) return 'Unknown'
-  const seconds = date._seconds || date.seconds
-  const parsedDate = seconds ? new Date(seconds * 1000) : new Date(date)
-  return Number.isNaN(parsedDate.getTime())
-    ? 'Unknown'
-    : new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(
-        parsedDate
-      )
+  return formatDate(date)
 }
 
 function updatePagedEntries(entries) {
@@ -162,12 +158,12 @@ async function resendVerification() {
   try {
     await sendEmailVerification(auth.currentUser)
     notify({
-      title: 'Session status',
-      text: 'An email was sent to your address. Verify your account to add directory entries.',
+      title: translate('profile.messages.session'),
+      text: translate('profile.messages.emailSent'),
       type: 'success'
     })
   } catch (error) {
-    notify({ title: 'Unable to send email', text: error.message, type: 'error' })
+    notify({ title: translate('profile.messages.emailFailed'), text: error.message, type: 'error' })
   }
 }
 
@@ -181,20 +177,20 @@ async function linkGoogleAccount() {
     const result = await linkWithPopup(auth.currentUser, provider)
     currentUser.value = result.user
     notify({
-      title: 'Google linked',
-      text: 'You can now sign in to this account with Google or email and password.',
+      title: translate('profile.messages.googleLinked'),
+      text: translate('profile.messages.googleReady'),
       type: 'success'
     })
   } catch (error) {
     const messages = {
-      'auth/credential-already-in-use': 'That Google account is already linked to another account.',
-      'auth/provider-already-linked': 'A Google account is already linked to this account.',
-      'auth/popup-closed-by-user': 'Google linking was cancelled.',
+      'auth/credential-already-in-use': translate('profile.messages.googleInUse'),
+      'auth/provider-already-linked': translate('profile.messages.googleExists'),
+      'auth/popup-closed-by-user': translate('profile.messages.googleCancelled'),
       'auth/popup-blocked':
-        'Your browser blocked the Google sign-in window. Allow popups and try again.'
+        translate('profile.messages.googlePopupBlocked')
     }
     notify({
-      title: 'Unable to link Google',
+      title: translate('profile.messages.googleFailed'),
       text: messages[error.code] || error.message,
       type: 'error'
     })
@@ -205,8 +201,8 @@ async function changePassword() {
   const addingPassword = !hasPasswordProvider.value
   if (newPassword.value !== repeatNewPassword.value) {
     notify({
-      title: 'Password mismatch',
-      text: "The values entered don't match. Please check your new password.",
+      title: translate('profile.messages.passwordMismatch'),
+      text: translate('profile.messages.passwordMismatchText'),
       type: 'error'
     })
     return
@@ -225,22 +221,22 @@ async function changePassword() {
     newPassword.value = ''
     repeatNewPassword.value = ''
     notify({
-      title: addingPassword ? 'Password added' : 'Password updated',
+      title: translate(addingPassword ? 'profile.messages.passwordAdded' : 'profile.messages.passwordUpdated'),
       text: addingPassword
-        ? 'You can now sign in with Google or your email and password.'
-        : 'Your password was successfully updated.',
+        ? translate('profile.messages.passwordAddedText')
+        : translate('profile.messages.passwordUpdatedText'),
       type: 'success'
     })
   } catch (error) {
     const messages = {
-      'auth/invalid-credential': 'The current password you entered is not valid.',
+      'auth/invalid-credential': translate('profile.messages.invalidCredential'),
       'auth/credential-already-in-use':
-        'This email and password are already linked to another account.',
-      'auth/email-already-in-use': 'This email is already linked to another account.',
-      'auth/weak-password': 'Choose a stronger password with at least 6 characters.'
+        translate('profile.messages.credentialsUsed'),
+      'auth/email-already-in-use': translate('profile.messages.emailUsed'),
+      'auth/weak-password': translate('profile.messages.weakPassword')
     }
     notify({
-      title: addingPassword ? 'Unable to add password' : 'Unable to update password',
+      title: translate(addingPassword ? 'profile.messages.passwordAddFailed' : 'profile.messages.passwordUpdateFailed'),
       text: messages[error.code] || error.message,
       type: 'error'
     })
@@ -251,8 +247,8 @@ async function signOutCall() {
   localStorage.removeItem('firebase-auth-user')
   await signOut(auth)
   notify({
-    title: 'Session status',
-    text: 'You have logged out from your account.',
+    title: translate('profile.messages.session'),
+    text: translate('profile.messages.signedOut'),
     type: 'warning'
   })
   router.push('/login')
@@ -274,8 +270,8 @@ onMounted(loadUserIssueSubmissions)
         {{ (currentUser.displayName || currentUser.email || 'U').slice(0, 1).toUpperCase() }}
       </div>
       <div>
-        <h1>Hello, {{ currentUser.displayName || 'there' }}!</h1>
-        <p class="profile-intro">Manage your account and see what you’ve added to the directory.</p>
+        <h1>{{ $t('profile.hello', { name: currentUser.displayName || $t('profile.there') }) }}</h1>
+        <p class="profile-intro">{{ $t('profile.intro') }}</p>
       </div>
     </div>
 
@@ -288,31 +284,31 @@ onMounted(loadUserIssueSubmissions)
         <div class="section-content profile-data">
           <div class="panel-heading">
             <div>
-              <h2>Your data</h2>
+              <h2>{{ $t('profile.yourData') }}</h2>
             </div>
           </div>
           <div class="data-grid">
             <div class="data-card">
-              <span class="data-label">Display name</span
-              ><strong>{{ currentUser.displayName || 'Not set' }}</strong>
+              <span class="data-label">{{ $t('profile.displayName') }}</span
+              ><strong>{{ currentUser.displayName || $t('profile.notSet') }}</strong>
             </div>
             <div class="data-card email-data-card">
-              <span class="data-label">Email address</span>
-              <strong>{{ currentUser.email || 'Loading…' }}</strong>
+              <span class="data-label">{{ $t('profile.email') }}</span>
+              <strong>{{ currentUser.email || $t('settings.loading') }}</strong>
             </div>
             <div class="data-card">
-              <span class="data-label">Account status</span
+              <span class="data-label">{{ $t('profile.accountStatus') }}</span
               ><span
                 class="status-pill"
                 :class="currentUser.emailVerified ? 'verified' : 'unverified'"
-                >{{ currentUser.emailVerified ? 'Verified' : 'Not verified' }}</span
+                >{{ $t(currentUser.emailVerified ? 'profile.verified' : 'profile.notVerified') }}</span
               ><button
                 v-if="!currentUser.emailVerified"
                 class="text-action"
                 type="button"
                 @click="resendVerification"
               >
-                Resend verification email
+                {{ $t('profile.resend') }}
               </button>
             </div>
             <div class="data-card moderator-card">
@@ -326,24 +322,24 @@ onMounted(loadUserIssueSubmissions)
               >
                 {{
                   userIsModerator || moderatorsList.includes(currentUser.email)
-                    ? '🔐 Moderator'
-                    : 'Contributor'
+                    ? $t('profile.moderator')
+                    : $t('profile.contributor')
                 }}
               </strong>
               <span>{{
                 userIsModerator || moderatorsList.includes(currentUser.email)
-                  ? 'Moderation privileges are enabled for your account.'
-                  : 'You can contribute entries to the directory.'
+                  ? $t('profile.modDescription')
+                  : $t('profile.contributorDescription')
               }}</span>
             </div>
           </div>
           <section class="profile-settings" aria-labelledby="profileSettingsTitle">
-            <h3 id="profileSettingsTitle">Settings</h3>
+            <h3 id="profileSettingsTitle">{{ $t('profile.settings') }}</h3>
             <div class="profile-settings-grid">
               <div class="settings-card">
                 <div>
-                  <span class="data-label">Google sign-in</span>
-                  <strong>{{ hasGoogleProvider ? 'Connected' : 'Not connected' }}</strong>
+                  <span class="data-label">{{ $t('profile.google') }}</span>
+                  <strong>{{ $t(hasGoogleProvider ? 'profile.connected' : 'profile.notConnected') }}</strong>
                 </div>
                 <button
                   v-if="!hasGoogleProvider"
@@ -351,7 +347,7 @@ onMounted(loadUserIssueSubmissions)
                   type="button"
                   @click="linkGoogleAccount"
                 >
-                  Connect Google account
+                  {{ $t('profile.connectGoogle') }}
                 </button>
               </div>
               <div class="settings-card settings-preferences">
@@ -365,9 +361,9 @@ onMounted(loadUserIssueSubmissions)
             </div>
           </section>
           <div class="profile-footer">
-            <span>Sign out of your account on this device.</span
+            <span>{{ $t('profile.signOut') }}</span
             ><button class="logout-button" type="button" @click="signOutCall">
-              Log out <span aria-hidden="true">↗</span>
+              {{ $t('profile.logout') }} <span aria-hidden="true">↗</span>
             </button>
           </div>
         </div>
@@ -378,27 +374,27 @@ onMounted(loadUserIssueSubmissions)
           <div class="password-fields">
             <div class="panel-heading">
               <div>
-                <h2>Update password</h2>
+                <h2>{{ $t('profile.updatePassword') }}</h2>
               </div>
             </div>
             <p class="section-description">
               {{
                 hasPasswordProvider
-                  ? 'Choose a strong password you don’t use elsewhere. Confirm your current password to make this change.'
-                  : 'Add a password to this Google account so you can sign in with either Google or email and password.'
+                  ? $t('profile.passwordDescription')
+                  : $t('profile.addPasswordDescription')
               }}
             </p>
             <label v-if="hasPasswordProvider"
-              >Current password<input
+              >{{ $t('profile.currentPassword') }}<input
                 v-model="oldPassword"
                 class="login-input"
                 type="password"
                 autocomplete="current-password"
                 required
-                placeholder="Enter current password"
+                :placeholder="$t('profile.enterCurrent')"
             /></label>
             <label
-              >{{ hasPasswordProvider ? 'New password' : 'Password'
+              >{{ hasPasswordProvider ? $t('profile.newPassword') : $t('login.password')
               }}<input
                 v-model="newPassword"
                 class="login-input"
@@ -406,10 +402,10 @@ onMounted(loadUserIssueSubmissions)
                 autocomplete="new-password"
                 required
                 minlength="6"
-                placeholder="At least 6 characters"
+                :placeholder="$t('profile.minPassword')"
             /></label>
             <label
-              >{{ hasPasswordProvider ? 'Confirm new password' : 'Confirm password'
+              >{{ hasPasswordProvider ? $t('profile.confirmNewPassword') : $t('profile.confirmPassword')
               }}<input
                 v-model="repeatNewPassword"
                 class="login-input"
@@ -417,10 +413,10 @@ onMounted(loadUserIssueSubmissions)
                 autocomplete="new-password"
                 required
                 minlength="6"
-                placeholder="Re-enter new password"
+                :placeholder="$t('profile.reenter')"
             /></label>
             <button class="primary-action" type="submit">
-              {{ hasPasswordProvider ? 'Save new password' : 'Add password' }}
+              {{ hasPasswordProvider ? $t('profile.savePassword') : $t('profile.addPassword') }}
             </button>
           </div>
         </form>
@@ -430,34 +426,32 @@ onMounted(loadUserIssueSubmissions)
         <div class="section-content contributions-content">
           <div class="panel-heading">
             <div>
-              <h2>Contributions</h2>
+              <h2>{{ $t('profile.contributions') }}</h2>
               <p class="section-description">
-                Approved entries count toward your totals. Your full submission list includes
-                entries awaiting approval.
+                {{ $t('profile.contributionDescription') }}
               </p>
             </div>
           </div>
           <div class="stats-grid">
             <article class="stat-card">
-              <span>Micronations</span><strong>{{ userContributions }}</strong
-              ><small>{{ percentageContributions }}% of approved directory</small>
+              <span>{{ $t('profile.micronations') }}</span><strong>{{ userContributions }}</strong
+              ><small>{{ percentageContributions }}{{ $t('profile.approvedPercent') }}</small>
             </article>
             <article class="stat-card">
-              <span>Organizations</span><strong>{{ userOrganizationContributions }}</strong
-              ><small>{{ percentageOrganizationContributions }}% of approved directory</small>
+              <span>{{ $t('profile.organizations') }}</span><strong>{{ userOrganizationContributions }}</strong
+              ><small>{{ percentageOrganizationContributions }}{{ $t('profile.approvedPercent') }}</small>
             </article>
             <article class="stat-card total-stat">
-              <span>Total submissions</span><strong>{{ authoredEntries.length }}</strong
+              <span>{{ $t('profile.total') }}</span><strong>{{ authoredEntries.length }}</strong
               ><small
-                >{{ authoredEntries.filter((entry) => !entry.approved).length }} awaiting
-                approval</small
+                >{{ authoredEntries.filter((entry) => !entry.approved).length }} {{ $t('profile.awaiting') }}</small
               >
             </article>
           </div>
 
           <div class="listing-header">
             <div>
-              <h3>Your directory entries</h3>
+              <h3>{{ $t('profile.entries') }}</h3>
             </div>
           </div>
           <Settingsbar
@@ -470,10 +464,10 @@ onMounted(loadUserIssueSubmissions)
             @loaded-directory="updatePagedEntries"
           />
           <p v-if="!authoredEntries.length" class="empty-state">
-            You haven’t added any directory entries yet.
+            {{ $t('profile.noEntries') }}
           </p>
           <p v-else-if="!pagedEntries.length" class="empty-state">
-            No entries match these settings.
+            {{ $t('profile.noMatch') }}
           </p>
           <div v-else class="entries-list">
             <div
@@ -482,7 +476,7 @@ onMounted(loadUserIssueSubmissions)
               class="entry-wrapper"
             >
               <span class="entry-status" :class="entry.approved ? 'approved' : 'pending'">{{
-                entry.approved ? 'Approved' : 'Pending'
+                $t(entry.approved ? 'profile.approvedStatus' : 'profile.pendingStatus')
               }}</span>
               <DirectoryEntry
                 v-if="entry.entryType === 'micronation'"

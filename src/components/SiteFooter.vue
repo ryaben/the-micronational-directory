@@ -19,8 +19,8 @@ const emit = defineEmits(['update:theme', 'update:language'])
 </script>
 
 <template>
-  <footer class="site-section site-footer" aria-label="Site information and settings">
-    <section class="footer-brand" aria-label="About this site">
+  <footer class="site-section site-footer" :aria-label="$t('footer.siteInfo')">
+    <section class="footer-brand" :aria-label="$t('footer.about')">
       <img
         :src="theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'"
         alt="TMD logo"
@@ -32,16 +32,16 @@ const emit = defineEmits(['update:theme', 'update:language'])
     </section>
 
     <section class="footer-social" aria-labelledby="footer-social-title">
-      <h2 class="footer-heading" id="footer-social-title">Stay connected</h2>
+      <h2 class="footer-heading" id="footer-social-title">{{ $t('footer.stayConnected') }}</h2>
       <a
         href="https://x.com/the_micro_direc"
         class="footer-x-link"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Follow The Micronational Directory on X (opens in a new tab)"
+        :aria-label="$t('footer.followAria')"
       >
         <XIcon class="footer-x-icon" aria-hidden="true" focusable="false" />
-        <span>Follow <strong>@the_micro_direc</strong></span>
+        <span>{{ $t('footer.follow') }} <strong>@the_micro_direc</strong></span>
       </a>
       <a class="anchor-button" id="sendEmail" href="mailto:themicronationaldirectory@gmail.com">
         <EmailIcon class="footer-email-icon" aria-hidden="true" focusable="false" />
@@ -50,7 +50,7 @@ const emit = defineEmits(['update:theme', 'update:language'])
     </section>
 
     <section class="footer-settings" aria-labelledby="footer-settings-title">
-      <h2 class="footer-heading" id="footer-settings-title">Preferences</h2>
+      <h2 class="footer-heading" id="footer-settings-title">{{ $t('footer.preferences') }}</h2>
       <PreferenceControls
         :theme="theme"
         :language="language"
@@ -68,7 +68,7 @@ const emit = defineEmits(['update:theme', 'update:language'])
       >
         <img
           src="https://s01.flagcounter.com/count2/n91V/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_15/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
-          alt="Visitor count by country — see more"
+          :alt="$t('footer.visitors')"
         />
       </a>
     </section>

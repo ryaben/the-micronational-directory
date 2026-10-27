@@ -78,13 +78,13 @@ async function selectFile(event) {
 <template>
   <div class="moderation-image-editor">
     <div class="moderation-image-modes">
-      <label><input v-model="mode" type="radio" value="file"> Local file</label>
-      <label><input v-model="mode" type="radio" value="url"> External URL</label>
+      <label><input v-model="mode" type="radio" value="file"> {{ $t('settings.imageLocal') }}</label>
+      <label><input v-model="mode" type="radio" value="url"> {{ $t('settings.imageExternal') }}</label>
     </div>
-    <input v-if="mode === 'url'" type="text" inputmode="url" :value="externalUrl" :placeholder="`Direct URL or repository path to ${assetType}`" @input="externalUrl = $event.target.value; updateUrl()">
+    <input v-if="mode === 'url'" type="text" inputmode="url" :value="externalUrl" :placeholder="$t('settings.imageUrl', { type: assetType })" @input="externalUrl = $event.target.value; updateUrl()">
     <input v-else type="file" accept="image/*" :disabled="uploading" @change="selectFile">
-    <small v-if="uploading">Compressing image…</small>
-    <small v-else>Image files are accepted. Files up to 35 KB are kept as uploaded; larger files are compressed before being saved to the issue.</small>
+    <small v-if="uploading">{{ $t('settings.compressing') }}</small>
+    <small v-else>{{ $t('settings.imageHelp') }}</small>
   </div>
 </template>
 

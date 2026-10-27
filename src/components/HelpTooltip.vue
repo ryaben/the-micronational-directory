@@ -23,10 +23,10 @@ defineProps({
 
 <template>
   <section class="help-tooltip" :class="{ 'is-positioned': position.x !== 0 && position.y !== 0 }"
-    :style="tooltipStyles" role="dialog" :aria-label="`${title} help`">
+    :style="tooltipStyles" role="dialog" :aria-label="$t('common.helpFor', { title })">
     <div class="close-container">
       <h3 class="tooltip-title">{{ title }}</h3>
-      <button class="close-button" type="button" aria-label="Close help" @click="closeTooltip">×</button>
+      <button class="close-button" type="button" :aria-label="$t('common.close')" @click="closeTooltip">×</button>
     </div>
     <p class="help-text">{{ helpText }}</p>
   </section>

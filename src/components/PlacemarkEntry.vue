@@ -29,20 +29,18 @@ defineProps({
         </div>
 
         <h3 class="placemark-name">{{ placemarkInfo.micronationalMap.name }}</h3>
-        <p class="source-origin">From: {{ placemarkInfo.micronationalMap.source?.name || 'Unknown map source' }}</p>
+        <p class="source-origin">{{ $t('common.from') }} {{ placemarkInfo.micronationalMap.source?.name || $t('common.unknownMap') }}</p>
 
         <hr class="light-divider">
 
         <p class="micronation-description">{{ placemarkInfo.micronationalMap.description }}<span
-            v-if="!placemarkInfo.micronationalMap.description">No description.</span></p>
+            v-if="!placemarkInfo.micronationalMap.description">{{ $t('common.noDescription') }}</span></p>
 
         <hr class="light-divider">
 
-        <p class="map-status" v-if="present && (placemarkInfo.location?.latitude ?? 0) === 0">An entry seems to exist on TMD but does not have any
-            location data:</p>
-        <p class="map-status" v-else-if="present">It seems that exists an entry on TMD that already
-            contains location data:</p>
-        <p class="map-status" v-else>Seems that there is no entry for this micronation on TMD. But here is the location info!</p>
+        <p class="map-status" v-if="present && (placemarkInfo.location?.latitude ?? 0) === 0">{{ $t('mapReader.entryWithoutLocation') }}</p>
+        <p class="map-status" v-else-if="present">{{ $t('mapReader.entryWithLocation') }}</p>
+        <p class="map-status" v-else>{{ $t('mapReader.noMatch') }}</p>
 
         <DirectoryEntry v-if="present" class="map-directory-entry" :width="180" :flag-height="120"
             :info="{
@@ -66,9 +64,9 @@ defineProps({
         <button v-if="present" class="login-button color-transition map-location-button"
             :disabled="isSavingLocation || !hasValidMapLocation"
             @click="saveLocation(placemarkInfo)">
-            <span v-if="isSavingLocation">Saving location…</span>
-            <span v-else-if="(placemarkInfo.location?.latitude ?? 0) === 0">Save location on TMD</span>
-            <span v-else>Update location on TMD</span>
+            <span v-if="isSavingLocation">{{ $t('mapReader.saving') }}</span>
+            <span v-else-if="(placemarkInfo.location?.latitude ?? 0) === 0">{{ $t('mapReader.save') }}</span>
+            <span v-else>{{ $t('mapReader.update') }}</span>
         </button>
     </div>
 </template>
@@ -101,12 +99,12 @@ export default {
                 const jsonPath = 'public/micronations.json'
                 const { content, sha } = await fetchRepoFile(jsonPath)
                 const entry = content.find(item => item.id === micronation.id)
-                if (!entry) throw new Error('The micronation could not be found in the source JSON.')
+                if (!entry) throw new Error(this.$t('mapReader.errors.entryMissing'))
 
                 const latitude = Number(micronation.micronationalMap.location.lat)
                 const longitude = Number(micronation.micronationalMap.location.long)
                 if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-                    throw new Error('The map location does not contain valid coordinates.')
+                    throw new Error(this.$t('mapReader.errors.invalidCoordinates'))
                 }
 
                 entry.location = { latitude, longitude }
@@ -121,13 +119,13 @@ export default {
                     `Update map location: ${entry.name.main}`
                 )
                 notify({
-                    title: "Update successful",
-                    text: `The location data was added to the entry ${entry.name.main} in the source JSON.`,
+                    title: this.$t('mapReader.notifications.updateSuccessTitle'),
+                    text: this.$t('mapReader.notifications.updateSuccessText', { name: entry.name.main }),
                     type: "success"
                 });
             } catch (error) {
                 notify({
-                    title: "Could not update location",
+                    title: this.$t('mapReader.notifications.updateFailedTitle'),
                     text: error.message || String(error),
                     type: "error"
                 });

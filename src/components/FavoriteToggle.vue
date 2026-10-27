@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { notify } from '@kyvg/vue3-notification'
 import { useUserFavorites } from '../composables/userFavorites.js'
+import { translate } from '../i18n.js'
 import StarIcon from './icons/StarIcon.vue'
 
 const props = defineProps({
@@ -21,7 +22,7 @@ async function onToggle() {
     await toggleFavorite(props.entryType, props.entryId)
   } catch (error) {
     notify({
-      title: 'Could not update favorite',
+      title: translate('favorite.failed'),
       text: error.message || String(error),
       type: 'error'
     })
@@ -39,8 +40,8 @@ async function onToggle() {
     type="button"
     :disabled="isUpdating"
     :aria-pressed="isSaved"
-    :aria-label="isSaved ? 'Remove from favorites' : 'Add to favorites'"
-    :title="isSaved ? 'Remove from favorites' : 'Add to favorites'"
+    :aria-label="$t(isSaved ? 'favorite.remove' : 'favorite.add')"
+    :title="$t(isSaved ? 'favorite.remove' : 'favorite.add')"
     @click.stop.prevent="onToggle"
   >
     <StarIcon aria-hidden="true" />

@@ -27,13 +27,13 @@ const navigate = (route) => {
 </script>
 
 <template>
-  <nav v-if="mobileDirectory" class="navbar directory-mobile-nav" :class="{ 'is-expanded': expanded }" aria-label="Main navigation">
+  <nav v-if="mobileDirectory" class="navbar directory-mobile-nav" :class="{ 'is-expanded': expanded }" :aria-label="$t('common.mainNavigation')">
     <div class="mobile-topbar">
-      <router-link :to="{ name: 'Home' }" class="mobile-brand-row" aria-label="The Micronational Directory home">
+      <router-link :to="{ name: 'Home' }" class="mobile-brand-row" :aria-label="$t('common.brandHome')">
         <img class="mobile-logo" :src="theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'" alt="" />
         <span class="mobile-brand-name">The Micronational Directory</span>
       </router-link>
-      <button class="mobile-menu-toggle" :aria-expanded="expanded" aria-label="Toggle main menu" @click="expanded = !expanded">
+      <button class="mobile-menu-toggle" :aria-expanded="expanded" :aria-label="$t('common.toggleMenu')" @click="expanded = !expanded">
         <MoreIcon />
       </button>
     </div>

@@ -47,8 +47,8 @@ defineProps({
             <MapboxMarker v-if="mode === 'picker'" id="mapboxMarker" :lng-lat="markerPosition" popup draggable
                 @mb-dragend="updatePosition">
                 <template v-slot:popup>
-                    <p style="color: black; font-size: 12px; text-align: center;">The micronation (or its founder) are
-                        based here.
+                    <p style="color: black; font-size: 12px; text-align: center;">
+                        {{ $t('locationPicker.micronationLocation') }}
                     </p>
                 </template>
             </MapboxMarker>
@@ -70,11 +70,11 @@ defineProps({
     </div>
     <div v-if="mode === 'picker'" class="location-coordinates">
         <label>
-            Longitude
+            {{ $t('locationPicker.longitude') }}
             <input type="number" step="any" :value="coordinateInputs.longitude" @input="updateCoordinate('longitude', $event.target.value)">
         </label>
         <label>
-            Latitude
+            {{ $t('locationPicker.latitude') }}
             <input type="number" step="any" :value="coordinateInputs.latitude" @input="updateCoordinate('latitude', $event.target.value)">
         </label>
     </div>

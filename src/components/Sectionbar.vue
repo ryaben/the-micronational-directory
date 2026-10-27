@@ -60,7 +60,7 @@ onBeforeUnmount(() => clearTimeout(panelSwitchTimer));
                 <button class="section-text" type="button" role="tab" :id="`${tab.target}Tab${i}`"
                     :aria-controls="`${tab.target}Panel`" :aria-selected="selectedSection === tab.target"
                     :class="{ selected: selectedSection === tab.target }"
-                    @click="selectSection(tab.target)">{{ tab.text }}</button>
+                    @click="selectSection(tab.target)">{{ tab.textKey ? $t(tab.textKey) : tab.text }}</button>
             </div>
         </div>
 

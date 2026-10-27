@@ -12,18 +12,19 @@ const emit = defineEmits(['update:theme', 'update:language'])
     <select
       :value="language"
       name="languageSelect"
-      aria-label="Language"
+      :aria-label="$t('language.label')"
       @change="emit('update:language', $event.target.value)"
     >
-      <option value="english">English</option>
+      <option value="en">{{ $t('language.english') }}</option>
+      <option value="es">{{ $t('language.spanish') }}</option>
     </select>
     <button
       type="button"
-      :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`"
+      :aria-label="$t('theme.switchTo', { mode: $t(theme === 'dark' ? 'theme.light' : 'theme.dark') })"
       @click="emit('update:theme', theme === 'dark' ? 'light' : 'dark')"
     >
       <span aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
-      {{ theme === 'dark' ? 'Light mode' : 'Dark mode' }}
+      {{ $t(theme === 'dark' ? 'theme.light' : 'theme.dark') }}
     </button>
   </div>
 </template>

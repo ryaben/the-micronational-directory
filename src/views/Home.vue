@@ -44,73 +44,36 @@ onMounted(async () => {
           height="47">
         <span>THE MICRONATIONAL DIRECTORY</span>
       </div>
-      <p class="hero-copy">Discover the micronations and organizations shaping our community, across the world and
-        throughout history. <b>The way it was always meant to be.</b></p>
+      <p class="hero-copy">{{ $t('home.heroCopy') }} <b>{{ $t('home.heroTagline') }}</b></p>
       <div class="hero-actions">
-        <router-link class="home-action primary" to="/directory">Explore the directory <span
+        <router-link class="home-action primary" to="/directory">{{ $t('home.explore') }} <span
             aria-hidden="true">→</span></router-link>
-        <router-link class="home-action secondary" to="/global-map">View the world map</router-link>
+        <router-link class="home-action secondary" to="/global-map">{{ $t('home.viewMap') }}</router-link>
       </div>
     </div>
     <div class="home-content-grid">
       <aside class="social-column">
         <div class="section-heading">
-          <h2>Latest updates</h2>
+          <h2>{{ $t('home.latestUpdates') }}</h2>
         </div>
         <div class="social-feed">
-          <p v-if="postsLoading" class="posts-status" role="status">Loading updates…</p>
+          <p v-if="postsLoading" class="posts-status" role="status">{{ $t('home.loadingUpdates') }}</p>
           <XPostCard v-for="post in posts" :key="post.id" :post="post" />
           <a v-if="!postsLoading && !posts.length" class="posts-status posts-unavailable"
             href="https://x.com/the_micro_direc" target="_blank" rel="noopener noreferrer">
-            Updates couldn’t load. View the account on X ↗
+            {{ $t('home.postsUnavailable') }}
           </a>
         </div>
       </aside>
       <article class="intro-card">
         <div class="section-heading">
-          <h2>Small nations. Big stories.</h2>
+          <h2>{{ $t('home.smallNations') }}</h2>
         </div>
-        <div class="intro-copy">
-          <p>
-            <a href="https://en.wikipedia.org/wiki/Micronation" target="_blank"><b>Micronations</b></a> are quite a
-            particular political phenomena
-            that have decades, and even arguably centuries of existence. There could be many different reasons for a
-            micronation to be founded
-            and to aspire for a long run of activity, and legacy. Some cases may be linked with ethnicity or social
-            conflicts, others are a demonstration of
-            political debate and experiment, there are also fraudulent scams, as well as examples of mere exercise of
-            the human imagination or ambition, and some are even basically jokes. No matter the origin, they all share
-            a common root: their founders and citizens <span class="italicized">
-              "[...] claim that they belong to an independent nation or sovereign state, but which lacks legal
-              recognition by world governments or major international organizations [...]"</span>, as described by
-            Wikipedia.
-          </p>
-          <p>
-            These small political entities are scattered all around the world. That means not only Earth, but also the
-            digital realm and some even
-            have territorial pretensions over other planets and the space itself. But also within a vast range of time:
-            there are cases that can fall
-            within this category that were founded in the 19th century, and up to this day, when nowadays social media
-            provide home to a plethora of virtual
-            micronations.
-          </p>
-          <p>
-            The goal of <b>The Micronational Directory</b> team of micronationalists and developers is
-            to build <router-link :to="'/directory'">the most complete and unified list of entries
-              for micronations</router-link> as possible, in order to have a common,
-            massive database for listing everything in one place, inspite of characteristics and criteria.
-            It's not the intention of this website to dive deeper in debate or description, nor to
-            compose an article for each case, since there are other well-renowned previously-existing platforms for this
-            purpose, such as
-            <a href="https://micronations.wiki/wiki/Main_Page" target="_blank">MicroWiki</a>
-            and <a href="https://sites.google.com/view/micro-flag-archive" target="_blank">Micro Flag Archive</a>.
-            Let's accomplish this together, leave your mark and create the place that our community deserves!
-          </p>
-        </div>
+        <div class="intro-copy" v-html="$t('home.introContent')"></div>
       </article>
       <aside class="featured-card">
         <div class="section-heading">
-          <h2>Featured entry</h2>
+          <h2>{{ $t('home.featured') }}</h2>
         </div>
         <img v-if="randomEntry === undefined" class="loading-image" src="/images/loading.gif" alt="Loading">
         <DirectoryEntry id="randomEntry" v-if="randomEntry !== undefined" :width="220"
@@ -133,7 +96,7 @@ onMounted(async () => {
             approved: randomEntry.approved,
             creationDate: randomEntry.creationDate
           }" />
-        <router-link class="text-link" to="/directory">Browse all entries <span
+        <router-link class="text-link" to="/directory">{{ $t('home.browseAll') }} <span
             aria-hidden="true">→</span></router-link>
       </aside>
     </div>

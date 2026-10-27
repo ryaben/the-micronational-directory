@@ -20,7 +20,7 @@ defineEmits(['toggle'])
     :class="{ active }"
     :aria-pressed="active"
     :disabled="disabled"
-    :title="disabled ? 'This info is uncertain' : 'Mark this value as uncertain'"
+    :title="$t(disabled ? 'uncertainty.uncertain' : 'uncertainty.mark')"
     @click="$emit('toggle')"
   >
     ?

@@ -31,15 +31,15 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
         <img
           class="welcome-mark"
           src="/images/brand/plain-logo1.png"
-          alt="The Micronational Directory logo"
+          :alt="$t('footer.brandAlt')"
         />
-        <h1>Small nations.<br /><span>Big stories.</span></h1>
+        <h1>{{ $t('login.headlineOne') }}<br /><span>{{ $t('login.headlineTwo') }}</span></h1>
         <p class="welcome-copy">
-          A home for the people, places and projects preserving micronational worlds.
+          {{ $t('login.welcome') }}
         </p>
         <div class="welcome-note">
           <span class="note-dot"></span>
-          <span>Discover the community. Add your chapter.</span>
+          <span>{{ $t('login.discover') }}</span>
         </div>
       </aside>
 
@@ -47,17 +47,17 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
         <Transition name="auth-content" mode="out-in">
           <div :key="isSigningUp ? 'signup' : 'login'" class="auth-content">
             <div class="form-heading">
-              <h2 id="loginTitle">{{ isSigningUp ? 'Join the directory' : 'Welcome back' }}</h2>
+              <h2 id="loginTitle">{{ $t(isSigningUp ? 'login.join' : 'login.welcomeBack') }}</h2>
               <p id="loginSubtitle">
                 {{
                   isSigningUp
-                    ? 'Create an account to add entries and take part.'
-                    : 'Log in to continue where you left off.'
+                    ? $t('login.joinDescription')
+                    : $t('login.loginDescription')
                 }}
               </p>
             </div>
 
-            <div class="auth-switch" role="tablist" aria-label="Account action">
+            <div class="auth-switch" role="tablist" :aria-label="$t('login.accountAction')">
               <button
                 type="button"
                 role="tab"
@@ -65,7 +65,7 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
                 :class="{ active: !isSigningUp }"
                 @click="isSigningUp = false"
               >
-                Log in
+                {{ $t('login.logIn') }}
               </button>
               <button
                 type="button"
@@ -74,23 +74,23 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
                 :class="{ active: isSigningUp }"
                 @click="isSigningUp = true"
               >
-                Create account
+                {{ $t('login.create') }}
               </button>
             </div>
 
             <form class="auth-fields" @submit.prevent="isSigningUp ? signup() : login()">
-              <label v-if="isSigningUp" for="loginName">Your name</label>
+              <label v-if="isSigningUp" for="loginName">{{ $t('login.yourName') }}</label>
               <input
                 v-if="isSigningUp"
                 class="login-input"
                 type="text"
                 id="loginName"
                 v-model="loginName"
-                placeholder="How should we call you?"
+                :placeholder="$t('login.namePlaceholder')"
                 autocomplete="name"
                 required
               />
-              <label for="loginEmail">Email address</label>
+              <label for="loginEmail">{{ $t('login.email') }}</label>
               <input
                 class="login-input"
                 type="email"
@@ -101,14 +101,14 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
                 autocomplete="email"
               />
               <div class="password-label-row">
-                <label for="loginPassword">Password</label>
+                <label for="loginPassword">{{ $t('login.password') }}</label>
                 <button
                   v-if="!isSigningUp"
                   id="forgotPassword"
                   type="button"
                   @click="resetPassword"
                 >
-                  Forgot password?
+                  {{ $t('login.forgot') }}
                 </button>
               </div>
               <input
@@ -117,27 +117,27 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
                 id="loginPassword"
                 v-model="loginPassword"
                 required
-                placeholder="Enter your password"
+                :placeholder="$t('login.enterPassword')"
                 :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
               />
               <button class="login-button color-transition" type="submit" :disabled="isSubmitting">
                 <span v-if="isSubmitting" class="login-spinner" aria-hidden="true"></span>
                 <template v-else
-                  >{{ isSigningUp ? 'Create account' : 'Log in' }}
+                  >{{ $t(isSigningUp ? 'login.create' : 'login.logIn') }}
                   <span aria-hidden="true">→</span></template
                 >
                 <span v-if="isSubmitting" class="sr-only">{{
-                  isSigningUp ? 'Creating account' : 'Logging in'
+                  $t(isSigningUp ? 'login.creating' : 'login.loggingIn')
                 }}</span>
               </button>
             </form>
             <p class="form-footnote">
-              {{ isSigningUp ? 'Already have an account?' : 'New to TMD?' }}
+              {{ $t(isSigningUp ? 'login.alreadyHave' : 'login.newTo') }}
               <button type="button" @click="isSigningUp = !isSigningUp">
-                {{ isSigningUp ? 'Log in' : 'Create an account' }}
+                {{ $t(isSigningUp ? 'login.logIn' : 'login.create') }}
               </button>
             </p>
-            <div class="social-login-divider" aria-hidden="true"><span>or</span></div>
+            <div class="social-login-divider" aria-hidden="true"><span>{{ $t('login.or') }}</span></div>
             <button
               class="google-login-button"
               type="button"
@@ -146,7 +146,7 @@ import GoogleIcon from '../components/icons/GoogleIcon.vue'
             >
               <span v-if="isSubmitting" class="login-spinner" aria-hidden="true"></span>
               <GoogleIcon v-else class="google-icon" aria-hidden="true" />
-              <span>Continue with Google</span>
+              <span>{{ $t('login.continueGoogle') }}</span>
             </button>
           </div>
         </Transition>
