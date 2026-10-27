@@ -56112,7 +56112,7 @@
     "type": [
       "Physical"
     ],
-    "capital": "Lorch am Rhein",
+    "capital": "Lorch",
     "currency": "Freistaattaler, German mark, French franc",
     "memberships": [],
     "foundationDate": {
@@ -56125,9 +56125,20 @@
     "creationDate": {
       "_seconds": 1793056934
     },
-    "createdAt": "2026-10-26T23:22:14Z",
-    "isEdit": false,
-    "id": "4p1DXSKfA9EIyMzeD5ZU"
+    "createdAt": "2026-10-27T14:58:02Z",
+    "isEdit": true,
+    "id": "4p1DXSKfA9EIyMzeD5ZU",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793113082
+        }
+      }
+    ]
   },
   {
     "name": {
