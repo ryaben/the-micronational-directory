@@ -35,6 +35,40 @@
     "donate": "Donar",
     "terms": "Términos de concursos"
   },
+  "aboutPage": {
+    "title": "Un hogar para el conocimiento micronacional",
+    "intro": "Es difícil saber cuándo surgió la idea de <b>The Micronational Directory</b>, porque podría decirse que existía como una fantasía antes de desarrollarse formalmente. Su creación <i>per se</i> ocurrió durante los primeros días de agosto de 2023 y, poco después (el 31 de agosto, en concreto), la plataforma se lanzó oficialmente en su primera versión <i>beta</i>.",
+    "team": "Nuestro equipo está formado por algunos micronacionalistas (que también son desarrolladores web), guiados y motivados por el mismo espíritu que impulsa a muchos otros micronacionalistas: una inexplicable sed de conocer cada vez más estos fenómenos políticos que todos contribuimos a crear. Pero no se trata solo de eso: también queremos ofrecer un recurso completo, preciso, escalable, accesible, universal y permanente para registrar todo ese conocimiento. Por eso decidimos participar: <b>TMD</b> no tiene otro propósito.",
+    "mission": "Sí, suena muy ambicioso, y existen otras plataformas con una función similar. Sin embargo, no pueden garantizar todos esos objetivos a la vez. Por los principios sobre los que se funda este Directorio, creemos que podemos reunir todo lo necesario para lograrlo. Con Vue.js 3 y Google Firebase para gestionar los datos, el resultado es una aplicación web moderna, rápida y robusta que permite buscar <i>cualquier</i> micronación en un solo lugar. Y qué mejor que compartir esta iniciativa con nuestros colegas de la comunidad: aquí podemos registrar entre todos nuestras creaciones, las micronaciones de ayer, hoy y mañana, sin importar de dónde sean. ¡Deja tu huella!",
+    "admin": "Administrador de The Micronational Directory",
+    "videoTitle": "Acerca de The Micronational Directory",
+    "specialThanks": "Agradecimientos especiales a",
+    "microflag": "<a href=\"https://microflag.net/\" target=\"_blank\">MicroFlag</a>, por colaborar y asociarse con nosotros para ofrecer premios a nuestros usuarios durante eventos y concursos.",
+    "luisFelipeLugo": "<span class=\"underlined\">Luis Felipe Lugo</span> (<b>lflugo</b>), por aportar más de 50 entradas al Directorio, principalmente sobre micronaciones hispanohablantes y de la OMU. Puedes contactarlo por <a href=\"mailto:eldoradogov@hotmail.com\">correo electrónico</a> o por <a href=\"https://twitter.com/luisfelugo\" target=\"_blank\">X (antes Twitter)</a>.",
+    "similarProjects": "Proyectos similares que recomendamos",
+    "microwiki": "<a href=\"https://micronations.wiki/wiki/Main_Page\" target=\"_blank\">MicroWiki</a>, la mayor enciclopedia en línea sobre micronaciones: naciones pequeñas y a menudo bastante excéntricas que no reconoce la comunidad internacional en general. Este sitio legendario se fundó en mayo de 2005 y está disponible en más de 10 idiomas.",
+    "microFlagArchive": "<a href=\"https://sites.google.com/view/micro-flag-archive\" target=\"_blank\">Micro Flag Archive</a>, una iniciativa obscuriana que ofrece un archivo en línea de símbolos estatales micronacionales. Es una magnífica biblioteca vexilológica con un propósito único dentro de esta comunidad.",
+    "tam": "<a href=\"http://mikronacioj.org/\" target=\"_blank\">Tutmonda Alianco de Mikronacioj</a>, una institución que busca reconocer proyectos micronacionales serios mediante un sistema de evaluación creado y regulado por sus miembros, y publicar una clasificación correspondiente.",
+    "banknoteMuseum": "<a href=\"https://mnbanknotes.neocities.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Micronational Banknote Museum</a>, un museo y archivo en línea dedicado a los billetes micronacionales y a las historias que los acompañan.",
+    "featuredIn": "TMD en los medios",
+    "micronacionesArticle": "<a href=\"https://micronaciones.com/avanza-el-desarrollo-del-proyecto-the-micronational-directory/\" target=\"_blank\">Artículo de prensa</a> sobre el próximo lanzamiento de la plataforma, publicado por <a href=\"https://micronaciones.com/\" target=\"_blank\">Micronaciones.com</a>, uno de los portales de noticias sobre micronaciones en español más reconocidos.",
+    "dailyStarArticle": "<a href=\"https://coiningoverment.blogspot.com/2023/08/your-go-to-micronational-news-source_25.html\" target=\"_blank\">Artículo de prensa</a> sobre el próximo lanzamiento de la plataforma, publicado por The Daily Star, parte del <a href=\"https://coiningoverment.blogspot.com/\" target=\"_blank\">Coinin Free State News Service</a>.",
+    "morielArticle": "<a href=\"http://morielpress.blogspot.com/2023/08/avanza-el-desarrollo-del-proyecto.html\" target=\"_blank\">Artículo de prensa</a> sobre el próximo lanzamiento de la plataforma, publicado por Moriel Prensa, el diario estatal de <a href=\"https://gobierno-nacional-moriel.blogspot.com/\" target=\"_blank\">Moriel</a>.",
+    "laGacetaArticle": "<a href=\"https://lagaceta-eldorado.blogspot.com/2023/09/el-dorado-comienza-participacion-activa.html\" target=\"_blank\">Artículo de prensa</a> sobre la participación de El Dorado en TMD, publicado por <a href=\"https://lagaceta-eldorado.blogspot.com/\" target=\"_blank\">La Gaceta</a>.",
+    "batyrTimesArticle": "<a href=\"https://www.hasanistan.world/2023/11/batyr-times-interviews-micronational.html\" target=\"_blank\">Entrevista</a> sobre la misión, visión, objetivos y logros de TMD, realizada por <a href=\"https://www.hasanistan.world/\" target=\"_blank\">Batyr Times</a>, el periódico digital oficial de Hasanistán.",
+    "doveArchivesArticle": "<a href=\"https://www.dovearchives.wiki/wiki/The_Micronational_Directory\" target=\"_blank\">Artículo enciclopédico</a> que describe aspectos generales de The Micronational Directory. Lo creó Malus y está alojado en <a href=\"https://www.dovearchives.wiki\" target=\"_blank\">Dove Archives</a>."
+  },
+  "donatePage": {
+    "intro": "Como <b>The Micronational Directory</b> es un proyecto independiente y no recibe patrocinio, se financia por completo con los ingresos personales del equipo, que también mantiene el sitio en su tiempo libre. Estos son los servicios que usamos y los gastos que afrontamos cada mes:",
+    "vercel": "<a href=\"https://vercel.com/\" target=\"_blank\">Vercel</a>: Este proveedor aloja nuestra aplicación web Vue.js y permite que cualquier persona acceda a ella por Internet. Vercel ofrece la URL base de TMD (https://the-micronational-directory.vercel.app/). Actualmente <b>no tenemos costos</b> por este servicio, aunque eso podría cambiar en el futuro.",
+    "nic": "<a href=\"https://nic.ar/\" target=\"_blank\">Nic.ar</a>: Es el registrador oficial de dominios de Argentina. Adquirimos un dominio propio para la aplicación web, probablemente la dirección desde la que accediste al sitio. El plan cuesta aproximadamente <b>1 USD al año</b>.",
+    "firebase": "<a href=\"https://firebase.google.com/\" target=\"_blank\">Google Firebase</a>: Esta solución de backend almacena y procesa la información de las entradas de micronaciones, las cuentas de usuario y los concursos. También ofrece bases de datos, autenticación y almacenamiento de banderas. Los costos según el uso son bajos por ahora (<b>alrededor de 0,10 USD al mes</b>), pero pueden aumentar con el tráfico y el uso del sitio.",
+    "mapbox": "<a href=\"https://www.mapbox.com/\" target=\"_blank\">Mapbox</a>: Usamos este servicio para mostrar mapas al añadir micronaciones físicas o visualizar todas las entradas en el globo. El plan gratuito cubre cierta cantidad mensual de cargas de mapas, que el tráfico actual aún no supera, aunque eso podría cambiar.",
+    "emailjs": "<a href=\"https://www.emailjs.com/\" target=\"_blank\">EmailJS</a>: Usamos principalmente este servicio para enviar correos automáticos a los autores cuando sus contribuciones se aprueban o rechazan, además de otros avisos. El plan gratuito, limitado a 200 correos al mes, no alcanza. El plan básico de pago cuesta <b>9 USD al mes</b> y estamos evaluando contratarlo.",
+    "thanks": "Gracias por dedicar tiempo a conocer nuestro proyecto y cómo funciona. Si valoras nuestro trabajo y tienes la posibilidad y el interés de apoyar la plataforma con una donación, te lo agradeceremos mucho. ¡Cualquier aporte es bienvenido!<br>Estos son los medios que aceptamos actualmente:",
+    "ethAddressAlt": "Dirección para donar Ethereum",
+    "btcAddressAlt": "Dirección para donar Bitcoin"
+  },
   "directory": {
     "flagAlt": "Bandera",
     "languages": "Idiomas",
@@ -103,6 +137,8 @@
   },
   "common": {
     "close": "Cerrar",
+    "cancel": "Cancelar",
+    "select": "Seleccionar",
     "notListed": "No especificado",
     "unknown": "Desconocido",
     "loadingDirectory": "Cargando directorio…",
@@ -383,7 +419,7 @@
     "localFile": "Archivo local",
     "externalUrl": "URL externa",
     "preview": "Vista previa de la entrada",
-    "add": "Agregar",
+    "add": "Añadir",
     "ask": "Consúltanos cualquier duda",
     "templateLink": "descarga esta plantilla o usa su URL",
     "messages": {

@@ -1,5 +1,6 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
+import { language } from '../composables/userSettings.js'
 import { auth } from '../firebase/auth.js'
 import { notify } from '@kyvg/vue3-notification'
 import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions'
@@ -563,6 +564,9 @@ const emit = defineEmits([
               />
               <VueDatePicker
                 v-model="foundationDate"
+                :locale="language === 'es' ? 'es-419' : 'en-US'"
+                :cancel-text="$t('common.cancel')"
+                :select-text="$t('common.select')"
                 :enable-time-picker="false"
                 :dark="theme === 'dark'"
                 month-name-format="long"
