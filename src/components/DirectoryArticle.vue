@@ -286,6 +286,7 @@ defineProps({
         :next="info.next"
         :author="info.author"
         :creation-date="info.creationDate"
+        :edit-history="info.editHistory"
       />
     </div>
   </Transition>

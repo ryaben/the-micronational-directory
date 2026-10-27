@@ -738,9 +738,10 @@ export default {
           const targetId = entry.editTargetId || entry.directoryEntryId
           const targetIndex = currentData.findIndex((item) => String(item.id) === String(targetId))
           if (targetIndex < 0) throw new Error(`The directory entry ${targetId} no longer exists.`)
-          persistedEntry.id = currentData[targetIndex].id
-          persistedEntry.creationDate = currentData[targetIndex].creationDate || persistedEntry.creationDate
-          persistedEntry.author = currentData[targetIndex].author || persistedEntry.author
+          const publishedEntry = currentData[targetIndex]
+          persistedEntry.id = publishedEntry.id
+          persistedEntry.creationDate = publishedEntry.creationDate || persistedEntry.creationDate
+          persistedEntry.author = publishedEntry.author || persistedEntry.author
           updatedData = [...currentData]
           updatedData[targetIndex] = { ...currentData[targetIndex], ...persistedEntry }
         } else {

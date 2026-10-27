@@ -1,18 +1,14 @@
 <script setup>
+import ContributionHistoryDropdown from './ContributionHistoryDropdown.vue'
+
 defineProps({
   routeBase: { type: String, required: true },
   previous: { type: String, default: '' },
   next: { type: String, default: '' },
-  author: { type: String, default: '' },
-  creationDate: { type: [Object, String, Number], default: null }
+  author: { type: [String, Object], default: '' },
+  creationDate: { type: [Object, String, Number], default: null },
+  editHistory: { type: Array, default: () => [] }
 })
-
-function cleanTimestamp(timestamp) {
-  const seconds = timestamp?._seconds ?? timestamp?.seconds
-  const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp)
-  if (Number.isNaN(date.getTime())) return 'Unknown'
-  return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date)
-}
 </script>
 
 <template>
@@ -22,7 +18,11 @@ function cleanTimestamp(timestamp) {
       <span class="profile-option-label">← Previous</span>
       <span class="profile-option-name">{{ previous }}</span>
     </router-link>
-    <span class="article-text contribution-info">Submitted by <b>{{ author }}</b> on {{ cleanTimestamp(creationDate) }}.</span>
+    <ContributionHistoryDropdown
+      :author="author"
+      :creation-date="creationDate"
+      :edit-history="editHistory"
+    />
     <router-link v-if="next" :to="`${routeBase}/${next}`" class="profile-option login-button color-transition">
       <span class="profile-option-label">Next →</span>
       <span class="profile-option-name">{{ next }}</span>

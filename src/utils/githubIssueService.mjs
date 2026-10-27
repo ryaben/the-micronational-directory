@@ -33,6 +33,7 @@ function formatEntryForJSON(entryData, entryType) {
     approved: false
   }
   if (Array.isArray(entryData.uncertain)) formatted.uncertain = entryData.uncertain
+  if (Array.isArray(entryData.editHistory)) formatted.editHistory = entryData.editHistory
 
   if (entryType === 'micronation') {
     formatted.flag = entryData.flagFile ? `/images/flags/${entryData.flagFile.name}` : entryData.flag || ''
@@ -83,7 +84,16 @@ export async function createGitHubIssueWithCredentials(entryData, entryType, opt
   const mainName = entryData.name?.main || entryData.name || 'Unnamed'
   const isEdit = !!options.editTargetId
   const title = `${isEdit ? 'Edit' : 'New'} ${entryType} submission: ${mainName}`
-  if (isEdit) formattedData.editTargetId = options.editTargetId
+  if (isEdit) {
+    formattedData.editTargetId = options.editTargetId
+    const editedAt = new Date()
+    const editHistory = Array.isArray(formattedData.editHistory) ? [...formattedData.editHistory] : []
+    editHistory.push({
+      author: entryData.author || { name: 'Unknown', email: '' },
+      date: { _seconds: Math.floor(editedAt.getTime() / 1000) }
+    })
+    formattedData.editHistory = editHistory
+  }
 
   let base64Content = ''
   if (fileData?.data) {

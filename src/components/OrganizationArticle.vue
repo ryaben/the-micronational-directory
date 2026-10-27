@@ -107,7 +107,7 @@ defineProps({
             </div>
 
             <ProfileArticleNavigation v-if="!preview" :route-base="'/organizations'" :previous="info.previous" :next="info.next"
-                :author="info.author" :creation-date="info.creationDate" />
+                :author="info.author" :creation-date="info.creationDate" :edit-history="info.editHistory" />
         </div>
     </Transition>
 </template>
