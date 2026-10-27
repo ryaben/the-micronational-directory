@@ -4,7 +4,8 @@ import { db } from '../firebase/firestore.js'
 import { ensureUserDocument } from '../firebase/userProfile.js'
 
 export const theme = ref(localStorage.getItem('tmd-theme') || 'dark')
-export const language = ref(localStorage.getItem('tmd-language') || 'english')
+const savedLanguage = localStorage.getItem('tmd-language')
+export const language = ref(savedLanguage === 'spanish' || savedLanguage === 'es' ? 'es' : 'en')
 
 let activeUserId = null
 let authLoadVersion = 0
@@ -34,6 +35,7 @@ export function setTheme(value) {
 }
 
 export function setLanguage(value) {
+  if (value !== 'en' && value !== 'es') return
   language.value = value
   preferenceVersion += 1
   persistSetting('language', value)
@@ -53,7 +55,9 @@ export async function loadUserSettings(user) {
     const settings = snapshot.data().settings || {}
     if (preferenceVersion !== initialPreferenceVersion) return
     if (typeof settings.darkMode === 'boolean') theme.value = settings.darkMode ? 'dark' : 'light'
-    if (typeof settings.language === 'string') language.value = settings.language
+    if (typeof settings.language === 'string') {
+      language.value = settings.language === 'spanish' || settings.language === 'es' ? 'es' : 'en'
+    }
   } catch (error) {
     console.warn('Unable to load user settings from Firestore:', error)
   }

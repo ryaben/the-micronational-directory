@@ -333,6 +333,8 @@ const findPublishedEntry = (entry) => {
 </template>
 
 <script>
+import { formatDate, dateFormats } from '../i18n.js'
+
 export default {
   components: {
     OrganizationEntry,
@@ -449,14 +451,7 @@ export default {
       this.selectedEntryType = type
     },
     formatSubmissionDate(value) {
-      if (!value) return ''
-      const date = new Date(value)
-      if (Number.isNaN(date.getTime())) return ''
-      return new Intl.DateTimeFormat('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      }).format(date)
+      return value ? formatDate(value, dateFormats.compact) : ''
     },
     openEntryProfile(item, type) {
       if (this.moderationAction) return

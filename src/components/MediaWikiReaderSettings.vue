@@ -93,55 +93,55 @@ watch(pagedEntries, entries => emit('loaded-directory', entries), { immediate: t
   <div class="wiki-reader-settings" aria-label="Article list controls">
     <div class="settings-heading">
       <div>
-        <h3>Browse articles</h3>
+        <h3>{{ $t('reader.browseArticles') }}</h3>
       </div>
       <div class="matched-count" aria-live="polite">
         <strong>{{ filteredEntries.length }}</strong>
-        <span>matched</span>
+        <span>{{ $t('reader.matched') }}</span>
       </div>
     </div>
 
     <div class="settings-fields">
       <label class="control-field search-field">
-        <span>Search articles</span>
+        <span>{{ $t('reader.searchArticles') }}</span>
         <input v-model="searchQuery" type="search" placeholder="Search by name...">
       </label>
 
       <label class="control-field">
-        <span>Initial letter</span>
+        <span>{{ $t('reader.initialLetter') }}</span>
         <select v-model="selectedLetter">
-          <option value="">Any letter</option>
+          <option value="">{{ $t('reader.anyLetter') }}</option>
           <option v-for="letter in letters" :key="letter" :value="letter">{{ letter }}</option>
         </select>
       </label>
 
       <label class="control-field">
-        <span>Sort by</span>
+        <span>{{ $t('reader.sortBy') }}</span>
         <select v-model="sortBy">
-          <option value="latestAdded">Latest added</option>
-          <option value="oldestAdded">Oldest added</option>
-          <option value="ascending">Name (A–Z)</option>
-          <option value="descending">Name (Z–A)</option>
-          <option value="random">Random</option>
+          <option value="latestAdded">{{ $t('reader.latestAdded') }}</option>
+          <option value="oldestAdded">{{ $t('reader.oldestAdded') }}</option>
+          <option value="ascending">{{ $t('reader.nameAsc') }}</option>
+          <option value="descending">{{ $t('reader.nameDesc') }}</option>
+          <option value="random">{{ $t('reader.random') }}</option>
         </select>
       </label>
 
       <label class="control-field page-size-field">
-        <span>Entries per page</span>
+        <span>{{ $t('reader.perPage') }}</span>
         <input v-model.number="entriesPerPage" type="number" min="1" max="10000">
       </label>
     </div>
 
     <div class="pagination-controls">
       <button type="button" class="page-button" :disabled="safeCurrentPage <= 1"
-        aria-label="Previous page" @click="currentPage = safeCurrentPage - 1">‹</button>
+        :aria-label="$t('reader.previous')" @click="currentPage = safeCurrentPage - 1">‹</button>
       <label class="current-page-control">
-        <span>Page</span>
+        <span>{{ $t('reader.page') }}</span>
         <input v-model.number="currentPage" type="number" min="1" :max="totalPages">
-        <span>of {{ totalPages }}</span>
+        <span>{{ $t('reader.of') }} {{ totalPages }}</span>
       </label>
       <button type="button" class="page-button" :disabled="safeCurrentPage >= totalPages"
-        aria-label="Next page" @click="currentPage = safeCurrentPage + 1">›</button>
+        :aria-label="$t('reader.next')" @click="currentPage = safeCurrentPage + 1">›</button>
     </div>
   </div>
 </template>

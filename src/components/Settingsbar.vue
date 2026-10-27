@@ -65,7 +65,7 @@ defineProps({
         :class="{ 'without-count': hiddenSubcontainers.includes('Total') }"
         v-if="availableSettingsTabs.length"
       >
-        <div class="settings-tabs" role="tablist" aria-label="Directory settings">
+        <div class="settings-tabs" role="tablist" :aria-label="$t('settingsTabs.Directory settings')">
           <button
             v-for="tab in availableSettingsTabs"
             :key="tab.id"
@@ -76,12 +76,12 @@ defineProps({
             :id="`settings-tab-${tab.id}`"
             :aria-selected="activeSettingsTab === tab.id"
             :aria-controls="`settings-panel-${tab.id}`"
-            :aria-label="tab.label"
-            :title="tab.label"
+            :aria-label="$t(`settingsTabs.${tab.id}`)"
+            :title="$t(`settingsTabs.${tab.id}`)"
             @click="activeSettingsTab = tab.id"
           >
             <component :is="tabIcons[tab.id]" class="settings-tab-icon" />
-            <span class="settings-tab-label">{{ tab.label }}</span>
+            <span class="settings-tab-label">{{ $t(`settingsTabs.${tab.id}`) }}</span>
           </button>
         </div>
 
@@ -95,12 +95,12 @@ defineProps({
               role="tabpanel"
               :aria-labelledby="`settings-tab-${activeSettingsTab}`"
             >
-              <SettingsSubcontainer v-if="activeSettingsTab === 'Pages'" text="Pages">
+              <SettingsSubcontainer v-if="activeSettingsTab === 'Pages'" :text="$t('settingsTabs.Pages')">
                 <SettingsSubcontainerParameter :centered="true">
-                  <label>Entries/page</label>
+                  <label>{{ $t('common.entriesPerPage') }}</label>
                   <input
                     id="entriesPerPageInput"
-                    placeholder="Input an amount"
+                    :placeholder="$t('settings.inputAmount')"
                     min="1"
                     :max="maxTotalLoad"
                     type="number"
@@ -130,7 +130,7 @@ defineProps({
                     </button>
                     <input
                       id="currentPage"
-                      placeholder="Page"
+                      :placeholder="$t('settings.page')"
                       min="1"
                       :max="totalPages"
                       type="number"
@@ -156,21 +156,21 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Filter'" text="Filter">
+              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Filter'" :text="$t('settingsTabs.Filter')">
                 <SettingsSubcontainerParameter class="filter-field">
-                  <label for="filterInput">Search</label>
+                  <label for="filterInput">{{ $t('common.search') }}</label>
                   <input
                     id="filterInput"
                     v-model="inputFilter"
                     type="text"
-                    placeholder="Search name..."
+                    :placeholder="$t('settings.searchName')"
                   />
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field">
-                  <label for="initialLetter">Initial letter</label>
+                  <label for="initialLetter">{{ $t('common.initialLetter') }}</label>
                   <select name="initialLetter" id="initialLetter" v-model="initialFilter">
                     <optgroup>
-                      <option value="none">Any</option>
+                      <option value="none">{{ $t('common.any') }}</option>
                     </optgroup>
                     <optgroup class="letters-group">
                       <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">
@@ -180,7 +180,7 @@ defineProps({
                   </select>
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field filter-mode">
-                  <label>Show</label>
+                  <label>{{ $t('settings.show') }}</label>
                   <div class="filter-mode-options">
                     <div>
                       <input
@@ -190,7 +190,7 @@ defineProps({
                         value="all"
                         v-model="favoritesFilter"
                       />
-                      <label :for="`${storeGetter}-show-all`">All</label>
+                      <label :for="`${storeGetter}-show-all`">{{ $t('common.all') }}</label>
                     </div>
                     <div>
                       <input
@@ -201,13 +201,13 @@ defineProps({
                         :disabled="!currentUser"
                         v-model="favoritesFilter"
                       />
-                      <label :for="`${storeGetter}-show-favorites`">Favorites only</label>
+                      <label :for="`${storeGetter}-show-favorites`">{{ $t('common.favorites') }}</label>
                     </div>
                   </div>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" text="Sort">
+              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" :text="$t('settingsTabs.Sort')">
                 <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
@@ -218,7 +218,7 @@ defineProps({
                       v-model="entrySorting"
                       @change="sortMicronations"
                     />
-                    <label for="sortA-Z">Name (A-Z)</label>
+                    <label for="sortA-Z">{{ $t('settings.nameAZ') }}</label>
                   </div>
                   <div>
                     <input
@@ -229,7 +229,7 @@ defineProps({
                       v-model="entrySorting"
                       @change="sortMicronations"
                     />
-                    <label for="sortZ-A">Name (Z-A)</label>
+                    <label for="sortZ-A">{{ $t('settings.nameZA') }}</label>
                   </div>
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="sort-radio-group">
@@ -242,7 +242,7 @@ defineProps({
                       v-model="entrySorting"
                       @change="sortMicronations"
                     />
-                    <label for="sortLatestAdded">Latest added</label>
+                    <label for="sortLatestAdded">{{ $t('settings.latest') }}</label>
                   </div>
                   <div>
                     <input
@@ -253,7 +253,7 @@ defineProps({
                       v-model="entrySorting"
                       @change="sortMicronations"
                     />
-                    <label for="sortOldestAdded">Oldest added</label>
+                    <label for="sortOldestAdded">{{ $t('settings.oldest') }}</label>
                   </div>
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="sort-radio-group">
@@ -266,14 +266,14 @@ defineProps({
                       v-model="entrySorting"
                       @change="sortMicronations"
                     />
-                    <label for="sortRandom">Random</label>
+                    <label for="sortRandom">{{ $t('settings.random') }}</label>
                   </div>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Display'" text="Display">
+              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Display'" :text="$t('settingsTabs.Display')">
                 <SettingsSubcontainerParameter :centered="true">
-                  <label ref="cardSizeLabel">Card size</label>
+                  <label ref="cardSizeLabel">{{ $t('common.cardSize') }}</label>
                   <input
                     type="range"
                     min="50"
@@ -294,7 +294,7 @@ defineProps({
                       v-model="fixedHeight"
                       @change="updateFixedHeight"
                     />
-                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">Fixed height</label>
+                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">{{ $t('common.fixedHeight') }}</label>
                   </div>
                   <input
                     type="range"
@@ -310,7 +310,7 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" text="Flags">
+              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" :text="$t('settingsTabs.Flags')">
                 <SettingsSubcontainerParameter :centered="true">
                   <button
                     id="generateCollage"
@@ -318,7 +318,7 @@ defineProps({
                     :disabled="generatingCollage"
                     @click="generateCollage"
                   >
-                    {{ generatingCollage ? 'Generating…' : 'Generate\ncollage' }}
+                    {{ generatingCollage ? $t('settings.generating') : $t('settings.generate') }}
                   </button>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
@@ -331,7 +331,7 @@ defineProps({
           class="matching-entries-container"
           aria-live="polite"
         >
-          <span class="matching-entries-label">Matched entries</span>
+          <span class="matching-entries-label">{{ $t('common.matched') }}</span>
           <strong>{{ visibleElements.length }}</strong>
         </div>
       </div>
@@ -339,11 +339,11 @@ defineProps({
 
     <div v-if="!directoryLoaded" class="loading-image-container">
       <img class="loading-image" src="/images/loading.gif" alt="Loading" />
-      <label>Loading Directory...</label>
+      <label>{{ $t('settings.loading') }}</label>
     </div>
 
     <p class="no-results" v-if="directoryLoaded && !pagedElements.length">
-      There are no matching results for this filter.
+      {{ $t('settings.noResults') }}
     </p>
   </div>
 </template>

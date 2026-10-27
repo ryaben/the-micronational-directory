@@ -17,7 +17,10 @@ import UncertaintyToggle from './UncertaintyToggle.vue'
 import { createGitHubIssue } from '../utils/githubFunctions.js'
 import { createFirestoreStyleId } from '../utils/firestoreStyleId.js'
 import { buildTooltipTexts } from '../utils/entryFieldGuidance.js'
-import { matchesWholeWords as matchWholeNameWords, micronationNameVariants } from '../utils/nameMatching.mjs'
+import {
+  matchesWholeWords as matchWholeNameWords,
+  micronationNameVariants
+} from '../utils/nameMatching.mjs'
 import imageCompression from 'browser-image-compression'
 import ChevronDownIcon from './icons/ChevronDownIcon.vue'
 import '@vuepic/vue-datepicker/dist/main.css'
@@ -109,12 +112,9 @@ const emit = defineEmits([
     >
       <div class="new-entry-content">
         <p v-if="!isModerationEditor" class="new-entry-intro">
-          Please, carefully read instructions for all fields. Fields with an asterisk (*) are
-          mandatory to fill, the others can be blank. <br />Help us save moderation efforts!<br>
-          Mark a field with <UncertaintyToggle :active="true" disabled style="margin: 3px;" /> when its value is uncertain or lacks precise confirmation. This note
-          will be included with the submission for moderators.<br>
-          <a href="mailto:themicronationaldirectory@gmail.com">Ask any question</a> if needed, and
-          check the preview on the right.
+          {{ $t('entryForm.readInstructionsBeforeUncertainty') }}
+          <UncertaintyToggle :active="true" disabled style="margin: 0 4px" />
+          <span v-html="$t('entryForm.readInstructionsAfterUncertainty')"></span>
         </p>
         <section v-if="!isModerationEditor" class="ai-assistant">
           <button
@@ -125,7 +125,7 @@ const emit = defineEmits([
             @click="aiPanelOpen = !aiPanelOpen"
           >
             <span aria-hidden="true">✨</span>
-            <span>AI-powered autocomplete</span>
+            <span>{{ $t('entryForm.aiTitle') }}</span>
             <ChevronDownIcon
               class="ai-assistant-chevron"
               :class="{ 'is-open': aiPanelOpen }"
@@ -141,15 +141,14 @@ const emit = defineEmits([
           >
             <div class="ai-assistant-content">
               <p>
-                Paste a source URL or text, or upload an image/PDF. The assistant suggests fields
-                for you to review.
+                {{ $t('entryForm.aiDescription') }}
               </p>
               <div class="ai-assistant-inputs">
                 <textarea
                   v-model="aiSourceText"
                   rows="4"
                   maxlength="12000"
-                  placeholder="Paste source text or a webpage URL"
+                  :placeholder="$t('entryForm.aiPlaceholder')"
                 ></textarea>
                 <input
                   type="file"
@@ -165,7 +164,7 @@ const emit = defineEmits([
               >
                 <span v-if="aiBusy" class="submit-spinner" aria-hidden="true"></span>
                 <span :role="aiBusy ? 'status' : null">{{
-                  aiBusy ? 'Analyzing…' : 'Suggest form values'
+                  $t(aiBusy ? 'entryForm.analyzing' : 'entryForm.suggestValues')
                 }}</span>
               </button>
             </div>
@@ -178,16 +177,16 @@ const emit = defineEmits([
             role="alert"
           >
             <strong>
-              A micronation named
+              {{ $t('entryForm.duplicateStart') }}
               <router-link
                 class="duplicate-entry-link"
                 :to="`/directory/${duplicateMicronation.name.main}`"
               >
                 {{ duplicateMicronation.name.main }}
               </router-link>
-              is already in the directory.
+              {{ $t('entryForm.duplicateEnd') }}
             </strong>
-            <span>Check the existing entry before submitting this form.</span>
+            <span>{{ $t('entryForm.checkExisting') }}</span>
           </div>
         </Transition>
 
@@ -203,17 +202,23 @@ const emit = defineEmits([
               />
             </Transition>
 
-            <label for="newEntryName" class="new-entry-form-text mandatory">
-              Name*
+            <label for="newEntryName" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.name') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 0 ? '' : activateTooltip(0, 'Name', $event)"
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.main') }">
-              <UncertaintyToggle :active="isUncertain('name.main')" @toggle="toggleUncertain('name.main')" />
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.main') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('name.main')"
+                @toggle="toggleUncertain('name.main')"
+              />
               <input
                 type="text"
                 id="newEntryName"
@@ -221,8 +226,8 @@ const emit = defineEmits([
                 required
                 :placeholder="
                   entryType === 'micronation'
-                    ? `E.g. 'Sealand' (just the short form)`
-                    : `E.g. League of Micronations (full name)`
+                    ? $t('entryForm.micronationNamePlaceholder')
+                    : $t('entryForm.organizationNamePlaceholder')
                 "
               />
             </div>
@@ -231,22 +236,29 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryTitle"
               class="new-entry-form-text mandatory"
-            >
-              Title
+            ><span class="new-entry-label-content">
+              {{ $t('entryForm.title') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 1 ? '' : activateTooltip(1, 'Title', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.title') }">
-              <UncertaintyToggle :active="isUncertain('name.title')" @toggle="toggleUncertain('name.title')" />
+            <div
+              v-if="entryType === 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.title') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('name.title')"
+                @toggle="toggleUncertain('name.title')"
+              />
               <input
                 type="text"
                 id="newEntryTitle"
                 v-model="formPlaceholders.newEntryTitle"
-                placeholder="E.g. 'Principality of' (just the descriptive name only)"
+                :placeholder="$t('entryForm.titlePlaceholder')"
               />
             </div>
 
@@ -254,205 +266,251 @@ const emit = defineEmits([
               v-if="entryType !== 'micronation'"
               for="newEntryNameAlt"
               class="new-entry-form-text"
-            >
-              {{ entryType === 'micronation' ? 'Alternative name' : 'Acronym*' }}
+            ><span class="new-entry-label-content">
+              {{
+                $t(entryType === 'micronation' ? 'entryForm.alternativeName' : 'entryForm.acronym')
+              }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="
                   activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Alternative name', $event)
                 "
               />
             </label>
-            <div v-if="entryType !== 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.mainAlt') }">
-              <UncertaintyToggle :active="isUncertain('name.mainAlt')" @toggle="toggleUncertain('name.mainAlt')" />
+            <div
+              v-if="entryType !== 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.mainAlt') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('name.mainAlt')"
+                @toggle="toggleUncertain('name.mainAlt')"
+              />
               <input
                 type="text"
                 id="newEntryNameAlt"
                 v-model="formPlaceholders.newEntryNameAlt"
                 :placeholder="
                   entryType === 'micronation'
-                    ? 'Second option for name, e.g. in another language'
-                    : 'Acronym of the organization, e.g. LoM'
+                    ? $t('entryForm.alternativeNamePlaceholder')
+                    : $t('entryForm.acronymPlaceholder')
                 "
               />
             </div>
 
             <template v-if="entryType === 'micronation'">
-              <label for="newEntryAltNameMain" class="new-entry-form-text">
-                Other names
+              <label for="newEntryAltNameMain" class="new-entry-form-text"><span class="new-entry-label-content">
+                {{ $t('entryForm.otherNames') }}</span>
                 <img
                   src="/images/info.png"
-                  alt="info"
+                  :alt="$t('entryForm.info')"
                   class="tooltip-activator"
                   @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)"
                 />
               </label>
-              <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.alt') }">
-                <UncertaintyToggle :active="isUncertain('name.alt')" @toggle="toggleUncertain('name.alt')" />
+              <div
+                class="uncertainty-field-control"
+                :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.alt') }"
+              >
+                <UncertaintyToggle
+                  :active="isUncertain('name.alt')"
+                  @toggle="toggleUncertain('name.alt')"
+                />
                 <div class="new-entry-option-container alternative-name-fields">
-                <div class="alternative-name-inputs">
-                  <input
-                    id="newEntryAltNameMain"
-                    v-model="currentAltNameMain"
-                    type="text"
-                    placeholder="Alternative name"
-                  />
-                  <input
-                    v-model="currentAltNameTitle"
-                    type="text"
-                    placeholder="Alternative title (optional)"
-                  />
-                  <button
-                    type="button"
-                    class="login-button squared-button color-transition new-entry-option-button"
-                    @click="addAlternativeName"
-                  >
-                    Add
-                  </button>
-                </div>
-                <div class="selected-elements-container">
-                  <SelectedElement
-                    v-for="(name, i) in formPlaceholders.newEntryAltNames"
-                    :key="i"
-                    :element-text="name.title ? `${name.main}, ${name.title}` : name.main"
-                    @remove-element="removeAlternativeName(i)"
-                  />
-                </div>
+                  <div class="alternative-name-inputs">
+                    <input
+                      id="newEntryAltNameMain"
+                      v-model="currentAltNameMain"
+                      type="text"
+                      :placeholder="$t('entryForm.alternativeNameInputPlaceholder')"
+                    />
+                    <input
+                      v-model="currentAltNameTitle"
+                      type="text"
+                      :placeholder="$t('entryForm.alternativeTitlePlaceholder')"
+                    />
+                    <button
+                      type="button"
+                      class="login-button squared-button color-transition new-entry-option-button"
+                      @click="addAlternativeName"
+                    >
+                      {{ $t('entryForm.add') }}
+                    </button>
+                  </div>
+                  <div class="selected-elements-container">
+                    <SelectedElement
+                      v-for="(name, i) in formPlaceholders.newEntryAltNames"
+                      :key="i"
+                      :element-text="name.title ? `${name.main}, ${name.title}` : name.main"
+                      @remove-element="removeAlternativeName(i)"
+                    />
+                  </div>
                 </div>
               </div>
             </template>
 
-            <label for="newEntryMotto" class="new-entry-form-text mandatory">
-              Motto
+            <label for="newEntryMotto" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.motto') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 4 ? '' : activateTooltip(4, 'Motto', $event)"
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('motto') }">
-              <UncertaintyToggle :active="isUncertain('motto')" @toggle="toggleUncertain('motto')" />
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('motto') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('motto')"
+                @toggle="toggleUncertain('motto')"
+              />
               <input
                 type="text"
                 id="newEntryMotto"
                 v-model="formPlaceholders.newEntryMotto"
-                placeholder="E.g. 'In God we trust' (add without quotes)"
+                :placeholder="$t('entryForm.mottoPlaceholder')"
               />
             </div>
 
-            <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory">
-              Type*
+            <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.type') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 5 ? '' : activateTooltip(5, 'Type', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('type') }">
+            <div
+              v-if="entryType === 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('type') }"
+            >
               <UncertaintyToggle :active="isUncertain('type')" @toggle="toggleUncertain('type')" />
               <div class="new-entry-type">
-              <input
-                type="checkbox"
-                id="typePhysical"
-                v-model="formPlaceholders.newEntryTypePhysical"
-                name="new-entry-type"
-                value="physical"
-                @change="updatePhysicalType"
-                @click="renderedMapboxNewEntry = true"
-              />
-              <label for="typePhysical">Physical</label>
-              <input
-                type="checkbox"
-                id="typeDigital"
-                v-model="formPlaceholders.newEntryTypeDigital"
-                name="new-entry-type"
-                value="digital"
-                checked
-              />
-              <label for="typeDigital">Digital</label>
-              <input
-                type="checkbox"
-                id="typeFictional"
-                v-model="formPlaceholders.newEntryTypeFictional"
-                name="new-entry-type"
-                value="fictional"
-              />
-              <label for="typeFictional">Fictional</label>
+                <input
+                  type="checkbox"
+                  id="typePhysical"
+                  v-model="formPlaceholders.newEntryTypePhysical"
+                  name="new-entry-type"
+                  value="physical"
+                  @change="updatePhysicalType"
+                  @click="renderedMapboxNewEntry = true"
+                />
+                <label for="typePhysical">{{ $t('entryForm.physical') }}</label>
+                <input
+                  type="checkbox"
+                  id="typeDigital"
+                  v-model="formPlaceholders.newEntryTypeDigital"
+                  name="new-entry-type"
+                  value="digital"
+                  checked
+                />
+                <label for="typeDigital">{{ $t('entryForm.digital') }}</label>
+                <input
+                  type="checkbox"
+                  id="typeFictional"
+                  v-model="formPlaceholders.newEntryTypeFictional"
+                  name="new-entry-type"
+                  value="fictional"
+                />
+                <label for="typeFictional">{{ $t('entryForm.fictional') }}</label>
               </div>
             </div>
 
-            <label for="newEntryLanguages" class="new-entry-form-text mandatory">
-              Official languages*
+            <label for="newEntryLanguages" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.languages') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="
                   activeTooltipIndex === 6 ? '' : activateTooltip(6, 'Official languages', $event)
                 "
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('languages') }">
-            <UncertaintyToggle :active="isUncertain('languages')" @toggle="toggleUncertain('languages')" />
-            <div class="new-entry-option-container">
-              <div class="new-entry-select-controls">
-                <select
-                  name="newEntryLanguages"
-                  class="new-entry-option-select"
-                  @change="addLanguage"
-                >
-                  <option value="" disabled selected>Select language</option>
-                  <optgroup>
-                    <option v-for="(language, i) in listLanguages" :key="i" :value="language.name">
-                      {{ language.name }}
-                    </option>
-                  </optgroup>
-                </select>
-                <input type="text" placeholder="Custom language name" v-model="customLanguage" />
-                <button
-                  type="button"
-                  class="login-button squared-button color-transition new-entry-option-button"
-                  @click="addCustomLanguage"
-                >
-                  Add
-                </button>
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('languages') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('languages')"
+                @toggle="toggleUncertain('languages')"
+              />
+              <div class="new-entry-option-container">
+                <div class="new-entry-select-controls">
+                  <select
+                    name="newEntryLanguages"
+                    class="new-entry-option-select"
+                    @change="addLanguage"
+                  >
+                    <option value="" disabled selected>{{ $t('entryForm.selectLanguage') }}</option>
+                    <optgroup>
+                      <option
+                        v-for="(language, i) in listLanguages"
+                        :key="i"
+                        :value="language.name"
+                      >
+                        {{ language.name }}
+                      </option>
+                    </optgroup>
+                  </select>
+                  <input
+                    type="text"
+                    :placeholder="$t('entryForm.customLanguage')"
+                    v-model="customLanguage"
+                  />
+                  <button
+                    type="button"
+                    class="login-button squared-button color-transition new-entry-option-button"
+                    @click="addCustomLanguage"
+                  >
+                    {{ $t('entryForm.add') }}
+                  </button>
+                </div>
+                <div class="selected-elements-container">
+                  <SelectedElement
+                    class="selection margin-top"
+                    v-for="(language, i) in formPlaceholders.newEntryLanguages"
+                    :key="i"
+                    :element-text="language"
+                    @remove-element="removeLanguage"
+                  />
+                </div>
               </div>
-              <div class="selected-elements-container">
-                <SelectedElement
-                  class="selection margin-top"
-                  v-for="(language, i) in formPlaceholders.newEntryLanguages"
-                  :key="i"
-                  :element-text="language"
-                  @remove-element="removeLanguage"
-                />
-              </div>
-            </div>
             </div>
 
             <label
               v-if="entryType === 'micronation'"
               for="newEntryCapital"
               class="new-entry-form-text"
-            >
-              Capital
+            ><span class="new-entry-label-content">
+              {{ $t('entryForm.capital') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 7 ? '' : activateTooltip(7, 'Capital', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('capital') }">
-              <UncertaintyToggle :active="isUncertain('capital')" @toggle="toggleUncertain('capital')" />
+            <div
+              v-if="entryType === 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('capital') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('capital')"
+                @toggle="toggleUncertain('capital')"
+              />
               <input
                 type="text"
                 id="newEntryCapital"
                 v-model="formPlaceholders.newEntryCapital"
-                placeholder="City, place or building officiating as capital"
+                :placeholder="$t('entryForm.capitalPlaceholder')"
               />
             </div>
 
@@ -460,80 +518,100 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryCurrency"
               class="new-entry-form-text"
-            >
-              Currency
+            ><span class="new-entry-label-content">
+              {{ $t('entryForm.currency') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 8 ? '' : activateTooltip(8, 'Currency', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('currency') }">
-              <UncertaintyToggle :active="isUncertain('currency')" @toggle="toggleUncertain('currency')" />
+            <div
+              v-if="entryType === 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('currency') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('currency')"
+                @toggle="toggleUncertain('currency')"
+              />
               <input
                 type="text"
                 id="newEntryCurrency"
                 v-model="formPlaceholders.newEntryCurrency"
-                placeholder="Official currency of the micronation, just name and not symbol"
+                :placeholder="$t('entryForm.currencyPlaceholder')"
               />
             </div>
 
-            <label for="newEntryFoundation" class="new-entry-form-text mandatory">
-              Foundation*
+            <label for="newEntryFoundation" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.foundation') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 9 ? '' : activateTooltip(9, 'Foundation', $event)"
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('foundationDate') }">
-            <UncertaintyToggle :active="isUncertain('foundationDate')" @toggle="toggleUncertain('foundationDate')" />
-            <VueDatePicker
-              v-model="foundationDate"
-              :enable-time-picker="false"
-              :dark="theme === 'dark'"
-              month-name-format="long"
-              :flow="['year', 'month', 'calendar']"
-              :utc="'preserve'"
-              :timezone="'UTC'"
-              now-button-label="Today"
-              :required="true"
-              :max-date="new Date()"
-            />
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('foundationDate') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('foundationDate')"
+                @toggle="toggleUncertain('foundationDate')"
+              />
+              <VueDatePicker
+                v-model="foundationDate"
+                :enable-time-picker="false"
+                :dark="theme === 'dark'"
+                month-name-format="long"
+                :flow="['year', 'month', 'calendar']"
+                :utc="'preserve'"
+                :timezone="'UTC'"
+                :now-button-label="$t('common.today')"
+                :required="true"
+                :max-date="new Date()"
+              />
             </div>
 
             <label
               v-if="entryType === 'micronation'"
               v-show="physicalType"
               class="new-entry-form-text mandatory"
-            >
-              Location
+            ><span class="new-entry-label-content">
+              {{ $t('entryForm.location') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" v-show="physicalType" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('location') }">
-              <UncertaintyToggle :active="isUncertain('location')" @toggle="toggleUncertain('location')" />
-              <div>
-              <p class="new-entry-location-note">
-                Drag the pin to the micronation's location. Leave it at the default location (0, 0)
-                if unknown.
-              </p>
-              <LocationPicker
-                v-if="renderedMapboxNewEntry"
-                :visible="!physicalType"
-                ref="locationPicker"
-                mode="picker"
-                width="100%"
-                height="300px"
-                :initial-position="locationPickerMarkerPosition"
-                @dragged-marker="draggedMarker"
+            <div
+              v-if="entryType === 'micronation'"
+              v-show="physicalType"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('location') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('location')"
+                @toggle="toggleUncertain('location')"
               />
+              <div class="new-entry-option-container">
+                <p class="new-entry-location-note">
+                  {{ $t('entryForm.locationNote') }}
+                </p>
+                <LocationPicker
+                  v-if="renderedMapboxNewEntry"
+                  :visible="!physicalType"
+                  ref="locationPicker"
+                  mode="picker"
+                  width="100%"
+                  height="300px"
+                  :initial-position="locationPickerMarkerPosition"
+                  @dragged-marker="draggedMarker"
+                />
               </div>
             </div>
 
@@ -541,211 +619,251 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryMemberships"
               class="new-entry-form-text"
-            >
-              Memberships
+            ><span class="new-entry-label-content">
+              {{ $t('entryForm.memberships') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('memberships') }">
-            <UncertaintyToggle :active="isUncertain('memberships')" @toggle="toggleUncertain('memberships')" />
-            <div class="new-entry-option-container">
-              <div class="new-entry-select-controls">
-                <select
-                  name="newEntryMemberships"
-                  class="new-entry-option-select"
-                  @change="addMembership"
-                >
-                  <option value="" disabled selected>Select organization</option>
-                  <optgroup>
-                    <option
-                      v-for="(membership, i) in organizationsDirectory"
-                      :key="i"
-                      :value="membership.name.main"
-                    >
-                      {{ membership.name.main }} ({{ membership.name.mainAlt }})
+            <div
+              v-if="entryType === 'micronation'"
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('memberships') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('memberships')"
+                @toggle="toggleUncertain('memberships')"
+              />
+              <div class="new-entry-option-container">
+                <div class="new-entry-select-controls">
+                  <select
+                    name="newEntryMemberships"
+                    class="new-entry-option-select"
+                    @change="addMembership"
+                  >
+                    <option value="" disabled selected>
+                      {{ $t('entryForm.selectOrganization') }}
                     </option>
-                  </optgroup>
-                </select>
-                <input
-                  type="text"
-                  placeholder="Other (full name, no acronym)"
-                  v-model="customMembership"
-                />
-                <button
-                  type="button"
-                  class="login-button squared-button color-transition new-entry-option-button"
-                  @click="addCustomMembership"
-                >
-                  Add
-                </button>
+                    <optgroup>
+                      <option
+                        v-for="(membership, i) in organizationsDirectory"
+                        :key="i"
+                        :value="membership.name.main"
+                      >
+                        {{ membership.name.main }} ({{ membership.name.mainAlt }})
+                      </option>
+                    </optgroup>
+                  </select>
+                  <input
+                    type="text"
+                    :placeholder="$t('entryForm.otherMembershipPlaceholder')"
+                    v-model="customMembership"
+                  />
+                  <button
+                    type="button"
+                    class="login-button squared-button color-transition new-entry-option-button"
+                    @click="addCustomMembership"
+                  >
+                    {{ $t('entryForm.add') }}
+                  </button>
+                </div>
+                <div class="selected-elements-container">
+                  <SelectedElement
+                    class="selection margin-top"
+                    v-for="(membership, i) in formPlaceholders.newEntryMemberships"
+                    :key="i"
+                    :element-text="membership"
+                    @remove-element="removeMembership"
+                  />
+                </div>
               </div>
-              <div class="selected-elements-container">
-                <SelectedElement
-                  class="selection margin-top"
-                  v-for="(membership, i) in formPlaceholders.newEntryMemberships"
-                  :key="i"
-                  :element-text="membership"
-                  @remove-element="removeMembership"
-                />
-              </div>
-            </div>
             </div>
 
-            <label for="newEntryEmails" class="new-entry-form-text mandatory">
-              Contact media*
+            <label for="newEntryEmails" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.contact') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="
                   activeTooltipIndex === 12 ? '' : activateTooltip(12, 'Contact media', $event)
                 "
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('contactInfo') }">
-              <UncertaintyToggle :active="isUncertain('contactInfo')" @toggle="toggleUncertain('contactInfo')" />
-            <div class="new-entry-option-container">
-              <div style="display: flex">
-                <input
-                  type="text"
-                  id="newEntryEmail"
-                  class="new-entry-option-select"
-                  v-model="currentEmail"
-                  placeholder="Email, forum or social media (full URL!)"
-                />
-                <button
-                  @click="addEmail(currentEmail)"
-                  type="button"
-                  class="login-button squared-button color-transition new-entry-option-button"
-                >
-                  Add
-                </button>
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('contactInfo') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('contactInfo')"
+                @toggle="toggleUncertain('contactInfo')"
+              />
+              <div class="new-entry-option-container">
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="newEntryEmail"
+                    class="new-entry-option-select"
+                    v-model="currentEmail"
+                    :placeholder="$t('entryForm.contactPlaceholder')"
+                  />
+                  <button
+                    @click="addEmail(currentEmail)"
+                    type="button"
+                    class="login-button squared-button color-transition new-entry-option-button"
+                  >
+                    {{ $t('entryForm.add') }}
+                  </button>
+                </div>
+                <div class="selected-elements-container">
+                  <SelectedElement
+                    class="selection margin-top"
+                    v-for="(contact, i) in formPlaceholders.newEntryEmails"
+                    :key="i"
+                    :element-text="contact"
+                    :icon="checkIcon(contact)"
+                    @remove-element="removeEmail"
+                  />
+                </div>
               </div>
-              <div class="selected-elements-container">
-                <SelectedElement
-                  class="selection margin-top"
-                  v-for="(contact, i) in formPlaceholders.newEntryEmails"
-                  :key="i"
-                  :element-text="contact"
-                  :icon="checkIcon(contact)"
-                  @remove-element="removeEmail"
-                />
-              </div>
-            </div>
             </div>
 
-            <label for="newEntryWebsites" class="new-entry-form-text mandatory">
-              Info sources*
+            <label for="newEntryWebsites" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t('entryForm.sources') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="
                   activeTooltipIndex === 13 ? '' : activateTooltip(13, 'Info sources', $event)
                 "
               />
             </label>
-            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('websites') }">
-              <UncertaintyToggle :active="isUncertain('websites')" @toggle="toggleUncertain('websites')" />
-            <div class="new-entry-option-container">
-              <div style="display: flex">
-                <input
-                  type="text"
-                  id="newEntryWebsite"
-                  class="new-entry-option-select"
-                  v-model="currentWebsite"
-                  placeholder="URL to website (include HTTP or HTTPS)"
-                />
-                <button
-                  @click="addWebsite(currentWebsite)"
-                  type="button"
-                  class="login-button squared-button color-transition new-entry-option-button"
-                >
-                  Add
-                </button>
+            <div
+              class="uncertainty-field-control"
+              :class="{ 'moderation-field-changed': isPublishedFieldChanged('websites') }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain('websites')"
+                @toggle="toggleUncertain('websites')"
+              />
+              <div class="new-entry-option-container">
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="newEntryWebsite"
+                    class="new-entry-option-select"
+                    v-model="currentWebsite"
+                    :placeholder="$t('entryForm.sourcePlaceholder')"
+                  />
+                  <button
+                    @click="addWebsite(currentWebsite)"
+                    type="button"
+                    class="login-button squared-button color-transition new-entry-option-button"
+                  >
+                    {{ $t('entryForm.add') }}
+                  </button>
+                </div>
+                <div class="selected-elements-container">
+                  <SelectedElement
+                    class="selection margin-top"
+                    v-for="(website, i) in formPlaceholders.newEntryWebsites"
+                    :key="i"
+                    :element-text="website"
+                    :icon="checkIcon(website)"
+                    @remove-element="removeWebsite"
+                  />
+                </div>
               </div>
-              <div class="selected-elements-container">
-                <SelectedElement
-                  class="selection margin-top"
-                  v-for="(website, i) in formPlaceholders.newEntryWebsites"
-                  :key="i"
-                  :element-text="website"
-                  :icon="checkIcon(website)"
-                  @remove-element="removeWebsite"
-                />
-              </div>
-            </div>
             </div>
 
-            <label for="newEntryFlag" class="new-entry-form-text mandatory">
-              {{ entryType === 'micronation' ? 'Flag*' : 'Logo*' }}
+            <label for="newEntryFlag" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
+              {{ $t(entryType === 'micronation' ? 'entryForm.flag' : 'entryForm.logo') }}</span>
               <img
                 src="/images/info.png"
-                alt="info"
+                :alt="$t('entryForm.info')"
                 class="tooltip-activator"
                 @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)"
               />
             </label>
-            <div class="uncertainty-field-control flag-input-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged(entryType === 'micronation' ? 'flag' : 'logo') }">
-              <UncertaintyToggle :active="isUncertain(entryType === 'micronation' ? 'flag' : 'logo')" @toggle="toggleUncertain(entryType === 'micronation' ? 'flag' : 'logo')" />
-            <div class="new-entry-option-container flag-preview-container">
-              <img
-                v-if="isModerationEditor && editImageValue"
-                :src="editImageValue"
-                class="moderation-edit-image-preview"
-                :alt="entryType === 'micronation' ? 'Current flag' : 'Current logo'"
+            <div
+              class="uncertainty-field-control flag-input-control"
+              :class="{
+                'moderation-field-changed': isPublishedFieldChanged(
+                  entryType === 'micronation' ? 'flag' : 'logo'
+                )
+              }"
+            >
+              <UncertaintyToggle
+                :active="isUncertain(entryType === 'micronation' ? 'flag' : 'logo')"
+                @toggle="toggleUncertain(entryType === 'micronation' ? 'flag' : 'logo')"
               />
-              <ModerationImageEditor
-                v-if="isModerationEditor"
-                v-model="editImageValue"
-                :initial-mode="initialImageMode"
-                :image-name="formPlaceholders.newEntryName"
-                :asset-type="entryType === 'micronation' ? 'flag' : 'logo'"
-                @image-change="emit('edit-image-change', $event)"
-                @image-error="emit('image-error', $event)"
-                @image-processing="emit('image-processing', $event)"
-              />
-              <template v-else>
-                <div style="display: flex; margin-bottom: 5px">
-                  <label class="flag-radio">
-                    <input v-model="flagRadio" type="radio" name="flagRadio" value="file" />
-                    <span>Local file</span>
-                  </label>
-                  <label class="flag-radio">
-                    <input v-model="flagRadio" type="radio" name="flagRadio" value="url" />
-                    <span>External URL</span>
-                  </label>
-                </div>
-                <input
-                  v-model="formPlaceholders.newEntryFlag"
-                  v-if="flagRadio === 'url'"
-                  name="flagImage"
-                  type="url"
-                  ref="flagURLInput"
-                  @input="displayImage($event.target.value)"
-                  placeholder="Input a direct link to an external image"
-                  :required="!directoryEdit"
+              <div class="new-entry-option-container flag-preview-container">
+                <img
+                  v-if="isModerationEditor && editImageValue"
+                  :src="editImageValue"
+                  class="moderation-edit-image-preview"
+                  :alt="
+                    $t(
+                      entryType === 'micronation'
+                        ? 'entryForm.currentFlag'
+                        : 'entryForm.currentLogo'
+                    )
+                  "
                 />
-                <input
-                  v-if="flagRadio === 'file'"
-                  type="file"
-                  @input="previewImage"
-                  accept="image/*"
-                  :required="!directoryEdit"
+                <ModerationImageEditor
+                  v-if="isModerationEditor"
+                  v-model="editImageValue"
+                  :initial-mode="initialImageMode"
+                  :image-name="formPlaceholders.newEntryName"
+                  :asset-type="entryType === 'micronation' ? 'flag' : 'logo'"
+                  @image-change="emit('edit-image-change', $event)"
+                  @image-error="emit('image-error', $event)"
+                  @image-processing="emit('image-processing', $event)"
                 />
-                <small v-if="imagePreviewError" class="flag-image-error" role="alert">{{ imagePreviewError }}</small>
-                <label for=""
-                  >(if N/A or unobtainable:
-                  <a href="/images/missing-flag.png" target="_blank"
-                    >download or use the URL to this template</a
-                  >)
-                </label>
-              </template>
-            </div>
+                <template v-else>
+                  <div style="display: flex; margin-bottom: 5px">
+                    <label class="flag-radio">
+                      <input v-model="flagRadio" type="radio" name="flagRadio" value="file" />
+                      <span>{{ $t('entryForm.localFile') }}</span>
+                    </label>
+                    <label class="flag-radio">
+                      <input v-model="flagRadio" type="radio" name="flagRadio" value="url" />
+                      <span>{{ $t('entryForm.externalUrl') }}</span>
+                    </label>
+                  </div>
+                  <input
+                    v-model="formPlaceholders.newEntryFlag"
+                    v-if="flagRadio === 'url'"
+                    name="flagImage"
+                    type="url"
+                    ref="flagURLInput"
+                    @input="displayImage($event.target.value)"
+                    :placeholder="$t('entryForm.imageUrlPlaceholder')"
+                    :required="!directoryEdit"
+                  />
+                  <input
+                    v-if="flagRadio === 'file'"
+                    type="file"
+                    @input="previewImage"
+                    accept="image/*"
+                    :required="!directoryEdit"
+                  />
+                  <small v-if="imagePreviewError" class="flag-image-error" role="alert">{{
+                    imagePreviewError
+                  }}</small>
+                  <label for=""
+                    >({{ $t('entryForm.imageUnavailable') }}:
+                    <a href="/images/missing-flag.png" target="_blank">{{
+                      $t('entryForm.templateLink')
+                    }}</a
+                    >)
+                  </label>
+                </template>
+              </div>
             </div>
 
             <div class="wide-row">
@@ -767,11 +885,15 @@ const emit = defineEmits([
                 <span>{{
                   isModerationEditor
                     ? saving
-                      ? 'Saving corrections…'
-                      : 'Save corrections'
+                      ? $t('entryForm.savingCorrections')
+                      : $t('entryForm.saveCorrections')
                     : isSubmitting
-                    ? directoryEdit ? 'Submitting edit…' : 'Submitting…'
-                    : directoryEdit ? 'Submit edit for approval' : 'Add new entry'
+                    ? directoryEdit
+                      ? $t('entryForm.submittingEdit')
+                      : $t('entryForm.submitting')
+                    : directoryEdit
+                    ? $t('entryForm.submitEdit')
+                    : $t('entryForm.addEntry')
                 }}</span>
               </button>
             </div>
@@ -780,7 +902,7 @@ const emit = defineEmits([
       </div>
 
       <div v-if="!isModerationEditor" class="new-entry-preview">
-        <h3 id="previewTitle">Entry preview</h3>
+        <h3 id="previewTitle">{{ $t('entryForm.preview') }}</h3>
 
         <DirectoryEntry
           v-if="entryType === 'micronation'"
@@ -892,7 +1014,6 @@ export default {
         y: 0
       },
       tooltipTitle: '',
-      tooltipTexts: buildTooltipTexts(),
       activeTooltipText: 0
     }
   },
@@ -902,6 +1023,9 @@ export default {
     }
   },
   computed: {
+    tooltipTexts() {
+      return buildTooltipTexts()
+    },
     listLanguages() {
       let languagesArray = []
       const sortedLanguageCodes = languages().getLanguageCodes().sort()
@@ -934,7 +1058,9 @@ export default {
       if (this.entryType !== 'micronation' || !enteredName) return null
       return (
         this.directoryData.find((entry) =>
-          micronationNameVariants(entry.name).some((name) => this.matchesWholeWords(name, enteredName))
+          micronationNameVariants(entry.name).some((name) =>
+            this.matchesWholeWords(name, enteredName)
+          )
         ) || null
       )
     }
@@ -944,14 +1070,24 @@ export default {
       if (!this.isModerationEditor || !this.publishedEntry) return false
       const read = (entry) => {
         if (field === 'name.alt') return entry.name?.alt || []
-        if (field.startsWith('name.')) return field.split('.').slice(1).reduce((value, key) => value?.[key], entry)
+        if (field.startsWith('name.'))
+          return field
+            .split('.')
+            .slice(1)
+            .reduce((value, key) => value?.[key], entry)
         return entry[field]
       }
       const normalize = (value) => {
         if (Array.isArray(value)) return JSON.stringify(value.map(normalize))
         if (value && typeof value === 'object') {
           if ('_seconds' in value) return String(value._seconds)
-          return JSON.stringify(Object.fromEntries(Object.keys(value).sort().map((key) => [key, normalize(value[key])])))
+          return JSON.stringify(
+            Object.fromEntries(
+              Object.keys(value)
+                .sort()
+                .map((key) => [key, normalize(value[key])])
+            )
+          )
         }
         return String(value ?? '').trim()
       }
@@ -971,22 +1107,22 @@ export default {
       if (this.isModerationEditor) {
         if (!this.formPlaceholders.newEntryName.trim()) {
           return notify({
-            title: 'Cannot save entry',
-            text: 'The official name is required.',
+            title: this.$t('entryForm.messages.cannotSave'),
+            text: this.$t('entryForm.messages.nameRequired'),
             type: 'error'
           })
         }
         if (!this.formPlaceholders.newEntryLanguages.length) {
           return notify({
-            title: 'Cannot save entry',
-            text: 'Add at least one official language.',
+            title: this.$t('entryForm.messages.cannotSave'),
+            text: this.$t('entryForm.messages.languageRequired'),
             type: 'error'
           })
         }
         if (!this.formPlaceholders.newEntryWebsites.length) {
           return notify({
-            title: 'Cannot save entry',
-            text: 'Add at least one information source.',
+            title: this.$t('entryForm.messages.cannotSave'),
+            text: this.$t('entryForm.messages.sourceRequired'),
             type: 'error'
           })
         }
@@ -1031,21 +1167,24 @@ export default {
 
       if (this.formPlaceholders.newEntryWebsites.length === 0) {
         return notify({
-          title: 'Error when submitting',
-          text: "No info source link was provided. It's mandatory to include at least one to validate all the info that was input.",
+          title: this.$t('entryForm.messages.submitError'),
+          text: this.$t('entryForm.messages.missingSource'),
           type: 'error'
         })
       }
 
       if (this.formPlaceholders.newEntryLanguages.length === 0) {
         return notify({
-          title: 'Error when submitting',
-          text: "No official languages were added. If there aren't any, add the main one used within the micronation.",
+          title: this.$t('entryForm.messages.submitError'),
+          text: this.$t('entryForm.messages.missingLanguages'),
           type: 'error'
         })
       }
 
-      if (this.directoryEdit || this.searchElement(this.formPlaceholders.newEntryName) === undefined) {
+      if (
+        this.directoryEdit ||
+        this.searchElement(this.formPlaceholders.newEntryName) === undefined
+      ) {
         this.isSubmitting = true
         try {
           // Prepare entry data
@@ -1081,9 +1220,9 @@ export default {
 
             entryData.location = this.physicalType
               ? {
-                latitude: this.locationPickerMarkerPosition[1],
-                longitude: this.locationPickerMarkerPosition[0]
-              }
+                  latitude: this.locationPickerMarkerPosition[1],
+                  longitude: this.locationPickerMarkerPosition[0]
+                }
               : null
 
             // Handle flag file
@@ -1097,12 +1236,13 @@ export default {
                 useWebWorker: true,
                 fileType: imageFile.type
               }
-              const compressedFile = imageFile.size <= 35 * 1024
-                ? imageFile
-                : await imageCompression(imageFile, options)
+              const compressedFile =
+                imageFile.size <= 35 * 1024 ? imageFile : await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.flagFile = {
-                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.${this.getImageExtension(imageFile)}`,
+                name: `${this.formPlaceholders.newEntryName}${
+                  this.directoryEdit ? `-${Date.now()}` : ''
+                }.${this.getImageExtension(imageFile)}`,
                 data: base64Data
               }
             }
@@ -1118,12 +1258,13 @@ export default {
                 useWebWorker: true,
                 fileType: imageFile.type
               }
-              const compressedFile = imageFile.size <= 35 * 1024
-                ? imageFile
-                : await imageCompression(imageFile, options)
+              const compressedFile =
+                imageFile.size <= 35 * 1024 ? imageFile : await imageCompression(imageFile, options)
               const base64Data = await this.fileToBase64(compressedFile)
               entryData.logoFile = {
-                name: `${this.formPlaceholders.newEntryName}${this.directoryEdit ? `-${Date.now()}` : ''}.${this.getImageExtension(imageFile)}`,
+                name: `${this.formPlaceholders.newEntryName}${
+                  this.directoryEdit ? `-${Date.now()}` : ''
+                }.${this.getImageExtension(imageFile)}`,
                 data: base64Data
               }
             }
@@ -1163,7 +1304,11 @@ export default {
           }
 
           // Create GitHub issue
-          await createGitHubIssue(entryData, this.entryType, this.directoryEdit ? { editTargetId: this.editTargetId } : {})
+          await createGitHubIssue(
+            entryData,
+            this.entryType,
+            this.directoryEdit ? { editTargetId: this.editTargetId } : {}
+          )
 
           this.emailNotice()
           this.successNotification()
@@ -1171,8 +1316,8 @@ export default {
         } catch (error) {
           console.error('Error submitting entry:', error)
           notify({
-            title: 'Error when submitting',
-            text: error.message || 'Failed to submit entry. Please try again.',
+            title: this.$t('entryForm.messages.submitError'),
+            text: error.message || this.$t('entryForm.messages.failedSubmit'),
             type: 'error'
           })
         } finally {
@@ -1180,8 +1325,8 @@ export default {
         }
       } else {
         notify({
-          title: 'Error when submitting',
-          text: 'This micronation or organization is already present in the directory! If not, then an entry for it was recently submitted and is still under review.',
+          title: this.$t('entryForm.messages.submitError'),
+          text: this.$t('entryForm.messages.duplicateEntry'),
           type: 'error'
         })
       }
@@ -1200,8 +1345,8 @@ export default {
         event.target.value = ''
         this.aiSourceFile = null
         return notify({
-          title: 'AI assistant',
-          text: 'Choose an image or PDF smaller than 3 MB.',
+          title: this.$t('entryForm.messages.aiAssistant'),
+          text: this.$t('entryForm.messages.imageTooLarge'),
           type: 'error'
         })
       }
@@ -1265,14 +1410,18 @@ export default {
             populatedFields++
           }
           if (Array.isArray(entry.memberships)) {
-            const memberships = entry.memberships.filter((item) => typeof item === 'string' && item.trim())
+            const memberships = entry.memberships.filter(
+              (item) => typeof item === 'string' && item.trim()
+            )
             if (memberships.length) {
               this.formPlaceholders.newEntryMemberships = memberships
               populatedFields++
             }
           }
           if (Array.isArray(entry.type)) {
-            const types = entry.type.filter((type) => ['Physical', 'Digital', 'Fictional'].includes(type))
+            const types = entry.type.filter((type) =>
+              ['Physical', 'Digital', 'Fictional'].includes(type)
+            )
             if (types.length) {
               this.formPlaceholders.newEntryTypePhysical = types.includes('Physical')
               this.formPlaceholders.newEntryTypeDigital = types.includes('Digital')
@@ -1291,14 +1440,18 @@ export default {
           populatedFields++
         }
         if (Array.isArray(entry.languages)) {
-          const languages = entry.languages.filter((item) => typeof item === 'string' && item.trim())
+          const languages = entry.languages.filter(
+            (item) => typeof item === 'string' && item.trim()
+          )
           if (languages.length) {
             this.formPlaceholders.newEntryLanguages = languages
             populatedFields++
           }
         }
         if (Array.isArray(entry.contactInfo)) {
-          const contacts = entry.contactInfo.filter((item) => typeof item === 'string' && item.trim())
+          const contacts = entry.contactInfo.filter(
+            (item) => typeof item === 'string' && item.trim()
+          )
           if (contacts.length) {
             this.formPlaceholders.newEntryEmails = contacts
             populatedFields++
@@ -1329,26 +1482,28 @@ export default {
 
         if (!populatedFields) {
           notify({
-            title: 'AI assistant',
-            text: 'The AI returned no valid fields to fill in. Check the text or file and try again.',
+            title: this.$t('entryForm.messages.aiAssistant'),
+            text: this.$t('entryForm.messages.invalidAiFields'),
             type: 'error'
           })
           return
         }
 
-        this.uncertainFields = [...new Set([
-          ...this.uncertainFields,
-          ...(Array.isArray(entry.uncertain) ? entry.uncertain : [])
-        ])]
+        this.uncertainFields = [
+          ...new Set([
+            ...this.uncertainFields,
+            ...(Array.isArray(entry.uncertain) ? entry.uncertain : [])
+          ])
+        ]
         notify({
-          title: 'AI suggestions ready',
-          text: 'Review every suggested value and correct anything inaccurate.',
+          title: this.$t('entryForm.messages.suggestionsReady'),
+          text: this.$t('entryForm.messages.reviewSuggestions'),
           type: 'success'
         })
       } catch (error) {
         notify({
-          title: 'AI assistant',
-          text: error.message || 'Could not analyze this resource.',
+          title: this.$t('entryForm.messages.aiAssistant'),
+          text: error.message || this.$t('entryForm.messages.couldNotAnalyze'),
           type: 'error'
         })
       } finally {
@@ -1359,7 +1514,9 @@ export default {
       const normalizedName = value.trim().toLocaleLowerCase()
       return this.directoryData.find((entry) => {
         if (this.entryType === 'micronation') {
-          return micronationNameVariants(entry.name).some((name) => this.matchesWholeWords(name, normalizedName))
+          return micronationNameVariants(entry.name).some((name) =>
+            this.matchesWholeWords(name, normalizedName)
+          )
         }
         return entry.name?.main?.trim().toLocaleLowerCase() === normalizedName
       })
@@ -1429,7 +1586,24 @@ export default {
         x: Math.max(12, Math.min(event.clientX + 12, window.innerWidth - 352)),
         y: Math.max(12, Math.min(event.clientY + 12, window.innerHeight * 0.3))
       }
-      this.tooltipTitle = title
+      const titleKeys = {
+        Name: 'name',
+        Title: 'title',
+        'Alternative name': 'alternativeName',
+        'Other names': 'otherNames',
+        Motto: 'motto',
+        Type: 'type',
+        'Official languages': 'languages',
+        Capital: 'capital',
+        Currency: 'currency',
+        Foundation: 'foundation',
+        Location: 'location',
+        Memberships: 'memberships',
+        'Contact media': 'contact',
+        'Info sources': 'sources',
+        Flag: 'flag'
+      }
+      this.tooltipTitle = this.$t(`entryForm.tooltipTitles.${titleKeys[title] || 'name'}`)
       this.activeTooltipText = tooltipIndex
     },
     deactivateTooltip() {
@@ -1441,10 +1615,14 @@ export default {
     },
     successNotification() {
       notify({
-        title: this.directoryEdit ? 'Edit submitted' : 'Submission successful',
+        title: this.$t(
+          this.directoryEdit
+            ? 'entryForm.messages.editSubmitted'
+            : 'entryForm.messages.submissionSuccessful'
+        ),
         text: this.directoryEdit
-          ? 'Your proposed changes are awaiting moderator approval.'
-          : 'The entry was successfully submitted! Now awaits approval from the admin (please allow up to 72 hours).',
+          ? this.$t('entryForm.messages.editAwaitingApproval')
+          : this.$t('entryForm.messages.entryAwaitingApproval'),
         type: 'success'
       })
     },
@@ -1490,22 +1668,25 @@ export default {
       if (this.flagRadio !== 'url') return this.flagSource || null
 
       const url = this.formPlaceholders.newEntryFlag.trim()
-      if (!url) throw new Error('Enter a direct link to the flag/logo image.')
+      if (!url) throw new Error(this.$t('entryForm.messages.imageUrlRequired'))
       let parsedUrl
       try {
         parsedUrl = new URL(url)
       } catch {
-        throw new Error('Enter a valid image URL.')
+        throw new Error(this.$t('entryForm.messages.invalidImageUrl'))
       }
       if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-        throw new Error('The image URL must use HTTP or HTTPS.')
+        throw new Error(this.$t('entryForm.messages.imageProtocol'))
       }
 
       const response = await fetch(parsedUrl.href)
-      if (!response.ok) throw new Error(`Could not download the image (HTTP ${response.status}).`)
+      if (!response.ok)
+        throw new Error(
+          this.$t('entryForm.messages.imageDownloadFailed', { status: response.status })
+        )
       const blob = await response.blob()
       if (!blob.type.startsWith('image/') || !blob.size) {
-        throw new Error('The URL must return a valid image.')
+        throw new Error(this.$t('entryForm.messages.imageResponseInvalid'))
       }
       const extension = blob.type === 'image/jpeg' ? 'jpg' : blob.type.split('/')[1].split('+')[0]
       return new File([blob], `image.${extension || 'png'}`, { type: blob.type })
@@ -1533,7 +1714,9 @@ export default {
         this.flagSource = file
         this.flagPreview = URL.createObjectURL(file)
       } catch (error) {
-        this.imagePreviewError = `The image could not be loaded for the preview (${error.message || 'network or CORS restriction'}). Upload the image as a local file instead, or use a direct URL that allows downloading.`
+        this.imagePreviewError = `The image could not be loaded for the preview (${
+          error.message || 'network or CORS restriction'
+        }). Upload the image as a local file instead, or use a direct URL that allows downloading.`
       }
     }
   }
@@ -1825,7 +2008,6 @@ export default {
   width: auto;
   min-width: 76px;
   min-height: 42px;
-  padding: 7px 16px;
 }
 
 .selected-elements-container {
@@ -1840,10 +2022,18 @@ export default {
 
 .new-entry-form-text {
   display: flex;
+  width: fit-content;
+  max-width: 100%;
   align-items: center;
+  gap: 4px;
   font-size: 14px;
   font-weight: 700;
   color: var(--color-heading);
+}
+
+.new-entry-label-content {
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .uncertainty-field-control {
@@ -1858,12 +2048,20 @@ export default {
 }
 .new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > input,
 .new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > select,
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .new-entry-option-container,
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .new-entry-type,
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .vue-datepicker {
+.new-entry-container--moderation
+  .uncertainty-field-control.moderation-field-changed
+  > .new-entry-option-container,
+.new-entry-container--moderation
+  .uncertainty-field-control.moderation-field-changed
+  > .new-entry-type,
+.new-entry-container--moderation
+  .uncertainty-field-control.moderation-field-changed
+  > .vue-datepicker {
   background-color: rgb(245 200 74 / 14%);
 }
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed input:not([type='checkbox']),
+.new-entry-container--moderation
+  .uncertainty-field-control.moderation-field-changed
+  input:not([type='checkbox']),
 .new-entry-container--moderation .uncertainty-field-control.moderation-field-changed select {
   background-color: rgb(245 200 74 / 14%);
 }
@@ -1957,6 +2155,11 @@ div.new-entry-type {
   opacity: 0.78;
 }
 
+#previewTitle {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
 .submit-spinner {
   width: 17px;
   height: 17px;
@@ -1998,7 +2201,9 @@ div.new-entry-type {
 }
 
 .tooltip-activator {
-  margin-left: 4px;
+  display: inline-block;
+  flex: 0 0 16px;
+  margin-left: 0;
   width: 16px;
   cursor: pointer;
   vertical-align: middle;

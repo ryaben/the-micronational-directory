@@ -1,11 +1,11 @@
 <script setup>
+import { formatDate, dateFormats } from '../i18n.js'
+
 const props = defineProps({
   post: { type: Object, required: true }
 });
 
-const formatDate = value => value
-  ? new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(value))
-  : '';
+const displayDate = value => value ? formatDate(value, dateFormats.compact) : ''
 </script>
 
 <template>
@@ -14,9 +14,9 @@ const formatDate = value => value
       <img class="x-post-avatar" src="/images/brand/black-logo1-mini.png" alt="">
       <div class="x-post-author">
         <strong>The Micronational Directory</strong>
-        <span>@the_micro_direc<span v-if="formatDate(post.createdAt)"> · {{ formatDate(post.createdAt) }}</span></span>
+        <span>@the_micro_direc<span v-if="displayDate(post.createdAt)"> · {{ displayDate(post.createdAt) }}</span></span>
       </div>
-      <a class="x-post-follow" href="https://x.com/the_micro_direc" target="_blank" rel="noopener noreferrer">Follow</a>
+      <a class="x-post-follow" href="https://x.com/the_micro_direc" target="_blank" rel="noopener noreferrer">{{ $t('xPosts.follow') }}</a>
     </header>
 
     <p v-if="post.text" class="x-post-text">{{ post.text }}</p>
@@ -28,7 +28,7 @@ const formatDate = value => value
     </div>
 
     <a class="x-post-link" :href="post.url" target="_blank" rel="noopener noreferrer">
-      View post on X <span aria-hidden="true">↗</span>
+      {{ $t('xPosts.view') }} <span aria-hidden="true">↗</span>
     </a>
   </article>
 </template>

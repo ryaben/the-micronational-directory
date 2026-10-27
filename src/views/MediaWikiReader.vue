@@ -134,8 +134,8 @@ export default {
       },
       componentKey: 0,
       moderationbarTabs: [
-        { text: 'MicrasWiki', target: 'micras', display: true },
-        { text: 'MicroWiki', target: 'microwiki', display: true }
+        { textKey: 'sectionTabs.micras', target: 'micras', display: true },
+        { textKey: 'sectionTabs.microWiki', target: 'microwiki', display: true }
       ],
       micrasArray: [],
       microWikiArray: [],

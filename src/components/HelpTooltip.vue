@@ -26,7 +26,7 @@ defineProps({
     :style="tooltipStyles" role="dialog" :aria-label="`${title} help`">
     <div class="close-container">
       <h3 class="tooltip-title">{{ title }}</h3>
-      <button class="close-button" type="button" aria-label="Close help" @click="closeTooltip">×</button>
+      <button class="close-button" type="button" :aria-label="$t('common.close')" @click="closeTooltip">×</button>
     </div>
     <p class="help-text">{{ helpText }}</p>
   </section>

@@ -14,10 +14,10 @@ const { userIsModerator } = useDirectoryData();
 const route = useRoute();
 const router = useRouter();
 const sections = [
-  { text: 'User entries', target: 'submissions', display: true },
-  { text: 'AI source research', target: 'source-research', display: true },
-  { text: 'MediaWiki API reader', target: 'mediawiki', display: true },
-  { text: 'Google My Maps processor', target: 'google-maps', display: true }
+  { textKey: 'sectionTabs.submissions', target: 'submissions', display: true },
+  { textKey: 'sectionTabs.sourceResearch', target: 'source-research', display: true },
+  { textKey: 'sectionTabs.mediaWiki', target: 'mediawiki', display: true },
+  { textKey: 'sectionTabs.googleMaps', target: 'google-maps', display: true }
 ];
 const allowedSections = new Set(sections.map(section => section.target));
 const selectedSection = computed(() => allowedSections.has(route.query.section) ? route.query.section : 'submissions');

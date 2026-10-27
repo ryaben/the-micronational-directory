@@ -47,9 +47,9 @@ const emit = defineEmits(['open-profile'])
 <template>
     <div class="directory-entry-container" :class="{ 'info-displayed': infoView, 'fixed-height': fixedHeight }" :style="cssProps"
         @click="toggleInfo">
-        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" aria-label="Submission type">{{ moderationLabel }}</span>
+        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" :aria-label="$t('moderation.submissionType')">{{ $t(moderationLabel === 'Edit' ? 'moderation.edit' : 'moderation.new') }}</span>
         <FavoriteToggle v-if="info.approved" :entry-id="info.directoryId || info.id || ''" entry-type="organizations" />
-        <img :src="info.logo" class="entry-logo" :style="{ height: logoHeight + 'px' }" alt="Logo">
+        <img :src="info.logo" class="entry-logo" :style="{ height: logoHeight + 'px' }" :alt="$t('organization.logoAlt')">
 
         <div class="entry-info">
             <p class="entry-text entry-name" :class="{ expanded: infoView }"><b>{{ info.name.main }}</b></p>
@@ -61,41 +61,41 @@ const emit = defineEmits(['open-profile'])
 
                     <div class="entry-facts">
                         <div class="entry-fact">
-                            <span class="fact-label">Languages</span>
-                            <strong>{{ info.languages?.length ? info.languages.join(', ') : 'Not listed' }}</strong>
+                            <span class="fact-label">{{ $t('organization.languages') }}</span>
+                            <strong>{{ info.languages?.length ? info.languages.join(', ') : $t('common.notListed') }}</strong>
                         </div>
                         <div class="entry-fact">
-                            <span class="fact-label">Founded</span>
+                            <span class="fact-label">{{ $t('organization.foundation') }}</span>
                             <strong>{{ formatFoundation(info.foundationDate) }}</strong>
                         </div>
                     </div>
 
                     <section class="entry-sources-section">
-                        <div class="sources-heading"><span>Contact media</span><small>{{ info.contactInfo?.length || 0 }}</small></div>
+                        <div class="sources-heading"><span>{{ $t('organization.contact') }}</span><small>{{ info.contactInfo?.length || 0 }}</small></div>
                         <div class="sources-container">
                             <EntrySource v-for="(contact, i) in info.contactInfo" :key="contact + i"
                                 :href="contact" :flag-source="info.logo" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
-                        <p v-if="!info.contactInfo?.length" class="source-empty">No contact media listed</p>
+                        <p v-if="!info.contactInfo?.length" class="source-empty">{{ $t('organization.noContact') }}</p>
                     </section>
 
                     <section class="entry-sources-section">
-                        <div class="sources-heading"><span>Info sources</span><small>{{ info.websites?.length || 0 }}</small></div>
+                        <div class="sources-heading"><span>{{ $t('organization.sources') }}</span><small>{{ info.websites?.length || 0 }}</small></div>
                         <div class="sources-container">
                             <EntrySource v-for="(website, i) in info.websites" :key="website + i"
                                 :href="website" :flag-source="info.logo" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
-                        <p v-if="!info.websites?.length" class="source-empty">No sources listed</p>
+                        <p v-if="!info.websites?.length" class="source-empty">{{ $t('organization.noSources') }}</p>
                     </section>
                 </div>
             </AnimateHeight>
         </div>
 
         <div v-if="infoView" class="info-buttons-container">
-            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">See full profile</button>
-            <router-link v-else :to="'/organizations/' + info.name.main" class="info-button full-width">See full profile</router-link>
+            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">{{ $t('organization.fullProfile') }}</button>
+            <router-link v-else :to="'/organizations/' + info.name.main" class="info-button full-width">{{ $t('organization.fullProfile') }}</router-link>
         </div>
     </div>
 </template>

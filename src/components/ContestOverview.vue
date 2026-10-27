@@ -47,6 +47,8 @@ defineProps({
 </template>
 
 <script>
+import { formatDate, dateFormats } from '../i18n.js'
+
 export default {
     name: 'ContestOverview',
     components: {
@@ -58,16 +60,10 @@ export default {
     },
     computed: {
         startingDate() {
-            const dateString = new Date((this.contestInfo.startDate.seconds || this.contestInfo.startDate._seconds) * 1000);
-            const dateFullMonth = dateString.toLocaleString('default', { month: 'long' });
-
-            return dateFullMonth + ' ' + dateString.getDate();
+            return formatDate(this.contestInfo.startDate, dateFormats.monthDay);
         },
         endingDate() {
-            const dateString = new Date((this.contestInfo.endDate.seconds || this.contestInfo.endDate._seconds) * 1000);
-            const dateFullMonth = dateString.toLocaleString('default', { month: 'long' });
-
-            return dateFullMonth + ' ' + dateString.getDate();;
+            return formatDate(this.contestInfo.endDate, dateFormats.monthDay);
         },
         alreadyStarted() {
             return ((this.contestInfo.startDate.seconds || this.contestInfo.startDate._seconds) * 1000) < new Date().getTime();

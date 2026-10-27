@@ -29,12 +29,12 @@ defineProps({
         </div>
 
         <h3 class="placemark-name">{{ placemarkInfo.micronationalMap.name }}</h3>
-        <p class="source-origin">From: {{ placemarkInfo.micronationalMap.source?.name || 'Unknown map source' }}</p>
+        <p class="source-origin">{{ $t('common.from') }} {{ placemarkInfo.micronationalMap.source?.name || $t('common.unknownMap') }}</p>
 
         <hr class="light-divider">
 
         <p class="micronation-description">{{ placemarkInfo.micronationalMap.description }}<span
-            v-if="!placemarkInfo.micronationalMap.description">No description.</span></p>
+            v-if="!placemarkInfo.micronationalMap.description">{{ $t('common.noDescription') }}</span></p>
 
         <hr class="light-divider">
 
@@ -42,7 +42,7 @@ defineProps({
             location data:</p>
         <p class="map-status" v-else-if="present">It seems that exists an entry on TMD that already
             contains location data:</p>
-        <p class="map-status" v-else>Seems that there is no entry for this micronation on TMD. But here is the location info!</p>
+        <p class="map-status" v-else>{{ $t('mapReader.noMatch') }}</p>
 
         <DirectoryEntry v-if="present" class="map-directory-entry" :width="180" :flag-height="120"
             :info="{
@@ -66,9 +66,9 @@ defineProps({
         <button v-if="present" class="login-button color-transition map-location-button"
             :disabled="isSavingLocation || !hasValidMapLocation"
             @click="saveLocation(placemarkInfo)">
-            <span v-if="isSavingLocation">Saving location…</span>
-            <span v-else-if="(placemarkInfo.location?.latitude ?? 0) === 0">Save location on TMD</span>
-            <span v-else>Update location on TMD</span>
+            <span v-if="isSavingLocation">{{ $t('mapReader.saving') }}</span>
+            <span v-else-if="(placemarkInfo.location?.latitude ?? 0) === 0">{{ $t('mapReader.save') }}</span>
+            <span v-else>{{ $t('mapReader.update') }}</span>
         </button>
     </div>
 </template>

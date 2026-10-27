@@ -79,10 +79,10 @@ const emit = defineEmits(['open-profile'])
     <div class="directory-entry-container"
         :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView, 'fixed-height': fixedHeight }" :style="cssProps"
         @click="toggleInfo">
-        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" aria-label="Submission type">{{ moderationLabel }}</span>
+        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" :aria-label="$t('moderation.submissionType')">{{ $t(moderationLabel === 'Edit' ? 'moderation.edit' : 'moderation.new') }}</span>
         <FavoriteToggle v-if="info.approved && viewMode !== 'collage'" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
 
-        <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" alt="Flag">
+        <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" :alt="$t('directory.flagAlt')">
 
         <div v-show="viewMode !== 'collage'" class="entry-info">
             <p class="entry-text entry-name" :class="{ 'expanded': infoView }"><b>{{ info.name.main }}</b><span
@@ -95,18 +95,18 @@ const emit = defineEmits(['open-profile'])
 
                     <div class="entry-facts">
                         <div class="entry-fact">
-                            <span class="fact-label">Languages</span>
-                            <strong>{{ info.languages?.length ? info.languages.join(', ') : 'Not listed' }}</strong>
+                            <span class="fact-label">{{ $t('directory.languages') }}</span>
+                            <strong>{{ info.languages?.length ? info.languages.join(', ') : $t('common.notListed') }}</strong>
                         </div>
                         <div class="entry-fact">
-                            <span class="fact-label">Founded</span>
+                            <span class="fact-label">{{ $t('directory.founded') }}</span>
                             <strong>{{ info.foundationDateDisplay || formatFoundation(info.foundationDate) }}</strong>
                         </div>
                     </div>
 
                     <section class="entry-sources-section">
                         <div class="sources-heading">
-                            <span>Contact media</span>
+                            <span>{{ $t('directory.contactMedia') }}</span>
                             <small>{{ info.contactInfo?.length || 0 }}</small>
                         </div>
                         <div class="sources-container">
@@ -114,12 +114,12 @@ const emit = defineEmits(['open-profile'])
                                 :href="contact" :flag-source="info.flag" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(contact, info.name.main)" />
                         </div>
-                        <p v-if="!info.contactInfo?.length" class="source-empty">No contact media listed</p>
+                        <p v-if="!info.contactInfo?.length" class="source-empty">{{ $t('directory.noContactMedia') }}</p>
                     </section>
 
                     <section class="entry-sources-section">
                         <div class="sources-heading">
-                            <span>Info sources</span>
+                            <span>{{ $t('directory.infoSources') }}</span>
                             <small>{{ info.websites?.length || 0 }}</small>
                         </div>
                         <div class="sources-container">
@@ -127,17 +127,17 @@ const emit = defineEmits(['open-profile'])
                                 :href="website" :flag-source="info.flag" :size="28" :micronation-name="info.name.main"
                                 :icon="checkIcon(website, info.name.main)" />
                         </div>
-                        <p v-if="!info.websites?.length" class="source-empty">No sources listed</p>
+                        <p v-if="!info.websites?.length" class="source-empty">{{ $t('directory.noSources') }}</p>
                     </section>
                 </div>
             </AnimateHeight>
         </div>
 
         <div v-if="viewMode !== 'collage' && infoView" class="info-buttons-container">
-            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">See full profile</button>
+            <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">{{ $t('directory.fullProfile') }}</button>
             <router-link v-else-if="!disableFullProfileButton" :to="'/directory/' + info.name.main"
-                class="info-button full-width">See full profile</router-link>
-            <span v-else class="info-button full-width disabled">See full profile</span>
+                class="info-button full-width">{{ $t('directory.fullProfile') }}</router-link>
+            <span v-else class="info-button full-width disabled">{{ $t('directory.fullProfile') }}</span>
         </div>
     </div>
 </template>

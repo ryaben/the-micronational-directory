@@ -59,20 +59,20 @@ function onSuccess() {
 <template>
   <section class="site-section">
     <div v-if="!user?.emailVerified" class="edit-entry-message">
-      <h2>Email verification required</h2>
-      <p>Sign in with a verified email address to suggest changes to this entry.</p>
-      <router-link to="/login">Sign in</router-link>
+      <h2>{{ $t('editEntry.verifyTitle') }}</h2>
+      <p>{{ $t('editEntry.verifyBody') }}</p>
+      <router-link to="/login">{{ $t('common.signIn') }}</router-link>
     </div>
-    <div v-else-if="!directoryLoaded" class="edit-entry-message">Loading directory entry…</div>
+    <div v-else-if="!directoryLoaded" class="edit-entry-message">{{ $t('editEntry.loading') }}</div>
     <div v-else-if="!entry" class="edit-entry-message">
-      <h2>Entry not found</h2>
-      <p>This approved directory entry could not be found.</p>
+      <h2>{{ $t('common.notFound') }}</h2>
+      <p>{{ $t('editEntry.notFoundBody') }}</p>
     </div>
     <div v-else>
-      <h2>Suggest edits to {{ entry.name.main }}</h2>
-      <p>Changes will appear in the public directory after moderator approval.</p>
+      <h2>{{ $t('editEntry.suggest', { name: entry.name.main }) }}</h2>
+      <p>{{ $t('editEntry.approval') }}</p>
       <section class="approved-entry-reference" aria-labelledby="approved-entry-heading">
-        <h3 id="approved-entry-heading">Current approved profile</h3>
+      <h3 id="approved-entry-heading">{{ $t('editEntry.current') }}</h3>
         <DirectoryArticle v-if="entryType === 'micronation'" :info="entry" :preview="true" />
         <OrganizationArticle
           v-else

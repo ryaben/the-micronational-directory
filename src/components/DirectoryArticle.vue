@@ -82,7 +82,7 @@ defineProps({
               />
             </p>
             <div v-if="alternativeNames(info.name).length" class="article-text article-alt-name">
-              <span class="article-alt-label">Also:</span>
+            <span class="article-alt-label">{{ $t('directory.also') }}</span>
               <UncertaintyToggle
                 v-if="info.uncertain?.includes('name.alt')"
                 :active="true"
@@ -115,20 +115,20 @@ defineProps({
 
         <div class="article-data-grid">
           <ProfileDataCell variant="directory">
-            <span class="data-label">National motto</span>
+            <span class="data-label">{{ $t('directory.nationalMotto') }}</span>
             <span class="data-value" v-if="info.motto !== ''"
               ><span class="italicized">"{{ info.motto }}"</span
               ><UncertaintyToggle v-if="info.uncertain?.includes('motto')" :active="true" disabled
             /></span>
             <span class="data-value" v-else
-              >No motto.<UncertaintyToggle
+              >{{ $t('directory.noMotto') }}<UncertaintyToggle
                 v-if="info.uncertain?.includes('motto')"
                 :active="true"
                 disabled
             /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Foundation</span>
+            <span class="data-label">{{ $t('directory.foundation') }}</span>
             <span class="data-value"
               >{{ cleanTimestamp(info.foundationDate)
               }}<UncertaintyToggle
@@ -138,7 +138,7 @@ defineProps({
             /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Micronation type</span>
+            <span class="data-label">{{ $t('directory.type') }}</span>
             <span class="data-value">
               <span v-for="(type, i) in info.type" :key="i"
                 >{{ type }}<span v-if="i !== info.type.length - 1">, </span
@@ -148,7 +148,7 @@ defineProps({
             </span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Capital</span>
+            <span class="data-label">{{ $t('directory.capital') }}</span>
             <span class="data-value"
               >{{ info.capital ? info.capital + '.' : 'None.'
               }}<UncertaintyToggle
@@ -158,7 +158,7 @@ defineProps({
             /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Languages</span>
+            <span class="data-label">{{ $t('directory.languages') }}</span>
             <span class="data-value">
               <span v-for="(language, i) in info.languages" :key="i"
                 >{{ language }}<span v-if="i !== info.languages.length - 1">, </span
@@ -172,7 +172,7 @@ defineProps({
             </span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Currency</span>
+            <span class="data-label">{{ $t('directory.currency') }}</span>
             <span class="data-value"
               >{{ info.currency ? info.currency + '.' : 'None.'
               }}<UncertaintyToggle
@@ -182,9 +182,9 @@ defineProps({
             /></span>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Historical memberships</span>
+            <span class="data-label">{{ $t('directory.memberships') }}</span>
             <div class="data-value">
-              <span v-if="!info.memberships.length">None.</span>
+              <span v-if="!info.memberships.length">{{ $t('directory.none') }}</span>
               <div v-else class="sources-container">
                 <MemberSource
                   class="member-source"
@@ -206,9 +206,9 @@ defineProps({
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Contact media</span>
+            <span class="data-label">{{ $t('directory.contact') }}</span>
             <div class="data-value">
-              <span v-if="!info.contactInfo.length">N/A.</span>
+              <span v-if="!info.contactInfo.length">{{ $t('directory.na') }}</span>
               <div v-else class="sources-container">
                 <EntrySource
                   class="entry-source"
@@ -229,7 +229,7 @@ defineProps({
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Info sources</span>
+            <span class="data-label">{{ $t('directory.sources') }}</span>
             <div class="data-value">
               <div class="sources-container">
                 <EntrySource
@@ -251,7 +251,7 @@ defineProps({
             </div>
           </ProfileDataCell>
           <ProfileDataCell variant="directory">
-            <span class="data-label">Try more info at</span>
+            <span class="data-label">{{ $t('directory.tryMore') }}</span>
             <div class="data-value">
               <div class="sources-container">
                 <EntrySource
@@ -293,6 +293,8 @@ defineProps({
 </template>
 
 <script>
+import { formatDate } from '../i18n.js'
+
 export default {
   name: 'DirectoryArticle',
   components: {
@@ -301,15 +303,7 @@ export default {
   },
   methods: {
     cleanTimestamp(timestamp) {
-      const seconds = timestamp?._seconds ?? timestamp?.seconds
-      const date = seconds != null ? new Date(seconds * 1000) : new Date(timestamp)
-      if (Number.isNaN(date.getTime())) return 'Unknown'
-      return new Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'UTC'
-      }).format(date)
+      return formatDate(timestamp)
     },
     generateMFALink(micronation) {
       const cleanString = micronation.replace(/\s+/g, '-').toLowerCase()

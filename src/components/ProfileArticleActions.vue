@@ -63,7 +63,7 @@ async function shareProfile() {
 <template>
   <div class="profile-header-actions">
     <FavoriteToggle :entry-id="entryId" :entry-type="entryType" placement="profile" />
-    <button v-if="loggedIn && entryId" class="profile-header-action" type="button" @click="openEdit" aria-label="Suggest an edit">
+    <button v-if="loggedIn && entryId" class="profile-header-action" type="button" @click="openEdit" :aria-label="$t('actions.suggestEdit')">
       <EditIcon aria-hidden="true" />
     </button>
     <button class="profile-header-action share-profile-action" type="button" @click="shareProfile">
@@ -73,7 +73,7 @@ async function shareProfile() {
       class="profile-header-action copy-profile-action"
       type="button"
       @click="copyProfileLink"
-      :aria-label="copied ? 'Link copied' : 'Copy profile link'"
+      :aria-label="$t(copied ? 'actions.linkCopied' : 'actions.copyProfile')"
     >
       <CopyIcon v-if="!copied" aria-hidden="true" />
       <CheckIcon v-else aria-hidden="true" />

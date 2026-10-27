@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <header class="site-header">
-    <a href="/" class="logo-link" aria-label="The Micronational Directory home">
+    <a href="/" class="logo-link" :aria-label="$t('common.brandHome')">
       <img
         id="logo"
         :src="theme === 'light' ? '/images/brand/plain-logo1-black.png' : '/images/brand/plain-logo1.png'"
