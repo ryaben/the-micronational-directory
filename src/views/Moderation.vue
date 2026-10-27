@@ -26,6 +26,13 @@ import {
 } from '../utils/githubFunctions.js'
 
 const { micronationsDirectory, supranationalMicronations, organizationsDirectory, visibleOrganizations, userIsModerator } = useDirectoryData()
+const findPublishedEntry = (entry) => {
+  if (!entry?.isEdit) return null
+  const directory = entry.entryType === 'micronation' ? micronationsDirectory.value : organizationsDirectory.value
+  const targetId = entry.editTargetId || entry.directoryEntryId
+  if (targetId == null) return null
+  return directory.find((published) => String(published.id) === String(targetId)) || null
+}
 </script>
 
 <template>
@@ -166,6 +173,10 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
                     </button>
                   </div>
                 </div>
+                <p v-if="selectedProfileEntry.isEdit" class="edit-difference-legend">
+                  <span class="edit-difference-legend-highlight">Highlighted fields</span>
+                  differ from the published version.
+                </p>
                 <NewEntryForm
                   v-if="profileDraft && moderationFormDraft"
                   :key="selectedProfileEntry.issueNumber"
@@ -177,6 +188,7 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
                   "
                   :form-placeholders="moderationFormDraft"
                   :initial-entry="profileDraft"
+                  :published-entry="findPublishedEntry(selectedProfileEntry)"
                   :initial-image-mode="profileImageMode"
                   :is-moderation-editor="true"
                   :saving="savingProfile"
@@ -1169,6 +1181,23 @@ export default {
 
 .details-heading h3 {
   margin: 2px 0 0;
+  color: var(--color-heading);
+}
+
+.edit-difference-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: -2px 0 12px;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.edit-difference-legend-highlight {
+  padding: 2px 6px;
+  border: 1px solid rgb(245 200 74 / 35%);
+  border-radius: 4px;
+  background: rgb(245 200 74 / 14%);
   color: var(--color-heading);
 }
 

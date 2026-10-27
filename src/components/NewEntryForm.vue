@@ -36,6 +36,7 @@ defineProps({
   },
   isModerationEditor: { type: Boolean, default: false },
   initialEntry: { type: Object, default: null },
+  publishedEntry: { type: Object, default: null },
   directoryEdit: { type: Boolean, default: false },
   editTargetId: { type: String, default: '' },
   initialImageMode: { type: String, default: 'url' },
@@ -211,7 +212,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 0 ? '' : activateTooltip(0, 'Name', $event)"
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.main') }">
               <UncertaintyToggle :active="isUncertain('name.main')" @toggle="toggleUncertain('name.main')" />
               <input
                 type="text"
@@ -239,7 +240,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 1 ? '' : activateTooltip(1, 'Title', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.title') }">
               <UncertaintyToggle :active="isUncertain('name.title')" @toggle="toggleUncertain('name.title')" />
               <input
                 type="text"
@@ -264,7 +265,7 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <div v-if="entryType !== 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType !== 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.mainAlt') }">
               <UncertaintyToggle :active="isUncertain('name.mainAlt')" @toggle="toggleUncertain('name.mainAlt')" />
               <input
                 type="text"
@@ -288,7 +289,7 @@ const emit = defineEmits([
                   @click="activeTooltipIndex === 2 ? '' : activateTooltip(2, 'Other names', $event)"
                 />
               </label>
-              <div class="uncertainty-field-control">
+              <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('name.alt') }">
                 <UncertaintyToggle :active="isUncertain('name.alt')" @toggle="toggleUncertain('name.alt')" />
                 <div class="new-entry-option-container alternative-name-fields">
                 <div class="alternative-name-inputs">
@@ -332,7 +333,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 4 ? '' : activateTooltip(4, 'Motto', $event)"
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('motto') }">
               <UncertaintyToggle :active="isUncertain('motto')" @toggle="toggleUncertain('motto')" />
               <input
                 type="text"
@@ -351,7 +352,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 5 ? '' : activateTooltip(5, 'Type', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('type') }">
               <UncertaintyToggle :active="isUncertain('type')" @toggle="toggleUncertain('type')" />
               <div class="new-entry-type">
               <input
@@ -395,7 +396,7 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('languages') }">
             <UncertaintyToggle :active="isUncertain('languages')" @toggle="toggleUncertain('languages')" />
             <div class="new-entry-option-container">
               <div class="new-entry-select-controls">
@@ -445,7 +446,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 7 ? '' : activateTooltip(7, 'Capital', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('capital') }">
               <UncertaintyToggle :active="isUncertain('capital')" @toggle="toggleUncertain('capital')" />
               <input
                 type="text"
@@ -468,7 +469,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 8 ? '' : activateTooltip(8, 'Currency', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('currency') }">
               <UncertaintyToggle :active="isUncertain('currency')" @toggle="toggleUncertain('currency')" />
               <input
                 type="text"
@@ -487,7 +488,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 9 ? '' : activateTooltip(9, 'Foundation', $event)"
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('foundationDate') }">
             <UncertaintyToggle :active="isUncertain('foundationDate')" @toggle="toggleUncertain('foundationDate')" />
             <VueDatePicker
               v-model="foundationDate"
@@ -516,7 +517,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 10 ? '' : activateTooltip(10, 'Location', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" v-show="physicalType" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" v-show="physicalType" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('location') }">
               <UncertaintyToggle :active="isUncertain('location')" @toggle="toggleUncertain('location')" />
               <div>
               <p class="new-entry-location-note">
@@ -549,7 +550,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 11 ? '' : activateTooltip(11, 'Memberships', $event)"
               />
             </label>
-            <div v-if="entryType === 'micronation'" class="uncertainty-field-control">
+            <div v-if="entryType === 'micronation'" class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('memberships') }">
             <UncertaintyToggle :active="isUncertain('memberships')" @toggle="toggleUncertain('memberships')" />
             <div class="new-entry-option-container">
               <div class="new-entry-select-controls">
@@ -605,7 +606,7 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('contactInfo') }">
               <UncertaintyToggle :active="isUncertain('contactInfo')" @toggle="toggleUncertain('contactInfo')" />
             <div class="new-entry-option-container">
               <div style="display: flex">
@@ -648,7 +649,7 @@ const emit = defineEmits([
                 "
               />
             </label>
-            <div class="uncertainty-field-control">
+            <div class="uncertainty-field-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged('websites') }">
               <UncertaintyToggle :active="isUncertain('websites')" @toggle="toggleUncertain('websites')" />
             <div class="new-entry-option-container">
               <div style="display: flex">
@@ -689,7 +690,7 @@ const emit = defineEmits([
                 @click="activeTooltipIndex === 14 ? '' : activateTooltip(14, 'Flag', $event)"
               />
             </label>
-            <div class="uncertainty-field-control flag-input-control">
+            <div class="uncertainty-field-control flag-input-control" :class="{ 'moderation-field-changed': isPublishedFieldChanged(entryType === 'micronation' ? 'flag' : 'logo') }">
               <UncertaintyToggle :active="isUncertain(entryType === 'micronation' ? 'flag' : 'logo')" @toggle="toggleUncertain(entryType === 'micronation' ? 'flag' : 'logo')" />
             <div class="new-entry-option-container flag-preview-container">
               <img
@@ -939,6 +940,23 @@ export default {
     }
   },
   methods: {
+    isPublishedFieldChanged(field) {
+      if (!this.isModerationEditor || !this.publishedEntry) return false
+      const read = (entry) => {
+        if (field === 'name.alt') return entry.name?.alt || []
+        if (field.startsWith('name.')) return field.split('.').slice(1).reduce((value, key) => value?.[key], entry)
+        return entry[field]
+      }
+      const normalize = (value) => {
+        if (Array.isArray(value)) return JSON.stringify(value.map(normalize))
+        if (value && typeof value === 'object') {
+          if ('_seconds' in value) return String(value._seconds)
+          return JSON.stringify(Object.fromEntries(Object.keys(value).sort().map((key) => [key, normalize(value[key])])))
+        }
+        return String(value ?? '').trim()
+      }
+      return normalize(read(this.initialEntry || {})) !== normalize(read(this.publishedEntry))
+    },
     isUncertain(field) {
       return this.uncertainFields.includes(field)
     },
@@ -1834,6 +1852,20 @@ export default {
   gap: 7px;
   width: 100%;
   min-width: 0;
+}
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed {
+  background: transparent;
+}
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > input,
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > select,
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .new-entry-option-container,
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .new-entry-type,
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > .vue-datepicker {
+  background-color: rgb(245 200 74 / 14%);
+}
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed input:not([type='checkbox']),
+.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed select {
+  background-color: rgb(245 200 74 / 14%);
 }
 
 .uncertainty-field-control > input,
