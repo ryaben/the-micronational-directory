@@ -31,6 +31,7 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
             approved: true,
             author: requestedOrganization.info.author.name,
             creationDate: requestedOrganization.info.creationDate,
+            editHistory: requestedOrganization.info.editHistory,
             previous: previousOrganization,
             next: nextOrganization
         }" />
