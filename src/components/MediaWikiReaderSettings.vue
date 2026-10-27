@@ -90,7 +90,7 @@ watch(pagedEntries, entries => emit('loaded-directory', entries), { immediate: t
 </script>
 
 <template>
-  <div class="wiki-reader-settings" aria-label="Article list controls">
+  <div class="wiki-reader-settings" :aria-label="$t('reader.articleListControls')">
     <div class="settings-heading">
       <div>
         <h3>{{ $t('reader.browseArticles') }}</h3>
@@ -104,7 +104,7 @@ watch(pagedEntries, entries => emit('loaded-directory', entries), { immediate: t
     <div class="settings-fields">
       <label class="control-field search-field">
         <span>{{ $t('reader.searchArticles') }}</span>
-        <input v-model="searchQuery" type="search" placeholder="Search by name...">
+        <input v-model="searchQuery" type="search" :placeholder="$t('reader.searchByNamePlaceholder')">
       </label>
 
       <label class="control-field">

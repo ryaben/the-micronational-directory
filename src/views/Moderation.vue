@@ -39,24 +39,20 @@ const findPublishedEntry = (entry) => {
   <section class="site-section site-section--flush site-section--flat-top">
     <ModerationToolWorkspace v-if="userIsModerator">
       <template #description>
-        <p class="workspace-description">
-          Review unpublished entries submitted by users. Approve entries that meet the requirements
-          to publish them in the directory, or reject them. Authors are notified by email after each
-          decision.
-        </p>
+        <p class="workspace-description">{{ $t('moderation.description') }}</p>
       </template>
       <template #summary>
         <strong>{{
           micronationsModerationDirectory.length + organizationsModerationDirectory.length
         }}</strong>
-        <span class="summary-label">entries waiting for review</span>
-        <span v-if="loadingIssues" class="summary-status">Refreshing…</span>
+        <span class="summary-label">{{ $t('moderation.waitingForReview') }}</span>
+        <span v-if="loadingIssues" class="summary-status">{{ $t('moderation.refreshing') }}</span>
       </template>
 
       <template #main>
         <div id="moderationMicronationsContainer">
           <div v-if="loadingIssues" class="loading-message">
-            Loading pending entries from GitHub...
+            {{ $t('moderation.loadingPending') }}
           </div>
           <div
             v-else-if="
@@ -66,7 +62,7 @@ const findPublishedEntry = (entry) => {
             "
             class="loading-message"
           >
-            No pending entries found.
+            {{ $t('moderation.noPending') }}
           </div>
           <div
             v-else
@@ -148,12 +144,12 @@ const findPublishedEntry = (entry) => {
                 class="selected-entry-details"
                 role="dialog"
                 aria-modal="true"
-                :aria-label="`Full profile for ${selectedProfileEntry.name.main}`"
+                :aria-label="$t('moderation.fullProfileFor', { name: selectedProfileEntry.name.main })"
               >
                 <div class="details-heading">
                   <div>
-                    <span>Submission #{{ selectedProfileEntry.issueNumber }}</span>
-                    <h3>{{ selectedProfileEntry.isEdit ? 'Proposed profile edits' : 'Full submission details' }}</h3>
+                    <span>{{ $t('moderation.submissionNumber', { number: selectedProfileEntry.issueNumber }) }}</span>
+                    <h3>{{ selectedProfileEntry.isEdit ? $t('moderation.proposedEdits') : $t('moderation.submissionDetails') }}</h3>
                   </div>
                   <div class="details-heading-actions">
                     <a
@@ -161,7 +157,7 @@ const findPublishedEntry = (entry) => {
                       :href="selectedProfileEntry.githubUrl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >Open GitHub issue ↗</a
+                      >{{ $t('moderation.openIssue') }} ↗</a
                     >
                     <button
                       type="button"
@@ -169,13 +165,13 @@ const findPublishedEntry = (entry) => {
                       :disabled="savingProfile || profileImageProcessing"
                       @click="closeSelectedPreview"
                     >
-                      <span aria-hidden="true">×</span> Close
+                      <span aria-hidden="true">×</span> {{ $t('common.close') }}
                     </button>
                   </div>
                 </div>
                 <p v-if="selectedProfileEntry.isEdit" class="edit-difference-legend">
-                  <span class="edit-difference-legend-highlight">Highlighted fields</span>
-                  differ from the published version.
+                  <span class="edit-difference-legend-highlight">{{ $t('moderation.highlightedFields') }}</span>
+                  {{ $t('moderation.differFromPublished') }}
                 </p>
                 <NewEntryForm
                   v-if="profileDraft && moderationFormDraft"
@@ -209,28 +205,28 @@ const findPublishedEntry = (entry) => {
           <header class="selection-header" :class="{ 'is-empty': !selectedEntry }">
             <div class="selection-header-topline">
               <div class="selection-label-group">
-                <span class="selection-kicker">Submission review</span>
+                <span class="selection-kicker">{{ $t('moderation.submissionReview') }}</span>
                 <span v-if="selectedEntry" class="selection-kind" :class="selectedEntry.isEdit ? 'is-edit' : 'is-new'">
-                  {{ selectedEntry.isEdit ? 'Edit' : 'New' }}
+                  {{ $t(selectedEntry.isEdit ? 'moderation.edit' : 'moderation.new') }}
                 </span>
               </div>
             </div>
-            <h3 class="selected-entry-name">{{ selectedEntryName }}</h3>
+            <h3 class="selected-entry-name">{{ selectedEntry ? selectedEntryName : $t('moderation.noneSelected') }}</h3>
             <div class="selection-meta">
               <div class="selection-meta-item">
-                <span>Type</span>
-                <strong>{{ selectedEntryType || '—' }}</strong>
+                <span>{{ $t('moderation.type') }}</span>
+                <strong>{{ selectedEntryType === 'Micronation' ? $t('moderation.micronation') : selectedEntryType === 'Organization' ? $t('moderation.organization') : '—' }}</strong>
               </div>
               <div class="selection-meta-item">
-                <span>Author</span>
+                <span>{{ $t('moderation.author') }}</span>
                 <strong>{{ selectedEntryAuthor || '—' }}</strong>
               </div>
               <div class="selection-meta-item selection-meta-item--date">
-                <span>Created</span>
+                <span>{{ $t('moderation.created') }}</span>
                 <strong>{{ formatSubmissionDate(selectedEntry?.createdAt) || '—' }}</strong>
               </div>
               <div class="selection-meta-item">
-                <span>Issue #</span>
+                <span>{{ $t('moderation.issue') }}</span>
                 <strong>
                   <a
                     v-if="selectedEntry?.issueNumber && selectedEntry?.githubUrl"
@@ -249,8 +245,8 @@ const findPublishedEntry = (entry) => {
 
           <section v-if="selectedEntry" class="ai-review-card" aria-labelledby="ai-review-title">
             <div class="ai-review-heading">
-              <h4 id="ai-review-title">AI preliminary review</h4>
-              <span>Not a final decision</span>
+              <h4 id="ai-review-title">{{ $t('moderation.aiReview') }}</h4>
+              <span>{{ $t('moderation.notFinal') }}</span>
             </div>
             <template v-if="selectedEntry.aiReview">
               <p v-if="selectedEntry.aiReview.summary" class="ai-review-summary">
@@ -268,7 +264,7 @@ const findPublishedEntry = (entry) => {
                         {{ check.status === 'pass' ? '✓' : check.status === 'fail' ? '×' : '?' }}
                       </span>
                       <span class="ai-review-status" :class="`is-${check.status || 'uncertain'}`">
-                        {{ check.status || 'uncertain' }}
+                        {{ $t(`moderation.status.${check.status || 'uncertain'}`) }}
                       </span>
                       <strong>{{ check.criterion }}</strong>
                     </summary>
@@ -277,11 +273,11 @@ const findPublishedEntry = (entry) => {
                 </li>
               </ul>
               <p class="ai-review-triage">
-                Triage: <strong>{{ selectedEntry.aiReview.verdict || 'needs_review' }}</strong>
+                {{ $t('moderation.triage') }} <strong>{{ $t(`moderation.verdict.${selectedEntry.aiReview.verdict || 'needs_review'}`) }}</strong>
               </p>
             </template>
             <p v-else class="ai-review-summary">
-              No AI analysis was included with this submission.
+              {{ $t('moderation.noAiReview') }}
             </p>
           </section>
 
@@ -290,7 +286,7 @@ const findPublishedEntry = (entry) => {
               class="login-input"
               v-model="rejectionReason"
               rows="6"
-              placeholder="Additional message for rejection/approval"
+              :placeholder="$t('moderation.decisionNotePlaceholder')"
             ></textarea>
             <button
               id="entryReject"
@@ -303,7 +299,7 @@ const findPublishedEntry = (entry) => {
                 class="action-spinner"
                 aria-hidden="true"
               ></span>
-              {{ moderationAction === 'reject' ? 'Rejecting…' : 'Reject' }}
+              {{ moderationAction === 'reject' ? $t('moderation.rejecting') : $t('moderation.reject') }}
             </button>
             <button
               id="entryApprove"
@@ -316,7 +312,7 @@ const findPublishedEntry = (entry) => {
                 class="action-spinner"
                 aria-hidden="true"
               ></span>
-              {{ moderationAction === 'approve' ? 'Approving…' : 'Approve' }}
+              {{ moderationAction === 'approve' ? $t('moderation.approving') : $t('moderation.approve') }}
             </button>
           </div>
         </div>
@@ -327,7 +323,7 @@ const findPublishedEntry = (entry) => {
       v-if="!userIsModerator"
       v-show="micronationsDirectory.length !== 0"
     >
-      You don't have sufficient privileges in order to moderate pending submissions.
+      {{ $t('moderation.noPrivileges') }}
     </div>
   </section>
 </template>
@@ -354,7 +350,7 @@ export default {
       profileImageMode: 'url',
       profileMediaDraft: null,
       profileImageProcessing: false,
-      selectedEntryName: 'None selected',
+      selectedEntryName: '',
       selectedEntryAuthor: '',
       selectedEntryType: undefined,
       rejectionReason: '',
@@ -429,10 +425,10 @@ export default {
         // The moderation decision is already recorded; a mail failure must not undo it.
         console.error('Error sending moderation decision email:', error)
         notify({
-          title: 'Moderation email failed',
-          text: `The entry was ${
-            decision === 'approve' ? 'approved' : 'rejected'
-          }, but the author notification could not be sent.`,
+          title: this.$t('moderation.notifications.emailFailedTitle'),
+          text: this.$t('moderation.notifications.emailFailedText', {
+            decision: this.$t(decision === 'approve' ? 'moderation.approved' : 'moderation.rejected')
+          }),
           type: 'error'
         })
       }
@@ -446,7 +442,7 @@ export default {
     selectEntry(item, type) {
       if (this.moderationAction) return
       this.selectedEntry = this.findFullIssueEntry(item) || item
-      this.selectedEntryName = item.name?.main || 'Selected entry'
+      this.selectedEntryName = item.name?.main || this.$t('moderation.selectedEntry')
       this.selectedEntryAuthor = item.author?.email || ''
       this.selectedEntryType = type
     },
@@ -507,8 +503,8 @@ export default {
         return
       if (!formData.name?.main?.trim()) {
         notify({
-          title: 'Cannot save entry',
-          text: 'The official name is required.',
+          title: this.$t('moderation.notifications.cannotSaveTitle'),
+          text: this.$t('moderation.notifications.nameRequired'),
           type: 'error'
         })
         return
@@ -517,7 +513,7 @@ export default {
       this.savingProfile = true
       try {
         if (!this.profileSubmissionDraft) {
-          throw new Error('The original submission data could not be loaded from the issue.')
+          throw new Error(this.$t('moderation.errors.originalSubmissionMissing'))
         }
         const updatedData = JSON.parse(JSON.stringify(this.profileSubmissionDraft))
         Object.assign(updatedData, formData)
@@ -548,13 +544,13 @@ export default {
         this.profileImageMode = extractFileMetadata(updatedIssue.body) ? 'file' : 'url'
         this.profileMediaDraft = null
         notify({
-          title: 'Entry updated',
-          text: 'The submission and its GitHub issue were updated.',
+          title: this.$t('moderation.notifications.updatedTitle'),
+          text: this.$t('moderation.notifications.updatedText'),
           type: 'success'
         })
       } catch (error) {
         notify({
-          title: 'Could not update entry',
+          title: this.$t('moderation.notifications.updateFailedTitle'),
           text: error.message || String(error),
           type: 'error'
         })
@@ -566,7 +562,7 @@ export default {
       this.profileMediaDraft = change
     },
     notifyProfileImageError(message) {
-      notify({ title: 'Could not process image', text: message, type: 'error' })
+      notify({ title: this.$t('moderation.notifications.imageFailedTitle'), text: message, type: 'error' })
     },
     async fetchPendingIssues() {
       this.loadingIssues = true
@@ -577,8 +573,8 @@ export default {
       } catch (error) {
         console.error('Error fetching GitHub issues:', error)
         notify({
-          title: 'Error loading pending entries',
-          text: 'Failed to fetch pending entries from GitHub issues.',
+          title: this.$t('moderation.notifications.loadFailedTitle'),
+          text: this.$t('moderation.notifications.loadFailedText'),
           type: 'error'
         })
       } finally {
@@ -589,9 +585,9 @@ export default {
       if (
         !entry ||
         this.moderationAction ||
-        !window.confirm(
-          `Reject “${entry.name?.main || this.selectedEntryName}”? This will close the submission.`
-        )
+        !window.confirm(this.$t('moderation.confirmReject', {
+          name: entry.name?.main || this.selectedEntryName
+        }))
       ) {
         return
       }
@@ -617,20 +613,20 @@ export default {
         this.forceRerender()
         this.selectedEntry = undefined
         this.selectedProfileEntry = undefined
-        this.selectedEntryName = 'None selected'
+        this.selectedEntryName = ''
         this.selectedEntryAuthor = ''
         this.selectedEntryType = undefined
         this.rejectionReason = ''
 
         notify({
-          title: 'Entry moderation',
-          text: 'The entry was rejected and the GitHub issue was closed.',
+          title: this.$t('moderation.notifications.decisionTitle'),
+          text: this.$t('moderation.notifications.rejectSuccess'),
           type: 'warning'
         })
       } catch (error) {
         console.error('Error rejecting entry:', error)
         notify({
-          title: 'Error while moderating entry',
+          title: this.$t('moderation.notifications.decisionFailedTitle'),
           text: error.message || error,
           type: 'error'
         })
@@ -642,11 +638,9 @@ export default {
       if (
         !entry ||
         this.moderationAction ||
-        !window.confirm(
-          `Approve “${
-            entry.name?.main || this.selectedEntryName
-          }”? This will publish it to the directory.`
-        )
+        !window.confirm(this.$t('moderation.confirmApprove', {
+          name: entry.name?.main || this.selectedEntryName
+        }))
       ) {
         return
       }
@@ -708,7 +702,7 @@ export default {
 
         // Restore the original flag/logo path (not the data URL) for JSON file
         if (fileMetadata) {
-          if (!base64Image) throw new Error('The issue includes an image path but no image data. Edit the image before approving this entry.')
+          if (!base64Image) throw new Error(this.$t('moderation.errors.imageDataMissing'))
           if (isMicronation) {
             entryForJson.flag = getPublicAssetPath(fileMetadata.path)
           } else {
@@ -732,7 +726,7 @@ export default {
         if (entry.isEdit) {
           const targetId = entry.editTargetId || entry.directoryEntryId
           const targetIndex = currentData.findIndex((item) => String(item.id) === String(targetId))
-          if (targetIndex < 0) throw new Error(`The directory entry ${targetId} no longer exists.`)
+          if (targetIndex < 0) throw new Error(this.$t('moderation.errors.directoryEntryMissing', { id: targetId }))
           const publishedEntry = currentData[targetIndex]
           persistedEntry.id = publishedEntry.id
           persistedEntry.creationDate = publishedEntry.creationDate || persistedEntry.creationDate
@@ -781,20 +775,20 @@ export default {
         this.forceRerender()
         this.selectedEntry = undefined
         this.selectedProfileEntry = undefined
-        this.selectedEntryName = 'None selected'
+        this.selectedEntryName = ''
         this.selectedEntryAuthor = ''
         this.selectedEntryType = undefined
         this.rejectionReason = ''
 
         notify({
-          title: 'Entry moderation',
-          text: 'The entry was approved, added to the JSON file, and the GitHub issue was closed.',
+          title: this.$t('moderation.notifications.decisionTitle'),
+          text: this.$t('moderation.notifications.approveSuccess'),
           type: 'success'
         })
       } catch (error) {
         console.error('Error approving entry:', error)
         notify({
-          title: 'Error while moderating entry',
+          title: this.$t('moderation.notifications.decisionFailedTitle'),
           text: error.message || error,
           type: 'error'
         })

@@ -21,23 +21,23 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
       <template #micras>
         <ModerationToolWorkspace>
           <template #description>
-            <p class="workspace-description">Render potential entries from articles gathered through a MediaWiki API category request. The reader extracts available article data, though differences in wiki formatting can leave some fields incomplete.</p>
+            <p class="workspace-description">{{ $t('mediaWikiReader.description') }}</p>
           </template>
           <template #summary>
             <strong class="source-count">{{ micrasDirectory.length }}</strong>
-            <span>MicrasWiki articles</span>
+            <span>{{ $t('mediaWikiReader.micrasArticles') }}</span>
             <span class="summary-separator">·</span>
-            <span><strong>{{ micrasPresentMicronations }}</strong> may already be in the directory</span>
+            <span><strong>{{ micrasPresentMicronations }}</strong> {{ $t('mediaWikiReader.mayAlreadyBeListed') }}</span>
           </template>
           <template #support>
             <MediaWikiReaderSettings :elements-directory="micrasDirectory"
               @loaded-directory="loadPagedMicrasMicronations" />
           </template>
           <template #main>
-            <p v-if="loadedSources.micras === 'loading'" class="empty-source">Loading MicrasWiki articles…</p>
-            <p v-else-if="loadedSources.micras === 'error'" class="empty-source">MicrasWiki articles could not load. Switch tabs and try again.</p>
+            <p v-if="loadedSources.micras === 'loading'" class="empty-source">{{ $t('mediaWikiReader.loadingMicras') }}</p>
+            <p v-else-if="loadedSources.micras === 'error'" class="empty-source">{{ $t('mediaWikiReader.loadError') }}</p>
             <p v-else-if="loadedSources.micras === 'loaded' && micrasArray.filter(el => el.assignedModerator === user.email).length === 0" class="empty-source">
-              There are no available cases.
+              {{ $t('mediaWikiReader.noCases') }}
             </p>
             <div class="micronations-list" ref="micronationsList">
               <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
@@ -60,23 +60,23 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
       <template #microwiki>
         <ModerationToolWorkspace>
           <template #description>
-            <p class="workspace-description">Render potential entries from articles gathered through a MediaWiki API category request. The reader extracts available article data, though differences in wiki formatting can leave some fields incomplete.</p>
+            <p class="workspace-description">{{ $t('mediaWikiReader.description') }}</p>
           </template>
           <template #summary>
             <strong class="source-count">{{ microWikiDirectory.length }}</strong>
-            <span>filtered MicroWiki articles</span>
+            <span>{{ $t('mediaWikiReader.filteredMicroWikiArticles') }}</span>
             <span class="summary-separator">·</span>
-            <span>{{ getMicronationsStub(microWikiDirectory) }} stubs · {{ getMicronationsPoor(microWikiDirectory) }} poor</span>
+            <span>{{ $t('mediaWikiReader.stubAndPoorCount', { stubs: getMicronationsStub(microWikiDirectory), poor: getMicronationsPoor(microWikiDirectory) }) }}</span>
           </template>
           <template #support>
             <MediaWikiReaderSettings :elements-directory="microWikiDirectory"
               @loaded-directory="loadPagedMicroWikiMicronations" />
           </template>
           <template #main>
-            <p v-if="loadedSources.microwiki === 'loading'" class="empty-source">Loading MicroWiki articles…</p>
-            <p v-else-if="loadedSources.microwiki === 'error'" class="empty-source">MicroWiki articles could not load. Switch tabs and try again.</p>
+            <p v-if="loadedSources.microwiki === 'loading'" class="empty-source">{{ $t('mediaWikiReader.loadingMicroWiki') }}</p>
+            <p v-else-if="loadedSources.microwiki === 'error'" class="empty-source">{{ $t('mediaWikiReader.loadError') }}</p>
             <p v-else-if="loadedSources.microwiki === 'loaded' && microWikiArray.filter(el => el.assignedModerator === user.email).length === 0" class="empty-source">
-              There are no available cases.
+              {{ $t('mediaWikiReader.noCases') }}
             </p>
             <div class="micronations-list" ref="micronationsListMicroWiki">
               <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
@@ -98,7 +98,7 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
     </Sectionbar>
 
     <div class="wiki-form-follow-up">
-      <p class="area-title">Click a card above to automatically complete the form:</p>
+      <p class="area-title">{{ $t('mediaWikiReader.completeFormHint') }}</p>
       <NewEntryForm class="new-entry-container" :entry-type="'micronation'" :directory-data="micronationsDirectory"
         :form-placeholders="formMicronationData" :micronations-directory="micronationsDirectory"
         :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"

@@ -33,7 +33,7 @@ function navigateToSection(target) {
 <template>
   <div class="moderation-hub">
     <p v-if="!userIsModerator" class="moderation-access-denied">
-      You don't have sufficient privileges to access moderation tools.
+      {{ $t('moderation.noAccess') }}
     </p>
     <Sectionbar v-else :sections="sections" :initial-selected-section="selectedSection"
       @section-change="navigateToSection">

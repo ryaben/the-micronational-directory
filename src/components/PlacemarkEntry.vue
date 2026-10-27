@@ -38,10 +38,8 @@ defineProps({
 
         <hr class="light-divider">
 
-        <p class="map-status" v-if="present && (placemarkInfo.location?.latitude ?? 0) === 0">An entry seems to exist on TMD but does not have any
-            location data:</p>
-        <p class="map-status" v-else-if="present">It seems that exists an entry on TMD that already
-            contains location data:</p>
+        <p class="map-status" v-if="present && (placemarkInfo.location?.latitude ?? 0) === 0">{{ $t('mapReader.entryWithoutLocation') }}</p>
+        <p class="map-status" v-else-if="present">{{ $t('mapReader.entryWithLocation') }}</p>
         <p class="map-status" v-else>{{ $t('mapReader.noMatch') }}</p>
 
         <DirectoryEntry v-if="present" class="map-directory-entry" :width="180" :flag-height="120"
@@ -101,12 +99,12 @@ export default {
                 const jsonPath = 'public/micronations.json'
                 const { content, sha } = await fetchRepoFile(jsonPath)
                 const entry = content.find(item => item.id === micronation.id)
-                if (!entry) throw new Error('The micronation could not be found in the source JSON.')
+                if (!entry) throw new Error(this.$t('mapReader.errors.entryMissing'))
 
                 const latitude = Number(micronation.micronationalMap.location.lat)
                 const longitude = Number(micronation.micronationalMap.location.long)
                 if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-                    throw new Error('The map location does not contain valid coordinates.')
+                    throw new Error(this.$t('mapReader.errors.invalidCoordinates'))
                 }
 
                 entry.location = { latitude, longitude }
@@ -121,13 +119,13 @@ export default {
                     `Update map location: ${entry.name.main}`
                 )
                 notify({
-                    title: "Update successful",
-                    text: `The location data was added to the entry ${entry.name.main} in the source JSON.`,
+                    title: this.$t('mapReader.notifications.updateSuccessTitle'),
+                    text: this.$t('mapReader.notifications.updateSuccessText', { name: entry.name.main }),
                     type: "success"
                 });
             } catch (error) {
                 notify({
-                    title: "Could not update location",
+                    title: this.$t('mapReader.notifications.updateFailedTitle'),
                     text: error.message || String(error),
                     type: "error"
                 });

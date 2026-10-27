@@ -2,6 +2,7 @@
 import { onBeforeUnmount, ref } from 'vue'
 import { auth } from '../firebase/auth.js'
 import HelpTooltip from './HelpTooltip.vue'
+import { translate } from '../i18n.js'
 
 const sources = [
   { id: 'microwiki', label: 'MicroWiki' },
@@ -16,33 +17,24 @@ const candidateNames = ref('')
 const running = ref(false)
 const busy = ref(false)
 const run = ref(null)
-const output = ref('Ready. Choose a source and start the research workflow.\n')
+const output = ref(translate('sourceResearch.ready') + '\n')
 const error = ref('')
 let pollTimer
 const tooltips = {
-  source: {
-    title: 'Source',
-    text: 'Choose which local scrape to use as the starting index. Each source has its own article links and available fields.'
-  },
-  offset: {
-    title: 'Starting offset',
-    text: 'Zero-based position in the selected source. Use this to continue from a later candidate; it is ignored when candidate names are provided.'
-  },
-  maxEntries: {
-    title: 'Maximum candidates',
-    text: 'Upper limit for how many candidates this run will research and submit as GitHub issues. Each issue still needs moderator review.'
-  },
-  candidateNames: {
-    title: 'Candidate names',
-    text: 'Optional: enter one name per line. Names must match candidates in the selected local source. When provided, the offset is ignored.'
-  }
+  source: ['source', 'sourceHelp'],
+  offset: ['offset', 'offsetHelp'],
+  maxEntries: ['maxEntries', 'maxEntriesHelp'],
+  candidateNames: ['candidateNames', 'candidateNamesHelp']
 }
 const activeTooltip = ref(null)
 const tooltipPosition = ref({ x: 0, y: 0 })
 
 function openTooltip(key, event) {
-  const tooltip = tooltips[key]
-  activeTooltip.value = tooltip
+  const [titleKey, textKey] = tooltips[key]
+  activeTooltip.value = {
+    title: translate(`sourceResearch.${titleKey}`),
+    text: translate(`sourceResearch.${textKey}`)
+  }
   tooltipPosition.value = {
     x: Math.max(12, Math.min(event.clientX + 12, window.innerWidth - 352)),
     y: Math.max(12, Math.min(event.clientY + 12, window.innerHeight * 0.3))
@@ -51,7 +43,7 @@ function openTooltip(key, event) {
 
 async function apiRequest(method, url, body) {
   const token = await auth.currentUser?.getIdToken()
-  if (!token) throw new Error('Sign in with a moderator account to run source research.')
+  if (!token) throw new Error(translate('sourceResearch.signInRequired'))
   const response = await fetch(url, {
     method,
     headers: {
@@ -61,7 +53,7 @@ async function apiRequest(method, url, body) {
     ...(body ? { body: JSON.stringify(body) } : {})
   })
   const result = await response.json().catch(() => ({}))
-  if (!response.ok) throw new Error(result.error || `Request failed (HTTP ${response.status}).`)
+  if (!response.ok) throw new Error(result.error || translate('sourceResearch.requestFailed', { status: response.status }))
   return result
 }
 
@@ -71,7 +63,7 @@ async function start() {
   running.value = false
   run.value = null
   error.value = ''
-  output.value = `Dispatching ${source.value} research (offset ${offset.value}, max ${maxEntries.value})…\n`
+  output.value = translate('sourceResearch.dispatching', { source: source.value, offset: offset.value, max: maxEntries.value }) + '\n'
   try {
     const result = await apiRequest('POST', '/api/source-research', {
       source: source.value,
@@ -85,11 +77,11 @@ async function start() {
     }
     run.value = result
     running.value = true
-    output.value += `Workflow run #${result.runId}: ${result.status}\n${result.runUrl}\nWaiting for GitHub Actions…\n`
+    output.value += `${translate('sourceResearch.workflowRun', { id: result.runId, status: result.status })}\n${result.runUrl}\n${translate('sourceResearch.waitingForActions')}\n`
     await poll()
   } catch (cause) {
     error.value = cause.message
-    output.value += `ERROR: ${cause.message}\n`
+    output.value += `${translate('sourceResearch.errorPrefix')}: ${cause.message}\n`
   } finally {
     busy.value = false
   }
@@ -108,23 +100,23 @@ async function poll() {
       const steps = (result.jobs || []).flatMap((job) =>
         job.steps.map((step) => `${step.name}: ${step.conclusion || step.status}`)
       )
-      output.value = `Workflow run #${result.runId}\nStatus: ${result.status}${
+      output.value = `${translate('sourceResearch.workflowRunNumber', { id: result.runId })}\n${translate('sourceResearch.statusLabel')}: ${result.status}${
         result.conclusion ? ` (${result.conclusion})` : ''
       }\n${result.runUrl}\n${
         steps.length ? `${steps.join('\n')}\n` : ''
-      }GitHub Actions is running the research. Full script output will appear here when the run finishes.\n`
+      }${translate('sourceResearch.actionsRunning')}\n`
     }
     if (result.status === 'completed') {
       running.value = false
       if (!result.logs)
         output.value +=
-          '\nWorkflow finished; logs are not available yet. Open the run link to inspect them.\n'
+          `\n${translate('sourceResearch.logsUnavailable')}\n`
       return
     }
     pollTimer = setTimeout(poll, 5000)
   } catch (cause) {
     error.value = cause.message
-    output.value += `\nCould not refresh run status: ${cause.message}\n`
+    output.value += `\n${translate('sourceResearch.refreshFailed')}: ${cause.message}\n`
     pollTimer = setTimeout(poll, 10000)
   }
 }
@@ -145,13 +137,10 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
     </Transition>
     <header class="research-notes">
       <div class="research-notes-copy">
-        <p>
-          Run the existing research workflow and create review issues. Every issue still requires
-          human moderation.
-        </p>
+        <p>{{ $t('sourceResearch.description') }}</p>
       </div>
       <a v-if="run?.runUrl" :href="run.runUrl" target="_blank" rel="noopener noreferrer"
-        >Open GitHub Actions ↗</a
+        >{{ $t('sourceResearch.openActions') }} ↗</a
       >
     </header>
 
@@ -159,11 +148,11 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
       <form class="research-controls" @submit.prevent="start">
         <div class="required-parameters">
           <label
-            >Source
+            >{{ $t('sourceResearch.source') }}
             <button
               type="button"
               class="tooltip-activator"
-              aria-label="Help: source"
+              :aria-label="$t('sourceResearch.helpSource')"
               @click="openTooltip('source', $event)"
             >
               <img src="/images/info.png" alt="" />
@@ -175,11 +164,11 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
             </select>
           </label>
           <label
-            >Starting offset
+            >{{ $t('sourceResearch.offset') }}
             <button
               type="button"
               class="tooltip-activator"
-              aria-label="Help: starting offset"
+              :aria-label="$t('sourceResearch.helpOffset')"
               @click="openTooltip('offset', $event)"
             >
               <img src="/images/info.png" alt="" />
@@ -187,11 +176,11 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
             <input v-model.number="offset" type="number" min="0" step="1" :disabled="running" />
           </label>
           <label
-            >Maximum candidates
+            >{{ $t('sourceResearch.maxEntries') }}
             <button
               type="button"
               class="tooltip-activator"
-              aria-label="Help: maximum candidates"
+              :aria-label="$t('sourceResearch.helpMaxEntries')"
               @click="openTooltip('maxEntries', $event)"
             >
               <img src="/images/info.png" alt="" />
@@ -200,11 +189,11 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
           </label>
         </div>
         <label class="candidate-names"
-          >Candidate names (optional; one per line)
+          >{{ $t('sourceResearch.candidateNames') }}
           <button
             type="button"
             class="tooltip-activator"
-            aria-label="Help: candidate names"
+            :aria-label="$t('sourceResearch.helpCandidateNames')"
             @click="openTooltip('candidateNames', $event)"
           >
             <img src="/images/info.png" alt="" />
@@ -213,7 +202,7 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
             v-model="candidateNames"
             rows="5"
             maxlength="5000"
-            placeholder="Republic of Aetosia"
+            :placeholder="$t('sourceResearch.candidateNamesPlaceholder')"
             :disabled="running"
           />
         </label>
@@ -222,14 +211,14 @@ onBeforeUnmount(() => clearTimeout(pollTimer))
           class="login-button short start-research-button"
           :disabled="busy || running"
         >
-          {{ busy ? 'Starting…' : running ? 'Research running…' : 'Start research' }}
+          {{ busy ? $t('sourceResearch.starting') : running ? $t('sourceResearch.running') : $t('sourceResearch.start') }}
         </button>
       </form>
 
       <div class="terminal-heading">
-        <strong>Workflow terminal</strong
-        ><span v-if="running" class="terminal-running">RUNNING</span
-        ><span v-else-if="run?.status === 'completed'">{{ run.conclusion || 'COMPLETED' }}</span>
+        <strong>{{ $t('sourceResearch.terminal') }}</strong
+        ><span v-if="running" class="terminal-running">{{ $t('sourceResearch.runningCaps') }}</span
+        ><span v-else-if="run?.status === 'completed'">{{ run.conclusion || $t('sourceResearch.completedCaps') }}</span>
         <pre class="terminal-output" aria-live="polite">{{ output }}</pre>
         <p v-if="error" class="console-error" role="alert">{{ error }}</p>
       </div>
