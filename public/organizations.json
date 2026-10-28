@@ -1636,19 +1636,37 @@
     },
     "approved": true,
     "name": {
+      "main": "Organisation de la MicroFrancophonie",
       "mainAlt": "OMF",
-      "main": "Organisation de la MicroFrancophonie"
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
     },
     "websites": [
       "https://www.microfrancophonie.org/",
       "https://en.wikipedia.org/wiki/Organisation_de_la_microfrancophonie",
-      "https://micronations.wiki/wiki/MicroFrancophonie"
+      "https://micronations.wiki/wiki/MicroFrancophonie",
+      "http://microfrancophonie.fr/"
     ],
     "foundationDate": {
-      "_seconds": 1432999320,
-      "_nanoseconds": 29000000
+      "_seconds": 1432999320
     },
-    "id": "Organisation de la microfrancophonie"
+    "id": "Organisation de la microfrancophonie",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793214044
+        }
+      }
+    ],
+    "createdAt": "2026-10-28T19:00:45Z",
+    "isEdit": true,
+    "memberships": []
   },
   {
     "foundationDate": {
