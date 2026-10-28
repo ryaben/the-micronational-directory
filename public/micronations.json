@@ -56350,5 +56350,63 @@
     "createdAt": "2026-10-28T15:16:26Z",
     "isEdit": false,
     "id": "4pKOizHBlzUNZb52Olnc"
+  },
+  {
+    "name": {
+      "main": "Erephisian Technocracy",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Erephisia",
+          "title": "Technological Federation of"
+        },
+        {
+          "main": "Erephisia Oblast",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "Ever Upwards",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "erephisia@hotmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Erephisian_Technocracy"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Erephisian Technocracy.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Brio",
+    "currency": "Graaff, GBP",
+    "memberships": [
+      "League of 10"
+    ],
+    "foundationDate": {
+      "_seconds": 1012521600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793203953
+    },
+    "createdAt": "2026-10-28T16:12:33Z",
+    "isEdit": false,
+    "id": "Vh52OZeWmgzU7WmopXR5"
   }
 ]
