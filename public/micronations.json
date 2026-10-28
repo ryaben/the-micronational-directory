@@ -26261,14 +26261,19 @@
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 996684300,
-      "_nanoseconds": 0
+      "_seconds": 996684300
     },
     "name": {
-      "mainAlt": "Londeland",
-      "titleAlt": "Commun vus",
       "main": "Landashir",
-      "title": "Community of"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Londeland",
+          "title": "Commun vus"
+        }
+      ],
+      "title": "Community of",
+      "titleAlt": "Commun vus"
     },
     "motto": "",
     "currency": "Landashir'n Schelleng",
@@ -26282,9 +26287,24 @@
     ],
     "approved": true,
     "memberships": [
-      "UNMCN"
+      "UNMCN",
+      "League of 10"
     ],
-    "id": "g3LQQDD8KWpEmc1qmbPc"
+    "id": "g3LQQDD8KWpEmc1qmbPc",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793205198
+        }
+      }
+    ],
+    "createdAt": "2026-10-28T16:33:19Z",
+    "isEdit": true
   },
   {
     "capital": "",
