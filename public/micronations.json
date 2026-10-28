@@ -56707,5 +56707,59 @@
     "createdAt": "2026-10-28T17:12:17Z",
     "isEdit": false,
     "id": "aEVVhn4ps8z11ndMKHRR"
+  },
+  {
+    "name": {
+      "main": "Gordjan",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Gordjan",
+          "title": "Regno del"
+        }
+      ],
+      "title": "Impero del",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/people/IMPERO-DEL-GORDJAN/100066822930080/",
+      "gordjan.gov@gmail.com"
+    ],
+    "websites": [
+      "http://gordjan.altervista.org/",
+      "https://gordjan.blogspot.com/",
+      "https://web.archive.org/web/20160414064223/https://www.gordjan.forumcommunity.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Gordjan.jpg",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "capital": "Gordjan",
+    "currency": "Scudo Gordjano",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1021992300
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793209873
+    },
+    "createdAt": "2026-10-28T17:51:13Z",
+    "isEdit": false,
+    "id": "aUaTylOYf3C8I4RnL5tW"
   }
 ]
