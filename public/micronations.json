@@ -56761,5 +56761,65 @@
     "createdAt": "2026-10-28T17:51:13Z",
     "isEdit": false,
     "id": "aUaTylOYf3C8I4RnL5tW"
+  },
+  {
+    "name": {
+      "main": "Great Petoria",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Соединённая Империя Великопитерия",
+          "title": ""
+        },
+        {
+          "main": "Great Peter Empire",
+          "title": ""
+        }
+      ],
+      "title": "United Empire of",
+      "titleAlt": ""
+    },
+    "motto": "С нами Бог! (God is with us!)",
+    "languages": [
+      "Russian",
+      "English"
+    ],
+    "contactInfo": [
+      "https://vk.com/velikopiteria",
+      "minister@mid.greatpetoria.ga"
+    ],
+    "websites": [
+      "https://ru.micronations.wiki/wiki/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D1%8F",
+      "https://velikopiteria.ucoz.com",
+      "https://themicronations.fandom.com/ru/wiki/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D1%8F"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Great-Petoria-moderated-1793213344097.png",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "capital": "Царьбург (Tsarburg)",
+    "currency": "рубль, великопитерский фунт",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1245888000,
+      "_seconds": 1245888000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793213184
+    },
+    "createdAt": "2026-10-28T18:46:24Z",
+    "isEdit": false,
+    "id": "NHbvURj999uDYxu2wG6V"
   }
 ]
