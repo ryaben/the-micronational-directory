@@ -56597,5 +56597,64 @@
     "createdAt": "2026-10-28T15:58:29Z",
     "isEdit": false,
     "id": "JP33csY6bQpS5uwqIid4"
+  },
+  {
+    "name": {
+      "main": "Senya",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "DES Senya",
+          "title": ""
+        }
+      ],
+      "title": "Democratic Environmental Society of",
+      "titleAlt": ""
+    },
+    "motto": "Our Nation",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "unitedmicronation.micro@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Democratic_Environmental_Society_of_Senya",
+      "https://dessenya.yolasite.com/",
+      "https://dessenya.wordpress.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Senya.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Cat's Corner",
+    "currency": "Pound sterling",
+    "memberships": [
+      "Friends Alliance",
+      "Intermicronational Blue Cross and Blue Crescent Movement",
+      "Organisation of Active Micronations",
+      "Union Against Micronational War",
+      "League of 10"
+    ],
+    "foundationDate": {
+      "seconds": 1269648000,
+      "_seconds": 1269648000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793204530
+    },
+    "createdAt": "2026-10-28T16:22:10Z",
+    "isEdit": false,
+    "id": "f7I8BUga4RiUzW0CP5Zu"
   }
 ]
