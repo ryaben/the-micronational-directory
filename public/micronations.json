@@ -56821,5 +56821,54 @@
     "createdAt": "2026-10-28T18:46:24Z",
     "isEdit": false,
     "id": "NHbvURj999uDYxu2wG6V"
+  },
+  {
+    "name": {
+      "main": "Baobabs",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principauté des",
+      "titleAlt": ""
+    },
+    "motto": "Dominamini terram et subicite eam",
+    "languages": [
+      "French"
+    ],
+    "contactInfo": [
+      "https://chat.whatsapp.com/LrZFAjZsQRpFi2N2iFJHU4",
+      "principaute@laprincipautedesbaobabs.com"
+    ],
+    "websites": [
+      "https://laprincipautedesbaobabs.com/",
+      "https://fr.wikipedia.org/wiki/Principaut%C3%A9_des_Baobabs"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Baobabs.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Digitata",
+    "memberships": [
+      "Organisation de la MicroFrancophonie"
+    ],
+    "foundationDate": {
+      "_seconds": 1689350760
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793214952
+    },
+    "createdAt": "2026-10-28T19:15:52Z",
+    "isEdit": false,
+    "id": "usBR15QutEtcG05OAudf"
   }
 ]
