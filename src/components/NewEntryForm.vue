@@ -40,6 +40,7 @@ defineProps({
   },
   isModerationEditor: { type: Boolean, default: false },
   initialEntry: { type: Object, default: null },
+  submittedEntry: { type: Object, default: null },
   publishedEntry: { type: Object, default: null },
   directoryEdit: { type: Boolean, default: false },
   editTargetId: { type: String, default: '' },
@@ -1084,7 +1085,8 @@ export default {
       const normalize = (value) => {
         if (Array.isArray(value)) return JSON.stringify(value.map(normalize))
         if (value && typeof value === 'object') {
-          if ('_seconds' in value) return String(value._seconds)
+          if ('_seconds' in value || 'seconds' in value)
+            return String(value._seconds ?? value.seconds)
           return JSON.stringify(
             Object.fromEntries(
               Object.keys(value)
@@ -1095,7 +1097,10 @@ export default {
         }
         return String(value ?? '').trim()
       }
-      return normalize(read(this.initialEntry || {})) !== normalize(read(this.publishedEntry))
+      // Compare the raw issue payload when available. convertIssueToEntry adds
+      // fallbacks (including the issue creation date) that are not submitted edits.
+      const submittedEntry = this.submittedEntry || this.initialEntry || {}
+      return normalize(read(submittedEntry)) !== normalize(read(this.publishedEntry))
     },
     isUncertain(field) {
       return this.uncertainFields.includes(field)
@@ -2047,27 +2052,14 @@ export default {
   width: 100%;
   min-width: 0;
 }
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed {
-  background: transparent;
-}
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > input,
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed > select,
-.new-entry-container--moderation
-  .uncertainty-field-control.moderation-field-changed
-  > .new-entry-option-container,
-.new-entry-container--moderation
-  .uncertainty-field-control.moderation-field-changed
-  > .new-entry-type,
-.new-entry-container--moderation
-  .uncertainty-field-control.moderation-field-changed
-  > .vue-datepicker {
-  background-color: rgb(245 200 74 / 14%);
-}
-.new-entry-container--moderation
-  .uncertainty-field-control.moderation-field-changed
-  input:not([type='checkbox']),
-.new-entry-container--moderation .uncertainty-field-control.moderation-field-changed select {
-  background-color: rgb(245 200 74 / 14%);
+.new-entry-container--moderation .new-entry-form-text:has(
+  + .uncertainty-field-control.moderation-field-changed
+) {
+  padding: 2px 6px;
+  border: 1px solid rgb(245 200 74 / 35%);
+  border-radius: 4px;
+  background: rgb(245 200 74 / 14%);
+  color: var(--color-heading);
 }
 
 .uncertainty-field-control > input,

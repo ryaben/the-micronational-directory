@@ -184,6 +184,7 @@ const findPublishedEntry = (entry) => {
                   "
                   :form-placeholders="moderationFormDraft"
                   :initial-entry="profileDraft"
+                  :submitted-entry="profileSubmissionDraft"
                   :published-entry="findPublishedEntry(selectedProfileEntry)"
                   :initial-image-mode="profileImageMode"
                   :is-moderation-editor="true"

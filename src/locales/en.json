@@ -486,6 +486,7 @@
     "mottoPlaceholder": "E.g. ‘In God we trust’ (without quotation marks)",
     "capitalPlaceholder": "City, place, or building that serves as the capital",
     "currencyPlaceholder": "Official currency name, not its symbol",
+    "location": "Location",
     "locationNote": "Drag the pin to the micronation’s location. Leave it at the default location (0, 0) if unknown.",
     "memberships": "Memberships",
     "otherMembershipPlaceholder": "Other (full name, no acronym)",
