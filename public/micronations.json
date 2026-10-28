@@ -56242,5 +56242,54 @@
     "createdAt": "2026-10-26T23:45:39Z",
     "isEdit": true,
     "id": "Quj283uFLRV47xF1MoSU"
+  },
+  {
+    "name": {
+      "main": "Columbusplein",
+      "mainAlt": "",
+      "alt": [],
+      "title": "People's Democratic Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "info@jorgemanesrubio.com"
+    ],
+    "websites": [
+      "https://jorgemanesrubio.com/portfolio-item/colombusplein",
+      "https://fifthworld.fandom.com/wiki/People%27s_Democratic_Republic_of_Columbusplein",
+      "https://blog.ted.com/how-to-build-a-micronation/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Columbusplein.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Voyage",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1388575560
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793197666
+    },
+    "createdAt": "2026-10-28T14:27:46Z",
+    "isEdit": false,
+    "id": "NM3Vj54xYgAZg0l8DvY5"
   }
 ]
