@@ -56656,5 +56656,56 @@
     "createdAt": "2026-10-28T16:22:10Z",
     "isEdit": false,
     "id": "f7I8BUga4RiUzW0CP5Zu"
+  },
+  {
+    "name": {
+      "main": "Geniusz",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Geniusz",
+          "title": "Królestwo"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Polish"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/krolestwo.geniusz/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20180402212359/http://geniusz.npx.pl/news.php",
+      "https://micropedia.fandom.com/wiki/Kr%C3%B3lestwo_Geniusz"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Geniusz.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Gwinea",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1279324800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793207537
+    },
+    "createdAt": "2026-10-28T17:12:17Z",
+    "isEdit": false,
+    "id": "aEVVhn4ps8z11ndMKHRR"
   }
 ]
