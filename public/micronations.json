@@ -56291,5 +56291,64 @@
     "createdAt": "2026-10-28T14:27:46Z",
     "isEdit": false,
     "id": "NM3Vj54xYgAZg0l8DvY5"
+  },
+  {
+    "name": {
+      "main": "Essex",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Essex",
+          "title": "Rialtas na"
+        },
+        {
+          "main": "Cosecha",
+          "title": "Republic of"
+        }
+      ],
+      "title": "Chancellorship of",
+      "titleAlt": ""
+    },
+    "motto": "Per tenebras oritur lux (Through darkness rises the light)",
+    "languages": [
+      "English",
+      "Irish"
+    ],
+    "contactInfo": [
+      "cosecha@outlook.it"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Cosecha",
+      "https://web.archive.org/web/20210726223309/https://cosecha.onuniverse.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Essex.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Great Wakering",
+    "currency": "Essaxon Crown, Euro",
+    "memberships": [
+      "European Union of Micronations",
+      "United Micronations Elite Council"
+    ],
+    "foundationDate": {
+      "_seconds": 1538870400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793200586
+    },
+    "createdAt": "2026-10-28T15:16:26Z",
+    "isEdit": false,
+    "id": "4pKOizHBlzUNZb52Olnc"
   }
 ]
