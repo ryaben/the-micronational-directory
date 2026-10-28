@@ -7,7 +7,9 @@ import SettingsFilterIcon from './icons/SettingsFilterIcon.vue'
 import SettingsSortIcon from './icons/SettingsSortIcon.vue'
 import SettingsDisplayIcon from './icons/SettingsDisplayIcon.vue'
 import SettingsFlagsIcon from './icons/SettingsFlagsIcon.vue'
+import MultiSelectDropdown from './MultiSelectDropdown.vue'
 import store from '../store'
+import { auth } from '../firebase/auth.js'
 import { useUserFavorites } from '../composables/userFavorites.js'
 
 const { currentUser } = useUserFavorites()
@@ -167,17 +169,18 @@ defineProps({
                   />
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field">
-                  <label for="initialLetter">{{ $t('common.initialLetter') }}</label>
-                  <select name="initialLetter" id="initialLetter" v-model="initialFilter">
-                    <optgroup>
-                      <option value="none">{{ $t('common.any') }}</option>
-                    </optgroup>
-                    <optgroup class="letters-group">
-                      <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">
-                        {{ letter }}
-                      </option>
-                    </optgroup>
-                  </select>
+                  <label>{{ $t('common.initialLetter') }}</label>
+                  <MultiSelectDropdown
+                    v-model="initialFilter"
+                    :options="filterLetters"
+                    :include-select-all="true"
+                    :include-select-none="false"
+                    :dropdown-height="240"
+                    :placeholder="$t('common.all')"
+                    :select-all-label="$t('common.all')"
+                    :selected-count-label="$t('settings.selectedLetters')"
+                    :aria-label="$t('settings.selectInitialLetters')"
+                  />
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field filter-mode">
                   <label>{{ $t('settings.show') }}</label>
@@ -204,6 +207,26 @@ defineProps({
                       <label :for="`${storeGetter}-show-favorites`">{{ $t('common.favorites') }}</label>
                     </div>
                   </div>
+                </SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="filter-field ai-filter-field">
+                  <label for="aiFilterInput">{{ $t('settings.aiFilter') }}</label>
+                  <div class="ai-filter-controls">
+                    <input
+                      id="aiFilterInput"
+                      v-model="aiFilterInput"
+                      type="text"
+                      maxlength="500"
+                      :placeholder="$t('settings.aiFilterPlaceholder')"
+                      :disabled="aiFiltering"
+                      @keydown.enter.prevent="runAiFilter"
+                    />
+                    <button type="button" class="login-button color-transition ai-filter-button" :disabled="aiFiltering || !aiFilterInput.trim()" @click="runAiFilter">
+                      {{ aiFiltering ? `${$t('settings.aiFilterWorking')} ${aiProgress}` : $t('settings.aiFilterApply') }}
+                    </button>
+                    <button v-if="aiFiltering" type="button" class="ai-filter-cancel" @click="cancelAiFilter">{{ $t('common.cancel') }}</button>
+                    <button v-else-if="aiFilterIds !== null" type="button" class="ai-filter-cancel" @click="clearAiFilter">{{ $t('settings.aiFilterClear') }}</button>
+                  </div>
+                  <small v-if="!currentUser" class="ai-filter-hint">{{ $t('settings.aiFilterSignIn') }}</small>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
@@ -352,6 +375,29 @@ defineProps({
 import { notify } from '@kyvg/vue3-notification'
 import { favorites } from '../composables/userFavorites.js'
 
+function restoreAiFilterCache(key) {
+  try {
+    const stored = typeof localStorage === 'undefined' ? null : localStorage.getItem(key)
+    const entries = stored ? JSON.parse(stored) : []
+    return new Map(Array.isArray(entries) ? entries : [])
+  } catch {
+    return new Map()
+  }
+}
+
+function persistAiFilterCache(cache, storageKey) {
+  try {
+    while (cache.size > 5000) cache.delete(cache.keys().next().value)
+    if (typeof localStorage !== 'undefined') localStorage.setItem(storageKey, JSON.stringify([...cache]))
+  } catch (error) {
+    console.warn('Could not persist AI filter cache:', error)
+  }
+}
+
+const AI_FLAG_CACHE_KEY = 'directory-ai-flag-filter-cache-v1'
+const aiFlagFilterCache = restoreAiFilterCache(AI_FLAG_CACHE_KEY)
+let aiFilterNextRequestAt = 0
+
 export default {
   name: 'Settings-Bar',
   emits: [
@@ -375,7 +421,12 @@ export default {
       generatingCollage: false,
       inputFilter: '',
       searchDebounce: null,
-      initialFilter: 'none',
+      initialFilter: [],
+      aiFilterInput: '',
+      aiFilterIds: null,
+      aiFiltering: false,
+      aiProgress: '',
+      aiCancelRequested: false,
       favoritesFilter: 'all',
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
@@ -419,9 +470,13 @@ export default {
               ...(element.name.alt || []).flatMap((name) => [name.main, name.title])
             ].some((name) => this.normalizeString((name || '').toLowerCase()).includes(query)),
           filterDisplay:
-            this.initialFilter === 'none' ||
-            this.normalizeString(element.name.main.charAt(0)) === this.initialFilter
+            this.initialFilter.length === 0 ||
+            this.initialFilter.includes(this.normalizeString(element.name.main.charAt(0)))
         }))
+        const availableInitialLetters = this.addFilterLetters(this.workingDirectory, 'main')
+        this.initialFilter = this.initialFilter.filter((letter) =>
+          availableInitialLetters.includes(letter)
+        )
         if (this.directoryLoaded) {
           this.currentPage = 1
           this.sortMicronations()
@@ -461,6 +516,7 @@ export default {
           (this.showUnapproved || element.approved) &&
           element.searchDisplay &&
           element.filterDisplay &&
+          (this.aiFilterIds === null || this.aiFilterIds.has(this.entryId(element))) &&
           (this.favoritesFilter !== 'favorites' ||
             favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
@@ -480,6 +536,131 @@ export default {
     }
   },
   methods: {
+    entryId(element) {
+      return String(element.directoryId || element.id || element.name?.main || '')
+    },
+    async aiFilterRequest(body, isCancelled = () => false) {
+      const token = await auth.currentUser?.getIdToken()
+      if (!token) throw new Error(this.$t('settings.aiFilterSignIn'))
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const now = Date.now()
+        const startAt = Math.max(now, aiFilterNextRequestAt)
+        aiFilterNextRequestAt = startAt + 2100
+        if (startAt > now) await new Promise(resolve => setTimeout(resolve, startAt - now))
+        if (isCancelled()) throw new Error('AI filter cancelled')
+        const response = await fetch('/api/ai-filter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify(body)
+        })
+        const result = await response.json()
+        if (response.status === 429 && attempt < 2 && !isCancelled()) {
+          const suggestedWait = Number(result.retryAfter) || Number(result.error?.match(/try again in\s+([\d.]+)\s*s/i)?.[1])
+          const waitSeconds = Number.isFinite(suggestedWait) && suggestedWait > 0
+            ? Math.ceil(suggestedWait) + 1
+            : 60
+          this.aiProgress = this.$t('settings.aiFilterRateWait', { seconds: waitSeconds })
+          await new Promise(resolve => setTimeout(resolve, waitSeconds * 1000))
+          continue
+        }
+        if (!response.ok) {
+          const error = new Error(result.error || this.$t('settings.aiFilterError'))
+          error.status = response.status
+          throw error
+        }
+        return result
+      }
+      throw new Error(this.$t('settings.aiFilterError'))
+    },
+    fieldText(element, field) {
+      const values = {
+        names: [element.name?.main, element.name?.title, element.name?.mainAlt, element.name?.titleAlt,
+          ...(element.name?.alt || []).flatMap(name => [name.main, name.title])],
+        languages: element.languages,
+        types: element.type,
+        motto: element.motto,
+        capital: element.capital,
+        currency: element.currency,
+        memberships: element.memberships,
+        location: element.location,
+        websites: element.websites
+      }
+      return JSON.stringify(values[field] ?? '')
+    },
+    async runAiFilter() {
+      if (this.aiFiltering || !this.aiFilterInput.trim()) return
+      this.aiFiltering = true
+      this.aiCancelRequested = false
+      this.aiFilterIds = null
+      try {
+        const { conditions, visualDescription } = await this.aiFilterRequest({ action: 'interpret', prompt: this.aiFilterInput.trim() })
+        if (this.aiCancelRequested) return
+        const normalized = value => this.normalizeString(String(value || '').toLowerCase())
+        if (!conditions.length && !visualDescription) throw new Error(this.$t('settings.aiFilterNotUnderstood'))
+        let candidates = this.workingDirectory.filter(element => conditions.every(condition => {
+          const text = normalized(this.fieldText(element, condition.field))
+          return condition.terms.some(term => text.includes(normalized(term)))
+        }))
+
+        if (visualDescription) {
+          const toScan = []
+          const matches = new Set()
+          for (const element of candidates) {
+            const id = this.entryId(element)
+            const path = element.flag || ''
+            const cacheKey = `${normalized(visualDescription)}|${path}`
+            if (aiFlagFilterCache.has(cacheKey)) {
+              if (aiFlagFilterCache.get(cacheKey)) matches.add(id)
+            } else if (path.startsWith('/images/flags/')) toScan.push({ id, path, cacheKey })
+          }
+          const batches = Array.from({ length: Math.ceil(toScan.length / 3) }, (_, index) => toScan.slice(index * 3, index * 3 + 3))
+          let nextBatch = 0
+          const scanWorker = async () => {
+            while (nextBatch < batches.length && !this.aiCancelRequested) {
+              const batchIndex = nextBatch++
+              const batch = batches[batchIndex]
+              const result = await this.aiFilterRequest(
+                { action: 'flags', prompt: visualDescription, images: batch.map(({ id, path }) => ({ id, path })) },
+                () => this.aiCancelRequested
+              )
+              const batchMatches = new Set(result.matches)
+              batch.forEach(item => {
+                aiFlagFilterCache.set(item.cacheKey, batchMatches.has(item.id))
+                if (batchMatches.has(item.id)) matches.add(item.id)
+              })
+              persistAiFilterCache(aiFlagFilterCache, AI_FLAG_CACHE_KEY)
+              this.aiProgress = this.$t('settings.aiFilterFlagsProgress', { current: Math.min(batchIndex + 1, batches.length), total: batches.length })
+            }
+          }
+          this.aiProgress = this.$t('settings.aiFilterFlagsProgress', { current: 0, total: batches.length })
+          await scanWorker()
+          if (this.aiCancelRequested) return
+          candidates = candidates.filter(element => matches.has(this.entryId(element)))
+        }
+        this.aiFilterIds = new Set(candidates.map(element => this.entryId(element)))
+        this.setPage(1)
+      } catch (error) {
+        if (!this.aiCancelRequested) {
+          console.error('AI filter request failed:', error)
+          notify({
+            title: this.$t('settings.aiFilter'),
+            text: this.$t(error.status === 429 ? 'settings.aiFilterRateLimitPartial' : 'settings.aiFilterError'),
+            type: 'error'
+          })
+        }
+      } finally {
+        this.aiFiltering = false
+        this.aiProgress = ''
+      }
+    },
+    cancelAiFilter() {
+      this.aiCancelRequested = true
+    },
+    clearAiFilter() {
+      this.cancelAiFilter()
+      this.aiFilterIds = null
+      this.setPage(1)
+    },
     setPage(result) {
       this.currentPage = result
       this.pageElements()
@@ -572,21 +753,11 @@ export default {
       }
     },
     filterEntriesByLetter() {
-      const that = this
-
-      if (this.initialFilter === 'none') {
-        this.workingDirectory.forEach(function (element) {
-          element.filterDisplay = true
-        })
-      } else {
-        this.workingDirectory.forEach(function (element) {
-          if (that.normalizeString(element.name.main.charAt(0)) === that.initialFilter) {
-            element.filterDisplay = true
-          } else {
-            element.filterDisplay = false
-          }
-        })
-      }
+      this.workingDirectory.forEach((element) => {
+        const firstLetter = this.normalizeString(element.name.main.charAt(0))
+        element.filterDisplay =
+          this.initialFilter.length === 0 || this.initialFilter.includes(firstLetter)
+      })
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -807,11 +978,13 @@ export default {
 }
 
 .settings-panel-frame {
+  position: relative;
+  z-index: 50;
   grid-column: 1;
   grid-row: 2;
   height: 104px;
   min-height: 104px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 8px 12px;
@@ -861,16 +1034,21 @@ export default {
 .settings-panel :deep(.filter-field) {
   flex: 0 1 240px;
 }
-.settings-panel :deep(.filter-field input),
-.settings-panel :deep(.filter-field select) {
+.settings-panel :deep(.filter-field > input),
+.settings-panel :deep(.filter-field > select) {
   width: 100%;
 }
 .settings-panel :deep(.setting-parameter-subcontainer.border-left) {
   border: 0;
   padding: 0;
 }
-.settings-panel :deep(#filterInput),
-.settings-panel :deep(#initialLetter) {
+.settings-panel :deep(#filterInput) {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.settings-panel :deep(.filter-field .multi-select-dropdown) {
   width: 100%;
 }
 .settings-panel :deep(.settings-slider) {
@@ -932,9 +1110,9 @@ export default {
 }
 .settings-panel-filter :deep(.slot-container) {
   display: grid;
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
-  grid-template-columns: 160px 160px 190px;
+  grid-template-columns: 150px 150px 180px minmax(240px, 1fr);
   align-items: center;
   gap: 18px;
 }
@@ -945,12 +1123,12 @@ export default {
   gap: 4px;
   min-width: 0;
 }
-.settings-panel-filter :deep(.filter-field input),
-.settings-panel-filter :deep(.filter-field select) {
+.settings-panel-filter :deep(.filter-field > input),
+.settings-panel-filter :deep(.filter-field > select) {
   width: 100%;
   min-width: 0;
 }
-.settings-panel-filter :deep(.filter-field input) {
+.settings-panel-filter :deep(.filter-field > input) {
   max-width: 160px;
 }
 .settings-panel-filter :deep(.filter-field select) {
@@ -960,7 +1138,7 @@ export default {
   width: 160px;
   max-width: 160px;
 }
-.settings-panel-filter :deep(#initialLetter) {
+.settings-panel-filter :deep(.multi-select-dropdown) {
   width: 160px;
   min-width: 110px;
 }
@@ -978,6 +1156,36 @@ export default {
 .settings-panel-filter :deep(.filter-mode-options input[type='radio']) {
   flex: 0 0 16px;
   margin: 0;
+}
+.ai-filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.settings-panel-filter :deep(.ai-filter-controls input) {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}
+.ai-filter-button,
+.ai-filter-cancel {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+.ai-filter-cancel {
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.ai-filter-hint {
+  display: block;
+  max-width: 100%;
+  color: var(--color-muted);
+  font-size: 11px;
 }
 .settings-panel-flags :deep(.settings-subcontainer),
 .settings-panel-flags :deep(.slot-container) {
@@ -1096,11 +1304,6 @@ export default {
   width: fit-content;
 }
 
-#initialLetter {
-  width: 100%;
-  min-width: 0;
-}
-
 .settings-slider {
   width: clamp(120px, 22vw, 240px);
 }
@@ -1203,7 +1406,7 @@ export default {
     flex: 1 1 160px;
   }
   .settings-panel-filter :deep(.slot-container) {
-    width: fit-content;
+    width: 100%;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
   }
@@ -1211,7 +1414,7 @@ export default {
     grid-template-columns: 1fr;
     gap: 3px;
   }
-  .settings-panel-filter :deep(#initialLetter) {
+  .settings-panel-filter :deep(.multi-select-dropdown) {
     width: 130px;
     min-width: 110px;
   }
@@ -1221,6 +1424,12 @@ export default {
   }
   .settings-panel-filter :deep(.filter-mode) {
     grid-column: 1 / -1;
+  }
+  .settings-panel-filter :deep(.ai-filter-field) {
+    grid-column: 1 / -1;
+  }
+  .ai-filter-controls {
+    flex-wrap: wrap;
   }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
@@ -1245,12 +1454,15 @@ export default {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .settings-panel-filter :deep(#filterInput),
-  .settings-panel-filter :deep(#initialLetter) {
+  .settings-panel-filter :deep(.multi-select-dropdown) {
     width: 100%;
     max-width: 100%;
     min-width: 0;
   }
   .settings-panel-filter :deep(.filter-mode) {
+    grid-column: 1 / -1;
+  }
+  .settings-panel-filter :deep(.ai-filter-field) {
     grid-column: 1 / -1;
   }
   .settings-panel-filter :deep(.filter-mode-options) {

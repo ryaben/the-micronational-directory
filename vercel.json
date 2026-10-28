@@ -2,6 +2,9 @@
   "functions": {
     "api/ai-assistant.js": {
       "maxDuration": 60
+    },
+    "api/ai-filter.js": {
+      "maxDuration": 30
     }
   },
   "rewrites": [
