@@ -8,10 +8,14 @@ import SettingsSortIcon from './icons/SettingsSortIcon.vue'
 import SettingsDisplayIcon from './icons/SettingsDisplayIcon.vue'
 import SettingsFlagsIcon from './icons/SettingsFlagsIcon.vue'
 import MultiSelectDropdown from './MultiSelectDropdown.vue'
+import VueDatePicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
 import store from '../store'
-import { auth } from '../firebase/auth.js'
+import { useI18n } from '../i18n'
+import { theme } from '../composables/userSettings.js'
 import { useUserFavorites } from '../composables/userFavorites.js'
 
+const { locale } = useI18n()
 const { currentUser } = useUserFavorites()
 const tabIcons = {
   Pages: SettingsPagesIcon,
@@ -67,7 +71,11 @@ defineProps({
         :class="{ 'without-count': hiddenSubcontainers.includes('Total') }"
         v-if="availableSettingsTabs.length"
       >
-        <div class="settings-tabs" role="tablist" :aria-label="$t('settingsTabs.Directory settings')">
+        <div
+          class="settings-tabs"
+          role="tablist"
+          :aria-label="$t('settingsTabs.Directory settings')"
+        >
           <button
             v-for="tab in availableSettingsTabs"
             :key="tab.id"
@@ -97,7 +105,10 @@ defineProps({
               role="tabpanel"
               :aria-labelledby="`settings-tab-${activeSettingsTab}`"
             >
-              <SettingsSubcontainer v-if="activeSettingsTab === 'Pages'" :text="$t('settingsTabs.Pages')">
+              <SettingsSubcontainer
+                v-if="activeSettingsTab === 'Pages'"
+                :text="$t('settingsTabs.Pages')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <label>{{ $t('common.entriesPerPage') }}</label>
                   <input
@@ -158,7 +169,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Filter'" :text="$t('settingsTabs.Filter')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Filter'"
+                :text="$t('settingsTabs.Filter')"
+              >
                 <SettingsSubcontainerParameter class="filter-field">
                   <label for="filterInput">{{ $t('common.search') }}</label>
                   <input
@@ -182,55 +196,77 @@ defineProps({
                     :aria-label="$t('settings.selectInitialLetters')"
                   />
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter class="filter-field filter-mode">
-                  <label>{{ $t('settings.show') }}</label>
-                  <div class="filter-mode-options">
-                    <div>
-                      <input
-                        :id="`${storeGetter}-show-all`"
-                        type="radio"
-                        :name="`${storeGetter}-favorites-filter`"
-                        value="all"
-                        v-model="favoritesFilter"
-                      />
-                      <label :for="`${storeGetter}-show-all`">{{ $t('common.all') }}</label>
-                    </div>
-                    <div>
-                      <input
-                        :id="`${storeGetter}-show-favorites`"
-                        type="radio"
-                        :name="`${storeGetter}-favorites-filter`"
-                        value="favorites"
-                        :disabled="!currentUser"
-                        v-model="favoritesFilter"
-                      />
-                      <label :for="`${storeGetter}-show-favorites`">{{ $t('common.favorites') }}</label>
-                    </div>
+                <SettingsSubcontainerParameter class="filter-field">
+                  <label>{{ $t('settings.languages') }}</label>
+                  <MultiSelectDropdown
+                    v-model="languageFilter"
+                    :options="availableLanguages"
+                    :include-select-all="true"
+                    :include-select-none="false"
+                    :searchable="true"
+                    :dropdown-height="280"
+                    :placeholder="$t('common.all')"
+                    :select-all-label="$t('common.all')"
+                    :selected-count-label="$t('settings.selectedLanguages')"
+                    :aria-label="$t('settings.selectLanguages')"
+                    :search-placeholder="$t('settings.searchLanguages')"
+                    :no-options-label="$t('settings.noLanguagesFound')"
+                  />
+                </SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="filter-field foundation-date-range-field">
+                  <label>{{ $t('settings.foundationDate') }}</label>
+                  <div class="foundation-date-range">
+                    <VueDatePicker
+                      v-model="foundationDateFromValue"
+                      :locale="locale === 'es' ? 'es-419' : 'en-US'"
+                      :placeholder="$t('settings.from')"
+                      :aria-label="$t('settings.foundationDateFrom')"
+                      :cancel-text="$t('common.cancel')"
+                      :select-text="$t('common.select')"
+                      :dark="theme === 'dark'"
+                      :max-date="foundationDateToValue || todayDate"
+                      :enable-time-picker="false"
+                      :auto-apply="true"
+                      :utc="'preserve'"
+                      :timezone="'UTC'"
+                    />
+                    <VueDatePicker
+                      v-model="foundationDateToValue"
+                      :locale="locale === 'es' ? 'es-419' : 'en-US'"
+                      :placeholder="$t('settings.to')"
+                      :aria-label="$t('settings.foundationDateTo')"
+                      :cancel-text="$t('common.cancel')"
+                      :select-text="$t('common.select')"
+                      :dark="theme === 'dark'"
+                      :min-date="foundationDateFromValue || undefined"
+                      :max-date="todayDate"
+                      :enable-time-picker="false"
+                      :auto-apply="true"
+                      :utc="'preserve'"
+                      :timezone="'UTC'"
+                    />
                   </div>
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter class="filter-field ai-filter-field">
-                  <label for="aiFilterInput">{{ $t('settings.aiFilter') }}</label>
-                  <div class="ai-filter-controls">
+                <SettingsSubcontainerParameter class="filter-field">
+                  <label>{{ $t('settings.favorites') }}</label>
+                  <div class="only-favorites-control">
                     <input
-                      id="aiFilterInput"
-                      v-model="aiFilterInput"
-                      type="text"
-                      maxlength="500"
-                      :placeholder="$t('settings.aiFilterPlaceholder')"
-                      :disabled="aiFiltering"
-                      @keydown.enter.prevent="runAiFilter"
+                      :id="`${storeGetter}-only-favorites`"
+                      v-model="favoritesOnly"
+                      type="checkbox"
+                      :disabled="!currentUser"
                     />
-                    <button type="button" class="login-button color-transition ai-filter-button" :disabled="aiFiltering || !aiFilterInput.trim()" @click="runAiFilter">
-                      {{ aiFiltering ? `${$t('settings.aiFilterWorking')} ${aiProgress}` : $t('settings.aiFilterApply') }}
-                    </button>
-                    <button v-if="aiFiltering" type="button" class="ai-filter-cancel" @click="cancelAiFilter">{{ $t('common.cancel') }}</button>
-                    <button v-else-if="aiFilterIds !== null" type="button" class="ai-filter-cancel" @click="clearAiFilter">{{ $t('settings.aiFilterClear') }}</button>
+                    <label :for="`${storeGetter}-only-favorites`">{{
+                      $t('settings.onlyFavorites')
+                    }}</label>
                   </div>
-                  <small v-if="!currentUser" class="ai-filter-hint">{{ $t('settings.aiFilterSignIn') }}</small>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" :text="$t('settingsTabs.Sort')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Sort'"
+                :text="$t('settingsTabs.Sort')"
+              >
                 <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
@@ -294,7 +330,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Display'" :text="$t('settingsTabs.Display')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Display'"
+                :text="$t('settingsTabs.Display')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <label ref="cardSizeLabel">{{ $t('common.cardSize') }}</label>
                   <input
@@ -317,7 +356,9 @@ defineProps({
                       v-model="fixedHeight"
                       @change="updateFixedHeight"
                     />
-                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">{{ $t('common.fixedHeight') }}</label>
+                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">{{
+                      $t('common.fixedHeight')
+                    }}</label>
                   </div>
                   <input
                     type="range"
@@ -333,7 +374,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" :text="$t('settingsTabs.Flags')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Flags'"
+                :text="$t('settingsTabs.Flags')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <button
                     id="generateCollage"
@@ -375,29 +419,6 @@ defineProps({
 import { notify } from '@kyvg/vue3-notification'
 import { favorites } from '../composables/userFavorites.js'
 
-function restoreAiFilterCache(key) {
-  try {
-    const stored = typeof localStorage === 'undefined' ? null : localStorage.getItem(key)
-    const entries = stored ? JSON.parse(stored) : []
-    return new Map(Array.isArray(entries) ? entries : [])
-  } catch {
-    return new Map()
-  }
-}
-
-function persistAiFilterCache(cache, storageKey) {
-  try {
-    while (cache.size > 5000) cache.delete(cache.keys().next().value)
-    if (typeof localStorage !== 'undefined') localStorage.setItem(storageKey, JSON.stringify([...cache]))
-  } catch (error) {
-    console.warn('Could not persist AI filter cache:', error)
-  }
-}
-
-const AI_FLAG_CACHE_KEY = 'directory-ai-flag-filter-cache-v1'
-const aiFlagFilterCache = restoreAiFilterCache(AI_FLAG_CACHE_KEY)
-let aiFilterNextRequestAt = 0
-
 export default {
   name: 'Settings-Bar',
   emits: [
@@ -422,12 +443,10 @@ export default {
       inputFilter: '',
       searchDebounce: null,
       initialFilter: [],
-      aiFilterInput: '',
-      aiFilterIds: null,
-      aiFiltering: false,
-      aiProgress: '',
-      aiCancelRequested: false,
-      favoritesFilter: 'all',
+      languageFilter: [],
+      foundationDateFrom: null,
+      foundationDateTo: null,
+      favoritesOnly: false,
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
@@ -446,7 +465,16 @@ export default {
     initialFilter() {
       this.applyFilters()
     },
-    favoritesFilter() {
+    languageFilter() {
+      this.setPage(1)
+    },
+    foundationDateFrom() {
+      this.setPage(1)
+    },
+    foundationDateTo() {
+      this.setPage(1)
+    },
+    favoritesOnly() {
       this.applyFilters()
     },
     elementsDirectory: {
@@ -476,6 +504,10 @@ export default {
         const availableInitialLetters = this.addFilterLetters(this.workingDirectory, 'main')
         this.initialFilter = this.initialFilter.filter((letter) =>
           availableInitialLetters.includes(letter)
+        )
+        const availableLanguages = this.collectLanguages(this.workingDirectory)
+        this.languageFilter = this.languageFilter.filter((language) =>
+          availableLanguages.includes(language)
         )
         if (this.directoryLoaded) {
           this.currentPage = 1
@@ -516,8 +548,9 @@ export default {
           (this.showUnapproved || element.approved) &&
           element.searchDisplay &&
           element.filterDisplay &&
-          (this.aiFilterIds === null || this.aiFilterIds.has(this.entryId(element))) &&
-          (this.favoritesFilter !== 'favorites' ||
+          this.matchesLanguageFilter(element) &&
+          this.matchesFoundationDateFilter(element) &&
+          (!this.favoritesOnly ||
             favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
     },
@@ -533,133 +566,81 @@ export default {
     },
     filterLetters() {
       return this.addFilterLetters(this.workingDirectory, 'main')
+    },
+    availableLanguages() {
+      return this.collectLanguages(this.workingDirectory)
+    },
+    todayDate() {
+      return new Date()
+    },
+    foundationDateFromValue: {
+      get() {
+        return this.toValidDate(this.foundationDateFrom)
+      },
+      set(value) {
+        this.foundationDateFrom = this.toValidDate(value)
+      }
+    },
+    foundationDateToValue: {
+      get() {
+        return this.toValidDate(this.foundationDateTo)
+      },
+      set(value) {
+        this.foundationDateTo = this.toValidDate(value)
+      }
     }
   },
   methods: {
-    entryId(element) {
-      return String(element.directoryId || element.id || element.name?.main || '')
-    },
-    async aiFilterRequest(body, isCancelled = () => false) {
-      const token = await auth.currentUser?.getIdToken()
-      if (!token) throw new Error(this.$t('settings.aiFilterSignIn'))
-      for (let attempt = 0; attempt < 3; attempt++) {
-        const now = Date.now()
-        const startAt = Math.max(now, aiFilterNextRequestAt)
-        aiFilterNextRequestAt = startAt + 2100
-        if (startAt > now) await new Promise(resolve => setTimeout(resolve, startAt - now))
-        if (isCancelled()) throw new Error('AI filter cancelled')
-        const response = await fetch('/api/ai-filter', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-          body: JSON.stringify(body)
-        })
-        const result = await response.json()
-        if (response.status === 429 && attempt < 2 && !isCancelled()) {
-          const suggestedWait = Number(result.retryAfter) || Number(result.error?.match(/try again in\s+([\d.]+)\s*s/i)?.[1])
-          const waitSeconds = Number.isFinite(suggestedWait) && suggestedWait > 0
-            ? Math.ceil(suggestedWait) + 1
-            : 60
-          this.aiProgress = this.$t('settings.aiFilterRateWait', { seconds: waitSeconds })
-          await new Promise(resolve => setTimeout(resolve, waitSeconds * 1000))
-          continue
-        }
-        if (!response.ok) {
-          const error = new Error(result.error || this.$t('settings.aiFilterError'))
-          error.status = response.status
-          throw error
-        }
-        return result
-      }
-      throw new Error(this.$t('settings.aiFilterError'))
-    },
-    fieldText(element, field) {
-      const values = {
-        names: [element.name?.main, element.name?.title, element.name?.mainAlt, element.name?.titleAlt,
-          ...(element.name?.alt || []).flatMap(name => [name.main, name.title])],
-        languages: element.languages,
-        types: element.type,
-        motto: element.motto,
-        capital: element.capital,
-        currency: element.currency,
-        memberships: element.memberships,
-        location: element.location,
-        websites: element.websites
-      }
-      return JSON.stringify(values[field] ?? '')
-    },
-    async runAiFilter() {
-      if (this.aiFiltering || !this.aiFilterInput.trim()) return
-      this.aiFiltering = true
-      this.aiCancelRequested = false
-      this.aiFilterIds = null
-      try {
-        const { conditions, visualDescription } = await this.aiFilterRequest({ action: 'interpret', prompt: this.aiFilterInput.trim() })
-        if (this.aiCancelRequested) return
-        const normalized = value => this.normalizeString(String(value || '').toLowerCase())
-        if (!conditions.length && !visualDescription) throw new Error(this.$t('settings.aiFilterNotUnderstood'))
-        let candidates = this.workingDirectory.filter(element => conditions.every(condition => {
-          const text = normalized(this.fieldText(element, condition.field))
-          return condition.terms.some(term => text.includes(normalized(term)))
-        }))
-
-        if (visualDescription) {
-          const toScan = []
-          const matches = new Set()
-          for (const element of candidates) {
-            const id = this.entryId(element)
-            const path = element.flag || ''
-            const cacheKey = `${normalized(visualDescription)}|${path}`
-            if (aiFlagFilterCache.has(cacheKey)) {
-              if (aiFlagFilterCache.get(cacheKey)) matches.add(id)
-            } else if (path.startsWith('/images/flags/')) toScan.push({ id, path, cacheKey })
-          }
-          const batches = Array.from({ length: Math.ceil(toScan.length / 3) }, (_, index) => toScan.slice(index * 3, index * 3 + 3))
-          let nextBatch = 0
-          const scanWorker = async () => {
-            while (nextBatch < batches.length && !this.aiCancelRequested) {
-              const batchIndex = nextBatch++
-              const batch = batches[batchIndex]
-              const result = await this.aiFilterRequest(
-                { action: 'flags', prompt: visualDescription, images: batch.map(({ id, path }) => ({ id, path })) },
-                () => this.aiCancelRequested
-              )
-              const batchMatches = new Set(result.matches)
-              batch.forEach(item => {
-                aiFlagFilterCache.set(item.cacheKey, batchMatches.has(item.id))
-                if (batchMatches.has(item.id)) matches.add(item.id)
-              })
-              persistAiFilterCache(aiFlagFilterCache, AI_FLAG_CACHE_KEY)
-              this.aiProgress = this.$t('settings.aiFilterFlagsProgress', { current: Math.min(batchIndex + 1, batches.length), total: batches.length })
-            }
-          }
-          this.aiProgress = this.$t('settings.aiFilterFlagsProgress', { current: 0, total: batches.length })
-          await scanWorker()
-          if (this.aiCancelRequested) return
-          candidates = candidates.filter(element => matches.has(this.entryId(element)))
-        }
-        this.aiFilterIds = new Set(candidates.map(element => this.entryId(element)))
-        this.setPage(1)
-      } catch (error) {
-        if (!this.aiCancelRequested) {
-          console.error('AI filter request failed:', error)
-          notify({
-            title: this.$t('settings.aiFilter'),
-            text: this.$t(error.status === 429 ? 'settings.aiFilterRateLimitPartial' : 'settings.aiFilterError'),
-            type: 'error'
+    collectLanguages(elements) {
+      return [
+        ...new Set(
+          (elements || []).flatMap((element) => {
+            const languages = Array.isArray(element.languages)
+              ? element.languages
+              : [element.languages]
+            return languages.filter((language) => typeof language === 'string' && language.trim())
           })
-        }
-      } finally {
-        this.aiFiltering = false
-        this.aiProgress = ''
-      }
+        )
+      ].sort((a, b) => a.localeCompare(b))
     },
-    cancelAiFilter() {
-      this.aiCancelRequested = true
+    matchesLanguageFilter(element) {
+      if (!this.languageFilter.length) return true
+      const languages = Array.isArray(element.languages) ? element.languages : [element.languages]
+      return this.languageFilter.some((language) => languages.includes(language))
     },
-    clearAiFilter() {
-      this.cancelAiFilter()
-      this.aiFilterIds = null
-      this.setPage(1)
+    matchesFoundationDateFilter(element) {
+      const from = this.toValidDate(this.foundationDateFrom)
+      const to = this.toValidDate(this.foundationDateTo)
+      if (!from && !to) return !this.foundationDateFrom && !this.foundationDateTo
+      if ((this.foundationDateFrom && !from) || (this.foundationDateTo && !to)) return false
+      const rawDate = element.foundationDate
+      const seconds = rawDate?._seconds ?? rawDate?.seconds
+      if (seconds != null && (!Number.isFinite(Number(seconds)) || Number(seconds) <= 0))
+        return false
+      const date =
+        seconds != null
+          ? new Date(Number(seconds) * 1000)
+          : rawDate instanceof Date
+          ? rawDate
+          : typeof rawDate === 'string' || typeof rawDate === 'number'
+          ? new Date(rawDate)
+          : null
+      if (!date || Number.isNaN(date.getTime())) return false
+      const timestamp = date.getTime()
+      const start = from
+        ? Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate())
+        : null
+      const end = to
+        ? Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate(), 23, 59, 59, 999)
+        : null
+      return (start === null || timestamp >= start) && (end === null || timestamp <= end)
+    },
+    toValidDate(value) {
+      if (value == null || value === '') return null
+      if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value
+      const seconds = value?._seconds ?? value?.seconds
+      const date = seconds != null ? new Date(Number(seconds) * 1000) : new Date(value)
+      return Number.isNaN(date.getTime()) ? null : date
     },
     setPage(result) {
       this.currentPage = result
@@ -1112,7 +1093,7 @@ export default {
   display: grid;
   width: 100%;
   max-width: 100%;
-  grid-template-columns: 150px 150px 180px minmax(240px, 1fr);
+  grid-template-columns: 160px 160px 160px 300px minmax(140px, 1fr);
   align-items: center;
   gap: 18px;
 }
@@ -1142,50 +1123,66 @@ export default {
   width: 160px;
   min-width: 110px;
 }
-.settings-panel-filter :deep(.filter-mode-options) {
+.settings-panel-filter :deep(.foundation-date-range) {
   display: flex;
+  width: 100%;
+  min-width: 0;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
-.settings-panel-filter :deep(.filter-mode-options > div) {
+.settings-panel-filter :deep(.foundation-date-range .dp__main) {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.settings-panel-filter :deep(.foundation-date-range .dp__input_wrap) {
+  width: 100%;
+}
+.settings-panel-filter :deep(.foundation-date-range .dp__input) {
+  min-width: 0;
+  padding: 7px 8px 7px 32px;
+  font-size: 13px;
+}
+.settings-panel-filter :deep(.only-favorites-control) {
   display: flex;
+  min-height: 40px;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   white-space: nowrap;
 }
-.settings-panel-filter :deep(.filter-mode-options input[type='radio']) {
+.settings-panel-filter :deep(.only-favorites-control input[type='checkbox']) {
   flex: 0 0 16px;
   margin: 0;
 }
-.ai-filter-controls {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-}
-.settings-panel-filter :deep(.ai-filter-controls input) {
-  flex: 1 1 auto;
-  width: 100%;
-  min-width: 0;
-}
-.ai-filter-button,
-.ai-filter-cancel {
-  flex: 0 0 auto;
-  min-height: 36px;
-  padding: 7px 10px;
-  white-space: nowrap;
-}
-.ai-filter-cancel {
-  border: 0;
-  background: transparent;
-  color: var(--color-text);
-  cursor: pointer;
-}
-.ai-filter-hint {
-  display: block;
-  max-width: 100%;
-  color: var(--color-muted);
-  font-size: 11px;
+
+@media (min-width: 681px) and (max-width: 1050px) {
+  .settings-panel-frame {
+    height: auto;
+    min-height: 104px;
+  }
+  .settings-panel-filter {
+    height: auto;
+  }
+  .settings-panel-filter :deep(.settings-subcontainer) {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+  .settings-panel-filter :deep(.slot-container) {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 58px;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+  }
+  .settings-panel-filter :deep(.foundation-date-range-field) {
+    grid-column: span 2;
+  }
+  .settings-panel-filter :deep(.filter-field) {
+    min-width: 0;
+    margin: 0;
+  }
 }
 .settings-panel-flags :deep(.settings-subcontainer),
 .settings-panel-flags :deep(.slot-container) {
@@ -1395,7 +1392,9 @@ export default {
   .matching-entries-container br {
     display: none;
   }
-  .matching-entries-label { white-space: nowrap; }
+  .matching-entries-label {
+    white-space: nowrap;
+  }
   .settings-panel :deep(.slot-container) {
     align-items: stretch;
   }
@@ -1403,33 +1402,32 @@ export default {
     flex: 0 1 auto;
   }
   .settings-panel :deep(.filter-field) {
-    flex: 1 1 160px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
   }
   .settings-panel-filter :deep(.slot-container) {
     width: 100%;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
   .settings-panel-filter :deep(.filter-field) {
     grid-template-columns: 1fr;
     gap: 3px;
   }
   .settings-panel-filter :deep(.multi-select-dropdown) {
-    width: 130px;
-    min-width: 110px;
+    width: 100%;
+    min-width: 0;
   }
   .settings-panel-filter :deep(#filterInput) {
-    width: 130px;
-    max-width: 130px;
+    width: 100%;
+    max-width: 100%;
   }
-  .settings-panel-filter :deep(.filter-mode) {
-    grid-column: 1 / -1;
+  .settings-panel-filter :deep(.foundation-date-range) {
+    width: 100%;
   }
-  .settings-panel-filter :deep(.ai-filter-field) {
-    grid-column: 1 / -1;
-  }
-  .ai-filter-controls {
-    flex-wrap: wrap;
+  .settings-panel-filter :deep(.foundation-date-range .dp__main) {
+    min-width: 0;
   }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
@@ -1451,22 +1449,13 @@ export default {
     width: 100%;
   }
   .settings-panel-filter :deep(.slot-container) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
   .settings-panel-filter :deep(#filterInput),
   .settings-panel-filter :deep(.multi-select-dropdown) {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-  }
-  .settings-panel-filter :deep(.filter-mode) {
-    grid-column: 1 / -1;
-  }
-  .settings-panel-filter :deep(.ai-filter-field) {
-    grid-column: 1 / -1;
-  }
-  .settings-panel-filter :deep(.filter-mode-options) {
-    flex-wrap: wrap;
   }
 }
 </style>

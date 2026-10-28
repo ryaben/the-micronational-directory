@@ -6,11 +6,14 @@ const props = defineProps({
   modelValue: { type: Array, default: () => [] },
   includeSelectAll: { type: Boolean, default: false },
   includeSelectNone: { type: Boolean, default: false },
+  searchable: { type: Boolean, default: false },
   dropdownHeight: { type: [Number, String], default: 240 },
   placeholder: { type: String, default: '' },
   selectAllLabel: { type: String, default: 'Select all' },
   selectNoneLabel: { type: String, default: 'Clear selection' },
   selectedCountLabel: { type: String, default: '{count} selected' },
+  searchPlaceholder: { type: String, default: 'Search options...' },
+  noOptionsLabel: { type: String, default: 'No options found' },
   ariaLabel: { type: String, default: 'Select options' }
 })
 
@@ -18,6 +21,7 @@ const emit = defineEmits(['update:modelValue'])
 const dropdownRoot = ref(null)
 const dropdownTrigger = ref(null)
 const isOpen = ref(false)
+const searchQuery = ref('')
 
 function optionValue(option) {
   return typeof option === 'object' && option !== null ? option.value : option
@@ -30,6 +34,11 @@ function optionLabel(option) {
 }
 
 const allValues = computed(() => props.options.map(optionValue))
+const filteredOptions = computed(() => {
+  const query = searchQuery.value.trim().toLocaleLowerCase()
+  if (!query) return props.options
+  return props.options.filter(option => optionLabel(option).toLocaleLowerCase().includes(query))
+})
 const allSelected = computed(
   () => allValues.value.length > 0 && (
     props.modelValue.length === 0 || allValues.value.every(value => props.modelValue.includes(value))
@@ -122,19 +131,30 @@ onBeforeUnmount(() => {
             {{ selectNoneLabel }}
           </label>
         </div>
+        <input
+          v-if="searchable"
+          v-model="searchQuery"
+          class="multi-select-search"
+          type="search"
+          :placeholder="searchPlaceholder"
+          :aria-label="searchPlaceholder"
+        />
         <div
-          v-if="(includeSelectAll || includeSelectNone) && options.length"
+          v-if="(includeSelectAll || includeSelectNone) && filteredOptions.length"
           class="multi-select-divider"
           role="separator"
         ></div>
-        <label v-for="option in options" :key="optionValue(option)" class="multi-select-option">
+        <div class="multi-select-option-list">
+        <label v-for="option in filteredOptions" :key="optionValue(option)" class="multi-select-option">
           <input
             type="checkbox"
             :checked="modelValue.includes(optionValue(option))"
             @change="updateOption(option, $event.target.checked)"
           />
-          {{ optionLabel(option) }}
+          <span>{{ optionLabel(option) }}</span>
         </label>
+        <span v-if="searchable && !filteredOptions.length" class="multi-select-empty">{{ noOptionsLabel }}</span>
+        </div>
       </div>
     </Transition>
   </div>
@@ -196,13 +216,13 @@ onBeforeUnmount(() => {
 .multi-select-options {
   position: absolute;
   top: calc(100% + 5px);
-  right: 0;
   left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 5px;
   border: 1px solid var(--color-border);
   border-radius: 10px;
@@ -228,6 +248,24 @@ onBeforeUnmount(() => {
   gap: 2px;
 }
 
+.multi-select-search {
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  font: inherit;
+}
+
+.multi-select-option-list {
+  min-height: 0;
+  overflow-y: auto;
+}
+
 .multi-select-divider {
   display: block;
   flex: 0 0 auto;
@@ -246,6 +284,19 @@ onBeforeUnmount(() => {
   border-radius: 6px;
   color: var(--color-text);
   cursor: pointer;
+}
+
+.multi-select-option span {
+  min-width: 0;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.multi-select-empty {
+  display: block;
+  padding: 8px;
+  color: var(--color-muted);
+  white-space: nowrap;
 }
 
 .multi-select-option:hover {
