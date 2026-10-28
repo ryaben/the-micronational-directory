@@ -56870,5 +56870,52 @@
     "createdAt": "2026-10-28T19:15:52Z",
     "isEdit": false,
     "id": "usBR15QutEtcG05OAudf"
+  },
+  {
+    "name": {
+      "main": "Kozelka",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republika",
+      "titleAlt": ""
+    },
+    "motto": "Je jedno, zda je zážitek pozitivní či negativní, hlavně, že je silný…",
+    "languages": [
+      "Czech"
+    ],
+    "contactInfo": [
+      "republikakozelka@gmail.com"
+    ],
+    "websites": [
+      "https://cs.micronations.wiki/wiki/Republika_Kozelka",
+      "https://web.archive.org/web/20090608171656/http://www.vvtisk.cz/republikakozelka/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Kozelka.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Hájovna",
+    "currency": "Kozlík",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 936144000,
+      "_seconds": 936144000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793217510
+    },
+    "createdAt": "2026-10-28T19:58:30Z",
+    "isEdit": false,
+    "id": "ETLUBYUMJCvSbzEIEu4F"
   }
 ]
