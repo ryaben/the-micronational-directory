@@ -56917,5 +56917,53 @@
     "createdAt": "2026-10-28T19:58:30Z",
     "isEdit": false,
     "id": "ETLUBYUMJCvSbzEIEu4F"
+  },
+  {
+    "name": {
+      "main": "Hakkelaarsbrug",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Free Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Dutch"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/groups/329597057477605/"
+    ],
+    "websites": [
+      "https://www.defactoborders.org/places/hakkelaarsbrug",
+      "https://www.hakkelaarsbrug.nl/wordpress/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "websites"
+    ],
+    "flag": "/images/flags/Hakkelaarsbrug.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Hakkelaarsbrug",
+    "currency": "Hakkelaar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1500681600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793215742
+    },
+    "createdAt": "2026-10-28T19:29:02Z",
+    "isEdit": false,
+    "id": "fMQJOdSzfYqBDBw0fOCr"
   }
 ]
