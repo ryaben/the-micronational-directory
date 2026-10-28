@@ -56904,8 +56904,8 @@
     "currency": "Kozlík",
     "memberships": [],
     "foundationDate": {
-      "seconds": 936144000,
-      "_seconds": 936144000
+      "seconds": 841536000,
+      "_seconds": 841536000
     },
     "location": {
       "latitude": 0,
@@ -56914,9 +56914,20 @@
     "creationDate": {
       "_seconds": 1793217510
     },
-    "createdAt": "2026-10-28T19:58:30Z",
-    "isEdit": false,
-    "id": "ETLUBYUMJCvSbzEIEu4F"
+    "createdAt": "2026-10-28T20:07:47Z",
+    "isEdit": true,
+    "id": "ETLUBYUMJCvSbzEIEu4F",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793218066
+        }
+      }
+    ]
   },
   {
     "name": {
