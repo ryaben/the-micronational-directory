@@ -402,6 +402,20 @@
   },
   "settings": {
     "inputAmount": "Ingresa una cantidad",
+    "selectInitialLetters": "Selecciona letras iniciales",
+    "selectedLetters": "{count} seleccionadas",
+    "languages": "Idiomas",
+    "selectLanguages": "Selecciona idiomas",
+    "selectedLanguages": "{count} seleccionados",
+    "searchLanguages": "Buscar",
+    "noLanguagesFound": "No se encontraron idiomas",
+    "foundationDate": "Fecha de fundación",
+    "foundationDateFrom": "Fecha de fundación desde",
+    "foundationDateTo": "Fecha de fundación hasta",
+    "favorites": "Favoritos",
+    "from": "Desde",
+    "to": "Hasta",
+    "onlyFavorites": "Solo favoritos",
     "page": "Página",
     "searchName": "Buscar nombre...",
     "show": "Mostrar",
@@ -622,8 +636,16 @@
     "confirmApprove": "¿Aprobar «{name}»? Se publicará en el directorio.",
     "approved": "aprobada",
     "rejected": "rechazada",
-    "status": { "pass": "aprobado", "fail": "no aprobado", "uncertain": "incierto" },
-    "verdict": { "approve_candidate": "candidata para aprobar", "needs_review": "requiere revisión", "reject_candidate": "candidata para rechazar" },
+    "status": {
+      "pass": "aprobado",
+      "fail": "no aprobado",
+      "uncertain": "incierto"
+    },
+    "verdict": {
+      "approve_candidate": "candidata para aprobar",
+      "needs_review": "requiere revisión",
+      "reject_candidate": "candidata para rechazar"
+    },
     "errors": {
       "originalSubmissionMissing": "No se pudieron cargar los datos originales del envío desde la incidencia.",
       "imageDataMissing": "La incidencia incluye la ruta de una imagen, pero no sus datos. Edita la imagen antes de aprobar la entrada.",

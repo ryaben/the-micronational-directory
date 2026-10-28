@@ -204,7 +204,7 @@
     "of": "of",
     "all": "All",
     "any": "Any",
-    "search": "Search",
+    "search": "Name",
     "entriesPerPage": "Entries/page",
     "initialLetter": "Initial letter",
     "favorites": "Favorites only",
@@ -402,6 +402,20 @@
   },
   "settings": {
     "inputAmount": "Input an amount",
+    "selectInitialLetters": "Select initial letters",
+    "selectedLetters": "{count} selected",
+    "languages": "Languages",
+    "selectLanguages": "Select languages",
+    "selectedLanguages": "{count} selected",
+    "searchLanguages": "Search",
+    "noLanguagesFound": "No languages found",
+    "foundationDate": "Foundation date",
+    "foundationDateFrom": "Foundation date from",
+    "foundationDateTo": "Foundation date to",
+    "favorites": "Favorites",
+    "from": "From",
+    "to": "To",
+    "onlyFavorites": "Only favorites",
     "page": "Page",
     "searchName": "Search name...",
     "show": "Show",
@@ -621,8 +635,16 @@
     "confirmApprove": "Approve “{name}”? This will publish it to the directory.",
     "approved": "approved",
     "rejected": "rejected",
-    "status": { "pass": "pass", "fail": "fail", "uncertain": "uncertain" },
-    "verdict": { "approve_candidate": "approve candidate", "needs_review": "needs review", "reject_candidate": "reject candidate" },
+    "status": {
+      "pass": "pass",
+      "fail": "fail",
+      "uncertain": "uncertain"
+    },
+    "verdict": {
+      "approve_candidate": "approve candidate",
+      "needs_review": "needs review",
+      "reject_candidate": "reject candidate"
+    },
     "errors": {
       "originalSubmissionMissing": "The original submission data could not be loaded from the issue.",
       "imageDataMissing": "The issue includes an image path but no image data. Edit the image before approving this entry.",

@@ -85,7 +85,6 @@ const { micronationsApprovedDirectory, organizationsApprovedDirectory, user } = 
             </div> -->
       <div class="tables-container">
         <div class="ranking-container ranking-panel">
-          <div class="stats-container contest-history">
             <div class="scrollable-container statistics-table directory">
               <div class="table-header-row">
                 <p class="table-header">{{ $t('stats.event') }}</p>
@@ -112,7 +111,6 @@ const { micronationsApprovedDirectory, organizationsApprovedDirectory, user } = 
                 </p>
               </div>
             </div>
-          </div>
         </div>
 
         <div class="ranking-container ranking-panel contest-ranking-panel">
@@ -314,8 +312,7 @@ export default {
   min-width: 0;
   width: 100%;
 }
-.ranking-panel,
-.contest-history {
+.ranking-panel {
   padding: 18px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -342,10 +339,6 @@ export default {
   max-height: 390px;
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-}
-.contest-history h2 {
-  margin-top: 0;
-  font-size: 19px;
 }
 .statistics-table.directory {
   display: flex;
@@ -435,8 +428,7 @@ export default {
   .overview-value {
     font-size: 27px;
   }
-  .ranking-panel,
-  .contest-history {
+  .ranking-panel {
     padding: 12px;
   }
   .ranking-container :deep(.container-title) {

@@ -37,7 +37,7 @@ defineProps({
       <p>{{ text }}</p>
     </div>
 
-    <AnimateHeight class="sub-buttons-container" :duration="300" :height="height" :animate-opacity="false">
+    <AnimateHeight class="sub-buttons-container" :class="{ 'is-open': height !== 0 }" :duration="300" :height="height" :animate-opacity="false">
       <NavbarSubButton v-for="(subitem, i) in subButtons" :key="i" :text="subitem.text"
         :route="subitem.route" />
     </AnimateHeight>
@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     updateHeight() {
+      if (!this.subButtons.length) return
       return this.height = this.height === 0 ? 'auto' : 0;
     },
     showSubButtons() {
@@ -147,12 +148,17 @@ export default {
   left: 0;
   width: 100%;
   min-width: 132px;
-  z-index: 50;
+  z-index: 100;
   overflow: hidden;
   background: var(--color-surface);
   border-radius: 0 0 12px 12px;
   border: 0;
   box-shadow: none;
+}
+
+.sub-buttons-container.is-open {
+  border: 1px solid var(--color-border-hover);
+  box-shadow: var(--shadow-soft);
 }
 
 .v-enter-active,

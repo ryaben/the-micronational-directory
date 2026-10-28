@@ -7,9 +7,15 @@ import SettingsFilterIcon from './icons/SettingsFilterIcon.vue'
 import SettingsSortIcon from './icons/SettingsSortIcon.vue'
 import SettingsDisplayIcon from './icons/SettingsDisplayIcon.vue'
 import SettingsFlagsIcon from './icons/SettingsFlagsIcon.vue'
+import MultiSelectDropdown from './MultiSelectDropdown.vue'
+import VueDatePicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
 import store from '../store'
+import { useI18n } from '../i18n'
+import { theme } from '../composables/userSettings.js'
 import { useUserFavorites } from '../composables/userFavorites.js'
 
+const { locale } = useI18n()
 const { currentUser } = useUserFavorites()
 const tabIcons = {
   Pages: SettingsPagesIcon,
@@ -65,7 +71,11 @@ defineProps({
         :class="{ 'without-count': hiddenSubcontainers.includes('Total') }"
         v-if="availableSettingsTabs.length"
       >
-        <div class="settings-tabs" role="tablist" :aria-label="$t('settingsTabs.Directory settings')">
+        <div
+          class="settings-tabs"
+          role="tablist"
+          :aria-label="$t('settingsTabs.Directory settings')"
+        >
           <button
             v-for="tab in availableSettingsTabs"
             :key="tab.id"
@@ -95,7 +105,10 @@ defineProps({
               role="tabpanel"
               :aria-labelledby="`settings-tab-${activeSettingsTab}`"
             >
-              <SettingsSubcontainer v-if="activeSettingsTab === 'Pages'" :text="$t('settingsTabs.Pages')">
+              <SettingsSubcontainer
+                v-if="activeSettingsTab === 'Pages'"
+                :text="$t('settingsTabs.Pages')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <label>{{ $t('common.entriesPerPage') }}</label>
                   <input
@@ -156,7 +169,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Filter'" :text="$t('settingsTabs.Filter')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Filter'"
+                :text="$t('settingsTabs.Filter')"
+              >
                 <SettingsSubcontainerParameter class="filter-field">
                   <label for="filterInput">{{ $t('common.search') }}</label>
                   <input
@@ -167,47 +183,90 @@ defineProps({
                   />
                 </SettingsSubcontainerParameter>
                 <SettingsSubcontainerParameter class="filter-field">
-                  <label for="initialLetter">{{ $t('common.initialLetter') }}</label>
-                  <select name="initialLetter" id="initialLetter" v-model="initialFilter">
-                    <optgroup>
-                      <option value="none">{{ $t('common.any') }}</option>
-                    </optgroup>
-                    <optgroup class="letters-group">
-                      <option :value="letter" v-for="(letter, i) in filterLetters" :key="i">
-                        {{ letter }}
-                      </option>
-                    </optgroup>
-                  </select>
+                  <label>{{ $t('common.initialLetter') }}</label>
+                  <MultiSelectDropdown
+                    v-model="initialFilter"
+                    :options="filterLetters"
+                    :include-select-all="true"
+                    :include-select-none="false"
+                    :dropdown-height="240"
+                    :placeholder="$t('common.all')"
+                    :select-all-label="$t('common.all')"
+                    :selected-count-label="$t('settings.selectedLetters')"
+                    :aria-label="$t('settings.selectInitialLetters')"
+                  />
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter class="filter-field filter-mode">
-                  <label>{{ $t('settings.show') }}</label>
-                  <div class="filter-mode-options">
-                    <div>
-                      <input
-                        :id="`${storeGetter}-show-all`"
-                        type="radio"
-                        :name="`${storeGetter}-favorites-filter`"
-                        value="all"
-                        v-model="favoritesFilter"
-                      />
-                      <label :for="`${storeGetter}-show-all`">{{ $t('common.all') }}</label>
-                    </div>
-                    <div>
-                      <input
-                        :id="`${storeGetter}-show-favorites`"
-                        type="radio"
-                        :name="`${storeGetter}-favorites-filter`"
-                        value="favorites"
-                        :disabled="!currentUser"
-                        v-model="favoritesFilter"
-                      />
-                      <label :for="`${storeGetter}-show-favorites`">{{ $t('common.favorites') }}</label>
-                    </div>
+                <SettingsSubcontainerParameter class="filter-field">
+                  <label>{{ $t('settings.languages') }}</label>
+                  <MultiSelectDropdown
+                    v-model="languageFilter"
+                    :options="availableLanguages"
+                    :include-select-all="true"
+                    :include-select-none="false"
+                    :searchable="true"
+                    :dropdown-height="280"
+                    :placeholder="$t('common.all')"
+                    :select-all-label="$t('common.all')"
+                    :selected-count-label="$t('settings.selectedLanguages')"
+                    :aria-label="$t('settings.selectLanguages')"
+                    :search-placeholder="$t('settings.searchLanguages')"
+                    :no-options-label="$t('settings.noLanguagesFound')"
+                  />
+                </SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="filter-field foundation-date-range-field">
+                  <label>{{ $t('settings.foundationDate') }}</label>
+                  <div class="foundation-date-range">
+                    <VueDatePicker
+                      v-model="foundationDateFromValue"
+                      :locale="locale === 'es' ? 'es-419' : 'en-US'"
+                      :placeholder="$t('settings.from')"
+                      :aria-label="$t('settings.foundationDateFrom')"
+                      :cancel-text="$t('common.cancel')"
+                      :select-text="$t('common.select')"
+                      :dark="theme === 'dark'"
+                      :max-date="foundationDateToValue || todayDate"
+                      :enable-time-picker="false"
+                      :auto-apply="true"
+                      :utc="'preserve'"
+                      :timezone="'UTC'"
+                    />
+                    <VueDatePicker
+                      v-model="foundationDateToValue"
+                      :locale="locale === 'es' ? 'es-419' : 'en-US'"
+                      :placeholder="$t('settings.to')"
+                      :aria-label="$t('settings.foundationDateTo')"
+                      :cancel-text="$t('common.cancel')"
+                      :select-text="$t('common.select')"
+                      :dark="theme === 'dark'"
+                      :min-date="foundationDateFromValue || undefined"
+                      :max-date="todayDate"
+                      :enable-time-picker="false"
+                      :auto-apply="true"
+                      :utc="'preserve'"
+                      :timezone="'UTC'"
+                    />
+                  </div>
+                </SettingsSubcontainerParameter>
+                <SettingsSubcontainerParameter class="filter-field">
+                  <label>{{ $t('settings.favorites') }}</label>
+                  <div class="only-favorites-control">
+                    <input
+                      :id="`${storeGetter}-only-favorites`"
+                      v-model="favoritesOnly"
+                      type="checkbox"
+                      :disabled="!currentUser"
+                    />
+                    <label :for="`${storeGetter}-only-favorites`">{{
+                      $t('settings.onlyFavorites')
+                    }}</label>
                   </div>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Sort'" :text="$t('settingsTabs.Sort')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Sort'"
+                :text="$t('settingsTabs.Sort')"
+              >
                 <SettingsSubcontainerParameter class="sort-radio-group">
                   <div>
                     <input
@@ -271,7 +330,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Display'" :text="$t('settingsTabs.Display')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Display'"
+                :text="$t('settingsTabs.Display')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <label ref="cardSizeLabel">{{ $t('common.cardSize') }}</label>
                   <input
@@ -294,7 +356,9 @@ defineProps({
                       v-model="fixedHeight"
                       @change="updateFixedHeight"
                     />
-                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">{{ $t('common.fixedHeight') }}</label>
+                    <label for="fixedHeightCheckbox" ref="fixedHeightLabel">{{
+                      $t('common.fixedHeight')
+                    }}</label>
                   </div>
                   <input
                     type="range"
@@ -310,7 +374,10 @@ defineProps({
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
 
-              <SettingsSubcontainer v-else-if="activeSettingsTab === 'Flags'" :text="$t('settingsTabs.Flags')">
+              <SettingsSubcontainer
+                v-else-if="activeSettingsTab === 'Flags'"
+                :text="$t('settingsTabs.Flags')"
+              >
                 <SettingsSubcontainerParameter :centered="true">
                   <button
                     id="generateCollage"
@@ -375,8 +442,11 @@ export default {
       generatingCollage: false,
       inputFilter: '',
       searchDebounce: null,
-      initialFilter: 'none',
-      favoritesFilter: 'all',
+      initialFilter: [],
+      languageFilter: [],
+      foundationDateFrom: null,
+      foundationDateTo: null,
+      favoritesOnly: false,
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
@@ -395,7 +465,16 @@ export default {
     initialFilter() {
       this.applyFilters()
     },
-    favoritesFilter() {
+    languageFilter() {
+      this.setPage(1)
+    },
+    foundationDateFrom() {
+      this.setPage(1)
+    },
+    foundationDateTo() {
+      this.setPage(1)
+    },
+    favoritesOnly() {
       this.applyFilters()
     },
     elementsDirectory: {
@@ -419,9 +498,17 @@ export default {
               ...(element.name.alt || []).flatMap((name) => [name.main, name.title])
             ].some((name) => this.normalizeString((name || '').toLowerCase()).includes(query)),
           filterDisplay:
-            this.initialFilter === 'none' ||
-            this.normalizeString(element.name.main.charAt(0)) === this.initialFilter
+            this.initialFilter.length === 0 ||
+            this.initialFilter.includes(this.normalizeString(element.name.main.charAt(0)))
         }))
+        const availableInitialLetters = this.addFilterLetters(this.workingDirectory, 'main')
+        this.initialFilter = this.initialFilter.filter((letter) =>
+          availableInitialLetters.includes(letter)
+        )
+        const availableLanguages = this.collectLanguages(this.workingDirectory)
+        this.languageFilter = this.languageFilter.filter((language) =>
+          availableLanguages.includes(language)
+        )
         if (this.directoryLoaded) {
           this.currentPage = 1
           this.sortMicronations()
@@ -461,7 +548,9 @@ export default {
           (this.showUnapproved || element.approved) &&
           element.searchDisplay &&
           element.filterDisplay &&
-          (this.favoritesFilter !== 'favorites' ||
+          this.matchesLanguageFilter(element) &&
+          this.matchesFoundationDateFilter(element) &&
+          (!this.favoritesOnly ||
             favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
       )
     },
@@ -477,9 +566,82 @@ export default {
     },
     filterLetters() {
       return this.addFilterLetters(this.workingDirectory, 'main')
+    },
+    availableLanguages() {
+      return this.collectLanguages(this.workingDirectory)
+    },
+    todayDate() {
+      return new Date()
+    },
+    foundationDateFromValue: {
+      get() {
+        return this.toValidDate(this.foundationDateFrom)
+      },
+      set(value) {
+        this.foundationDateFrom = this.toValidDate(value)
+      }
+    },
+    foundationDateToValue: {
+      get() {
+        return this.toValidDate(this.foundationDateTo)
+      },
+      set(value) {
+        this.foundationDateTo = this.toValidDate(value)
+      }
     }
   },
   methods: {
+    collectLanguages(elements) {
+      return [
+        ...new Set(
+          (elements || []).flatMap((element) => {
+            const languages = Array.isArray(element.languages)
+              ? element.languages
+              : [element.languages]
+            return languages.filter((language) => typeof language === 'string' && language.trim())
+          })
+        )
+      ].sort((a, b) => a.localeCompare(b))
+    },
+    matchesLanguageFilter(element) {
+      if (!this.languageFilter.length) return true
+      const languages = Array.isArray(element.languages) ? element.languages : [element.languages]
+      return this.languageFilter.some((language) => languages.includes(language))
+    },
+    matchesFoundationDateFilter(element) {
+      const from = this.toValidDate(this.foundationDateFrom)
+      const to = this.toValidDate(this.foundationDateTo)
+      if (!from && !to) return !this.foundationDateFrom && !this.foundationDateTo
+      if ((this.foundationDateFrom && !from) || (this.foundationDateTo && !to)) return false
+      const rawDate = element.foundationDate
+      const seconds = rawDate?._seconds ?? rawDate?.seconds
+      if (seconds != null && (!Number.isFinite(Number(seconds)) || Number(seconds) <= 0))
+        return false
+      const date =
+        seconds != null
+          ? new Date(Number(seconds) * 1000)
+          : rawDate instanceof Date
+          ? rawDate
+          : typeof rawDate === 'string' || typeof rawDate === 'number'
+          ? new Date(rawDate)
+          : null
+      if (!date || Number.isNaN(date.getTime())) return false
+      const timestamp = date.getTime()
+      const start = from
+        ? Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate())
+        : null
+      const end = to
+        ? Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate(), 23, 59, 59, 999)
+        : null
+      return (start === null || timestamp >= start) && (end === null || timestamp <= end)
+    },
+    toValidDate(value) {
+      if (value == null || value === '') return null
+      if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value
+      const seconds = value?._seconds ?? value?.seconds
+      const date = seconds != null ? new Date(Number(seconds) * 1000) : new Date(value)
+      return Number.isNaN(date.getTime()) ? null : date
+    },
     setPage(result) {
       this.currentPage = result
       this.pageElements()
@@ -572,21 +734,11 @@ export default {
       }
     },
     filterEntriesByLetter() {
-      const that = this
-
-      if (this.initialFilter === 'none') {
-        this.workingDirectory.forEach(function (element) {
-          element.filterDisplay = true
-        })
-      } else {
-        this.workingDirectory.forEach(function (element) {
-          if (that.normalizeString(element.name.main.charAt(0)) === that.initialFilter) {
-            element.filterDisplay = true
-          } else {
-            element.filterDisplay = false
-          }
-        })
-      }
+      this.workingDirectory.forEach((element) => {
+        const firstLetter = this.normalizeString(element.name.main.charAt(0))
+        element.filterDisplay =
+          this.initialFilter.length === 0 || this.initialFilter.includes(firstLetter)
+      })
     },
     shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -807,11 +959,13 @@ export default {
 }
 
 .settings-panel-frame {
+  position: relative;
+  z-index: 50;
   grid-column: 1;
   grid-row: 2;
   height: 104px;
   min-height: 104px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--color-border);
   border-radius: 14px;
   padding: 8px 12px;
@@ -861,16 +1015,21 @@ export default {
 .settings-panel :deep(.filter-field) {
   flex: 0 1 240px;
 }
-.settings-panel :deep(.filter-field input),
-.settings-panel :deep(.filter-field select) {
+.settings-panel :deep(.filter-field > input),
+.settings-panel :deep(.filter-field > select) {
   width: 100%;
 }
 .settings-panel :deep(.setting-parameter-subcontainer.border-left) {
   border: 0;
   padding: 0;
 }
-.settings-panel :deep(#filterInput),
-.settings-panel :deep(#initialLetter) {
+.settings-panel :deep(#filterInput) {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.settings-panel :deep(.filter-field .multi-select-dropdown) {
   width: 100%;
 }
 .settings-panel :deep(.settings-slider) {
@@ -932,9 +1091,9 @@ export default {
 }
 .settings-panel-filter :deep(.slot-container) {
   display: grid;
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
-  grid-template-columns: 160px 160px 190px;
+  grid-template-columns: 160px 160px 160px 300px minmax(140px, 1fr);
   align-items: center;
   gap: 18px;
 }
@@ -945,12 +1104,12 @@ export default {
   gap: 4px;
   min-width: 0;
 }
-.settings-panel-filter :deep(.filter-field input),
-.settings-panel-filter :deep(.filter-field select) {
+.settings-panel-filter :deep(.filter-field > input),
+.settings-panel-filter :deep(.filter-field > select) {
   width: 100%;
   min-width: 0;
 }
-.settings-panel-filter :deep(.filter-field input) {
+.settings-panel-filter :deep(.filter-field > input) {
   max-width: 160px;
 }
 .settings-panel-filter :deep(.filter-field select) {
@@ -960,24 +1119,70 @@ export default {
   width: 160px;
   max-width: 160px;
 }
-.settings-panel-filter :deep(#initialLetter) {
+.settings-panel-filter :deep(.multi-select-dropdown) {
   width: 160px;
   min-width: 110px;
 }
-.settings-panel-filter :deep(.filter-mode-options) {
+.settings-panel-filter :deep(.foundation-date-range) {
   display: flex;
+  width: 100%;
+  min-width: 0;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
-.settings-panel-filter :deep(.filter-mode-options > div) {
+.settings-panel-filter :deep(.foundation-date-range .dp__main) {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.settings-panel-filter :deep(.foundation-date-range .dp__input_wrap) {
+  width: 100%;
+}
+.settings-panel-filter :deep(.foundation-date-range .dp__input) {
+  min-width: 0;
+  padding: 7px 8px 7px 32px;
+  font-size: 13px;
+}
+.settings-panel-filter :deep(.only-favorites-control) {
   display: flex;
+  min-height: 40px;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   white-space: nowrap;
 }
-.settings-panel-filter :deep(.filter-mode-options input[type='radio']) {
+.settings-panel-filter :deep(.only-favorites-control input[type='checkbox']) {
   flex: 0 0 16px;
   margin: 0;
+}
+
+@media (min-width: 681px) and (max-width: 1050px) {
+  .settings-panel-frame {
+    height: auto;
+    min-height: 104px;
+  }
+  .settings-panel-filter {
+    height: auto;
+  }
+  .settings-panel-filter :deep(.settings-subcontainer) {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+  .settings-panel-filter :deep(.slot-container) {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 58px;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+  }
+  .settings-panel-filter :deep(.foundation-date-range-field) {
+    grid-column: span 2;
+  }
+  .settings-panel-filter :deep(.filter-field) {
+    min-width: 0;
+    margin: 0;
+  }
 }
 .settings-panel-flags :deep(.settings-subcontainer),
 .settings-panel-flags :deep(.slot-container) {
@@ -1096,11 +1301,6 @@ export default {
   width: fit-content;
 }
 
-#initialLetter {
-  width: 100%;
-  min-width: 0;
-}
-
 .settings-slider {
   width: clamp(120px, 22vw, 240px);
 }
@@ -1192,7 +1392,9 @@ export default {
   .matching-entries-container br {
     display: none;
   }
-  .matching-entries-label { white-space: nowrap; }
+  .matching-entries-label {
+    white-space: nowrap;
+  }
   .settings-panel :deep(.slot-container) {
     align-items: stretch;
   }
@@ -1200,27 +1402,32 @@ export default {
     flex: 0 1 auto;
   }
   .settings-panel :deep(.filter-field) {
-    flex: 1 1 160px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
   }
   .settings-panel-filter :deep(.slot-container) {
-    width: fit-content;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 12px;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
   .settings-panel-filter :deep(.filter-field) {
     grid-template-columns: 1fr;
     gap: 3px;
   }
-  .settings-panel-filter :deep(#initialLetter) {
-    width: 130px;
-    min-width: 110px;
+  .settings-panel-filter :deep(.multi-select-dropdown) {
+    width: 100%;
+    min-width: 0;
   }
   .settings-panel-filter :deep(#filterInput) {
-    width: 130px;
-    max-width: 130px;
+    width: 100%;
+    max-width: 100%;
   }
-  .settings-panel-filter :deep(.filter-mode) {
-    grid-column: 1 / -1;
+  .settings-panel-filter :deep(.foundation-date-range) {
+    width: 100%;
+  }
+  .settings-panel-filter :deep(.foundation-date-range .dp__main) {
+    min-width: 0;
   }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
@@ -1242,19 +1449,13 @@ export default {
     width: 100%;
   }
   .settings-panel-filter :deep(.slot-container) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
   .settings-panel-filter :deep(#filterInput),
-  .settings-panel-filter :deep(#initialLetter) {
+  .settings-panel-filter :deep(.multi-select-dropdown) {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-  }
-  .settings-panel-filter :deep(.filter-mode) {
-    grid-column: 1 / -1;
-  }
-  .settings-panel-filter :deep(.filter-mode-options) {
-    flex-wrap: wrap;
   }
 }
 </style>

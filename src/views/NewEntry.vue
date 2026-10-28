@@ -193,7 +193,7 @@ export default {
   letter-spacing: -0.025em;
 }
 
-.new-entry-guidelines > p {
+.new-entry-guidelines > .guidelines-content :deep(p) {
   line-height: 1.7;
 }
 
@@ -204,11 +204,16 @@ export default {
   background: color-mix(in srgb, var(--color-background-soft) 72%, transparent);
 }
 
-.guidelines-intro {
-  margin-top: 20px;
+.guidelines-list {
+  margin: 0;
 }
 
-.guidelines-list {
+.guidelines-content :deep(p) {
+  margin: 16px 0;
+  line-height: 1.65;
+}
+
+.guidelines-content :deep(ul) {
   display: grid;
   gap: 0;
   margin: 14px 0 18px;
@@ -217,7 +222,7 @@ export default {
   counter-reset: guidelines;
 }
 
-.guidelines-list li {
+.guidelines-content :deep(li) {
   position: relative;
   padding: 12px 10px 12px 38px;
   border-bottom: 1px solid var(--color-border);
@@ -225,11 +230,11 @@ export default {
   counter-increment: guidelines;
 }
 
-.guidelines-list li:last-child {
+.guidelines-content :deep(li:last-child) {
   border-bottom: 0;
 }
 
-.guidelines-list li::before {
+.guidelines-content :deep(li::before) {
   position: absolute;
   top: 13px;
   left: 2px;
@@ -245,7 +250,8 @@ export default {
   font-weight: 750;
 }
 
-.guidelines-thanks {
+.guidelines-content :deep(p:last-child) {
+  margin-bottom: 0;
   color: var(--color-muted);
 }
 
@@ -267,7 +273,7 @@ export default {
     font-size: 19px;
   }
 
-  .guidelines-list li {
+  .guidelines-content :deep(li) {
     padding-right: 0;
   }
 }
