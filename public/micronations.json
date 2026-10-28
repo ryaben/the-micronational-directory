@@ -56408,5 +56408,73 @@
     "createdAt": "2026-10-28T16:12:33Z",
     "isEdit": false,
     "id": "Vh52OZeWmgzU7WmopXR5"
+  },
+  {
+    "name": {
+      "main": "Vlasynia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Vlasiniei",
+          "title": "Despotatul"
+        },
+        {
+          "main": "Vlasiniae",
+          "title": "Despotatum"
+        },
+        {
+          "main": "Vlasynian",
+          "title": "Despotate"
+        },
+        {
+          "main": "Vlasinian",
+          "title": "Despotatul"
+        }
+      ],
+      "title": "Despotate of",
+      "titleAlt": ""
+    },
+    "motto": "Aeterna Gloria (Eternal Glory)",
+    "languages": [
+      "Romanian",
+      "Latin"
+    ],
+    "contactInfo": [
+      "https://discord.gg/DZwwMMne",
+      "https://www.youtube.com/channel/UCzdMXdkgCd-JVdDwNcxOUhA"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Vlasynian_Despotate",
+      "https://web.archive.org/web/20220401205314/https://vlasynia.wordpress.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Vlasynia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Divellis",
+    "currency": "Vlasynian Leu",
+    "memberships": [
+      "Alliance of Romanian Micronations",
+      "Grand Unified Micronational"
+    ],
+    "foundationDate": {
+      "_seconds": 1513814400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793201305
+    },
+    "createdAt": "2026-10-28T15:28:25Z",
+    "isEdit": false,
+    "id": "PQGHBgyiHQB3wij4mjw6"
   }
 ]
