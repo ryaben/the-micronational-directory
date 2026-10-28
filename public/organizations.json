@@ -2646,5 +2646,45 @@
     "isEdit": false,
     "memberships": [],
     "id": "pVSwRWUsFPXyvRKHA7Gx"
+  },
+  {
+    "name": {
+      "main": "League of 10",
+      "mainAlt": "Lo10",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Senyanese",
+      "Erephisian",
+      "Dallin",
+      "Draegir"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://micronations.wiki/wiki/League_of_10"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "logo": "/images/logos/League of 10.png",
+    "foundationDate": {
+      "_seconds": 1309478400
+    },
+    "creationDate": {
+      "_seconds": 1793204077
+    },
+    "createdAt": "2026-10-28T16:14:37Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "GaUHPXmpcW7YRZFzsa6k"
   }
 ]
