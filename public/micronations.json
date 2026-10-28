@@ -56552,5 +56552,50 @@
     "createdAt": "2026-10-28T15:50:04Z",
     "isEdit": false,
     "id": "NukYS0cqD6qvIuqdKTGh"
+  },
+  {
+    "name": {
+      "main": "Embo",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Independent State of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Scottish Gaelic"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://en.wikipedia.org/wiki/Embo,_Sutherland",
+      "https://www.historylinksarchive.org.uk/pictures/document/11733.pdf?r=599379"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Embo.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Cuddie",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 585060840
+    },
+    "location": {
+      "latitude": 57.90897617686227,
+      "longitude": -3.9995245665615187
+    },
+    "creationDate": {
+      "_seconds": 1793203109
+    },
+    "createdAt": "2026-10-28T15:58:29Z",
+    "isEdit": false,
+    "id": "JP33csY6bQpS5uwqIid4"
   }
 ]
