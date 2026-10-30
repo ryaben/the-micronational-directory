@@ -84,7 +84,10 @@ export default {
           text: 'nav.stats',
           icon: 'stats.png',
           route: 'Stats',
-          subButtons: [{ text: 'nav.rankings', route: 'Stats' }]
+          subButtons: [
+            { text: 'nav.rankings', route: 'Stats' },
+            { text: 'nav.timeline', route: 'StatsTimeline' }
+          ]
         },
         { text: 'nav.account', icon: 'profile.png', route: 'Account' },
         {
