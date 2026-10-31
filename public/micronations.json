@@ -57294,5 +57294,63 @@
     "createdAt": "2026-10-31T21:00:45Z",
     "isEdit": false,
     "id": "tcTmhlUoThLmappQIIeJ"
+  },
+  {
+    "name": {
+      "main": "Nabuzje",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "NFR",
+          "title": ""
+        },
+        {
+          "main": "Федеративна Республіка Набужжя",
+          "title": ""
+        }
+      ],
+      "title": "Federal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Nabuzje is people",
+    "languages": [
+      "Ukrainian",
+      "English"
+    ],
+    "contactInfo": [
+      "republic.nabuzje@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.fandom.com/uk/wiki/%D0%9D%D0%B0%D0%B1%D1%83%D0%B6%D0%B6%D1%8F",
+      "https://micronations.wiki/wiki/Federal_Republic_of_Nabuzje"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages"
+    ],
+    "flag": "/images/flags/Nabuzje.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Nabuzhye",
+    "currency": "Чеканец (Chekanez)",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1577491200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793481443
+    },
+    "createdAt": "2026-10-31T21:17:23Z",
+    "isEdit": false,
+    "id": "uKNoKziHZXbeiPIXUpsx"
   }
 ]
