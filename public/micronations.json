@@ -5802,7 +5802,8 @@
       "email": "reinoiluminadodeamestris@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "memberships": "",
     "foundationDate": {
@@ -5818,8 +5819,8 @@
     "motto": "PLENAS LUCIS PERPETUAE RECTOR ORBIS",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 36.834047,
+      "longitude": -2.4637136
     },
     "contactInfo": [
       "siath.gob@gmail.com",
