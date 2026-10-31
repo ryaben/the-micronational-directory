@@ -18112,7 +18112,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1696210438,
@@ -18132,8 +18133,8 @@
     "motto": "Superibimus!",
     "currency": "Freedonian Dollar",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 30.2683739,
+      "longitude": -97.7419829
     },
     "websites": [
       "http://web.archive.org/web/20060106235707/http://www.freedonia.org/",
