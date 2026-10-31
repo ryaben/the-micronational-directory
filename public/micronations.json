@@ -39502,10 +39502,10 @@
     "languages": [
       "French",
       "English",
-      "Kouri-Vini"
+      "Kouri-Vini",
+      "Latin"
     ],
     "contactInfo": [
-      "https://discord.com/invite/a5xjhXj2mN",
       "https://twitter.com/pontunia"
     ],
     "author": {
@@ -39520,17 +39520,17 @@
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 1579127700,
-      "_nanoseconds": 0
+      "_seconds": 1579127700
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Pontunia",
-      "title": "Kingdom of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
     },
     "motto": "Tu Es Tutes (You are Saved)",
-    "currency": "Pontunian Ducat",
+    "currency": "Pontunian Livre",
     "websites": [
       "https://micronations.wiki/wiki/Kingdom_of_Pontunia"
     ],
@@ -39540,9 +39540,26 @@
     },
     "approved": true,
     "memberships": [
-      "New Organization of Free Nations"
+      "New Organization of Free Nations",
+      "Micronational Olympic Federation",
+      "Union Against Micronational War",
+      "Micronational Assembly"
     ],
-    "id": "USrxkZPGLYr0R5hRDJOj"
+    "id": "USrxkZPGLYr0R5hRDJOj",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "Government of Pontunia",
+          "email": "governmentofpontunia@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793343857
+        }
+      }
+    ],
+    "createdAt": "2026-10-30T07:04:18Z",
+    "isEdit": true
   },
   {
     "capital": "Tamar",
@@ -55954,7 +55971,8 @@
       "gouvernementaustrasie@gmail.com"
     ],
     "websites": [
-      "https://principauteaustrasie.blogspot.com/"
+      "https://principauteaustrasie.blogspot.com/",
+      "https://web.archive.org/web/20151222032919/http://confreriedaustrasie.e-monsite.com/"
     ],
     "author": {
       "name": "The Micronational Directory",
@@ -55981,9 +55999,20 @@
     "creationDate": {
       "_seconds": 1793046320
     },
-    "createdAt": "2026-10-26T20:25:20Z",
-    "isEdit": false,
-    "id": "Jh7LWs4XDIgSpjjzbJur"
+    "createdAt": "2026-10-31T13:34:56Z",
+    "isEdit": true,
+    "id": "Jh7LWs4XDIgSpjjzbJur",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793453695
+        }
+      }
+    ]
   },
   {
     "name": {
