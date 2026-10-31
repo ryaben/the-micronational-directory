@@ -31732,7 +31732,8 @@
     ],
     "contactInfo": [
       "https://discord.gg/uRkJdTVZGs",
-      "https://www.youtube.com/channel/UCkWEsXDXJpb18xjbvyliPHw"
+      "https://www.youtube.com/channel/UCkWEsXDXJpb18xjbvyliPHw",
+      "officialmoaca@gmail.com"
     ],
     "author": {
       "name": "The Micronational Directory",
@@ -31746,16 +31747,21 @@
       "_seconds": 1718756787,
       "_nanoseconds": 0
     },
-    "memberships": "",
+    "memberships": [],
     "foundationDate": {
-      "_seconds": 1622236920,
-      "_nanoseconds": 0
+      "_seconds": 1622236920
     },
     "name": {
-      "mainAlt": "Moaca",
-      "titleAlt": "Federation of",
       "main": "Moaque",
-      "title": "Fédération de"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Moaca",
+          "title": "Federation of"
+        }
+      ],
+      "title": "Fédération de",
+      "titleAlt": "Federation of"
     },
     "motto": "Sous Dieu, personne ne tombera (Under God, nobody will fall)",
     "currency": "Moacan trigle",
@@ -31768,7 +31774,21 @@
       "https://micronations.wiki/wiki/Federation_of_Moaca"
     ],
     "approved": true,
-    "id": "orRh0pKX4ArnM8j0okuI"
+    "id": "orRh0pKX4ArnM8j0okuI",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793485525
+        }
+      }
+    ],
+    "createdAt": "2026-10-31T22:25:26Z",
+    "isEdit": true
   },
   {
     "foundationDate": {
@@ -57353,5 +57373,108 @@
     "createdAt": "2026-10-31T21:17:23Z",
     "isEdit": false,
     "id": "uKNoKziHZXbeiPIXUpsx"
+  },
+  {
+    "name": {
+      "main": "Neak Tep",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Cambodian"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://web.archive.org/web/20170913214717/http://www.neaktep.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages",
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Neak Tep.jpeg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Neak Tep Bone",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1512153900
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793483272
+    },
+    "createdAt": "2026-10-31T21:47:52Z",
+    "isEdit": false,
+    "id": "ggBG9E3e1Gj6tI4A9o4v"
+  },
+  {
+    "name": {
+      "main": "Chaotic Dark Nation",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Nazione Oscura Caotica",
+          "title": "Federazione della"
+        },
+        {
+          "main": "NOC",
+          "title": ""
+        }
+      ],
+      "title": "Federation of the",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/nationalpresidency/"
+    ],
+    "websites": [
+      "https://nazioneoscura.wordpress.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Chaotic Dark Nation.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Trantor",
+    "currency": "Avatär",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1103223960
+    },
+    "location": {
+      "latitude": 43.563247000996824,
+      "longitude": 10.333863360817816
+    },
+    "creationDate": {
+      "_seconds": 1793484594
+    },
+    "createdAt": "2026-10-31T22:09:54Z",
+    "isEdit": false,
+    "id": "SJPuxKyS6QsKd37jpytX"
   }
 ]
