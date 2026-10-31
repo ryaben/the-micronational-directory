@@ -8,6 +8,13 @@ import ProfileDataCell from './ProfileDataCell.vue'
 import UncertaintyToggle from './UncertaintyToggle.vue'
 import store from '../store'
 
+const normalizeBanknoteCatalogName = (name) =>
+  (name || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+
 const alternativeNames = (name) =>
   name?.alt?.length
     ? name.alt
@@ -277,6 +284,14 @@ defineProps({
                   :micronation-name="info.name.main"
                   :icon="'MicroWiki'"
                   :href="'https://micronations.wiki/wiki/' + info.name.main"
+                />
+                <EntrySource
+                  class="entry-source"
+                  :flag-source="info.flag"
+                  :size="46"
+                  :micronation-name="info.name.main"
+                  :icon="'MBM'"
+                  :href="'http://mnbanknotes.neocities.org/catalog/' + normalizeBanknoteCatalogName(info.name.main)"
                 />
               </div>
             </div>
