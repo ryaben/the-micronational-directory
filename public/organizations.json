@@ -2704,5 +2704,40 @@
     "isEdit": false,
     "memberships": [],
     "id": "GaUHPXmpcW7YRZFzsa6k"
+  },
+  {
+    "name": {
+      "main": "European Micronations Union",
+      "mainAlt": "EMU",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "French"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://micronations.wiki/wiki/European_Micronations_Union"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "logo": "/images/logos/European Micronations Union.png",
+    "foundationDate": {
+      "_seconds": 1411559820
+    },
+    "creationDate": {
+      "_seconds": 1793458860
+    },
+    "createdAt": "2026-10-31T15:01:00Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "LM6QCPWIE7dLMhNXtYWf"
   }
 ]
