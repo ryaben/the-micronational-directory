@@ -5802,7 +5802,8 @@
       "email": "reinoiluminadodeamestris@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "memberships": "",
     "foundationDate": {
@@ -5818,8 +5819,8 @@
     "motto": "PLENAS LUCIS PERPETUAE RECTOR ORBIS",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 36.834047,
+      "longitude": -2.4637136
     },
     "contactInfo": [
       "siath.gob@gmail.com",
@@ -40551,8 +40552,8 @@
     },
     "motto": "United we stand, Divided we fall",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 13.8878981,
+      "longitude": 121.1561137
     },
     "contactInfo": [
       "razoritestate@gmail.com",
@@ -57343,8 +57344,8 @@
       "_seconds": 1577491200
     },
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 46.975033,
+      "longitude": 31.994583
     },
     "creationDate": {
       "_seconds": 1793481443
