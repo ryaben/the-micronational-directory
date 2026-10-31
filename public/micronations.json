@@ -39021,7 +39021,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1697000685,
@@ -39048,8 +39049,8 @@
     ],
     "currency": "Golden",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 52.1269291,
+      "longitude": 26.0892007
     },
     "approved": true,
     "id": "RyN0UiLXWTyo2pSAKTmZ"
