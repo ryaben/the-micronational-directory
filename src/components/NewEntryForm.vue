@@ -5,7 +5,6 @@ import { auth } from '../firebase/auth.js'
 import { notify } from '@kyvg/vue3-notification'
 import { checkHref, checkIcon, cleanString } from '../utils/EntrySourceFunctions'
 import store from '../store'
-import emailjs from 'emailjs-com'
 import languages from 'language-list'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import Recaptcha from '../components/ReCaptcha.vue'
@@ -1319,7 +1318,6 @@ export default {
             this.directoryEdit ? { editTargetId: this.editTargetId } : {}
           )
 
-          this.emailNotice()
           this.successNotification()
           this.$emit('submission-success')
         } catch (error) {
@@ -1573,21 +1571,6 @@ export default {
         this.formPlaceholders.newEntryMemberships.push(membership)
       }
       this.customMembership = ''
-    },
-    emailNotice() {
-      if (this.directoryEdit) return
-      const that = this
-      if (auth.currentUser && auth.currentUser.email !== 'themicronationaldirectory@gmail.com') {
-        emailjs.send(
-          'service_gd9nz5x',
-          'template_wnd0ghn',
-          {
-            user: auth.currentUser.email,
-            micronation: that.formPlaceholders.newEntryName
-          },
-          'P8-p_r-gTZedo_h84'
-        )
-      }
     },
     activateTooltip(tooltipIndex, title, event) {
       this.tooltipDisplay = true

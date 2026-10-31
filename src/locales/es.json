@@ -29,6 +29,7 @@
     "moderation": "Moderación",
     "stats": "Estadísticas",
     "rankings": "Clasificaciones y\nconcursos",
+    "timeline": "Línea de tiempo",
     "account": "Cuenta",
     "info": "Información",
     "about": "Sobre nosotros",
@@ -103,6 +104,11 @@
     "longitude": "Longitud",
     "latitude": "Latitud",
     "micronationLocation": "Aquí se encuentra la micronación o su fundador."
+  },
+  "globalMap": {
+    "summary": "Resumen del mapa mundial",
+    "located": "micronaciones ubicadas",
+    "directoryShare": "del directorio"
   },
   "mediaWikiReader": {
     "description": "Muestra posibles entradas a partir de artículos obtenidos mediante una consulta de categorías a la API de MediaWiki. El lector extrae los datos disponibles, aunque las diferencias de formato entre wikis pueden dejar algunos campos incompletos.",
@@ -261,7 +267,23 @@
     "event": "Evento",
     "startDate": "Fecha de inicio",
     "endDate": "Fecha de finalización",
-    "selectContest": "Elige un concurso de la lista para ver la clasificación de colaboradores."
+    "selectContest": "Elige un concurso de la lista para ver la clasificación de colaboradores.",
+    "timelineTitle": "Línea de tiempo",
+    "timelineIntro": "Explora las fechas de fundación de micronaciones y organizaciones del directorio.",
+    "timelineDate": "Ir a una fecha",
+    "timelineSelectDate": "Seleccionar",
+    "timelineZoomIn": "Acercar",
+    "timelineZoomOut": "Alejar",
+    "timelineToday": "Hoy",
+    "timelineNoEvents": "No hay eventos con fecha de fundación registrada.",
+    "timelineFounded": "Se fundó {name}",
+    "timelineMicronation": "Micronación",
+    "timelineOrganization": "Organización",
+    "timelineHint": "Arrastra para desplazarte · usa la rueda para acercar o alejar",
+    "timelineTools": "Herramientas de la línea de tiempo",
+    "timelineZoom": "Nivel de zoom",
+    "timelineCloseEvent": "Cerrar evento",
+    "timelineScroll": "Desplazarse por la línea de tiempo"
   },
   "mapReader": {
     "noPrivileges": "No tienes permisos suficientes para trabajar con las marcas guardadas.",

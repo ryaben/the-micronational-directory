@@ -28,6 +28,7 @@ const imageSrc = () => props.icon === 'flag'
     :target="internal || !href ? undefined : '_blank'"
     :rel="internal || !href ? undefined : 'noopener noreferrer'"
     :aria-label="href ? label : $t('source.unknownMembership')"
+    :title="memberStyle ? label : undefined"
   >
     <img :src="imageSrc()" :alt="label">
   </component>

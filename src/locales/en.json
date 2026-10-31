@@ -29,6 +29,7 @@
     "moderation": "Moderation",
     "stats": "Stats",
     "rankings": "Rankings and\ncontests",
+    "timeline": "Timeline",
     "account": "Account",
     "info": "Info",
     "about": "About us",
@@ -103,6 +104,11 @@
     "longitude": "Longitude",
     "latitude": "Latitude",
     "micronationLocation": "The micronation (or its founder) is based here."
+  },
+  "globalMap": {
+    "summary": "World map summary",
+    "located": "micronations located",
+    "directoryShare": "of the directory"
   },
   "mediaWikiReader": {
     "description": "Render potential entries from articles gathered through a MediaWiki API category request. The reader extracts available article data, though differences in wiki formatting can leave some fields incomplete.",
@@ -261,7 +267,23 @@
     "event": "Event",
     "startDate": "Start date",
     "endDate": "End date",
-    "selectContest": "Select a contest from the list to see its contributor ranking."
+    "selectContest": "Select a contest from the list to see its contributor ranking.",
+    "timelineTitle": "Timeline",
+    "timelineIntro": "Explore the foundation dates of micronations and organizations in the directory.",
+    "timelineDate": "Jump to a date",
+    "timelineSelectDate": "Select",
+    "timelineZoomIn": "Zoom in",
+    "timelineZoomOut": "Zoom out",
+    "timelineToday": "Today",
+    "timelineNoEvents": "There are no events with a recorded foundation date.",
+    "timelineFounded": "{name} was founded",
+    "timelineMicronation": "Micronation",
+    "timelineOrganization": "Organization",
+    "timelineHint": "Drag to pan · use the wheel to zoom",
+    "timelineTools": "Timeline tools",
+    "timelineZoom": "Zoom level",
+    "timelineCloseEvent": "Close event",
+    "timelineScroll": "Scroll through the timeline"
   },
   "mapReader": {
     "noPrivileges": "You don't have sufficient privileges to work with stored placemarks.",
