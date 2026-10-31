@@ -7787,8 +7787,8 @@
     "motto": "",
     "currency": "The Bannish Dolear",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 45.4305525,
+      "longitude": -75.7161957
     },
     "websites": [
       "https://bannesled.tripod.com/"
@@ -12614,7 +12614,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1694827952,
@@ -12633,8 +12634,8 @@
     "motto": "NUMQUAM POSTEA",
     "currency": "Cor",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 55.6866252,
+      "longitude": 12.5712192
     },
     "websites": [
       "http://web.archive.org/web/20051226043107/http://www.corvinia.org/corvin2.html"
@@ -13101,8 +13102,8 @@
     "motto": "Cur non?, Why not?, Por qué no?",
     "currency": "United States dollar",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 35.8219306,
+      "longitude": -78.8634945
     },
     "websites": [
       "https://sites.google.com/students.wcpss.net/curnon"
@@ -15066,7 +15067,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1719440657,
@@ -15088,8 +15090,8 @@
     "motto": "Ru Reats Ana Ru Leavs Era Eos (Our Hearts And Our Lives Are One)",
     "currency": "Jah",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 36.3953237,
+      "longitude": -97.88312
     },
     "approved": true,
     "websites": [
@@ -18111,7 +18113,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1696210438,
@@ -18131,8 +18134,8 @@
     "motto": "Superibimus!",
     "currency": "Freedonian Dollar",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 30.2683739,
+      "longitude": -97.7419829
     },
     "websites": [
       "http://web.archive.org/web/20060106235707/http://www.freedonia.org/",
@@ -18954,8 +18957,8 @@
     "motto": "",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 45.9841081,
+      "longitude": -42.0432603
     },
     "name": {
       "mainAlt": "Great Pacific Garbage Patch",
@@ -24880,8 +24883,8 @@
     "motto": "",
     "currency": "Kemetian Deben",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 50.9995086,
+      "longitude": -0.9334881
     },
     "websites": [
       "https://web.archive.org/web/20110910135404/http://kemetia.freenations.net/home/",
@@ -31766,8 +31769,8 @@
     "motto": "Sous Dieu, personne ne tombera (Under God, nobody will fall)",
     "currency": "Moacan trigle",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 31.59,
+      "longitude": -81.96
     },
     "websites": [
       "https://krabberz.editorx.io/moaca-officiel",
@@ -36682,7 +36685,8 @@
       "email": "info@duckionary.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1695995395,
@@ -36702,8 +36706,8 @@
     "motto": "",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 37.7854379,
+      "longitude": -122.2679441
     },
     "websites": [
       "https://micronations.wiki/wiki/Ambulatory_Free_States_of_Obsidia",
@@ -36846,8 +36850,8 @@
     "motto": "Бог с нас! (God with us)",
     "currency": "Danube Lev",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 45.642056,
+      "longitude": 18.9344048
     },
     "websites": [
       "https://micronations.wiki/wiki/Principality_of_Ongal",
@@ -39020,7 +39024,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1697000685,
@@ -39047,8 +39052,8 @@
     ],
     "currency": "Golden",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 52.1269291,
+      "longitude": 26.0892007
     },
     "approved": true,
     "id": "RyN0UiLXWTyo2pSAKTmZ"
@@ -45606,7 +45611,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1695072829,
@@ -45628,8 +45634,8 @@
     "motto": "",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 41.9378149,
+      "longitude": 13.7298171
     },
     "websites": [
       "http://web.archive.org/web/20091027012925/http://geocities.com/andreozzi_it/"
@@ -54067,8 +54073,8 @@
       "_seconds": 1429916460
     },
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 32.957416,
+      "longitude": -96.6354638
     },
     "creationDate": {
       "_seconds": 1792634546
@@ -57017,8 +57023,8 @@
       "_seconds": 1500681600
     },
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 52.3200829,
+      "longitude": 5.1044494
     },
     "creationDate": {
       "_seconds": 1793215742
