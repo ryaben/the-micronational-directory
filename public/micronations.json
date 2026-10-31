@@ -57401,5 +57401,60 @@
     "createdAt": "2026-10-31T21:47:52Z",
     "isEdit": false,
     "id": "ggBG9E3e1Gj6tI4A9o4v"
+  },
+  {
+    "name": {
+      "main": "Chaotic Dark Nation",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Nazione Oscura Caotica",
+          "title": "Federazione della"
+        },
+        {
+          "main": "NOC",
+          "title": ""
+        }
+      ],
+      "title": "Federation of the",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/nationalpresidency/"
+    ],
+    "websites": [
+      "https://nazioneoscura.wordpress.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Chaotic Dark Nation.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Trantor",
+    "currency": "Avatär",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1103223960
+    },
+    "location": {
+      "latitude": 43.563247000996824,
+      "longitude": 10.333863360817816
+    },
+    "creationDate": {
+      "_seconds": 1793484594
+    },
+    "createdAt": "2026-10-31T22:09:54Z",
+    "isEdit": false,
+    "id": "SJPuxKyS6QsKd37jpytX"
   }
 ]
