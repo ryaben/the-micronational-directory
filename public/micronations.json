@@ -31732,7 +31732,8 @@
     ],
     "contactInfo": [
       "https://discord.gg/uRkJdTVZGs",
-      "https://www.youtube.com/channel/UCkWEsXDXJpb18xjbvyliPHw"
+      "https://www.youtube.com/channel/UCkWEsXDXJpb18xjbvyliPHw",
+      "officialmoaca@gmail.com"
     ],
     "author": {
       "name": "The Micronational Directory",
@@ -31746,16 +31747,21 @@
       "_seconds": 1718756787,
       "_nanoseconds": 0
     },
-    "memberships": "",
+    "memberships": [],
     "foundationDate": {
-      "_seconds": 1622236920,
-      "_nanoseconds": 0
+      "_seconds": 1622236920
     },
     "name": {
-      "mainAlt": "Moaca",
-      "titleAlt": "Federation of",
       "main": "Moaque",
-      "title": "Fédération de"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Moaca",
+          "title": "Federation of"
+        }
+      ],
+      "title": "Fédération de",
+      "titleAlt": "Federation of"
     },
     "motto": "Sous Dieu, personne ne tombera (Under God, nobody will fall)",
     "currency": "Moacan trigle",
@@ -31768,7 +31774,21 @@
       "https://micronations.wiki/wiki/Federation_of_Moaca"
     ],
     "approved": true,
-    "id": "orRh0pKX4ArnM8j0okuI"
+    "id": "orRh0pKX4ArnM8j0okuI",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793485525
+        }
+      }
+    ],
+    "createdAt": "2026-10-31T22:25:26Z",
+    "isEdit": true
   },
   {
     "foundationDate": {
