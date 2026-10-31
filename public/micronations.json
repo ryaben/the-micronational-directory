@@ -57497,5 +57497,64 @@
     "createdAt": "2026-10-31T22:09:54Z",
     "isEdit": false,
     "id": "SJPuxKyS6QsKd37jpytX"
+  },
+  {
+    "name": {
+      "main": "Democratic Pangerian Socialist Republic",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Democratische Pangeriaanse Socialistische Republiek",
+          "title": ""
+        },
+        {
+          "main": "Pangeria",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "Arbeiders aller landen, verenigt u! Een revolutie is nog steeds mogelijk! (Workers of the world unite, revolution is still possible!)",
+    "languages": [
+      "English",
+      "Dutch"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/pangeria_micronation/",
+      "pangeria.gov@gmail.com",
+      "https://www.youtube.com/@pangeriamicronation2342"
+    ],
+    "websites": [
+      "https://gratis-4012957.jouwweb.nl/",
+      "https://micronations.wiki/wiki/Democratic_Pangerian_Socialist_Republic"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Pangeria.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Brostow",
+    "currency": "Pangerian Gulden",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 1572912000,
+      "_seconds": 1572912000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793488075
+    },
+    "createdAt": "2026-10-31T23:07:55Z",
+    "isEdit": false,
+    "id": "IyrxKcJwslcwPlY7sfYl"
   }
 ]
