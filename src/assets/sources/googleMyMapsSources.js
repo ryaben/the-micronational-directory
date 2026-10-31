@@ -10758,7 +10758,4725 @@ export const placemarksDirectory = [
         },
         "description": "Leader: King James I                                        Email: JPQStevens@gmail.com                        Info: My country came into existence due to the political climate that the United States is currently experiencing. My nation offers the American people a place to immigrate to; to escape the political divisiveness of their nation. Clearly, a two-party democratic system does not work for us, so why not go back to our roots! A Constitutional Monarchy with a sprinkle of Direct Democracy on top! My country will bring out the best in people! To hell with them! For us!",
         "flag": ""
-    }
+    },
+    {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principato di Seborga",
+    "location": {
+      "long": "7.6944005",
+      "lat": "43.8261774",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Island of Refreshment",
+    "location": {
+      "long": "-12.3142586",
+      "lat": "-37.0688639",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Cocos-Keeling Islands",
+    "location": {
+      "long": "96.897174",
+      "lat": "-12.118584",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Regno di Tavolara",
+    "location": {
+      "long": "9.6785587",
+      "lat": "40.8932744",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Upware Republic Society / Upware Kingdom Society",
+    "location": {
+      "long": "0.2548078",
+      "lat": "52.308221",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Morac-Songhrati-Meads / Kingdom of Humanity / Republic of Moroc-Songhrati-Meads",
+    "location": {
+      "long": "115.80324",
+      "lat": "10.732388",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free District of Michigan Lake (Streeterville District)",
+    "location": {
+      "long": "-87.6167618",
+      "lat": "41.8945133",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume des Sedangs",
+    "location": {
+      "long": "107.9994525",
+      "lat": "14.359385",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté de Trinidad",
+    "location": {
+      "long": "-29.324799",
+      "lat": "-20.5019975",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire du Sahara",
+    "location": {
+      "long": "-13.2028375",
+      "lat": "27.1559069",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Fürstentum Liechtenstein",
+    "location": {
+      "long": "9.5168114",
+      "lat": "47.1457404",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté de Monaco",
+    "location": {
+      "long": "7.422741",
+      "lat": "43.7369085",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di San Marino",
+    "location": {
+      "long": "12.4464765",
+      "lat": "43.9365193",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Divehi Rajjey ge Jumhuriyya",
+    "location": {
+      "long": "73.5095856",
+      "lat": "4.1749199",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblika ta' Malta",
+    "location": {
+      "long": "14.51584",
+      "lat": "35.8998973",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Status Civitatis Vaticanæ (Sancta Sede)",
+    "location": {
+      "long": "12.4545663",
+      "lat": "41.9029001",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Gwenad (Grenada)",
+    "location": {
+      "long": "-61.7536828",
+      "lat": "12.0524288",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Nauru",
+    "location": {
+      "long": "166.9159353",
+      "lat": "-0.5456074",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Barbados",
+    "location": {
+      "long": "-59.6173037",
+      "lat": "13.0981819",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Saint Vincent and the Grenadines",
+    "location": {
+      "long": "-61.227784",
+      "lat": "13.1562992",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Tuvalu",
+    "location": {
+      "long": "179.1976799",
+      "lat": "-8.5223629",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume de l'Île d'or (Regnum Insulæ Auri)",
+    "location": {
+      "long": "6.846477",
+      "lat": "43.410783",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Lundy",
+    "location": {
+      "long": "-4.6654864",
+      "lat": "51.16526",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica Tamisiana di Bosgattia",
+    "location": {
+      "long": "12.08411",
+      "lat": "44.9947419",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Outer Baldonia",
+    "location": {
+      "long": "-66.0238613",
+      "lat": "43.5995292",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sultanate of M'Simbati",
+    "location": {
+      "long": "40.4293403",
+      "lat": "-10.3369734",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Altlantis Isle of Gold / Republic of Grand Capri (Grand Kapri)",
+    "location": {
+      "long": "-80.110357",
+      "lat": "25.4857424",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of New Atlantis",
+    "location": {
+      "long": "-78.1158847",
+      "lat": "17.9719936",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Aphrodite / Lemuria (Abalonia) / Taluga / Aqualand",
+    "location": {
+      "long": "-119.1627891",
+      "lat": "32.4657123",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Sealand",
+    "location": {
+      "long": "1.382732",
+      "lat": "51.9440805",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Esperanta Respubliko de la Insulo de la Rozoj\n",
+    "location": {
+      "long": "12.456694",
+      "lat": "44.4375368",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Operation Atlantis",
+    "location": {
+      "long": "-72.8193645",
+      "lat": "20.0542252",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Silver Isle",
+    "location": {
+      "long": "-70.5864039",
+      "lat": "21.0171384",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Tierra del Mar",
+    "location": {
+      "long": "-79.5747448",
+      "lat": "23.4331686",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of West Who",
+    "location": {
+      "long": "-104.9950754",
+      "lat": "39.7480776",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Akhzivland",
+    "location": {
+      "long": "35.1014482",
+      "lat": "33.0469773",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Minerva",
+    "location": {
+      "long": "-178.9278502",
+      "lat": "-23.6200871",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Palmyra",
+    "location": {
+      "long": "-162.0760761",
+      "lat": "5.8898338",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Great Abaco",
+    "location": {
+      "long": "-77.0675766",
+      "lat": "26.5373177",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Independent Province of Bumbunga",
+    "location": {
+      "long": "138.2241292",
+      "lat": "-33.9101717",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Nirivia",
+    "location": {
+      "long": "-87.9651094",
+      "lat": "48.7659885",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Fürstentum Wikingland",
+    "location": {
+      "long": "3.3934347",
+      "lat": "55.7943858",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Molossia",
+    "location": {
+      "long": "-119.5398459",
+      "lat": "39.3229918",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Talossa (Regipäts Talossàn) / Repubblic of Talossa",
+    "location": {
+      "long": "-87.9080764",
+      "lat": "43.0447339",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commonwealth of Anaceron",
+    "location": {
+      "long": "-97.3321321",
+      "lat": "32.7559142",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Vemerana (Vemarana)",
+    "location": {
+      "long": "167.1721936",
+      "lat": "-15.5148943",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Atlantium",
+    "location": {
+      "long": "151.2235108",
+      "lat": "-33.8684043",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Atlantium",
+    "location": {
+      "long": "151.0703877",
+      "lat": "-33.9456811",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Atlantium",
+    "location": {
+      "long": "149.0324014",
+      "lat": "-34.1925974",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Aerica",
+    "location": {
+      "long": "-73.5708704",
+      "lat": "45.4995035",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Königreich Riesenguthland-Ellenamrk",
+    "location": {
+      "long": "6.7791737",
+      "lat": "51.2293567",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "KIngdom of North Dumpling Island",
+    "location": {
+      "long": "-72.0189967",
+      "lat": "41.2879223",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Marlborough",
+    "location": {
+      "long": "149.307117",
+      "lat": "-22.7518119",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "KIngdom of Other World / Empire of Womania",
+    "location": {
+      "long": "15.8619913",
+      "lat": "49.4235135",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire de la Basse Chesnaie (Saint-Thual)",
+    "location": {
+      "long": "-1.932153",
+      "lat": "48.0295032",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Principality of Corvinia",
+    "location": {
+      "long": "12.5712192",
+      "lat": "55.6866252",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sacro Império de Reunião / Repùblica de Reunião",
+    "location": {
+      "long": "55.4496987",
+      "lat": "-20.8769008",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Bannesled",
+    "location": {
+      "long": "-75.7161957",
+      "lat": "45.4305525",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire d'Angyalistan",
+    "location": {
+      "long": "-136.8931304",
+      "lat": "37.4399119",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of New Utopia (MIsteriosa Bank)",
+    "location": {
+      "long": "-83.8685332",
+      "lat": "18.8456566",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Barony of Caux",
+    "location": {
+      "long": "-79.3921099",
+      "lat": "43.6632927",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Barony of Caux",
+    "location": {
+      "long": "1.1001579",
+      "lat": "49.4422507",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Barony of Caux",
+    "location": {
+      "long": "-2.7530998",
+      "lat": "52.708779",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Achæn Territory of Antarctica / Grand Duchy of Westarctica",
+    "location": {
+      "long": "-95.3931368",
+      "lat": "-72.6078321",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Grand Duchy of Pinsk",
+    "location": {
+      "long": "26.0892007",
+      "lat": "52.1269291",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Wy",
+    "location": {
+      "long": "151.241406",
+      "lat": "-33.8261797",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Lovely",
+    "location": {
+      "long": "-0.3242642",
+      "lat": "51.445454",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Vikesland / Kingdom of Vikesland",
+    "location": {
+      "long": "-97.1516061",
+      "lat": "49.9304398",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Antarcticland / Antarctic Lands Organization",
+    "location": {
+      "long": "-100.2431101",
+      "lat": "-76.7854829",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Grand Duchy of Flandrensis",
+    "location": {
+      "long": "-126.6758252",
+      "lat": "-73.4589934",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Austenasia",
+    "location": {
+      "long": "-0.1947041",
+      "lat": "51.362543",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Romanoskij Imperio (Romanov Empire, Imperial Throne)",
+    "location": {
+      "long": "19.2626954",
+      "lat": "42.4378341",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Islandia",
+    "location": {
+      "long": "-88.163474",
+      "lat": "17.5744783",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Slowjamastan",
+    "location": {
+      "long": "-115.9592227",
+      "lat": "33.1297938",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de Parva Domus Magna Quies",
+    "location": {
+      "long": "-56.1598208",
+      "lat": "-34.9337097",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kongeriget Elleore\n",
+    "location": {
+      "long": "12.0617783",
+      "lat": "55.6856085",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Punto 414",
+    "location": {
+      "long": "6.4619565",
+      "lat": "46.9925402",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Territory of McDonald",
+    "location": {
+      "long": "-94.4873884",
+      "lat": "36.547237",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Förenade Republikerna Jamtland, Herjeådalen och Ravund",
+    "location": {
+      "long": "14.6388873",
+      "lat": "63.1784653",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Cuckfield",
+    "location": {
+      "long": "-0.140924",
+      "lat": "51.0096343",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Rathnelly",
+    "location": {
+      "long": "-79.4016121",
+      "lat": "43.6778041",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Winneconne",
+    "location": {
+      "long": "-88.7129736",
+      "lat": "44.1107055",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "État libre de l'île Barbe",
+    "location": {
+      "long": "4.833377",
+      "lat": "45.7976838",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Conch Republic",
+    "location": {
+      "long": "-81.7949876",
+      "lat": "24.5562853",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Konigreich zu Romkerhall",
+    "location": {
+      "long": "10.4709113",
+      "lat": "51.8592854",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Bunte Republik Neustadt",
+    "location": {
+      "long": "13.7568881",
+      "lat": "51.0770122",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Riviera",
+    "location": {
+      "long": "174.0107264",
+      "lat": "-41.5004329",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hajdička Republika Mijata Tomića",
+    "location": {
+      "long": "17.5331475",
+      "lat": "43.6530642",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Cuervo",
+    "location": {
+      "long": "-64.5257893",
+      "lat": "18.4610973",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Naminara Gonghwaguk (Republic of Namisum)\n",
+    "location": {
+      "long": "127.5250579",
+      "lat": "37.7906511",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Consulat de La Boirie",
+    "location": {
+      "long": "0.5829869",
+      "lat": "47.8414122",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté d'Aigues-Mortes",
+    "location": {
+      "long": "4.1892244",
+      "lat": "43.5680209",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Reino de Redonda",
+    "location": {
+      "long": "-62.3450562",
+      "lat": "16.9379339",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commune Libre de Montmartre / République de Montmartre",
+    "location": {
+      "long": "2.3431813",
+      "lat": "48.885744",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République Libre d'Otremeuse",
+    "location": {
+      "long": "5.5821277",
+      "lat": "50.6421214",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Kalakuta",
+    "location": {
+      "long": "3.3538889",
+      "lat": "6.6002364",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kugelmugel Republik",
+    "location": {
+      "long": "16.396093",
+      "lat": "48.2155253",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royal Republic of Ladonia",
+    "location": {
+      "long": "12.5398157",
+      "lat": "56.2875513",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Mapsulon / Territorio Libero di Mapsulon",
+    "location": {
+      "long": "10.8495085",
+      "lat": "44.051632",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume Municipale de l'Anse-Saint-Jean",
+    "location": {
+      "long": "-70.2453849",
+      "lat": "48.196763",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Nova Roma",
+    "location": {
+      "long": "12.4864821",
+      "lat": "41.8890657",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kongedømme Fusa",
+    "location": {
+      "long": "5.6086467",
+      "lat": "60.1978304",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Neorepubblica di Torriglia",
+    "location": {
+      "long": "9.1607113",
+      "lat": "44.5197631",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Federazione della Nazione Oscura Caotica",
+    "location": {
+      "long": "10.3337515",
+      "lat": "43.5632308",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Frigolandia",
+    "location": {
+      "long": "12.5734393",
+      "lat": "42.8309207",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Zaqistan",
+    "location": {
+      "long": "-113.4275539",
+      "lat": "41.4402978",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Nymark Island / Nowhereisland",
+    "location": {
+      "long": "12.1036053",
+      "lat": "79.0037681",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Libera Repubblica di Alcatraz",
+    "location": {
+      "long": "12.4751049",
+      "lat": "43.2347119",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Furstendömet Lorenzburg",
+    "location": {
+      "long": "11.9724055",
+      "lat": "57.7021184",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Vulcan Empire",
+    "location": {
+      "long": "-122.4126278",
+      "lat": "37.7618696",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Interntional Micronation of Bardo",
+    "location": {
+      "long": "7.9021907",
+      "lat": "44.3442296",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of the Beaver Island (KIngdom of God)\n",
+    "location": {
+      "long": "-85.5226448",
+      "lat": "45.7456344",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dusit Thani",
+    "location": {
+      "long": "100.551456",
+      "lat": "13.7887831",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Absaroka",
+    "location": {
+      "long": "-106.9558415",
+      "lat": "44.7981412",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Jefferson",
+    "location": {
+      "long": "-122.3917256",
+      "lat": "40.5830477",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Mount Carmel Center",
+    "location": {
+      "long": "-96.987958",
+      "lat": "31.5959812",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume de Biffeche (Kingdom of Axim)",
+    "location": {
+      "long": "-16.3756492",
+      "lat": "16.1419467",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Cherokee Nation of Texas",
+    "location": {
+      "long": "-97.7606426",
+      "lat": "26.0464711",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "People's Republic of New Africa",
+    "location": {
+      "long": "-90.1834112",
+      "lat": "32.3011729",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Hutt River",
+    "location": {
+      "long": "114.4707642",
+      "lat": "-28.0724238",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République Libre de Blehen",
+    "location": {
+      "long": "5.1226168",
+      "lat": "50.6642095",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "People's Temple Agricultural Project (Jonestown)",
+    "location": {
+      "long": "-59.9061369",
+      "lat": "7.7049662",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Kinney",
+    "location": {
+      "long": "-92.7295473",
+      "lat": "47.5141936",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Federazione di Damanhur",
+    "location": {
+      "long": "7.7541322",
+      "lat": "45.4290238",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Rainbow Creek",
+    "location": {
+      "long": "146.6961982",
+      "lat": "-38.0132246",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Aramoana",
+    "location": {
+      "long": "170.7035123",
+      "lat": "-45.7775665",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republik Freies Wendland",
+    "location": {
+      "long": "11.3568487",
+      "lat": "53.0481404",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republika Vevčani",
+    "location": {
+      "long": "20.5918205",
+      "lat": "41.2400277",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Ecopolis Tiberkul",
+    "location": {
+      "long": "94.0354491",
+      "lat": "53.9070345",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hospodăriatul Melteniei",
+    "location": {
+      "long": "28.6548617",
+      "lat": "44.1645947",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Free State of Caroline",
+    "location": {
+      "long": "-150.2141195",
+      "lat": "-9.9630695",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica Federale Padana (Padania, Repubblica Federale del Nord)",
+    "location": {
+      "long": "9.1890902",
+      "lat": "45.4641414",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Waveland (Rockall)",
+    "location": {
+      "long": "-13.6873615",
+      "lat": "57.5963014",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Global Country of World Peace",
+    "location": {
+      "long": "-9.6113631",
+      "lat": "53.8135623",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica de Malu Entu",
+    "location": {
+      "long": "8.3078029",
+      "lat": "39.9897427",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dignity Village",
+    "location": {
+      "long": "-122.636426",
+      "lat": "45.59142",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Snake Hill",
+    "location": {
+      "long": "148.0442878",
+      "lat": "-33.775582",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Gay & Lesbian Kingdom of the Coral Sea Islands",
+    "location": {
+      "long": "155.5397294",
+      "lat": "-23.2509096",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Virtualna Slobodna Država Rijeka",
+    "location": {
+      "long": "14.4440297",
+      "lat": "45.3268193",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principato di Filettino",
+    "location": {
+      "long": "13.323938",
+      "lat": "41.8907344",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Garbage Patch State",
+    "location": {
+      "long": "-42.0432603",
+      "lat": "45.9841081",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Garbage Patch State",
+    "location": {
+      "long": "8.8283475",
+      "lat": "-16.2479691",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Garbage Patch State",
+    "location": {
+      "long": "61.6057097",
+      "lat": "7.4205864",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Garbage Patch State",
+    "location": {
+      "long": "-87.6200532",
+      "lat": "-35.1683948",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Garbage Patch State",
+    "location": {
+      "long": "-147.027255",
+      "lat": "51.6185729",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica Glaciar",
+    "location": {
+      "long": "-73.9587714",
+      "lat": "-49.1512044",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Yidindji Government",
+    "location": {
+      "long": "145.570884",
+      "lat": "-17.1102902",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté du Làas en Béarn",
+    "location": {
+      "long": "-0.8511592",
+      "lat": "43.3813501",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Trash Isles",
+    "location": {
+      "long": "-136.6318716",
+      "lat": "36.8531131",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Wakrat",
+    "location": {
+      "long": "-0.1268817",
+      "lat": "51.5006911",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kailaasa (Shrikailasa, United States of Kailasa)",
+    "location": {
+      "long": "-79.9121079",
+      "lat": "-2.6725541",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Vrije Republiek Hakkelaarsbrug",
+    "location": {
+      "long": "5.1044494",
+      "lat": "52.3200829",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Poyais / Republic of Poyais",
+    "location": {
+      "long": "-83.4137302",
+      "lat": "15.2529489",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Colonie Libre de Nouvelle-France (Colonie Libre de Port-Breton)",
+    "location": {
+      "long": "151.9960857",
+      "lat": "-4.9709013",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sultanate of Occusi-Ambeno",
+    "location": {
+      "long": "124.3517644",
+      "lat": "-9.200502",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "San Serriffe",
+    "location": {
+      "long": "68.7160803",
+      "lat": "8.6380577",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign State of Humnanitarian Mission of Æterna Lucina",
+    "location": {
+      "long": "153.6123719",
+      "lat": "-28.6421732",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign State of Humanitarian Mission of Æterna Lucina",
+    "location": {
+      "long": "151.2925463",
+      "lat": "-33.768153",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign State of Humanitarian Mission of Æterna Lucina",
+    "location": {
+      "long": "149.126542",
+      "lat": "-36.234664",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Papaala and Me'ekamui",
+    "location": {
+      "long": "155.4178752",
+      "lat": "-6.6527752",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dominion of Melchizedek",
+    "location": {
+      "long": "-81.6066418",
+      "lat": "4.0026442",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dominion of Melchizedek",
+    "location": {
+      "long": "177.1176996",
+      "lat": "-12.5242969",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dominion of Melchizedek",
+    "location": {
+      "long": "-109.2092234",
+      "lat": "10.2908344",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dominion of Melchizedek",
+    "location": {
+      "long": "169.0122047",
+      "lat": "14.6549894",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Punto 503",
+    "location": {
+      "long": "112.4278133",
+      "lat": "33.491041",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Enenkio",
+    "location": {
+      "long": "166.6514776",
+      "lat": "19.283549",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Freedonia / Principality of Freedonia",
+    "location": {
+      "long": "-97.7419829",
+      "lat": "30.2683739",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sultanate of Freedonia",
+    "location": {
+      "long": "43.6417711",
+      "lat": "11.0099491",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République Libre du Frioul / Rèpublique du Frioul\n",
+    "location": {
+      "long": "5.3046433",
+      "lat": "43.2760068",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic Cyberbunker",
+    "location": {
+      "long": "3.9071491",
+      "lat": "51.5021452",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Stato Teocratico Antartico di San Giorgio",
+    "location": {
+      "long": "-138.9820649",
+      "lat": "-75.9969531",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kekistan",
+    "location": {
+      "long": "49.2263143",
+      "lat": "40.4981737",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Keraton Agung Sejagat",
+    "location": {
+      "long": "110.0079867",
+      "lat": "-7.7133601",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Union de Listenbourg",
+    "location": {
+      "long": "-10.1882312",
+      "lat": "44.5595283",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Colonia Nueva Australia / Cosme",
+    "location": {
+      "long": "-56.5477889",
+      "lat": "-25.473185",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de La Boca",
+    "location": {
+      "long": "-58.3605077",
+      "lat": "-34.6319002",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Isle of Dogs",
+    "location": {
+      "long": "-0.0178345",
+      "lat": "51.4963497",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Sbarre Centrali",
+    "location": {
+      "long": "15.6439166",
+      "lat": "38.0928588",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Fristaden Christiania",
+    "location": {
+      "long": "12.6046449",
+      "lat": "55.6811161",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Frestonia",
+    "location": {
+      "long": "-0.2184422",
+      "lat": "51.511874",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hoshinokuni",
+    "location": {
+      "long": "135.5162237",
+      "lat": "34.6091068",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Dorfrepublik Rüterberg",
+    "location": {
+      "long": "11.1812777",
+      "lat": "53.1528814",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Avtonomni Kulturni Center Metelkova Mesto",
+    "location": {
+      "long": "14.5167204",
+      "lat": "46.0572111",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Orania",
+    "location": {
+      "long": "24.4209774",
+      "lat": "-29.8025726",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Užupio Res Publica",
+    "location": {
+      "long": "25.2951699",
+      "lat": "54.6807387",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Cihangir Cumhuriyeti",
+    "location": {
+      "long": "28.9855",
+      "lat": "41.0331967",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Cospaia",
+    "location": {
+      "long": "12.1707088",
+      "lat": "43.5590482",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Reino de la Araucanìa y de la Patagonia (Nueva Francia)",
+    "location": {
+      "long": "-72.3773985",
+      "lat": "-38.4214634",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Gran Dukedom of Bir Tawil / Kingdom of North Sudan",
+    "location": {
+      "long": "33.6657203",
+      "lat": "21.8854064",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Emirate of Bir Tawil / Kingdom of Mediæ Terræ",
+    "location": {
+      "long": "33.6648378",
+      "lat": "21.863444",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Bir Tawil / Confederated Empire of Bir Tawil and Territories",
+    "location": {
+      "long": "33.6399267",
+      "lat": "21.8877906",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Nubian Republic of Bir Tawil / State of Birland",
+    "location": {
+      "long": "33.6998713",
+      "lat": "21.8808099",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Yellow Mountains / Lechistani State of Bir Tawil",
+    "location": {
+      "long": "33.651499",
+      "lat": "21.8177847",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free Republic of Bir Tawil / Unitary Republic of Bir TYawil",
+    "location": {
+      "long": "33.6959935",
+      "lat": "21.8246372",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Ecological Danube Principality of Ongal",
+    "location": {
+      "long": "18.9344048",
+      "lat": "45.642056",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Svobodnà Republika Liberland",
+    "location": {
+      "long": "18.8816055",
+      "lat": "45.7737115",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Enclava",
+    "location": {
+      "long": "15.297203",
+      "lat": "45.691799",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Verdis",
+    "location": {
+      "long": "18.9088433",
+      "lat": "45.5946626",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Celestinia",
+    "location": {
+      "long": "18.9608657",
+      "lat": "45.670407",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Senarica",
+    "location": {
+      "long": "13.5139306",
+      "lat": "42.5476437",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hiort (Kingdom of Saint Kilda, Rìoghachd Hiort)\n",
+    "location": {
+      "long": "-8.5686257",
+      "lat": "57.8114478",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kallan Saaret",
+    "location": {
+      "long": "23.5121397",
+      "lat": "64.3151336",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Palmares (Angola Janga)",
+    "location": {
+      "long": "-35.5849254",
+      "lat": "-8.6794038",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Pirate Republic of Libertlia (Libertatia)",
+    "location": {
+      "long": "49.9841417",
+      "lat": "-16.7438777",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Paradise",
+    "location": {
+      "long": "-84.2943475",
+      "lat": "35.3628054",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Watauga (Associacion of Watauga)",
+    "location": {
+      "long": "-82.2529373",
+      "lat": "36.3441332",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Floating Republic",
+    "location": {
+      "long": "0.7472134",
+      "lat": "51.4800338",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume de Barataria / Royaume de Campeche",
+    "location": {
+      "long": "-89.9825241",
+      "lat": "29.3509242",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Isla de Amelia",
+    "location": {
+      "long": "-81.4567005",
+      "lat": "30.5905632",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Ararat City of Refugee",
+    "location": {
+      "long": "-78.9632977",
+      "lat": "43.0227384",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Harmony\n",
+    "location": {
+      "long": "-87.9349039",
+      "lat": "38.1293684",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Bardsey (Teyrnao o Ynys Enlli)",
+    "location": {
+      "long": "-4.7878358",
+      "lat": "52.7641235",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République du Goust",
+    "location": {
+      "long": "-0.4285767",
+      "lat": "42.8905702",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Colonie Sociétaire du Condé-sur-Vesgre\n",
+    "location": {
+      "long": "1.6602493",
+      "lat": "48.741526",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Nauvoo / Jaune Icarie",
+    "location": {
+      "long": "-91.3831391",
+      "lat": "40.5501718",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Jeune Icarie",
+    "location": {
+      "long": "-90.2792144",
+      "lat": "38.6289287",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Icaria\n",
+    "location": {
+      "long": "-94.7347519",
+      "lat": "40.9888808",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Icaria-Speranza",
+    "location": {
+      "long": "-122.4577857",
+      "lat": "38.2926101",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Maganja da Costa",
+    "location": {
+      "long": "37.5661555",
+      "lat": "-17.3313051",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hardwicke",
+    "location": {
+      "long": "166.2138838",
+      "lat": "-50.5400797",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Great Republic of Rough and Ready",
+    "location": {
+      "long": "-121.1386676",
+      "lat": "39.2296477",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of the United States of America",
+    "location": {
+      "long": "-122.4010636",
+      "lat": "37.789265",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Muscongus Island",
+    "location": {
+      "long": "-69.4296463",
+      "lat": "43.9305731",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica di Santo Stefano",
+    "location": {
+      "long": "13.4545069",
+      "lat": "40.7901728",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Scott",
+    "location": {
+      "long": "-84.4907414",
+      "lat": "36.4108425",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Winston",
+    "location": {
+      "long": "-87.4025886",
+      "lat": "34.1464481",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free State of Van Zandt",
+    "location": {
+      "long": "-95.8630385",
+      "lat": "32.5564183",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Callaway",
+    "location": {
+      "long": "-91.9476343",
+      "lat": "38.8526066",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Aeloñ in Ralik",
+    "location": {
+      "long": "169.6423969",
+      "lat": "5.921976",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Ruritania / Union of Ruritarian Republics\n",
+    "location": {
+      "long": "14.8211501",
+      "lat": "50.8382186",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Atlantis kay Lemuria",
+    "location": {
+      "long": "-64.9303981",
+      "lat": "18.341366",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free Republic of Washington Square",
+    "location": {
+      "long": "-73.9974666",
+      "lat": "40.7307918",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté d'Arbézie",
+    "location": {
+      "long": "6.0730187",
+      "lat": "46.4643499",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica Rossa di Caulonia",
+    "location": {
+      "long": "16.4079139",
+      "lat": "38.3815819",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Borovnia",
+    "location": {
+      "long": "172.6374695",
+      "lat": "-43.5388939",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repubblica dei PIani Sottani",
+    "location": {
+      "long": "16.2341528",
+      "lat": "40.6432809",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free State of Socorro",
+    "location": {
+      "long": "-106.893237",
+      "lat": "34.0573665",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Rìocht an Oileàn Thoraigh",
+    "location": {
+      "long": "-8.2281812",
+      "lat": "55.2644806",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "KIngdom of the Saltees Islands",
+    "location": {
+      "long": "-6.6139785",
+      "lat": "52.116975",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République de Figuerolles",
+    "location": {
+      "long": "5.5973212",
+      "lat": "43.1669879",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Protektorat ng Kalayaan / Free Territory of Freedomland",
+    "location": {
+      "long": "114.2841076",
+      "lat": "11.0535048",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Shashiland",
+    "location": {
+      "long": "29.3623489",
+      "lat": "-22.1966782",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Rattlesnake Island",
+    "location": {
+      "long": "-82.8472908",
+      "lat": "41.6785225",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Randania",
+    "location": {
+      "long": "-80.7615065",
+      "lat": "41.0244916",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de Pueblo san Joachìn del Rìo de Chama",
+    "location": {
+      "long": "-106.4729921",
+      "lat": "36.3311903",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Great Bitter Lake Association",
+    "location": {
+      "long": "32.3912825",
+      "lat": "30.3182535",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Jason Islands",
+    "location": {
+      "long": "-61.0874758",
+      "lat": "-51.0647113",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Democratic People's Cooperative Republic of Mevu",
+    "location": {
+      "long": "50.5991058",
+      "lat": "-66.7816619",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République Géniale",
+    "location": {
+      "long": "7.4439129",
+      "lat": "46.9508073",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republik Koneuwe",
+    "location": {
+      "long": "8.5376295",
+      "lat": "47.3694474",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Freedomland (KIngdom of Freedomland)",
+    "location": {
+      "long": "114.5731369",
+      "lat": "9.9218447",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Nutopia",
+    "location": {
+      "long": "-74.0060376",
+      "lat": "40.7192658",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Antarctica",
+    "location": {
+      "long": "-105.4101641",
+      "lat": "-76.5564578",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Aryan Nation / New Aryan Nation",
+    "location": {
+      "long": "-116.7009418",
+      "lat": "47.8231415",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "United Kingdom of Corterra / Federal Republic of Corterra",
+    "location": {
+      "long": "-154.9520341",
+      "lat": "-4.0158963",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Aurora",
+    "location": {
+      "long": "167.4659117",
+      "lat": "-13.8304547",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Pictish Free State",
+    "location": {
+      "long": "-6.2170741",
+      "lat": "57.2832967",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Hay-on-Wye (Kingdom of Hay)",
+    "location": {
+      "long": "-3.1277337",
+      "lat": "52.0735542",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Order of New Aragon",
+    "location": {
+      "long": "-61.888064",
+      "lat": "17.0335184",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Township of Tigerton Dells",
+    "location": {
+      "long": "-89.0282208",
+      "lat": "44.7366947",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Pacific Channel Islands",
+    "location": {
+      "long": "-120.0590934",
+      "lat": "34.01151",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Royaume de Patagonie du Nord (Colonie Patagone des Minquiers)",
+    "location": {
+      "long": "-2.1435552",
+      "lat": "48.966337",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Hartola Kuningaskunta",
+    "location": {
+      "long": "26.0205777",
+      "lat": "61.5799449",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Hout Bay (Republiek van Houtbaai)",
+    "location": {
+      "long": "18.3501066",
+      "lat": "-34.0415798",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Whangamomona",
+    "location": {
+      "long": "174.7358984",
+      "lat": "-39.1442844",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Country Fondation",
+    "location": {
+      "long": "43.1839647",
+      "lat": "9.9380476",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commonwealth of New Island (Nyja Yìsland)\n",
+    "location": {
+      "long": "100.3825549",
+      "lat": "-32.3494217",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commonwealth of Caledonia Australis",
+    "location": {
+      "long": "152.126142",
+      "lat": "-27.5459858",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Justus Township",
+    "location": {
+      "long": "-106.9122114",
+      "lat": "47.3234985",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Ponderosa",
+    "location": {
+      "long": "145.4658238",
+      "lat": "-36.387204",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Illustria Rajah Nation fa Ejah",
+    "location": {
+      "long": "-97.88312",
+      "lat": "36.3953237",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Kerguelon",
+    "location": {
+      "long": "70.2191558",
+      "lat": "-49.3491762",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Alice Shoals",
+    "location": {
+      "long": "-79.3984426",
+      "lat": "16.0608929",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Autopia Saya de Malha",
+    "location": {
+      "long": "61.4997215",
+      "lat": "-10.4997843",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Maritime Republic of Eastport",
+    "location": {
+      "long": "-76.4831101",
+      "lat": "38.9717322",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Gay Parallel Republic",
+    "location": {
+      "long": "-69.0126158",
+      "lat": "47.3277968",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Northern Forest Archipelago\n",
+    "location": {
+      "long": "-71.2633098",
+      "lat": "44.6596415",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Signoria Marsicana di Sperone",
+    "location": {
+      "long": "13.7298171",
+      "lat": "41.9378149",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Erks",
+    "location": {
+      "long": "-64.5268978",
+      "lat": "-30.8572749",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sowjet-Unterzögersdorf",
+    "location": {
+      "long": "16.1741922",
+      "lat": "48.3814282",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of United Oceania",
+    "location": {
+      "long": "151.8666103",
+      "lat": "-32.7416989",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Sabotage",
+    "location": {
+      "long": "152.0140432",
+      "lat": "-28.842643",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Sabotage",
+    "location": {
+      "long": "-78.2497827",
+      "lat": "44.5586879",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Empire of Copeman",
+    "location": {
+      "long": "1.2110036",
+      "lat": "52.9436378",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principality of Trumania",
+    "location": {
+      "long": "-122.4606862",
+      "lat": "47.4258983",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Bora of Dalungbara\n",
+    "location": {
+      "long": "153.1362783",
+      "lat": "-25.2292974",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of New Zion",
+    "location": {
+      "long": "-74.7661346",
+      "lat": "40.2213068",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Kingdom of Elsanor",
+    "location": {
+      "long": "-89.6050327",
+      "lat": "29.2548622",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign Kingdom of Kemetia",
+    "location": {
+      "long": "-0.9334881",
+      "lat": "50.9995086",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Grand Duchy of the Lagoan Isles",
+    "location": {
+      "long": "-1.0564739",
+      "lat": "50.8072033",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Beukeveld / Eurostaete (Wonderland)",
+    "location": {
+      "long": "6.7546774",
+      "lat": "52.6477786",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Peaceland",
+    "location": {
+      "long": "13.706827",
+      "lat": "49.6261546",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Seastading",
+    "location": {
+      "long": "-123.0943208",
+      "lat": "37.4622671",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Seastading",
+    "location": {
+      "long": "100.3902354",
+      "lat": "10.1221707",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Techtopia",
+    "location": {
+      "long": "-35.989853",
+      "lat": "39.7078263",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Ambulatory Free States of Obsidia",
+    "location": {
+      "long": "-122.2679441",
+      "lat": "37.7854379",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principato di Dellavalle",
+    "location": {
+      "long": "8.3943649",
+      "lat": "45.341726",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Contrada Gentile",
+    "location": {
+      "long": "14.1936366",
+      "lat": "42.2794767",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Bauernrepublik Dithmarschen",
+    "location": {
+      "long": "9.0927486",
+      "lat": "54.1950808",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principauté du Briançonnais (République des Escarton de Briançon)",
+    "location": {
+      "long": "6.642973",
+      "lat": "44.9000581",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Seigneurie de Sèr",
+    "location": {
+      "long": "-2.3552223",
+      "lat": "49.4316233",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République de Saint-Malo",
+    "location": {
+      "long": "-2.0193951",
+      "lat": "48.6490378",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Caledonia (Commonwealth of Darién)",
+    "location": {
+      "long": "-77.8623495",
+      "lat": "9.0905742",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "State of Westmoreland",
+    "location": {
+      "long": "-75.8819022",
+      "lat": "41.2460352",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de Couto Mixto (Repùblica de Coto Mixto, Républica de Couto Misto)\n",
+    "location": {
+      "long": "-7.8178211",
+      "lat": "41.9075593",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Trans-Oconee Republic",
+    "location": {
+      "long": "-83.4674411",
+      "lat": "33.5951723",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of West Florida (Dominion of West Florida)",
+    "location": {
+      "long": "-87.2154417",
+      "lat": "30.4125769",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Baronie von Knyphausen",
+    "location": {
+      "long": "8.0119436",
+      "lat": "53.5456811",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République du Madawaska",
+    "location": {
+      "long": "-68.3237281",
+      "lat": "47.3551532",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Indian Stream",
+    "location": {
+      "long": "-71.3267879",
+      "lat": "45.2077895",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Georgia",
+    "location": {
+      "long": "-84.3889504",
+      "lat": "33.7547589",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Free State of Jones",
+    "location": {
+      "long": "-89.1971012",
+      "lat": "31.6059481",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commune Indépendante de Franceville",
+    "location": {
+      "long": "167.1772421",
+      "lat": "-15.5139915",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principado de Ilhea da Pontinha",
+    "location": {
+      "long": "-16.9196162",
+      "lat": "32.6407961",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Elefthéra Politeìa Ikarìas",
+    "location": {
+      "long": "26.1775956",
+      "lat": "37.6317548",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de El Bolsòn",
+    "location": {
+      "long": "-71.5372399",
+      "lat": "-41.9628586",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Repùblica de El Bolsòn",
+    "location": {
+      "long": "9.6884694",
+      "lat": "48.7982669",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Freie Republik Schwarzenberg",
+    "location": {
+      "long": "12.7024064",
+      "lat": "50.5870828",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Teritorio Libero di Trieste (svobodno Tržaško Ozemlje)",
+    "location": {
+      "long": "13.770468",
+      "lat": "45.6540143",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Republic of Lakotah / Independent Oglala Nation / Oglala Lakota Sioux Nation\n",
+    "location": {
+      "long": "-102.3279892",
+      "lat": "43.2393038",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Commune Libre de Vellerat",
+    "location": {
+      "long": "7.3705632",
+      "lat": "47.3189572",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Torgu Kuningriik",
+    "location": {
+      "long": "22.0749968",
+      "lat": "57.9768727",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Sovereign State of Forvik",
+    "location": {
+      "long": "-1.6639626",
+      "lat": "60.3188748",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Principat d'Andorra",
+    "location": {
+      "long": "1.5219336",
+      "lat": "42.506546",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Het Onverdeelde Gebied van Moresnet (Le Territoire Indivis de Moresnet) / Amikejo (Amikayo Esperanto-Staat)",
+    "location": {
+      "long": "6.0132397",
+      "lat": "50.7160459",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Île des Faisans (Île de la Conférence, Isla de los Faisanes, Faisaien Uhartea, Konpatzia)",
+    "location": {
+      "long": "-1.7655646",
+      "lat": "43.3427474",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "New Hebrides Condominium (Condominium des Nuovelles-Hébrides)",
+    "location": {
+      "long": "168.3157861",
+      "lat": "-17.7425752",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Punto 671",
+    "location": {
+      "long": "21.1399522",
+      "lat": "55.7041186",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Memelland (Klaipédos Kraštas)",
+    "location": {
+      "long": "21.1343655",
+      "lat": "55.7072716",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Mantiqat Tanja ad-Dawliyya (Zone Internationale de Tanger)",
+    "location": {
+      "long": "-5.8114272",
+      "lat": "35.7868955",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Ad-Diffa l-Gharbiya (Hagadah Hama'aravit) [West Bank]",
+    "location": {
+      "long": "35.2354672",
+      "lat": "31.7806073",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Qita Gazzah [Gaza Strip]",
+    "location": {
+      "long": "34.4666421",
+      "lat": "31.5019129",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Abyei Area",
+    "location": {
+      "long": "28.4376233",
+      "lat": "9.5937549",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "République des Seychelles (Republic of Seychelles)",
+    "location": {
+      "long": "55.4518447",
+      "lat": "-4.6199214",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Federation of Saint Kitts (Christopher) and Nevis\n",
+    "location": {
+      "long": "-62.722817",
+      "lat": "17.2933293",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Aolepan Aorokin Maje (Republic of Marshall Islands)",
+    "location": {
+      "long": "171.3806618",
+      "lat": "7.0927472",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  },
+  {
+    "source": {
+      "url": "https://www.google.com/maps/d/u/0/viewer?mid=1ATT75XNSIPNTsjxgimOrqz1SOqJwtbg&ll=43.562974413581635%2C10.336944114552663&z=16",
+      "name": "Atlas of Micronations"
+    },
+    "name": "Beluu ȩr a Belau",
+    "location": {
+      "long": "134.6241773",
+      "lat": "7.5006255",
+      "applicable": true
+    },
+    "description": "",
+    "flag": ""
+  }
 ]
 
 export default { placemarksDirectory };
