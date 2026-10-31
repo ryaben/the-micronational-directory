@@ -57184,5 +57184,62 @@
     "createdAt": "2026-10-31T20:41:39Z",
     "isEdit": false,
     "id": "Kf1Y5ycUBQmy0dWiYcYM"
+  },
+  {
+    "name": {
+      "main": "Myrotania",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "De réH dy myrótanyay",
+          "title": ""
+        }
+      ],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "Opinio Essentialis (Imagination is essential)",
+    "languages": [
+      "Myrotanian",
+      "English",
+      "Italian",
+      "Esperanto"
+    ],
+    "contactInfo": [
+      "empireofmyrotania@gmail.com"
+    ],
+    "websites": [
+      "https://empireofmyrotania.wix.com/myrotania",
+      "https://micronations.wiki/wiki/Empire_of_Myrotania"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Myrotania.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Groenton",
+    "currency": "Pound Sterling",
+    "memberships": [
+      "European Community of Micronations",
+      "European Union of Micronations"
+    ],
+    "foundationDate": {
+      "_seconds": 1362268800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793479688
+    },
+    "createdAt": "2026-10-31T20:48:08Z",
+    "isEdit": false,
+    "id": "VwPpKpI2wTvLjDUJR4jV"
   }
 ]
