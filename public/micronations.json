@@ -15067,7 +15067,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1719440657,
@@ -15089,8 +15090,8 @@
     "motto": "Ru Reats Ana Ru Leavs Era Eos (Our Hearts And Our Lives Are One)",
     "currency": "Jah",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 36.3953237,
+      "longitude": -97.88312
     },
     "approved": true,
     "websites": [
