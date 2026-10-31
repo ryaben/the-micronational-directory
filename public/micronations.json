@@ -57353,5 +57353,53 @@
     "createdAt": "2026-10-31T21:17:23Z",
     "isEdit": false,
     "id": "uKNoKziHZXbeiPIXUpsx"
+  },
+  {
+    "name": {
+      "main": "Neak Tep",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Cambodian"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://web.archive.org/web/20170913214717/http://www.neaktep.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages",
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Neak Tep.jpeg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Neak Tep Bone",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1512153900
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793483272
+    },
+    "createdAt": "2026-10-31T21:47:52Z",
+    "isEdit": false,
+    "id": "ggBG9E3e1Gj6tI4A9o4v"
   }
 ]
