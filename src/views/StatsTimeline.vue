@@ -85,6 +85,19 @@ const bounds = computed(() => ({ min: timelineFloor.value, max: todayTimestamp }
 
 const visibleRange = computed(() => range.value || bounds.value)
 const rangeSpan = computed(() => visibleRange.value.max - visibleRange.value.min)
+const scrollbarBounds = computed(() => {
+  const halfSpan = rangeSpan.value / 2
+  return {
+    min: timelineFloor.value + halfSpan,
+    max: todayTimestamp - halfSpan
+  }
+})
+const scrollbarPosition = computed(() =>
+  Math.min(
+    scrollbarBounds.value.max,
+    Math.max(scrollbarBounds.value.min, (visibleRange.value.min + visibleRange.value.max) / 2)
+  )
+)
 const mobileCanvasHeight = computed(
   () => `${Math.max(440, Math.min(1400, (rangeSpan.value / 86400000 / 365.25) * 15))}px`
 )
@@ -251,6 +264,15 @@ const onDatePickerClosed = () => {
 
 const resetTimeline = () => {
   jumpToDate(new Date())
+}
+
+const onScrollbarInput = (event) => {
+  const center = Number(event.target.value)
+  range.value = clampToTimeline({
+    min: center - rangeSpan.value / 2,
+    max: center + rangeSpan.value / 2
+  })
+  activeEvent.value = null
 }
 
 const onWheel = (event) => {
@@ -422,6 +444,17 @@ onBeforeUnmount(() => {
               </article>
             </Transition>
           </div>
+        </div>
+        <div class="timeline-scrollbar">
+          <input
+            type="range"
+            :min="scrollbarBounds.min"
+            :max="scrollbarBounds.max"
+            :value="scrollbarPosition"
+            :disabled="scrollbarBounds.min >= scrollbarBounds.max"
+            :aria-label="$t('stats.timelineScroll')"
+            @input="onScrollbarInput"
+          />
         </div>
         <footer class="timeline-legend">
           <span><i class="legend-dot micronation"></i>{{ $t('stats.timelineMicronation') }}</span>
@@ -808,6 +841,21 @@ onBeforeUnmount(() => {
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
   font-size: 13px;
+}
+.timeline-scrollbar {
+  padding: 0 16px 12px;
+}
+.timeline-scrollbar input {
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--color-accent);
+  cursor: ew-resize;
+}
+.timeline-scrollbar input:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 .timeline-legend > span {
   display: inline-flex;

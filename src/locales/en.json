@@ -277,7 +277,8 @@
     "timelineHint": "Drag to pan · use the wheel to zoom",
     "timelineTools": "Timeline tools",
     "timelineZoom": "Zoom level",
-    "timelineCloseEvent": "Close event"
+    "timelineCloseEvent": "Close event",
+    "timelineScroll": "Scroll through the timeline"
   },
   "mapReader": {
     "noPrivileges": "You don't have sufficient privileges to work with stored placemarks.",

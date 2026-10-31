@@ -277,7 +277,8 @@
     "timelineHint": "Arrastra para desplazarte · usa la rueda para acercar o alejar",
     "timelineTools": "Herramientas de la línea de tiempo",
     "timelineZoom": "Nivel de zoom",
-    "timelineCloseEvent": "Cerrar evento"
+    "timelineCloseEvent": "Cerrar evento",
+    "timelineScroll": "Desplazarse por la línea de tiempo"
   },
   "mapReader": {
     "noPrivileges": "No tienes permisos suficientes para trabajar con las marcas guardadas.",
