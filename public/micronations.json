@@ -12614,7 +12614,8 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1694827952,
@@ -12633,8 +12634,8 @@
     "motto": "NUMQUAM POSTEA",
     "currency": "Cor",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 55.6866252,
+      "longitude": 12.5712192
     },
     "websites": [
       "http://web.archive.org/web/20051226043107/http://www.corvinia.org/corvin2.html"
