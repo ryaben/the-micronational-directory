@@ -39,6 +39,11 @@ defineProps({
       (element) => element.approved && element.searchDisplay && element.filterDisplay
     )
   },
+  micronationsDirectory: {
+    type: Array,
+    required: false,
+    default: store.getters.micronations
+  },
   supranationalMicronations: {
     type: Array,
     required: false,
@@ -326,9 +331,18 @@ export default {
       const supranationalQuery = this.supranationalMicronations.find(
         (org) => org.name.main === name || org.name.mainAlt === name
       )
+      const micronationQuery = this.micronationsDirectory.find(
+        (micronation) => micronation.approved && (micronation.name.main === name || micronation.name.mainAlt === name)
+      )
 
       if (orgQuery === undefined) {
-        if (supranationalQuery === undefined) {
+        if (micronationQuery !== undefined) {
+          return {
+            href: '/directory/' + micronationQuery.name.main,
+            logo: micronationQuery.flag,
+            name: { main: micronationQuery.name.main }
+          }
+        } else if (supranationalQuery === undefined) {
           return {
             href: '/organizations/' + name,
             logo: '/images/missing-flag.png',
