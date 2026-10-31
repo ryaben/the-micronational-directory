@@ -57068,5 +57068,58 @@
     "createdAt": "2026-10-28T20:16:39Z",
     "isEdit": false,
     "id": "64QYPGlXqiCGjajiJHYj"
+  },
+  {
+    "name": {
+      "main": "Malu Entu",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Malu Entu",
+          "title": "Republic of"
+        }
+      ],
+      "title": "Repubblica Indipendente de",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian",
+      "Sardinian"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://web.archive.org/web/20110618151138/http://www.repubblicadimaluentu.com/maluentu/default.asp",
+      "https://www.paxhistoria.co/assets/a51dccf3-c451-5012-98e1-0b4161f06328",
+      "https://www.facebook.com/Videolina/videos/doddore-meloni-il-26-agosto-2008-fonda-la-repubblica-di-maluentu/10154926935842620/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages"
+    ],
+    "flag": "/images/flags/Malu Entu.avif",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Shardana, Soddu Sardu",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1219772280
+    },
+    "location": {
+      "latitude": 39.99,
+      "longitude": 8.30917
+    },
+    "creationDate": {
+      "_seconds": 1793220025
+    },
+    "createdAt": "2026-10-28T20:40:25Z",
+    "isEdit": false,
+    "id": "3mo2L4JUApTEJcRUYUN7"
   }
 ]
