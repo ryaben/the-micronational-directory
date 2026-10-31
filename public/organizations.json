@@ -2739,5 +2739,44 @@
     "isEdit": false,
     "memberships": [],
     "id": "LM6QCPWIE7dLMhNXtYWf"
+  },
+  {
+    "name": {
+      "main": "European Micronational Union",
+      "mainAlt": "EMU",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "United in Diversity",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "councilofemu@gmail.com",
+      "https://www.facebook.com/EuropeanMicronationalUnion/",
+      "https://x.com/EuropeanMicron1",
+      "https://www.instagram.com/emu_council/"
+    ],
+    "websites": [
+      "https://europeanmicronationalunion.wordpress.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "logo": "/images/logos/European Micronational Union.jpg",
+    "foundationDate": {
+      "_seconds": 1568549160
+    },
+    "creationDate": {
+      "_seconds": 1793459219
+    },
+    "createdAt": "2026-10-31T15:06:59Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "if47psYswA29ezV1Jkoc"
   }
 ]
