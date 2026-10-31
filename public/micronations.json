@@ -57005,5 +57005,68 @@
     "createdAt": "2026-10-28T19:29:02Z",
     "isEdit": false,
     "id": "fMQJOdSzfYqBDBw0fOCr"
+  },
+  {
+    "name": {
+      "main": "Leylandiistan & Gurvata",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Léiloindístáin agus an Gurbhata",
+          "title": "Cónaidhm"
+        },
+        {
+          "main": "Lelondyvata we Gurvata",
+          "title": ""
+        }
+      ],
+      "title": "Confederation of",
+      "titleAlt": ""
+    },
+    "motto": "Ní neart go chur le chéile (Unity is achieved through Strength)",
+    "languages": [
+      "English",
+      "Gaelige"
+    ],
+    "contactInfo": [
+      "https://bealnatire.tumblr.com/",
+      "https://x.com/bealnatire"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Confederation_of_Leylandiistan_%26_Gurvata",
+      "https://web.archive.org/web/20140308230310/https://sites.google.com/site/leylandiistangov/",
+      "https://new-country-projects.fandom.com/wiki/Leylandiistan",
+      "https://web.archive.org/web/20161021214418/https://govlg.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Leylandiistan & Gurvata.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Orchardstown",
+    "currency": "Euro, Lira",
+    "memberships": [
+      "Grand Unified Micronational",
+      "International Agricultural Development Pact",
+      "Saint Josephsburg Economic Pact"
+    ],
+    "foundationDate": {
+      "_seconds": 1409356800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793218599
+    },
+    "createdAt": "2026-10-28T20:16:39Z",
+    "isEdit": false,
+    "id": "64QYPGlXqiCGjajiJHYj"
   }
 ]
