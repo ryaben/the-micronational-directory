@@ -36685,7 +36685,8 @@
       "email": "info@duckionary.com"
     },
     "type": [
-      "Digital"
+      "Digital",
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1695995395,
@@ -36705,8 +36706,8 @@
     "motto": "",
     "currency": "",
     "location": {
-      "latitude": 0,
-      "longitude": 0
+      "latitude": 37.7854379,
+      "longitude": -122.2679441
     },
     "websites": [
       "https://micronations.wiki/wiki/Ambulatory_Free_States_of_Obsidia",
