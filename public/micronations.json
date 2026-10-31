@@ -57121,5 +57121,68 @@
     "createdAt": "2026-10-28T20:40:25Z",
     "isEdit": false,
     "id": "3mo2L4JUApTEJcRUYUN7"
+  },
+  {
+    "name": {
+      "main": "Munkkia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Munkkia",
+          "title": "Nation of"
+        },
+        {
+          "main": "Gaerstan",
+          "title": "People's Republic of"
+        },
+        {
+          "main": "Munkkiariget",
+          "title": ""
+        }
+      ],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "Pulchra, Prudens Et Fortis! (Beautiful, Smart And Brave!)",
+    "languages": [
+      "Danish",
+      "Qeelsh",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/munkkia/",
+      "mathiaslolkmagn@gmail.com",
+      "https://pulchranews.tumblr.com/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20150224105105/http://www.mathiaslolkmagnussen.com/munkkia/frontpage.php",
+      "https://micronations.wiki/wiki/Empire_of_Munkkia"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Munkkia.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Gaerstan",
+    "currency": "Munkkoin, Dre'ader",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1402853760
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793479299
+    },
+    "createdAt": "2026-10-31T20:41:39Z",
+    "isEdit": false,
+    "id": "Kf1Y5ycUBQmy0dWiYcYM"
   }
 ]

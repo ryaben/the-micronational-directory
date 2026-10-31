@@ -2778,5 +2778,44 @@
     "isEdit": false,
     "memberships": [],
     "id": "if47psYswA29ezV1Jkoc"
+  },
+  {
+    "name": {
+      "main": "European Community of Micronations",
+      "mainAlt": "ECM",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "German",
+      "French",
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://docs.google.com/forms/d/e/1FAIpQLSc56_0u_q2Q3GiF85dlT-ZIoaiy0XcMfyhIbmFgYEiujgpfVg/viewform"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/European_Community_of_Micronations"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "logo": "/images/logos/European Community of Micronations.jpg",
+    "foundationDate": {
+      "_seconds": 1409529600
+    },
+    "creationDate": {
+      "_seconds": 1793479888
+    },
+    "createdAt": "2026-10-31T20:51:28Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "ip0L5VAQPEcuw3IkJxaU"
   }
 ]
