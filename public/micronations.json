@@ -17626,7 +17626,7 @@
   },
   {
     "capital": "Forcanera",
-    "flag": "/images/flags/Forcanera.jpg",
+    "flag": "/images/flags/Forcanera-1793487218843.jpg",
     "languages": [
       "Spanish",
       "Catalan"
@@ -17646,29 +17646,44 @@
       "_seconds": 1708212684,
       "_nanoseconds": 0
     },
-    "memberships": "",
+    "memberships": [],
     "foundationDate": {
-      "_seconds": 1546373520,
-      "_nanoseconds": 0
+      "seconds": 1546373520,
+      "_seconds": 1546373520
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Forcanera",
-      "title": "Principat Animalista de"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principat Animalista de",
+      "titleAlt": ""
     },
     "motto": "I el món será només un (And the world will live as one)",
     "currency": "Forca",
     "location": {
-      "latitude": 41.67566049708353,
-      "longitude": 2.802910891337035
+      "latitude": 0,
+      "longitude": 0
     },
     "websites": [
       "https://principatdeforcanera.blogspot.com/",
       "https://micronaciones.fandom.com/wiki/Principat_Animalista_de_Forcanera"
     ],
     "approved": true,
-    "id": "6OGfTGH9q0gduAMdC1AB"
+    "id": "6OGfTGH9q0gduAMdC1AB",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793487221
+        }
+      }
+    ],
+    "createdAt": "2026-10-31T22:53:42Z",
+    "isEdit": true
   },
   {
     "capital": "Vale Plano",
