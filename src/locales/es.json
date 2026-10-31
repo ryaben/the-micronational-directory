@@ -105,6 +105,11 @@
     "latitude": "Latitud",
     "micronationLocation": "Aquí se encuentra la micronación o su fundador."
   },
+  "globalMap": {
+    "summary": "Resumen del mapa mundial",
+    "located": "micronaciones ubicadas",
+    "directoryShare": "del directorio"
+  },
   "mediaWikiReader": {
     "description": "Muestra posibles entradas a partir de artículos obtenidos mediante una consulta de categorías a la API de MediaWiki. El lector extrae los datos disponibles, aunque las diferencias de formato entre wikis pueden dejar algunos campos incompletos.",
     "micrasArticles": "Artículos de MicrasWiki",
