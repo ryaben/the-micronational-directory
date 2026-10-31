@@ -57241,5 +57241,58 @@
     "createdAt": "2026-10-31T20:48:08Z",
     "isEdit": false,
     "id": "VwPpKpI2wTvLjDUJR4jV"
+  },
+  {
+    "name": {
+      "main": "Great Ionia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Μεγάλη Ιωνία",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Greek"
+    ],
+    "contactInfo": [
+      "https://megaliionia.weebly.com/gamma943nuepsilontauepsilon-piomicronlambda943tauetasigmafbecome-a-citizen.html"
+    ],
+    "websites": [
+      "https://megaliionia.weebly.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Great Ionia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "European Community of Micronations",
+      "Imvrassia"
+    ],
+    "foundationDate": {
+      "_seconds": 1414605180
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793480445
+    },
+    "createdAt": "2026-10-31T21:00:45Z",
+    "isEdit": false,
+    "id": "tcTmhlUoThLmappQIIeJ"
   }
 ]
