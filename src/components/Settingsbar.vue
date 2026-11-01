@@ -217,28 +217,15 @@ defineProps({
                   <label>{{ $t('settings.foundationDate') }}</label>
                   <div class="foundation-date-range">
                     <VueDatePicker
-                      v-model="foundationDateFromValue"
+                      v-model="foundationDateRangeValue"
+                      range
+                      :partial-range="true"
                       :locale="locale === 'es' ? 'es-419' : 'en-US'"
-                      :placeholder="$t('settings.from')"
-                      :aria-label="$t('settings.foundationDateFrom')"
+                      placeholder="Pick a range"
+                      :aria-label="$t('settings.foundationDate')"
                       :cancel-text="$t('common.cancel')"
                       :select-text="$t('common.select')"
                       :dark="theme === 'dark'"
-                      :max-date="foundationDateToValue || todayDate"
-                      :enable-time-picker="false"
-                      :auto-apply="true"
-                      :utc="'preserve'"
-                      :timezone="'UTC'"
-                    />
-                    <VueDatePicker
-                      v-model="foundationDateToValue"
-                      :locale="locale === 'es' ? 'es-419' : 'en-US'"
-                      :placeholder="$t('settings.to')"
-                      :aria-label="$t('settings.foundationDateTo')"
-                      :cancel-text="$t('common.cancel')"
-                      :select-text="$t('common.select')"
-                      :dark="theme === 'dark'"
-                      :min-date="foundationDateFromValue || undefined"
                       :max-date="todayDate"
                       :enable-time-picker="false"
                       :auto-apply="true"
@@ -573,20 +560,20 @@ export default {
     todayDate() {
       return new Date()
     },
-    foundationDateFromValue: {
+    foundationDateRangeValue: {
       get() {
-        return this.toValidDate(this.foundationDateFrom)
+        const from = this.toValidDate(this.foundationDateFrom)
+        const to = this.toValidDate(this.foundationDateTo)
+        return from || to ? [from, to] : null
       },
       set(value) {
-        this.foundationDateFrom = this.toValidDate(value)
-      }
-    },
-    foundationDateToValue: {
-      get() {
-        return this.toValidDate(this.foundationDateTo)
-      },
-      set(value) {
-        this.foundationDateTo = this.toValidDate(value)
+        if (!Array.isArray(value)) {
+          this.foundationDateFrom = null
+          this.foundationDateTo = null
+          return
+        }
+        this.foundationDateFrom = this.toValidDate(value[0])
+        this.foundationDateTo = this.toValidDate(value[1])
       }
     }
   },
@@ -1093,7 +1080,7 @@ export default {
   display: grid;
   width: 100%;
   max-width: 100%;
-  grid-template-columns: 160px 160px 160px 300px minmax(140px, 1fr);
+  grid-template-columns: 160px 160px 160px 190px max-content;
   align-items: center;
   gap: 18px;
 }
@@ -1124,23 +1111,25 @@ export default {
   min-width: 110px;
 }
 .settings-panel-filter :deep(.foundation-date-range) {
-  display: flex;
   width: 100%;
   min-width: 0;
-  align-items: center;
-  gap: 6px;
 }
 .settings-panel-filter :deep(.foundation-date-range .dp__main) {
-  flex: 1 1 0;
+  width: 100%;
   min-width: 0;
+  box-sizing: border-box;
 }
 .settings-panel-filter :deep(.foundation-date-range .dp__input_wrap) {
+  display: block;
   width: 100%;
+  box-sizing: border-box;
 }
 .settings-panel-filter :deep(.foundation-date-range .dp__input) {
+  width: 100%;
   min-width: 0;
   padding: 7px 8px 7px 32px;
   font-size: 13px;
+  box-sizing: border-box;
 }
 .settings-panel-filter :deep(.only-favorites-control) {
   display: flex;
@@ -1415,6 +1404,11 @@ export default {
     grid-template-columns: 1fr;
     gap: 3px;
   }
+  .settings-panel-filter :deep(.foundation-date-range-field) {
+    width: 100% !important;
+    flex: 1 1 100%;
+    align-items: stretch;
+  }
   .settings-panel-filter :deep(.multi-select-dropdown) {
     width: 100%;
     min-width: 0;
@@ -1424,10 +1418,22 @@ export default {
     max-width: 100%;
   }
   .settings-panel-filter :deep(.foundation-date-range) {
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
+    align-self: stretch;
   }
-  .settings-panel-filter :deep(.foundation-date-range .dp__main) {
+  .settings-panel-filter :deep(.foundation-date-range .dp__main),
+  .settings-panel-filter :deep(.foundation-date-range .dp__main > div) {
+    width: 100% !important;
     min-width: 0;
+  }
+  .settings-panel-filter :deep(.foundation-date-range .dp__input_wrap),
+  .settings-panel-filter :deep(.foundation-date-range .dp__input) {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .settings-panel-filter :deep(.foundation-date-range .dp__input_wrap) {
+    box-sizing: border-box !important;
   }
   .settings-panel :deep(.setting-parameter-subcontainer > div) {
     flex-wrap: wrap;
