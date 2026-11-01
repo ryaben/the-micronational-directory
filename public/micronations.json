@@ -57556,5 +57556,65 @@
     "createdAt": "2026-10-31T23:07:55Z",
     "isEdit": false,
     "id": "IyrxKcJwslcwPlY7sfYl"
+  },
+  {
+    "name": {
+      "main": "Poliano-Zarechian Dacha Republic",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Поляно-Зареченская Дачная Республика",
+          "title": ""
+        },
+        {
+          "main": "Poliano-Zarečie",
+          "title": ""
+        },
+        {
+          "main": "PZDR",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Russian"
+    ],
+    "contactInfo": [
+      "https://vk.ru/polianozaretchiandacharepublic",
+      "pzdrepublic@gmail.com",
+      "https://t.me/pzdrchannel"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Poliano-Zare%C4%8Die"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Poliano-Zarechian Dacha Republic.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Poliany-Zarechie",
+    "currency": "Червонец (Dachian Pyriaz, Dačian Červonets)",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1620604800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793497116
+    },
+    "createdAt": "2026-11-01T01:38:36Z",
+    "isEdit": false,
+    "id": "n0RWyQ1QnlW3svKrwoyP"
   }
 ]
