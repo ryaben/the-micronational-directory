@@ -58255,5 +58255,60 @@
     "createdAt": "2026-11-01T22:36:49Z",
     "isEdit": false,
     "id": "AstZ2D8Pn0nRnI9nhFbo"
+  },
+  {
+    "name": {
+      "main": "Meridiana",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Méridiana",
+          "title": "Royaume de"
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Montjoie Saint Joseph!",
+    "languages": [
+      "English",
+      "French"
+    ],
+    "contactInfo": [
+      "https://x.com/meridianagov",
+      "https://www.facebook.com/profile.php?id=61594652523477"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Kingdom_of_Meridiana"
+    ],
+    "author": {
+      "name": "Kingdom of Meridiana",
+      "email": "meridianagov@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Meridiana.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Pipany",
+    "currency": "Meridianan libra",
+    "memberships": [
+      "Union Against Micronational War"
+    ],
+    "foundationDate": {
+      "seconds": 1602340020,
+      "_seconds": 1602340020
+    },
+    "location": {
+      "latitude": 49.713169067295865,
+      "longitude": -124.93261518641819
+    },
+    "creationDate": {
+      "_seconds": 1793572341
+    },
+    "createdAt": "2026-11-01T22:32:21Z",
+    "isEdit": false,
+    "id": "whV3aDAgVOCri9ISGQ8l"
   }
 ]
