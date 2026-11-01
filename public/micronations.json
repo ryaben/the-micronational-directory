@@ -57616,5 +57616,70 @@
     "createdAt": "2026-11-01T01:38:36Z",
     "isEdit": false,
     "id": "n0RWyQ1QnlW3svKrwoyP"
+  },
+  {
+    "name": {
+      "main": "Rosignano",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Rosignano",
+          "title": "Repubblica Labronica Popolare di"
+        },
+        {
+          "main": "Rosignano",
+          "title": "Livorna Popula Respubliko de"
+        },
+        {
+          "main": "LPRoR",
+          "title": ""
+        }
+      ],
+      "title": "Labronic People's Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Пролетари Ди Тутто Ир Мондо, Унитеви! (Workers of all the world, Unite!)",
+    "languages": [
+      "Italian",
+      "Labronic",
+      "Esperanto"
+    ],
+    "contactInfo": [
+      "https://www.youtube.com/channel/TeleRosignano",
+      "telerosignano@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Labronic_People%27s_Republic_of_Rosignano",
+      "https://web.archive.org/web/20200218085950/https://labronicapopolare.forumcommunity.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Rosignano.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Rosignano",
+    "currency": "Lira del Popolo",
+    "memberships": [
+      "Federation of Italian Micronations"
+    ],
+    "foundationDate": {
+      "seconds": 1518825600,
+      "_seconds": 1518825600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793498716
+    },
+    "createdAt": "2026-11-01T02:05:16Z",
+    "isEdit": false,
+    "id": "YQFvbYleKeSCPshxjhsi"
   }
 ]
