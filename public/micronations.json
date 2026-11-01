@@ -58112,5 +58112,55 @@
     "createdAt": "2026-11-01T21:35:14Z",
     "isEdit": false,
     "id": "undZI6vVZHQH6p305bhX"
+  },
+  {
+    "name": {
+      "main": "Blazeland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Authoritarian Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Unity under Blaze",
+    "languages": [
+      "English",
+      "Māori"
+    ],
+    "contactInfo": [
+      "https://www.youtube.com/@BlazelandGovt",
+      "blazeland.govt@gmail.com"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Authoritarian_Republic_of_Blazeland",
+      "https://web.archive.org/web/20260523082529/https://sites.google.com/view/blazeland/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "location"
+    ],
+    "flag": "/images/flags/Blazeland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Blazeland dollar, New Zealand dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1742428800
+    },
+    "location": {
+      "latitude": -40.621944,
+      "longitude": 175.286667
+    },
+    "creationDate": {
+      "_seconds": 1793569294
+    },
+    "createdAt": "2026-11-01T21:41:34Z",
+    "isEdit": false,
+    "id": "SqO62rc5P9FORGvXpF2Y"
   }
 ]
