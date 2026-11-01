@@ -57793,5 +57793,58 @@
     "createdAt": "2026-11-01T02:29:09Z",
     "isEdit": false,
     "id": "5IAQvEQG4y3orxvLRS0H"
+  },
+  {
+    "name": {
+      "main": "Solacia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.youtube.com/channel/UC_jm58mkeDgrNaJahDdEEdA",
+      "https://www.facebook.com/101570812506589",
+      "https://www.reddit.com/user/Kingdom_of_Solacia/",
+      "solacia.info@gmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20230117194318/https://www.solacia.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate",
+      "languages"
+    ],
+    "flag": "/images/flags/Solacia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Thaler",
+    "memberships": [
+      "Stomaria"
+    ],
+    "foundationDate": {
+      "_seconds": 1491436740
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793502016
+    },
+    "createdAt": "2026-11-01T03:00:16Z",
+    "isEdit": false,
+    "id": "nRJdBc2jx6xJ80eRY1Rx"
   }
 ]
