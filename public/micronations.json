@@ -57869,5 +57869,63 @@
     "createdAt": "2026-11-01T03:00:16Z",
     "isEdit": false,
     "id": "nRJdBc2jx6xJ80eRY1Rx"
+  },
+  {
+    "name": {
+      "main": "Vevčani",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Independent Republic of Vevčani",
+          "title": ""
+        },
+        {
+          "main": "Република Вевчани",
+          "title": ""
+        },
+        {
+          "main": "Republika Vevčani",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Macedonian"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://en.wikipedia.org/wiki/Republic_of_Vev%C4%8Dani",
+      "https://vexillology.fandom.com/wiki/Republic_of_Vev%C4%8Dani"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Vevčani-moderated-1793503292444.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Vevčani",
+    "currency": "ličnik",
+    "memberships": [],
+    "foundationDate": {
+      "seconds": 685238400,
+      "_seconds": 685238400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793502946
+    },
+    "createdAt": "2026-11-01T03:15:46Z",
+    "isEdit": false,
+    "id": "8FF6PnMklIrTNXrISNPH"
   }
 ]
