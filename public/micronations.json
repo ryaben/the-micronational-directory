@@ -57681,5 +57681,61 @@
     "createdAt": "2026-11-01T02:05:16Z",
     "isEdit": false,
     "id": "YQFvbYleKeSCPshxjhsi"
+  },
+  {
+    "name": {
+      "main": "Sabina",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Sabina",
+          "title": "República de"
+        },
+        {
+          "main": "République Sabinaise",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "You regret what has not been done",
+    "languages": [
+      "English",
+      "Spanish",
+      "Catalan",
+      "French",
+      "Arabic"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/sabinagovernment/",
+      "govsabina.zb@gmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20200218003701/https://govsabinazb.wixsite.com/sabina",
+      "https://web.archive.org/web/20210927203659/https://micronations.wiki/wiki/Sabina"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Sabina.webp",
+    "type": [
+      "Digital"
+    ],
+    "capital": "La Litera",
+    "currency": "Corona",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1477523700
+    },
+    "creationDate": {
+      "_seconds": 1793499472
+    },
+    "createdAt": "2026-11-01T02:17:52Z",
+    "isEdit": false,
+    "id": "vcPuWeTHPqk6qRmniNwP"
   }
 ]
