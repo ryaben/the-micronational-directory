@@ -57942,5 +57942,62 @@
     "createdAt": "2026-11-01T03:15:46Z",
     "isEdit": false,
     "id": "8FF6PnMklIrTNXrISNPH"
+  },
+  {
+    "name": {
+      "main": "Wolfyland",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Královstvo Vlšiska",
+          "title": ""
+        },
+        {
+          "main": "Vlčiské Království",
+          "title": ""
+        }
+      ],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "Noše volká rodina (Our big family)",
+    "languages": [
+      "Wolfish",
+      "Czech"
+    ],
+    "contactInfo": [
+      "https://www.instagram.com/kralovstvo.vlsiska/"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Kingdom_of_Wolfyland"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Wolfyland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Vlčíkov",
+    "currency": "Wolfish koruna",
+    "memberships": [
+      "Union of Micronations of Central Europe"
+    ],
+    "foundationDate": {
+      "_seconds": 1685232000
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793504937
+    },
+    "createdAt": "2026-11-01T03:48:57Z",
+    "isEdit": false,
+    "id": "YC22LEinsTHI91frDsBJ"
   }
 ]
