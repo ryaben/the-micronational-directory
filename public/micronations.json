@@ -58212,5 +58212,48 @@
     "createdAt": "2026-11-01T22:00:04Z",
     "isEdit": false,
     "id": "LAk39vPIY2uDqKZigymi"
+  },
+  {
+    "name": {
+      "main": "Jeraco",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/RepublicofJeraco/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20180903150844/http://www.republicofjeraco.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "type"
+    ],
+    "flag": "/images/flags/Jeraco.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "Zent",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1416079860
+    },
+    "creationDate": {
+      "_seconds": 1793572609
+    },
+    "createdAt": "2026-11-01T22:36:49Z",
+    "isEdit": false,
+    "id": "AstZ2D8Pn0nRnI9nhFbo"
   }
 ]
