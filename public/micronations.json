@@ -57999,5 +57999,64 @@
     "createdAt": "2026-11-01T03:48:57Z",
     "isEdit": false,
     "id": "YC22LEinsTHI91frDsBJ"
+  },
+  {
+    "name": {
+      "main": "La Boirie",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "La Boirie",
+          "title": "Consulat de"
+        }
+      ],
+      "title": "Consulate of",
+      "titleAlt": ""
+    },
+    "motto": "TOLÉRANCE • HÉDONISME • ÉCO-CITOYENNETÉ",
+    "languages": [
+      "French",
+      "Breton",
+      "Sarthois"
+    ],
+    "contactInfo": [
+      "consulatdelaboirie@gmail.com",
+      "+33 (0)2 43 79 17 25",
+      "https://www.flickr.com/photos/34947587@N04/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20110905081334/http://www.consulat-boirie.com/",
+      "https://web.archive.org/web/20141108084233/http://listofmicronations.wikispaces.com/La+Boirie",
+      "https://web.archive.org/web/20120221223136/http://muse.consulat-boirie.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto"
+    ],
+    "flag": "/images/flags/La Boirie.png",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "La Boirie",
+    "currency": "Euro, Bailard",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1155081600
+    },
+    "location": {
+      "latitude": 47.839832855835795,
+      "longitude": 0.5884321258147054
+    },
+    "creationDate": {
+      "_seconds": 1793568672
+    },
+    "createdAt": "2026-11-01T21:31:12Z",
+    "isEdit": false,
+    "id": "N0q8zo7I7F40lxtgVFNE"
   }
 ]
