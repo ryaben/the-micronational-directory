@@ -52953,36 +52953,51 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Physical",
-      "Digital"
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1696640555,
       "_nanoseconds": 0
     },
-    "memberships": "",
+    "memberships": [],
     "foundationDate": {
-      "_seconds": 862887600,
-      "_nanoseconds": 0
+      "_seconds": 862887600
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Zugesbucht",
-      "title": "Principality of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
     },
     "motto": "",
-    "currency": "",
+    "currency": "Lirk",
     "location": {
       "latitude": 58.34587240032039,
       "longitude": -3.3165502802993956
     },
     "websites": [
-      "https://www.angelfire.com/me/prince2/prince.html",
-      "https://es.wikipedia.org/wiki/Principado_de_Zugesbucht"
+      "https://es.wikipedia.org/wiki/Principado_de_Zugesbucht",
+      "https://web.archive.org/web/20230926104834/https://www.angelfire.com/me/prince2/prince.html"
     ],
     "approved": true,
-    "id": "7EWMfIUYqoXnx7H1Ee0M"
+    "id": "7EWMfIUYqoXnx7H1Ee0M",
+    "uncertain": [
+      "type"
+    ],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793504465
+        }
+      }
+    ],
+    "createdAt": "2026-11-01T03:41:06Z",
+    "isEdit": true
   },
   {
     "capital": "",
