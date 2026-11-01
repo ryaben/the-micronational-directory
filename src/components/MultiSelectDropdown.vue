@@ -33,6 +33,10 @@ function optionLabel(option) {
     : String(option)
 }
 
+function optionImage(option) {
+  return typeof option === 'object' && option !== null ? option.image : ''
+}
+
 const allValues = computed(() => props.options.map(optionValue))
 const filteredOptions = computed(() => {
   const query = searchQuery.value.trim().toLocaleLowerCase()
@@ -151,6 +155,7 @@ onBeforeUnmount(() => {
             :checked="modelValue.includes(optionValue(option))"
             @change="updateOption(option, $event.target.checked)"
           />
+          <img v-if="optionImage(option)" class="multi-select-option-image" :src="optionImage(option)" alt="" loading="lazy" />
           <span>{{ optionLabel(option) }}</span>
         </label>
         <span v-if="searchable && !filteredOptions.length" class="multi-select-empty">{{ noOptionsLabel }}</span>
@@ -308,5 +313,12 @@ onBeforeUnmount(() => {
   width: 16px;
   margin: 0;
   accent-color: var(--color-accent);
+}
+
+.multi-select-option-image {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 </style>

@@ -10,6 +10,7 @@ import VueDatePicker from '@vuepic/vue-datepicker'
 import Recaptcha from '../components/ReCaptcha.vue'
 import HelpTooltip from '../components/HelpTooltip.vue'
 import SelectedElement from '../components/SelectedElement.vue'
+import MultiSelectDropdown from './MultiSelectDropdown.vue'
 import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
 import ModerationImageEditor from './ModerationImageEditor.vue'
@@ -642,37 +643,33 @@ const emit = defineEmits([
                 @toggle="toggleUncertain('memberships')"
               />
               <div class="new-entry-option-container">
-                <div class="new-entry-select-controls">
-                  <select
-                    name="newEntryMemberships"
-                    class="new-entry-option-select"
-                    @change="addMembership"
-                  >
-                    <option value="" disabled selected>
-                      {{ $t('entryForm.selectOrganization') }}
-                    </option>
-                    <optgroup>
-                      <option
-                        v-for="(membership, i) in organizationsDirectory"
-                        :key="i"
-                        :value="membership.name.main"
-                      >
-                        {{ membership.name.main }} ({{ membership.name.mainAlt }})
-                      </option>
-                    </optgroup>
-                  </select>
-                  <input
-                    type="text"
-                    :placeholder="$t('entryForm.otherMembershipPlaceholder')"
-                    v-model="customMembership"
-                  />
-                  <button
-                    type="button"
-                    class="login-button squared-button color-transition new-entry-option-button"
-                    @click="addCustomMembership"
-                  >
-                    {{ $t('entryForm.add') }}
-                  </button>
+                <div class="membership-options">
+                  <div class="membership-option">
+                    <span class="membership-option__label">{{ $t('entryForm.organizationMembership') }}</span>
+                    <MultiSelectDropdown
+                      :options="membershipOptions(organizationsDirectory, 'logo')"
+                      :model-value="selectedMembershipNames(organizationsDirectory)"
+                      :placeholder="$t('entryForm.selectOrganization')"
+                      :searchable="true"
+                      :search-placeholder="$t('entryForm.selectOrganization')"
+                      :selected-count-label="$t('entryForm.selectedCount')"
+                      :no-options-label="$t('entryForm.noResults')"
+                      @update:model-value="setDirectoryMemberships(organizationsDirectory, $event)"
+                    />
+                  </div>
+                  <div class="membership-option">
+                    <span class="membership-option__label">{{ $t('entryForm.constituentMembership') }}</span>
+                    <MultiSelectDropdown
+                      :options="membershipOptions(micronationsDirectory, 'flag')"
+                      :model-value="selectedMembershipNames(micronationsDirectory)"
+                      :placeholder="$t('entryForm.selectMicronations')"
+                      :searchable="true"
+                      :search-placeholder="$t('entryForm.selectMicronations')"
+                      :selected-count-label="$t('entryForm.selectedCount')"
+                      :no-options-label="$t('entryForm.noResults')"
+                      @update:model-value="setDirectoryMemberships(micronationsDirectory, $event)"
+                    />
+                  </div>
                 </div>
                 <div class="selected-elements-container">
                   <SelectedElement
@@ -972,6 +969,7 @@ export default {
     VueDatePicker,
     Recaptcha,
     SelectedElement,
+    MultiSelectDropdown,
     DirectoryEntry,
     OrganizationEntry,
     HelpTooltip
@@ -1558,6 +1556,30 @@ export default {
         this.formPlaceholders.newEntryMemberships.push(membership)
       event.target.value = ''
     },
+    selectedMembershipNames(directory) {
+      const names = new Set((directory || []).map((entry) => entry?.name?.main).filter(Boolean))
+      return this.formPlaceholders.newEntryMemberships.filter((name) => names.has(name))
+    },
+    membershipOptions(directory, imageField) {
+      return (directory || [])
+        .filter((entry) => entry?.name?.main)
+        .map((entry) => ({
+          value: entry.name.main,
+          label: entry.name.mainAlt ? `${entry.name.main} (${entry.name.mainAlt})` : entry.name.main,
+          image: entry[imageField] || ''
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }))
+    },
+    setDirectoryMemberships(directory, selected) {
+      const names = new Set((directory || []).map((entry) => entry?.name?.main).filter(Boolean))
+      const memberships = this.formPlaceholders.newEntryMemberships.filter((name) => !names.has(name))
+      this.formPlaceholders.newEntryMemberships.splice(
+        0,
+        this.formPlaceholders.newEntryMemberships.length,
+        ...memberships,
+        ...selected
+      )
+    },
     addCustomLanguage() {
       const language = this.customLanguage.trim()
       if (language && !this.formPlaceholders.newEntryLanguages.includes(language)) {
@@ -1996,6 +2018,16 @@ export default {
   margin: 0;
 }
 
+.membership-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+
+.membership-option { min-width: 0; }
+.membership-option__label { display: block; margin: 0 0 6px; font-size: 13px; }
+
 .new-entry-option-button {
   width: auto;
   min-width: 76px;
@@ -2275,6 +2307,8 @@ div.new-entry-type {
   .new-entry-select-controls {
     grid-template-columns: minmax(0, 1fr) auto;
   }
+
+  .membership-options { grid-template-columns: minmax(0, 1fr); }
 
   .new-entry-select-controls select {
     grid-column: 1 / -1;
