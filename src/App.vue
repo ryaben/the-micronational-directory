@@ -38,8 +38,7 @@ onMounted(() => {
             'Directory',
             'Organizations',
             'GlobalMap',
-            'NewEntry',
-            'ModerationHub'
+            'NewEntry'
           ]"
         >
           <component

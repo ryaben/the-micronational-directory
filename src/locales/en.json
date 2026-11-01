@@ -472,7 +472,7 @@
   },
   "entryForm": {
     "readInstructionsBeforeUncertainty": "Please read the instructions for each field carefully. Fields marked with an asterisk (*) are required; the others can be left blank. Help us reduce moderation work! Mark a field with",
-    "readInstructionsAfterUncertainty": "when its value is uncertain or has not been precisely confirmed. This note will be included for moderators. <a href=\"mailto:themicronationaldirectory@gmail.com\">Contact us with any questions</a>, and check the preview beside the form.",
+    "readInstructionsAfterUncertainty": " when its value is uncertain or has not been precisely confirmed. This note will be included for moderators. <a href=\"mailto:themicronationaldirectory@gmail.com\">Contact us with any questions</a>, and check the preview beside the form.",
     "aiTitle": "AI-powered autocomplete",
     "aiDescription": "Paste a source URL or text, or upload an image/PDF. The assistant suggests fields for you to review.",
     "aiPlaceholder": "Paste source text or a webpage URL",
