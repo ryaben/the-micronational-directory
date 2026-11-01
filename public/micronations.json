@@ -49693,14 +49693,23 @@
     },
     "memberships": [],
     "foundationDate": {
-      "_seconds": 1509837900,
-      "_nanoseconds": 0
+      "_seconds": 1509837900
     },
     "name": {
-      "mainAlt": "Albuna",
-      "titleAlt": "Liber Teritore de la",
       "main": "Valbona",
-      "title": "Libero Territorio di"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Albuna",
+          "title": "Liber Teritore de la"
+        },
+        {
+          "main": "Valbona",
+          "title": "Libero Territorio di"
+        }
+      ],
+      "title": "Libero Territorio di",
+      "titleAlt": "Liber Teritore de la"
     },
     "motto": "Per aspera ad astra (Through hardship to the stars)",
     "currency": "Lira of Valbona, Euro",
@@ -49713,7 +49722,21 @@
       "https://micronations.wiki/wiki/Free_Territory_of_Valbona"
     ],
     "approved": true,
-    "id": "vRHaFEspjX1t4nS97IF5"
+    "id": "vRHaFEspjX1t4nS97IF5",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793502665
+        }
+      }
+    ],
+    "createdAt": "2026-11-01T03:11:06Z",
+    "isEdit": true
   },
   {
     "capital": "Lochaber",
