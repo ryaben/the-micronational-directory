@@ -2817,5 +2817,45 @@
     "isEdit": false,
     "memberships": [],
     "id": "ip0L5VAQPEcuw3IkJxaU"
+  },
+  {
+    "name": {
+      "main": "Nova Associate Micronational Organisation",
+      "mainAlt": "NAMO",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "Dream Big",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://discord.gg/X8nChsX6S"
+    ],
+    "websites": [
+      "https://namoalliance.org",
+      "https://micronations.wiki/wiki/Nova_Associate_Micronational_Organisation",
+      "https://wiki.namoalliance.org/wiki/Nova_Associate_Micronational_Organisation"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto"
+    ],
+    "logo": "/images/logos/Nova Associate Micronational Organisation.png",
+    "foundationDate": {
+      "_seconds": 1751328000
+    },
+    "creationDate": {
+      "_seconds": 1793500594
+    },
+    "createdAt": "2026-11-01T02:36:34Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "6As1PBidJRk48jv35Hiy"
   }
 ]
