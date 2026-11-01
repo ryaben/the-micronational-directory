@@ -57737,5 +57737,61 @@
     "createdAt": "2026-11-01T02:17:52Z",
     "isEdit": false,
     "id": "vcPuWeTHPqk6qRmniNwP"
+  },
+  {
+    "name": {
+      "main": "Slanovia",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Republika Slanovija",
+          "title": ""
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Mi usi Slanovci - jedna krajina, jedna kultura, jeden narod (We're all Slanovians - one nation, one culture, one folk)",
+    "languages": [
+      "Slanovian",
+      "German",
+      "Bavarian"
+    ],
+    "contactInfo": [
+      "slanovija.gov@gmail.com"
+    ],
+    "websites": [
+      "https://wiki.namoalliance.org/wiki/Slanovia,_Republic_of",
+      "https://faqrss24.my.canva.site/republikaslanovija-gov"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Slanovia.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Livonija",
+    "currency": "Slanovian Lyň",
+    "memberships": [
+      "Nova Associate Micronational Organisation"
+    ],
+    "foundationDate": {
+      "seconds": 1721347200,
+      "_seconds": 1721347200
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793500149
+    },
+    "createdAt": "2026-11-01T02:29:09Z",
+    "isEdit": false,
+    "id": "5IAQvEQG4y3orxvLRS0H"
   }
 ]
