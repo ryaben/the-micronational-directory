@@ -58162,5 +58162,55 @@
     "createdAt": "2026-11-01T21:41:34Z",
     "isEdit": false,
     "id": "SqO62rc5P9FORGvXpF2Y"
+  },
+  {
+    "name": {
+      "main": "Avram",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Grand Duchy of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "grandduke@grandduchy.org",
+      "grandduchy@hotmail.com"
+    ],
+    "websites": [
+      "http://grandduchy.org/",
+      "https://en.wikipedia.org/wiki/Grand_Duchy_of_Avram",
+      "https://micronations.wiki/wiki/Duchy_of_Avram"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Avram.avif",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Avram, Ducal",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 339273900
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793570404
+    },
+    "createdAt": "2026-11-01T22:00:04Z",
+    "isEdit": false,
+    "id": "LAk39vPIY2uDqKZigymi"
   }
 ]
