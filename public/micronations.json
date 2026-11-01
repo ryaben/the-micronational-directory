@@ -58058,5 +58058,59 @@
     "createdAt": "2026-11-01T21:31:12Z",
     "isEdit": false,
     "id": "N0q8zo7I7F40lxtgVFNE"
+  },
+  {
+    "name": {
+      "main": "Winthroopstan",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Winthroopstan",
+          "title": "Republik"
+        }
+      ],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Honor and Virtue",
+    "languages": [
+      "English",
+      "German",
+      "Winthroopstanian"
+    ],
+    "contactInfo": [
+      "winthroopstan@yahoo.com",
+      "winthroopstan@web.de"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Republic_of_Winthroopstan",
+      "https://web.archive.org/web/20190322002454/https://winthroopstan.weebly.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Winthroopstan.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "The Imperial Palace",
+    "currency": "Wimbro, Euro, US Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1431628380
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793568914
+    },
+    "createdAt": "2026-11-01T21:35:14Z",
+    "isEdit": false,
+    "id": "undZI6vVZHQH6p305bhX"
   }
 ]
