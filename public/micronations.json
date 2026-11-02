@@ -58310,5 +58310,58 @@
     "createdAt": "2026-11-01T22:32:21Z",
     "isEdit": false,
     "id": "whV3aDAgVOCri9ISGQ8l"
+  },
+  {
+    "name": {
+      "main": "Taralaria",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Tarlaria",
+          "title": ""
+        }
+      ],
+      "title": "Gran Imperio de",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://imperiodetarlaria.es.tl/Contacto.htm"
+    ],
+    "websites": [
+      "https://imperiodetarlaria.es.tl/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "type"
+    ],
+    "flag": "/images/flags/Taralaria.png",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "capital": "Taralaria",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1264636800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793630463
+    },
+    "createdAt": "2026-11-02T14:41:03Z",
+    "isEdit": false,
+    "id": "eCJRpOWaIXsRlvIZv79i"
   }
 ]
