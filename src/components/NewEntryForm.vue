@@ -1563,7 +1563,8 @@ export default {
     membershipOptions(directory, imageField) {
       return (directory || [])
         .filter((entry) => entry?.name?.main)
-        .map((entry) => ({
+        .map((entry, index) => ({
+          key: `${entry.directoryId || entry.id || index}:${entry.name.main}`,
           value: entry.name.main,
           label: entry.name.mainAlt ? `${entry.name.main} (${entry.name.mainAlt})` : entry.name.main,
           image: entry[imageField] || ''
