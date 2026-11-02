@@ -2857,5 +2857,49 @@
     "isEdit": false,
     "memberships": [],
     "id": "6As1PBidJRk48jv35Hiy"
+  },
+  {
+    "name": {
+      "main": "Organización de Micronaciones Ibéricas",
+      "mainAlt": "OMI",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Español",
+      "Portugués",
+      "Catalán",
+      "Gallego",
+      "Euskera"
+    ],
+    "contactInfo": [
+      "https://x.com/OMIparlamento",
+      "omi.parlamento@gmail.com"
+    ],
+    "websites": [
+      "https://es.micronations.wiki/wiki/Organizaci%C3%B3n_de_Micronaciones_Ib%C3%A9ricas",
+      "https://micronaciones.fandom.com/wiki/OMI"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "logo": "/images/logos/Organización de Micronaciones Ibéricas.png",
+    "foundationDate": {
+      "_seconds": 1737763200
+    },
+    "creationDate": {
+      "_seconds": 1793640610
+    },
+    "createdAt": "2026-11-02T17:30:10Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "GpGAuzcXlzfLoqrYA9Y3"
   }
 ]
