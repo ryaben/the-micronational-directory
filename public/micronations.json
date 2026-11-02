@@ -58363,5 +58363,57 @@
     "createdAt": "2026-11-02T14:41:03Z",
     "isEdit": false,
     "id": "eCJRpOWaIXsRlvIZv79i"
+  },
+  {
+    "name": {
+      "main": "Villalta",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Reino de",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://gobierno-villalta.activo.mx/"
+    ],
+    "websites": [
+      "https://reino-villalta.blogspot.com/",
+      "https://www.reino-villalta-gobierno.blogspot.com",
+      "http://www.reinodevillalta.webs.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Villalta.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Villalta",
+    "currency": "Corona de Villalta",
+    "memberships": [
+      "Taralaria"
+    ],
+    "foundationDate": {
+      "seconds": 1264982400,
+      "_seconds": 1264982400
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793630161
+    },
+    "createdAt": "2026-11-02T14:36:01Z",
+    "isEdit": false,
+    "id": "ndPjPPJmR2N09IX3qjhL"
   }
 ]
