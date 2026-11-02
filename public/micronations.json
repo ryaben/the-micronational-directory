@@ -58421,7 +58421,7 @@
       "main": "Estramosa",
       "mainAlt": "",
       "alt": [],
-      "title": "Republica de",
+      "title": "República de",
       "titleAlt": ""
     },
     "motto": "",
@@ -58462,8 +58462,19 @@
     "creationDate": {
       "_seconds": 1793634165
     },
-    "createdAt": "2026-11-02T15:42:45Z",
-    "isEdit": false,
-    "id": "pjWajkhmQTiY0YJJlF4T"
+    "createdAt": "2026-11-02T15:47:07Z",
+    "isEdit": true,
+    "id": "pjWajkhmQTiY0YJJlF4T",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793634426
+        }
+      }
+    ]
   }
 ]
