@@ -42209,7 +42209,7 @@
   },
   {
     "capital": "O'Gweed",
-    "flag": "/images/flags/Saint Corjimia.jpg",
+    "flag": "/images/flags/Saint Corjimia-1793641235805.jpg",
     "languages": [
       "English"
     ],
@@ -42233,14 +42233,14 @@
       "LOSS"
     ],
     "foundationDate": {
-      "_seconds": 1035601200,
-      "_nanoseconds": 0
+      "_seconds": 1035601200
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Saint Corjimia",
-      "title": "Principality of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
     },
     "motto": "",
     "currency": "Pu -Dong",
@@ -42252,7 +42252,21 @@
       "http://web.archive.org/web/20051223061837/http://www.stcorjimia.itgo.com/"
     ],
     "approved": true,
-    "id": "ABwEsTFScNACt2si4pt5"
+    "id": "ABwEsTFScNACt2si4pt5",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793641237
+        }
+      }
+    ],
+    "createdAt": "2026-11-02T17:40:37Z",
+    "isEdit": true
   },
   {
     "capital": "Patras",
