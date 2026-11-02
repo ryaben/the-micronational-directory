@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style scoped>
+.site-section :deep(.mapbox-container),
+.site-section :deep(.mapboxgl-map) {
+  min-height: 350px;
+}
+
 .map-info-bar {
   display: flex;
   align-items: center;
