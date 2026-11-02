@@ -58415,5 +58415,55 @@
     "createdAt": "2026-11-02T14:36:01Z",
     "isEdit": false,
     "id": "ndPjPPJmR2N09IX3qjhL"
+  },
+  {
+    "name": {
+      "main": "Estramosa",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republica de",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Spanish"
+    ],
+    "contactInfo": [
+      "https://republicaestramosa.foroactivo.com/login"
+    ],
+    "websites": [
+      "https://micronaciones.fandom.com/wiki/Usuario_Blog:Colladoalfa/Republica_de_Estramosa",
+      "http://www.gobiernodeestramosa-estr.blogspot.com"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Estramosa.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Nueva España",
+    "currency": "Franco de Estramosa",
+    "memberships": [
+      "Taralaria"
+    ],
+    "foundationDate": {
+      "_seconds": 1258029600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793634165
+    },
+    "createdAt": "2026-11-02T15:42:45Z",
+    "isEdit": false,
+    "id": "pjWajkhmQTiY0YJJlF4T"
   }
 ]
