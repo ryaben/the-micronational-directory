@@ -58534,5 +58534,59 @@
     "createdAt": "2026-11-02T18:22:18Z",
     "isEdit": false,
     "id": "yipFMxaSB0npVbyfptZe"
+  },
+  {
+    "name": {
+      "main": "Aliama",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Aliama",
+          "title": "Reino Livre de"
+        }
+      ],
+      "title": "Free Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Portuguese"
+    ],
+    "contactInfo": [
+      "aliama.govenment@gmail.com",
+      "https://www.facebook.com/people/Eldusian-Aliaman-Commonwealth/100069068234902/"
+    ],
+    "websites": [
+      "https://micronations.fandom.com/wiki/Free_Kingdom_of_Aliama"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Aliama.webp",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1427903220
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793645285
+    },
+    "createdAt": "2026-11-02T18:48:05Z",
+    "isEdit": false,
+    "id": "6WV4lyUB005ZLcUdT8BB"
   }
 ]
