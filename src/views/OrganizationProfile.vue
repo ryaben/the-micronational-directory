@@ -3,7 +3,7 @@ import OrganizationArticle from '../components/OrganizationArticle.vue';
 import store from '../store';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({ organizationName: String });
+defineProps({ organizationName: String, entryId: String });
 const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
 </script>
 
@@ -56,8 +56,12 @@ export default {
         requestedOrganization() {
             const that = this;
             return {
-                info: store.getters.organizations.filter(element => element.approved).find(element => element.name.main === that.organizationName),
-                index: store.getters.organizations.filter(element => element.approved).findIndex(element => element.name.main === that.organizationName)
+                info: store.getters.organizations.filter(element => element.approved).find(element => that.entryId
+                    ? String(element.id) === that.entryId
+                    : String(element.id) === that.organizationName || element.name.main === that.organizationName),
+                index: store.getters.organizations.filter(element => element.approved).findIndex(element => that.entryId
+                    ? String(element.id) === that.entryId
+                    : String(element.id) === that.organizationName || element.name.main === that.organizationName)
             }
         },
         previousOrganization() {

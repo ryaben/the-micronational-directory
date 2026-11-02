@@ -52,7 +52,9 @@ function setFormValues(item) {
 }
 watch(entry, setFormValues, { immediate: true })
 function onSuccess() {
-  router.push(props.entryType === 'micronation' ? `/directory/${encodeURIComponent(entry.value.name.main)}` : `/organizations/${encodeURIComponent(entry.value.name.main)}`)
+  const duplicateNames = directory.value.filter(item => item.approved && item.name.main === entry.value.name.main).length > 1
+  const identifier = duplicateNames ? entry.value.id : entry.value.name.main
+  router.push(`/${props.entryType === 'micronation' ? 'directory' : 'organizations'}/${encodeURIComponent(identifier)}`)
 }
 </script>
 

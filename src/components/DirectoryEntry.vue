@@ -135,7 +135,7 @@ const emit = defineEmits(['open-profile'])
 
         <div v-if="viewMode !== 'collage' && infoView" class="info-buttons-container">
             <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">{{ $t('directory.fullProfile') }}</button>
-            <router-link v-else-if="!disableFullProfileButton" :to="'/directory/' + info.name.main"
+            <router-link v-else-if="!disableFullProfileButton" :to="profileRoute(info)"
                 class="info-button full-width">{{ $t('directory.fullProfile') }}</router-link>
             <span v-else class="info-button full-width disabled">{{ $t('directory.fullProfile') }}</span>
         </div>
@@ -164,6 +164,11 @@ export default {
         }
     },
     methods: {
+        profileRoute(entry) {
+            const matches = store.getters.micronations.filter(item => item.approved && item.name.main === entry.name.main);
+            const identifier = matches.length > 1 ? entry.id : entry.name.main;
+            return `/directory/${encodeURIComponent(identifier)}`;
+        },
         toggleInfo() {
             if (this.alwaysExpanded) return;
             this.infoView = !this.infoView;
