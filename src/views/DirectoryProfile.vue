@@ -3,7 +3,7 @@ import DirectoryArticle from '../components/DirectoryArticle.vue';
 import store from '../store';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 
-defineProps({ micronationName: String });
+defineProps({ micronationName: String, entryId: String });
 const { micronationsDirectory, supranationalMicronations, visibleOrganizations } = useDirectoryData();
 </script>
 
@@ -54,8 +54,12 @@ export default {
         requestedMicronation() {
             const that = this;
             return {
-                info: store.getters.micronations.filter(element => element.approved).find(element => element.name.main === that.micronationName),
-                index: store.getters.micronations.filter(element => element.approved).findIndex(element => element.name.main === that.micronationName)
+                info: store.getters.micronations.filter(element => element.approved).find(element => that.entryId
+                    ? String(element.id) === that.entryId
+                    : String(element.id) === that.micronationName || element.name.main === that.micronationName),
+                index: store.getters.micronations.filter(element => element.approved).findIndex(element => that.entryId
+                    ? String(element.id) === that.entryId
+                    : String(element.id) === that.micronationName || element.name.main === that.micronationName)
             }
         },
         previousMicronation() {

@@ -3,6 +3,7 @@ import { checkIcon } from '../utils/EntrySourceFunctions';
 import EntrySource from '../components/EntrySource.vue';
 import AnimateHeight from 'vue-animate-height';
 import FavoriteToggle from './FavoriteToggle.vue';
+import store from '../store';
 
 defineProps({
     width: {
@@ -95,7 +96,7 @@ const emit = defineEmits(['open-profile'])
 
         <div v-if="infoView" class="info-buttons-container">
             <button v-if="inlineProfilePreview" type="button" class="info-button full-width" @click.stop="emit('open-profile')">{{ $t('organization.fullProfile') }}</button>
-            <router-link v-else :to="'/organizations/' + info.name.main" class="info-button full-width">{{ $t('organization.fullProfile') }}</router-link>
+            <router-link v-else :to="profileRoute(info)" class="info-button full-width">{{ $t('organization.fullProfile') }}</router-link>
         </div>
     </div>
 </template>
@@ -122,6 +123,11 @@ export default {
         }
     },
     methods: {
+        profileRoute(entry) {
+            const matches = store.getters.organizations.filter(item => item.approved && item.name.main === entry.name.main);
+            const identifier = matches.length > 1 ? entry.id : entry.name.main;
+            return `/organizations/${encodeURIComponent(identifier)}`;
+        },
         formatFoundation(date) {
             if (date == null || date === '') return 'Unknown';
             const seconds = date?._seconds ?? date?.seconds;
