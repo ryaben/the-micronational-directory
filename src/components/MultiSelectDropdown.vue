@@ -27,6 +27,12 @@ function optionValue(option) {
   return typeof option === 'object' && option !== null ? option.value : option
 }
 
+function optionKey(option) {
+  return typeof option === 'object' && option !== null
+    ? option.key ?? option.value
+    : option
+}
+
 function optionLabel(option) {
   return typeof option === 'object' && option !== null
     ? option.label ?? String(option.value)
@@ -37,11 +43,19 @@ function optionImage(option) {
   return typeof option === 'object' && option !== null ? option.image : ''
 }
 
+function normalizeSearchText(value) {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\p{P}\p{S}\s]/gu, '')
+    .toLocaleLowerCase()
+}
+
 const allValues = computed(() => props.options.map(optionValue))
 const filteredOptions = computed(() => {
-  const query = searchQuery.value.trim().toLocaleLowerCase()
+  const query = normalizeSearchText(searchQuery.value)
   if (!query) return props.options
-  return props.options.filter(option => optionLabel(option).toLocaleLowerCase().includes(query))
+  return props.options.filter(option => normalizeSearchText(optionLabel(option)).includes(query))
 })
 const allSelected = computed(
   () => allValues.value.length > 0 && (
@@ -149,7 +163,7 @@ onBeforeUnmount(() => {
           role="separator"
         ></div>
         <div class="multi-select-option-list">
-        <label v-for="option in filteredOptions" :key="optionValue(option)" class="multi-select-option">
+        <label v-for="option in filteredOptions" :key="optionKey(option)" class="multi-select-option">
           <input
             type="checkbox"
             :checked="modelValue.includes(optionValue(option))"
