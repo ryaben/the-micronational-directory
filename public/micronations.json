@@ -58490,5 +58490,49 @@
         }
       }
     ]
+  },
+  {
+    "name": {
+      "main": "Aceland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Democratic Republic of",
+      "titleAlt": ""
+    },
+    "motto": "A Cup of Tea Solves Everything!",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "aceland@hotmail.co.uk"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20110724090852/http://www.aceland.t83.net/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate",
+      "type"
+    ],
+    "flag": "/images/flags/Aceland.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1128178920
+    },
+    "creationDate": {
+      "_seconds": 1793643738
+    },
+    "createdAt": "2026-11-02T18:22:18Z",
+    "isEdit": false,
+    "id": "yipFMxaSB0npVbyfptZe"
   }
 ]
