@@ -14424,52 +14424,72 @@
     "languages": [
       "English",
       "German",
-      "Esperanto"
+      "Esperanto",
+      "Serbo-Croatian",
+      "French"
     ],
     "author": {
       "name": "Arthur de Tourneau",
       "email": "info@duckionary.com"
     },
     "type": [
-      "Physical",
-      "Digital"
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1695457269,
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 1535105760,
-      "_nanoseconds": 0
+      "seconds": 1535105760,
+      "_seconds": 1535105760
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Duckionary",
-      "title": "Parliamentary Monarchy of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Parliamentary Monarchy of",
+      "titleAlt": ""
     },
-    "motto": "The Tolerance in society must guarantee every citizen the freedom to believe what he wants.",
+    "motto": "Veritas et constantia, ad archiducem et terram",
     "currency": "Duckats",
     "location": {
-      "latitude": 48.421871625705364,
-      "longitude": 13.475831365356072
+      "latitude": 0,
+      "longitude": 0
     },
     "memberships": [
-      "UAMW",
-      "MPA"
+      "MPA",
+      "Union Against Micronational War"
     ],
     "websites": [
       "https://duckionary.com/",
-      "https://mfa-duckionary.com",
-      "https://micronations.wiki/wiki/Parliamentary_Monarchy_of_Duckionary"
+      "https://www.dovearchives.wiki/wiki/Parliamentary_Monarchy_of_Duckionary"
     ],
     "contactInfo": [
       "https://twitter.com/DuckionaryGov",
       "https://www.facebook.com/Duckionary",
+      "https://www.youtube.com/@duckionarygov",
+      "http://www.instagram.com/duckionarygov",
+      "http://tiktok.com/@duckionarygov",
+      "https://www.patreon.com/duckionarygov",
+      "https://www.flickr.com/photos/duckionary/albums",
       "info@duckionary.com"
     ],
     "approved": true,
-    "id": "qFOF8YTyCV0pAXFJTjm9"
+    "id": "qFOF8YTyCV0pAXFJTjm9",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "Arthur de Tourneau",
+          "email": "info@duckionary.com"
+        },
+        "date": {
+          "_seconds": 1793725463
+        }
+      }
+    ],
+    "createdAt": "2026-11-03T17:04:24Z",
+    "isEdit": true
   },
   {
     "capital": "Chatham",
