@@ -58625,5 +58625,52 @@
     "createdAt": "2026-11-02T18:48:05Z",
     "isEdit": false,
     "id": "6WV4lyUB005ZLcUdT8BB"
+  },
+  {
+    "name": {
+      "main": "Iridia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Irídaga"
+    ],
+    "contactInfo": [
+      "cdp.1995@comcast.net"
+    ],
+    "websites": [
+      "https://micras.org/mwiki/Iridia",
+      "https://web.archive.org/web/20120620015126/http://empireofiridia.webs.com/",
+      "https://empireofiridia.proboards.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Iridia.jpg",
+    "type": [
+      "Digital",
+      "Fictional"
+    ],
+    "capital": "Iridia City",
+    "currency": "",
+    "memberships": [
+      "Micronational Cartography Society"
+    ],
+    "foundationDate": {
+      "_seconds": 1169809200
+    },
+    "creationDate": {
+      "_seconds": 1793714530
+    },
+    "createdAt": "2026-11-03T14:02:10Z",
+    "isEdit": false,
+    "id": "n4bnh7bONK2uVTBpnKJG"
   }
 ]
