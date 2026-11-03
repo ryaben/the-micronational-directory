@@ -20988,6 +20988,7 @@
   {
     "capital": "",
     "flag": "/images/flags/Hassmoria.jpg",
+    "flagEnhanced": "/images/flags/Hassmoria-enhanced.jpg",
     "languages": [
       "German"
     ],
@@ -28066,6 +28067,7 @@
   {
     "capital": "Lemuria",
     "flag": "/images/flags/Litusarem.jpg",
+    "flagEnhanced": "/images/flags/Litusarem-enhanced.jpg",
     "languages": [
       "Spanish"
     ],
@@ -42226,7 +42228,8 @@
   },
   {
     "capital": "O'Gweed",
-    "flag": "/images/flags/Saint Corjimia-1793641235805.jpg",
+    "flag": "/images/flags/Saint Corjimia.jpg",
+    "flagEnhanced": "/images/flags/Saint Corjimia-1793641235805.jpg",
     "languages": [
       "English"
     ],
@@ -50958,59 +50961,6 @@
     "id": "kde62kugkb60nIqwTUxd"
   },
   {
-    "capital": "Divellis",
-    "flag": "/images/flags/Vlasynian Despotate.jpg",
-    "languages": [
-      "Romanian",
-      "Latin"
-    ],
-    "contactInfo": [
-      "https://discord.gg/DZwwMMne",
-      "https://www.youtube.com/channel/UCzdMXdkgCd-JVdDwNcxOUhA"
-    ],
-    "author": {
-      "name": "The Micronational Directory",
-      "email": "themicronationaldirectory@gmail.com"
-    },
-    "type": [
-      "Physical"
-    ],
-    "creationDate": {
-      "_seconds": 1708823286,
-      "_nanoseconds": 0
-    },
-    "memberships": [
-      "ARM",
-      "RIC",
-      "RAVN",
-      "UBC",
-      "GUM",
-      "North-Western Alliance"
-    ],
-    "foundationDate": {
-      "_seconds": 1477346640,
-      "_nanoseconds": 0
-    },
-    "name": {
-      "mainAlt": "Despotatul Vlasinian",
-      "titleAlt": "",
-      "main": "Vlasynian Despotate",
-      "title": ""
-    },
-    "motto": "Aeterna Gloria (Eternal Glory)",
-    "currency": "Vlasynian Leu",
-    "location": {
-      "latitude": 0,
-      "longitude": 0
-    },
-    "websites": [
-      "https://micronations.wiki/wiki/Vlasynian_Despotate",
-      "https://web.archive.org/web/20220401205314/https://vlasynia.wordpress.com/"
-    ],
-    "approved": true,
-    "id": "tVTmW1LcM00WRjLE0ITZ"
-  },
-  {
     "capital": "Volletnia",
     "flag": "/images/flags/Volletnia.jpg",
     "languages": [
@@ -56386,7 +56336,8 @@
       "motto",
       "type"
     ],
-    "flag": "/images/flags/Canited.jpg",
+    "flag": "/images/flags/Canited-orig.png",
+    "flagEnhanced": "/images/flags/Canited.jpg",
     "type": [
       "Digital"
     ],
@@ -56827,7 +56778,8 @@
     },
     "approved": true,
     "uncertain": [],
-    "flag": "/images/flags/Geniusz.jpg",
+    "flag": "/images/flags/Geniusz-orig.png",
+    "flagEnhanced": "/images/flags/Geniusz.jpg",
     "type": [
       "Physical"
     ],
@@ -58270,7 +58222,8 @@
     "uncertain": [
       "type"
     ],
-    "flag": "/images/flags/Jeraco.jpg",
+    "flag": "/images/flags/Jeraco-orig.png",
+    "flagEnhanced": "/images/flags/Jeraco.jpg",
     "type": [
       "Digital"
     ],
@@ -58536,6 +58489,7 @@
       "type"
     ],
     "flag": "/images/flags/Aceland.jpg",
+    "flagEnhanced": "/images/flags/Aceland-enhanced.jpg",
     "type": [
       "Digital"
     ],
