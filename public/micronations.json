@@ -22618,7 +22618,10 @@
     "capital": "",
     "flag": "/images/flags/Identitem de Lati.jpg",
     "languages": [
-      "English"
+      "English",
+      "Latin",
+      "German",
+      "Spanish"
     ],
     "contactInfo": [
       "http://web.archive.org/web/20011117082233/http://www.geocities.com/CapitolHill/Senate/1551/citizen.html"
@@ -22628,8 +22631,7 @@
       "email": "themicronationaldirectory@gmail.com"
     },
     "type": [
-      "Physical",
-      "Digital"
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1696225952,
@@ -22639,26 +22641,41 @@
       "LUN"
     ],
     "foundationDate": {
-      "_seconds": 830055600,
-      "_nanoseconds": 0
+      "_seconds": 830055600
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Identitem de Lati",
-      "title": "Empire of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Empire of",
+      "titleAlt": ""
     },
-    "motto": "",
+    "motto": "Semper Fortis, Semper Placatus",
     "currency": "",
     "location": {
       "latitude": 0,
       "longitude": 0
     },
     "websites": [
-      "http://web.archive.org/web/20011029205739/http://www.geocities.com/CapitolHill/Senate/1551/"
+      "http://web.archive.org/web/20011029205739/http://www.geocities.com/CapitolHill/Senate/1551/",
+      "https://paisessinestado.blogspot.com/2008/12/identidem-de-lati.html"
     ],
     "approved": true,
-    "id": "7y8wRPykdpFUj6ASyKLQ"
+    "id": "7y8wRPykdpFUj6ASyKLQ",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793674729
+        }
+      }
+    ],
+    "createdAt": "2026-11-03T02:58:48Z",
+    "isEdit": true
   },
   {
     "capital": "Uvenia",
