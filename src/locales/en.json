@@ -33,6 +33,7 @@
     "account": "Account",
     "info": "Info",
     "about": "About us",
+    "flagRevival": "Flag Revival",
     "donate": "Donate",
     "terms": "Contests T&C"
   },
@@ -58,6 +59,19 @@
     "laGacetaArticle": "<a href=\"https://lagaceta-eldorado.blogspot.com/2023/09/el-dorado-comienza-participacion-activa.html\" target=\"_blank\">News article</a> about El Dorado's participation in TMD, published by <a href=\"https://lagaceta-eldorado.blogspot.com/\" target=\"_blank\">La Gaceta</a>.",
     "batyrTimesArticle": "<a href=\"https://www.hasanistan.world/2023/11/batyr-times-interviews-micronational.html\" target=\"_blank\">Interview article</a> discussing TMD's mission, vision, goals and achievements, conducted by <a href=\"https://www.hasanistan.world/\" target=\"_blank\">Batyr Times</a>, the official digital newspaper of Hasanistan.",
     "doveArchivesArticle": "<a href=\"https://www.dovearchives.wiki/wiki/The_Micronational_Directory\" target=\"_blank\">Encyclopedic article</a> describing general aspects of The Micronational Directory, created by Malus and hosted in <a href=\"https://www.dovearchives.wiki\" target=\"_blank\">Dove Archives</a>."
+  },
+  "flagRevival": {
+    "title": "Flag Revival",
+    "intro": "Many older micronations have little surviving information online, and some of their flags remain only in small or low-quality image files. Flag Revival is an ongoing effort to make these historical symbols easier to see and preserve in the Directory.",
+    "method": "For each selected flag, Gemini Pro is used to help reconstruct a clearer, higher-resolution rendition from the surviving reference. The work is guided by the original image and available evidence; it is a visual restoration, not a claim about a newly discovered or official design.",
+    "respect": "The original flag remains the reference and is always available alongside the enhanced image. National symbols are treated with respect: the enhanced version is an unofficial presentation aid intended to show the original design more clearly, not replace or reinterpret it.",
+    "examples": "Flag restoration comparisons",
+    "original": "Original",
+    "enhanced": "Enhanced",
+    "sliderLabel": "Compare original and enhanced flags for {name}",
+    "empty": "No enhanced flags have been added to the project yet.",
+    "profileNoteBefore": "This entry is part of the",
+    "profileNoteAfter": " project."
   },
   "donatePage": {
     "intro": "Since <b>The Micronational Directory</b> is an independent project without any sponsors, it is funded entirely by the personal income of our team, who also run the website in their free time. Here are the services we use and the expenses we pay each month:",

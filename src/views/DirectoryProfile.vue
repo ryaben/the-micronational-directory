@@ -19,6 +19,7 @@ const { micronationsDirectory, supranationalMicronations, visibleOrganizations }
             id: requestedMicronation.info.id,
             name: requestedMicronation.info.name,
             flag: requestedMicronation.info.flag,
+            flagEnhanced: requestedMicronation.info.flagEnhanced,
             motto: requestedMicronation.info.motto,
             type: requestedMicronation.info.type,
             languages: requestedMicronation.info.languages,

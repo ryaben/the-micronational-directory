@@ -7,6 +7,7 @@ import ProfileArticleNavigation from './ProfileArticleNavigation.vue'
 import ProfileDataCell from './ProfileDataCell.vue'
 import UncertaintyToggle from './UncertaintyToggle.vue'
 import store from '../store'
+import { ref } from 'vue'
 
 const normalizeBanknoteCatalogName = (name) =>
   (name || '')
@@ -61,6 +62,8 @@ defineProps({
     default: false
   }
 })
+
+const enhancedFlagSelected = ref(false)
 </script>
 
 <template>
@@ -122,7 +125,14 @@ defineProps({
       <div class="directory-article-content">
         <div class="article-column flag">
           <UncertaintyToggle v-if="info.uncertain?.includes('flag')" :active="true" disabled />
-          <img :src="info.flag" class="article-flag" alt="Flag" />
+          <img :src="enhancedFlagSelected && info.flagEnhanced ? info.flagEnhanced : info.flag" class="article-flag" alt="Flag" />
+          <template v-if="info.flagEnhanced">
+            <div class="flag-version-switch" role="group" aria-label="Flag version">
+              <button type="button" :class="{ active: !enhancedFlagSelected }" @click="enhancedFlagSelected = false">{{ $t('flagRevival.original') }}</button>
+              <button type="button" :class="{ active: enhancedFlagSelected }" @click="enhancedFlagSelected = true">{{ $t('flagRevival.enhanced') }}</button>
+            </div>
+            <p class="enhanced-flag-note">{{ $t('flagRevival.profileNoteBefore') }} <router-link :to="{ name: 'FlagRevival' }">{{ $t('flagRevival.title') }}</router-link>{{ $t('flagRevival.profileNoteAfter') }}</p>
+          </template>
         </div>
 
         <div class="article-data-grid">
@@ -524,6 +534,7 @@ export default {
 .directory-article-content {
   display: grid;
   grid-template-columns: minmax(260px, 0.85fr) minmax(0, 2fr);
+  align-items: start;
   padding: 28px;
   gap: 24px;
 }
@@ -537,10 +548,13 @@ export default {
 .article-column.flag {
   align-items: center;
   align-self: start;
+  height: fit-content;
+  min-height: 0;
   background: var(--color-surface-raised);
   border-radius: var(--radius-lg);
   padding: 20px;
   border: 1px solid var(--color-border);
+  gap: 3px;
 }
 
 .article-flag {
@@ -551,9 +565,45 @@ export default {
   object-fit: contain;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+.flag-version-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: stretch;
+  margin-top: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background-soft);
+}
+.flag-version-switch button {
+  min-width: 0;
+  min-height: 28px;
+  padding: 2px 8px;
+  border: 0;
+  color: var(--color-text);
+  background: var(--color-background-soft);
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, font-weight 180ms ease;
+}
+.flag-version-switch button.active {
+  color: var(--color-navbar-text-color-active, var(--color-text));
+  background: var(--navbar-tab-background-color-hover);
+  font-weight: 700;
+}
+.enhanced-flag-note {
+  align-self: stretch;
+  max-width: none;
+  margin: 4px 0 0;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: center;
+}
+.enhanced-flag-note a { color: var(--color-link); }
 
 .article-data-grid {
   display: grid;
+  align-self: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
   background: var(--color-surface-raised);
