@@ -21500,8 +21500,7 @@
   },
   {
     "foundationDate": {
-      "_seconds": 1147651200,
-      "_nanoseconds": 0
+      "_seconds": 1147651200
     },
     "approved": true,
     "contactInfo": [
@@ -21511,10 +21510,16 @@
       "Spanish"
     ],
     "name": {
-      "mainAlt": "Hezpenya",
-      "titleAlt": "Gran Ducado de",
       "main": "Hezpenya",
-      "title": "Estado Soberano de"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Hezpenya",
+          "title": "Gran Ducado de"
+        }
+      ],
+      "title": "Estado Soberano de",
+      "titleAlt": "Gran Ducado de"
     },
     "motto": "",
     "currency": "",
@@ -21525,7 +21530,8 @@
     "websites": [
       "http://estado-soberano-de-hezpenya.blogspot.com/",
       "https://e-s-hezpenya.es.tl/",
-      "https://micronaciones.fandom.com/wiki/Hezpenya"
+      "https://micronaciones.fandom.com/wiki/Hezpenya",
+      "https://web.archive.org/web/20100706165238/http://www.hezpenya.ne1.net/"
     ],
     "type": [
       "Digital"
@@ -21544,7 +21550,21 @@
       "_seconds": 1693450800,
       "_nanoseconds": 0
     },
-    "id": "DvqOHxVVT2CmnXDvRzSx"
+    "id": "DvqOHxVVT2CmnXDvRzSx",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793713138
+        }
+      }
+    ],
+    "createdAt": "2026-11-03T13:38:58Z",
+    "isEdit": true
   },
   {
     "capital": "",
