@@ -58898,5 +58898,58 @@
     "createdAt": "2026-11-04T12:22:32Z",
     "isEdit": false,
     "id": "kkHWyHRhM7UlhR7l4HGO"
+  },
+  {
+    "name": {
+      "main": "Upper Yafa",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Sultanate of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "contactInfo": [
+      "upper_yafa@post.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20081220025632/http://www.sedang.hm/Upperyafa/index.htm",
+      "https://web.archive.org/web/*/http://upperyafa.com/*"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Upper Yafa.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Mahjaba",
+    "currency": "Riyal",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "seconds": 883612800,
+      "_seconds": 883612800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793795894
+    },
+    "createdAt": "2026-11-04T12:38:14Z",
+    "isEdit": false,
+    "id": "Old29StiPFHJykoFLQ38"
   }
 ]
