@@ -853,11 +853,22 @@ const emit = defineEmits([
                   />
                   <input
                     v-if="flagRadio === 'file'"
+                    ref="flagFileInput"
                     type="file"
                     @input="previewImage"
                     accept="image/*"
                     :required="!directoryEdit"
                   />
+                  <button
+                    v-if="flagSource"
+                    class="clear-image-button"
+                    type="button"
+                    :aria-label="$t('entryForm.clearImage')"
+                    :title="$t('entryForm.clearImage')"
+                    @click="clearFlagFile"
+                  >
+                    ❌
+                  </button>
                   <label for=""
                     >({{ $t('entryForm.imageUnavailable') }}:
                     <a href="/images/missing-flag.png" target="_blank">{{
@@ -871,7 +882,13 @@ const emit = defineEmits([
 
             <template v-if="entryType === 'micronation' && userIsModerator">
               <label for="newEntryEnhancedFlag" class="new-entry-form-text">
-                <span>{{ $t('entryForm.flagEnhanced') }}</span><span>(<router-link :to="{ name: 'FlagRevival' }">{{ $t('flagRevival.title') }}</router-link>)</span>
+                <span>{{ $t('entryForm.flagEnhanced') }}</span
+                ><span
+                  >(<router-link :to="{ name: 'FlagRevival' }">{{
+                    $t('flagRevival.title')
+                  }}</router-link
+                  >)</span
+                >
               </label>
               <div class="uncertainty-field-control flag-input-control">
                 <UncertaintyToggle :active="false" disabled />
@@ -908,7 +925,23 @@ const emit = defineEmits([
                     @change="previewEnhancedFlagUrl"
                     :placeholder="$t('entryForm.imageUrlPlaceholder')"
                   />
-                  <input v-else type="file" accept="image/*" @change="previewEnhancedFlagFile" />
+                  <input
+                    v-else
+                    ref="enhancedFlagFileInput"
+                    type="file"
+                    accept="image/*"
+                    @change="previewEnhancedFlagFile"
+                  />
+                  <button
+                    v-if="enhancedFlagSource"
+                    class="clear-image-button"
+                    type="button"
+                    :aria-label="$t('entryForm.clearImage')"
+                    :title="$t('entryForm.clearImage')"
+                    @click="clearEnhancedFlagFile"
+                  >
+                    ❌
+                  </button>
                 </div>
               </div>
             </template>
@@ -1793,8 +1826,18 @@ export default {
       return subtype === 'jpeg' ? 'jpg' : subtype.replace(/\+.*/, '')
     },
     previewImage(event) {
-      this.flagSource = event.target.files[0]
-      this.flagPreview = URL.createObjectURL(this.flagSource)
+      this.flagSource = event.target.files?.[0] || null
+      this.flagPreview = this.flagSource ? URL.createObjectURL(this.flagSource) : ''
+    },
+    clearFlagFile() {
+      this.flagSource = null
+      this.flagPreview = ''
+      if (this.$refs.flagFileInput) this.$refs.flagFileInput.value = ''
+    },
+    clearEnhancedFlagFile() {
+      this.enhancedFlagSource = null
+      this.enhancedFlagPreview = ''
+      if (this.$refs.enhancedFlagFileInput) this.$refs.enhancedFlagFileInput.value = ''
     },
     previewEnhancedFlagFile(event) {
       this.enhancedFlagSource = event.target.files?.[0] || null
@@ -1822,7 +1865,9 @@ export default {
         this.enhancedFlagPreview = ''
         notify({
           title: this.$t('entryForm.messages.submitError'),
-          text: `The enhanced flag image could not be loaded (${error.message || 'network or CORS restriction'}). Use a direct image URL that allows downloading, or select a local file.`,
+          text: `The enhanced flag image could not be loaded (${
+            error.message || 'network or CORS restriction'
+          }). Use a direct image URL that allows downloading, or select a local file.`,
           type: 'error'
         })
       }
@@ -1841,7 +1886,9 @@ export default {
         this.flagPreview = ''
         notify({
           title: this.$t('entryForm.messages.submitError'),
-          text: `The flag image could not be loaded (${error.message || 'network or CORS restriction'}). Use a direct image URL that allows downloading, or select a local file.`,
+          text: `The flag image could not be loaded (${
+            error.message || 'network or CORS restriction'
+          }). Use a direct image URL that allows downloading, or select a local file.`,
           type: 'error'
         })
       }
@@ -2339,6 +2386,7 @@ div.new-entry-type {
 }
 
 .flag-preview-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -2351,6 +2399,67 @@ div.new-entry-type {
   border: 1px dashed var(--color-border-hover);
   border-radius: var(--radius-md);
   background: var(--color-background-soft);
+}
+
+.clear-image-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1;
+  cursor: pointer;
+  animation: clear-image-appear 180ms ease-out both;
+  transition:
+    background-color var(--transition-base) ease,
+    border-color var(--transition-base) ease,
+    color var(--transition-base) ease,
+    transform var(--transition-base) ease;
+}
+
+.clear-image-button:hover {
+  border-color: var(--color-accent);
+  background: var(--navbar-tab-background-color-hover);
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.clear-image-button:active {
+  transform: translateY(0);
+}
+
+.clear-image-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  outline-offset: 2px;
+}
+
+@keyframes clear-image-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-image-button {
+    animation: none;
+    transition: none;
+  }
 }
 
 .flag-preview-container > label {
