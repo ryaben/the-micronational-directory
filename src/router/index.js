@@ -96,6 +96,11 @@ const routes = [
     component: () => import("@/views/About.vue")
   },
   {
+    path: "/info/flag-revival",
+    name: "FlagRevival",
+    component: () => import("@/views/FlagRevival.vue")
+  },
+  {
     path: "/terms-of-contests",
     name: "TermsOfContests",
     component: () => import("@/views/TermsOfContests.vue")

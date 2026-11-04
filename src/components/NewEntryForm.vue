@@ -57,6 +57,7 @@ defineProps({
     required: false,
     default: () => ({
       newEntryFlag: '',
+      newEntryEnhancedFlag: '',
       newEntryName: '',
       newEntryNameAlt: '',
       newEntryAltNames: [],
@@ -204,8 +205,8 @@ const emit = defineEmits([
               />
             </Transition>
 
-            <label for="newEntryName" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.name') }}</span>
+            <label for="newEntryName" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.name') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -238,8 +239,7 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryTitle"
               class="new-entry-form-text mandatory"
-            ><span class="new-entry-label-content">
-              {{ $t('entryForm.title') }}</span>
+              ><span class="new-entry-label-content"> {{ $t('entryForm.title') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -268,10 +268,13 @@ const emit = defineEmits([
               v-if="entryType !== 'micronation'"
               for="newEntryNameAlt"
               class="new-entry-form-text"
-            ><span class="new-entry-label-content">
-              {{
-                $t(entryType === 'micronation' ? 'entryForm.alternativeName' : 'entryForm.acronym')
-              }}</span>
+              ><span class="new-entry-label-content">
+                {{
+                  $t(
+                    entryType === 'micronation' ? 'entryForm.alternativeName' : 'entryForm.acronym'
+                  )
+                }}</span
+              >
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -303,8 +306,8 @@ const emit = defineEmits([
             </div>
 
             <template v-if="entryType === 'micronation'">
-              <label for="newEntryAltNameMain" class="new-entry-form-text"><span class="new-entry-label-content">
-                {{ $t('entryForm.otherNames') }}</span>
+              <label for="newEntryAltNameMain" class="new-entry-form-text"
+                ><span class="new-entry-label-content"> {{ $t('entryForm.otherNames') }}</span>
                 <img
                   src="/images/info.png"
                   :alt="$t('entryForm.info')"
@@ -353,8 +356,8 @@ const emit = defineEmits([
               </div>
             </template>
 
-            <label for="newEntryMotto" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.motto') }}</span>
+            <label for="newEntryMotto" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.motto') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -378,8 +381,8 @@ const emit = defineEmits([
               />
             </div>
 
-            <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.type') }}</span>
+            <label v-if="entryType === 'micronation'" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.type') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -424,8 +427,8 @@ const emit = defineEmits([
               </div>
             </div>
 
-            <label for="newEntryLanguages" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.languages') }}</span>
+            <label for="newEntryLanguages" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.languages') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -490,8 +493,7 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryCapital"
               class="new-entry-form-text"
-            ><span class="new-entry-label-content">
-              {{ $t('entryForm.capital') }}</span>
+              ><span class="new-entry-label-content"> {{ $t('entryForm.capital') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -520,8 +522,7 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryCurrency"
               class="new-entry-form-text"
-            ><span class="new-entry-label-content">
-              {{ $t('entryForm.currency') }}</span>
+              ><span class="new-entry-label-content"> {{ $t('entryForm.currency') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -546,8 +547,8 @@ const emit = defineEmits([
               />
             </div>
 
-            <label for="newEntryFoundation" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.foundation') }}</span>
+            <label for="newEntryFoundation" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.foundation') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -584,8 +585,7 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               v-show="physicalType"
               class="new-entry-form-text mandatory"
-            ><span class="new-entry-label-content">
-              {{ $t('entryForm.location') }}</span>
+              ><span class="new-entry-label-content"> {{ $t('entryForm.location') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -624,8 +624,7 @@ const emit = defineEmits([
               v-if="entryType === 'micronation'"
               for="newEntryMemberships"
               class="new-entry-form-text"
-            ><span class="new-entry-label-content">
-              {{ $t('entryForm.memberships') }}</span>
+              ><span class="new-entry-label-content"> {{ $t('entryForm.memberships') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -645,7 +644,9 @@ const emit = defineEmits([
               <div class="new-entry-option-container">
                 <div class="membership-options">
                   <div class="membership-option">
-                    <span class="membership-option__label">{{ $t('entryForm.organizationMembership') }}</span>
+                    <span class="membership-option__label">{{
+                      $t('entryForm.organizationMembership')
+                    }}</span>
                     <MultiSelectDropdown
                       :options="membershipOptions(organizationsDirectory, 'logo')"
                       :model-value="selectedMembershipNames(organizationsDirectory)"
@@ -658,7 +659,9 @@ const emit = defineEmits([
                     />
                   </div>
                   <div class="membership-option">
-                    <span class="membership-option__label">{{ $t('entryForm.constituentMembership') }}</span>
+                    <span class="membership-option__label">{{
+                      $t('entryForm.constituentMembership')
+                    }}</span>
                     <MultiSelectDropdown
                       :options="membershipOptions(micronationsDirectory, 'flag')"
                       :model-value="selectedMembershipNames(micronationsDirectory)"
@@ -683,8 +686,8 @@ const emit = defineEmits([
               </div>
             </div>
 
-            <label for="newEntryEmails" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.contact') }}</span>
+            <label for="newEntryEmails" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.contact') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -732,8 +735,8 @@ const emit = defineEmits([
               </div>
             </div>
 
-            <label for="newEntryWebsites" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t('entryForm.sources') }}</span>
+            <label for="newEntryWebsites" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content"> {{ $t('entryForm.sources') }}</span>
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -781,8 +784,10 @@ const emit = defineEmits([
               </div>
             </div>
 
-            <label for="newEntryFlag" class="new-entry-form-text mandatory"><span class="new-entry-label-content">
-              {{ $t(entryType === 'micronation' ? 'entryForm.flag' : 'entryForm.logo') }}</span>
+            <label for="newEntryFlag" class="new-entry-form-text mandatory"
+              ><span class="new-entry-label-content">
+                {{ $t(entryType === 'micronation' ? 'entryForm.flag' : 'entryForm.logo') }}</span
+              >
               <img
                 src="/images/info.png"
                 :alt="$t('entryForm.info')"
@@ -842,7 +847,7 @@ const emit = defineEmits([
                     name="flagImage"
                     type="url"
                     ref="flagURLInput"
-                    @input="displayImage($event.target.value)"
+                    @change="displayImage($event.target.value)"
                     :placeholder="$t('entryForm.imageUrlPlaceholder')"
                     :required="!directoryEdit"
                   />
@@ -853,9 +858,6 @@ const emit = defineEmits([
                     accept="image/*"
                     :required="!directoryEdit"
                   />
-                  <small v-if="imagePreviewError" class="flag-image-error" role="alert">{{
-                    imagePreviewError
-                  }}</small>
                   <label for=""
                     >({{ $t('entryForm.imageUnavailable') }}:
                     <a href="/images/missing-flag.png" target="_blank">{{
@@ -866,6 +868,50 @@ const emit = defineEmits([
                 </template>
               </div>
             </div>
+
+            <template v-if="entryType === 'micronation' && userIsModerator">
+              <label for="newEntryEnhancedFlag" class="new-entry-form-text">
+                <span>{{ $t('entryForm.flagEnhanced') }}</span><span>(<router-link :to="{ name: 'FlagRevival' }">{{ $t('flagRevival.title') }}</router-link>)</span>
+              </label>
+              <div class="uncertainty-field-control flag-input-control">
+                <UncertaintyToggle :active="false" disabled />
+                <div class="new-entry-option-container flag-preview-container">
+                  <img
+                    v-if="enhancedFlagPreview"
+                    :src="enhancedFlagPreview"
+                    class="moderation-edit-image-preview"
+                    alt="Enhanced flag preview"
+                  />
+                  <div style="display: flex; margin-bottom: 5px">
+                    <label class="flag-radio"
+                      ><input
+                        v-model="enhancedFlagRadio"
+                        type="radio"
+                        name="enhancedFlagRadio"
+                        value="file"
+                      /><span>{{ $t('entryForm.localFile') }}</span></label
+                    >
+                    <label class="flag-radio"
+                      ><input
+                        v-model="enhancedFlagRadio"
+                        type="radio"
+                        name="enhancedFlagRadio"
+                        value="url"
+                      /><span>{{ $t('entryForm.externalUrl') }}</span></label
+                    >
+                  </div>
+                  <input
+                    v-if="enhancedFlagRadio === 'url'"
+                    id="newEntryEnhancedFlag"
+                    v-model="formPlaceholders.newEntryEnhancedFlag"
+                    type="url"
+                    @change="previewEnhancedFlagUrl"
+                    :placeholder="$t('entryForm.imageUrlPlaceholder')"
+                  />
+                  <input v-else type="file" accept="image/*" @change="previewEnhancedFlagFile" />
+                </div>
+              </div>
+            </template>
 
             <div class="wide-row">
               <Recaptcha v-if="!isModerationEditor" @checkbox="checkRecaptcha" />
@@ -988,9 +1034,11 @@ export default {
           : new Date(foundationDate),
       flagSource: '',
       flagPreview: entry.flag || entry.logo || '',
-      imagePreviewError: '',
       editImageValue: entry.flag || entry.logo || '',
       flagRadio: 'file',
+      enhancedFlagRadio: 'file',
+      enhancedFlagSource: null,
+      enhancedFlagPreview: entry.flagEnhanced || '',
       passedRecaptcha: false,
       isSubmitting: false,
       aiPanelOpen: false,
@@ -1025,6 +1073,11 @@ export default {
     }
   },
   computed: {
+    userIsModerator() {
+      return store.getters.moderators.some(
+        (email) => email.toLowerCase() === auth.currentUser?.email?.toLowerCase()
+      )
+    },
     tooltipTexts() {
       return buildTooltipTexts()
     },
@@ -1223,6 +1276,27 @@ export default {
             entryData.capital = this.formPlaceholders.newEntryCapital
             entryData.currency = this.formPlaceholders.newEntryCurrency
             entryData.memberships = this.formPlaceholders.newEntryMemberships
+            if (this.userIsModerator) {
+              entryData.flagEnhanced = this.formPlaceholders.newEntryEnhancedFlag?.trim() || ''
+              if (this.enhancedFlagRadio === 'file' && this.enhancedFlagSource) {
+                const file = this.enhancedFlagSource
+                const options = {
+                  maxSizeMB: 0.035,
+                  maxWidthOrHeight: 2560,
+                  useWebWorker: true,
+                  fileType: file.type
+                }
+                const compressed =
+                  file.size <= 35 * 1024 ? file : await imageCompression(file, options)
+                entryData.flagEnhancedFile = {
+                  name: `${this.formPlaceholders.newEntryName}-enhanced${
+                    this.directoryEdit ? `-${Date.now()}` : ''
+                  }.${this.getImageExtension(file)}`,
+                  data: await this.fileToBase64(compressed)
+                }
+                entryData.flagEnhanced = `/images/flags/${entryData.flagEnhancedFile.name}`
+              }
+            }
 
             entryData.location = this.physicalType
               ? {
@@ -1280,6 +1354,7 @@ export default {
           const reviewEntry = { ...entryData }
           delete reviewEntry.author
           delete reviewEntry.flagFile
+          delete reviewEntry.flagEnhancedFile
           delete reviewEntry.logoFile
           try {
             const reviewResponse = await fetch('/api/ai-assistant', {
@@ -1566,14 +1641,18 @@ export default {
         .map((entry, index) => ({
           key: `${entry.directoryId || entry.id || index}:${entry.name.main}`,
           value: entry.name.main,
-          label: entry.name.mainAlt ? `${entry.name.main} (${entry.name.mainAlt})` : entry.name.main,
+          label: entry.name.mainAlt
+            ? `${entry.name.main} (${entry.name.mainAlt})`
+            : entry.name.main,
           image: entry[imageField] || ''
         }))
         .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }))
     },
     setDirectoryMemberships(directory, selected) {
       const names = new Set((directory || []).map((entry) => entry?.name?.main).filter(Boolean))
-      const memberships = this.formPlaceholders.newEntryMemberships.filter((name) => !names.has(name))
+      const memberships = this.formPlaceholders.newEntryMemberships.filter(
+        (name) => !names.has(name)
+      )
       this.formPlaceholders.newEntryMemberships.splice(
         0,
         this.formPlaceholders.newEntryMemberships.length,
@@ -1717,8 +1796,38 @@ export default {
       this.flagSource = event.target.files[0]
       this.flagPreview = URL.createObjectURL(this.flagSource)
     },
+    previewEnhancedFlagFile(event) {
+      this.enhancedFlagSource = event.target.files?.[0] || null
+      this.enhancedFlagPreview = this.enhancedFlagSource
+        ? URL.createObjectURL(this.enhancedFlagSource)
+        : ''
+      this.formPlaceholders.newEntryEnhancedFlag = ''
+    },
+    async previewEnhancedFlagUrl() {
+      const url = this.formPlaceholders.newEntryEnhancedFlag?.trim()
+      this.enhancedFlagSource = null
+      if (!url) {
+        this.enhancedFlagPreview = ''
+        return
+      }
+      try {
+        const response = await fetch(url)
+        const blob = await response.blob()
+        if (!response.ok || !blob.type.startsWith('image/')) throw new Error('Invalid image')
+        this.enhancedFlagSource = new File([blob], `enhanced.${blob.type.split('/')[1]}`, {
+          type: blob.type
+        })
+        this.enhancedFlagPreview = URL.createObjectURL(blob)
+      } catch (error) {
+        this.enhancedFlagPreview = ''
+        notify({
+          title: this.$t('entryForm.messages.submitError'),
+          text: `The enhanced flag image could not be loaded (${error.message || 'network or CORS restriction'}). Use a direct image URL that allows downloading, or select a local file.`,
+          type: 'error'
+        })
+      }
+    },
     async displayImage(value) {
-      this.imagePreviewError = ''
       if (!value) {
         this.flagSource = ''
         this.flagPreview = ''
@@ -1729,9 +1838,12 @@ export default {
         this.flagSource = file
         this.flagPreview = URL.createObjectURL(file)
       } catch (error) {
-        this.imagePreviewError = `The image could not be loaded for the preview (${
-          error.message || 'network or CORS restriction'
-        }). Upload the image as a local file instead, or use a direct URL that allows downloading.`
+        this.flagPreview = ''
+        notify({
+          title: this.$t('entryForm.messages.submitError'),
+          text: `The flag image could not be loaded (${error.message || 'network or CORS restriction'}). Use a direct image URL that allows downloading, or select a local file.`,
+          type: 'error'
+        })
       }
     }
   }
@@ -2026,8 +2138,14 @@ export default {
   align-items: start;
 }
 
-.membership-option { min-width: 0; }
-.membership-option__label { display: block; margin: 0 0 6px; font-size: 13px; }
+.membership-option {
+  min-width: 0;
+}
+.membership-option__label {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
 
 .new-entry-option-button {
   width: auto;
@@ -2068,9 +2186,8 @@ export default {
   width: 100%;
   min-width: 0;
 }
-.new-entry-container--moderation .new-entry-form-text:has(
-  + .uncertainty-field-control.moderation-field-changed
-) {
+.new-entry-container--moderation
+  .new-entry-form-text:has(+ .uncertainty-field-control.moderation-field-changed) {
   padding: 2px 6px;
   border: 1px solid rgb(245 200 74 / 35%);
   border-radius: 4px;
@@ -2241,11 +2358,6 @@ div.new-entry-type {
   font-size: 13px;
 }
 
-.flag-image-error {
-  color: var(--color-danger, #c0392b);
-  font-size: 12px;
-}
-
 .flag-radio {
   display: flex;
   align-items: center;
@@ -2309,7 +2421,9 @@ div.new-entry-type {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .membership-options { grid-template-columns: minmax(0, 1fr); }
+  .membership-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
   .new-entry-select-controls select {
     grid-column: 1 / -1;

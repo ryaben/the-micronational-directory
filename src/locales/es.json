@@ -33,6 +33,7 @@
     "account": "Cuenta",
     "info": "Información",
     "about": "Sobre nosotros",
+    "flagRevival": "Flag Revival",
     "donate": "Donar",
     "terms": "Términos de concursos"
   },
@@ -58,6 +59,21 @@
     "laGacetaArticle": "<a href=\"https://lagaceta-eldorado.blogspot.com/2023/09/el-dorado-comienza-participacion-activa.html\" target=\"_blank\">Artículo de prensa</a> sobre la participación de El Dorado en TMD, publicado por <a href=\"https://lagaceta-eldorado.blogspot.com/\" target=\"_blank\">La Gaceta</a>.",
     "batyrTimesArticle": "<a href=\"https://www.hasanistan.world/2023/11/batyr-times-interviews-micronational.html\" target=\"_blank\">Entrevista</a> sobre la misión, visión, objetivos y logros de TMD, realizada por <a href=\"https://www.hasanistan.world/\" target=\"_blank\">Batyr Times</a>, el periódico digital oficial de Hasanistán.",
     "doveArchivesArticle": "<a href=\"https://www.dovearchives.wiki/wiki/The_Micronational_Directory\" target=\"_blank\">Artículo enciclopédico</a> que describe aspectos generales de The Micronational Directory. Lo creó Malus y está alojado en <a href=\"https://www.dovearchives.wiki\" target=\"_blank\">Dove Archives</a>."
+  },
+  "flagRevival": {
+    "title": "Proyecto Flag Revival",
+    "intro": "Muchas micronaciones antiguas tienen poca información disponible en línea y algunas de sus banderas solo se conservan en archivos pequeños o de baja calidad. Flag Revival es un esfuerzo continuo para que estos símbolos históricos puedan apreciarse y conservarse mejor en el Directorio.",
+    "method": "Para cada bandera seleccionada, intentamos reconstruir una versión más clara y de mayor resolución a partir de las referencias conservadas. El trabajo se guía por la imagen original y la evidencia disponible: es una restauración visual, no una afirmación sobre un diseño nuevo ni oficial.",
+    "respect": "La bandera original sigue siendo la referencia y siempre está disponible junto a la imagen mejorada. Tratamos los símbolos nacionales con respeto: la versión mejorada es una ayuda visual no oficial que permite apreciar mejor el diseño original, no sustituirlo ni reinterpretarlo.",
+    "examples": "Comparaciones de restauración de banderas",
+    "summary": "Resumen de banderas restauradas",
+    "restored": "Banderas restauradas",
+    "original": "Original",
+    "enhanced": "Mejorada",
+    "sliderLabel": "Comparar las banderas original y mejorada de {name}",
+    "empty": "Todavía no se agregaron banderas mejoradas al proyecto.",
+    "profileNoteBefore": "Esta entrada forma parte del proyecto",
+    "profileNoteAfter": "."
   },
   "donatePage": {
     "intro": "Como <b>The Micronational Directory</b> es un proyecto independiente y no recibe patrocinio, se financia por completo con los ingresos personales del equipo, que también mantiene el sitio en su tiempo libre. Estos son los servicios que usamos y los gastos que afrontamos cada mes:",
@@ -522,6 +538,7 @@
     "sources": "Fuentes de información*",
     "sourcePlaceholder": "URL del sitio web (incluye HTTP o HTTPS)",
     "flag": "Bandera*",
+    "flagEnhanced": "Bandera mejorada",
     "logo": "Logotipo*",
     "currentFlag": "Bandera actual",
     "currentLogo": "Logotipo actual",

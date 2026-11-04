@@ -665,9 +665,13 @@ export default {
         // Handle image file if present in the issue
         let base64Image = null
         let fileMetadata = null
+        let enhancedBase64Image = null
+        let enhancedFileMetadata = null
         if (entry.issueBody) {
           base64Image = extractBase64Image(entry.issueBody)
           fileMetadata = extractFileMetadata(entry.issueBody)
+          enhancedBase64Image = extractBase64Image(entry.issueBody, true)
+          enhancedFileMetadata = extractFileMetadata(entry.issueBody, true)
         }
 
         // Prepare the entry data for the JSON file
@@ -710,12 +714,21 @@ export default {
             entryForJson.logo = getPublicAssetPath(fileMetadata.path)
           }
         }
+        if (enhancedFileMetadata && isMicronation) {
+          if (!enhancedBase64Image) throw new Error(this.$t('moderation.errors.imageDataMissing'))
+          entryForJson.flagEnhanced = getPublicAssetPath(enhancedFileMetadata.path)
+        }
 
         const imageField = isMicronation ? 'flag' : 'logo'
         const imageValue = String(entryForJson[imageField] || '').trim()
         if (!fileMetadata && /^https?:\/\//i.test(imageValue)) {
           const imported = await importExternalImage(imageValue, entryTypeName, entry.name.main)
           entryForJson[imageField] = getPublicAssetPath(imported.path)
+        }
+        const enhancedFlag = String(entryForJson.flagEnhanced || '').trim()
+        if (isMicronation && /^https?:\/\//i.test(enhancedFlag)) {
+          const imported = await importExternalImage(enhancedFlag, entryTypeName, `${entry.name.main}-enhanced`)
+          entryForJson.flagEnhanced = getPublicAssetPath(imported.path)
         }
 
         // Match the JSON representation GitHub will store, excluding undefined fields.
@@ -747,6 +760,13 @@ export default {
             fileMetadata.path,
             base64Image,
             `Add ${entryTypeName} image: ${fileMetadata.name}`
+          )
+        }
+        if (enhancedBase64Image && enhancedFileMetadata) {
+          await createRepoFile(
+            enhancedFileMetadata.path,
+            enhancedBase64Image,
+            `Add enhanced micronation flag: ${enhancedFileMetadata.name}`
           )
         }
 

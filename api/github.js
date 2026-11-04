@@ -59,6 +59,10 @@ module.exports = async function handler(req, res) {
     if (action === 'createIssue') {
       const { entryData, entryType, options = {} } = input
       if (!entryData || !['micronation', 'organization'].includes(entryType)) throw new Error('Invalid submission data.')
+      if (!user.isModerator && entryType === 'micronation') {
+        delete entryData.flagEnhanced
+        delete entryData.flagEnhancedFile
+      }
       const { createGitHubIssueWithCredentials } = await import('../src/utils/githubIssueService.mjs')
       const issue = await createGitHubIssueWithCredentials(entryData, entryType, options, {
         token: process.env.GITHUB_WORKFLOW_TOKEN,

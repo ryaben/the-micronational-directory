@@ -95,6 +95,7 @@ export default {
           route: 'About',
           subButtons: [
             { text: 'nav.about', route: 'About' },
+            { text: 'nav.flagRevival', route: 'FlagRevival' },
             { text: 'nav.donate', route: 'Donate' },
             { text: 'nav.terms', route: 'TermsOfContests' }
           ]

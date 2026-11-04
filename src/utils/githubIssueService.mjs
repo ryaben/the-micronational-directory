@@ -37,6 +37,12 @@ function formatEntryForJSON(entryData, entryType) {
 
   if (entryType === 'micronation') {
     formatted.flag = entryData.flagFile ? `/images/flags/${entryData.flagFile.name}` : entryData.flag || ''
+    const enhancedFlag = String(entryData.flagEnhanced || '').trim()
+    if (entryData.flagEnhancedFile?.name) {
+      formatted.flagEnhanced = `/images/flags/${entryData.flagEnhancedFile.name}`
+    } else if (enhancedFlag) {
+      formatted.flagEnhanced = enhancedFlag
+    }
     formatted.type = entryData.type || []
     formatted.capital = entryData.capital || ''
     formatted.currency = entryData.currency || ''
@@ -104,6 +110,12 @@ export async function createGitHubIssueWithCredentials(entryData, entryType, opt
   let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission\n\n${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`} Fields listed in the "uncertain" array have uncertain values or lack precise confirmation.\n\n### Entry Data\n\n\`\`\`json\n${JSON.stringify(formattedData, null, 2).replace(/`/g, '\\u0060')}\n\`\`\`\n`
   if (fileData && base64Content) {
     body += `\n### Media File Metadata\n- **File Name:** \`${fileData.name}\`\n- **Target Path:** \`public/images/${folder}/${fileData.name}\`\n\n### Media File Base64\n\`\`\`base64\n${base64Content}\n\`\`\`\n`
+  }
+  const enhancedFile = entryData.flagEnhancedFile
+  if (enhancedFile?.data) {
+    const enhancedBase64 = enhancedFile.data.includes(',') ? enhancedFile.data.split(',')[1] : enhancedFile.data
+    if (enhancedBase64.length > 50000) throw new Error('The enhanced flag image is too large. Please upload a smaller image (maximum ~35 KB).')
+    body += `\n### Enhanced Media File Metadata\n- **File Name:** \`${enhancedFile.name}\`\n- **Target Path:** \`public/images/flags/${enhancedFile.name}\`\n\n### Enhanced Media File Base64\n\`\`\`base64\n${enhancedBase64}\n\`\`\`\n`
   }
   if (entryData.aiReview) {
     body += `\n### AI preliminary review (not a final moderation decision)\n- **Triage:** ${entryData.aiReview.verdict || 'needs_review'}\n- **Summary:** ${entryData.aiReview.summary || 'No summary provided.'}\n\n${(entryData.aiReview.checks || []).map((check) => `- **${check.status || 'uncertain'} — ${check.criterion || 'Criterion'}:** ${check.reason || ''}`).join('\n')}\n\n<!-- AI_REVIEW_JSON\n${JSON.stringify(entryData.aiReview)}\n-->\n`
