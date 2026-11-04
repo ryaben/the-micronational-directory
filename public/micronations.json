@@ -58724,7 +58724,9 @@
     ],
     "capital": "Bonjo Town",
     "currency": "Dollar",
-    "memberships": [],
+    "memberships": [
+      "International Council of Independent States"
+    ],
     "foundationDate": {
       "_seconds": 181521780
     },
@@ -58735,9 +58737,20 @@
     "creationDate": {
       "_seconds": 1793756788
     },
-    "createdAt": "2026-11-04T01:46:28Z",
-    "isEdit": false,
-    "id": "tCRrwYuYHaAKcaaIHPwK"
+    "createdAt": "2026-11-04T12:48:57Z",
+    "isEdit": true,
+    "id": "tCRrwYuYHaAKcaaIHPwK",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793796537
+        }
+      }
+    ]
   },
   {
     "name": {
