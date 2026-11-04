@@ -59014,5 +59014,56 @@
     "createdAt": "2026-11-04T12:59:58Z",
     "isEdit": false,
     "id": "eNO0lSdO51E77eu3iFoG"
+  },
+  {
+    "name": {
+      "main": "All the Sedang",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "inyotef@sedang.hm"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20081220025637/http://www.sedang.hm/default.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages",
+      "foundationDate"
+    ],
+    "flag": "/images/flags/All the Sedang.jpg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Sedang piastre",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": 709467360
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793798473
+    },
+    "createdAt": "2026-11-04T13:21:13Z",
+    "isEdit": false,
+    "id": "00uRil4s7ZyVqra3WL5f"
   }
 ]
