@@ -10741,6 +10741,7 @@
   {
     "capital": "",
     "flag": "/images/flags/Carnevalis.jpg",
+    "flagEnhanced": "/images/flags/Carnevalis-enhanced.jpg",
     "languages": [
       "German"
     ],
