@@ -59260,5 +59260,53 @@
     "createdAt": "2026-11-04T15:48:17Z",
     "isEdit": false,
     "id": "VjdCDGYadtDRdeOxA8BN"
+  },
+  {
+    "name": {
+      "main": "Pictland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20120322014722/http://pictland.org/contact.html"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160331181937/http://listofmicronations.com/lomwiki/index.php/Kingdom_of_Pictland",
+      "https://web.archive.org/web/20120321025556/http://pictland.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Pictland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1199145600
+    },
+    "location": {
+      "latitude": 55.35,
+      "longitude": -131.673333
+    },
+    "creationDate": {
+      "_seconds": 1793807861
+    },
+    "createdAt": "2026-11-04T15:57:41Z",
+    "isEdit": false,
+    "id": "or6S5L4mDkJu53u0JmnN"
   }
 ]
