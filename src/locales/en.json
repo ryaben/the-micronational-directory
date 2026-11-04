@@ -61,11 +61,13 @@
     "doveArchivesArticle": "<a href=\"https://www.dovearchives.wiki/wiki/The_Micronational_Directory\" target=\"_blank\">Encyclopedic article</a> describing general aspects of The Micronational Directory, created by Malus and hosted in <a href=\"https://www.dovearchives.wiki\" target=\"_blank\">Dove Archives</a>."
   },
   "flagRevival": {
-    "title": "Flag Revival",
+    "title": "Flag Revival Project",
     "intro": "Many older micronations have little surviving information online, and some of their flags remain only in small or low-quality image files. Flag Revival is an ongoing effort to make these historical symbols easier to see and preserve in the Directory.",
-    "method": "For each selected flag, Gemini Pro is used to help reconstruct a clearer, higher-resolution rendition from the surviving reference. The work is guided by the original image and available evidence; it is a visual restoration, not a claim about a newly discovered or official design.",
+    "method": "For each selected flag, we attempted to reconstruct a clearer, higher-resolution rendition from the surviving reference. The work is guided by the original image and available evidence; it is a visual restoration, not a claim about a newly discovered or official design.",
     "respect": "The original flag remains the reference and is always available alongside the enhanced image. National symbols are treated with respect: the enhanced version is an unofficial presentation aid intended to show the original design more clearly, not replace or reinterpret it.",
     "examples": "Flag restoration comparisons",
+    "summary": "Restored flags summary",
+    "restored": "Flags restored",
     "original": "Original",
     "enhanced": "Enhanced",
     "sliderLabel": "Compare original and enhanced flags for {name}",
@@ -536,6 +538,7 @@
     "sources": "Information sources*",
     "sourcePlaceholder": "Website URL (include HTTP or HTTPS)",
     "flag": "Flag*",
+    "flagEnhanced": "Enhanced flag",
     "logo": "Logo*",
     "currentFlag": "Current flag",
     "currentLogo": "Current logo",

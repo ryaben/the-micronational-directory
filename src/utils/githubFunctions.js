@@ -487,9 +487,10 @@ export async function importExternalImage(url, entryType, name) {
  * @param {string} body The issue body
  * @returns {string|null} The base64 image data or null
  */
-export function extractBase64Image(body) {
+export function extractBase64Image(body, enhanced = false) {
   if (!body) return null
-  const match = body.match(/```base64\s*\r?\n([\s\S]*?)\r?\n```/)
+  const section = enhanced ? 'Enhanced Media File Base64' : 'Media File Base64'
+  const match = body.match(new RegExp(`### ${section}\\r?\\n[\\s\\S]*?\\x60\\x60\\x60base64\\s*\\r?\\n([\\s\\S]*?)\\r?\\n\\x60\\x60\\x60`))
   if (!match) {
     return null
   }
@@ -501,9 +502,11 @@ export function extractBase64Image(body) {
  * @param {string} body The issue body
  * @returns {Object|null} The file metadata or null
  */
-export function extractFileMetadata(body) {
-  const nameMatch = body.match(/\*\*File Name:\*\* `([^`]+)`/)
-  const pathMatch = body.match(/\*\*Target Path:\*\* `([^`]+)`/)
+export function extractFileMetadata(body, enhanced = false) {
+  const section = enhanced ? 'Enhanced Media File Metadata' : 'Media File Metadata'
+  const block = body?.match(new RegExp(`### ${section}\\r?\\n([\\s\\S]*?)(?=\\r?\\n### |$)`))?.[1] || ''
+  const nameMatch = block.match(/\*\*File Name:\*\* `([^`]+)`/)
+  const pathMatch = block.match(/\*\*Target Path:\*\* `([^`]+)`/)
 
   if (!nameMatch || !pathMatch) {
     return null

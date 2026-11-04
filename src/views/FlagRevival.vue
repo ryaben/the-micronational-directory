@@ -15,6 +15,12 @@ const entries = computed(() => store.getters.micronations
       <p>{{ $t('flagRevival.intro') }}</p>
       <p>{{ $t('flagRevival.method') }}</p>
       <p>{{ $t('flagRevival.respect') }}</p>
+      <div class="restoration-count-bar" :aria-label="$t('flagRevival.summary')">
+        <div class="restoration-count-item">
+          <span class="restoration-count-value">{{ entries.length }}</span>
+          <span class="restoration-count-label">{{ $t('flagRevival.restored') }}</span>
+        </div>
+      </div>
     </header>
     <div class="project-demo">
       <div class="comparison-list" :aria-label="$t('flagRevival.examples')">
@@ -54,6 +60,35 @@ const entries = computed(() => store.getters.micronations
   margin-top: 20px;
 }
 
+.restoration-count-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.restoration-count-item {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.restoration-count-value {
+  color: var(--color-heading);
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.restoration-count-label {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
 .project-demo {
   min-width: 0;
   border: 1px solid var(--color-border);
@@ -87,6 +122,10 @@ const entries = computed(() => store.getters.micronations
 
   .project-header {
     max-width: none;
+  }
+
+  .restoration-count-bar {
+    margin-top: 16px;
   }
 
   .comparison-list {
