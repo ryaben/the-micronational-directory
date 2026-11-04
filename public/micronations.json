@@ -59361,5 +59361,60 @@
     "createdAt": "2026-11-04T16:27:48Z",
     "isEdit": false,
     "id": "LCqA11s2F4HJRe9UIIXl"
+  },
+  {
+    "name": {
+      "main": "Valldemosa",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Valldemosa",
+          "title": "Principato di"
+        }
+      ],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian"
+    ],
+    "contactInfo": [
+      "info@principatodivalldemosa.it"
+    ],
+    "websites": [
+      "https://principatodivalldemosa.altervista.org/",
+      "https://web.archive.org/web/20160913133445/http://vall.micro.st/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Valldemosa.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "United Micronations Multi-Oceanic Archipelago"
+    ],
+    "foundationDate": {
+      "_seconds": 1328277300
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793811314
+    },
+    "createdAt": "2026-11-04T16:55:14Z",
+    "isEdit": false,
+    "id": "4VebbIfpPKWirf4GoFGk"
   }
 ]
