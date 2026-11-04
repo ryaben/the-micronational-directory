@@ -14424,52 +14424,72 @@
     "languages": [
       "English",
       "German",
-      "Esperanto"
+      "Esperanto",
+      "Serbo-Croatian",
+      "French"
     ],
     "author": {
       "name": "Arthur de Tourneau",
       "email": "info@duckionary.com"
     },
     "type": [
-      "Physical",
-      "Digital"
+      "Physical"
     ],
     "creationDate": {
       "_seconds": 1695457269,
       "_nanoseconds": 0
     },
     "foundationDate": {
-      "_seconds": 1535105760,
-      "_nanoseconds": 0
+      "seconds": 1535105760,
+      "_seconds": 1535105760
     },
     "name": {
-      "mainAlt": "",
-      "titleAlt": "",
       "main": "Duckionary",
-      "title": "Parliamentary Monarchy of"
+      "mainAlt": "",
+      "alt": [],
+      "title": "Parliamentary Monarchy of",
+      "titleAlt": ""
     },
-    "motto": "The Tolerance in society must guarantee every citizen the freedom to believe what he wants.",
+    "motto": "Veritas et constantia, ad archiducem et terram",
     "currency": "Duckats",
     "location": {
-      "latitude": 48.421871625705364,
-      "longitude": 13.475831365356072
+      "latitude": 0,
+      "longitude": 0
     },
     "memberships": [
-      "UAMW",
-      "MPA"
+      "MPA",
+      "Union Against Micronational War"
     ],
     "websites": [
       "https://duckionary.com/",
-      "https://mfa-duckionary.com",
-      "https://micronations.wiki/wiki/Parliamentary_Monarchy_of_Duckionary"
+      "https://www.dovearchives.wiki/wiki/Parliamentary_Monarchy_of_Duckionary"
     ],
     "contactInfo": [
       "https://twitter.com/DuckionaryGov",
       "https://www.facebook.com/Duckionary",
+      "https://www.youtube.com/@duckionarygov",
+      "http://www.instagram.com/duckionarygov",
+      "http://tiktok.com/@duckionarygov",
+      "https://www.patreon.com/duckionarygov",
+      "https://www.flickr.com/photos/duckionary/albums",
       "info@duckionary.com"
     ],
     "approved": true,
-    "id": "qFOF8YTyCV0pAXFJTjm9"
+    "id": "qFOF8YTyCV0pAXFJTjm9",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "Arthur de Tourneau",
+          "email": "info@duckionary.com"
+        },
+        "date": {
+          "_seconds": 1793725463
+        }
+      }
+    ],
+    "createdAt": "2026-11-03T17:04:24Z",
+    "isEdit": true
   },
   {
     "capital": "Chatham",
@@ -21501,8 +21521,7 @@
   },
   {
     "foundationDate": {
-      "_seconds": 1147651200,
-      "_nanoseconds": 0
+      "_seconds": 1147651200
     },
     "approved": true,
     "contactInfo": [
@@ -21512,10 +21531,16 @@
       "Spanish"
     ],
     "name": {
-      "mainAlt": "Hezpenya",
-      "titleAlt": "Gran Ducado de",
       "main": "Hezpenya",
-      "title": "Estado Soberano de"
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Hezpenya",
+          "title": "Gran Ducado de"
+        }
+      ],
+      "title": "Estado Soberano de",
+      "titleAlt": "Gran Ducado de"
     },
     "motto": "",
     "currency": "",
@@ -21526,7 +21551,8 @@
     "websites": [
       "http://estado-soberano-de-hezpenya.blogspot.com/",
       "https://e-s-hezpenya.es.tl/",
-      "https://micronaciones.fandom.com/wiki/Hezpenya"
+      "https://micronaciones.fandom.com/wiki/Hezpenya",
+      "https://web.archive.org/web/20100706165238/http://www.hezpenya.ne1.net/"
     ],
     "type": [
       "Digital"
@@ -21545,7 +21571,21 @@
       "_seconds": 1693450800,
       "_nanoseconds": 0
     },
-    "id": "DvqOHxVVT2CmnXDvRzSx"
+    "id": "DvqOHxVVT2CmnXDvRzSx",
+    "uncertain": [],
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793713138
+        }
+      }
+    ],
+    "createdAt": "2026-11-03T13:38:58Z",
+    "isEdit": true
   },
   {
     "capital": "",
@@ -58559,5 +58599,668 @@
     "createdAt": "2026-11-02T18:48:05Z",
     "isEdit": false,
     "id": "6WV4lyUB005ZLcUdT8BB"
+  },
+  {
+    "name": {
+      "main": "Iridia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Irídaga"
+    ],
+    "contactInfo": [
+      "cdp.1995@comcast.net"
+    ],
+    "websites": [
+      "https://micras.org/mwiki/Iridia",
+      "https://web.archive.org/web/20120620015126/http://empireofiridia.webs.com/",
+      "https://empireofiridia.proboards.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Iridia.jpg",
+    "type": [
+      "Digital",
+      "Fictional"
+    ],
+    "capital": "Iridia City",
+    "currency": "",
+    "memberships": [
+      "Micronational Cartography Society"
+    ],
+    "foundationDate": {
+      "_seconds": 1169809200
+    },
+    "creationDate": {
+      "_seconds": 1793714530
+    },
+    "createdAt": "2026-11-03T14:02:10Z",
+    "isEdit": false,
+    "id": "n4bnh7bONK2uVTBpnKJG"
+  },
+  {
+    "name": {
+      "main": "Kemp Land",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Gay Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "kempland@post.com"
+    ],
+    "websites": [
+      "https://www.geocities.ws/kempland/",
+      "https://web.archive.org/web/20081216155711/http://www.sedang.hm/KempLand/index.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Kemp Land.gif",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Bonjo Town",
+    "currency": "Dollar",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": 181521780
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793756788
+    },
+    "createdAt": "2026-11-04T12:48:57Z",
+    "isEdit": true,
+    "id": "tCRrwYuYHaAKcaaIHPwK",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793796537
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "main": "Trinovantium",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Grand Federal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Peace-Prosperity-Power",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20080306193000/http://trinovantium.proboards58.com/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20080321092648/http://www.freewebs.com/trinovantium/",
+      "https://web.archive.org/web/20150221040515/http://fomn.altervista.org/trinovantium.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto"
+    ],
+    "flag": "/images/flags/Trinovantium.jpg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1157446920
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793794097
+    },
+    "createdAt": "2026-11-04T12:08:17Z",
+    "isEdit": false,
+    "id": "6viIMRcEXcbz4RdOiJR6"
+  },
+  {
+    "name": {
+      "main": "K-Marx",
+      "mainAlt": "",
+      "alt": [],
+      "title": "People's Republic of ",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "webmaster@peoplesrepublicofk-marx.co.nr"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20140516204546/http://peoplesrepublicofk-marx.co.nr/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate",
+      "type"
+    ],
+    "flag": "/images/flags/K-Marx.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "Fifth World Council"
+    ],
+    "foundationDate": {
+      "_seconds": 1136105700
+    },
+    "creationDate": {
+      "_seconds": 1793793577
+    },
+    "createdAt": "2026-11-04T11:59:37Z",
+    "isEdit": false,
+    "id": "lpQlLgscZsJyWln6YHW1"
+  },
+  {
+    "name": {
+      "main": "Bokhara",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Khanate of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "bokhara@asia.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20190801083535/http://www.angelfire.com/country/bokhara/index.html",
+      "https://web.archive.org/web/20081220025628/http://www.sedang.hm/Bokhara/index.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Bokhara.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Talent",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "seconds": 816426960,
+      "_seconds": 816426960
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793794952
+    },
+    "createdAt": "2026-11-04T12:22:32Z",
+    "isEdit": false,
+    "id": "kkHWyHRhM7UlhR7l4HGO"
+  },
+  {
+    "name": {
+      "main": "Upper Yafa",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Sultanate of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "contactInfo": [
+      "upper_yafa@post.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20081220025632/http://www.sedang.hm/Upperyafa/index.htm",
+      "https://web.archive.org/web/*/http://upperyafa.com/*"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Upper Yafa.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Mahjaba",
+    "currency": "Riyal",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "seconds": 883612800,
+      "_seconds": 883612800
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793795894
+    },
+    "createdAt": "2026-11-04T12:38:14Z",
+    "isEdit": false,
+    "id": "Old29StiPFHJykoFLQ38"
+  },
+  {
+    "name": {
+      "main": "Okusi-Ambeno",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Kesultanan Okusi-Ambeno",
+          "title": ""
+        },
+        {
+          "main": "Occussi-Ambeno",
+          "title": "Sultanate of"
+        }
+      ],
+      "title": "Sultanate of",
+      "titleAlt": ""
+    },
+    "motto": "Wahdu, Kita Hebat Bwanget Dong",
+    "languages": [
+      "Bahasa Okusi",
+      "English",
+      "Tetum"
+    ],
+    "contactInfo": [
+      "istana.iskandar@okusi.net"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20230314140053/https://okusi1.tripod.com/",
+      "https://es.wikipedia.org/wiki/Sultanato_de_Occusi_Ambeno",
+      "https://www.kaupelan.net/kig_okusi.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Okusi-Ambeno.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Pante-Makassar",
+    "currency": "Okusi Ringgit",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": -63122460
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793797198
+    },
+    "createdAt": "2026-11-04T12:59:58Z",
+    "isEdit": false,
+    "id": "eNO0lSdO51E77eu3iFoG"
+  },
+  {
+    "name": {
+      "main": "All the Sedang",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "inyotef@sedang.hm"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20081220025637/http://www.sedang.hm/default.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "languages",
+      "foundationDate"
+    ],
+    "flag": "/images/flags/All the Sedang.jpg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Sedang piastre",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": 709467360
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793798473
+    },
+    "createdAt": "2026-11-04T13:21:13Z",
+    "isEdit": false,
+    "id": "00uRil4s7ZyVqra3WL5f"
+  },
+  {
+    "name": {
+      "main": "Podjistan",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Peoples Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Vera seditio vertit ex vera (True Revolution Comes From True Revulsion)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/Podjistan/",
+      "podjistan@hotmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160331182247/http://listofmicronations.com/lomwiki/index.php/Peoples_Republic_of_Podjistan",
+      "https://web.archive.org/web/20150801033402/http://podjistan.webs.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Podjistan.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "The Peoples Palace",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1275350400
+    },
+    "location": {
+      "latitude": 54.296433,
+      "longitude": -6.091517
+    },
+    "creationDate": {
+      "_seconds": 1793803474
+    },
+    "createdAt": "2026-11-04T14:44:34Z",
+    "isEdit": false,
+    "id": "fC1gImPpd5ceFf2dFykA"
+  },
+  {
+    "name": {
+      "main": "Mogilno",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Mogilno",
+          "title": "Independent Sovereign Neutral Nation Of"
+        },
+        {
+          "main": "Mogilno",
+          "title": "Sovereign Nation of"
+        }
+      ],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "empireofmogilno@hotmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160330191218/http://listofmicronations.com/lomwiki/index.php/Empire_of_Mogilno",
+      "https://web.archive.org/web/20040925020625/http://empireofmogilno.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Mogilno.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 501120000
+    },
+    "location": {
+      "latitude": -23.569106,
+      "longitude": 150.519787
+    },
+    "creationDate": {
+      "_seconds": 1793804201
+    },
+    "createdAt": "2026-11-04T14:56:41Z",
+    "isEdit": false,
+    "id": "e6YdY5sHQhP42ESRUDgA"
+  },
+  {
+    "name": {
+      "main": "Dubeldeka",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "Tenacity is Our Virtue",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://web.archive.org/web/20160330190752/http://listofmicronations.com/lomwiki/index.php/Principality_of_Dubeldeka"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Dubeldeka.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Australian Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 946684800
+    },
+    "location": {
+      "latitude": -34.431111,
+      "longitude": 150.480556
+    },
+    "creationDate": {
+      "_seconds": 1793806240
+    },
+    "createdAt": "2026-11-04T15:30:40Z",
+    "isEdit": false,
+    "id": "UJnltHaU06AfbhPh2pXx"
+  },
+  {
+    "name": {
+      "main": "Durstonia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "Corruptio optimi pessima (The Corruption of the Best is the Worst)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/people/Principality-of-Durstonia/100069036705888/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160330185333/http://listofmicronations.com/lomwiki/index.php/Principality_of_Durstonia",
+      "http://durstonia.blogspot.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Durstonia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1280620800
+    },
+    "location": {
+      "latitude": 48.3952597,
+      "longitude": -89.232254
+    },
+    "creationDate": {
+      "_seconds": 1793807297
+    },
+    "createdAt": "2026-11-04T15:48:17Z",
+    "isEdit": false,
+    "id": "VjdCDGYadtDRdeOxA8BN"
+  },
+  {
+    "name": {
+      "main": "Pictland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20120322014722/http://pictland.org/contact.html"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160331181937/http://listofmicronations.com/lomwiki/index.php/Kingdom_of_Pictland",
+      "https://web.archive.org/web/20120321025556/http://pictland.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Pictland.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1199145600
+    },
+    "location": {
+      "latitude": 55.35,
+      "longitude": -131.673333
+    },
+    "creationDate": {
+      "_seconds": 1793807861
+    },
+    "createdAt": "2026-11-04T15:57:41Z",
+    "isEdit": false,
+    "id": "or6S5L4mDkJu53u0JmnN"
   }
 ]
