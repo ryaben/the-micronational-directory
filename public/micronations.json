@@ -59167,5 +59167,50 @@
     "createdAt": "2026-11-04T14:56:41Z",
     "isEdit": false,
     "id": "e6YdY5sHQhP42ESRUDgA"
+  },
+  {
+    "name": {
+      "main": "Dubeldeka",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "Tenacity is Our Virtue",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [],
+    "websites": [
+      "https://web.archive.org/web/20160330190752/http://listofmicronations.com/lomwiki/index.php/Principality_of_Dubeldeka"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Dubeldeka.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Australian Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 946684800
+    },
+    "location": {
+      "latitude": -34.431111,
+      "longitude": 150.480556
+    },
+    "creationDate": {
+      "_seconds": 1793806240
+    },
+    "createdAt": "2026-11-04T15:30:40Z",
+    "isEdit": false,
+    "id": "UJnltHaU06AfbhPh2pXx"
   }
 ]
