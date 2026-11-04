@@ -58846,5 +58846,57 @@
     "createdAt": "2026-11-04T11:59:37Z",
     "isEdit": false,
     "id": "lpQlLgscZsJyWln6YHW1"
+  },
+  {
+    "name": {
+      "main": "Bokhara",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Khanate of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "bokhara@asia.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20190801083535/http://www.angelfire.com/country/bokhara/index.html",
+      "https://web.archive.org/web/20081220025628/http://www.sedang.hm/Bokhara/index.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Bokhara.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "Talent",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "seconds": 816426960,
+      "_seconds": 816426960
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793794952
+    },
+    "createdAt": "2026-11-04T12:22:32Z",
+    "isEdit": false,
+    "id": "kkHWyHRhM7UlhR7l4HGO"
   }
 ]
