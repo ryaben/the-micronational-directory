@@ -2938,5 +2938,44 @@
     "isEdit": false,
     "memberships": [],
     "id": "hKaiyQgab2bjkEDtFlb8"
+  },
+  {
+    "name": {
+      "main": "United Micronations Multi-Oceanic Archipelago",
+      "mainAlt": "UMMOA",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "E Interrete Libertas (From the Internet, Freedom)",
+    "languages": [
+      "UMMOA English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20180428044934/http://ummoa.net/contact.html"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/United_Micronations_Multi-Oceanic_Archipelago",
+      "https://web.archive.org/web/20180328073151/http://ummoa.net/",
+      "https://web.archive.org/web/20180201050620/http://ummoa.info/",
+      "https://web.archive.org/web/20200118045910/http://ummoa.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "logo": "/images/logos/United Micronations Multi-Oceanic Archipelago.png",
+    "foundationDate": {
+      "_seconds": 1200700800
+    },
+    "creationDate": {
+      "_seconds": 1793809100
+    },
+    "createdAt": "2026-11-04T16:18:20Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "f8YAs7KqyYqRWrCTpaky"
   }
 ]
