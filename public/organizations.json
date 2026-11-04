@@ -2901,5 +2901,42 @@
     "isEdit": false,
     "memberships": [],
     "id": "GpGAuzcXlzfLoqrYA9Y3"
+  },
+  {
+    "name": {
+      "main": "International Council of Independent States",
+      "mainAlt": "ICIS",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "icis.hq@gmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20230402022719/https://www.angelfire.com/art/icis/",
+      "http://zenius.kalnieciai.lt/europe/norway/icis/icis.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "logo": "/images/logos/International Council of Independent States.gif",
+    "foundationDate": {
+      "_seconds": 454930980
+    },
+    "creationDate": {
+      "_seconds": 1793796372
+    },
+    "createdAt": "2026-11-04T12:46:12Z",
+    "isEdit": false,
+    "memberships": [],
+    "id": "hKaiyQgab2bjkEDtFlb8"
   }
 ]
