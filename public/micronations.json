@@ -59308,5 +59308,58 @@
     "createdAt": "2026-11-04T15:57:41Z",
     "isEdit": false,
     "id": "or6S5L4mDkJu53u0JmnN"
+  },
+  {
+    "name": {
+      "main": "Eesha",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Royal Kingdom of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Tamil",
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20161121194818/http://eesha.5wc.org/contact.html",
+      "https://www.facebook.com/groups/153198241369914/"
+    ],
+    "websites": [
+      "https://micronations.wiki/wiki/Royal_Kingdom_of_Eesha",
+      "https://fifthworld.fandom.com/wiki/Royal_Kingdom_of_Eesha",
+      "https://web.archive.org/web/20161013014239/http://eesha.5wc.org/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Eesha.jpg",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Kumbakonam",
+    "currency": "",
+    "memberships": [
+      "Amandium",
+      "United Micronations Multi-Oceanic Archipelago"
+    ],
+    "foundationDate": {
+      "seconds": 1285113600,
+      "_seconds": 1285113600
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793809668
+    },
+    "createdAt": "2026-11-04T16:27:48Z",
+    "isEdit": false,
+    "id": "LCqA11s2F4HJRe9UIIXl"
   }
 ]
