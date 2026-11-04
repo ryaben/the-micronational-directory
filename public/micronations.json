@@ -59416,5 +59416,54 @@
     "createdAt": "2026-11-04T16:55:14Z",
     "isEdit": false,
     "id": "4VebbIfpPKWirf4GoFGk"
+  },
+  {
+    "name": {
+      "main": "Mennista",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Esperanto"
+    ],
+    "contactInfo": [
+      "https://www.deviantart.com/mennista",
+      "mennista@gmail.com",
+      "missdomofreak@hotmail.com"
+    ],
+    "websites": [
+      "https://republicofmennista.yolasite.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Mennista.png",
+    "type": [
+      "Physical",
+      "Digital"
+    ],
+    "capital": "Starke",
+    "currency": "US Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1259423340
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793818301
+    },
+    "createdAt": "2026-11-04T18:51:41Z",
+    "isEdit": false,
+    "id": "FDJey9c1FDjuFmqAVhdw"
   }
 ]
