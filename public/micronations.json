@@ -59471,5 +59471,50 @@
     "createdAt": "2026-11-04T19:14:57Z",
     "isEdit": false,
     "id": "Jb1sfRszAZysa8dD5cF6"
+  },
+  {
+    "name": {
+      "main": "Dharmaland",
+      "mainAlt": "",
+      "alt": [],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English",
+      "Sanskrit"
+    ],
+    "contactInfo": [
+      "gov5@post.com "
+    ],
+    "websites": [
+      "https://web.archive.org/web/20120721001618/http://dhld.ummoa.net/",
+      "https://dharmaland.weebly.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Dharmaland.gif",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "United Micronations Multi-Oceanic Archipelago"
+    ],
+    "foundationDate": {
+      "_seconds": 1265991420
+    },
+    "creationDate": {
+      "_seconds": 1793820196
+    },
+    "createdAt": "2026-11-04T19:23:16Z",
+    "isEdit": false,
+    "id": "3o4MbI8Ihsxns8HetY24"
   }
 ]
