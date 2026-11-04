@@ -58738,5 +58738,54 @@
     "createdAt": "2026-11-04T01:46:28Z",
     "isEdit": false,
     "id": "tCRrwYuYHaAKcaaIHPwK"
+  },
+  {
+    "name": {
+      "main": "Trinovantium",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Grand Federal Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Peace-Prosperity-Power",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://web.archive.org/web/20080306193000/http://trinovantium.proboards58.com/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20080321092648/http://www.freewebs.com/trinovantium/",
+      "https://web.archive.org/web/20150221040515/http://fomn.altervista.org/trinovantium.html"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "motto"
+    ],
+    "flag": "/images/flags/Trinovantium.jpg",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1157446920
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793794097
+    },
+    "createdAt": "2026-11-04T12:08:17Z",
+    "isEdit": false,
+    "id": "6viIMRcEXcbz4RdOiJR6"
   }
 ]
