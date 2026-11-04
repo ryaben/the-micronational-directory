@@ -58692,5 +58692,51 @@
     "createdAt": "2026-11-03T14:02:10Z",
     "isEdit": false,
     "id": "n4bnh7bONK2uVTBpnKJG"
+  },
+  {
+    "name": {
+      "main": "Kemp Land",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Gay Republic of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "kempland@post.com"
+    ],
+    "websites": [
+      "https://www.geocities.ws/kempland/",
+      "https://web.archive.org/web/20081216155711/http://www.sedang.hm/KempLand/index.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Kemp Land.gif",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Bonjo Town",
+    "currency": "Dollar",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 181521780
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793756788
+    },
+    "createdAt": "2026-11-04T01:46:28Z",
+    "isEdit": false,
+    "id": "tCRrwYuYHaAKcaaIHPwK"
   }
 ]
