@@ -59112,5 +59112,60 @@
     "createdAt": "2026-11-04T14:44:34Z",
     "isEdit": false,
     "id": "fC1gImPpd5ceFf2dFykA"
+  },
+  {
+    "name": {
+      "main": "Mogilno",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Mogilno",
+          "title": "Independent Sovereign Neutral Nation Of"
+        },
+        {
+          "main": "Mogilno",
+          "title": "Sovereign Nation of"
+        }
+      ],
+      "title": "Empire of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "empireofmogilno@hotmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160330191218/http://listofmicronations.com/lomwiki/index.php/Empire_of_Mogilno",
+      "https://web.archive.org/web/20040925020625/http://empireofmogilno.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Mogilno.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 501120000
+    },
+    "location": {
+      "latitude": -23.569106,
+      "longitude": 150.519787
+    },
+    "creationDate": {
+      "_seconds": 1793804201
+    },
+    "createdAt": "2026-11-04T14:56:41Z",
+    "isEdit": false,
+    "id": "e6YdY5sHQhP42ESRUDgA"
   }
 ]
