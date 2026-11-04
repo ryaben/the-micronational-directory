@@ -59065,5 +59065,52 @@
     "createdAt": "2026-11-04T13:21:13Z",
     "isEdit": false,
     "id": "00uRil4s7ZyVqra3WL5f"
+  },
+  {
+    "name": {
+      "main": "Podjistan",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Peoples Republic of",
+      "titleAlt": ""
+    },
+    "motto": "Vera seditio vertit ex vera (True Revolution Comes From True Revulsion)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/Podjistan/",
+      "podjistan@hotmail.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160331182247/http://listofmicronations.com/lomwiki/index.php/Peoples_Republic_of_Podjistan",
+      "https://web.archive.org/web/20150801033402/http://podjistan.webs.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Podjistan.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "The Peoples Palace",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1275350400
+    },
+    "location": {
+      "latitude": 54.296433,
+      "longitude": -6.091517
+    },
+    "creationDate": {
+      "_seconds": 1793803474
+    },
+    "createdAt": "2026-11-04T14:44:34Z",
+    "isEdit": false,
+    "id": "fC1gImPpd5ceFf2dFykA"
   }
 ]
