@@ -59465,5 +59465,56 @@
     "createdAt": "2026-11-04T18:51:41Z",
     "isEdit": false,
     "id": "FDJey9c1FDjuFmqAVhdw"
+  },
+  {
+    "name": {
+      "main": "Orient",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Oriente",
+          "title": "Principato de"
+        }
+      ],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Italian",
+      "English"
+    ],
+    "contactInfo": [
+      "info@shinvam.org"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20120722055751/http://www.shinvam.org/",
+      "https://web.archive.org/web/20130621151246/http://micronations.wikia.com/wiki/PRINCIPALITY_OF_ORIENT",
+      "https://web.archive.org/web/20120324205718/http://fifthworld.wikia.com/wiki/Principality_of_Orient"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Orient.png",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 940695240
+    },
+    "creationDate": {
+      "_seconds": 1793819697
+    },
+    "createdAt": "2026-11-04T19:14:57Z",
+    "isEdit": false,
+    "id": "Jb1sfRszAZysa8dD5cF6"
   }
 ]
