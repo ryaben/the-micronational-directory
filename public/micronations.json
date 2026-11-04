@@ -59212,5 +59212,53 @@
     "createdAt": "2026-11-04T15:30:40Z",
     "isEdit": false,
     "id": "UJnltHaU06AfbhPh2pXx"
+  },
+  {
+    "name": {
+      "main": "Durstonia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Principality of",
+      "titleAlt": ""
+    },
+    "motto": "Corruptio optimi pessima (The Corruption of the Best is the Worst)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.facebook.com/people/Principality-of-Durstonia/100069036705888/"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160330185333/http://listofmicronations.com/lomwiki/index.php/Principality_of_Durstonia",
+      "http://durstonia.blogspot.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Durstonia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1280620800
+    },
+    "location": {
+      "latitude": 48.3952597,
+      "longitude": -89.232254
+    },
+    "creationDate": {
+      "_seconds": 1793807297
+    },
+    "createdAt": "2026-11-04T15:48:17Z",
+    "isEdit": false,
+    "id": "VjdCDGYadtDRdeOxA8BN"
   }
 ]
