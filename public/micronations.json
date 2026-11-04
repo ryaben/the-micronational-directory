@@ -58787,5 +58787,51 @@
     "createdAt": "2026-11-04T12:08:17Z",
     "isEdit": false,
     "id": "6viIMRcEXcbz4RdOiJR6"
+  },
+  {
+    "name": {
+      "main": "K-Marx",
+      "mainAlt": "",
+      "alt": [],
+      "title": "People's Republic of ",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "webmaster@peoplesrepublicofk-marx.co.nr"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20140516204546/http://peoplesrepublicofk-marx.co.nr/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate",
+      "type"
+    ],
+    "flag": "/images/flags/K-Marx.jpg",
+    "type": [
+      "Digital"
+    ],
+    "capital": "",
+    "currency": "",
+    "memberships": [
+      "Fifth World Council"
+    ],
+    "foundationDate": {
+      "_seconds": 1136105700
+    },
+    "creationDate": {
+      "_seconds": 1793793577
+    },
+    "createdAt": "2026-11-04T11:59:37Z",
+    "isEdit": false,
+    "id": "lpQlLgscZsJyWln6YHW1"
   }
 ]
