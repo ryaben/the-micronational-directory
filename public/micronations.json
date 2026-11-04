@@ -59516,5 +59516,54 @@
     "createdAt": "2026-11-04T19:23:16Z",
     "isEdit": false,
     "id": "3o4MbI8Ihsxns8HetY24"
+  },
+  {
+    "name": {
+      "main": "New Guinea",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Nation of",
+      "titleAlt": ""
+    },
+    "motto": "Scientia, veneratio, libertas (Science, Veneration, Liberty)",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "public-services@newguinea-gov.com"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160330190501/http://listofmicronations.com/lomwiki/index.php/New_Guinea",
+      "https://web.archive.org/web/20120913053541/http://newguinea-gov.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/New Guinea.png",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Roundpond Settlement",
+    "currency": "Dáanaa",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1304208000
+    },
+    "location": {
+      "latitude": 62.6183,
+      "longitude": -153.6232
+    },
+    "creationDate": {
+      "_seconds": 1793822743
+    },
+    "createdAt": "2026-11-04T20:05:43Z",
+    "isEdit": false,
+    "id": "nnUO0PSruNN4fqaNK8hy"
   }
 ]
