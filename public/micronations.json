@@ -59610,5 +59610,59 @@
     "createdAt": "2026-11-04T20:14:12Z",
     "isEdit": false,
     "id": "InAERyzGKa2CutMl4PnU"
+  },
+  {
+    "name": {
+      "main": "Naminara Republic",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "나미나라공화국",
+          "title": ""
+        }
+      ],
+      "title": "",
+      "titleAlt": ""
+    },
+    "motto": "",
+    "languages": [
+      "Korean",
+      "English"
+    ],
+    "contactInfo": [
+      "https://www.flickr.com/photos/naminara/",
+      "https://www.facebook.com/namisum",
+      "https://www.youtube.com/user/Namiisland"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20160331182203/http://listofmicronations.com/lomwiki/index.php/Naminara_Republic",
+      "https://web.archive.org/web/20150810135607/http://namisum.com/"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Naminara Republic.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "",
+    "currency": "Nami",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1141171200
+    },
+    "location": {
+      "latitude": 37.791539,
+      "longitude": 127.525436
+    },
+    "creationDate": {
+      "_seconds": 1793827285
+    },
+    "createdAt": "2026-11-04T21:21:25Z",
+    "isEdit": false,
+    "id": "SaXFwgRS3cFwU0QelJtS"
   }
 ]
