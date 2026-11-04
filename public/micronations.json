@@ -59565,5 +59565,50 @@
     "createdAt": "2026-11-04T20:05:43Z",
     "isEdit": false,
     "id": "nnUO0PSruNN4fqaNK8hy"
+  },
+  {
+    "name": {
+      "main": "Dagostinia",
+      "mainAlt": "",
+      "alt": [],
+      "title": "Nation of",
+      "titleAlt": ""
+    },
+    "motto": "In Omnia Paratus",
+    "languages": [
+      "English"
+    ],
+    "contactInfo": [
+      "monarch@dagostinia.com"
+    ],
+    "websites": [
+      "https://sites.google.com/site/dagostiniasov"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [],
+    "flag": "/images/flags/Dagostinia.png",
+    "type": [
+      "Physical"
+    ],
+    "capital": "Homestead Province",
+    "currency": "",
+    "memberships": [],
+    "foundationDate": {
+      "_seconds": 1237741740
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793823252
+    },
+    "createdAt": "2026-11-04T20:14:12Z",
+    "isEdit": false,
+    "id": "InAERyzGKa2CutMl4PnU"
   }
 ]
