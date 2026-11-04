@@ -58951,5 +58951,68 @@
     "createdAt": "2026-11-04T12:38:14Z",
     "isEdit": false,
     "id": "Old29StiPFHJykoFLQ38"
+  },
+  {
+    "name": {
+      "main": "Okusi-Ambeno",
+      "mainAlt": "",
+      "alt": [
+        {
+          "main": "Kesultanan Okusi-Ambeno",
+          "title": ""
+        },
+        {
+          "main": "Occussi-Ambeno",
+          "title": "Sultanate of"
+        }
+      ],
+      "title": "Sultanate of",
+      "titleAlt": ""
+    },
+    "motto": "Wahdu, Kita Hebat Bwanget Dong",
+    "languages": [
+      "Bahasa Okusi",
+      "English",
+      "Tetum"
+    ],
+    "contactInfo": [
+      "istana.iskandar@okusi.net"
+    ],
+    "websites": [
+      "https://web.archive.org/web/20230314140053/https://okusi1.tripod.com/",
+      "https://es.wikipedia.org/wiki/Sultanato_de_Occusi_Ambeno",
+      "https://www.kaupelan.net/kig_okusi.htm"
+    ],
+    "author": {
+      "name": "The Micronational Directory",
+      "email": "themicronationaldirectory@gmail.com"
+    },
+    "approved": true,
+    "uncertain": [
+      "foundationDate"
+    ],
+    "flag": "/images/flags/Okusi-Ambeno.gif",
+    "type": [
+      "Physical",
+      "Fictional"
+    ],
+    "capital": "Pante-Makassar",
+    "currency": "Okusi Ringgit",
+    "memberships": [
+      "International Council of Independent States"
+    ],
+    "foundationDate": {
+      "_seconds": -63122460
+    },
+    "location": {
+      "latitude": 0,
+      "longitude": 0
+    },
+    "creationDate": {
+      "_seconds": 1793797198
+    },
+    "createdAt": "2026-11-04T12:59:58Z",
+    "isEdit": false,
+    "id": "eNO0lSdO51E77eu3iFoG"
   }
 ]
