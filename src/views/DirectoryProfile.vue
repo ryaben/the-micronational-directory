@@ -1,5 +1,6 @@
 <script setup>
 import DirectoryArticle from '../components/DirectoryArticle.vue';
+import LimitedDirectoryArticle from '../components/LimitedDirectoryArticle.vue';
 import store from '../store';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 
@@ -14,7 +15,8 @@ const { micronationsDirectory, supranationalMicronations, visibleOrganizations }
             <label>{{ $t('common.loadingDirectory') }}</label>
         </div>
 
-        <DirectoryArticle v-if="requestedMicronation.info !== undefined" id="entryPreview" class="info-displayed"
+        <LimitedDirectoryArticle v-if="requestedMicronation.info?.limited" entry-type="micronation" :entry="requestedMicronation.info" />
+        <DirectoryArticle v-else-if="requestedMicronation.info !== undefined" id="entryPreview" class="info-displayed"
             :visible-organizations="visibleOrganizations" :supranational-micronations="supranationalMicronations" :info="{
             id: requestedMicronation.info.id,
             name: requestedMicronation.info.name,

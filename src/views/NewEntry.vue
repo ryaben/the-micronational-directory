@@ -1,5 +1,6 @@
 <script setup>
-import NewEntryForm from '../components/NewEntryForm.vue'
+import MicronationEntryForm from '../components/MicronationEntryForm.vue'
+import OrganizationEntryForm from '../components/OrganizationEntryForm.vue'
 import { useDirectoryData } from '../composables/useDirectoryData.js'
 import '@vuepic/vue-datepicker/dist/main.css'
 
@@ -44,16 +45,18 @@ const { micronationsDirectory, organizationsDirectory, visibleOrganizations, use
 
       <!-- los containers de new entry van acá con v-show="newEntryView" -->
       <Transition name="entry-form" mode="out-in">
-        <NewEntryForm
+        <component
+          :is="currentFormComponent"
           v-if="user.emailVerified && (newMicronationView || newOrganizationView)"
           :key="`${newMicronationView ? 'micronation' : 'organization'}-${componentKey}`"
           class="new-entry-container"
-          :entry-type="newMicronationView ? 'micronation' : 'organization'"
           :directory-data="newMicronationView ? micronationsDirectory : organizationsDirectory"
+          :limited="limitedView"
           :organizations-directory="organizationsDirectory"
           :visible-organizations="visibleOrganizations"
           :theme="props.theme"
           :form-placeholders="formPlaceholder"
+          @update:limited="limitedView = $event"
           @submission-success="resetEntryForm"
         />
       </Transition>
@@ -64,12 +67,14 @@ const { micronationsDirectory, organizationsDirectory, visibleOrganizations, use
 <script>
 export default {
   components: {
-    NewEntryForm
+    MicronationEntryForm,
+    OrganizationEntryForm,
   },
   data: () => {
     return {
       newMicronationView: false,
       newOrganizationView: false,
+      limitedView: false,
       componentKey: 0,
       formPlaceholder: {
         newEntryFlag: '',
@@ -116,6 +121,11 @@ export default {
         newEntryWebsites: []
       }
       this.componentKey += 1
+    }
+  },
+  computed: {
+    currentFormComponent() {
+      return this.newMicronationView ? MicronationEntryForm : OrganizationEntryForm
     }
   }
 }

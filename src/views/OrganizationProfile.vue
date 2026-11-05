@@ -1,5 +1,6 @@
 <script setup>
 import OrganizationArticle from '../components/OrganizationArticle.vue';
+import LimitedDirectoryArticle from '../components/LimitedDirectoryArticle.vue';
 import store from '../store';
 import { useDirectoryData } from '../composables/useDirectoryData.js';
 
@@ -14,7 +15,8 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
             <label>{{ $t('common.loadingDirectory') }}</label>
         </div>
 
-        <OrganizationArticle v-if="requestedOrganization.info !== undefined" id="entryPreview" class="info-displayed"
+        <LimitedDirectoryArticle v-if="requestedOrganization.info?.limited" entry-type="organization" :entry="requestedOrganization.info" />
+        <OrganizationArticle v-else-if="requestedOrganization.info !== undefined" id="entryPreview" class="info-displayed"
             :micronations-directory="micronationsDirectory" :info="{
             id: requestedOrganization.info.id,
             name: {

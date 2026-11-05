@@ -1,6 +1,7 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
+import LimitedDirectoryCard from '../components/LimitedDirectoryCard.vue'
 import NewEntryForm from '../components/NewEntryForm.vue'
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue'
 import store from '../store'
@@ -72,9 +73,20 @@ const findPublishedEntry = (entry) => {
             :key="componentKey"
             :class="{ 'fixed-height': fixedHeight, 'moderation-action-running': moderationAction }"
           >
+            <template v-for="item in micronationsModerationDirectory" :key="item.id">
+            <LimitedDirectoryCard
+              v-if="item.limited"
+              entry-type="micronation"
+              :entry="item"
+              :width="entryWidth"
+              :expandable="true"
+              :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
+              @open-profile="openEntryProfile(item, 'Micronation')"
+              @click="selectEntry(item, 'Micronation')"
+            />
             <DirectoryEntry
-              v-for="item in micronationsModerationDirectory"
-              :key="item.id"
+              v-else
               :width="entryWidth"
               :flag-height="entryWidth * 0.6"
               :view-mode="'micronations'"
@@ -105,9 +117,21 @@ const findPublishedEntry = (entry) => {
               @open-profile="openEntryProfile(item, 'Micronation')"
               @click="selectEntry(item, 'Micronation')"
             />
+            </template>
+            <template v-for="item in organizationsModerationDirectory" :key="item.id">
+            <LimitedDirectoryCard
+              v-if="item.limited"
+              entry-type="organization"
+              :entry="item"
+              :width="entryWidth"
+              :expandable="true"
+              :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
+              @open-profile="openEntryProfile(item, 'Organization')"
+              @click="selectEntry(item, 'Organization')"
+            />
             <OrganizationEntry
-              v-for="item in organizationsModerationDirectory"
-              :key="item.id"
+              v-else
               :width="entryWidth"
               :flag-height="entryWidth * 0.6"
               :micronations-directory="micronationsDirectory"
@@ -132,6 +156,7 @@ const findPublishedEntry = (entry) => {
               @open-profile="openEntryProfile(item, 'Organization')"
               @click="selectEntry(item, 'Organization')"
             />
+            </template>
           </div>
           <Teleport to="body">
             <div
@@ -184,6 +209,7 @@ const findPublishedEntry = (entry) => {
                   "
                   :form-placeholders="moderationFormDraft"
                   :initial-entry="profileDraft"
+                  :limited="selectedProfileEntry.limited"
                   :submitted-entry="profileSubmissionDraft"
                   :published-entry="findPublishedEntry(selectedProfileEntry)"
                   :initial-image-mode="profileImageMode"
@@ -463,6 +489,7 @@ export default {
       this.profileDraft.contactInfo ||= []
       this.profileDraft.websites ||= []
       this.moderationFormDraft = {
+        newEntryFlag: this.profileDraft.flag || this.profileDraft.logo || '',
         newEntryName: this.profileDraft.name.main || '',
         newEntryNameAlt: this.profileDraft.name.mainAlt || '',
         newEntryAltNames:
@@ -688,6 +715,9 @@ export default {
         delete entryForJson.githubUrl
         delete entryForJson.issueBody
         delete entryForJson.entryType
+        delete entryForJson.flagFile
+        delete entryForJson.flagEnhancedFile
+        delete entryForJson.logoFile
         // AI triage belongs to the GitHub review issue, not the public directory data.
         delete entryForJson.aiReview
         delete entryForJson.searchDisplay

@@ -21,7 +21,34 @@ function normalizeDate(value) {
   return { _seconds: Number.isFinite(date.getTime()) ? Math.floor(date.getTime() / 1000) : 0 }
 }
 
-function formatEntryForJSON(entryData, entryType) {
+function formatEntryForJSON(entryData, entryType, options = {}) {
+  if (entryData.limited === true || options.limited === true) {
+    const isMicronation = entryType === 'micronation'
+    const imageField = isMicronation ? 'flag' : 'logo'
+    const imageFile = isMicronation ? entryData.flagFile : entryData.logoFile
+    const submittedName = typeof entryData.name === 'string' ? { main: entryData.name } : entryData.name || {}
+    const formatted = {
+      id: entryData.id || entryData.directoryId || createId(),
+      name: {
+        main: submittedName.main || 'Unnamed',
+        ...(isMicronation && submittedName.title ? { title: submittedName.title } : {})
+      },
+      limited: true,
+      texts: (Array.isArray(entryData.texts) ? entryData.texts : [])
+        .filter((item) => item && typeof item.content === 'string' && typeof item.source === 'string')
+        .map(({ content, source }) => ({ content, source })),
+      author: entryData.author || { name: 'Unknown', email: 'Unknown' },
+      approved: false,
+      uncertain: [],
+      creationDate: { _seconds: Math.floor(Date.now() / 1000) }
+    }
+
+    formatted[imageField] = imageFile?.name
+      ? `/images/${isMicronation ? 'flags' : 'logos'}/${imageFile.name}`
+      : entryData[imageField] || ''
+    return formatted
+  }
+
   const formatted = {
     id: entryData.id || entryData.directoryId || createId(),
     name: entryData.name,
@@ -85,7 +112,7 @@ export async function createGitHubIssueWithCredentials(entryData, entryType, opt
   if (!token || !repoOwner || !repoName) throw new Error('GitHub credentials not configured')
   const fileData = entryData.flagFile || entryData.logoFile
   const folder = entryType === 'micronation' ? 'flags' : 'logos'
-  const formattedData = formatEntryForJSON(entryData, entryType)
+  const formattedData = formatEntryForJSON(entryData, entryType, options)
   if (options.editTargetId && entryData.creationDate) formattedData.creationDate = entryData.creationDate
   const mainName = entryData.name?.main || entryData.name || 'Unnamed'
   const isEdit = !!options.editTargetId
@@ -107,7 +134,10 @@ export async function createGitHubIssueWithCredentials(entryData, entryType, opt
     if (base64Content.length > 50000) throw new Error('The attached image is too large. Please upload a smaller image (maximum ~35 KB).')
   }
 
-  let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission\n\n${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`} Fields listed in the "uncertain" array have uncertain values or lack precise confirmation.\n\n### Entry Data\n\n\`\`\`json\n${JSON.stringify(formattedData, null, 2).replace(/`/g, '\\u0060')}\n\`\`\`\n`
+  const submissionSummary = formattedData.limited
+    ? 'This limited submission contains supported information with its source URLs.'
+    : `${isEdit ? `A proposed edit for directory entry ${options.editTargetId} is pending approval.` : `A new ${entryType} submission is pending approval.`} Fields listed in the "uncertain" array have uncertain values or lack precise confirmation.`
+  let body = `## ${isEdit ? 'Edit' : 'New'} ${entryType.charAt(0).toUpperCase() + entryType.slice(1)} Submission\n\n${submissionSummary}\n\n### Entry Data\n\n\`\`\`json\n${JSON.stringify(formattedData, null, 2).replace(/`/g, '\\u0060')}\n\`\`\`\n`
   if (fileData && base64Content) {
     body += `\n### Media File Metadata\n- **File Name:** \`${fileData.name}\`\n- **Target Path:** \`public/images/${folder}/${fileData.name}\`\n\n### Media File Base64\n\`\`\`base64\n${base64Content}\n\`\`\`\n`
   }
