@@ -6,7 +6,6 @@
             <li v-html="$t('donatePage.nic')"></li>
             <li v-html="$t('donatePage.firebase')"></li>
             <li v-html="$t('donatePage.mapbox')"></li>
-            <li v-html="$t('donatePage.emailjs')"></li>
         </ul>
         <p v-html="$t('donatePage.thanks')"></p>
         <div class="donation-methods">

@@ -81,7 +81,6 @@
     "nic": "<a href=\"https://nic.ar/\" target=\"_blank\">Nic.ar</a>: Es el registrador oficial de dominios de Argentina. Adquirimos un dominio propio para la aplicación web, probablemente la dirección desde la que accediste al sitio. El plan cuesta aproximadamente <b>1 USD al año</b>.",
     "firebase": "<a href=\"https://firebase.google.com/\" target=\"_blank\">Google Firebase</a>: Esta solución de backend almacena y procesa la información de las entradas de micronaciones, las cuentas de usuario y los concursos. También ofrece bases de datos, autenticación y almacenamiento de banderas. Los costos según el uso son bajos por ahora (<b>alrededor de 0,10 USD al mes</b>), pero pueden aumentar con el tráfico y el uso del sitio.",
     "mapbox": "<a href=\"https://www.mapbox.com/\" target=\"_blank\">Mapbox</a>: Usamos este servicio para mostrar mapas al añadir micronaciones físicas o visualizar todas las entradas en el globo. El plan gratuito cubre cierta cantidad mensual de cargas de mapas, que el tráfico actual aún no supera, aunque eso podría cambiar.",
-    "emailjs": "<a href=\"https://www.emailjs.com/\" target=\"_blank\">EmailJS</a>: Usamos principalmente este servicio para enviar correos automáticos a los autores cuando sus contribuciones se aprueban o rechazan, además de otros avisos. El plan gratuito, limitado a 200 correos al mes, no alcanza. El plan básico de pago cuesta <b>9 USD al mes</b> y estamos evaluando contratarlo.",
     "thanks": "Gracias por dedicar tiempo a conocer nuestro proyecto y cómo funciona. Si valoras nuestro trabajo y tienes la posibilidad y el interés de apoyar la plataforma con una donación, te lo agradeceremos mucho. ¡Cualquier aporte es bienvenido!<br>Estos son los medios que aceptamos actualmente:",
     "ethAddressAlt": "Dirección para donar Ethereum",
     "btcAddressAlt": "Dirección para donar Bitcoin"
@@ -675,7 +674,7 @@
   },
   "moderation": {
     "noAccess": "No tienes permisos suficientes para acceder a las herramientas de moderación.",
-    "description": "Revisa las entradas sin publicar que enviaron los usuarios. Aprueba las que cumplan los requisitos para publicarlas en el directorio o recházalas. Se notificará cada decisión por correo electrónico.",
+    "description": "Revisa las entradas sin publicar que enviaron los usuarios. Aprueba las que cumplan los requisitos para publicarlas en el directorio o recházalas. También puedes enviar al autor un correo con los comentarios de la incidencia sin resolverla.",
     "waitingForReview": "entradas esperan revisión",
     "refreshing": "Actualizando…",
     "loadingPending": "Cargando entradas pendientes desde GitHub…",
@@ -703,6 +702,8 @@
     "reject": "Rechazar",
     "approving": "Aprobando…",
     "approve": "Aprobar",
+    "sendingEmail": "Enviando solicitud…",
+    "sendEmail": "Enviar email",
     "noPrivileges": "No tienes permisos suficientes para moderar los envíos pendientes.",
     "noneSelected": "No hay ningún envío seleccionado",
     "selectedEntry": "Entrada seleccionada",
@@ -726,8 +727,6 @@
       "directoryEntryMissing": "La entrada {id} ya no existe en el directorio."
     },
     "notifications": {
-      "emailFailedTitle": "No se pudo enviar el correo de moderación",
-      "emailFailedText": "La entrada fue {decision}, pero no se pudo notificar al autor.",
       "cannotSaveTitle": "No se puede guardar la entrada",
       "nameRequired": "El nombre oficial es obligatorio.",
       "updatedTitle": "Entrada actualizada",
@@ -739,6 +738,9 @@
       "decisionTitle": "Moderación de entrada",
       "rejectSuccess": "Se rechazó la entrada y se cerró la incidencia de GitHub.",
       "approveSuccess": "Se aprobó la entrada, se agregó al archivo JSON y se cerró la incidencia de GitHub.",
+      "emailQueuedTitle": "Correo solicitado",
+      "emailQueuedText": "GitHub Actions enviará los comentarios al autor. La incidencia permanece abierta.",
+      "emailRequestFailedTitle": "No se pudo solicitar el correo",
       "decisionFailedTitle": "Error al moderar la entrada"
     },
     "submissionType": "Tipo de envío",
