@@ -1,0 +1,51 @@
+name: Send moderation decision email
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  notify-author:
+    if: github.event.label.name == 'approved' || github.event.label.name == 'rejected' || github.event.label.name == 'send-email'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare email content
+        id: email
+        run: node .github/scripts/build-moderation-email.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Send moderation email
+        uses: dawidd6/action-send-mail@v23
+        with:
+          server_address: smtp.zoho.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.ZOHO_EMAIL }}
+          password: ${{ secrets.ZOHO_APP_PASSWORD }}
+          from: "The Micronational Directory <${{ secrets.ZOHO_EMAIL }}>"
+          to: ${{ steps.email.outputs.recipient }}
+          subject: ${{ steps.email.outputs.subject }}
+          html_body: file://.github/email/moderation-email.html
+
+      - name: Remove temporary send-email label
+        if: always() && github.event.label.name == 'send-email'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'send-email'
+              })
+            } catch (error) {
+              if (error.status !== 404) throw error
+            }

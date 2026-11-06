@@ -81,7 +81,6 @@
     "nic": "<a href=\"https://nic.ar/\" target=\"_blank\">Nic.ar</a>: Argentina's official domain registrar. We acquired a custom domain for our webapp, likely the address you used to access this site. It costs approximately <b>1 USD per year</b>.",
     "firebase": "<a href=\"https://firebase.google.com/\" target=\"_blank\">Google Firebase</a>: This backend stores and processes information about micronation entries, user accounts and contests. It provides databases, authentication and flag storage. Usage-based costs are currently low (<b>around 0.10 USD per month</b>) but may rise as traffic and usage grow.",
     "mapbox": "<a href=\"https://www.mapbox.com/\" target=\"_blank\">Mapbox</a>: We use this service for maps when adding a physical micronation or viewing all entries on the globe. The free plan covers a monthly number of map loads that our current traffic has not exceeded, though this may change.",
-    "emailjs": "<a href=\"https://www.emailjs.com/\" target=\"_blank\">EmailJS</a>: We mainly use this service to send authors automatic emails when their submissions are approved or rejected, along with other notices. The free plan is limited to 200 emails per month and is not enough. The basic paid plan costs <b>9 USD per month</b>, and we are considering it.",
     "thanks": "Thank you for taking the time to learn more about our project and how it operates. If you appreciate our work and are able and willing to support the platform with a donation, it would be greatly appreciated. Any amount is welcome!<br>These are the methods we currently accept:",
     "ethAddressAlt": "Ethereum donation address",
     "btcAddressAlt": "Bitcoin donation address"
@@ -673,7 +672,7 @@
   },
   "moderation": {
     "noAccess": "You don't have sufficient privileges to access moderation tools.",
-    "description": "Review unpublished entries submitted by users. Approve entries that meet the requirements to publish them in the directory, or reject them. Authors are notified by email after each decision.",
+    "description": "Review unpublished entries submitted by users. Approve entries that meet the requirements to publish them in the directory, or reject them. You can also email the author the issue comments without resolving it.",
     "waitingForReview": "entries waiting for review",
     "refreshing": "Refreshing…",
     "loadingPending": "Loading pending entries from GitHub…",
@@ -701,6 +700,8 @@
     "reject": "Reject",
     "approving": "Approving…",
     "approve": "Approve",
+    "sendingEmail": "Requesting email…",
+    "sendEmail": "Send email",
     "noPrivileges": "You don't have sufficient privileges to moderate pending submissions.",
     "noneSelected": "No submission selected",
     "selectedEntry": "Selected entry",
@@ -724,8 +725,6 @@
       "directoryEntryMissing": "The directory entry {id} no longer exists."
     },
     "notifications": {
-      "emailFailedTitle": "Moderation email failed",
-      "emailFailedText": "The entry was {decision}, but the author notification could not be sent.",
       "cannotSaveTitle": "Cannot save entry",
       "nameRequired": "The official name is required.",
       "updatedTitle": "Entry updated",
@@ -737,6 +736,9 @@
       "decisionTitle": "Entry moderation",
       "rejectSuccess": "The entry was rejected and the GitHub issue was closed.",
       "approveSuccess": "The entry was approved, added to the JSON file, and the GitHub issue was closed.",
+      "emailQueuedTitle": "Email requested",
+      "emailQueuedText": "GitHub Actions will send the comments to the author. The issue remains open.",
+      "emailRequestFailedTitle": "Could not request email",
       "decisionFailedTitle": "Error while moderating entry"
     },
     "submissionType": "Submission type",
