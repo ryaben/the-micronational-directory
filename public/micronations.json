@@ -54451,9 +54451,22 @@
     "creationDate": {
       "_seconds": 1792768051
     },
-    "createdAt": "2026-10-23T15:07:31Z",
-    "isEdit": false,
-    "id": "IdcaMnktC1QmCsjv9O4Y"
+    "createdAt": "2026-11-06T02:27:00Z",
+    "isEdit": true,
+    "id": "IdcaMnktC1QmCsjv9O4Y",
+    "uncertain": [],
+    "flagEnhanced": "/images/flags/Amethonia-enhanced-1793932018627.jpg",
+    "editHistory": [
+      {
+        "author": {
+          "name": "The Micronational Directory",
+          "email": "themicronationaldirectory@gmail.com"
+        },
+        "date": {
+          "_seconds": 1793932020
+        }
+      }
+    ]
   },
   {
     "name": {
