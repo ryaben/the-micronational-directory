@@ -180,14 +180,16 @@ export function convertIssueToEntry(issue) {
     approved: false, // Issues are always pending approval
     searchDisplay: true,
     filterDisplay: true,
-    entryType: isMicronation ? 'micronation' : 'organization',
-    memberships: Array.isArray(entryData.memberships) ? entryData.memberships : [],
-    languages: Array.isArray(entryData.languages) ? entryData.languages : [],
-    contactInfo: Array.isArray(entryData.contactInfo) ? entryData.contactInfo : [],
-    websites: Array.isArray(entryData.websites) ? entryData.websites : []
+    entryType: isMicronation ? 'micronation' : 'organization'
+  }
+  if (!formatted.limited) {
+    formatted.memberships = Array.isArray(entryData.memberships) ? entryData.memberships : []
+    formatted.languages = Array.isArray(entryData.languages) ? entryData.languages : []
+    formatted.contactInfo = Array.isArray(entryData.contactInfo) ? entryData.contactInfo : []
+    formatted.websites = Array.isArray(entryData.websites) ? entryData.websites : []
   }
   // Legacy issue bodies used creationDate for the founding date.
-  if (!formatted.foundationDate && entryData.creationDate) {
+  if (!formatted.limited && !formatted.foundationDate && entryData.creationDate) {
     formatted.foundationDate = normalizeDate(entryData.creationDate)
   }
   const submittedAt = issue.created_at ? new Date(issue.created_at) : null
@@ -232,6 +234,13 @@ export function convertIssueToEntry(issue) {
     }
   }
 
+  if (formatted.limited) {
+    formatted.name = {
+      main: formatted.name.main,
+      ...(isMicronation && formatted.name.title ? { title: formatted.name.title } : {})
+    }
+  }
+
   // Ensure author has the required structure
   if (!formatted.author || typeof formatted.author !== 'object') {
     formatted.author = {
@@ -241,7 +250,9 @@ export function convertIssueToEntry(issue) {
   }
 
   // Normalize foundationDate
-  if (!formatted.foundationDate) {
+  if (formatted.limited) {
+    delete formatted.foundationDate
+  } else if (!formatted.foundationDate) {
     if (
       formatted.creationDate &&
       (formatted.creationDate._seconds || formatted.creationDate.seconds)

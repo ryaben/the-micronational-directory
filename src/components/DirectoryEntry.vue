@@ -4,6 +4,7 @@ import EntrySource from '../components/EntrySource.vue';
 import AnimateHeight from 'vue-animate-height';
 import store from '../store';
 import FavoriteToggle from './FavoriteToggle.vue';
+import ModerationKindChip from './ModerationKindChip.vue';
 
 defineProps({
     width: {
@@ -79,7 +80,7 @@ const emit = defineEmits(['open-profile'])
     <div class="directory-entry-container"
         :class="{ 'collage-mode': viewMode === 'collage', 'info-displayed': infoView, 'fixed-height': fixedHeight }" :style="cssProps"
         @click="toggleInfo">
-        <span v-if="moderationLabel" class="moderation-kind-chip" :class="moderationLabel.toLowerCase()" :aria-label="$t('moderation.submissionType')">{{ $t(moderationLabel === 'Edit' ? 'moderation.edit' : 'moderation.new') }}</span>
+        <ModerationKindChip v-if="moderationLabel" :label="moderationLabel" />
         <FavoriteToggle v-if="info.approved && viewMode !== 'collage'" :entry-id="info.directoryId || info.id || ''" entry-type="micronations" />
 
         <img :src="info.flag" class="entry-flag" :style="{ 'height': flagHeight + 'px' }" :alt="$t('directory.flagAlt')">
@@ -249,30 +250,6 @@ export default {
     overflow: auto;
 }
 
-.moderation-kind-chip {
-  position: absolute;
-  z-index: 2;
-  top: 8px;
-  right: 8px;
-  padding: 4px 8px;
-  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
-  border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
-  color: var(--color-accent);
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-.moderation-kind-chip.edit {
-  border-color: color-mix(in srgb, #a15ac4 35%, var(--color-border));
-  background: color-mix(in srgb, #a15ac4 10%, var(--color-surface));
-  color: color-mix(in srgb, #a15ac4 82%, var(--color-heading));
-}
-
 .directory-entry-container.info-displayed {
     padding: 12px;
     padding-bottom: 0;
@@ -320,6 +297,7 @@ export default {
 .entry-info {
     width: 100%;
 }
+
 
 .entry-text {
     font-size: 13px;

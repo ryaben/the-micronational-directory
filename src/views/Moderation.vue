@@ -1,12 +1,12 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue'
 import OrganizationEntry from '../components/OrganizationEntry.vue'
+import LimitedDirectoryCard from '../components/LimitedDirectoryCard.vue'
 import NewEntryForm from '../components/NewEntryForm.vue'
 import ModerationToolWorkspace from '../components/ModerationToolWorkspace.vue'
 import store from '../store'
 import { useDirectoryData } from '../composables/useDirectoryData.js'
 import { notify } from '@kyvg/vue3-notification'
-import emailjs from 'emailjs-com'
 import {
   fetchGitHubIssues,
   convertIssueToEntry,
@@ -72,9 +72,20 @@ const findPublishedEntry = (entry) => {
             :key="componentKey"
             :class="{ 'fixed-height': fixedHeight, 'moderation-action-running': moderationAction }"
           >
+            <template v-for="item in micronationsModerationDirectory" :key="item.id">
+            <LimitedDirectoryCard
+              v-if="item.limited"
+              entry-type="micronation"
+              :entry="item"
+              :width="entryWidth"
+              :expandable="true"
+              :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
+              @open-profile="openEntryProfile(item, 'Micronation')"
+              @click="selectEntry(item, 'Micronation')"
+            />
             <DirectoryEntry
-              v-for="item in micronationsModerationDirectory"
-              :key="item.id"
+              v-else
               :width="entryWidth"
               :flag-height="entryWidth * 0.6"
               :view-mode="'micronations'"
@@ -105,9 +116,21 @@ const findPublishedEntry = (entry) => {
               @open-profile="openEntryProfile(item, 'Micronation')"
               @click="selectEntry(item, 'Micronation')"
             />
+            </template>
+            <template v-for="item in organizationsModerationDirectory" :key="item.id">
+            <LimitedDirectoryCard
+              v-if="item.limited"
+              entry-type="organization"
+              :entry="item"
+              :width="entryWidth"
+              :expandable="true"
+              :inline-profile-preview="true"
+              :moderation-label="item.isEdit ? 'Edit' : 'New'"
+              @open-profile="openEntryProfile(item, 'Organization')"
+              @click="selectEntry(item, 'Organization')"
+            />
             <OrganizationEntry
-              v-for="item in organizationsModerationDirectory"
-              :key="item.id"
+              v-else
               :width="entryWidth"
               :flag-height="entryWidth * 0.6"
               :micronations-directory="micronationsDirectory"
@@ -132,6 +155,7 @@ const findPublishedEntry = (entry) => {
               @open-profile="openEntryProfile(item, 'Organization')"
               @click="selectEntry(item, 'Organization')"
             />
+            </template>
           </div>
           <Teleport to="body">
             <div
@@ -184,6 +208,7 @@ const findPublishedEntry = (entry) => {
                   "
                   :form-placeholders="moderationFormDraft"
                   :initial-entry="profileDraft"
+                  :limited="selectedProfileEntry.limited"
                   :submitted-entry="profileSubmissionDraft"
                   :published-entry="findPublishedEntry(selectedProfileEntry)"
                   :initial-image-mode="profileImageMode"
@@ -290,6 +315,19 @@ const findPublishedEntry = (entry) => {
               :placeholder="$t('moderation.decisionNotePlaceholder')"
             ></textarea>
             <button
+              id="entrySendEmail"
+              class="login-button color-transition"
+              :disabled="selectedEntry === undefined || !selectedEntry.author?.email || moderationAction !== null"
+              @click="sendIssueEmail(selectedEntry)"
+            >
+              <span
+                v-if="moderationAction === 'email'"
+                class="action-spinner"
+                aria-hidden="true"
+              ></span>
+              {{ moderationAction === 'email' ? $t('moderation.sendingEmail') : $t('moderation.sendEmail') }}
+            </button>
+            <button
               id="entryReject"
               class="login-button color-transition"
               :disabled="selectedEntry === undefined || moderationAction !== null"
@@ -394,46 +432,6 @@ export default {
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
       return Array.from(digest, (byte) => alphabet[byte % 62]).join('')
     },
-    async sendDecisionEmail(entry, decision) {
-      const authorEmail = entry.author?.email
-      if (!authorEmail) {
-        console.warn('Skipping moderation email because the entry has no author email.', entry.id)
-        return
-      }
-      if (
-        store.getters.moderators.some(
-          (moderatorEmail) => moderatorEmail.toLowerCase() === authorEmail.toLowerCase()
-        )
-      ) {
-        return
-      }
-
-      try {
-        await emailjs.send(
-          'service_gd9nz5x',
-          'template_w1tt2h5',
-          {
-            entry_decision: decision,
-            entry_decisiond: decision === 'approve' ? 'approved' : 'rejected',
-            to_name: entry.author?.name || '',
-            to_email: authorEmail,
-            entry_name: entry.name?.main || this.selectedEntryName,
-            rejection_reason: this.rejectionReason
-          },
-          'P8-p_r-gTZedo_h84'
-        )
-      } catch (error) {
-        // The moderation decision is already recorded; a mail failure must not undo it.
-        console.error('Error sending moderation decision email:', error)
-        notify({
-          title: this.$t('moderation.notifications.emailFailedTitle'),
-          text: this.$t('moderation.notifications.emailFailedText', {
-            decision: this.$t(decision === 'approve' ? 'moderation.approved' : 'moderation.rejected')
-          }),
-          type: 'error'
-        })
-      }
-    },
     findFullIssueEntry(item) {
       // Find the full entry data with issueBody from the original issues
       return this.githubIssues
@@ -463,6 +461,7 @@ export default {
       this.profileDraft.contactInfo ||= []
       this.profileDraft.websites ||= []
       this.moderationFormDraft = {
+        newEntryFlag: this.profileDraft.flag || this.profileDraft.logo || '',
         newEntryName: this.profileDraft.name.main || '',
         newEntryNameAlt: this.profileDraft.name.mainAlt || '',
         newEntryAltNames:
@@ -607,7 +606,6 @@ export default {
         await addIssueLabel(entry.issueNumber, 'rejected')
         await closeIssue(entry.issueNumber)
 
-        await this.sendDecisionEmail(entry, 'reject')
 
         // Remove from local list
         this.githubIssues = this.githubIssues.filter((issue) => issue.id !== entry.id)
@@ -628,6 +626,28 @@ export default {
         console.error('Error rejecting entry:', error)
         notify({
           title: this.$t('moderation.notifications.decisionFailedTitle'),
+          text: error.message || error,
+          type: 'error'
+        })
+      } finally {
+        this.moderationAction = null
+      }
+    },
+    async sendIssueEmail(entry) {
+      if (!entry || !entry.issueNumber || !entry.author?.email || this.moderationAction) return
+
+      this.moderationAction = 'email'
+      try {
+        await addIssueLabel(entry.issueNumber, 'send-email')
+        notify({
+          title: this.$t('moderation.notifications.emailQueuedTitle'),
+          text: this.$t('moderation.notifications.emailQueuedText'),
+          type: 'success'
+        })
+      } catch (error) {
+        console.error('Error requesting moderation email:', error)
+        notify({
+          title: this.$t('moderation.notifications.emailRequestFailedTitle'),
           text: error.message || error,
           type: 'error'
         })
@@ -688,6 +708,9 @@ export default {
         delete entryForJson.githubUrl
         delete entryForJson.issueBody
         delete entryForJson.entryType
+        delete entryForJson.flagFile
+        delete entryForJson.flagEnhancedFile
+        delete entryForJson.logoFile
         // AI triage belongs to the GitHub review issue, not the public directory data.
         delete entryForJson.aiReview
         delete entryForJson.searchDisplay
@@ -789,7 +812,6 @@ export default {
         await closeIssue(entry.issueNumber)
         await addIssueLabel(entry.issueNumber, 'approved')
 
-        await this.sendDecisionEmail(entry, 'approve')
 
         // Remove from local list
         this.githubIssues = this.githubIssues.filter((issue) => issue.id !== entry.id)

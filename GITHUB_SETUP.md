@@ -37,6 +37,17 @@ npm run dev
 
 ## How It Works
 
+### Moderation email notifications
+
+When an issue receives the `approved` or `rejected` label, GitHub Actions reads the submitted entry JSON, uses `author.email` as the recipient, collects the issue comments, and sends a custom HTML email through Zoho SMTP. Moderators can also choose **Send email** in the moderation panel; this adds a temporary `send-email` label, emails the existing issue comments, then removes the label without closing or resolving the issue.
+
+Configure these repository secrets under **Settings → Secrets and variables → Actions** before enabling moderation emails:
+
+- `ZOHO_EMAIL`: the Zoho mailbox used as the sender.
+- `ZOHO_APP_PASSWORD`: an app-specific password for that mailbox.
+
+The workflow uses `smtp.zoho.com` over SSL on port 465. Email delivery depends on the Zoho account's SMTP availability and sending limits. A failed email appears in the GitHub Actions run log; it does not undo the moderation decision.
+
 ### Issue Creation Process
 
 When a new entry is submitted:

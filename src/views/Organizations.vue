@@ -1,5 +1,6 @@
 <script setup>
 import OrganizationEntry from '../components/OrganizationEntry.vue';
+import LimitedDirectoryCard from '../components/LimitedDirectoryCard.vue';
 import SettingsSubcontainer from '../components/SettingsSubcontainer.vue';
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue';
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
@@ -21,7 +22,11 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
         :class="{ 'fixed-height': fixedHeight }">
         <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
           @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
-          <OrganizationEntry v-for="(item, i) in pagedOrganizationsDirectory" :key="item.id || item.name.main" :width="organizationEntryWidth"
+          <template v-for="item in pagedOrganizationsDirectory" :key="item.id || item.name.main">
+          <LimitedDirectoryCard v-if="item.limited" entry-type="organization" :entry="item" :width="organizationEntryWidth"
+            :logo-height="organizationEntryWidth * 0.6" :profile-url="`/organizations/${encodeURIComponent(item.id || item.name.main)}`"
+          />
+          <OrganizationEntry v-else :width="organizationEntryWidth"
             :fixed-height="fixedHeight" :fixed-height-value="fixedHeightValue"
             :logo-height="organizationEntryWidth * 0.6" :micronations-directory="micronationsDirectory" :info="{
         id: item.id,
@@ -39,6 +44,7 @@ const { micronationsDirectory, organizationsDirectory } = useDirectoryData();
         approved: item.approved,
         creationDate: item.creationDate
       }" />
+          </template>
         </TransitionGroup>
       </div>
     </section>
@@ -63,6 +69,7 @@ export default {
   },
   components: {
     OrganizationEntry,
+    LimitedDirectoryCard,
     SettingsSubcontainer,
     SettingsSubcontainerTitle,
     SettingsSubcontainerParameter,

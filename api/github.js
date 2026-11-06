@@ -88,7 +88,7 @@ module.exports = async function handler(req, res) {
       }
       case 'addIssueLabel': {
         const label = String(input.label || '')
-        if (!['approved', 'rejected'].includes(label)) throw new Error('Invalid moderation label.')
+        if (!['approved', 'rejected', 'send-email'].includes(label)) throw new Error('Invalid moderation label.')
         result = await github(`issues/${validIssueNumber(input.issueNumber)}/labels`, 'POST', { labels: [label] })
         break
       }

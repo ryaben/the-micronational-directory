@@ -1,5 +1,6 @@
 <script setup>
 import DirectoryEntry from '../components/DirectoryEntry.vue';
+import LimitedDirectoryCard from '../components/LimitedDirectoryCard.vue';
 import SettingsSubcontainer from '../components/SettingsSubcontainer.vue';
 import SettingsSubcontainerTitle from '../components/SettingsSubcontainerTitle.vue';
 import SettingsSubcontainerParameter from '../components/SettingsSubcontainerParameter.vue';
@@ -22,7 +23,11 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
           :class="{ 'fixed-height': fixedHeight && viewMode !== 'collage' }">
           <TransitionGroup :css="false" @before-leave="positionLeavingDirectoryCard"
             @enter="animateDirectoryCardEnter" @leave="animateDirectoryCardLeave">
-            <DirectoryEntry v-for="(item, i) in pagedMicronationsDirectory" :key="item.id || item.name.main" :width="entryWidth"
+            <template v-for="item in pagedMicronationsDirectory" :key="item.id || item.name.main">
+            <LimitedDirectoryCard v-if="item.limited" :entry="item" :width="entryWidth"
+              :logo-height="entryWidth * 0.6" :profile-url="`/directory/${encodeURIComponent(item.id || item.name.main)}`"
+              :view-mode="viewMode" />
+            <DirectoryEntry v-else :width="entryWidth"
               :fixed-height="fixedHeight && viewMode !== 'collage'" :fixed-height-value="fixedHeightValue"
               :flag-height="entryWidth * 0.6" :view-mode="viewMode" :micronations-directory="micronationsDirectory"
               :organizations-directory="organizationsDirectory" :visible-organizations="visibleOrganizations"
@@ -44,6 +49,7 @@ const { micronationsDirectory, supranationalMicronations, organizationsDirectory
           approved: item.approved,
           creationDate: item.creationDate
         }" />
+            </template>
           </TransitionGroup>
         </div>
       </div>

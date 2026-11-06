@@ -9,6 +9,14 @@ defineProps({
     icon: {
         type: String,
         default: ''
+    },
+    href: {
+        type: String,
+        default: ''
+    },
+    wrap: {
+        type: Boolean,
+        default: false
     }
 });
 
@@ -18,7 +26,8 @@ const emit = defineEmits(['remove-element']);
 <template>
     <span class="selected-element">
         <img v-if="icon" class="element-icon" :src="`/images/${getIconFolder(icon)}/${icon}.png`" alt="" aria-hidden="true">
-        <span class="element-text" :title="elementText">{{ elementText }}</span>
+        <a v-if="href" class="element-text element-link" :class="{ 'element-text-wrap': wrap }" :href="href" target="_blank" rel="noopener noreferrer" :title="elementText">{{ elementText }}</a>
+        <span v-else class="element-text" :class="{ 'element-text-wrap': wrap }" :title="elementText">{{ elementText }}</span>
         <button class="remove-element" type="button" :aria-label="`Remove ${elementText}`"
             @click="emit('remove-element', elementText)">
             <span aria-hidden="true">×</span>
@@ -60,6 +69,10 @@ export default { name: 'SelectedElement' };
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.element-link { color: inherit; text-decoration: none; }
+.element-link:hover { color: var(--color-accent); text-decoration: underline; }
+.element-text-wrap { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; }
 
 .element-icon {
     display: block;

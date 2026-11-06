@@ -234,18 +234,39 @@ defineProps({
                     />
                   </div>
                 </SettingsSubcontainerParameter>
-                <SettingsSubcontainerParameter class="filter-field">
-                  <label>{{ $t('settings.favorites') }}</label>
-                  <div class="only-favorites-control">
-                    <input
-                      :id="`${storeGetter}-only-favorites`"
-                      v-model="favoritesOnly"
-                      type="checkbox"
-                      :disabled="!currentUser"
-                    />
-                    <label :for="`${storeGetter}-only-favorites`">{{
-                      $t('settings.onlyFavorites')
-                    }}</label>
+                <SettingsSubcontainerParameter class="filter-field entry-type-field">
+                  <label>{{ $t('settings.entryType') }}</label>
+                  <div class="entry-type-filter-options">
+                    <div class="entry-type-options">
+                      <label>
+                        <input v-model="entryTypeFilter" type="checkbox" value="normal" />
+                        {{ $t('settings.entryTypeNormal') }}
+                      </label>
+                      <label>
+                        <input v-model="entryTypeFilter" type="checkbox" value="limited" />
+                        {{ $t('settings.entryTypeLimited') }}
+                      </label>
+                    </div>
+                    <div class="favorite-type-options" :aria-label="$t('settings.favorites')">
+                      <label>
+                        <input
+                          v-model="favoritesFilter"
+                          type="checkbox"
+                          :true-value="true"
+                          :false-value="false"
+                          :disabled="!currentUser"
+                        />
+                        {{ $t('settings.favorites') }}
+                      </label>
+                      <label>
+                        <input
+                          v-model="nonFavoritesFilter"
+                          type="checkbox"
+                          :disabled="!currentUser"
+                        />
+                        {{ $t('settings.nonFavorites') }}
+                      </label>
+                    </div>
                   </div>
                 </SettingsSubcontainerParameter>
               </SettingsSubcontainer>
@@ -431,9 +452,11 @@ export default {
       searchDebounce: null,
       initialFilter: [],
       languageFilter: [],
+      entryTypeFilter: ['normal'],
+      favoritesFilter: true,
+      nonFavoritesFilter: true,
       foundationDateFrom: null,
       foundationDateTo: null,
-      favoritesOnly: false,
       entrySorting: 'latestAdded',
       entriesPerPage: 50,
       currentPage: 1,
@@ -455,14 +478,20 @@ export default {
     languageFilter() {
       this.setPage(1)
     },
+    entryTypeFilter() {
+      this.setPage(1)
+    },
     foundationDateFrom() {
       this.setPage(1)
     },
     foundationDateTo() {
       this.setPage(1)
     },
-    favoritesOnly() {
-      this.applyFilters()
+    favoritesFilter() {
+      this.setPage(1)
+    },
+    nonFavoritesFilter() {
+      this.setPage(1)
     },
     elementsDirectory: {
       immediate: true,
@@ -537,8 +566,8 @@ export default {
           element.filterDisplay &&
           this.matchesLanguageFilter(element) &&
           this.matchesFoundationDateFilter(element) &&
-          (!this.favoritesOnly ||
-            favorites.value[this.storeGetter]?.includes(element.directoryId || element.id))
+          this.entryTypeFilter.includes(element.limited === true ? 'limited' : 'normal') &&
+          this.matchesFavoritesFilter(element)
       )
     },
     pagedElements() {
@@ -621,6 +650,12 @@ export default {
         ? Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate(), 23, 59, 59, 999)
         : null
       return (start === null || timestamp >= start) && (end === null || timestamp <= end)
+    },
+    matchesFavoritesFilter(element) {
+      const isFavorite = Boolean(
+        favorites.value[this.storeGetter]?.includes(element.directoryId || element.id)
+      )
+      return isFavorite ? this.favoritesFilter : this.nonFavoritesFilter
     },
     toValidDate(value) {
       if (value == null || value === '') return null
@@ -1080,7 +1115,7 @@ export default {
   display: grid;
   width: 100%;
   max-width: 100%;
-  grid-template-columns: 160px 160px 160px 190px max-content;
+  grid-template-columns: 160px 160px 160px 190px 230px;
   align-items: center;
   gap: 18px;
 }
@@ -1131,16 +1166,50 @@ export default {
   font-size: 13px;
   box-sizing: border-box;
 }
-.settings-panel-filter :deep(.only-favorites-control) {
+.settings-panel-filter :deep(div.entry-type-filter-options) {
   display: flex;
+  align-items: center;
+  gap: 18px;
   min-height: 40px;
+}
+.settings-panel-filter :deep(div.entry-type-options) {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 40px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.settings-panel-filter :deep(div.favorite-type-options) {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 40px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.settings-panel-filter :deep(.entry-type-options label),
+.settings-panel-filter :deep(.favorite-type-options label) {
+  display: flex;
+  min-height: 19px;
   align-items: center;
   gap: 6px;
+  line-height: 1.35;
   white-space: nowrap;
 }
-.settings-panel-filter :deep(.only-favorites-control input[type='checkbox']) {
+.settings-panel-filter :deep(.entry-type-options input[type='checkbox']) {
   flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
   margin: 0;
+  accent-color: var(--color-accent);
+}
+.settings-panel-filter :deep(.favorite-type-options input[type='checkbox']) {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--color-accent);
 }
 
 @media (min-width: 681px) and (max-width: 1050px) {
@@ -1166,6 +1235,9 @@ export default {
     padding: 8px;
   }
   .settings-panel-filter :deep(.foundation-date-range-field) {
+    grid-column: span 2;
+  }
+  .settings-panel-filter :deep(.entry-type-field) {
     grid-column: span 2;
   }
   .settings-panel-filter :deep(.filter-field) {
