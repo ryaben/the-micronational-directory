@@ -1,4 +1,7 @@
 <script setup>
+import SourceLink from './SourceLink.vue'
+import { checkIcon } from '../utils/EntrySourceFunctions'
+
 defineProps({
   info: { type: Object, required: true },
 })
@@ -14,7 +17,15 @@ defineProps({
     <ul v-if="info.texts?.length" class="simple-article-facts">
       <li v-for="(item, index) in info.texts" :key="`${item.source}-${index}`">
         <p>{{ item.content }}</p>
-        <a :href="item.source" target="_blank" rel="noopener noreferrer">{{ item.source }}</a>
+        <a class="simple-article-source-url" :href="item.source" target="_blank" rel="noopener noreferrer">{{ item.source }}</a>
+        <SourceLink
+          class="simple-article-source-icon"
+          :icon="checkIcon(item.source, info.title)"
+          :href="item.source"
+          :width="22"
+          :height="22"
+          :label="`Source ${index + 1} for ${info.title}`"
+        />
       </li>
     </ul>
   </article>
@@ -40,9 +51,10 @@ defineProps({
 .simple-article-header h1 { margin: 0; color: var(--color-heading); font-size: 24px; overflow-wrap: anywhere; }
 .simple-article-logo { width: min(120px, 25%); max-height: 100px; object-fit: contain; }
 .simple-article-facts { display: grid; gap: 12px; margin: 0; padding: 24px 28px 24px 48px; }
-.simple-article-facts li { padding-left: 4px; }
+.simple-article-facts li { position: relative; padding: 2px 36px 2px 4px; }
 .simple-article-facts p { margin: 0 0 6px; line-height: 1.55; overflow-wrap: anywhere; }
 .simple-article-facts a { color: var(--color-accent); font-size: 13px; overflow-wrap: anywhere; }
+.simple-article-facts .simple-article-source-icon { position: absolute; top: 0; right: 0; }
 @media (max-width: 600px) {
   .simple-article-header { padding: 18px; }
   .simple-article-facts { padding: 18px 18px 18px 38px; }

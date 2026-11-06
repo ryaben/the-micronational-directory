@@ -79,7 +79,7 @@ function activateTooltip(index, title, event) {
               :placeholder="$t('entryForm.alternativeTitlePlaceholder')"
               @input="emit('update:currentAltNameTitle', $event.target.value)" />
             <button type="button" class="login-button squared-button color-transition new-entry-option-button"
-              @click="emit('add-alternative-name')">{{ $t('entryForm.add') }}</button>
+              @click.prevent.stop="emit('add-alternative-name')">{{ $t('entryForm.add') }}</button>
           </div>
           <div class="selected-elements-container">
             <SelectedElement v-for="(name, index) in formPlaceholders.newEntryAltNames" :key="index"
@@ -112,9 +112,10 @@ function activateTooltip(index, title, event) {
 .uncertainty-field-control > input,
 .uncertainty-field-control > .new-entry-option-container { flex: 1; min-width: 0; }
 .uncertainty-field-control :deep(.uncertainty-toggle) { margin: 0; }
-.alternative-name-fields { min-width: 0; }
+.alternative-name-fields { box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-background-soft); }
 .alternative-name-inputs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; align-items: center; gap: 8px; }
 .alternative-name-inputs > input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; }
+.alternative-name-inputs .new-entry-option-button { box-sizing: border-box; width: auto; min-width: 76px; min-height: 42px; padding: 8px 12px; }
 .selected-elements-container { display: flex; flex-wrap: wrap; }
 .selected-elements-container:not(:empty) { gap: 6px; margin-top: 8px; }
 @media (max-width: 600px) {

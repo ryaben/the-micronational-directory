@@ -491,6 +491,7 @@
     "formMode": "Modo del formulario",
     "modeNormal": "Normal",
     "modeLimited": "Limitado",
+    "formModeHelpTitle": "Acerca de los tipos de entrada",
     "limitedEntryForm": {
       "micronationName": "Nombre de la micronación",
       "organizationName": "Nombre de la organización",
@@ -626,7 +627,8 @@
       "memberships": "Membresías",
       "contact": "Medios de contacto",
       "sources": "Fuentes de información",
-      "flag": "Bandera"
+      "flag": "Bandera",
+      "mode": "Tipos de entrada"
     }
   },
   "ranking": {
@@ -758,6 +760,8 @@
     "Selecciona las organizaciones supramicronacionales de las que esta micronación es miembro actualmente o lo fue en el pasado, sin importar su categoría de membresía. También puedes elegir otras micronaciones del directorio cuando esta micronación sea un estado constituyente suyo. Ambas listas permiten selecciones múltiples.",
     "Agrega medios públicos de contacto, como correos, perfiles sociales con la URL completa, foros y enlaces a grupos o chats.",
     "Agrega sitios web con información relevante: sitios oficiales, wikis, noticias y otras fuentes consultadas. Si un sitio dejó de funcionar, busca una copia en https://web.archive.org/ y agrega su enlace si existe.",
-    "Sube una imagen o indica una URL directa. Las imágenes se comprimen hasta el límite aproximado de 35 KB. Normalmente se usa la bandera nacional actual y más representativa; solo se puede agregar una."
+    "Sube una imagen o indica una URL directa. Las imágenes se comprimen hasta el límite aproximado de 35 KB. Normalmente se usa la bandera nacional actual y más representativa; solo se puede agregar una.",
+    "Agrega datos respaldados sobre la entrada e incluye la URL directa de la fuente para cada uno. Usa fuentes confiables y redacta cada dato de forma concisa.",
+    "Las entradas normales recopilan información detallada en todo el formulario, como idiomas, tipo, ubicación, membresías, contactos y fuentes. Las entradas limitadas permiten enviar una versión breve con el nombre, una imagen opcional y datos concisos acompañados por sus enlaces a las fuentes, y están especialmente diseñadas para micronaciones u organizaciones que apenas presentan datos en línea y son principalmente de terceros. En la gran mayoría de los casos, vas a crear entradas normales."
   ]
 }

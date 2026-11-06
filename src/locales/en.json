@@ -203,8 +203,8 @@
     "browseAll": "Browse all entries",
     "heroCopy": "Discover the micronations and organizations shaping our community, across the world and throughout history.",
     "heroTagline": "The way it was always meant to be.",
-    "postsUnavailable": "Updates couldn’t load. View the account on X ↗",
-    "introContent": "<p><a href=\"https://en.wikipedia.org/wiki/Micronation\" target=\"_blank\"><b>Micronations</b></a> are particular political phenomena that have existed for decades and, arguably, centuries. They may be founded for many reasons and aspire to a long and active legacy. Some cases are linked to ethnic or social conflicts; others demonstrate political debate and experimentation. There are also fraudulent schemes, exercises of imagination or ambition, and even jokes. Whatever their origin, they share a common root: their founders and citizens <em>\"[...] claim that they belong to an independent nation or sovereign state, but which lacks legal recognition by world governments or major international organizations [...]\"</em>, as Wikipedia describes.</p><p>These small political entities are scattered around the world—not only on Earth, but also in digital spaces, and sometimes with territorial claims over other planets and space. They also span a wide range of time: some were founded in the 19th century, while social media today provide a home for many virtual micronations.</p><p>The goal of <b>The Micronational Directory</b> team is to build <a href=\"/directory\">the most complete and unified list of micronations</a> possible: a shared database that brings entries together regardless of their characteristics or criteria. This site does not aim to debate or describe each case in depth; other established platforms already serve that purpose, such as <a href=\"https://micronations.wiki/wiki/Main_Page\" target=\"_blank\">MicroWiki</a> and <a href=\"https://sites.google.com/view/micro-flag-archive\" target=\"_blank\">Micro Flag Archive</a>. Let’s build this together and create the place our community deserves.</p>"
+    "postsUnavailable": "Updates couldn't load. View the account on X ↗",
+    "introContent": "<p><a href=\"https://en.wikipedia.org/wiki/Micronation\" target=\"_blank\"><b>Micronations</b></a> are particular political phenomena that have existed for decades and, arguably, centuries. They may be founded for many reasons and aspire to a long and active legacy. Some cases are linked to ethnic or social conflicts; others demonstrate political debate and experimentation. There are also fraudulent schemes, exercises of imagination or ambition, and even jokes. Whatever their origin, they share a common root: their founders and citizens <em>\"[...] claim that they belong to an independent nation or sovereign state, but which lacks legal recognition by world governments or major international organizations [...]\"</em>, as Wikipedia describes.</p><p>These small political entities are scattered around the world—not only on Earth, but also in digital spaces, and sometimes with territorial claims over other planets and space. They also span a wide range of time: some were founded in the 19th century, while social media today provide a home for many virtual micronations.</p><p>The goal of <b>The Micronational Directory</b> team is to build <a href=\"/directory\">the most complete and unified list of micronations</a> possible: a shared database that brings entries together regardless of their characteristics or criteria. This site does not aim to debate or describe each case in depth; other established platforms already serve that purpose, such as <a href=\"https://micronations.wiki/wiki/Main_Page\" target=\"_blank\">MicroWiki</a> and <a href=\"https://sites.google.com/view/micro-flag-archive\" target=\"_blank\">Micro Flag Archive</a>. Let's build this together and create the place our community deserves.</p>"
   },
   "common": {
     "close": "Close",
@@ -365,7 +365,7 @@
   "profile": {
     "hello": "Hello, {name}!",
     "there": "there",
-    "intro": "Manage your account and see what you’ve added to the directory.",
+    "intro": "Manage your account and see what you've added to the directory.",
     "yourData": "Your data",
     "displayName": "Display name",
     "notSet": "Not set",
@@ -399,11 +399,11 @@
     "connectGoogle": "Connect Google account",
     "approvedPercent": "% of approved directory",
     "approval": "approval",
-    "noEntries": "You haven’t added any directory entries yet.",
+    "noEntries": "You haven't added any directory entries yet.",
     "noMatch": "No entries match these settings.",
     "approvedStatus": "Approved",
     "pendingStatus": "Pending",
-    "passwordDescription": "Choose a strong password you don’t use elsewhere. Confirm your current password to make this change.",
+    "passwordDescription": "Choose a strong password you don't use elsewhere. Confirm your current password to make this change.",
     "addPasswordDescription": "Add a password to this Google account so you can sign in with either Google or email and password.",
     "enterCurrent": "Enter current password",
     "minPassword": "At least 6 characters",
@@ -483,14 +483,15 @@
   },
   "newEntry": {
     "title": "Important notes on new entries and how to add your own",
-    "resourceIntro": "Don’t know what micronations to add?",
+    "resourceIntro": "Don't know what micronations to add?",
     "resourceLink": "Check out this list of sources we compiled",
-    "content": "<p>We invite the community to contribute entries to the directory. <b>Please keep the following in mind:</b></p><ul><li>Provide <b>true, appropriate, and precise information</b>. Entries promoting Nazi symbols, adult content, or illegal activity will be rejected.</li><li>Submitted micronations and organizations must have <b>at least one month of proven existence</b>. This helps us avoid short-lived entries that may be games or premature experiments.</li><li>Every entry must include a website source and/or, preferably, a wiki article. This lets us verify the information and avoid jokes, games, fake or misleading entries, and contest cheating.</li><li>Physical and digital micronations are welcome. Fictional countries may be included if they show activity as a micronation, such as news, diplomacy, or community activity. <a href=\"https://en.wikipedia.org/wiki/Babar%27s_Kingdom\" target=\"_blank\">Babar’s Kingdom</a> is not a valid case, while the <a href=\"/directory/Redonda\">Kingdom of Redonda</a> and many micronations from <a href=\"/organizations/Micras%20Cartography%20Society\">Micras</a> are.</li><li>Whenever possible, enter the information in English; otherwise, use the micronation’s or organization’s main official language.</li><li>If a website is inactive, check the <a href=\"http://web.archive.org/\">Wayback Machine</a> for an archived version that can be used as a source.</li><li>All submissions require administrator approval, which can take up to 72 hours, before appearing in the public directory.</li></ul><p>Thanks for helping us build this digital archive!</p>",
+    "content": "<p>We invite the community to contribute entries to the directory. <b>Please keep the following in mind:</b></p><ul><li>Provide <b>true, appropriate, and precise information</b>. Entries promoting Nazi symbols, adult content, or illegal activity will be rejected.</li><li>Submitted micronations and organizations must have <b>at least one month of proven existence</b>. This helps us avoid short-lived entries that may be games or premature experiments.</li><li>Every entry must include a website source and/or, preferably, a wiki article. This lets us verify the information and avoid jokes, games, fake or misleading entries, and contest cheating.</li><li>Physical and digital micronations are welcome. Fictional countries may be included if they show activity as a micronation, such as news, diplomacy, or community activity. <a href=\"https://en.wikipedia.org/wiki/Babar%27s_Kingdom\" target=\"_blank\">Babar's Kingdom</a> is not a valid case, while the <a href=\"/directory/Redonda\">Kingdom of Redonda</a> and many micronations from <a href=\"/organizations/Micras%20Cartography%20Society\">Micras</a> are.</li><li>Whenever possible, enter the information in English; otherwise, use the micronation's or organization's main official language.</li><li>If a website is inactive, check the <a href=\"http://web.archive.org/\">Wayback Machine</a> for an archived version that can be used as a source.</li><li>All submissions require administrator approval, which can take up to 72 hours, before appearing in the public directory.</li></ul><p>Thanks for helping us build this digital archive!</p>",
     "addMicronation": "Add new micronation",
     "addOrganization": "Add new organization",
     "formMode": "Form mode",
     "modeNormal": "Normal",
     "modeLimited": "Limited",
+    "formModeHelpTitle": "About entry types",
     "limitedEntryForm": {
       "micronationName": "Micronation name",
       "organizationName": "Organization name",
@@ -539,18 +540,18 @@
     "capital": "Capital",
     "currency": "Currency",
     "foundation": "Foundation date*",
-    "micronationNamePlaceholder": "E.g. ‘Sealand’ (short name only)",
+    "micronationNamePlaceholder": "E.g. 'Sealand' (short name only)",
     "organizationNamePlaceholder": "E.g. League of Micronations (full name)",
-    "titlePlaceholder": "E.g. ‘Principality of’ (descriptive part only)",
+    "titlePlaceholder": "E.g. 'Principality of' (descriptive part only)",
     "alternativeNamePlaceholder": "Second name option, for example in another language",
     "acronymPlaceholder": "Organization acronym, e.g. LoM",
     "alternativeNameInputPlaceholder": "Alternative name",
     "alternativeTitlePlaceholder": "Alternative title (optional)",
-    "mottoPlaceholder": "E.g. ‘In God we trust’ (without quotation marks)",
+    "mottoPlaceholder": "E.g. 'In God we trust' (without quotation marks)",
     "capitalPlaceholder": "City, place, or building that serves as the capital",
     "currencyPlaceholder": "Official currency name, not its symbol",
     "location": "Location",
-    "locationNote": "Drag the pin to the micronation’s location. Leave it at the default location (0, 0) if unknown.",
+    "locationNote": "Drag the pin to the micronation's location. Leave it at the default location (0, 0) if unknown.",
     "memberships": "Memberships",
     "organizationMembership": "Supranational organizations",
     "constituentMembership": "Constituent micronations",
@@ -626,7 +627,8 @@
       "memberships": "Memberships",
       "contact": "Contact media",
       "sources": "Info sources",
-      "flag": "Flag"
+      "flag": "Flag",
+      "mode": "Entry types"
     }
   },
   "ranking": {
@@ -758,6 +760,8 @@
     "Select supramicronational organizations this micronation belongs to now or belonged to in the past, regardless of membership status. You can also select other micronations from the directory when this micronation is their constituent state. Both lists support multiple selections.",
     "Any communication media should be added here. This includes email addresses, social media profiles (adding the full URL, not just the username), links to chat or group invitation, forums and other similar platforms.",
     "Complete the field by adding websites that contain relevant info. This should always include official websites (if available), wiki or news articles, and unofficial websites where data was gathered from. If you come across a dead website, check it out using https://web.archive.org/ and if there is a saved snapshot, add its link here instead.",
-    "Upload an image or provide a direct image URL. Images are compressed in their original format to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version."
+    "Upload an image or provide a direct image URL. Images are compressed in their original format to fit within the ~35 KB limit. In the majority of cases, the national flag should be chosen here, but it could be that the State flag or even civil flag is the prevalent one. There is no possibility for adding more than one flag (e.g. co-official flags), so the most prevalent one should be added. Always add the latest and current version.",
+    "Add supported facts about the entry and include the direct URL of the source for each one. Use reliable sources and keep each fact concise.",
+    "Normal entries collect detailed information across the full form, including languages, type, location, memberships, contacts, and sources. Limited entries are a shorter submission with the name, an optional image, and concise facts paired with their source links, specially designed for micronations/organizations that barely present data online and it's mostly from third parties. In the majority of cases, you'll create normal entries."
   ]
 }

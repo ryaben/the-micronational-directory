@@ -2,6 +2,8 @@
 import { computed, ref, watch } from 'vue'
 import AnimateHeight from 'vue-animate-height'
 import ModerationKindChip from './ModerationKindChip.vue'
+import SourceLink from './SourceLink.vue'
+import { checkIcon } from '../utils/EntrySourceFunctions'
 
 const props = defineProps({
   info: { type: Object, required: true },
@@ -47,7 +49,14 @@ function toggleExpanded() {
         <div class="simple-entry-facts">
           <div v-for="(item, index) in info.texts" :key="`${item.source}-${index}`" class="simple-entry-fact">
             <p>{{ item.content }}</p>
-            <a :href="item.source" target="_blank" rel="noopener noreferrer" :aria-label="`Source ${index + 1} for ${info.title}`">↗</a>
+            <SourceLink
+              class="simple-entry-source-link"
+              :icon="checkIcon(item.source, info.title)"
+              :href="item.source"
+              :width="20"
+              :height="20"
+              :label="`Source ${index + 1} for ${info.title}`"
+            />
           </div>
         </div>
       </div>
@@ -87,9 +96,9 @@ function toggleExpanded() {
 .simple-entry-sources-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; color: var(--color-muted); font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .simple-entry-sources-heading small { display: grid; min-width: 19px; height: 19px; padding: 0 4px; place-items: center; border-radius: var(--radius-full); color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)); font-size: 10px; letter-spacing: normal; }
 .simple-entry-facts { display: grid; align-self: stretch; gap: 7px; width: 100%; }
-.simple-entry-fact { box-sizing: border-box; display: flex; align-items: flex-start; gap: 6px; min-width: 0; padding: 7px 9px; border: 1px solid color-mix(in srgb, var(--color-accent) 14%, var(--color-border)); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--color-surface) 72%, var(--directory-entry-background-color)); font-size: 12px; text-align: left; }
+.simple-entry-fact { position: relative; box-sizing: border-box; display: flex; align-items: flex-start; gap: 6px; min-width: 0; padding: 7px 32px 7px 9px; border: 1px solid color-mix(in srgb, var(--color-accent) 14%, var(--color-border)); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--color-surface) 72%, var(--directory-entry-background-color)); font-size: 12px; text-align: left; }
 .simple-entry-fact p { display: -webkit-box; flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; overflow-wrap: anywhere; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; }
-.simple-entry-fact a { flex: 0 0 auto; color: var(--color-accent); text-decoration: none; }
+.simple-entry-fact :deep(.simple-entry-source-link) { position: absolute; top: 7px; right: 7px; }
 .simple-entry-info-buttons { display: flex; align-self: stretch; box-sizing: border-box; width: calc(100% + 24px); margin: 10px -12px 0; }
 .simple-entry-profile { display: flex; width: 100%; min-height: 30px; align-items: center; justify-content: center; margin: 0; padding: 5px 8px; border: 1px solid var(--color-border); border-bottom: 0; border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--vt-c-indigo); color: var(--vt-c-white-soft); font-family: inherit; font-size: 13px; line-height: 1.3; text-align: center; text-decoration: none; cursor: pointer; transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
 .simple-entry-profile:hover { background: color-mix(in srgb, var(--vt-c-indigo) 86%, var(--color-heading)); color: var(--vt-c-white-soft); box-shadow: 0 2px 8px color-mix(in srgb, var(--vt-c-indigo) 20%, transparent); }

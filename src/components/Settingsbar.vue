@@ -247,23 +247,21 @@ defineProps({
                         {{ $t('settings.entryTypeLimited') }}
                       </label>
                     </div>
-                    <div class="favorite-type-options" role="radiogroup" :aria-label="$t('settings.favorites')">
+                    <div class="favorite-type-options" :aria-label="$t('settings.favorites')">
                       <label>
                         <input
                           v-model="favoritesFilter"
-                          type="radio"
-                          :name="`${storeGetter}-favorites-filter`"
-                          value="favorites"
+                          type="checkbox"
+                          :true-value="true"
+                          :false-value="false"
                           :disabled="!currentUser"
                         />
                         {{ $t('settings.favorites') }}
                       </label>
                       <label>
                         <input
-                          v-model="favoritesFilter"
-                          type="radio"
-                          :name="`${storeGetter}-favorites-filter`"
-                          value="non-favorites"
+                          v-model="nonFavoritesFilter"
+                          type="checkbox"
                           :disabled="!currentUser"
                         />
                         {{ $t('settings.nonFavorites') }}
@@ -455,7 +453,8 @@ export default {
       initialFilter: [],
       languageFilter: [],
       entryTypeFilter: ['normal'],
-      favoritesFilter: 'non-favorites',
+      favoritesFilter: true,
+      nonFavoritesFilter: true,
       foundationDateFrom: null,
       foundationDateTo: null,
       entrySorting: 'latestAdded',
@@ -489,6 +488,9 @@ export default {
       this.setPage(1)
     },
     favoritesFilter() {
+      this.setPage(1)
+    },
+    nonFavoritesFilter() {
       this.setPage(1)
     },
     elementsDirectory: {
@@ -650,11 +652,10 @@ export default {
       return (start === null || timestamp >= start) && (end === null || timestamp <= end)
     },
     matchesFavoritesFilter(element) {
-      if (this.favoritesFilter === 'all') return true
       const isFavorite = Boolean(
         favorites.value[this.storeGetter]?.includes(element.directoryId || element.id)
       )
-      return this.favoritesFilter === 'favorites' ? isFavorite : !isFavorite
+      return isFavorite ? this.favoritesFilter : this.nonFavoritesFilter
     },
     toValidDate(value) {
       if (value == null || value === '') return null
@@ -1203,7 +1204,7 @@ export default {
   margin: 0;
   accent-color: var(--color-accent);
 }
-.settings-panel-filter :deep(.favorite-type-options input[type='radio']) {
+.settings-panel-filter :deep(.favorite-type-options input[type='checkbox']) {
   flex: 0 0 16px;
   width: 16px;
   height: 16px;
