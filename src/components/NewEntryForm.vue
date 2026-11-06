@@ -1386,7 +1386,8 @@ export default {
             uncertain: [],
             author: {
               name: auth.currentUser?.displayName || '',
-              email: auth.currentUser?.email || ''
+              email: auth.currentUser?.email || '',
+              language: language.value
             }
           }
           const imageField = this.entryType === 'micronation' ? 'flag' : 'logo'
@@ -1474,7 +1475,11 @@ export default {
             contactInfo: this.formPlaceholders.newEntryEmails,
             websites: this.formPlaceholders.newEntryWebsites,
             uncertain: [...this.uncertainFields],
-            author: { name: auth.currentUser.displayName, email: auth.currentUser.email },
+            author: {
+              name: auth.currentUser.displayName,
+              email: auth.currentUser.email,
+              language: language.value
+            },
             foundationDate: this.foundationDate
           }
 

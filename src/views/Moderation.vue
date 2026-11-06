@@ -369,6 +369,7 @@ const findPublishedEntry = (entry) => {
 
 <script>
 import { formatDate, dateFormats } from '../i18n.js'
+import { language } from '../composables/userSettings.js'
 
 export default {
   components: {
@@ -597,7 +598,8 @@ export default {
 
       try {
         // Add rejection comment to the GitHub issue
-        const comment = `**Entry Rejected**\n\n${
+        const localeMarker = `<!-- TMD_EMAIL_LOCALE:${language.value === 'es' ? 'es' : 'en'} -->`
+        const comment = `${localeMarker}\n\n**Entry Rejected**\n\n${
           that.rejectionReason ? `Reason: ${that.rejectionReason}` : 'No reason provided.'
         }\n\nThe entry was rejected by a moderator.`
         await addIssueComment(entry.issueNumber, comment)
@@ -638,6 +640,11 @@ export default {
 
       this.moderationAction = 'email'
       try {
+        const emailNote = this.rejectionReason.trim()
+        const localeMarker = `<!-- TMD_EMAIL_LOCALE:${language.value === 'es' ? 'es' : 'en'} -->`
+        const emailComment = [localeMarker, emailNote].filter(Boolean).join('\n\n')
+        await addIssueComment(entry.issueNumber, emailComment)
+        if (emailNote) this.rejectionReason = ''
         await addIssueLabel(entry.issueNumber, 'send-email')
         notify({
           title: this.$t('moderation.notifications.emailQueuedTitle'),
@@ -696,6 +703,10 @@ export default {
 
         // Prepare the entry data for the JSON file
         const entryForJson = { ...entry }
+        if (entryForJson.author) {
+          entryForJson.author = { ...entryForJson.author }
+          delete entryForJson.author.language
+        }
         delete entryForJson.id
         entryForJson.id =
           entry.directoryEntryId ||
@@ -802,7 +813,8 @@ export default {
         )
 
         // Add approval comment to the GitHub issue
-        const comment = `**Entry Approved**\n\n${
+        const localeMarker = `<!-- TMD_EMAIL_LOCALE:${language.value === 'es' ? 'es' : 'en'} -->`
+        const comment = `${localeMarker}\n\n**Entry Approved**\n\n${
           that.rejectionReason ? `Note: ${that.rejectionReason}` : ''
         }\n\nThe entry has been approved and automatically added to ${jsonFilePath}.`
         await addIssueComment(entry.issueNumber, comment)

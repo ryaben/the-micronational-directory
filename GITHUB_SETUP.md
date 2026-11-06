@@ -39,7 +39,7 @@ npm run dev
 
 ### Moderation email notifications
 
-When an issue receives the `approved` or `rejected` label, GitHub Actions reads the submitted entry JSON, uses `author.email` as the recipient, collects the issue comments, and sends a custom HTML email through Zoho SMTP. Moderators can also choose **Send email** in the moderation panel; this adds a temporary `send-email` label, emails the existing issue comments, then removes the label without closing or resolving the issue.
+When an issue receives the `approved` or `rejected` label, GitHub Actions reads the submitted entry JSON, uses `author.email` as the recipient, collects the issue comments, and sends a custom HTML email through Zoho SMTP in the author's saved language preference. Moderators can also choose **Send email** in the moderation panel; an optional note is added as an issue comment along with a hidden locale marker, then a temporary `send-email` label requests the email. The workflow includes the comments in the email and removes the temporary label without closing or resolving the issue. Submissions created before language was stored with author data use the panel language when the action is initiated from the moderation panel; older issues resolved directly through GitHub default to English.
 
 Configure these repository secrets under **Settings → Secrets and variables → Actions** before enabling moderation emails:
 
