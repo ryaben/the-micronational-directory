@@ -42,43 +42,85 @@ for (let page = 1; ; page += 1) {
   if (batch.length < 100) break
 }
 
+const localeMarkerPattern = /<!--\s*TMD_EMAIL_LOCALE:(es|en)\s*-->/i
+const localeMarkerComment = [...comments].reverse().find((comment) => localeMarkerPattern.test(comment.body || ''))
+const markerLanguage = localeMarkerComment?.body?.match(localeMarkerPattern)?.[1]?.toLowerCase()
+const emailComments = comments
+  .map((comment) => ({
+    ...comment,
+    body: String(comment.body || '').replace(/<!--\s*TMD_EMAIL_LOCALE:(?:es|en)\s*-->/ig, '').trim()
+  }))
+  .filter((comment) => comment.body)
+
 const isApproved = decision === 'approved'
 const isDecisionEmail = decision !== 'send-email'
-const statusEs = isApproved ? 'aprobada' : 'rechazada'
-const statusEn = isApproved ? 'approved' : 'rejected'
-const title = String(entry.name?.main || issue.title || 'tu contribución')
-const commentsHtml = comments.length
-  ? comments.map((comment) => `
+const authorLanguage = ['es', 'spanish'].includes(String(entry.author?.language || '').toLowerCase())
+  ? 'es'
+  : ['en', 'english'].includes(String(entry.author?.language || '').toLowerCase())
+    ? 'en'
+    : null
+const locale = authorLanguage || markerLanguage || 'en'
+const copy = locale === 'es'
+  ? {
+      approved: 'aprobada',
+      rejected: 'rechazada',
+      approvedSubject: 'Actualización de moderación: entrada aprobada',
+      rejectedSubject: 'Actualización de moderación: entrada rechazada',
+      commentsSubject: 'Comentarios sobre tu contribución',
+      hello: 'Hola',
+      newComments: 'Hay comentarios sobre tu contribución',
+      comments: 'Comentarios de moderación',
+      noComments: 'No hay comentarios en esta notificación.',
+      commentBy: 'Comentario de',
+      footer: 'Mensaje automático de The Micronational Directory.'
+    }
+  : {
+      approved: 'approved',
+      rejected: 'rejected',
+      approvedSubject: 'Moderation update: submission approved',
+      rejectedSubject: 'Moderation update: submission rejected',
+      commentsSubject: 'Comments on your submission',
+      hello: 'Hello',
+      newComments: 'There are comments on your submission',
+      comments: 'Moderation comments',
+      noComments: 'There are no comments in this notification.',
+      commentBy: 'Comment by',
+      footer: 'Automated message from The Micronational Directory.'
+    }
+const title = String(entry.name?.main || issue.title || (locale === 'es' ? 'tu contribución' : 'your submission'))
+const dateLocale = locale === 'es' ? 'es-AR' : 'en-US'
+const commentsHtml = emailComments.length
+  ? emailComments.map((comment) => `
       <article style="margin:16px 0;padding:16px;border:1px solid #d7deea;border-radius:8px;background:#ffffff;">
-        <p style="margin:0 0 8px;color:#566174;font-size:13px;"><strong>${escapeHtml(comment.user?.login || 'Moderación')}</strong> · ${escapeHtml(new Date(comment.created_at).toLocaleString('es-AR', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }))} UTC</p>
+        <p style="margin:0 0 8px;color:#566174;font-size:13px;"><strong>${escapeHtml(copy.commentBy)} ${escapeHtml(comment.user?.login || (locale === 'es' ? 'moderación' : 'moderation'))}</strong> · ${escapeHtml(new Date(comment.created_at).toLocaleString(dateLocale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }))} UTC</p>
         <div style="color:#273449;line-height:1.6;white-space:pre-wrap;">${escapeHtml(comment.body)}</div>
       </article>`).join('')
-  : '<p style="color:#566174;">No hay comentarios en la incidencia / There are no issue comments.</p>'
+  : `<p style="color:#566174;">${escapeHtml(copy.noComments)}</p>`
 const subject = isDecisionEmail
-  ? `Actualización de moderación / Moderation update: ${statusEn}`
-  : 'Comentarios de moderación / Moderation comments'
+  ? (isApproved ? copy.approvedSubject : copy.rejectedSubject)
+  : copy.commentsSubject
+const decisionStatus = isApproved ? copy.approved : copy.rejected
+const logoUrl = 'https://the-micronational-directory.vercel.app/images/brand/plain-logo1.png'
 
 const html = `<!doctype html>
-<html lang="es">
+<html lang="${locale}">
   <body style="margin:0;padding:28px 12px;background:#f1f4f9;color:#202a3a;font-family:Arial,Helvetica,sans-serif;">
     <main style="max-width:620px;margin:0 auto;border:1px solid #d7deea;border-radius:12px;overflow:hidden;background:#ffffff;">
       <header style="padding:24px;text-align:center;background:#1e2638;color:#ffffff;">
+        <img src="${logoUrl}" width="72" height="72" alt="TMD" style="display:block;width:72px;height:72px;margin:0 auto 12px;" />
         <h1 style="margin:0;font-size:22px;">The Micronational Directory</h1>
       </header>
       <section style="padding:28px 30px;">
-        <p style="margin-top:0;">Hola${entry.author?.name ? ` ${escapeHtml(entry.author.name)}` : ''},</p>
+        <p style="margin-top:0;">${escapeHtml(copy.hello)}${entry.author?.name ? ` ${escapeHtml(entry.author.name)}` : ''},</p>
         ${isDecisionEmail
-    ? `<p>La contribución <strong>${escapeHtml(title)}</strong> fue <strong style="color:${isApproved ? '#237a48' : '#ad3434'};">${statusEs}</strong>.</p>`
-    : `<p>Hay comentarios nuevos sobre tu contribución <strong>${escapeHtml(title)}</strong>.</p>`}
-        <p>Hello${entry.author?.name ? ` ${escapeHtml(entry.author.name)}` : ''},</p>
-        ${isDecisionEmail
-    ? `<p>Your contribution <strong>${escapeHtml(title)}</strong> was <strong style="color:${isApproved ? '#237a48' : '#ad3434'};">${statusEn}</strong>.</p>`
-    : `<p>There are new comments on your contribution <strong>${escapeHtml(title)}</strong>.</p>`}
-        <h2 style="margin:28px 0 12px;font-size:17px;">Comentarios / Comments</h2>
+    ? locale === 'es'
+      ? `<p>La contribución <strong>${escapeHtml(title)}</strong> fue <strong>${escapeHtml(decisionStatus)}</strong>.</p>`
+      : `<p>Your submission <strong>${escapeHtml(title)}</strong> was <strong>${escapeHtml(decisionStatus)}</strong>.</p>`
+    : `<p>${escapeHtml(copy.newComments)} <strong>${escapeHtml(title)}</strong>.</p>`}
+        <h2 style="margin:28px 0 12px;font-size:17px;">${escapeHtml(copy.comments)}</h2>
         ${commentsHtml}
-        <p style="margin:28px 0 0;"><a href="${escapeHtml(issue.html_url)}" style="display:inline-block;padding:12px 18px;border-radius:6px;background:#2868c7;color:#ffffff;text-decoration:none;font-weight:bold;">Ver incidencia / View issue</a></p>
       </section>
-      <footer style="padding:16px 24px;background:#f7f9fc;color:#667085;text-align:center;font-size:12px;">Mensaje automático / Automated message from The Micronational Directory.</footer>
+      <footer style="padding:16px 24px;background:#f7f9fc;color:#667085;text-align:center;font-size:12px;">${escapeHtml(copy.footer)}</footer>
     </main>
   </body>
 </html>`

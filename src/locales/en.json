@@ -697,7 +697,7 @@
     "notFinal": "Not a final decision",
     "triage": "Triage:",
     "noAiReview": "No AI analysis was included with this submission.",
-    "decisionNotePlaceholder": "Additional message for rejection/approval",
+    "decisionNotePlaceholder": "Note for rejection, approval, or email. Sending an email adds it as a comment and includes it in the message.",
     "rejecting": "Rejecting…",
     "reject": "Reject",
     "approving": "Approving…",

@@ -697,7 +697,7 @@
     "notFinal": "No es una decisión final",
     "triage": "Evaluación inicial:",
     "noAiReview": "Este envío no incluye un análisis de IA.",
-    "decisionNotePlaceholder": "Mensaje adicional para el rechazo o la aprobación",
+    "decisionNotePlaceholder": "Nota para rechazo, aprobación o email. Al enviar email, se agregará como comentario y se incluirá en el correo.",
     "rejecting": "Rechazando…",
     "reject": "Rechazar",
     "approving": "Aprobando…",

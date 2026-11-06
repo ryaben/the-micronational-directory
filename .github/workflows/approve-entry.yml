@@ -54,6 +54,7 @@ jobs:
               return;
             }
             const entryData = JSON.parse(jsonMatch[1]);
+            if (entryData.author) delete entryData.author.language; // Keep email preference out of public directory data.
             entryData.approved = true; // Marcar como aprobado en el JSON
             const submittedAt = new Date(context.payload.issue.created_at);
             if (Number.isFinite(submittedAt.getTime())) {
